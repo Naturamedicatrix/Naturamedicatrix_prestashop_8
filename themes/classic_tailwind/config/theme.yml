@@ -1,0 +1,20 @@
+name: classic_tailwind
+display_name: Classic with Tailwind
+version: 1.0.0
+author:
+  name: "Jordan Morlet"
+  email: "itdev@naturamedicatrix.lu"
+
+parent: classic
+assets:
+  use_parent_assets: true
+  css:
+    all:
+      - id: tailwind-styles
+        path: assets/css/tailwind.css
+        media: all
+        priority: 50
+      - id: custom-header-styles
+        path: assets/css/custom-header.css
+        media: all
+        priority: 60

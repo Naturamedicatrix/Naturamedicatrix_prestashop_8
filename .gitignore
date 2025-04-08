@@ -1,0 +1,48 @@
+# Cache, logs et fichiers temporaires
+/cache/*
+!/cache/index.php
+/log/*
+!/log/index.php
+/upload/*
+!/upload/index.php
+/download/*
+!/download/index.php
+/img/*
+!/img/index.php
+!/img/*/index.php
+
+# Fichiers de configuration sensibles
+/config/settings.inc.php
+/app/config/parameters.php
+
+# Dossiers de vendors
+/vendor/
+/node_modules/
+
+# Fichiers de base de données
+*.sql
+*.sqlite
+
+# Fichiers d'environnement
+.env
+.env.local
+.env.*.local
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers IDE
+/.idea/
+/.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Fichiers de compilation
+/themes/*/assets/css/*.css.map
+/themes/*/assets/js/*.js.map
+
+# Fichiers de cache
+.sass-cache/
+*.css.map
+*.js.map
