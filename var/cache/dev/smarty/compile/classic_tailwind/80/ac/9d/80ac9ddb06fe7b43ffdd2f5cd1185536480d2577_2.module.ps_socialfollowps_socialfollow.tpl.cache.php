@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-08 14:31:38
+/* Smarty version 4.3.4, created on 2025-04-09 10:29:15
   from 'module:ps_socialfollowps_socialfollow.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f5172a344489_55370069',
+  'unifunc' => 'content_67f62fdbd6b897_05197551',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f5172a344489_55370069 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f62fdbd6b897_05197551 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-$_smarty_tpl->compiled->nocache_hash = '32226262567f5172a342212_95576929';
+$_smarty_tpl->compiled->nocache_hash = '102233229667f62fdbd69c59_76350715';
 ?>
 <!-- begin C:\xampp\htdocs\Naturamedicatrix/themes/classic/modules/ps_socialfollow/ps_socialfollow.tpl -->
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_61627776467f5172a342fe8_49910424', 'block_social');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_150587026167f62fdbd6a465_77087938', 'block_social');
 ?>
 
 <!-- end C:\xampp\htdocs\Naturamedicatrix/themes/classic/modules/ps_socialfollow/ps_socialfollow.tpl --><?php }
 /* {block 'block_social'} */
-class Block_61627776467f5172a342fe8_49910424 extends Smarty_Internal_Block
+class Block_150587026167f62fdbd6a465_77087938 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'block_social' => 
   array (
-    0 => 'Block_61627776467f5172a342fe8_49910424',
+    0 => 'Block_150587026167f62fdbd6a465_77087938',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

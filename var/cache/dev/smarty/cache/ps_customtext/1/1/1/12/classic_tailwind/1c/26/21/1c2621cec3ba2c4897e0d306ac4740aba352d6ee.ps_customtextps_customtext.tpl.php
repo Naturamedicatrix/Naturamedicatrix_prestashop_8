@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-08 14:34:59
+/* Smarty version 4.3.4, created on 2025-04-09 10:29:09
   from 'module:ps_customtextps_customtext.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f517f3428927_65355200',
+  'unifunc' => 'content_67f62fd5b67eb2_99225964',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -18,7 +18,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 31536000,
 ),true)) {
-function content_67f517f3428927_65355200 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f62fd5b67eb2_99225964 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- begin C:\xampp\htdocs\Naturamedicatrix/modules/ps_customtext/ps_customtext.tpl -->
 <div id="custom-text">
   <h2>Custom Text Block</h2>

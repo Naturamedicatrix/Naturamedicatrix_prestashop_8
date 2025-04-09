@@ -43,7 +43,7 @@ class __TwigTemplate_8bea15b3dafa4c1e9e069de5ccf814f7 extends Template
         echo "
 ";
         // line 26
-        $this->loadTemplate("@Modules/psxdesign/views/templates/admin/themes/Blocks/Modals/delete_theme_modal.html.twig", "@Modules/psxdesign/views/templates/admin/themes/Blocks/Modals/delete_theme_modal.html.twig", 26, "104318105")->display(twig_array_merge($context, ["id" => "delete_theme_modal", "closable" => true]));
+        $this->loadTemplate("@Modules/psxdesign/views/templates/admin/themes/Blocks/Modals/delete_theme_modal.html.twig", "@Modules/psxdesign/views/templates/admin/themes/Blocks/Modals/delete_theme_modal.html.twig", 26, "368696723")->display(twig_array_merge($context, ["id" => "delete_theme_modal", "closable" => true]));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -128,7 +128,7 @@ class __TwigTemplate_8bea15b3dafa4c1e9e069de5ccf814f7 extends Template
 
 
 /* @Modules/psxdesign/views/templates/admin/themes/Blocks/Modals/delete_theme_modal.html.twig */
-class __TwigTemplate_8bea15b3dafa4c1e9e069de5ccf814f7___104318105 extends Template
+class __TwigTemplate_8bea15b3dafa4c1e9e069de5ccf814f7___368696723 extends Template
 {
     private $source;
     private $macros = [];

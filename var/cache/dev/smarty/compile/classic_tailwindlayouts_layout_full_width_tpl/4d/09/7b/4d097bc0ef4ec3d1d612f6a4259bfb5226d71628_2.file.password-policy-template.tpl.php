@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-08 14:31:40
+/* Smarty version 4.3.4, created on 2025-04-09 10:29:17
   from 'C:\xampp\htdocs\Naturamedicatrix\themes\classic\templates\_partials\password-policy-template.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f5172c049986_88618823',
+  'unifunc' => 'content_67f62fdd7dee90_40389223',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f5172c049986_88618823 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f62fdd7dee90_40389223 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <template id="password-feedback">

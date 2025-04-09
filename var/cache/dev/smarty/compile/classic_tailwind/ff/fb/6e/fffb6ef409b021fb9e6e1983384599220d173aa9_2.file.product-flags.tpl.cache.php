@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-08 14:34:17
+/* Smarty version 4.3.4, created on 2025-04-09 10:29:09
   from 'C:\xampp\htdocs\Naturamedicatrix\themes\classic\templates\catalog\_partials\product-flags.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f517c90bafb3_89503651',
+  'unifunc' => 'content_67f62fd58103b2_36819305',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f517c90bafb3_89503651 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f62fd58103b2_36819305 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-$_smarty_tpl->compiled->nocache_hash = '16903595867f517c90b6fe1_53014958';
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_140667811767f517c90b88f6_59523785', 'product_flags');
+$_smarty_tpl->compiled->nocache_hash = '49974461267f62fd580dff7_46096984';
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_41411687767f62fd580eeb9_11371526', 'product_flags');
 ?>
 
 <?php }
 /* {block 'product_flags'} */
-class Block_140667811767f517c90b88f6_59523785 extends Smarty_Internal_Block
+class Block_41411687767f62fd580eeb9_11371526 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'product_flags' => 
   array (
-    0 => 'Block_140667811767f517c90b88f6_59523785',
+    0 => 'Block_41411687767f62fd580eeb9_11371526',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

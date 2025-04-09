@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-08 14:37:07
+/* Smarty version 4.3.4, created on 2025-04-09 10:28:59
   from 'C:\xampp\htdocs\Naturamedicatrix\admin123\themes\new-theme\template\layout.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f518739b2365_27462120',
+  'unifunc' => 'content_67f62fcb28fea5_30714205',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -34,7 +34,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:error.tpl' => 1,
   ),
 ),false)) {
-function content_67f518739b2365_27462120 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f62fcb28fea5_30714205 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="<?php echo $_smarty_tpl->tpl_vars['iso']->value;?>
 ">

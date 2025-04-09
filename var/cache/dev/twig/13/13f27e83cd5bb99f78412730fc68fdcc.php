@@ -359,8 +359,8 @@ class __TwigTemplate_584c95751ccc2aa374c4dd51c993fbc8 extends Template
         // line 141
         ob_start();
         echo (isset($context["template_collection"]) || array_key_exists("template_collection", $context) ? $context["template_collection"] : (function () { throw new RuntimeError('Variable "template_collection" does not exist.', 141, $this->source); })());
-        $___internal_parse_11_ = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
-        echo twig_spaceless($___internal_parse_11_);
+        $___internal_parse_9_ = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
+        echo twig_spaceless($___internal_parse_9_);
         echo "', data.";
         echo twig_escape_filter($this->env, (isset($context["mapping_name"]) || array_key_exists("mapping_name", $context) ? $context["mapping_name"] : (function () { throw new RuntimeError('Variable "mapping_name" does not exist.', 141, $this->source); })()), "html", null, true);
         echo ", data.ref, number);
@@ -649,8 +649,8 @@ class __TwigTemplate_584c95751ccc2aa374c4dd51c993fbc8 extends Template
         // line 299
         ob_start();
         echo (isset($context["template_collection"]) || array_key_exists("template_collection", $context) ? $context["template_collection"] : (function () { throw new RuntimeError('Variable "template_collection" does not exist.', 299, $this->source); })());
-        $___internal_parse_12_ = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
-        echo twig_spaceless($___internal_parse_12_);
+        $___internal_parse_10_ = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
+        echo twig_spaceless($___internal_parse_10_);
         echo "', suggestion.";
         echo twig_escape_filter($this->env, (isset($context["mapping_name"]) || array_key_exists("mapping_name", $context) ? $context["mapping_name"] : (function () { throw new RuntimeError('Variable "mapping_name" does not exist.', 299, $this->source); })()), "html", null, true);
         echo ");

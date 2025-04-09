@@ -1,0 +1,19 @@
+<?php //PrestaShop%255CModule%255CPsxDesign%255CController%255CAdmin%255CAdminPsxDesignThemeGeneralController%2523enableAction
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['PrestaShopBundle\\Security\\Annotation\\DemoRestricted'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('PrestaShopBundle\\Security\\Annotation\\DemoRestricted')),
+    ],
+    null,
+    [
+        'PrestaShopBundle\\Security\\Annotation\\DemoRestricted' => [
+            'redirectRoute' => [
+                'admin_psxdesign_themes_index',
+            ],
+        ],
+    ],
+    [
+        $o[0],
+    ],
+    []
+); }];

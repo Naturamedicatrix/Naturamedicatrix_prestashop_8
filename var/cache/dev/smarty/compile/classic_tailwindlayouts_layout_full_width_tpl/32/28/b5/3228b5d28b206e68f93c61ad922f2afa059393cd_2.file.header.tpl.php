@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-08 16:52:21
+/* Smarty version 4.3.4, created on 2025-04-09 10:29:14
   from 'C:\xampp\htdocs\Naturamedicatrix\themes\classic_tailwind\templates\_partials\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f5382527f183_80190349',
+  'unifunc' => 'content_67f62fda57f723_44259407',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3228b5d28b206e68f93c61ad922f2afa059393cd' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Naturamedicatrix\\themes\\classic_tailwind\\templates\\_partials\\header.tpl',
-      1 => 1744123938,
+      1 => 1744183212,
       2 => 'file',
     ),
   ),
@@ -20,32 +20,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f5382527f183_80190349 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f62fda57f723_44259407 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-?>
- <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_125340758767f53825276717_38743567', 'header_banner');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_66019477467f62fda57b436_05358639', 'header_banner');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_126461291067f53825278ed0_51885678', 'header_nav');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_105207066067f62fda57bd05_49761844', 'header_nav');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_78374777767f53825279752_87083557', 'header_top');
-?>
-
-<?php }
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_188765686567f62fda57c4a2_90807848', 'header_top');
+}
 /* {block 'header_banner'} */
-class Block_125340758767f53825276717_38743567 extends Smarty_Internal_Block
+class Block_66019477467f62fda57b436_05358639 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header_banner' => 
   array (
-    0 => 'Block_125340758767f53825276717_38743567',
+    0 => 'Block_66019477467f62fda57b436_05358639',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -60,12 +56,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header_banner'} */
 /* {block 'header_nav'} */
-class Block_126461291067f53825278ed0_51885678 extends Smarty_Internal_Block
+class Block_105207066067f62fda57bd05_49761844 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header_nav' => 
   array (
-    0 => 'Block_126461291067f53825278ed0_51885678',
+    0 => 'Block_105207066067f62fda57bd05_49761844',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -80,7 +76,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
           </div>
           <div class="col-md-7 right-nav">
-              <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['hook'][0], array( array('h'=>'displayNav2'),$_smarty_tpl ) );?>
+            <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['hook'][0], array( array('h'=>'displayNav2'),$_smarty_tpl ) );?>
 
           </div>
         </div>
@@ -101,12 +97,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header_nav'} */
 /* {block 'header_top'} */
-class Block_78374777767f53825279752_87083557 extends Smarty_Internal_Block
+class Block_188765686567f62fda57c4a2_90807848 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header_top' => 
   array (
-    0 => 'Block_78374777767f53825279752_87083557',
+    0 => 'Block_188765686567f62fda57c4a2_90807848',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -114,7 +110,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
   <div class="header-top">
     <div class="container">
-       <div class="row">
+      <div class="row">
         <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
           <?php if ($_smarty_tpl->tpl_vars['shop']->value['logo_details']) {?>
             <?php if ($_smarty_tpl->tpl_vars['page']->value['page_name'] == 'index') {?>

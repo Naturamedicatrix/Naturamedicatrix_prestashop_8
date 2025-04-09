@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-08 14:37:12
+/* Smarty version 4.3.4, created on 2025-04-09 10:29:03
   from 'C:\xampp\htdocs\Naturamedicatrix\admin123\themes\new-theme\template\components\layout\warning_messages.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f518789c92e9_23209111',
+  'unifunc' => 'content_67f62fcf9c7f35_54243724',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f518789c92e9_23209111 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f62fcf9c7f35_54243724 (Smarty_Internal_Template $_smarty_tpl) {
 if (count($_smarty_tpl->tpl_vars['warnings']->value)) {?>
   <div class="bootstrap">
     <div class="alert alert-warning">

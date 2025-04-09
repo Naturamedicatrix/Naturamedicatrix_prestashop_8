@@ -1,0 +1,12 @@
+/*** FICHIER CUSTOM HEADER ***/
+
+/* STYLE GLOBAL DU HEADER */
+#header {
+  background: var(--color-custom-green);
+}
+
+#header .header-nav {
+  height: 200px;
+  max-height: 200px;
+}
+  

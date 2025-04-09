@@ -10,6 +10,10 @@ assets:
   use_parent_assets: true
   css:
     all:
+      - id: css-variables
+        path: assets/css/variables.css
+        media: all
+        priority: 40
       - id: tailwind-styles
         path: assets/css/tailwind.css
         media: all
