@@ -3,7 +3,7 @@
  *}
 {block name='header_banner'}
   <div class="header-banner text-carousel-banner">
-    <div class="container">
+    <div class="container tw-mt-4">
       <!-- CAROUSEL TEXT -->
       <div class="text-carousel-container">
         <!-- Flèche gauche -->

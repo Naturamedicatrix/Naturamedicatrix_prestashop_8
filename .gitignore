@@ -15,6 +15,10 @@
 /config/settings.inc.php
 /app/config/parameters.php
 
+# PrestaShop cache
+/var/cache/*
+!/var/cache/.htaccess
+
 # Dossiers de vendors
 /vendor/
 /node_modules/

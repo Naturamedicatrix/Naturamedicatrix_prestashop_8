@@ -534,4 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-/* Vous pouvez ajouter vos propres styles personnalisés ici */
+.tw-mt-4 {
+  margin-top: 1rem;
+}
+
+.container {
+  width: 2000px;
+}

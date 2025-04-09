@@ -13,7 +13,7 @@
     color: $color-custom-white;
     
     &:hover {
-      color: darken($color-custom-white, 15%);
+      color: darken($color-custom-white, 10%);
     }
   }
   
@@ -34,11 +34,57 @@
 }
 /* End Header global */
 
+/* Contact button */
+#contact-link {
+  a.contact-button {
+    display: flex;
+    align-items: center;
+    color: $color-custom-white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: darken($color-custom-green, 5%);
+    }
+    
+    .contact-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0.75rem;
+      
+      svg {
+        width: 35px;
+        height: 35px;
+        margin-right: 5px;
+      }
+    }
+    
+    .contact-text {
+      display: flex;
+      flex-direction: column;
+      
+      .contact-title {
+        font-weight: bold;
+        font-size: 1rem;
+        line-height: 1.2;
+      }
+      
+      .contact-phone {
+        font-size: 0.8rem;
+        opacity: 0.9;
+      }
+    }
+  }
+}
+/* End Contact button */
+
 /* CAROUSEL TEXT */
 .text-carousel-banner {
   background-color: $color-custom-green;
-  padding-top: $spacing-sm;
-  padding-bottom: $spacing-sm;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   overflow: hidden;
   position: relative;
 }
@@ -50,14 +96,14 @@
 }
 
 .carousel-nav-button {
-  height: $spacing-xl;
-  width: $spacing-xl;
+  height: 2rem;
+  width: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: $color-custom-white;
   z-index: 20;
-  transition: $transition-fast;
+  transition: all 0.2s ease;
   font-size: 1.25rem;
   font-weight: 700;
   
@@ -80,12 +126,12 @@
   max-width: 36rem;
   margin-left: 0;
   margin-right: 0;
-  padding-left: $spacing-md;
-  padding-right: $spacing-md;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .carousel-item {
-  transition: $transition-carousel;
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
   
   &.active {
     opacity: 1;
@@ -102,8 +148,8 @@
 
 .highlight-text {
   background-color: $color-custom-highlight;
-  padding: $spacing-xs $spacing-sm;
-  border-radius: $border-radius-small;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
   font-weight: bold;
   display: inline-block;
   margin-right: 3px;
