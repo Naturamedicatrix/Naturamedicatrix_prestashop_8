@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 10:29:14
+/* Smarty version 4.3.4, created on 2025-04-09 16:13:13
   from 'module:ps_mainmenups_mainmenu.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f62fda98a359_28146648',
+  'unifunc' => 'content_67f68079424173_64065099',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f62fda98a359_28146648 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f68079424173_64065099 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
   'menu' => 
   array (
     'compiled_filepath' => 'C:\\xampp\\htdocs\\Naturamedicatrix\\var\\cache\\dev\\smarty\\compile\\classic_tailwind\\41\\df\\19\\41df1985130dffd7d3fe4cb369091546a0b40be7_2.module.ps_mainmenups_mainmenu.tpl.php',
     'uid' => '41df1985130dffd7d3fe4cb369091546a0b40be7',
-    'call_name' => 'smarty_template_function_menu_166294108767f62fda983e72_79809808',
+    'call_name' => 'smarty_template_function_menu_131886119367f6807941c230_57559625',
   ),
 ));
 ?><!-- begin C:\xampp\htdocs\Naturamedicatrix/themes/classic/modules/ps_mainmenu/ps_mainmenu.tpl --><?php $_smarty_tpl->_assignInScope('_counter', 0);?>
@@ -38,9 +38,9 @@ $_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, arra
     <div class="clearfix"></div>
 </div>
 <!-- end C:\xampp\htdocs\Naturamedicatrix/themes/classic/modules/ps_mainmenu/ps_mainmenu.tpl --><?php }
-/* smarty_template_function_menu_166294108767f62fda983e72_79809808 */
-if (!function_exists('smarty_template_function_menu_166294108767f62fda983e72_79809808')) {
-function smarty_template_function_menu_166294108767f62fda983e72_79809808(Smarty_Internal_Template $_smarty_tpl,$params) {
+/* smarty_template_function_menu_131886119367f6807941c230_57559625 */
+if (!function_exists('smarty_template_function_menu_131886119367f6807941c230_57559625')) {
+function smarty_template_function_menu_131886119367f6807941c230_57559625(Smarty_Internal_Template $_smarty_tpl,$params) {
 $params = array_merge(array('nodes'=>array(),'depth'=>0,'parent'=>null), $params);
 foreach ($params as $key => $value) {
 $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);
@@ -96,5 +96,5 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </ul>
     <?php }
 }}
-/*/ smarty_template_function_menu_166294108767f62fda983e72_79809808 */
+/*/ smarty_template_function_menu_131886119367f6807941c230_57559625 */
 }

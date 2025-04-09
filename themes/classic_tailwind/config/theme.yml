@@ -22,3 +22,8 @@ assets:
         path: assets/css/custom-header.css
         media: all
         priority: 60
+  js:
+    all:
+      - id: text-carousel
+        path: assets/js/text-carousel.js
+        priority: 30

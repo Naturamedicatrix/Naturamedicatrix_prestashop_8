@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 10:29:12
+/* Smarty version 4.3.4, created on 2025-04-09 16:13:11
   from 'C:\xampp\htdocs\Naturamedicatrix\themes\classic\templates\_partials\microdata\head-jsonld.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f62fd8f2ccd4_79547782',
+  'unifunc' => 'content_67f6807764a452_92492359',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f62fd8f2ccd4_79547782 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f6807764a452_92492359 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
  type="application/ld+json">
   {

@@ -1,10 +1,11 @@
 /*** LISTE DES VARIABLES CSS ***/
 :root {
   --color-custom-green: #83B58B;
-  --color-custom-red: #E45B7F;
+  --color-custom-highlight: #E45B7F;
   --color-custom-white: #F9FAFB;
   --color-custom-grayLight: #EDEFF1;
   --color-custom-blue: #93A7C3;
   --color-custom-text-black: #4B5563;
   --color-custom-title-black: #111827;
+  --color-custom-hover-link: #e5e5e5;
 }

@@ -1,0 +1,111 @@
+/* === CUSTOM HEADER STYLE === */
+@import 'variables';
+
+/* Header global */
+.header-nav {
+  background: $color-custom-green;
+  height: 200px;
+  max-height: 200px !important;
+}
+
+#header {
+  a {
+    color: $color-custom-white;
+    
+    &:hover {
+      color: darken($color-custom-white, 15%);
+    }
+  }
+  
+  .header-nav {
+    .blockcart {
+      background-color: $color-custom-green;
+      color: $color-custom-white;
+    }
+    
+    .cart-preview .shopping-cart {
+      color: $color-custom-white;
+    }
+  }
+  
+  .dropdown li a {
+    color: $color-custom-white;
+  }
+}
+/* End Header global */
+
+/* CAROUSEL TEXT */
+.text-carousel-banner {
+  background-color: $color-custom-green;
+  padding-top: $spacing-sm;
+  padding-bottom: $spacing-sm;
+  overflow: hidden;
+  position: relative;
+}
+
+.text-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-nav-button {
+  height: $spacing-xl;
+  width: $spacing-xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-custom-white;
+  z-index: 20;
+  transition: $transition-fast;
+  font-size: 1.25rem;
+  font-weight: 700;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+#text-carousel {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: $color-custom-white;
+  position: relative;
+  overflow: hidden;
+  max-width: 36rem;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+}
+
+.carousel-item {
+  transition: $transition-carousel;
+  
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  &.inactive {
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    transform: translateX(100%);
+  }
+}
+
+.highlight-text {
+  background-color: $color-custom-highlight;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-small;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 3px;
+}
+/* END CAROUSEL TEXT */
