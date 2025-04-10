@@ -355,8 +355,8 @@
 .hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-cart-icon .cart-products-count,
 .hidden-md-up.mobile .mobile-header-container .mobile-nav-icons #menu-icon .cart-products-count {
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: -10px;
+  right: -10px;
   background-color: white;
   color: #83b58b;
   border-radius: 50%;
@@ -488,8 +488,8 @@
 }
 .blockcart .shopping-cart-container .cart-icon-container .cart-products-count {
   position: absolute;
-  top: -5px;
-  right: -8px;
+  top: -12px;
+  right: 5px;
   background-color: white;
   color: #83b58b;
   border-radius: 50%;
