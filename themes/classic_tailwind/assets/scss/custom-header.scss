@@ -4,8 +4,8 @@
 /* Header global */
 .header-nav {
   background: $color-custom-green;
-  height: 150px;
-  max-height: 150px !important;
+  height: 110px;
+  max-height: 110px !important;
 }
 
 #header {
@@ -44,6 +44,14 @@
     text-decoration: none;
     transition: all 0.3s ease;
     
+    @media (max-width: $breakpoint-lg) {
+      padding: 0.4rem 0.8rem;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      padding: 0.3rem 0.6rem;
+    }
+    
     &:hover {
       background-color: darken($color-custom-green, 5%);
     }
@@ -54,10 +62,25 @@
       justify-content: center;
       margin-right: 0.75rem;
       
+      @media (max-width: $breakpoint-md) {
+        margin-right: 0.5rem;
+      }
+      
       svg {
         width: 35px;
         height: 35px;
         margin-right: 5px;
+        
+        @media (max-width: $breakpoint-lg) {
+          width: 30px;
+          height: 30px;
+        }
+        
+        @media (max-width: $breakpoint-md) {
+          width: 24px;
+          height: 24px;
+          margin-right: 3px;
+        }
       }
     }
     
@@ -69,11 +92,27 @@
         font-weight: bold;
         font-size: 1rem;
         line-height: 1.2;
+        
+        @media (max-width: $breakpoint-lg) {
+          font-size: 0.9rem;
+        }
+        
+        @media (max-width: $breakpoint-md) {
+          font-size: 0.8rem;
+        }
       }
       
       .contact-phone {
         font-size: 0.8rem;
         opacity: 0.9;
+        
+        @media (max-width: $breakpoint-lg) {
+          font-size: 0.75rem;
+        }
+        
+        @media (max-width: $breakpoint-md) {
+          font-size: 0.7rem;
+        }
       }
     }
   }
@@ -83,20 +122,14 @@
 /* Language selector */
 #_desktop_language_selector {
   position: absolute;
-  right: 30px;
-  top: -55px;
+  right: 40px;
+  top: -103px;
   height: 100%;
   display: flex;
   align-items: center;
   z-index: 30;
   
-  @media (max-width: $breakpoint-md) {
-    top: -70px;
-  }
-  
-  @media (max-width: $breakpoint-sm) {
-    right: 5px;
-  }
+ 
   
   .language-selector-wrapper {
     .language-selector {
@@ -158,6 +191,30 @@
 }
 /* End Language selector */
 
+/* Logo */
+#_desktop_logo {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  img.logo {
+    max-width: 400px;
+    
+    @media (max-width: $breakpoint-lg) {
+      max-width: 300px;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      max-width: 200px;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      max-width: 150px;
+    }
+  }
+}
+
 /* Banner and carousel layout */
 .banner-wrapper {
   width: 100%;
@@ -180,7 +237,7 @@
 .text-carousel-banner {
   background-color: $color-custom-green;
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 3rem;
   overflow: hidden;
   position: relative;
 }
@@ -217,17 +274,6 @@
   margin-left: 0;
   margin-right: 0;
   
-  @media (max-width: $breakpoint-md) {
-    max-width: 28rem;
-    font-size: 0.9rem;
-  }
-  
-  @media (max-width: $breakpoint-sm) {
-    max-width: 20rem;
-    font-size: 0.8rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
 }
 
 .carousel-item {
@@ -248,11 +294,10 @@
 
 .highlight-text {
   background-color: $color-custom-highlight;
-  padding: 0.25rem 0.5rem;
+  padding: 0.1rem 0.5rem;
   border-radius: 4px;
   font-weight: bold;
   display: inline-block;
-  margin-right: 3px;
 }
 /* END CAROUSEL TEXT */
 
@@ -317,25 +362,71 @@
   .logout {
     display: none;
   }
-  
-  @media (max-width: $breakpoint-md) {
-    .login, .account {
-      padding: 6px 10px;
-      
-      .account-icon i {
-        font-size: 20px;
+
+}
+/* END MODULE DE CONNEXION */
+
+/* Styles pour le module de panier */
+#blockcart-wrapper {
+  position: relative;
+  top: 11px;
+}
+.blockcart {
+  .shopping-cart-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-icon-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-color: $color-custom-green;
+      padding: 0 15px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      height: 40px;
+
+      &:hover {
+        background-color: darken($color-custom-green, 10%);
+      }
+
+      .shopping-cart-icon,
+      .cart-icon-transparent {
+        color: $color-custom-white;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        height: 100%;
       }
       
-      .account-content {
-        .account-title {
-          font-size: 12px;
-        }
-        
-        .account-subtitle {
-          font-size: 10px;
-        }
+      .cart-icon-transparent {
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .cart-products-count {
+        position: absolute;
+        top: -5px;
+        right: -8px;
+        background-color: white;
+        color: $color-custom-green;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
       }
     }
   }
 }
-/* END MODULE DE CONNEXION */

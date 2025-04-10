@@ -38,10 +38,26 @@
     <div class="container">
       <div class="row">
         <div class="hidden-sm-down">
-          <div class="col-md-5 col-xs-12">
+          <!-- Contact à gauche -->
+          <div class="col-md-3 col-xs-12">
             {hook h='displayNav1'}
           </div>
-          <div class="col-md-7 right-nav">
+          
+          <!-- Logo -->
+          <div class="col-md-6" id="_desktop_logo">
+            {if $shop.logo_details}
+              {if $page.page_name == 'index'}
+                <h1>
+                  {renderLogo}
+                </h1>
+              {else}
+                {renderLogo}
+              {/if}
+            {/if}
+          </div>
+          
+          <!-- Mon compte à droite -->
+          <div class="col-md-3 right-nav">
             {hook h='displayNav2'}
           </div>
         </div>
@@ -63,18 +79,8 @@
   <div class="header-top">
     <div class="container">
       <div class="row">
-        <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
-          {if $shop.logo_details}
-            {if $page.page_name == 'index'}
-              <h1>
-                {renderLogo}
-              </h1>
-            {else}
-              {renderLogo}
-            {/if}
-          {/if}
-        </div>
-        <div class="header-top-right col-md-10 col-sm-12 position-static">
+        <!-- Logo retiré d'ici -->
+        <div class="header-top-right col-md-12 col-sm-12 position-static">
           {hook h='displayTop'}
         </div>
       </div>
