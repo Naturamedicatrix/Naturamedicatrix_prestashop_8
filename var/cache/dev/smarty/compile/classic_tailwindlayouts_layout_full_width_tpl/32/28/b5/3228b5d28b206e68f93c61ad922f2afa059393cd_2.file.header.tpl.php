@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 16:35:27
+/* Smarty version 4.3.4, created on 2025-04-10 10:10:21
   from 'C:\xampp\htdocs\Naturamedicatrix\themes\classic_tailwind\templates\_partials\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f685af58e6b3_17386416',
+  'unifunc' => 'content_67f77cedacef01_04975495',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3228b5d28b206e68f93c61ad922f2afa059393cd' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Naturamedicatrix\\themes\\classic_tailwind\\templates\\_partials\\header.tpl',
-      1 => 1744209324,
+      1 => 1744272613,
       2 => 'file',
     ),
   ),
@@ -20,28 +20,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f685af58e6b3_17386416 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f77cedacef01_04975495 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_199734139867f685af5871a3_15726990', 'header_banner');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_203940414967f77cedac7fc3_11710155', 'header_banner');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6295244767f685af589b16_50075257', 'header_nav');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_32706487867f77cedaca8e6_82842904', 'header_nav');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_158731941267f685af58a372_73494628', 'header_top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_186148755567f77cedacb117_76247329', 'header_top');
 }
 /* {block 'header_banner'} */
-class Block_199734139867f685af5871a3_15726990 extends Smarty_Internal_Block
+class Block_203940414967f77cedac7fc3_11710155 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header_banner' => 
   array (
-    0 => 'Block_199734139867f685af5871a3_15726990',
+    0 => 'Block_203940414967f77cedac7fc3_11710155',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -49,24 +49,30 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
   <div class="header-banner text-carousel-banner">
     <div class="container tw-mt-4">
-      <!-- CAROUSEL TEXT -->
-      <div class="text-carousel-container">
-        <!-- Flèche gauche -->
-        <button id="carousel-prev" class="carousel-nav-button">
-          &lt;
-        </button>
-        
-        <!-- CONTENU DU TEXT CAROUSEL -->
-        <div id="text-carousel">
-          <div class="carousel-item active"><span class="highlight-text">Livraison offerte</span> apd 35€ en Point Relais & 50€ à domicile</div>
-          <div class="carousel-item inactive">Paiement 100% sécurisé</div>
-          <div class="carousel-item inactive">Service client disponible du lundi au vendredi</div>
+      <div class="banner-wrapper">
+        <!-- CAROUSEL TEXT avec sélecteur de langue à l'intérieur -->
+        <div class="text-carousel-container">
+          <!-- Flèche gauche -->
+          <button id="carousel-prev" class="carousel-nav-button">
+            &lt;
+          </button>
+          
+          <!-- CONTENU DU TEXT CAROUSEL -->
+          <div id="text-carousel">
+            <div class="carousel-item active"><span class="highlight-text">Livraison offerte</span> apd 35€ en Point Relais & 50€ à domicile</div>
+            <div class="carousel-item inactive">Paiement 100% sécurisé</div>
+            <div class="carousel-item inactive">Service client disponible du lundi au vendredi</div>
+          </div>
+          
+          <!-- Flèche droite -->
+          <button id="carousel-next" class="carousel-nav-button">
+            &gt;
+          </button>
         </div>
         
-        <!-- Flèche droite -->
-        <button id="carousel-next" class="carousel-nav-button">
-          &gt;
-        </button>
+        <!-- Language selector directement dans la bannière -->
+        <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['hook'][0], array( array('h'=>'displayLanguageSelector'),$_smarty_tpl ) );?>
+
       </div>
       <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['hook'][0], array( array('h'=>'displayBanner'),$_smarty_tpl ) );?>
 
@@ -77,12 +83,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header_banner'} */
 /* {block 'header_nav'} */
-class Block_6295244767f685af589b16_50075257 extends Smarty_Internal_Block
+class Block_32706487867f77cedaca8e6_82842904 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header_nav' => 
   array (
-    0 => 'Block_6295244767f685af589b16_50075257',
+    0 => 'Block_32706487867f77cedaca8e6_82842904',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -118,12 +124,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header_nav'} */
 /* {block 'header_top'} */
-class Block_158731941267f685af58a372_73494628 extends Smarty_Internal_Block
+class Block_186148755567f77cedacb117_76247329 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header_top' => 
   array (
-    0 => 'Block_158731941267f685af58a372_73494628',
+    0 => 'Block_186148755567f77cedacb117_76247329',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 16:56:33
+/* Smarty version 4.3.4, created on 2025-04-10 09:51:02
   from 'module:ps_contactinfonav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f68aa1e3b134_82770176',
+  'unifunc' => 'content_67f77866869ee4_66964479',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0eb2119957cbc13b240126b3ccd8fac8f109f1e2' => 
     array (
       0 => 'module:ps_contactinfonav.tpl',
-      1 => 1744210591,
+      1 => 1744271453,
       2 => 'module',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f68aa1e3b134_82770176 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f77866869ee4_66964479 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- begin C:\xampp\htdocs\Naturamedicatrix/themes/classic_tailwind/modules/ps_contactinfo/nav.tpl --><div id="_desktop_contact_link">
   <div id="contact-link">
     <a href="<?php echo htmlspecialchars((string) $_smarty_tpl->tpl_vars['urls']->value['pages']['contact'], ENT_QUOTES, 'UTF-8');?>
@@ -31,7 +31,7 @@ function content_67f68aa1e3b134_82770176 (Smarty_Internal_Template $_smarty_tpl)
         </svg>
       </div>
       <div class="contact-text">
-        <span class="contact-title"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['l'][0], array( array('s'=>'Contactez-nous','d'=>'Shop.Theme.Global'),$_smarty_tpl ) );?>
+        <span class="contact-title"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['l'][0], array( array('s'=>'Contact us','d'=>'Shop.Theme.Global'),$_smarty_tpl ) );?>
 </span>
         <span class="contact-phone">+33 (0)9 77 42 37 04</span>
       </div>

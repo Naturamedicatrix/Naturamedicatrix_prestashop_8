@@ -18,6 +18,20 @@
 # PrestaShop cache
 /var/cache/*
 !/var/cache/.htaccess
+/var/logs/*
+/var/profiler/*
+
+# Cache spécifique de Prestashop 8
+var/cache/dev/*
+var/cache/dev/doctrine/*
+var/cache/dev/profiler/*
+var/cache/dev/smarty/*
+var/cache/dev/translations/*
+var/logs/*
+
+# Cache files des modules compilés
+*_2.module.ps_*
+*_cd_*.tpl.php
 
 # Dossiers de vendors
 /vendor/

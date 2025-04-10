@@ -4,24 +4,29 @@
 {block name='header_banner'}
   <div class="header-banner text-carousel-banner">
     <div class="container tw-mt-4">
-      <!-- CAROUSEL TEXT -->
-      <div class="text-carousel-container">
-        <!-- Flèche gauche -->
-        <button id="carousel-prev" class="carousel-nav-button">
-          &lt;
-        </button>
-        
-        <!-- CONTENU DU TEXT CAROUSEL -->
-        <div id="text-carousel">
-          <div class="carousel-item active"><span class="highlight-text">Livraison offerte</span> apd 35€ en Point Relais & 50€ à domicile</div>
-          <div class="carousel-item inactive">Paiement 100% sécurisé</div>
-          <div class="carousel-item inactive">Service client disponible du lundi au vendredi</div>
+      <div class="banner-wrapper">
+        <!-- CAROUSEL TEXT avec sélecteur de langue à l'intérieur -->
+        <div class="text-carousel-container">
+          <!-- Flèche gauche -->
+          <button id="carousel-prev" class="carousel-nav-button">
+            &lt;
+          </button>
+          
+          <!-- CONTENU DU TEXT CAROUSEL -->
+          <div id="text-carousel">
+            <div class="carousel-item active"><span class="highlight-text">Livraison offerte</span> apd 35€ en Point Relais & 50€ à domicile</div>
+            <div class="carousel-item inactive">Paiement 100% sécurisé</div>
+            <div class="carousel-item inactive">Service client disponible du lundi au vendredi</div>
+          </div>
+          
+          <!-- Flèche droite -->
+          <button id="carousel-next" class="carousel-nav-button">
+            &gt;
+          </button>
         </div>
         
-        <!-- Flèche droite -->
-        <button id="carousel-next" class="carousel-nav-button">
-          &gt;
-        </button>
+        <!-- Language selector directement dans la bannière -->
+        {hook h='displayLanguageSelector'}
       </div>
       {hook h='displayBanner'}
     </div>

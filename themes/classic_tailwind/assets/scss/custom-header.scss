@@ -80,6 +80,102 @@
 }
 /* End Contact button */
 
+/* Language selector */
+#_desktop_language_selector {
+  position: absolute;
+  right: 30px;
+  top: -55px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 30;
+  
+  @media (max-width: $breakpoint-md) {
+    top: -70px;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    right: 5px;
+  }
+  
+  .language-selector-wrapper {
+    .language-selector {
+      button {
+        display: flex;
+        align-items: center;
+        
+        .planet-icon {
+          color: $color-custom-white;
+          stroke-width: 1.5;
+          margin-right: 3px;
+          &:hover {
+            color: darken($color-custom-white, 10%);
+          }
+        }
+        
+        .expand-more {
+          margin: 0;
+          font-weight: bold;
+          color: $color-custom-white;
+          font-size: 14px;
+          &:hover {
+            color: darken($color-custom-white, 10%);
+          }
+        }
+      }
+    }
+  }
+  
+  .dropdown-menu {
+    background-color: darken($color-custom-green, 15%);
+    border: 1px solid darken($color-custom-green, 25%);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    li {
+      border-bottom: 1px solid darken($color-custom-green, 20%);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &.current {
+        background-color: darken($color-custom-green, 10%);
+      }
+    }
+    
+    .dropdown-item {
+      color: $color-custom-white;
+      padding: 8px 15px;
+      font-weight: bold;
+      
+      &:hover, &:focus {
+        background-color: darken($color-custom-green, 20%);
+        color: $color-custom-white;
+      }
+    }
+  }
+}
+/* End Language selector */
+
+/* Banner and carousel layout */
+.banner-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.text-carousel-container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px;
+}
+
 /* CAROUSEL TEXT */
 .text-carousel-banner {
   background-color: $color-custom-green;
@@ -87,12 +183,6 @@
   padding-bottom: 0.5rem;
   overflow: hidden;
   position: relative;
-}
-
-.text-carousel-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .carousel-nav-button {
@@ -126,8 +216,18 @@
   max-width: 36rem;
   margin-left: 0;
   margin-right: 0;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  
+  @media (max-width: $breakpoint-md) {
+    max-width: 28rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    max-width: 20rem;
+    font-size: 0.8rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }
 
 .carousel-item {

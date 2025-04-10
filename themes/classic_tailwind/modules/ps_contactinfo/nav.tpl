@@ -1,13 +1,5 @@
 {**
- * Copyright since 2007 PrestaShop SA and Contributors
- * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.md.
- * It is also available through the world-wide-web at this URL:
- * https://opensource.org/licenses/AFL-3.0
+* CUSTOM NAV "CONTACT NAV"
  *}
 <div id="_desktop_contact_link">
   <div id="contact-link">
@@ -18,7 +10,7 @@
         </svg>
       </div>
       <div class="contact-text">
-        <span class="contact-title">{l s='Contactez-nous' d='Shop.Theme.Global'}</span>
+        <span class="contact-title">{l s='Contact us' d='Shop.Theme.Global'}</span>
         <span class="contact-phone">+33 (0)9 77 42 37 04</span>
       </div>
     </a>
