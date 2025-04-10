@@ -4,6 +4,10 @@
  * Description: Fichier principal SCSS qui importe tous les modules et composants
  */
 
+// Variables et configurations globales
+@import '_variables';
+
+// Autres styles
 .container {
   width: 2000px;
 }

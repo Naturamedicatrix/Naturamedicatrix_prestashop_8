@@ -4,8 +4,8 @@
 /* Header global */
 .header-nav {
   background: $color-custom-green;
-  height: 200px;
-  max-height: 200px !important;
+  height: 150px;
+  max-height: 150px !important;
 }
 
 #header {
@@ -255,3 +255,87 @@
   margin-right: 3px;
 }
 /* END CAROUSEL TEXT */
+
+/* Styles pour le module de connexion (Mon compte) */
+.user-info {
+  .login, .account {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: $color-custom-green;
+    padding: 0 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: darken($color-custom-green, 10%);
+    }
+    
+    .account-icon {
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      
+      i {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+      
+      .user-icon-transparent {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 30px;
+      }
+    }
+    
+    .account-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      
+      .account-title {
+        color: $color-custom-white;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 1.2;
+        text-align: left;
+      }
+      
+      .account-subtitle {
+        color: $color-custom-white;
+        font-size: 12px;
+        opacity: 0.9;
+        text-align: left;
+      }
+    }
+  }
+  
+  .logout {
+    display: none;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    .login, .account {
+      padding: 6px 10px;
+      
+      .account-icon i {
+        font-size: 20px;
+      }
+      
+      .account-content {
+        .account-title {
+          font-size: 12px;
+        }
+        
+        .account-subtitle {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+/* END MODULE DE CONNEXION */

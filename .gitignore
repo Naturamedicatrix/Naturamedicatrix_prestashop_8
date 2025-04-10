@@ -32,6 +32,7 @@ var/logs/*
 # Cache files des modules compilés
 *_2.module.ps_*
 *_cd_*.tpl.php
+*.tpl.php
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -67,11 +68,21 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
-# Fichiers de compilation
+# Fichiers de compilation et CSS générés
 /themes/*/assets/css/*.css.map
-/themes/*/assets/js/*.js.map
+/themes/*/assets/css/*.css
+!/themes/*/assets/css/index.php
 
-# Fichiers de cache
-.sass-cache/
-*.css.map
-*.js.map
+# Source maps
+*.map
+
+# Anciens fichiers de backup
+*.bak
+*~
+*.swp
+*.swo
+
+# Fichiers temporaires de PrestaShop
+*.tmp
+tmp/
+temp/
