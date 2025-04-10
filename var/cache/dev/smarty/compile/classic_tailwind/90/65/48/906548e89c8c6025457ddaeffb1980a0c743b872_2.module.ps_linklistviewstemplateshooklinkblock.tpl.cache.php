@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 16:13:14
+/* Smarty version 4.3.4, created on 2025-04-10 10:39:51
   from 'module:ps_linklistviewstemplateshooklinkblock.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f6807ab21529_70080436',
+  'unifunc' => 'content_67f783d726a492_76831617',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f6807ab21529_70080436 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '39696790367f6807ab18df2_90732257';
+function content_67f783d726a492_76831617 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '127740046467f783d7266591_55379219';
 ?>
 <!-- begin C:\xampp\htdocs\Naturamedicatrix/themes/classic/modules/ps_linklist/views/templates/hook/linkblock.tpl --><div class="col-md-6 links">
   <div class="row">

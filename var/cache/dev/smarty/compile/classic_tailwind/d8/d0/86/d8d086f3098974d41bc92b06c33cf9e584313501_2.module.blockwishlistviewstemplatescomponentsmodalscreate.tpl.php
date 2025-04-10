@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 16:13:15
+/* Smarty version 4.3.4, created on 2025-04-10 10:39:52
   from 'module:blockwishlistviewstemplatescomponentsmodalscreate.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f6807bed9ba9_98878754',
+  'unifunc' => 'content_67f783d84d9071_87698808',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f6807bed9ba9_98878754 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f783d84d9071_87698808 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- begin C:\xampp\htdocs\Naturamedicatrix/modules/blockwishlist/views/templates/components/modals/create.tpl -->
 <div
   class="wishlist-create"

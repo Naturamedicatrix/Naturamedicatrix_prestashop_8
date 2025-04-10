@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 16:13:08
+/* Smarty version 4.3.4, created on 2025-04-10 10:39:45
   from 'module:ps_specialsviewstemplateshookps_specials.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f680740695c5_99513023',
+  'unifunc' => 'content_67f783d1936096_26989673',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -36,7 +36,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 31536000,
 ),true)) {
-function content_67f680740695c5_99513023 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f783d1936096_26989673 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- begin C:\xampp\htdocs\Naturamedicatrix/themes/classic/modules/ps_specials/views/templates/hook/ps_specials.tpl -->
 <section class="featured-products clearfix mt-3">
   <h2 class="h2 products-section-title text-uppercase">
@@ -155,7 +155,7 @@ function content_67f680740695c5_99513023 (Smarty_Internal_Template $_smarty_tpl)
 
           
                           <div class="variant-links">
-      <a href="http://localhost/Naturamedicatrix/fr/hommes/1-1-hummingbird-printed-t-shirt.html#/1-taille-s/8-couleur-blanc"
+      <a href="http://localhost/Naturamedicatrix/fr/hommes/1-3-hummingbird-printed-t-shirt.html#/2-taille-m/8-couleur-blanc"
        class="color"
        title="Blanc"
        aria-label="Blanc"

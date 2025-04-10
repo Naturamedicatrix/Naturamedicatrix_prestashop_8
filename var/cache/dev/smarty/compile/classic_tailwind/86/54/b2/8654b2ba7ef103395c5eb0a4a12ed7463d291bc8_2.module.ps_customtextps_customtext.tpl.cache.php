@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 16:13:07
+/* Smarty version 4.3.4, created on 2025-04-10 10:39:45
   from 'module:ps_customtextps_customtext.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f68073d52079_53731419',
+  'unifunc' => 'content_67f783d174f275_15709569',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f68073d52079_53731419 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '87916525667f68073d50b84_91224807';
+function content_67f783d174f275_15709569 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '53734819967f783d174e615_56434245';
 ?>
 <!-- begin C:\xampp\htdocs\Naturamedicatrix/modules/ps_customtext/ps_customtext.tpl -->
 <div id="custom-text">

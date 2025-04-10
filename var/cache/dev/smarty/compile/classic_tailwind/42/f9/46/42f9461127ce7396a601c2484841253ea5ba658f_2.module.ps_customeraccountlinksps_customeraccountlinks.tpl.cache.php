@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 16:13:14
+/* Smarty version 4.3.4, created on 2025-04-10 10:39:51
   from 'module:ps_customeraccountlinksps_customeraccountlinks.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f6807add0eb2_66544074',
+  'unifunc' => 'content_67f783d74bf376_26054656',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,9 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f6807add0eb2_66544074 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f783d74bf376_26054656 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\Naturamedicatrix\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.count.php','function'=>'smarty_modifier_count',),));
-$_smarty_tpl->compiled->nocache_hash = '177298365267f6807adc5805_64712777';
+$_smarty_tpl->compiled->nocache_hash = '130910563167f783d74b1a33_29748422';
 ?>
 <!-- begin C:\xampp\htdocs\Naturamedicatrix/themes/classic/modules/ps_customeraccountlinks/ps_customeraccountlinks.tpl -->
 <div id="block_myaccount_infos" class="col-md-3 links wrapper">

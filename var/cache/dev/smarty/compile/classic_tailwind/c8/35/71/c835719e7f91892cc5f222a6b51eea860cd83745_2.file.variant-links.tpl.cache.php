@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 16:13:07
+/* Smarty version 4.3.4, created on 2025-04-10 10:39:45
   from 'C:\xampp\htdocs\Naturamedicatrix\themes\classic\templates\catalog\_partials\variant-links.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f680737482f0_08365102',
+  'unifunc' => 'content_67f783d10562e9_64157869',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67f680737482f0_08365102 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '79563098967f68073745151_95918036';
+function content_67f783d10562e9_64157869 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '200618900567f783d10531a6_64055034';
 ?>
 <div class="variant-links">
   <?php

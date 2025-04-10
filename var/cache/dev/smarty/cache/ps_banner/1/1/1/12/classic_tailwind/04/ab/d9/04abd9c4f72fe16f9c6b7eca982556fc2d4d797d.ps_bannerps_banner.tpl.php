@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-04-09 16:13:07
+/* Smarty version 4.3.4, created on 2025-04-10 10:39:45
   from 'module:ps_bannerps_banner.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67f68073c4cfb2_05804870',
+  'unifunc' => 'content_67f783d16626f0_82979414',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -18,7 +18,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 31536000,
 ),true)) {
-function content_67f68073c4cfb2_05804870 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67f783d16626f0_82979414 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- begin C:\xampp\htdocs\Naturamedicatrix/themes/classic/modules/ps_banner/ps_banner.tpl --><a class="banner" href="http://localhost/Naturamedicatrix/fr/" title="">
       <img src="http://localhost/Naturamedicatrix/modules/ps_banner/img/sale70.png" alt="" title="" class="img-fluid" loading="lazy" width="1110" height="213">
   </a>
