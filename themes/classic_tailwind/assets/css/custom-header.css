@@ -16,6 +16,12 @@
   background-color: #83b58b;
   color: #f9fafb;
 }
+@media (max-width: 1024px) {
+  #header .header-nav .blockcart {
+    padding: 0 !important;
+    margin-left: 5px !important;
+  }
+}
 #header .header-nav .cart-preview .shopping-cart {
   color: #f9fafb;
 }
@@ -176,15 +182,19 @@
 }
 #_desktop_logo img.logo {
   max-width: 400px;
+  position: relative;
+  bottom: 10px;
 }
 @media (max-width: 1024px) {
   #_desktop_logo img.logo {
-    max-width: 300px;
+    max-width: 280px;
+    top: 5px;
   }
 }
 @media (max-width: 768px) {
   #_desktop_logo img.logo {
-    max-width: 200px;
+    max-width: 250px;
+    top: 5px;
   }
 }
 @media (max-width: 640px) {
@@ -249,6 +259,17 @@
   max-width: 36rem;
   margin-left: 0;
   margin-right: 0;
+  font-size: 14px;
+}
+@media (max-width: 768px) {
+  #text-carousel {
+    font-size: 12px;
+  }
+}
+@media (max-width: 640px) {
+  #text-carousel {
+    font-size: 10px;
+  }
 }
 
 .carousel-item {
@@ -280,7 +301,6 @@
   align-items: center;
   text-decoration: none;
   background-color: #83b58b;
-  padding: 0 15px;
   border-radius: 4px;
   transition: all 0.3s ease;
 }

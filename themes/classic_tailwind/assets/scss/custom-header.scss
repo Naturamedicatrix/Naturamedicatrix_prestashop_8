@@ -21,6 +21,10 @@
     .blockcart {
       background-color: $color-custom-green;
       color: $color-custom-white;
+      @media (max-width: $breakpoint-lg) {
+        padding: 0 !important;
+        margin-left: 5px !important;
+      }
     }
     
     .cart-preview .shopping-cart {
@@ -129,8 +133,6 @@
   align-items: center;
   z-index: 30;
   
- 
-  
   .language-selector-wrapper {
     .language-selector {
       button {
@@ -200,13 +202,17 @@
   
   img.logo {
     max-width: 400px;
+    position: relative;
+    bottom: 10px;
     
     @media (max-width: $breakpoint-lg) {
-      max-width: 300px;
+      max-width: 280px;
+      top: 5px;
     }
     
     @media (max-width: $breakpoint-md) {
-      max-width: 200px;
+      max-width: 250px;
+      top: 5px;
     }
     
     @media (max-width: $breakpoint-sm) {
@@ -273,7 +279,13 @@
   max-width: 36rem;
   margin-left: 0;
   margin-right: 0;
-  
+  font-size: 14px;
+  @media (max-width: $breakpoint-md) {
+    font-size: 12px;
+  }
+  @media (max-width: $breakpoint-sm) {
+    font-size: 10px;
+  }
 }
 
 .carousel-item {
@@ -308,7 +320,6 @@
     align-items: center;
     text-decoration: none;
     background-color: $color-custom-green;
-    padding: 0 15px;
     border-radius: 4px;
     transition: all 0.3s ease;
     
@@ -364,7 +375,9 @@
   }
 
 }
+
 /* END MODULE DE CONNEXION */
+
 
 /* Styles pour le module de panier */
 #blockcart-wrapper {
