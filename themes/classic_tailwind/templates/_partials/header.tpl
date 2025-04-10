@@ -3,7 +3,7 @@
  *}
 {block name='header_banner'}
   <div class="header-banner text-carousel-banner">
-    <div class="container tw-mt-4">
+    <div class="container">
       <div class="banner-wrapper">
         <!-- CAROUSEL TEXT avec sélecteur de langue à l'intérieur -->
         <div class="text-carousel-container">
@@ -11,20 +11,21 @@
           <button id="carousel-prev" class="carousel-nav-button">
             &lt;
           </button>
-          
+
           <!-- CONTENU DU TEXT CAROUSEL -->
           <div id="text-carousel">
-            <div class="carousel-item active"><span class="highlight-text">Livraison offerte</span> apd 35€ en Point Relais & 50€ à domicile</div>
+            <div class="carousel-item active"><span class="highlight-text">Livraison offerte</span> apd 35€ en Point
+              Relais & 50€ à domicile</div>
             <div class="carousel-item inactive">Paiement 100% sécurisé</div>
             <div class="carousel-item inactive">Service client disponible du lundi au vendredi</div>
           </div>
-          
+
           <!-- Flèche droite -->
           <button id="carousel-next" class="carousel-nav-button">
             &gt;
           </button>
         </div>
-        
+
         <!-- Language selector directement dans la bannière -->
         {hook h='displayLanguageSelector'}
       </div>
@@ -42,7 +43,7 @@
           <div class="col-md-3 col-xs-12">
             {hook h='displayNav1'}
           </div>
-          
+
           <!-- Logo -->
           <div class="col-md-6" id="_desktop_logo">
             {if $shop.logo_details}
@@ -55,19 +56,35 @@
               {/if}
             {/if}
           </div>
-          
+
           <!-- Mon compte à droite -->
           <div class="col-md-3 right-nav">
             {hook h='displayNav2'}
           </div>
         </div>
         <div class="hidden-md-up text-sm-center mobile">
-          <div class="float-xs-left" id="menu-icon">
-            <i class="material-icons d-inline">&#xE5D2;</i>
+          <div class="mobile-header-container">
+            <div class="mobile-logo" id="_mobile_logo"></div>
+            <div class="mobile-nav-icons">
+              <!-- Remplacer les conteneurs par des liens directs -->
+              <div class="mobile-user-icon">
+                <a href="{$urls.pages.my_account}">
+                  <i class="material-icons account-icon">person_outline</i>
+                </a>
+              </div>
+              <div class="mobile-cart-icon">
+                <a href="{$urls.pages.cart}">
+                  <i class="material-icons shopping-cart-icon">shopping_cart</i>
+                  {if $cart.products_count > 0}
+                    <span class="cart-products-count">{$cart.products_count}</span>
+                  {/if}
+                </a>
+              </div>
+              <div id="menu-icon">
+                <i class="material-icons d-inline">menu</i>
+              </div>
+            </div>
           </div>
-          <div class="float-xs-right" id="_mobile_cart"></div>
-          <div class="float-xs-right" id="_mobile_user_info"></div>
-          <div class="top-logo" id="_mobile_logo"></div>
           <div class="clearfix"></div>
         </div>
       </div>
@@ -79,7 +96,6 @@
   <div class="header-top">
     <div class="container">
       <div class="row">
-        <!-- Logo retiré d'ici -->
         <div class="header-top-right col-md-12 col-sm-12 position-static">
           {hook h='displayTop'}
         </div>

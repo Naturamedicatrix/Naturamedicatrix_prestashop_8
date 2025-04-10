@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* === CUSTOM HEADER STYLE === */
 /* Header global */
 .header-nav {
@@ -33,6 +34,9 @@
 }
 #header .dropdown li a {
   color: #f9fafb;
+}
+#header .header-nav #menu-icon .material-icons {
+  line-height: 37px !important;
 }
 
 /* End Header global */
@@ -306,6 +310,88 @@
 }
 
 /* END CAROUSEL TEXT */
+/* Styles pour le menu mobile */
+.hidden-md-up.mobile {
+  padding: 10px 0;
+}
+.hidden-md-up.mobile .mobile-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.hidden-md-up.mobile .mobile-header-container .mobile-logo {
+  flex-grow: 1;
+  text-align: center;
+}
+.hidden-md-up.mobile .mobile-header-container .mobile-logo img {
+  max-height: 30px;
+  width: auto;
+  margin-left: 20px;
+}
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-user-icon,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-cart-icon,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons #menu-icon {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-user-icon a,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-cart-icon a,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons #menu-icon a {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-user-icon .cart-products-count,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-cart-icon .cart-products-count,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons #menu-icon .cart-products-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: white;
+  color: #83b58b;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-user-icon .shopping-cart-icon,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-user-icon .account-icon,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-cart-icon .shopping-cart-icon,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons .mobile-cart-icon .account-icon,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons #menu-icon .shopping-cart-icon,
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons #menu-icon .account-icon {
+  opacity: 0.8;
+}
+.hidden-md-up.mobile .mobile-header-container .mobile-nav-icons i.material-icons {
+  font-size: 24px;
+  color: white;
+}
+
+/* Styles pour le menu déroulant mobile */
+#mobile_top_menu_wrapper {
+  margin-top: 0;
+  background-color: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+#mobile_top_menu_wrapper .js-top-menu-bottom {
+  padding: 10px 0;
+}
+
 /* Styles pour le module de connexion (Mon compte) */
 .user-info .login, .user-info .account {
   display: flex;
