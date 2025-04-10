@@ -5,7 +5,7 @@
   <div class="header-banner text-carousel-banner">
     <div class="container">
       <div class="banner-wrapper">
-        <!-- CAROUSEL TEXT avec sélecteur de langue à l'intérieur -->
+        <!-- CAROUSEL TEXT -->
         <div class="text-carousel-container">
           <!-- Flèche gauche -->
           <button id="carousel-prev" class="carousel-nav-button">
@@ -14,10 +14,16 @@
 
           <!-- CONTENU DU TEXT CAROUSEL -->
           <div id="text-carousel">
-            <div class="carousel-item active"><span class="highlight-text">Livraison offerte</span> apd 35€ en Point
-              Relais & 50€ à domicile</div>
-            <div class="carousel-item inactive">Paiement 100% sécurisé</div>
-            <div class="carousel-item inactive">Service client disponible du lundi au vendredi</div>
+            <div class="carousel-item active">
+              <span class="highlight-text">{l s='Livraison offerte' d='Shop.Theme.Global'}</span>
+              {l s='apd 35€ en Point Relais & 50€ à domicile' d='Shop.Theme.Global'}
+            </div>
+            <div class="carousel-item inactive">
+              {l s='Paiement 100% sécurisé' d='Shop.Theme.Global'}
+            </div>
+            <div class="carousel-item inactive">
+              {l s='Service client disponible du lundi au vendredi' d='Shop.Theme.Global'}
+            </div>
           </div>
 
           <!-- Flèche droite -->
@@ -26,7 +32,7 @@
           </button>
         </div>
 
-        <!-- Language selector directement dans la bannière -->
+        <!-- Language selector -->
         {hook h='displayLanguageSelector'}
       </div>
       {hook h='displayBanner'}
@@ -57,7 +63,7 @@
             {/if}
           </div>
 
-          <!-- Mon compte à droite -->
+          <!-- Mon compte -->
           <div class="col-md-3 right-nav">
             {hook h='displayNav2'}
           </div>
@@ -66,7 +72,6 @@
           <div class="mobile-header-container">
             <div class="mobile-logo" id="_mobile_logo"></div>
             <div class="mobile-nav-icons">
-              <!-- Remplacer les conteneurs par des liens directs -->
               <div class="mobile-user-icon">
                 <a href="{$urls.pages.my_account}">
                   <i class="material-icons account-icon">person_outline</i>
