@@ -33,8 +33,21 @@ var/logs/*
 *_2.module.ps_*
 *_cd_*.tpl.php
 
-# Dossiers de vendors
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
 /vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+# Dossiers de vendors
 /node_modules/
 
 # Fichiers de base de données
@@ -43,8 +56,6 @@ var/logs/*
 
 # Fichiers d'environnement
 .env
-.env.local
-.env.*.local
 
 # Fichiers système
 .DS_Store
