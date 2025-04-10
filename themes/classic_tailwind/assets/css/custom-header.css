@@ -5,6 +5,12 @@
   height: 110px;
   max-height: 110px !important;
 }
+@media (max-width: 640px) {
+  .header-nav {
+    height: 65px;
+    max-height: 65px !important;
+  }
+}
 
 #header a {
   color: #f9fafb;
@@ -229,6 +235,11 @@
   overflow: hidden;
   position: relative;
 }
+@media (max-width: 640px) {
+  .text-carousel-banner {
+    padding-bottom: 0rem;
+  }
+}
 
 .carousel-nav-button {
   height: 2rem;
@@ -268,7 +279,7 @@
 }
 @media (max-width: 640px) {
   #text-carousel {
-    font-size: 10px;
+    font-size: 9px;
   }
 }
 
