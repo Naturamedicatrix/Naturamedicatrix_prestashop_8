@@ -1,1 +1,35 @@
-.container{width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media(min-width: 768px){.container{max-width:1000px}}@media(min-width: 1200px){.container{max-width:1140px}}@media(min-width: 1400px){.container{max-width:1350px}}@media(min-width: 1600px){.container{max-width:2000px}}
+/* === FONT IMPORTS === */
+@import url("https://use.typekit.net/416c2919-4f2b-4f59-9eab-da041ee198c9.css");
+/* === STYLE GLOBAL === */
+html, body {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #EDEFF1;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 1000px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1350px;
+  }
+}
+@media (min-width: 1600px) {
+  .container {
+    max-width: 2000px;
+  }
+}

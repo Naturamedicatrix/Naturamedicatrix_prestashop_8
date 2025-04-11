@@ -534,6 +534,36 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.tw-mt-4 {
-  margin-top: 1rem;
+.tw-mt-6 {
+  margin-top: 1.5rem;
+}
+
+.tw-border-t {
+  border-top-width: 1px;
+}
+
+.tw-border-\[\#93A7C3\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(147 167 195 / var(--tw-border-opacity));
+}
+
+.tw-bg-\[\#EDEFF1\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 239 241 / var(--tw-bg-opacity));
+}
+
+.tw-pt-6 {
+  padding-top: 1.5rem;
+}
+
+.tw-text-\[\#4B5563\] {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+/* Vous pouvez ajouter vos propres styles personnalisés ici */
+
+.hover\:tw-text-\[\#1F80C7\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(31 128 199 / var(--tw-text-opacity));
 }

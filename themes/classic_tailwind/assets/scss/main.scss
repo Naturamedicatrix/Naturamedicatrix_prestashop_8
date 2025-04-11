@@ -1,11 +1,12 @@
-/**
- * Main SCSS file for Naturamedicatrix theme
- * Theme: classic_tailwind
- * Description: Fichier principal SCSS qui importe tous les modules et composants
- */
+@use 'variables' as *;
+@use 'fonts';
+/* === STYLE GLOBAL === */
 
-// Variables et configurations globales
-@import '_variables';
+// Typographie globale
+html, body {
+  font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: $color-custom-whiteDarker;
+}
 
 // Responsive container
 .container {
@@ -31,3 +32,4 @@
     max-width: 2000px;
   }
 }
+// End responsive container

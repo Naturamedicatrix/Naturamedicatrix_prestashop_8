@@ -1,0 +1,104 @@
+@use 'variables' as *;
+
+/* === CUSTOM FOOTER STYLE === */
+
+#footer {
+  background-color: $color-custom-whiteDarker;
+
+  /* NEWSLETTER */
+  .block_newsletter {
+    background-color: $color-custom-whiteDarker;
+    padding: 2rem 1rem;
+    max-width: 70rem;
+    
+    .newsletter-container {
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .newsletter-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      
+      .newsletter-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 0.5rem;
+        color: $color-custom-black;
+      }
+      
+      h4 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: $color-custom-black;
+        margin: 0;
+      }
+    }
+    
+    .notification {
+      margin-bottom: 1rem;
+    }
+    
+    form {
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    .newsletter-form-wrapper {
+      position: relative;
+      margin-bottom: 0.75rem;
+      max-width: 70rem;
+      margin-left: auto;
+      margin-right: auto;
+      
+      @media (min-width: 768px) {
+        width: 80%;
+      }
+    }
+    
+    .newsletter-input {
+      width: 100%;
+      padding: 0.75rem;
+      padding-right: 100px;
+      border: 1px solid $color-custom-black;
+      border-radius: 0.25rem;
+      outline: none;
+      background-color: $color-custom-white;
+      min-height: 46px;
+    }
+    
+    .newsletter-submit-btn {
+      position: absolute;
+      right: 1px;
+      top: 1px;
+      bottom: 1px;
+      background-color: $color-custom-black;
+      color: $color-custom-white;
+      padding: 0 1.5rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 0 0.2rem 0.2rem 0;
+      cursor: pointer;
+      min-width: 80px;
+      
+      &:hover {
+        background-color: $color-custom-blackHover;
+      }
+    }
+    
+    .newsletter-privacy-text {
+      font-size: 0.75rem;
+      color: $color-custom-grayLight;
+      margin: 0.5rem 0;
+      font-style: italic;
+    }
+    
+    /* Masque le commentaire inférieur */
+    p:not(.newsletter-privacy-text) {
+      display: none !important;
+    }
+  }
+  /* END NEWSLETTER */
+}

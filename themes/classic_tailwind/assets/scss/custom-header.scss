@@ -1,5 +1,6 @@
+@use "sass:color";
+@use 'variables' as *;
 /* === CUSTOM HEADER STYLE === */
-@import 'variables';
 
 /* Header global */
 .header-nav {
@@ -17,7 +18,7 @@
     color: $color-custom-white;
     
     &:hover {
-      color: darken($color-custom-white, 10%);
+      color: color.adjust($color-custom-white, $lightness: -10%);
     }
   }
   
@@ -65,7 +66,7 @@
     }
     
     &:hover {
-      background-color: darken($color-custom-green, 5%);
+      background-color: color.adjust($color-custom-green, $lightness: -5%);
     }
     
     .contact-icon {
@@ -101,26 +102,15 @@
       flex-direction: column;
       
       .contact-title {
-        font-weight: bold;
-        font-size: 1rem;
+        font-weight: 600;
+        font-size: 14px;
         line-height: 1.2;
-        
-        @media (max-width: $breakpoint-lg) {
-          font-size: 0.9rem;
-        }
-        
-        @media (max-width: $breakpoint-md) {
-          font-size: 0.8rem;
-        }
       }
       
       .contact-phone {
-        font-size: 0.8rem;
+        font-size: 12px;
         opacity: 0.9;
-        
-        @media (max-width: $breakpoint-lg) {
-          font-size: 0.75rem;
-        }
+        font-weight: 100;
         
         @media (max-width: $breakpoint-md) {
           font-size: 0.7rem;
@@ -152,7 +142,7 @@
           stroke-width: 1.5;
           margin-right: 3px;
           &:hover {
-            color: darken($color-custom-white, 10%);
+            color: color.adjust($color-custom-white, $lightness: -10%);
           }
         }
         
@@ -162,7 +152,7 @@
           color: $color-custom-white;
           font-size: 14px;
           &:hover {
-            color: darken($color-custom-white, 10%);
+            color: color.adjust($color-custom-white, $lightness: -10%);
           }
         }
       }
@@ -170,20 +160,20 @@
   }
   
   .dropdown-menu {
-    background-color: darken($color-custom-green, 15%);
-    border: 1px solid darken($color-custom-green, 25%);
+    background-color: color.adjust($color-custom-green, $lightness: -15%);
+    border: 1px solid color.adjust($color-custom-green, $lightness: -25%);
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     
     li {
-      border-bottom: 1px solid darken($color-custom-green, 20%);
+      border-bottom: 1px solid color.adjust($color-custom-green, $lightness: -20%);
       
       &:last-child {
         border-bottom: none;
       }
       
       &.current {
-        background-color: darken($color-custom-green, 10%);
+        background-color: color.adjust($color-custom-green, $lightness: -10%);
       }
     }
     
@@ -193,7 +183,7 @@
       font-weight: bold;
       
       &:hover, &:focus {
-        background-color: darken($color-custom-green, 20%);
+        background-color: color.adjust($color-custom-green, $lightness: -20%);
         color: $color-custom-white;
       }
     }
@@ -236,7 +226,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 }
 
 .text-carousel-container {
@@ -269,8 +258,7 @@
   color: $color-custom-white;
   z-index: 20;
   transition: all 0.2s ease;
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 13px;
   
   &:hover {
     opacity: 0.8;
@@ -292,6 +280,7 @@
   margin-left: 0;
   margin-right: 0;
   font-size: 14px;
+  font-weight: bolder;
   @media (max-width: $breakpoint-md) {
     font-size: 12px;
   }
@@ -392,7 +381,7 @@
       
       i.material-icons {
         font-size: 24px;
-        color: white;
+        color: $color-custom-white;
       }
     }
   }
@@ -402,7 +391,7 @@
 /* MENU DEROULANT MOBILE */
 #mobile_top_menu_wrapper {
   margin-top: 0;
-  background-color: white;
+  background-color: $color-custom-white;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   
   .js-top-menu-bottom {
@@ -421,7 +410,7 @@
     transition: all 0.3s ease;
     
     &:hover {
-      background-color: darken($color-custom-green, 10%);
+      background-color: color.adjust($color-custom-green, $lightness: -10%);
     }
     
     .account-icon {
@@ -432,7 +421,7 @@
       height: 100%;
       
       i {
-        color: rgba(255, 255, 255, 0.85);
+        color: $color-custom-white;
         font-size: 28px;
         display: flex;
         align-items: center;
@@ -440,7 +429,7 @@
       }
       
       .user-icon-transparent {
-        color: rgba(255, 255, 255, 0.85);
+        color: $color-custom-white;
         font-size: 30px;
       }
     }
@@ -504,7 +493,7 @@
       height: 40px;
 
       &:hover {
-        background-color: darken($color-custom-green, 10%);
+        background-color: color.adjust($color-custom-green, $lightness: -10%);
       }
 
       .shopping-cart-icon,
@@ -524,7 +513,7 @@
         position: absolute;
         top: -12px;
         right: 5px;
-        background-color: white;
+        background-color: $color-custom-white;
         color: $color-custom-green;
         border-radius: 50%;
         width: 20px;

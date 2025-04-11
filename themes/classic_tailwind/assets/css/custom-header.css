@@ -95,28 +95,14 @@
   flex-direction: column;
 }
 #contact-link a.contact-button .contact-text .contact-title {
-  font-weight: bold;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 14px;
   line-height: 1.2;
 }
-@media (max-width: 1024px) {
-  #contact-link a.contact-button .contact-text .contact-title {
-    font-size: 0.9rem;
-  }
-}
-@media (max-width: 768px) {
-  #contact-link a.contact-button .contact-text .contact-title {
-    font-size: 0.8rem;
-  }
-}
 #contact-link a.contact-button .contact-text .contact-phone {
-  font-size: 0.8rem;
+  font-size: 12px;
   opacity: 0.9;
-}
-@media (max-width: 1024px) {
-  #contact-link a.contact-button .contact-text .contact-phone {
-    font-size: 0.75rem;
-  }
+  font-weight: 100;
 }
 @media (max-width: 768px) {
   #contact-link a.contact-button .contact-text .contact-phone {
@@ -219,7 +205,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 }
 
 .text-carousel-container {
@@ -254,8 +239,7 @@
   color: #f9fafb;
   z-index: 20;
   transition: all 0.2s ease;
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 13px;
 }
 .carousel-nav-button:hover {
   opacity: 0.8;
@@ -275,6 +259,7 @@
   margin-left: 0;
   margin-right: 0;
   font-size: 14px;
+  font-weight: bolder;
 }
 @media (max-width: 768px) {
   #text-carousel {
@@ -379,14 +364,14 @@
 }
 .hidden-md-up.mobile .mobile-header-container .mobile-nav-icons i.material-icons {
   font-size: 24px;
-  color: white;
+  color: #f9fafb;
 }
 
 /* END MENU MOBILE */
 /* MENU DEROULANT MOBILE */
 #mobile_top_menu_wrapper {
   margin-top: 0;
-  background-color: white;
+  background-color: #f9fafb;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 #mobile_top_menu_wrapper .js-top-menu-bottom {
@@ -413,14 +398,14 @@
   height: 100%;
 }
 .user-info .login .account-icon i, .user-info .account .account-icon i {
-  color: rgba(255, 255, 255, 0.85);
+  color: #f9fafb;
   font-size: 28px;
   display: flex;
   align-items: center;
   height: 100%;
 }
 .user-info .login .account-icon .user-icon-transparent, .user-info .account .account-icon .user-icon-transparent {
-  color: rgba(255, 255, 255, 0.85);
+  color: #f9fafb;
   font-size: 30px;
 }
 .user-info .login .account-content, .user-info .account .account-content {
@@ -491,7 +476,7 @@
   position: absolute;
   top: -12px;
   right: 5px;
-  background-color: white;
+  background-color: #f9fafb;
   color: #83b58b;
   border-radius: 50%;
   width: 20px;
