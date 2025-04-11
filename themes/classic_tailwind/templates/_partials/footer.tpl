@@ -1,8 +1,8 @@
 {**
 ** CUSTOM FOOTER
  *}
-{* BLOC TOP FOOTER *}
-<div class="custom-footer-container">
+{* BLOC TOP FOOTER - VERSION DESKTOP *}
+<div class="custom-footer-container desktop-footer">
   <div class="custom-footer-wrapper">
     {* BLOC RATING *}
     <div class="footer-rating-block">
@@ -26,14 +26,55 @@
       <div class="social-title">{l s='Nos réseaux sociaux' d='Shop.Theme.Global'}</div>
       <div class="social-icons">
         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <i class="fa-brands fa-facebook"></i>
+          <i class="bi bi-facebook"></i>
         </a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <i class="fa-brands fa-instagram"></i>
+          <i class="bi bi-instagram"></i>
         </a>
         <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <i class="fa-brands fa-youtube"></i>
+          <i class="bi bi-youtube"></i>
         </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{* BLOC TOP FOOTER - VERSION MOBILE *}
+<div class="custom-footer-container mobile-footer">
+  <div class="mobile-footer-wrapper">
+    {* BLOC NEWSLETTER *}
+    <div class="mobile-newsletter-block">
+      {hook h='displayFooterBefore'}
+    </div>
+    
+    {* BLOC RATING ET RÉSEAUX SOCIAUX CÔTE À CÔTE *}
+    <div class="mobile-bottom-row">
+      {* BLOC GAUCHE - RATING *}
+      <div class="mobile-bottom-left">
+        <div class="mobile-rating-value">4,8<span class="mobile-rating-max"> / 5</span></div>
+        <div class="mobile-rating-stars">
+          <i class="material-icons star-full">star</i>
+          <i class="material-icons star-full">star</i>
+          <i class="material-icons star-full">star</i>
+          <i class="material-icons star-full">star</i>
+          <i class="material-icons star-half">star_half</i>
+        </div>
+      </div>
+      
+      {* BLOC DROIT - RÉSEAUX SOCIAUX *}
+      <div class="mobile-bottom-right">
+        <div class="mobile-social-title">{l s='Nos réseaux sociaux' d='Shop.Theme.Global'}</div>
+        <div class="mobile-social-icons">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <i class="bi bi-youtube"></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
