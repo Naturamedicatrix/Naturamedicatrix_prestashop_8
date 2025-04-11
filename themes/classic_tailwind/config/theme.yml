@@ -22,6 +22,10 @@ assets:
         path: assets/css/custom-header.css
         media: all
         priority: 60
+      - id: custom-advantages-styles
+        path: assets/css/custom-advantages.css
+        media: all
+        priority: 63
       - id: custom-footer-styles
         path: assets/css/custom-footer.css
         media: all

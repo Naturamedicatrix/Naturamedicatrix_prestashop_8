@@ -1,6 +1,56 @@
 {**
 ** CUSTOM FOOTER
  *}
+ 
+{* SECTION AVANTAGES *}
+<div class="advantages-container">
+  <div class="advantages-wrapper">
+    {* AVANTAGE 1 - PAIEMENT SÉCURISÉ *}
+    <div class="advantage-item">
+      <div class="advantage-icon">
+        <i class="bi bi-lock"></i>
+      </div>
+      <div class="advantage-content">
+        <div class="advantage-title">Paiement sécurisé</div>
+        <div class="advantage-text">100% sécurisé</div>
+      </div>
+    </div>
+    
+    {* AVANTAGE 2 - LIVRAISON OFFERTE *}
+    <div class="advantage-item">
+      <div class="advantage-icon">
+        <i class="bi bi-truck"></i>
+      </div>
+      <div class="advantage-content">
+        <div class="advantage-title">Livraison offerte</div>
+        <div class="advantage-text">à partir de 35€ en Point Relais*</div>
+      </div>
+    </div>
+    
+    {* AVANTAGE 3 - PRODUITS CERTIFIÉS *}
+    <div class="advantage-item">
+      <div class="advantage-icon">
+        <i class="bi bi-trophy"></i>
+      </div>
+      <div class="advantage-content">
+        <div class="advantage-title">Produits certifiés</div>
+        <div class="advantage-text">Naturels et de qualité</div>
+      </div>
+    </div>
+    
+    {* AVANTAGE 4 - SERVICE CLIENT *}
+    <div class="advantage-item">
+      <div class="advantage-icon">
+        <i class="bi bi-chat-heart"></i>
+      </div>
+      <div class="advantage-content">
+        <div class="advantage-title">Service client</div>
+        <div class="advantage-text">Un problème ? Une question ?</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {* BLOC TOP FOOTER - VERSION DESKTOP *}
 <div class="custom-footer-container desktop-footer">
   <div class="custom-footer-wrapper">

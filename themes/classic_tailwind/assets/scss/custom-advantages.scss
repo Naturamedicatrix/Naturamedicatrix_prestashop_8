@@ -1,0 +1,133 @@
+@use 'variables' as *;
+
+/* === ADVANTAGES SECTION === */
+.advantages-container {
+  width: 100%;
+  background-color: #F9FAFB;
+  padding: 2rem 0;
+  border-top: 3px solid rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 1.5rem 0;
+  }
+}
+
+.advantages-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  @media (max-width: $breakpoint-lg) {
+    gap: 1.5rem;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    justify-content: center;
+    gap: 1rem;
+    row-gap: 1.5rem;
+  }
+}
+
+.advantage-item {
+  display: flex;
+  align-items: center;
+  width: 24%;
+  
+  @media (max-width: $breakpoint-lg) {
+    width: 48%;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    width: 46%;
+    margin: 0 2%;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 46%;
+    margin: 0 2%;
+  }
+  
+  .advantage-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.8rem;
+    border-radius: 50%;
+    overflow: visible;
+    
+    @media (max-width: $breakpoint-md) {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-right: 0.5rem;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: rgba($color-custom-green, 0.4);
+      z-index: 1;
+      
+      @media (max-width: $breakpoint-md) {
+        width: 25px;
+        height: 25px;
+        top: -4px;
+        right: -4px;
+      }
+    }
+    
+    i {
+      font-size: 1.7rem;
+      color: $color-custom-black;
+      z-index: 2;
+      
+      @media (max-width: $breakpoint-md) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  
+  .advantage-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    
+    .advantage-title {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: $color-custom-black;
+      margin-bottom: 0.2rem;
+      
+      @media (max-width: $breakpoint-md) {
+        font-size: 0.8rem;
+        margin-bottom: 0.1rem;
+      }
+    }
+    
+    .advantage-text {
+      font-size: 0.8rem;
+      color: $color-custom-gray;
+      
+      @media (max-width: $breakpoint-md) {
+        font-size: 0.7rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

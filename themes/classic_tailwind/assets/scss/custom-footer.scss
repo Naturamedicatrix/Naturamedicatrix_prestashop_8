@@ -1,6 +1,9 @@
 @use 'variables' as *;
 
 /* === CUSTOM FOOTER STYLE === */
+#footer {
+  padding-top: 0;
+}
 
 /* CUSTOM FOOTER CONTAINER */
 .custom-footer-container {
