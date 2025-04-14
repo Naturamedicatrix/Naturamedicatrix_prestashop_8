@@ -524,7 +524,7 @@
       margin-bottom: 25px;
     }
     
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: 1200px) {
       margin-bottom: 0;
       padding: 15px 0;
       cursor: pointer;
@@ -561,7 +561,7 @@
   }
   
   .footer-column-content {
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: 1200px) {
       display: block;
       padding: 15px;
       max-height: 0;
@@ -745,14 +745,38 @@
     }
   }
   
-  @media (max-width: $breakpoint-md) {
+  @media (max-width: 1200px) {
     width: 100%;
     margin-bottom: 0;
     text-align: left;
   }
 }
 
-@media (max-width: $breakpoint-md) {
+/* Supprimer complètement les styles pour les tailles intermédiaires */
+@media (min-width: 769px) and (max-width: 1200px) {
+  /* Styles supprimés car remplacés par l'accordéon */
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .footer-columns {
+    .footer-column {
+      // Réduire légèrement la largeur pour éviter les problèmes de débordement
+      width: 22%;
+      
+      // Ajuster les espacements
+      &:nth-child(1) {
+        padding-left: 0;
+      }
+      
+      &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
   .footer-container {
     padding: 0;
     

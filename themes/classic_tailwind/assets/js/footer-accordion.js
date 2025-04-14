@@ -4,63 +4,77 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Activation uniquement sur mobile
-  if (window.innerWidth <= 768) {
-    // Pour chaque titre dans le footer
-    const titles = document.querySelectorAll('.footer-column h4');
-    titles.forEach(title => {
-      title.addEventListener('click', function() {
-        // Récupérer l'ID du contenu associé
-        const contentId = 'footer-content-' + this.id.split('-')[2];
-        const content = document.getElementById(contentId);
+  const titles = document.querySelectorAll('.footer-column h4');
+  const contents = document.querySelectorAll('.footer-column-content');
+  
+  // Fonction pour initialiser l'accordéon en fonction de la taille d'écran
+  function initAccordion() {
+    const isSmallScreen = window.innerWidth <= 1200;
+    
+    // Ajouter ou supprimer les écouteurs d'événements en fonction de la taille d'écran
+    titles.forEach((title, index) => {
+      // Récupérer le contenu associé
+      const contentId = 'footer-content-' + title.id.split('-')[2];
+      const content = document.getElementById(contentId);
+      
+      if (isSmallScreen) {
+        // Mode accordéon pour petit écran
         
-        // Toggle des classes pour le titre et le contenu
-        this.classList.toggle('active');
-        content.classList.toggle('expanded');
+        // S'assurer que tous les contenus sont masqués initialement
+        if (!title.classList.contains('active')) {
+          content.classList.remove('expanded');
+          content.style.display = 'none';
+        }
         
-        // Fermer les autres accordéons
-        titles.forEach(otherTitle => {
-          if (otherTitle !== this) {
-            const otherContentId = 'footer-content-' + otherTitle.id.split('-')[2];
-            const otherContent = document.getElementById(otherContentId);
-            otherTitle.classList.remove('active');
-            otherContent.classList.remove('expanded');
-          }
-        });
-      });
+        // Ajouter l'écouteur d'événement s'il n'existe pas déjà
+        if (!title.hasEventListener) {
+          title.addEventListener('click', toggleAccordion);
+          title.hasEventListener = true;
+        }
+      } else {
+        // Mode normal pour grand écran
+        
+        // S'assurer que tous les contenus sont visibles
+        content.classList.remove('expanded');
+        content.style.display = 'block';
+        title.classList.remove('active');
+      }
     });
   }
   
-  // Listener pour le redimensionnement de la fenêtre
-  window.addEventListener('resize', function() {
-    const isMobile = window.innerWidth <= 768;
-    const titles = document.querySelectorAll('.footer-column h4');
+  // Fonction pour gérer le clic sur un titre
+  function toggleAccordion() {
+    // Récupérer l'ID du contenu associé
+    const contentId = 'footer-content-' + this.id.split('-')[2];
+    const content = document.getElementById(contentId);
     
-    if (isMobile) {
-      // Réactiver l'accordéon si on passe au mobile
-      titles.forEach(title => {
-        if (!title.hasEventListener) {
-          title.addEventListener('click', function() {
-            const contentId = 'footer-content-' + this.id.split('-')[2];
-            const content = document.getElementById(contentId);
-            
-            // Toggle des classes pour le titre et le contenu
-            this.classList.toggle('active');
-            content.classList.toggle('expanded');
-            
-            // Fermer les autres accordéons
-            titles.forEach(otherTitle => {
-              if (otherTitle !== this) {
-                const otherContentId = 'footer-content-' + otherTitle.id.split('-')[2];
-                const otherContent = document.getElementById(otherContentId);
-                otherTitle.classList.remove('active');
-                otherContent.classList.remove('expanded');
-              }
-            });
-          });
-          title.hasEventListener = true;
+    // Toggle des classes pour le titre et le contenu
+    this.classList.toggle('active');
+    
+    // Toggle de l'affichage du contenu
+    if (content.style.display === 'none' || content.style.display === '') {
+      content.style.display = 'block';
+      content.classList.add('expanded');
+      
+      // Fermer les autres accordéons
+      titles.forEach(otherTitle => {
+        if (otherTitle !== this) {
+          const otherContentId = 'footer-content-' + otherTitle.id.split('-')[2];
+          const otherContent = document.getElementById(otherContentId);
+          otherTitle.classList.remove('active');
+          otherContent.classList.remove('expanded');
+          otherContent.style.display = 'none';
         }
       });
+    } else {
+      content.classList.remove('expanded');
+      content.style.display = 'none';
     }
-  });
+  }
+  
+  // Initialiser l'accordéon au chargement de la page
+  initAccordion();
+  
+  // Réinitialiser l'accordéon lors du redimensionnement de la fenêtre
+  window.addEventListener('resize', initAccordion);
 });
