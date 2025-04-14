@@ -140,25 +140,51 @@
         <div class="footer-column">
           <h4 id="footer-title-1">NATURA<span>Medicatrix</span></h4>
           <div class="footer-column-content" id="footer-content-1">
-            <p class="footer-address"><strong>Maison mère / Siège social</strong><br>
-            2, route des Fagnes<br>
-            B-4190 Ferrières<br>
-            Belgique</p>
-            <p class="footer-tax">TVA : BE0543862765</p>
+            <p class="footer-address"><strong>Maison mère — Siège social</strong><br>
+              22, route des Fagnes<br>
+              B-4190 Ferrières<br>
+              Belgique</p>
+            <p class="footer-tax">TVA : BE0543862766</p>
 
             <p class="footer-address"><strong>Nos bureaux</strong><br>
-            8, Hannert dem Duarref<br>
-            L-9772 Troine (Wincrange)<br>
-            Grand Duché du Luxembourg</p>
-            <p class="footer-tax">TVA : LU26788289<br>
-            MATRICULE : 20142345295</p>
+              8, Hannert dem Duarref<br>
+              L-9772 Troine (Wincrange)<br>
+              Grand Duché de Luxembourg</p>
+            <p class="footer-tax">TVA : LU26788281<br>
+              MATRICULE : 20142414296</p>
           </div>
         </div>
 
         <div class="footer-column">
           <h4 id="footer-title-2">Service client</h4>
           <div class="footer-column-content" id="footer-content-2">
-            {* Contenu de la colonne 2 *}
+            <p class="footer-phone">
+              <span class="phone-main">09 77 42 37 04</span>
+              <img src="{$urls.base_url}themes/classic_tailwind/assets/img/fr.png" alt="France" class="flag-icon">
+            </p>
+
+            <p class="footer-phone">
+              <span class="phone-secondary">+32 42 90 00 79</span>
+              <img src="{$urls.base_url}themes/classic_tailwind/assets/img/be.png" alt="Belgique" class="flag-icon">
+            </p>
+
+            <p class="footer-phone">
+              <span class="phone-secondary">+352 27 86 11 39</span>
+              <img src="{$urls.base_url}themes/classic_tailwind/assets/img/lu.png" alt="Luxembourg" class="flag-icon">
+            </p>
+
+            <p class="footer-email">
+              <a href="mailto:support@naturamedicatrix.zendesk.com">support@naturamedicatrix.zendesk.com</a>
+            </p>
+
+            <div class="footer-contact-btn">
+              <a href="{$urls.pages.contact}" class="btn-contact custom-btn-action">Contactez-nous</a>
+            </div>
+
+            <p class="footer-contact-text">
+              Thérapeutes, professionnels de la santé,<br>
+              contactez-nous !
+            </p>
           </div>
         </div>
 
