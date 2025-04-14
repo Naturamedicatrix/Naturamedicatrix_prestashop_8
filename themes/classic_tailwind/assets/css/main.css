@@ -43,8 +43,13 @@ html, body {
   border: none;
   border-radius: 0 0.2rem 0.2rem 0;
   cursor: pointer;
-  width: 145px;
+  width: 170px;
 }
 .custom-btn-action:hover {
   background-color: #1f2937 !important;
+}
+@media (max-width: 768px) {
+  .custom-btn-action {
+    font-size: 14px;
+  }
 }

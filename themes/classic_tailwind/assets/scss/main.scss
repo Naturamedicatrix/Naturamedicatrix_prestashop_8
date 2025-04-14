@@ -45,9 +45,14 @@ html, body {
   border: none;
   border-radius: 0 0.2rem 0.2rem 0;
   cursor: pointer;
-  width: 145px;
+  width: 170px;
   
   &:hover {
     background-color: $color-custom-blackHover !important;
   }
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 14px;
+  }
 }
+// End Bouton d'action

@@ -39,3 +39,6 @@ assets:
       - id: text-carousel
         path: assets/js/text-carousel.js
         priority: 30
+      - id: footer-accordion
+        path: assets/js/footer-accordion.js
+        priority: 35

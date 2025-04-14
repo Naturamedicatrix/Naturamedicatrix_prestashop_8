@@ -1,7 +1,7 @@
 {**
 ** CUSTOM FOOTER
  *}
- 
+
 {* SECTION AVANTAGES *}
 <div class="advantages-container">
   <div class="advantages-wrapper">
@@ -15,7 +15,7 @@
         <div class="advantage-text">100% sécurisé</div>
       </div>
     </div>
-    
+
     {* AVANTAGE 2 - LIVRAISON OFFERTE *}
     <div class="advantage-item">
       <div class="advantage-icon">
@@ -26,7 +26,7 @@
         <div class="advantage-text">à partir de 35€ en Point Relais*</div>
       </div>
     </div>
-    
+
     {* AVANTAGE 3 - PRODUITS CERTIFIÉS *}
     <div class="advantage-item">
       <div class="advantage-icon">
@@ -37,7 +37,7 @@
         <div class="advantage-text">Naturels et de qualité</div>
       </div>
     </div>
-    
+
     {* AVANTAGE 4 - SERVICE CLIENT *}
     <div class="advantage-item">
       <div class="advantage-icon">
@@ -65,12 +65,12 @@
         <i class="material-icons star-half">star_half</i>
       </div>
     </div>
-    
+
     {* BLOC NEWSLETTER *}
     <div class="newsletter-main-block">
       {hook h='displayFooterBefore'}
     </div>
-    
+
     {* BLOC RÉSEAUX SOCIAUX *}
     <div class="social-icons-block">
       <div class="social-title">{l s='Nos réseaux sociaux' d='Shop.Theme.Global'}</div>
@@ -96,7 +96,7 @@
     <div class="mobile-newsletter-block">
       {hook h='displayFooterBefore'}
     </div>
-    
+
     {* BLOC RATING ET RÉSEAUX SOCIAUX CÔTE À CÔTE *}
     <div class="mobile-bottom-row">
       {* BLOC GAUCHE - RATING *}
@@ -110,7 +110,7 @@
           <i class="material-icons star-half">star_half</i>
         </div>
       </div>
-      
+
       {* BLOC DROIT - RÉSEAUX SOCIAUX *}
       <div class="mobile-bottom-right">
         <div class="mobile-social-title">{l s='Nos réseaux sociaux' d='Shop.Theme.Global'}</div>
@@ -130,20 +130,53 @@
   </div>
 </div>
 
-{* BLOC MENU FOOTER *}
+{* Copyright section only *}
 <div class="footer-container">
   <div class="container">
     <div class="row">
-      {block name='hook_footer'}
-        {hook h='displayFooter'}
-      {/block}
-    </div>
-    <div class="row">
-      {block name='hook_footer_after'}
-        {hook h='displayFooterAfter'}
-      {/block}
-    </div>
-    <div class="row">
+
+      {* LIST FOOTER *}
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4 id="footer-title-1">NATURA<span>Medicatrix</span></h4>
+          <div class="footer-column-content" id="footer-content-1">
+            <p class="footer-address"><strong>Maison mère / Siège social</strong><br>
+            2, route des Fagnes<br>
+            B-4190 Ferrières<br>
+            Belgique</p>
+            <p class="footer-tax">TVA : BE0543862765</p>
+
+            <p class="footer-address"><strong>Nos bureaux</strong><br>
+            8, Hannert dem Duarref<br>
+            L-9772 Troine (Wincrange)<br>
+            Grand Duché du Luxembourg</p>
+            <p class="footer-tax">TVA : LU26788289<br>
+            MATRICULE : 20142345295</p>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4 id="footer-title-2">Service client</h4>
+          <div class="footer-column-content" id="footer-content-2">
+            {* Contenu de la colonne 2 *}
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4 id="footer-title-3">Nos magasins partenaires</h4>
+          <div class="footer-column-content" id="footer-content-3">
+            {* Contenu de la colonne 3 *}
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4 id="footer-title-4">Liens utiles</h4>
+          <div class="footer-column-content" id="footer-content-4">
+            {* Contenu de la colonne 4 *}
+          </div>
+        </div>
+      </div>
+
       <div class="col-md-12 text-center footer-copyright">
         <p class="text-sm-center">
           {block name='copyright_link'}
