@@ -483,64 +483,59 @@
   padding: 0 15px;
   
   h4 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 30px;
     color: $color-custom-black;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
     position: relative;
+    text-align: center;
     
-    &#footer-title-1 {
-      font-weight: 500;
-      white-space: nowrap;
-      letter-spacing: -0.2px;
-      
-      span {
-        font-weight: bolder;
-        font-style: italic;
-        display: inline-block;
-        margin-left: -1px;
-      }
-      
-      @media (max-width: $breakpoint-md) {
-        display: flex;
-        align-items: center;
-        
-        span {
-          margin-left: -1px;
-          padding-left: 0;
-        }
-        
-        &:after {
-          margin-left: auto;
-        }
-      }
+    // Spécifique au title-3 (Nos magasins partenaires)
+    &#footer-title-3 {
+      text-align: left;
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+    
+    // Spécifique au title-4 (Liens utiles)
+    &#footer-title-4 {
+      text-align: left;
+      font-size: 20px;
+      margin-bottom: 25px;
     }
     
     @media (max-width: $breakpoint-md) {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
-      margin: 0;
-      border-bottom: 1px solid $color-custom-gray;
+      margin-bottom: 0;
+      padding: 15px 0;
+      cursor: pointer;
+      border-bottom: 1px solid #e5e5e5;
+      font-size: 16px !important; // Force la même taille pour tous les titres en mode mobile
+      text-align: left !important; // Force l'alignement à gauche pour tous les titres
+      width: 100%;
       
-      &.expanded {
-        border-bottom: none;
+      &#footer-title-1, &#footer-title-2, &#footer-title-3, &#footer-title-4 {
+        margin-bottom: 0;
+        font-size: 16px !important;
+        text-align: left !important;
       }
       
       &:after {
-        content: '';
-        display: inline-block;
-        width: 12px;
-        height: 12px;
-        border-right: 2px solid #232323;
-        border-bottom: 2px solid #232323;
-        transform: rotate(45deg);
+        content: "";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        background-repeat: no-repeat;
+        background-position: center;
         transition: transform 0.3s ease;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+        background-size: contain;
       }
       
-      &.expanded:after {
-        transform: rotate(-135deg);
+      &.active:after {
+        transform: translateY(-50%) rotate(180deg);
       }
     }
   }
@@ -658,12 +653,139 @@
       line-height: 1.4;
       text-align: center;
     }
+    
+    // Styles pour la section Nos magasins partenaires
+    .footer-stores-intro {
+      font-size: 14px;
+      color: $color-custom-gray;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      text-align: left;
+    }
+    
+    .footer-store {
+      margin-bottom: 20px;
+      text-align: left;
+      
+      .store-name {
+        font-size: 15px;
+        font-weight: 600;
+        color: $color-custom-gray;
+        margin-bottom: 3px;
+      }
+      
+      .store-address {
+        font-size: 14px;
+        color: $color-custom-gray;
+        line-height: 1.4;
+      }
+    }
+    
+    .footer-stores-btn {
+      margin: 15px 0;
+      text-align: left;
+      
+      .btn-stores {
+        display: inline-block;
+        background-color: $color-custom-whiteDarker;
+        color: $color-custom-black;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 12px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        border: 1px solid $color-custom-black;
+        transition: all 0.2s ease;
+        width: auto;
+        text-align: center;
+        
+        &:hover {
+          background-color: $color-custom-black;
+          color: white;
+        }
+      }
+    }
+    
+    // Styles pour la section Liens utiles
+    .footer-links {
+      list-style: disc;
+      padding-left: 20px;
+      margin: 0;
+      text-align: left;
+      
+      li {
+        margin-bottom: 10px;
+        padding-left: 5px;
+        
+        a {
+          font-size: 14px;
+          color: $color-custom-gray;
+          text-decoration: none;
+          transition: color 0.2s ease;
+          
+          &:hover {
+            color: $color-custom-blue;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
   
   @media (max-width: $breakpoint-md) {
     width: 100%;
     margin-bottom: 0;
     text-align: left;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .footer-container {
+    padding: 0;
+    
+    .footer-column {
+      width: 100%;
+      margin-bottom: 0;
+      
+      h4 {
+        padding: 15px;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        border-bottom: 1px solid #e5e5e5;
+        position: relative;
+        text-align: left;
+        
+        &:after {
+          content: "";
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 16px;
+          height: 16px;
+          background-repeat: no-repeat;
+          background-position: center;
+          transition: transform 0.3s ease;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+          background-size: contain;
+        }
+        
+        &.active:after {
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+    }
+    
+    .footer-column-content {
+      display: none;
+      padding: 15px;
+      background-color: $color-custom-whiteDarker;
+      
+      &.expanded {
+        display: block;
+      }
+    }
   }
 }
 /* END LISTE FOOTER */

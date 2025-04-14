@@ -191,14 +191,45 @@
         <div class="footer-column">
           <h4 id="footer-title-3">Nos magasins partenaires</h4>
           <div class="footer-column-content" id="footer-content-3">
-            {* Contenu de la colonne 3 *}
+            <p class="footer-stores-intro">
+              Nos magasins partenaires ont la plupart de nos produits et seront disponibles pour répondre à toutes vos questions.
+            </p>
+            
+            <div class="footer-store">
+              <p class="store-name">NATURAMedicatrix</p>
+              <p class="store-address">26 avenue Émile Digneffe, 4000 Liège,<br>Belgique</p>
+            </div>
+            
+            <div class="footer-store">
+              <p class="store-name">Pharmacie Matt Anne-Laure</p>
+              <p class="store-address">21 Rue des Jardins, 68110 Illzach,<br>France</p>
+            </div>
+            
+            <div class="footer-store">
+              <p class="store-name">Euro Nutri Santé S.A.</p>
+              <p class="store-address">14 rue de la Libération, L-3510 Dudelange,<br>Luxembourg</p>
+            </div>
+            
+            <div class="footer-stores-btn">
+              <a href="{$urls.pages.stores}" class="btn-stores">Tous nos magasins partenaires</a>
+            </div>
           </div>
         </div>
 
         <div class="footer-column">
           <h4 id="footer-title-4">Liens utiles</h4>
           <div class="footer-column-content" id="footer-content-4">
-            {* Contenu de la colonne 4 *}
+            <ul class="footer-links">
+              <li><a href="{$urls.pages.category}">Catégories</a></li>
+              <li><a href="{$urls.pages.new_products}">Nouveautés</a></li>
+              <li><a href="{$urls.pages.prices_drop}">Bonnes affaires</a></li>
+              <li><a href="{$urls.pages.cms|cat:'/5'}">Catalogues</a></li>
+              <li><a href="{$urls.pages.cms|cat:'/6'}">Blog</a></li>
+              <li><a href="{$urls.pages.manufacturer}">Nos marques</a></li>
+              <li><a href="{$urls.pages.stores}">Points de vente</a></li>
+              <li><a href="{$urls.pages.cms|cat:'/7'}">Offres d'emploi</a></li>
+              <li><a href="{$urls.pages.cms|cat:'/8'}">Certificat bio</a></li>
+            </ul>
           </div>
         </div>
       </div>
