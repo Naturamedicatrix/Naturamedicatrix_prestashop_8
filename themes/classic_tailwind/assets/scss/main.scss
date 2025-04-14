@@ -33,3 +33,21 @@ html, body {
   }
 }
 // End responsive container
+
+
+// Bouton d'action
+.custom-btn-action {
+  background-color: $color-custom-black !important;
+  color: $color-custom-white !important;
+  font-size: 15px;
+  padding: 0 1.5rem;
+  font-weight: bolder;
+  border: none;
+  border-radius: 0 0.2rem 0.2rem 0;
+  cursor: pointer;
+  width: 145px;
+  
+  &:hover {
+    background-color: $color-custom-blackHover !important;
+  }
+}

@@ -364,19 +364,6 @@
         right: 8px;
         top: 8px;
         bottom: 8px;
-        background-color: $color-custom-black;
-        color: $color-custom-white;
-        padding: 0 1.5rem;
-        font-weight: bolder;
-        font-size: 15px;
-        border: none;
-        border-radius: 0 0.2rem 0.2rem 0;
-        cursor: pointer;
-        width: 145px;
-        
-        &:hover {
-          background-color: $color-custom-blackHover;
-        }
         
         @media (max-width: $breakpoint-md) {
           position: static;
