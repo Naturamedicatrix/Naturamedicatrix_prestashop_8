@@ -460,8 +460,6 @@
   }
 }
 
-
-
 /* LISTE FOOTER */
 .footer-columns {
   display: flex;
@@ -478,9 +476,33 @@
   }
 }
 
-.footer-columns .footer-column {
-  width: 25%;
-  padding: 0 15px;
+.footer-column {
+  width: 23%;
+  margin-bottom: 30px;
+  &:nth-child(1) {
+    padding-left: 140px;
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    // Ajuster l'espacement horizontal pour un meilleur équilibre
+    &:nth-child(1) {
+      padding-right: 0;
+    }
+    
+    &:nth-child(2) {
+      padding-left: 0; 
+      padding-right: 20px;
+    }
+    
+    &:nth-child(3) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    
+    &:nth-child(4) {
+      padding-left: 20px;
+    }
+  }
   
   h4 {
     color: $color-custom-black;
@@ -490,14 +512,12 @@
     position: relative;
     text-align: center;
     
-    // Spécifique au title-3 (Nos magasins partenaires)
     &#footer-title-3 {
       text-align: left;
       font-size: 20px;
       margin-bottom: 25px;
     }
     
-    // Spécifique au title-4 (Liens utiles)
     &#footer-title-4 {
       text-align: left;
       font-size: 20px;
@@ -509,8 +529,8 @@
       padding: 15px 0;
       cursor: pointer;
       border-bottom: 1px solid #e5e5e5;
-      font-size: 16px !important; // Force la même taille pour tous les titres en mode mobile
-      text-align: left !important; // Force l'alignement à gauche pour tous les titres
+      font-size: 16px !important; 
+      text-align: left !important; 
       width: 100%;
       
       &#footer-title-1, &#footer-title-2, &#footer-title-3, &#footer-title-4 {
@@ -543,27 +563,23 @@
   .footer-column-content {
     @media (max-width: $breakpoint-md) {
       display: block;
-      padding: 0 15px;
+      padding: 15px;
       max-height: 0;
       overflow: hidden;
       opacity: 0;
       transform: translateY(-10px);
       transition: max-height 0.4s ease-in-out, 
                   opacity 0.3s ease-in-out, 
-                  transform 0.3s ease-in-out,
-                  padding 0.4s ease-in-out;
-      
+                  transform 0.3s ease-in-out;
+                  
       &.expanded {
-        max-height: 500px;
+        max-height: 1000px;
         opacity: 1;
         transform: translateY(0);
-        padding: 10px 15px 15px;
-        border-bottom: 1px solid $color-custom-gray;
-        margin-bottom: 0;
+        padding: 15px;
       }
     }
     
-    // Style pour le contenu des adresses
     .footer-address {
       margin-bottom: 5px;
       font-size: 14px;
@@ -582,7 +598,6 @@
       margin: 12px 0 20px 0;
     }
     
-    // Styles pour la section Service client
     .footer-phone {
       margin-bottom: 8px;
       position: relative;
@@ -654,7 +669,6 @@
       text-align: center;
     }
     
-    // Styles pour la section Nos magasins partenaires
     .footer-stores-intro {
       font-size: 14px;
       color: $color-custom-gray;
@@ -706,7 +720,6 @@
       }
     }
     
-    // Styles pour la section Liens utiles
     .footer-links {
       list-style: disc;
       padding-left: 20px;
@@ -746,15 +759,24 @@
     .footer-column {
       width: 100%;
       margin-bottom: 0;
+      padding-left: 0 !important; 
+      padding-right: 0 !important;
       
       h4 {
         padding: 15px;
         margin: 0;
-        font-size: 16px;
+        font-size: 16px !important;
         font-weight: 600;
         border-bottom: 1px solid #e5e5e5;
         position: relative;
-        text-align: left;
+        text-align: left !important; 
+        
+        &#footer-title-1, &#footer-title-2, &#footer-title-3, &#footer-title-4 {
+          text-align: left !important;
+          font-size: 16px !important;
+          margin-bottom: 0;
+          padding: 15px;
+        }
         
         &:after {
           content: "";
@@ -784,6 +806,23 @@
       
       &.expanded {
         display: block;
+      }
+      
+      .footer-address, .footer-tax, .footer-email, .footer-contact-btn, 
+      .footer-contact-text, .footer-stores-intro, .footer-store,
+      .footer-stores-btn, .footer-links {
+        text-align: left !important;
+        padding-left: 0;
+      }
+      
+      .footer-phone {
+        justify-content: flex-start;
+        
+        .phone-main, .phone-secondary {
+          min-width: auto;
+          text-align: left;
+          padding-right: 8px;
+        }
       }
     }
   }
