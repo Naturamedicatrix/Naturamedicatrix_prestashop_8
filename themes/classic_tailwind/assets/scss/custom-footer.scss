@@ -458,3 +458,17 @@
     width: 48%;
   }
 }
+
+/* COPYRIGHT */
+.footer-copyright {
+  text-align: center;
+  margin: 20px auto;
+  
+  p {
+    font-size: 14px;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 12px;
+    }
+  }
+}
