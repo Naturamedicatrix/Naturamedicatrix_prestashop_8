@@ -75,13 +75,16 @@
     <div class="social-icons-block">
       <div class="social-title">{l s='Nos réseaux sociaux' d='Shop.Theme.Global'}</div>
       <div class="social-icons">
-        <a href="https://www.facebook.com/profile.php?id=61559694586944" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=61559694586944" target="_blank" rel="noopener noreferrer"
+          aria-label="Facebook">
           <i class="bi bi-facebook"></i>
         </a>
-        <a href="https://www.instagram.com/naturamedicatrix_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://www.instagram.com/naturamedicatrix_/" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram">
           <i class="bi bi-instagram"></i>
         </a>
-        <a href="https://www.youtube.com/channel/UCLficPRJRt4fuz6xm8v1-oA" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <a href="https://www.youtube.com/channel/UCLficPRJRt4fuz6xm8v1-oA" target="_blank" rel="noopener noreferrer"
+          aria-label="YouTube">
           <i class="bi bi-youtube"></i>
         </a>
       </div>
@@ -115,13 +118,16 @@
       <div class="mobile-bottom-right">
         <div class="mobile-social-title">{l s='Nos réseaux sociaux' d='Shop.Theme.Global'}</div>
         <div class="mobile-social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61559694586944" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61559694586944" target="_blank" rel="noopener noreferrer"
+            aria-label="Facebook">
             <i class="bi bi-facebook"></i>
           </a>
-          <a href="https://www.instagram.com/naturamedicatrix_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/naturamedicatrix_/" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram">
             <i class="bi bi-instagram"></i>
           </a>
-          <a href="https://www.youtube.com/channel/UCLficPRJRt4fuz6xm8v1-oA" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <a href="https://www.youtube.com/channel/UCLficPRJRt4fuz6xm8v1-oA" target="_blank" rel="noopener noreferrer"
+            aria-label="YouTube">
             <i class="bi bi-youtube"></i>
           </a>
         </div>
@@ -137,7 +143,8 @@
       {* LIST FOOTER *}
       <div class="footer-columns">
         <div class="footer-column">
-          <h4 id="footer-title-1"><span class="natura-light">NATURA</span><span class="medicatrix-bold">Medicatrix</span></h4>
+          <h4 id="footer-title-1"><span class="natura-light">NATURA</span><span
+              class="medicatrix-bold">Medicatrix</span></h4>
           <div class="footer-column-content" id="footer-content-1">
             <p class="footer-address"><strong>Maison mère — Siège social</strong><br>
               22, route des Fagnes<br>
@@ -191,24 +198,25 @@
           <h4 id="footer-title-3">Nos magasins partenaires</h4>
           <div class="footer-column-content" id="footer-content-3">
             <p class="footer-stores-intro">
-              Nos magasins partenaires ont la plupart de nos produits et seront disponibles pour répondre à toutes vos questions.
+              Nos magasins partenaires ont la plupart de nos produits et seront disponibles pour répondre à toutes vos
+              questions.
             </p>
-            
+
             <div class="footer-store">
               <p class="store-name">NATURAMedicatrix</p>
               <p class="store-address">26 avenue Émile Digneffe, 4000 Liège,<br>Belgique</p>
             </div>
-            
+
             <div class="footer-store">
               <p class="store-name">Pharmacie Matt Anne-Laure</p>
               <p class="store-address">21 Rue des Jardins, 68110 Illzach,<br>France</p>
             </div>
-            
+
             <div class="footer-store">
               <p class="store-name">Euro Nutri Santé S.A.</p>
               <p class="store-address">14 rue de la Libération, L-3510 Dudelange,<br>Luxembourg</p>
             </div>
-            
+
             <div class="footer-stores-btn">
               <a href="{$urls.pages.stores}" class="btn-stores">Tous nos magasins partenaires</a>
             </div>
@@ -233,8 +241,27 @@
         </div>
       </div>
 
-      {* PAYMENT METHODS *}
-      <div class="footer-payment">
+      {* PAYMENT METHODS AND LINKS ROW *}
+      <div class="footer-bottom-row">
+        <div class="container">
+          <div class="footer-links-payment-wrapper">
+            <div class="footer-bottom-links">
+              <a href="{$link->getCMSLink(3)}" class="footer-bottom-link">{l s='Conditions générales de vente' d='Shop.Theme.Global'}</a>
+              <a href="{$link->getCMSLink(2)}" class="footer-bottom-link">{l s='Mentions légales' d='Shop.Theme.Global'}</a>
+              <a href="{$link->getCMSLink(1)}" class="footer-bottom-link">{l s='Livraison, frais de port et retours' d='Shop.Theme.Global'}</a>
+              <a href="{$link->getCMSLink(5)}" class="footer-bottom-link">{l s='Modes de paiement' d='Shop.Theme.Global'}</a>
+            </div>
+            <div class="footer-payment-logos">
+              <img src="{$urls.base_url}themes/classic_tailwind/assets/img/credit_card/alma.svg" alt="Alma" class="payment-logo">
+              <img src="{$urls.base_url}themes/classic_tailwind/assets/img/credit_card/bancontact.svg" alt="Bancontact" class="payment-logo">
+              <img src="{$urls.base_url}themes/classic_tailwind/assets/img/credit_card/visa.svg" alt="Visa" class="payment-logo">
+              <img src="{$urls.base_url}themes/classic_tailwind/assets/img/credit_card/paypal.svg" alt="PayPal" class="payment-logo">
+              <img src="{$urls.base_url}themes/classic_tailwind/assets/img/credit_card/mastercard.svg" alt="MasterCard" class="payment-logo">
+              <img src="{$urls.base_url}themes/classic_tailwind/assets/img/credit_card/payconiq.svg" alt="Payconiq" class="payment-logo">
+              <img src="{$urls.base_url}themes/classic_tailwind/assets/img/credit_card/applepay.svg" alt="Apple Pay" class="payment-logo">
+            </div>
+          </div>
+        </div>
       </div>
 
       {* COPYRIGHT *}
