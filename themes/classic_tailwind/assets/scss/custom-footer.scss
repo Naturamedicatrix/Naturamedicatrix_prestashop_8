@@ -303,7 +303,7 @@
         }
         
         h4 {
-          font-size: 20px;
+          font-size: 25px;
           font-weight: bolder;
           color: $color-custom-black;
           margin: 0;
@@ -403,7 +403,7 @@
     width: 25%;
     
     .social-title {
-      font-size: 0.9rem;
+      font-size: 18px;
       color: $color-custom-black;
       font-weight: bolder;
     }
@@ -955,7 +955,7 @@
   .footer-payment-logos {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     
     @media (max-width: 1100px) {
       justify-content: center;
