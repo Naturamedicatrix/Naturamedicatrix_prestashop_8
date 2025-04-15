@@ -1,6 +1,5 @@
 /**
  * Footer Accordion Mobile Script
- * For classic_tailwind theme by Jordan Morlet (itdev@naturamedicatrix.lu)
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -11,30 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
   function initAccordion() {
     const isSmallScreen = window.innerWidth <= 1200;
     
-    // Ajouter ou supprimer les écouteurs d'événements en fonction de la taille d'écran
+    // Ajoute ou supprime les listeners en fonction de la size de l'écran
     titles.forEach((title, index) => {
-      // Récupérer le contenu associé
       const contentId = 'footer-content-' + title.id.split('-')[2];
       const content = document.getElementById(contentId);
       
       if (isSmallScreen) {
         // Mode accordéon pour petit écran
         
-        // S'assurer que tous les contenus sont masqués initialement
         if (!title.classList.contains('active')) {
           content.classList.remove('expanded');
           content.style.display = 'none';
         }
-        
-        // Ajouter l'écouteur d'événement s'il n'existe pas déjà
+
         if (!title.hasEventListener) {
           title.addEventListener('click', toggleAccordion);
           title.hasEventListener = true;
         }
       } else {
         // Mode normal pour grand écran
-        
-        // S'assurer que tous les contenus sont visibles
         content.classList.remove('expanded');
         content.style.display = 'block';
         title.classList.remove('active');
@@ -42,21 +36,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Fonction pour gérer le clic sur un titre
+  // Fonction pour afficher l'accordéon
   function toggleAccordion() {
-    // Récupérer l'ID du contenu associé
     const contentId = 'footer-content-' + this.id.split('-')[2];
     const content = document.getElementById(contentId);
     
-    // Toggle des classes pour le titre et le contenu
     this.classList.toggle('active');
     
-    // Toggle de l'affichage du contenu
+    // Affiche le content
     if (content.style.display === 'none' || content.style.display === '') {
       content.style.display = 'block';
       content.classList.add('expanded');
       
-      // Fermer les autres accordéons
+      // Ferme les autres contenus (accordéons)
       titles.forEach(otherTitle => {
         if (otherTitle !== this) {
           const otherContentId = 'footer-content-' + otherTitle.id.split('-')[2];
@@ -72,9 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Initialiser l'accordéon au chargement de la page
+  // Initialise l'accordéon au chargement de la page
   initAccordion();
   
-  // Réinitialiser l'accordéon lors du redimensionnement de la fenêtre
+  // Réinitialise l'accordéon lors du redimensionnement de la fenêtre
   window.addEventListener('resize', initAccordion);
 });

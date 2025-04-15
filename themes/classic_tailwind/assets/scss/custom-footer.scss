@@ -9,7 +9,7 @@
 .custom-footer-container {
   width: 100%;
   background-color: $color-custom-whiteDarker;
-  padding: 2rem 0;
+  padding: 4rem 0 0 0;
 }
 
 /* VERSION DESKTOP/MOBILE DISPLAY */
@@ -227,7 +227,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 15%;
+    width: 17%;
     
     .rating-value {
       font-size: 3rem;
@@ -278,6 +278,7 @@
         align-items: center;
         justify-content: center;
         margin-bottom: .7rem;
+        margin-top: 20px;
         
         @media (max-width: $breakpoint-md) {
           flex-direction: column;
@@ -306,7 +307,6 @@
           font-weight: bolder;
           color: $color-custom-black;
           margin: 0;
-          line-height: 1.2;
           
           @media (max-width: $breakpoint-md) {
             font-size: 16px;
@@ -400,7 +400,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    width: 15%;
+    width: 25%;
     
     .social-title {
       font-size: 0.9rem;
@@ -512,6 +512,20 @@
     position: relative;
     text-align: center;
     
+    &#footer-title-1 {
+      // Style spécifique pour le titre NATURAMedicatrix
+      .natura-light {
+        font-weight: 300; // Police légère pour NATURA
+        letter-spacing: 0.5px;
+      }
+      
+      .medicatrix-bold {
+        font-weight: 700; // Police grasse pour Medicatrix
+        font-style: italic; // Italique pour Medicatrix
+        margin-left: -1px; // Ajustement de l'espacement
+      }
+    }
+    
     &#footer-title-3 {
       text-align: left;
       font-size: 20px;
@@ -606,8 +620,8 @@
       justify-content: center;
       
       .phone-main, .phone-secondary {
-        min-width: 150px;
-        text-align: right;
+        min-width: 130px;
+        text-align: center;
         padding-right: 8px;
       }
       
@@ -737,8 +751,10 @@
           transition: color 0.2s ease;
           
           &:hover {
-            color: $color-custom-blue;
-            text-decoration: underline;
+            font-weight: bolder;
+          }
+          &:active {
+            font-weight: bolder;
           }
         }
       }
@@ -752,7 +768,6 @@
   }
 }
 
-/* Supprimer complètement les styles pour les tailles intermédiaires */
 @media (min-width: 769px) and (max-width: 1200px) {
   /* Styles supprimés car remplacés par l'accordéon */
 }
@@ -834,7 +849,7 @@
       
       .footer-address, .footer-tax, .footer-email, .footer-contact-btn, 
       .footer-contact-text, .footer-stores-intro, .footer-store,
-      .footer-stores-btn, .footer-links {
+      .footer-stores-btn {
         text-align: left !important;
         padding-left: 0;
       }

@@ -75,13 +75,13 @@
     <div class="social-icons-block">
       <div class="social-title">{l s='Nos réseaux sociaux' d='Shop.Theme.Global'}</div>
       <div class="social-icons">
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=61559694586944" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <i class="bi bi-facebook"></i>
         </a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://www.instagram.com/naturamedicatrix_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <i class="bi bi-instagram"></i>
         </a>
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <a href="https://www.youtube.com/channel/UCLficPRJRt4fuz6xm8v1-oA" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <i class="bi bi-youtube"></i>
         </a>
       </div>
@@ -97,7 +97,7 @@
       {hook h='displayFooterBefore'}
     </div>
 
-    {* BLOC RATING ET RÉSEAUX SOCIAUX CÔTE À CÔTE *}
+    {* BLOC RATING & SOCIAL *}
     <div class="mobile-bottom-row">
       {* BLOC GAUCHE - RATING *}
       <div class="mobile-bottom-left">
@@ -115,13 +115,13 @@
       <div class="mobile-bottom-right">
         <div class="mobile-social-title">{l s='Nos réseaux sociaux' d='Shop.Theme.Global'}</div>
         <div class="mobile-social-icons">
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61559694586944" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <i class="bi bi-facebook"></i>
           </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/naturamedicatrix_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <i class="bi bi-instagram"></i>
           </a>
-          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <a href="https://www.youtube.com/channel/UCLficPRJRt4fuz6xm8v1-oA" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
             <i class="bi bi-youtube"></i>
           </a>
         </div>
@@ -130,7 +130,6 @@
   </div>
 </div>
 
-{* Copyright section only *}
 <div class="footer-container">
   <div class="container">
     <div class="row">
@@ -138,7 +137,7 @@
       {* LIST FOOTER *}
       <div class="footer-columns">
         <div class="footer-column">
-          <h4 id="footer-title-1">NATURA<span>Medicatrix</span></h4>
+          <h4 id="footer-title-1"><span class="natura-light">NATURA</span><span class="medicatrix-bold">Medicatrix</span></h4>
           <div class="footer-column-content" id="footer-content-1">
             <p class="footer-address"><strong>Maison mère — Siège social</strong><br>
               22, route des Fagnes<br>
@@ -234,6 +233,11 @@
         </div>
       </div>
 
+      {* PAYMENT METHODS *}
+      <div class="footer-payment">
+      </div>
+
+      {* COPYRIGHT *}
       <div class="col-md-12 text-center footer-copyright">
         <p class="text-sm-center">
           {block name='copyright_link'}
