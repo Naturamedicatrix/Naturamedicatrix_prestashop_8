@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /** === PAGE AUTHENTICATION === */
 #authentication #wrapper {
   background: linear-gradient(to right, white 50%, #F9FAFB 50%);
@@ -107,7 +106,7 @@
 }
 #authentication #login-page .login-columns .left-column .login-form .forgot-password {
   text-align: right;
-  margin: 0 0 20px 0;
+  margin: 0;
   width: 100%;
   max-width: 400px;
 }
@@ -122,10 +121,17 @@
 #authentication #login-page .login-columns .left-column .login-form .form-footer {
   width: 100%;
   max-width: 400px;
-  text-align: center;
+  text-align: left !important;
 }
 #authentication #login-page .login-columns .right-column {
   background-color: #F9FAFB;
+}
+#authentication #login-page .login-columns .right-column h1 {
+  margin-bottom: 3rem;
+}
+#authentication #login-page .login-columns .right-column .register-info {
+  width: 50%;
+  margin-left: 200px;
 }
 #authentication #login-page .login-columns .right-column .register-info p {
   margin-bottom: 1rem;
@@ -133,18 +139,16 @@
 #authentication #login-page .login-columns .right-column .register-info ul {
   margin-bottom: 2rem;
   padding-left: 1.5rem;
+  list-style-type: disc;
 }
 #authentication #login-page .login-columns .right-column .register-info ul li {
   margin-bottom: 0.5rem;
   position: relative;
 }
 #authentication #login-page .login-columns .right-column .register-info ul li:before {
-  content: "✓";
-  color: green;
-  position: absolute;
-  left: -1.5rem;
+  content: none;
 }
 #authentication #login-page .login-columns .right-column .register-info .create-account-button {
-  text-align: center;
+  text-align: left;
   margin-top: 2rem;
 }

@@ -127,7 +127,7 @@
           
           .forgot-password {
             text-align: right;
-            margin: 0 0 20px 0;
+            margin: 0;
             width: 100%;
             max-width: 400px;
             
@@ -145,15 +145,20 @@
           .form-footer {
             width: 100%;
             max-width: 400px;
-            text-align: center;
+            text-align: left !important;
           }
         }
       }
       
       // Colonne de droite (inscription)
       .right-column {
+        h1 {
+          margin-bottom: 3rem;
+        }
         background-color: $color-custom-bgLight;
         .register-info {
+          width: 50%;
+          margin-left: 200px;
           p {
             margin-bottom: 1rem;
           }
@@ -161,22 +166,20 @@
           ul {
             margin-bottom: 2rem;
             padding-left: 1.5rem;
+            list-style-type: disc;
             
             li {
               margin-bottom: 0.5rem;
               position: relative;
               
               &:before {
-                content: "✓";
-                color: green;
-                position: absolute;
-                left: -1.5rem;
+                content: none;
               }
             }
           }
           
           .create-account-button {
-            text-align: center;
+            text-align: left;
             margin-top: 2rem;
           }
         }
