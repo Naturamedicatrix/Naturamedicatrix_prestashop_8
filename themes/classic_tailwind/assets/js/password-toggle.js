@@ -1,21 +1,21 @@
 /**
- * Password toggle functionality
- * Allows users to show/hide password field content
+ * Fonction pour permettre d'afficher ou masquer le champ d'un password
+ * Change l'icone et le texte selon l'état
  */
 document.addEventListener('DOMContentLoaded', function() {
-  // Sélectionner tous les boutons de basculement de mot de passe
+  // sélectionne les btn password
   const toggleButtons = document.querySelectorAll('.password-toggle-btn');
   
-  // Ajouter un gestionnaire d'événements à chaque bouton
+  // Ajoute la gestion d'event sur chaque btn password
   toggleButtons.forEach(function(button) {
     button.addEventListener('click', function() {
-      // Trouver l'input associé au bouton
+      // Sélectionne l'input associé au bouton
       const targetId = this.getAttribute('data-target');
       const passwordInput = document.getElementById(targetId);
       const icon = this.querySelector('.password-toggle-icon');
       const text = this.querySelector('.password-toggle-text');
       
-      // Basculer le type de l'input entre 'password' et 'text'
+      // Bascule le type de l'input entre 'password' et 'text'
       if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
         icon.classList.remove('bi-eye');

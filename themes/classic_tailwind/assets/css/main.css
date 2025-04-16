@@ -69,6 +69,12 @@ h1 {
 .primary-btn:hover {
   background-color: #1f2937 !important;
 }
+@media (max-width: 640px) {
+  .primary-btn {
+    min-width: 300px;
+    margin: 0 auto;
+  }
+}
 
 .secondary-btn {
   background-color: #111827 !important;

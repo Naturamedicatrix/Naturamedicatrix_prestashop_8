@@ -3,16 +3,17 @@
 
 #authentication {
   #wrapper {
-    // Desktop uniquement : fond dégradé
+    // Desktop: BACKGROUND GRADIENT
     background: linear-gradient(to right, white 50%, $color-custom-bgLight 50%);
     padding-top: 3rem;
     
-    // Mobile, tablette et petits écrans : fond blanc
+    // Mobile, tablette et petits écrans: BG WHITE
     @media (max-width: $breakpoint-lg) {
       background: white;
     }
   }
-  // Suppression des contraintes du parent
+
+  //Supprime l'héritage du parent
   .page-content.card.card-block {
     max-width: 100%;
     width: 100%;
@@ -41,16 +42,17 @@
         align-items: flex-start;
         justify-content: space-between;
       }
+      
     
       // Style de base pour les colonnes (mobile et tablette)
       .login-column {
         width: 100%;
-        padding: 1.5rem;
+        padding: 1.5rem .5rem;
         border-radius: 8px;
         margin-bottom: 1rem;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         
-        // Desktop uniquement
+        // Desktop
         @media (min-width: $breakpoint-lg) {
           width: calc(50% - 1rem);
           border-radius: 0;
@@ -64,7 +66,7 @@
         background-color: white;
         order: 1; // Par défaut en second (mobile et tablette)
         
-        // Desktop uniquement
+        // Desktop
         @media (min-width: $breakpoint-lg) {
           order: 0; // Revenir à l'ordre normal
         }
@@ -76,15 +78,15 @@
             margin-bottom: 1.5rem;
             display: flex;
             flex-direction: column;
-            align-items: stretch; // Par défaut aligné sur toute la largeur
+            align-items: stretch;
             
-            // Écrans moyens et grands
+            // Tablette et desktop
             @media (min-width: $breakpoint-md) {
               align-items: center;
             }
           }
           
-          // Style spécifique pour le footer du formulaire de connexion
+          // footer du form connexion
           .form-footer {
             width: 100%;
             max-width: 350px;
@@ -102,29 +104,32 @@
         background-color: $color-custom-bgLight;
         order: 0; // Par défaut en premier (mobile et tablette)
         
-        // Desktop uniquement
+        // Desktop
         @media (min-width: $breakpoint-lg) {
           order: 1; // Revenir à l'ordre normal
         }
         
         h1 {
-          // Utilise uniquement les styles de margin, les tailles de police sont définies dans main.scss
           margin-bottom: 2rem;
         }
         
-        // Style de base pour les informations d'inscription (mobile et tablette)
+        //contenu : Informations d'inscription
         .register-info {
           width: 100%;
           max-width: 450px;
           margin: 0 auto;
           padding: 0 1rem;
+
+          @media (max-width: $breakpoint-sm) {
+            padding: 0;
+          }
           
           // Écrans entre tablette et desktop
           @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
             padding: 0 2rem;
           }
           
-          // Desktop uniquement
+          // Desktop
           @media (min-width: $breakpoint-lg) {
             width: 70%;
             max-width: none;
