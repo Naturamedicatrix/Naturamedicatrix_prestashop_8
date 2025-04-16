@@ -35,26 +35,6 @@ html, body {
 // End responsive container
 
 
-// Suppression des contours bleus par défaut
-*:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-// Supprimer spécifiquement le contour bleu des champs de mot de passe
-.input-group.focus {
-  outline: 0 !important;
-  outline-offset: 0 !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  border-color: #e5e5e5 !important;
-  
-  &:after, &:before {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-}
-
 // Typographie
 h1 {
   font-size: 2.5rem;
@@ -79,8 +59,8 @@ h1 {
   cursor: pointer;
   display: inline-block;
   text-align: center;
-  min-width: 250px;
-  padding: 8px 0;
+  min-width: 200px;
+  padding: 10px 0 10px 0;
   text-transform: none;
   
   &:hover {
@@ -115,3 +95,84 @@ h1 {
   }
 }
 // End Bouton d'action
+
+
+
+// FORMS
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  
+  &.row {
+    display: block;
+    margin: 0;
+  }
+  
+  .form-control-label {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    padding: 0;
+    font-weight: 300;
+    color: $color-custom-gray;
+    font-size: 0.9rem;
+  }
+  
+  .js-input-column {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .form-control {
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    padding: 0.5rem 0.75rem;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    
+    &:focus {
+      border-color: $color-custom-gray;
+      outline: none !important;
+      box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      -moz-box-shadow: none !important;
+    }
+  }
+}
+
+.forgot-password {
+  text-align: right !important;
+  margin: 0 !important;;
+  
+  a {
+    color: $color-custom-gray !important;
+    font-size: 0.875rem;
+    text-decoration: underline;
+    
+    &:hover {
+      color: $color-custom-black !important
+    }
+  }
+}
+
+// Supprimer spécifiquement le contour bleu des champs de mot de passe
+.input-group.focus {
+  outline: 0 !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border-color: #e5e5e5 !important;
+  
+  &:after, &:before {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+// END FORMS
