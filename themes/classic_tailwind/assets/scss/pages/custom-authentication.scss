@@ -2,6 +2,9 @@
 /** === PAGE AUTHENTICATION === */
 
 #authentication {
+  #wrapper {
+    background: linear-gradient(to right, white 50%, $color-custom-whiteDarker 50%);
+  }
   // Suppression des contraintes du parent
   .page-content.card.card-block {
     max-width: 100%;
@@ -32,15 +35,12 @@
       .login-column {
         width: 100%;
         padding: 1.5rem;
-        background-color: #f9f9f9;
-        border-radius: 6px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         
         @media (min-width: 768px) {
           width: calc(50% - 1rem);
         }
         
-        h2 {
+        h1 {
           font-size: 1.5rem;
           margin-bottom: 1.5rem;
           color: #25313e;
@@ -50,6 +50,7 @@
       
       // Colonne de gauche (connexion)
       .left-column {
+        background-color: white;
         .login-form {
           width: 100%;
           
@@ -68,8 +69,6 @@
             .form-control {
               width: 100%;
               height: 48px;
-              border: 1px solid #e5e5e5;
-              border-radius: 4px;
               padding: 0.5rem 0.75rem;
             }
           }
@@ -111,6 +110,7 @@
       
       // Colonne de droite (inscription)
       .right-column {
+        background-color: $color-custom-whiteDarker;
         .register-info {
           p {
             margin-bottom: 1rem;

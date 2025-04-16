@@ -1,5 +1,8 @@
 @charset "UTF-8";
 /** === PAGE AUTHENTICATION === */
+#authentication #wrapper {
+  background: linear-gradient(to right, white 50%, #EDEFF1 50%);
+}
 #authentication .page-content.card.card-block {
   max-width: 100%;
   width: 100%;
@@ -27,20 +30,20 @@
 #authentication #login-page .login-columns .login-column {
   width: 100%;
   padding: 1.5rem;
-  background-color: #f9f9f9;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 @media (min-width: 768px) {
   #authentication #login-page .login-columns .login-column {
     width: calc(50% - 1rem);
   }
 }
-#authentication #login-page .login-columns .login-column h2 {
+#authentication #login-page .login-columns .login-column h1 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   color: #25313e;
   text-align: center;
+}
+#authentication #login-page .login-columns .left-column {
+  background-color: white;
 }
 #authentication #login-page .login-columns .left-column .login-form {
   width: 100%;
@@ -58,8 +61,6 @@
 #authentication #login-page .login-columns .left-column .login-form .form-group .form-control {
   width: 100%;
   height: 48px;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
   padding: 0.5rem 0.75rem;
 }
 #authentication #login-page .login-columns .left-column .login-form .forgot-password {
@@ -87,6 +88,9 @@
 }
 #authentication #login-page .login-columns .left-column .login-form .form-footer button.primary-btn:hover {
   background-color: rgb(27.4696969697, 36.3787878788, 46.0303030303);
+}
+#authentication #login-page .login-columns .right-column {
+  background-color: #EDEFF1;
 }
 #authentication #login-page .login-columns .right-column .register-info p {
   margin-bottom: 1rem;

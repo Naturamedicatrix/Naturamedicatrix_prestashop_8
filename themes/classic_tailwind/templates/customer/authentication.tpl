@@ -16,7 +16,7 @@
     <div id="login-page">
       <div class="login-columns">
         <div class="login-column left-column">
-          <h2>{l s='Already have an account?' d='Shop.Theme.Customeraccount'}</h2>
+          <h1>{l s='Already have an account?' d='Shop.Theme.Customeraccount'}</h1>
           <section class="login-form">
             {render file='customer/_partials/login-form.tpl' ui=$login_form}
           </section>
@@ -26,7 +26,7 @@
         </div>
         
         <div class="login-column right-column">
-          <h2>{l s='New customer?' d='Shop.Theme.Customeraccount'}</h2>
+          <h1>{l s='New customer?' d='Shop.Theme.Customeraccount'}</h1>
           <div class="register-info">
             <p>{l s='Creating an account offers many benefits:' d='Shop.Theme.Customeraccount'}</p>
             <ul>
