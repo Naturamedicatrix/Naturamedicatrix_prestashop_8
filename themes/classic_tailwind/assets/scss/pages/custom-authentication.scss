@@ -57,7 +57,7 @@
           // Style spécifique pour le footer du formulaire de connexion
           .form-footer {
             width: 100%;
-            max-width: 400px;
+            max-width: 350px;
             text-align: left !important;
           }
         }
@@ -94,6 +94,10 @@
           .create-account-button {
             text-align: left;
             margin-top: 2rem;
+          }
+
+          @media (max-width: $breakpoint-xl) {
+            margin-left: 0;
           }
         }
       }

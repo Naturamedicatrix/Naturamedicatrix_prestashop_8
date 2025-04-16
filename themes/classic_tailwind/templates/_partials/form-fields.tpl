@@ -134,10 +134,10 @@
       {elseif $field.type === 'password'}
 
         {block name='form_field_item_password'}
-          <div class="input-group js-parent-focus">
+          <div class="password-field-container">
             <input
               id="field-{$field.name}"
-              class="form-control js-child-focus js-visible-password"
+              class="form-control password-input"
               name="{$field.name}"
               aria-label="{l s='Password input' d='Shop.Forms.Help'}"
               type="password"
@@ -149,18 +149,17 @@
               pattern=".{literal}{{/literal}5,{literal}}{/literal}"
               {if $field.required}required{/if}
             >
-            <span class="input-group-btn">
-              <button
-                class="btn"
-                type="button"
-                data-action="show-password"
-                data-text-show="{l s='Show' d='Shop.Theme.Actions'}"
-                data-text-hide="{l s='Hide' d='Shop.Theme.Actions'}"
-              >
-                {l s='Show' d='Shop.Theme.Actions'}
-              </button>
-            </span>
+            <button
+              type="button"
+              class="password-toggle-btn"
+              data-target="field-{$field.name}"
+              aria-label="{l s='Toggle password visibility' d='Shop.Theme.Actions'}"
+            >
+              <i class="bi bi-eye password-toggle-icon"></i>
+              <span class="password-toggle-text">{l s='Afficher' d='Shop.Theme.Actions'}</span>
+            </button>
           </div>
+
         {/block}
 
       {else}

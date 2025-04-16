@@ -151,11 +151,39 @@ h1 {
 .input-group.focus {
   outline: 0 !important;
   outline-offset: 0 !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  border-color: #e5e5e5 !important;
 }
-.input-group.focus:after, .input-group.focus:before {
-  outline: none !important;
-  box-shadow: none !important;
+
+.password-field-container {
+  position: relative;
+  width: 100%;
+}
+.password-field-container .form-control {
+  width: 100%;
+  padding-right: 40px;
+}
+.password-field-container .password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 2;
+}
+.password-field-container .password-toggle-btn:focus {
+  outline: none;
+}
+.password-field-container .password-toggle-icon {
+  color: #4B5563;
+  font-size: 1.2rem;
+}
+.password-field-container .password-toggle-text {
+  color: #4B5563;
+  font-size: 0.85rem;
+  font-weight: 400;
 }

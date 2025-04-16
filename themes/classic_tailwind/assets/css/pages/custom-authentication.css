@@ -49,7 +49,7 @@
 }
 #authentication #login-page .login-columns .left-column .login-form .form-footer {
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   text-align: left !important;
 }
 #authentication #login-page .login-columns .right-column {
@@ -80,4 +80,9 @@
 #authentication #login-page .login-columns .right-column .register-info .create-account-button {
   text-align: left;
   margin-top: 2rem;
+}
+@media (max-width: 1280px) {
+  #authentication #login-page .login-columns .right-column .register-info {
+    margin-left: 0;
+  }
 }

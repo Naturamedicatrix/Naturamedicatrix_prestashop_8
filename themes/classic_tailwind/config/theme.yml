@@ -46,3 +46,6 @@ assets:
       - id: footer-accordion
         path: assets/js/footer-accordion.js
         priority: 35
+      - id: password-toggle
+        path: assets/js/password-toggle.js
+        priority: 40

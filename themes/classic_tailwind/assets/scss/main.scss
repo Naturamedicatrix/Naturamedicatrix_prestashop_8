@@ -166,13 +166,45 @@ h1 {
 .input-group.focus {
   outline: 0 !important;
   outline-offset: 0 !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  border-color: #e5e5e5 !important;
+}
+
+// Champ de mot de passe personnalisé
+.password-field-container {
+  position: relative;
+  width: 100%;
   
-  &:after, &:before {
-    outline: none !important;
-    box-shadow: none !important;
+  .form-control {
+    width: 100%;
+    padding-right: 40px;
+  }
+  
+  .password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 2;
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  .password-toggle-icon {
+    color: $color-custom-gray;
+    font-size: 1.2rem;
+  }
+  
+  .password-toggle-text {
+    color: $color-custom-gray;
+    font-size: 0.85rem;
+    font-weight: 400;
   }
 }
 // END FORMS
