@@ -26,14 +26,13 @@
         </div>
         
         <div class="login-column right-column">
-          <h1>{l s='New customer?' d='Shop.Theme.Customeraccount'}</h1>
+          <h1>{l s='Créer votre compte' d='Shop.Theme.Customeraccount'}</h1>
           <div class="register-info">
-            <p>{l s='Creating an account offers many benefits:' d='Shop.Theme.Customeraccount'}</p>
+            <p>Vous n’avez pas encore de compte client chez nous ? Inscrivez-vous pour profiter de tous les services de notre boutique en ligne :</p>
             <ul>
-              <li>{l s='Faster checkout process' d='Shop.Theme.Customeraccount'}</li>
-              <li>{l s='Save multiple shipping addresses' d='Shop.Theme.Customeraccount'}</li>
-              <li>{l s='Access your order history' d='Shop.Theme.Customeraccount'}</li>
-              <li>{l s='Track new orders' d='Shop.Theme.Customeraccount'}</li>
+              <li>Achat rapide et simplifié</li>
+              <li>Suivi de ma commande</li>
+              <li>Historique de mes achats</li>
             </ul>
             <div class="create-account-button">
               <a href="{$urls.pages.register}" class="primary-btn" data-link-action="display-register-form">

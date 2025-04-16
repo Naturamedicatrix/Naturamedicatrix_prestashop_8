@@ -3,9 +3,8 @@
 /* === ADVANTAGES SECTION === */
 .advantages-container {
   width: 100%;
-  background-color: #F9FAFB;
+  background-color: $color-custom-bgLight;
   padding: 2rem 0;
-  border-top: 3px solid rgba(0, 0, 0, 0.1);
   
   @media (max-width: $breakpoint-md) {
     padding: 1rem 0;

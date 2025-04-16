@@ -35,6 +35,26 @@ html, body {
 // End responsive container
 
 
+// Suppression des contours bleus par défaut
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+// Supprimer spécifiquement le contour bleu des champs de mot de passe
+.input-group.focus {
+  outline: 0 !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border-color: #e5e5e5 !important;
+  
+  &:after, &:before {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
 // Typographie
 h1 {
   font-size: 2.5rem;
