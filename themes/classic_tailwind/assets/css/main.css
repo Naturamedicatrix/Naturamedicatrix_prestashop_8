@@ -41,9 +41,14 @@ h1 {
   text-align: center;
   font-weight: lighter;
 }
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+}
 @media (max-width: 768px) {
   h1 {
-    font-size: 1.25rem;
+    font-size: 2rem;
   }
 }
 
@@ -63,13 +68,6 @@ h1 {
 }
 .primary-btn:hover {
   background-color: #1f2937 !important;
-}
-@media (max-width: 768px) {
-  .primary-btn {
-    font-size: 14px;
-    height: 40px;
-    line-height: 40px;
-  }
 }
 
 .secondary-btn {

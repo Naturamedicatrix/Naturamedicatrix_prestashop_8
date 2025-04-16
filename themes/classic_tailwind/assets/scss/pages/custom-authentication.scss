@@ -3,7 +3,14 @@
 
 #authentication {
   #wrapper {
+    // Desktop uniquement : fond dégradé
     background: linear-gradient(to right, white 50%, $color-custom-bgLight 50%);
+    padding-top: 3rem;
+    
+    // Mobile, tablette et petits écrans : fond blanc
+    @media (max-width: $breakpoint-lg) {
+      background: white;
+    }
   }
   // Suppression des contraintes du parent
   .page-content.card.card-block {
@@ -18,32 +25,50 @@
   #login-page {
     width: 100%;
     
-    // Structure à deux colonnes
+    // Structure de base : colonnes empilées (mobile et tablette)
     .login-columns {
       display: flex;
       flex-direction: column;
       gap: 2rem;
       width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
       
-      // Version mobile : colonnes empilées
-      @media (min-width: 768px) {
+      // Desktop uniquement : colonnes côte à côte
+      @media (min-width: $breakpoint-lg) {
         flex-direction: row;
+        max-width: none;
         align-items: flex-start;
         justify-content: space-between;
       }
-      
+    
+      // Style de base pour les colonnes (mobile et tablette)
       .login-column {
         width: 100%;
         padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         
-        @media (min-width: 768px) {
+        // Desktop uniquement
+        @media (min-width: $breakpoint-lg) {
           width: calc(50% - 1rem);
+          border-radius: 0;
+          margin-bottom: 0;
+          box-shadow: none;
         }
       }
       
       // Colonne de gauche (connexion)
       .left-column {
         background-color: white;
+        order: 1; // Par défaut en second (mobile et tablette)
+        
+        // Desktop uniquement
+        @media (min-width: $breakpoint-lg) {
+          order: 0; // Revenir à l'ordre normal
+        }
+        
         .login-form {
           width: 100%;
           
@@ -51,7 +76,12 @@
             margin-bottom: 1.5rem;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: stretch; // Par défaut aligné sur toute la largeur
+            
+            // Écrans moyens et grands
+            @media (min-width: $breakpoint-md) {
+              align-items: center;
+            }
           }
           
           // Style spécifique pour le footer du formulaire de connexion
@@ -59,19 +89,48 @@
             width: 100%;
             max-width: 350px;
             text-align: left !important;
+
+            @media (max-width: $breakpoint-sm) {
+             text-align: center !important;
+            }
           }
         }
       }
       
       // Colonne de droite (inscription)
       .right-column {
-        h1 {
-          margin-bottom: 3rem;
-        }
         background-color: $color-custom-bgLight;
+        order: 0; // Par défaut en premier (mobile et tablette)
+        
+        // Desktop uniquement
+        @media (min-width: $breakpoint-lg) {
+          order: 1; // Revenir à l'ordre normal
+        }
+        
+        h1 {
+          // Utilise uniquement les styles de margin, les tailles de police sont définies dans main.scss
+          margin-bottom: 2rem;
+        }
+        
+        // Style de base pour les informations d'inscription (mobile et tablette)
         .register-info {
-          width: 50%;
-          margin-left: 200px;
+          width: 100%;
+          max-width: 450px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          
+          // Écrans entre tablette et desktop
+          @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+            padding: 0 2rem;
+          }
+          
+          // Desktop uniquement
+          @media (min-width: $breakpoint-lg) {
+            width: 70%;
+            max-width: none;
+            margin: 0 auto 0 15%;
+            padding: 0;
+          }
           p {
             margin-bottom: 1rem;
           }
@@ -91,13 +150,25 @@
             }
           }
           
+          // Style de base pour le bouton (mobile et tablette)
           .create-account-button {
-            text-align: left;
+            text-align: center;
             margin-top: 2rem;
-          }
-
-          @media (max-width: $breakpoint-xl) {
-            margin-left: 0;
+            
+            .btn {
+              width: 100%;
+              max-width: 300px;
+            }
+            
+            // Écrans moyens et grands
+            @media (min-width: $breakpoint-md) {
+              text-align: left;
+              
+              .btn {
+                width: auto;
+                max-width: none;
+              }
+            }
           }
         }
       }
