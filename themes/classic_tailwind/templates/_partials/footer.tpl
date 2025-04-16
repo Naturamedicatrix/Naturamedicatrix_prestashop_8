@@ -184,7 +184,7 @@
             </p>
 
             <div class="footer-contact-btn">
-              <a href="{$urls.pages.contact}" class="btn-contact custom-btn-action">Contactez-nous</a>
+              <a href="{$urls.pages.contact}" class="btn-contact secondary-btn">Contactez-nous</a>
             </div>
 
             <p class="footer-contact-text">

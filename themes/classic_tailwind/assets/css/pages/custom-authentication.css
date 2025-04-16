@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/** === PAGE AUTHENTICATION === */
+#authentication .page-content.card.card-block {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+#authentication #login-page {
+  width: 100%;
+}
+#authentication #login-page .login-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  #authentication #login-page .login-columns {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+#authentication #login-page .login-columns .login-column {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+@media (min-width: 768px) {
+  #authentication #login-page .login-columns .login-column {
+    width: calc(50% - 1rem);
+  }
+}
+#authentication #login-page .login-columns .login-column h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #25313e;
+  text-align: center;
+}
+#authentication #login-page .login-columns .left-column .login-form {
+  width: 100%;
+}
+#authentication #login-page .login-columns .left-column .login-form form {
+  margin-bottom: 1.5rem;
+}
+#authentication #login-page .login-columns .left-column .login-form .form-group {
+  margin-bottom: 1.25rem;
+}
+#authentication #login-page .login-columns .left-column .login-form .form-group .form-control-label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+#authentication #login-page .login-columns .left-column .login-form .form-group .form-control {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+}
+#authentication #login-page .login-columns .left-column .login-form .forgot-password {
+  text-align: right;
+  margin-bottom: 1.5rem;
+}
+#authentication #login-page .login-columns .left-column .login-form .forgot-password a {
+  color: #7a7a7a;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+#authentication #login-page .login-columns .left-column .login-form .forgot-password a:hover {
+  text-decoration: underline;
+}
+#authentication #login-page .login-columns .left-column .login-form .form-footer button.primary-btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #25313e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#authentication #login-page .login-columns .left-column .login-form .form-footer button.primary-btn:hover {
+  background-color: rgb(27.4696969697, 36.3787878788, 46.0303030303);
+}
+#authentication #login-page .login-columns .right-column .register-info p {
+  margin-bottom: 1rem;
+}
+#authentication #login-page .login-columns .right-column .register-info ul {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+#authentication #login-page .login-columns .right-column .register-info ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+#authentication #login-page .login-columns .right-column .register-info ul li:before {
+  content: "✓";
+  color: green;
+  position: absolute;
+  left: -1.5rem;
+}
+#authentication #login-page .login-columns .right-column .register-info .create-account-button {
+  text-align: center;
+  margin-top: 2rem;
+}
+#authentication #login-page .login-columns .right-column .register-info .create-account-button a.primary-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #25313e;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+#authentication #login-page .login-columns .right-column .register-info .create-account-button a.primary-btn:hover {
+  background-color: rgb(27.4696969697, 36.3787878788, 46.0303030303);
+}

@@ -30,6 +30,10 @@ assets:
         path: assets/css/custom-footer.css
         media: all
         priority: 65
+      - id: authentication-styles
+        path: assets/css/pages/custom-authentication.css
+        media: all
+        priority: 67
       - id: main-styles
         path: assets/css/main.css
         media: all

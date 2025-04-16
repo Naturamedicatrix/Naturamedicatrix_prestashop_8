@@ -534,6 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.tw-m-0 {
+  margin: 0px;
+}
+
 .tw-my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -545,6 +549,14 @@ video {
 
 .tw-flex {
   display: flex;
+}
+
+.tw-w-full {
+  width: 100%;
+}
+
+.tw-max-w-none {
+  max-width: none;
 }
 
 .tw-flex-wrap {
@@ -567,9 +579,17 @@ video {
   gap: 1rem;
 }
 
+.tw-border-0 {
+  border-width: 0px;
+}
+
 .tw-bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.tw-p-0 {
+  padding: 0px;
 }
 
 .tw-py-4 {
