@@ -236,6 +236,9 @@ h2 {
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
 }
+.form-group .form-control-comment {
+  display: none;
+}
 
 .forgot-password {
   text-align: right !important;

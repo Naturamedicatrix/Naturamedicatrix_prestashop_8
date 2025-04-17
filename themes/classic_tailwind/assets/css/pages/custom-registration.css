@@ -1,0 +1,280 @@
+/** === PAGE REGISTRATION === */
+body#registration #wrapper {
+  background: linear-gradient(to right, white 50%, #F9FAFB 50%);
+  padding-top: 3rem;
+}
+@media (max-width: 1024px) {
+  body#registration #wrapper {
+    background: white;
+    padding-top: 1.5rem;
+  }
+}
+@media (max-width: 640px) {
+  body#registration #wrapper {
+    padding-top: 1rem;
+  }
+}
+body#registration .page-content.card.card-block {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+body#registration #registration-page {
+  width: 100%;
+}
+body#registration #registration-page .registration-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body#registration #registration-page .registration-columns {
+    max-width: 700px;
+    padding: 0 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  body#registration #registration-page .registration-columns {
+    flex-direction: row;
+    max-width: none;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0;
+  }
+}
+body#registration #registration-page .registration-columns .registration-column {
+  width: 100%;
+  padding: 1.5rem 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+@media (max-width: 640px) {
+  body#registration #registration-page .registration-columns .registration-column {
+    padding: 1rem 0.5rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body#registration #registration-page .registration-columns .registration-column {
+    padding: 2rem 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  body#registration #registration-page .registration-columns .registration-column {
+    width: calc(50% - 1rem);
+    border-radius: 0;
+    margin-bottom: 0;
+    box-shadow: none;
+    padding: 1.5rem 1rem;
+  }
+}
+body#registration #registration-page .registration-columns .registration-column h2 {
+  margin-bottom: 3rem;
+}
+body#registration #registration-page .registration-columns .left-column {
+  background-color: white;
+  order: 1;
+}
+@media (min-width: 1024px) {
+  body#registration #registration-page .registration-columns .left-column {
+    order: 0;
+  }
+}
+body#registration #registration-page .registration-columns .left-column .register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+@media (max-width: 640px) {
+  body#registration #registration-page .registration-columns .left-column .register-form {
+    align-items: center;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body#registration #registration-page .registration-columns .left-column .register-form {
+    align-items: center;
+  }
+}
+body#registration #registration-page .registration-columns .left-column .register-form form {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 650px;
+}
+@media (max-width: 640px) {
+  body#registration #registration-page .registration-columns .left-column .register-form form {
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body#registration #registration-page .registration-columns .left-column .register-form form {
+    max-width: 100%;
+  }
+}
+body#registration #registration-page .registration-columns .left-column .register-form form .form-control-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+body#registration #registration-page .registration-columns .left-column .register-form form .form-control {
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  height: auto;
+  margin-bottom: 1.25rem;
+}
+body#registration #registration-page .registration-columns .left-column .register-form form .password-toggle-btn {
+  left: 300px;
+}
+@media (max-width: 640px) {
+  body#registration #registration-page .registration-columns .left-column .register-form form .password-toggle-btn {
+    left: auto;
+    right: 10px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body#registration #registration-page .registration-columns .left-column .register-form form .password-toggle-btn {
+    right: 10px;
+  }
+}
+@media (min-width: 768px) {
+  body#registration #registration-page .registration-columns .left-column .register-form form {
+    align-items: flex-start;
+  }
+}
+body#registration #registration-page .registration-columns .left-column .register-form form .field-password-policy {
+  width: 100%;
+  position: relative;
+}
+body#registration #registration-page .registration-columns .left-column .register-form form .field-password-policy .input-group {
+  width: 100%;
+}
+body#registration #registration-page .registration-columns .left-column .register-form form .field-password-policy .input-group .input-group-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+body#registration #registration-page .registration-columns .left-column .register-form form .field-password-policy .input-group .input-group-btn button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+body#registration #registration-page .registration-columns .left-column .register-form form .field-password-policy .input-group .input-group-btn button i {
+  font-size: 1.2rem;
+}
+body#registration #registration-page .registration-columns .left-column .register-form .form-footer {
+  width: 100%;
+  max-width: 450px;
+  text-align: left !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+body#registration #registration-page .registration-columns .left-column .register-form .form-footer .primary-btn {
+  min-width: 200px;
+  margin-top: 1rem;
+}
+@media (max-width: 640px) {
+  body#registration #registration-page .registration-columns .left-column .register-form .form-footer {
+    text-align: center !important;
+    align-items: center;
+    max-width: 100%;
+  }
+  body#registration #registration-page .registration-columns .left-column .register-form .form-footer .primary-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body#registration #registration-page .registration-columns .left-column .register-form .form-footer {
+    align-items: center;
+    text-align: center !important;
+    max-width: 100%;
+  }
+}
+body#registration #registration-page .registration-columns .right-column {
+  background-color: #F9FAFB;
+  order: 0;
+}
+@media (min-width: 1024px) {
+  body#registration #registration-page .registration-columns .right-column {
+    order: 1;
+  }
+}
+body#registration #registration-page .registration-columns .right-column .login-info {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+@media (max-width: 640px) {
+  body#registration #registration-page .registration-columns .right-column .login-info {
+    padding: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  body#registration #registration-page .registration-columns .right-column .login-info {
+    padding: 0 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  body#registration #registration-page .registration-columns .right-column .login-info {
+    width: 70%;
+    max-width: none;
+    margin: 0 auto 0 15%;
+    padding: 0;
+  }
+}
+body#registration #registration-page .registration-columns .right-column .login-info p {
+  margin-bottom: 1rem;
+}
+body#registration #registration-page .registration-columns .right-column .login-info ul {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+body#registration #registration-page .registration-columns .right-column .login-info ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+body#registration #registration-page .registration-columns .right-column .login-info ul li:before {
+  content: none;
+}
+body#registration #registration-page .registration-columns .right-column .login-info .login-button {
+  text-align: center;
+  margin-top: 2rem;
+}
+body#registration #registration-page .registration-columns .right-column .login-info .login-button .primary-btn {
+  width: 100%;
+  max-width: 300px;
+}
+@media (min-width: 768px) {
+  body#registration #registration-page .registration-columns .right-column .login-info .login-button {
+    text-align: left;
+  }
+  body#registration #registration-page .registration-columns .right-column .login-info .login-button .primary-btn {
+    width: auto;
+    max-width: none;
+  }
+}
+body#registration .breadcrumb {
+  display: none;
+}

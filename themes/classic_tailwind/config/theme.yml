@@ -38,6 +38,10 @@ assets:
         path: assets/css/pages/custom-forget-password.css
         media: all
         priority: 68
+      - id: custom-registration-styles
+        path: assets/css/pages/custom-registration.css
+        media: all
+        priority: 69
       - id: main-styles
         path: assets/css/main.css
         media: all

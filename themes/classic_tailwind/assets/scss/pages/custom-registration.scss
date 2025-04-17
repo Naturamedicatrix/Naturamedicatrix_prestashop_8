@@ -1,0 +1,325 @@
+@use '../variables' as *;
+/** === PAGE REGISTRATION === */
+
+body#registration {
+  #wrapper {
+    // Desktop: BACKGROUND GRADIENT
+    background: linear-gradient(to right, white 50%, $color-custom-bgLight 50%);
+    padding-top: 3rem;
+    
+    // Mobile, tablette et petits écrans: BG WHITE
+    @media (max-width: $breakpoint-lg) {
+      background: white;
+      padding-top: 1.5rem;
+    }
+    
+    // Mobile spécifique
+    @media (max-width: $breakpoint-sm) {
+      padding-top: 1rem;
+    }
+  }
+
+  //Supprime l'héritage du parent
+  .page-content.card.card-block {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  #registration-page {
+    width: 100%;
+    
+    // Structure de base : colonnes empilées (mobile et tablette)
+    .registration-columns {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      
+      // Tablette
+      @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+        max-width: 700px;
+        padding: 0 2rem;
+      }
+      
+      // Desktop uniquement : colonnes côte à côte
+      @media (min-width: $breakpoint-lg) {
+        flex-direction: row;
+        max-width: none;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 0;
+      }
+      
+    
+      // Style de base pour les colonnes (mobile et tablette)
+      .registration-column {
+        width: 100%;
+        padding: 1.5rem .5rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        
+        // Mobile spécifique
+        @media (max-width: $breakpoint-sm) {
+          padding: 1rem 0.5rem;
+        }
+        
+        // Tablette
+        @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+          padding: 2rem 1rem;
+        }
+        
+        // Desktop
+        @media (min-width: $breakpoint-lg) {
+          width: calc(50% - 1rem);
+          border-radius: 0;
+          margin-bottom: 0;
+          box-shadow: none;
+          padding: 1.5rem 1rem;
+        }
+
+        h2 {
+          margin-bottom: 3rem;
+        }
+      }
+      
+      // Colonne de gauche (inscription)
+      .left-column {
+        background-color: white;
+        order: 1;
+        
+        // Desktop
+        @media (min-width: $breakpoint-lg) {
+          order: 0;
+        }
+        
+        .register-form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          
+          // Mobile spécifique
+          @media (max-width: $breakpoint-sm) {
+            align-items: center;
+          }
+          
+          // Tablette
+          @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+            align-items: center;
+          }
+          
+          form {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            width: 100%;
+            max-width: 650px;
+            
+            // Mobile spécifique
+            @media (max-width: $breakpoint-sm) {
+              max-width: 100%;
+            }
+            
+            // Tablette
+            @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+              max-width: 100%;
+            }
+            
+            // Style général pour tous les champs du formulaire
+            .form-control-label {
+              font-weight: 500;
+              margin-bottom: 0.5rem;
+            }
+            
+            .form-control {
+              padding: 0.75rem 1rem;
+              border-radius: 4px;
+              height: auto;
+              margin-bottom: 1.25rem;
+            }
+
+            .password-toggle-btn {
+              left: 300px;
+              
+              // Mobile spécifique
+              @media (max-width: $breakpoint-sm) {
+                left: auto;
+                right: 10px;
+              }
+              
+              // Tablette
+              @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+                right: 10px;
+              }
+            }
+            
+            // Tablette et desktop
+            @media (min-width: $breakpoint-md) {
+              align-items: flex-start;
+            }
+            
+            // Style spécifique pour le champ de mot de passe et son icône
+            .field-password-policy {
+              width: 100%;
+              position: relative;
+              
+              .input-group {
+                width: 100%;
+                
+                // Positionnement de l'icône de l'œil
+                .input-group-btn {
+                  position: absolute;
+                  right: 10px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  z-index: 10;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  
+                  button {
+                    background: transparent;
+                    border: none;
+                    padding: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    
+                    i {
+                      font-size: 1.2rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          
+          // footer du form inscription
+          .form-footer {
+            width: 100%;
+            max-width: 450px;
+            text-align: left !important;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 1.5rem;
+            
+            .primary-btn {
+              min-width: 200px;
+              margin-top: 1rem;
+            }
+            
+            // Mobile spécifique
+            @media (max-width: $breakpoint-sm) {
+              text-align: center !important;
+              align-items: center;
+              max-width: 100%;
+              
+              .primary-btn {
+                width: 100%;
+                max-width: 300px;
+              }
+            }
+            
+            // Tablette
+            @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+              align-items: center;
+              text-align: center !important;
+              max-width: 100%;
+            }
+          }
+        }
+      }
+      
+      // Colonne de droite (connexion)
+      .right-column {
+        background-color: $color-custom-bgLight;
+        order: 0; // Par défaut en premier (mobile et tablette)
+        
+        // Desktop
+        @media (min-width: $breakpoint-lg) {
+          order: 1; // Revenir à l'ordre normal
+        }
+        
+        //contenu : Informations de connexion
+        .login-info {
+          width: 100%;
+          max-width: 450px;
+          margin: 0 auto;
+          padding: 0 1rem;
+
+          @media (max-width: $breakpoint-sm) {
+            padding: 0;
+          }
+          
+          // Écrans entre tablette et desktop
+          @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+            padding: 0 2rem;
+          }
+          
+          // Desktop
+          @media (min-width: $breakpoint-lg) {
+            width: 70%;
+            max-width: none;
+            margin: 0 auto 0 15%;
+            padding: 0;
+          }
+          p {
+            margin-bottom: 1rem;
+          }
+          
+          ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            list-style-type: disc;
+            
+            li {
+              margin-bottom: 0.5rem;
+              position: relative;
+              
+              &:before {
+                content: none;
+              }
+            }
+          }
+          
+          // Style de base pour le bouton (mobile et tablette)
+          .login-button {
+            text-align: center;
+            margin-top: 2rem;
+            
+            .primary-btn {
+              width: 100%;
+              max-width: 300px;
+            }
+            
+            // Écrans moyens et grands
+            @media (min-width: $breakpoint-md) {
+              text-align: left;
+              
+              .primary-btn {
+                width: auto;
+                max-width: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Masquer le fil d'ariane
+  .breadcrumb {
+    display: none;
+  }
+}

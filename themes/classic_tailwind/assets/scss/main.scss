@@ -197,7 +197,6 @@ h2 {
     font-size: 14px;
   }
 }
-
 // End Bouton d'action
 
 
@@ -252,6 +251,10 @@ h2 {
       -webkit-box-shadow: none !important;
       -moz-box-shadow: none !important;
     }
+  }
+
+  .form-control-comment {
+    display: none;
   }
 }
 
@@ -317,5 +320,4 @@ h2 {
     font-weight: 400;
   }
 }
-
 // END FORMS
