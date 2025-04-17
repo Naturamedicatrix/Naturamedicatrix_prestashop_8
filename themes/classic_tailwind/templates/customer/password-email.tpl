@@ -30,26 +30,22 @@
      </header>
  
      <section class="form-fields">
-       <div class="form-group center-email-fields">
-         <label class="col-md-3 form-control-label required">{l s='Email address' d='Shop.Forms.Labels'}</label>
-         <div class="col-md-5 email">
-           <input type="email" name="email" id="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" class="form-control" required>
-         </div>
-         <button id="send-reset-link" class="form-control-submit btn btn-primary hidden-xs-down" name="submit" type="submit">
-           {l s='Send reset link' d='Shop.Theme.Actions'}
-         </button>
-         <button class="form-control-submit btn btn-primary hidden-sm-up" name="submit" type="submit">
-           {l s='Send' d='Shop.Theme.Actions'}
-         </button>
-       </div>
-     </section>
+        <div class="form-group">
+          <label for="email" class="form-control-label required">{l s='Email address' d='Shop.Forms.Labels'}</label>
+          <input type="email" name="email" id="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" class="form-control" required>
+        </div>
+        <div class="form-group-btn">
+          <button class="primary-btn" name="submit" type="submit">
+            {l s='Send' d='Shop.Theme.Actions'}
+          </button>
+        </div>
+      </section>
  
    </form>
  {/block}
  
  {block name='page_footer'}
    <a id="back-to-login" href="{$urls.pages.my_account}" class="account-link">
-     <i class="material-icons">&#xE5CB;</i>
      <span>{l s='Back to login' d='Shop.Theme.Actions'}</span>
    </a>
  {/block}

@@ -34,10 +34,14 @@ assets:
         path: assets/css/pages/custom-authentication.css
         media: all
         priority: 67
+      - id: custom-forget-password-styles
+        path: assets/css/pages/custom-forget-password.css
+        media: all
+        priority: 68
       - id: main-styles
         path: assets/css/main.css
         media: all
-        priority: 70
+        priority: 100
   js:
     all:
       - id: text-carousel
