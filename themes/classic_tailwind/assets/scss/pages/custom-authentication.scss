@@ -94,7 +94,7 @@ body#authentication {
           .form-footer {
             width: 100%;
             max-width: 350px;
-            text-align: left !important;
+            text-align: center;
 
             @media (max-width: $breakpoint-sm) {
              text-align: center !important;

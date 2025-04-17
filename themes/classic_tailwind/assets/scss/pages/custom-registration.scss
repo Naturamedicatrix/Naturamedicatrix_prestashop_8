@@ -57,7 +57,6 @@ body#registration {
         padding: 0;
       }
       
-    
       // Style de base pour les colonnes (mobile et tablette)
       .registration-column {
         width: 100%;
@@ -120,7 +119,6 @@ body#registration {
             margin-bottom: 1.5rem;
             display: flex;
             flex-direction: column;
-            align-items: stretch;
             width: 100%;
             max-width: 650px;
             
@@ -132,39 +130,6 @@ body#registration {
             // Tablette
             @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
               max-width: 100%;
-            }
-            
-            // Style général pour tous les champs du formulaire
-            .form-control-label {
-              font-weight: 500;
-              margin-bottom: 0.5rem;
-            }
-            
-            .form-control {
-              padding: 0.75rem 1rem;
-              border-radius: 4px;
-              height: auto;
-              margin-bottom: 1.25rem;
-            }
-
-            .password-toggle-btn {
-              left: 300px;
-              
-              // Mobile spécifique
-              @media (max-width: $breakpoint-sm) {
-                left: auto;
-                right: 10px;
-              }
-              
-              // Tablette
-              @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
-                right: 10px;
-              }
-            }
-            
-            // Tablette et desktop
-            @media (min-width: $breakpoint-md) {
-              align-items: flex-start;
             }
             
             // Style spécifique pour le champ de mot de passe et son icône
@@ -185,57 +150,40 @@ body#registration {
                   height: 100%;
                   display: flex;
                   align-items: center;
-                  
-                  button {
-                    background: transparent;
-                    border: none;
-                    padding: 0;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    height: 100%;
-                    
-                    i {
-                      font-size: 1.2rem;
-                    }
-                  }
                 }
+              }
+            }
+            
+            .password-toggle-btn {
+              left: 300px;
+              
+              // Mobile spécifique
+              @media (max-width: $breakpoint-sm) {
+                left: auto;
+                right: 10px;
+              }
+              
+              // Tablette
+              @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+                right: 10px;
               }
             }
           }
           
-          // footer du form inscription
+          // Style du footer du formulaire
           .form-footer {
-            width: 100%;
-            max-width: 450px;
-            text-align: left !important;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-top: 1.5rem;
+            text-align: center;
             
             .primary-btn {
               min-width: 200px;
-              margin-top: 1rem;
             }
             
             // Mobile spécifique
             @media (max-width: $breakpoint-sm) {
-              text-align: center !important;
-              align-items: center;
-              max-width: 100%;
-              
               .primary-btn {
                 width: 100%;
                 max-width: 300px;
               }
-            }
-            
-            // Tablette
-            @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
-              align-items: center;
-              text-align: center !important;
-              max-width: 100%;
             }
           }
         }
@@ -244,14 +192,14 @@ body#registration {
       // Colonne de droite (connexion)
       .right-column {
         background-color: $color-custom-bgLight;
-        order: 0; // Par défaut en premier (mobile et tablette)
+        order: 0;
         
         // Desktop
         @media (min-width: $breakpoint-lg) {
-          order: 1; // Revenir à l'ordre normal
+          order: 1;
         }
         
-        //contenu : Informations de connexion
+        // Contenu : Informations de connexion
         .login-info {
           width: 100%;
           max-width: 450px;
@@ -262,8 +210,8 @@ body#registration {
             padding: 0;
           }
           
-          // Écrans entre tablette et desktop
-          @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+          // Tablette
+          @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
             padding: 0 2rem;
           }
           
@@ -274,6 +222,7 @@ body#registration {
             margin: 0 auto 0 15%;
             padding: 0;
           }
+          
           p {
             margin-bottom: 1rem;
           }
@@ -285,15 +234,10 @@ body#registration {
             
             li {
               margin-bottom: 0.5rem;
-              position: relative;
-              
-              &:before {
-                content: none;
-              }
             }
           }
           
-          // Style de base pour le bouton (mobile et tablette)
+          // Style du bouton
           .login-button {
             text-align: center;
             margin-top: 2rem;

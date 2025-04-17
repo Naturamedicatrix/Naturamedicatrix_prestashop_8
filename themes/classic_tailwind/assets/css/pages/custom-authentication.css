@@ -79,7 +79,7 @@ body#authentication #login-page .login-columns .left-column .login-form form {
 body#authentication #login-page .login-columns .left-column .login-form .form-footer {
   width: 100%;
   max-width: 350px;
-  text-align: left !important;
+  text-align: center;
 }
 @media (max-width: 640px) {
   body#authentication #login-page .login-columns .left-column .login-form .form-footer {
