@@ -19,10 +19,10 @@
               {l s='apd 35€ en Point Relais & 50€ à domicile' d='Shop.Theme.Global'}
             </div>
             <div class="carousel-item inactive">
-              {l s='Paiement 100% sécurisé' d='Shop.Theme.Global'}
+              {l s='Remise sur le total de la commande : <span class="highlight-text">-10% àpd 150€</span> | -5% àpd 75€' d='Shop.Theme.Global'}
             </div>
             <div class="carousel-item inactive">
-              {l s='Service client disponible du lundi au vendredi' d='Shop.Theme.Global'}
+              {l s='Payez en <span class="highlight-text">2x 3x avec alma</span>' d='Shop.Theme.Global'}
             </div>
           </div>
 

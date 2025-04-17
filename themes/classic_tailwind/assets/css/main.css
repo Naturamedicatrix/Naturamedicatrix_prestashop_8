@@ -50,10 +50,69 @@ body #wrapper {
   }
 }
 
+.title-separator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto 2rem;
+  width: 100%;
+  max-width: 500px;
+}
+.title-separator::before, .title-separator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  background-color: #4B5563;
+  transform: translateY(-50%);
+}
+.title-separator::before {
+  left: 35%;
+  right: calc(50% + 20px + 0.5rem);
+}
+.title-separator::after {
+  right: 35%;
+  left: calc(50% + 20px + 0.5rem);
+}
+.title-separator #logoTitle {
+  width: 40px;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+.title-separator #logoTitle .logo-title {
+  fill: #83b58b;
+  stroke-width: 0px;
+}
+@media (max-width: 768px) {
+  .title-separator {
+    max-width: 400px;
+  }
+}
+@media (max-width: 640px) {
+  .title-separator {
+    max-width: 280px;
+  }
+  .title-separator #logoTitle {
+    width: 20px;
+  }
+  .title-separator::before {
+    left: 35%;
+    right: calc(50% + 10px + 0.5rem);
+  }
+  .title-separator::after {
+    right: 35%;
+    left: calc(50% + 10px + 0.5rem);
+  }
+  .title-separator::before, .title-separator::after {
+    height: 0.5px;
+  }
+}
+
 .page-title {
   color: #111827;
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
   margin-top: 3rem;
   text-align: center;
   font-weight: bolder;
