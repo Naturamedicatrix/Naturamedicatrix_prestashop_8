@@ -4,7 +4,8 @@
 /* === STYLE GLOBAL === */
 
 // Typographie globale
-html, body {
+html,
+body {
   font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: $color-custom-whiteDarker;
 
@@ -20,45 +21,46 @@ html, body {
 }
 
 // Responsive container
-.container, #content {
+.container,
+#content {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  
+
   @media (min-width: 768px) {
     max-width: 1000px;
   }
-  
+
   @media (min-width: 1200px) {
     max-width: 1140px;
   }
-  
+
   @media (min-width: 1400px) {
     max-width: 1350px;
   }
-  
+
   @media (min-width: 1600px) {
     max-width: 2000px;
   }
 }
+
 // End responsive container
 
-
-// Typographie
-h1 {
+// Typography
+.page-title {
   color: $color-custom-black;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   margin-top: 3rem;
   text-align: center;
   font-weight: bolder;
-  
+
   @media (max-width: $breakpoint-md) {
     font-size: 2rem;
   }
-  
+
   @media (max-width: $breakpoint-sm) {
     font-size: 1.5rem;
     margin-top: 1rem;
@@ -70,11 +72,11 @@ h2 {
   color: $color-custom-black;
   text-align: center;
   font-weight: lighter;
-  
+
   @media (max-width: $breakpoint-lg) {
     font-size: 2.2rem;
   }
-  
+
   @media (max-width: $breakpoint-md) {
     font-size: 2rem;
   }
@@ -94,7 +96,7 @@ h2 {
   text-align: center;
   padding: 10px 50px;
   text-transform: none;
-  
+
   &:hover {
     background-color: $color-custom-blackHover !important;
   }
@@ -116,7 +118,7 @@ h2 {
   border-radius: 0 0.2rem 0.2rem 0;
   cursor: pointer;
   width: 170px;
-  
+
   &:hover {
     background-color: $color-custom-blackHover !important;
   }
@@ -125,6 +127,7 @@ h2 {
     font-size: 14px;
   }
 }
+
 // End Bouton d'action
 
 
@@ -137,15 +140,16 @@ h2 {
 
 .form-group {
   margin-bottom: 1.25rem;
+
   @media (max-width: $breakpoint-sm) {
     margin-bottom: .6rem !important;
   }
-  
+
   &.row {
     display: block;
     margin: 0;
   }
-  
+
   .form-control-label {
     display: block;
     width: 100%;
@@ -156,12 +160,12 @@ h2 {
     color: $color-custom-gray;
     font-size: 0.9rem;
   }
-  
+
   .js-input-column {
     width: 100%;
     padding: 0;
   }
-  
+
   .form-control {
     width: 100%;
     max-width: 400px;
@@ -170,7 +174,7 @@ h2 {
     background-color: white;
     border: 1px solid #e5e5e5;
     border-radius: 4px;
-    
+
     &:focus {
       border-color: $color-custom-gray;
       outline: none !important;
@@ -183,13 +187,14 @@ h2 {
 
 .forgot-password {
   text-align: right !important;
-  margin: 0 !important;;
-  
+  margin: 0 !important;
+  ;
+
   a {
     color: $color-custom-gray !important;
     font-size: 0.875rem;
     text-decoration: underline;
-    
+
     &:hover {
       color: $color-custom-black !important
     }
@@ -206,12 +211,12 @@ h2 {
 .password-field-container {
   position: relative;
   width: 100%;
-  
+
   .form-control {
     width: 100%;
     padding-right: 40px;
   }
-  
+
   .password-toggle-btn {
     position: absolute;
     right: 10px;
@@ -225,20 +230,22 @@ h2 {
     align-items: center;
     gap: 5px;
     z-index: 2;
+
     &:focus {
       outline: none;
     }
   }
-  
+
   .password-toggle-icon {
     color: $color-custom-gray;
     font-size: 1.2rem;
   }
-  
+
   .password-toggle-text {
     color: $color-custom-gray;
     font-size: 0.85rem;
     font-weight: 400;
   }
 }
+
 // END FORMS
