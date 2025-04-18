@@ -1,2 +1,114 @@
 @use 'variables' as *;
 /** === ASIDE CONTAINER === */
+
+// Styles généraux pour le conteneur latéral
+.side-column {
+  background-color: $color-custom-whiteDarker;
+  // Style commun pour tous les blocs
+  .side-block {
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-custom-black;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba($color-custom-green, 0.4);
+      z-index: 1;
+    }
+    
+    i {
+      font-size: 2.8rem;
+      color: $color-custom-black;
+      z-index: 2;
+    }
+  }
+
+  // Styles pour les horaires
+  .support-client > p {
+    color: $color-custom-gray;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  // Styles pour les informations de contact par pays
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .country-block {
+    text-align: center;
+    width: 100%;
+    border-bottom: none;
+  }
+
+  .flag-icon {
+    width: 28px;
+    height: 24px;
+    display: inline-block;
+    object-fit: cover;
+  }
+
+  .country-name {
+    font-size: 0.9rem;
+    color: $color-custom-gray;
+    margin: 0.25rem 0;
+  }
+
+  .phone-number {
+    font-weight: 600;
+    color: $color-custom-black;
+    font-size: 1.1rem;
+    margin: 0.25rem 0;
+  }
+
+  // Styles pour les adresses
+  .address-section {
+    margin-top: 1rem;
+  }
+
+  .address-block {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+
+    h4 {
+      font-weight: 600;
+      color: $color-custom-black;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      text-decoration: underline;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: $color-custom-gray;
+      margin: 0.1rem 0;
+      line-height: 1.2;
+    }
+  }
+}

@@ -24,7 +24,10 @@
 {else if $layout === 'layouts/layout-right-column.tpl'}
   {block name="right_column"}
     <div id="right-column" class="side-column col-xs-12 col-md-4 col-lg-3">
-      <div class="support-client">
+      <div class="side-block support-client">
+        <div class="icon-container">
+          <i class="bi bi-chat-heart"></i>
+        </div>
         <h3>{l s='Support clients' d='Shop.Theme.Global'}</h3>
         <p>{l s='Du lundi au vendredi de 9h à 16h' d='Shop.Theme.Global'}</p>
         <div class="contact-info">
@@ -47,7 +50,10 @@
           </div>
         </div>
         
-        <div class="address-section">
+        <div class="side-block address-section">
+          <div class="icon-container">
+            <i class="bi bi-house-heart"></i>
+          </div>
           <h3>{l s='Adresses' d='Shop.Theme.Global'}</h3>
           
           <div class="address-block">
@@ -62,6 +68,16 @@
             <p>L-9772 Troine (Wincrange)</p>
             <p>{l s='Grand-Duché de Luxembourg' d='Shop.Theme.Global'}</p>
           </div>
+        </div>
+        
+        <div class="side-block our-store">
+          <div class="icon-container">
+            <i class="bi bi-building"></i>
+          </div>
+          <h3>{l s='Notre magasin' d='Shop.Theme.Global'}</h3>
+          
+          <p>26 avenue Émile Digneffe,</p>
+          <p>4000 Liège, Belgique</p>
         </div>
       </div>        
     </div>
