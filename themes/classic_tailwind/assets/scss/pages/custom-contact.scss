@@ -30,5 +30,80 @@ body#contact {
             position: relative;
             z-index: 1;
         }
+
+        .contact-form {
+            form {
+                width: 100%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                @media (max-width: $breakpoint-sm) {
+                    padding: 0 15px;
+                }
+
+                .form-group, .form-control {
+                    max-width: none;
+                    width: 100%;
+                    
+                    @media (max-width: $breakpoint-sm) {
+                        margin-bottom: 15px;
+                    }
+
+                    label {
+                        color: $color-custom-gray;
+                        font-size: 20px;
+                        
+                        @media (max-width: $breakpoint-md) {
+                            font-size: 18px;
+                        }
+                        
+                        @media (max-width: $breakpoint-sm) {
+                            font-size: 16px;
+                        }
+                    }
+
+                    select, textarea, input {
+                        width: 800px;
+                        border: 1px solid $color-custom-gray;
+                        height: 50px;
+                        
+                        @media (max-width: $breakpoint-xl) {
+                            width: 400px;
+                        }
+                        
+                        @media (max-width: $breakpoint-md) {
+                            width: 300px;
+                        }
+                        
+                        @media (max-width: $breakpoint-sm) {
+                            width: 300px;
+                            max-width: 90%;
+                            margin: 0 auto;
+                        }
+                    }
+                    
+                    textarea {
+                        height: 150px;
+                    }
+                }
+                
+                .form-footer {
+                    width: 800px;
+                    display: flex;
+                    justify-content: flex-start;
+
+                    @media (max-width: $breakpoint-lg) {
+                        justify-content: center;
+                    }
+                    
+                    .primary-btn {
+                        width: 300px;
+                        font-size: 18px;     
+                    }
+                }
+            }
+        }
     }
 }
