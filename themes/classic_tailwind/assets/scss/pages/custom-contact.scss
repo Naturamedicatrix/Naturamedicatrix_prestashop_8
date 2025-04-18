@@ -1,0 +1,8 @@
+@use '../variables' as *;
+/** === PAGE CONTACT === */
+
+body#contact {
+    .breadcrumb {
+        display: none;
+    }
+}

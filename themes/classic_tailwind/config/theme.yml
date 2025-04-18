@@ -13,35 +13,43 @@ assets:
       - id: css-variables
         path: assets/css/variables.css
         media: all
-        priority: 40
+        priority: 70
       - id: tailwind-styles
         path: assets/css/tailwind.css
         media: all
-        priority: 50
+        priority: 70
       - id: custom-header-styles
         path: assets/css/custom-header.css
         media: all
-        priority: 60
+        priority: 70
       - id: custom-advantages-styles
         path: assets/css/custom-advantages.css
         media: all
-        priority: 63
+        priority: 70
       - id: custom-footer-styles
         path: assets/css/custom-footer.css
         media: all
-        priority: 65
+        priority: 70
       - id: authentication-styles
         path: assets/css/pages/custom-authentication.css
         media: all
-        priority: 67
+        priority: 70
       - id: custom-forget-password-styles
         path: assets/css/pages/custom-forget-password.css
         media: all
-        priority: 68
+        priority: 70
       - id: custom-registration-styles
         path: assets/css/pages/custom-registration.css
         media: all
-        priority: 69
+        priority: 70
+      - id: custom-aside-container-styles
+        path: assets/css/aside-container.css
+        media: all
+        priority: 70
+      - id: custom-contact-styles
+        path: assets/css/pages/custom-contact.css
+        media: all
+        priority: 70
       - id: main-styles
         path: assets/css/main.css
         media: all
@@ -50,10 +58,10 @@ assets:
     all:
       - id: text-carousel
         path: assets/js/text-carousel.js
-        priority: 30
+        priority: 70
       - id: footer-accordion
         path: assets/js/footer-accordion.js
-        priority: 35
+        priority: 70
       - id: password-toggle
         path: assets/js/password-toggle.js
-        priority: 40
+        priority: 70

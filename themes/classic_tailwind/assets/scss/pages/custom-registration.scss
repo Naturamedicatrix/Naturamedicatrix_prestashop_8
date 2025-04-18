@@ -43,7 +43,7 @@ body#registration {
       padding: 0 1rem;
       
       // Tablette
-      @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+      @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg)) {
         max-width: 700px;
         padding: 0 2rem;
       }
@@ -71,7 +71,7 @@ body#registration {
         }
         
         // Tablette
-        @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+        @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg)) {
           padding: 2rem 1rem;
         }
         
@@ -111,7 +111,7 @@ body#registration {
           }
           
           // Tablette
-          @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+          @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg)) {
             align-items: center;
           }
           
@@ -128,7 +128,7 @@ body#registration {
             }
             
             // Tablette
-            @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+            @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg)) {
               max-width: 100%;
             }
             
@@ -164,7 +164,7 @@ body#registration {
               }
               
               // Tablette
-              @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+              @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg)) {
                 right: 10px;
               }
             }
@@ -211,7 +211,7 @@ body#registration {
           }
           
           // Tablette
-          @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+          @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg)) {
             padding: 0 2rem;
           }
           
