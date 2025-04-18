@@ -5,4 +5,30 @@ body#contact {
     .breadcrumb {
         display: none;
     }
+    
+    #wrapper {
+        position: relative;
+        background: $color-custom-bgWrapper;
+        overflow: hidden;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 33.33%;
+            height: 100%;
+            background-color: $color-custom-whiteDarker;
+            z-index: 0;
+            
+            @media (max-width: $breakpoint-md) {
+                display: none;
+            }
+        }
+        
+        #content-wrapper, #right-column {
+            position: relative;
+            z-index: 1;
+        }
+    }
 }

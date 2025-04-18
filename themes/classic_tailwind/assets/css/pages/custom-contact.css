@@ -2,3 +2,27 @@
 body#contact .breadcrumb {
   display: none;
 }
+body#contact #wrapper {
+  position: relative;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+body#contact #wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 33.33%;
+  height: 100%;
+  background-color: #EDEFF1;
+  z-index: 0;
+}
+@media (max-width: 768px) {
+  body#contact #wrapper::before {
+    display: none;
+  }
+}
+body#contact #wrapper #content-wrapper, body#contact #wrapper #right-column {
+  position: relative;
+  z-index: 1;
+}

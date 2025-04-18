@@ -23,7 +23,7 @@
   {/block}
 {else if $layout === 'layouts/layout-right-column.tpl'}
   {block name="right_column"}
-    <div id="right-column" class="side-column col-xs-12 col-md-4 col-lg-3">
+    <div id="right-column" class="side-column col-xs-12 col-md-5 col-lg-4">
       <div class="side-block support-client">
         <div class="icon-container">
           <i class="bi bi-chat-heart"></i>
