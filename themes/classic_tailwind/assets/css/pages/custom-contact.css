@@ -79,7 +79,6 @@ body#contact #wrapper .contact-form form .form-group select, body#contact #wrapp
 @media (max-width: 640px) {
   body#contact #wrapper .contact-form form .form-group select, body#contact #wrapper .contact-form form .form-group textarea, body#contact #wrapper .contact-form form .form-group input, body#contact #wrapper .contact-form form .form-control select, body#contact #wrapper .contact-form form .form-control textarea, body#contact #wrapper .contact-form form .form-control input {
     width: 300px;
-    max-width: 90%;
     margin: 0 auto;
   }
 }
@@ -91,7 +90,7 @@ body#contact #wrapper .contact-form form .form-footer {
   display: flex;
   justify-content: flex-start;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   body#contact #wrapper .contact-form form .form-footer {
     justify-content: center;
   }

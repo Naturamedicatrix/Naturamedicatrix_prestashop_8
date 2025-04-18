@@ -79,7 +79,6 @@ body#contact {
                         
                         @media (max-width: $breakpoint-sm) {
                             width: 300px;
-                            max-width: 90%;
                             margin: 0 auto;
                         }
                     }
@@ -94,7 +93,7 @@ body#contact {
                     display: flex;
                     justify-content: flex-start;
 
-                    @media (max-width: $breakpoint-lg) {
+                    @media (max-width: $breakpoint-xl) {
                         justify-content: center;
                     }
                     
