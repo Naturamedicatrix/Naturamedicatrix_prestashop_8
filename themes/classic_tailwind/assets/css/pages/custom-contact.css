@@ -73,7 +73,7 @@ body#contact #wrapper .contact-form form .form-group select, body#contact #wrapp
 }
 @media (max-width: 768px) {
   body#contact #wrapper .contact-form form .form-group select, body#contact #wrapper .contact-form form .form-group textarea, body#contact #wrapper .contact-form form .form-group input, body#contact #wrapper .contact-form form .form-control select, body#contact #wrapper .contact-form form .form-control textarea, body#contact #wrapper .contact-form form .form-control input {
-    width: 300px;
+    width: 400px;
   }
 }
 @media (max-width: 640px) {
