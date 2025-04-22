@@ -52,11 +52,11 @@
         <p class="therapeute-card-schedule">Mardi : 14h00 à 19h00 • Jeudi : 9h00 à 12h00 & 13h00 à 19h00 • Vendredi : 9h00 à 12h00</p>
         
         <div class="therapeute-card-contact">
-          <a href="tel:+33366880234" class="therapeute-card-btn therapeute-card-phone">
+          <a href="tel:+33485440124" class="therapeute-card-btn therapeute-card-phone">
             <i class="bi bi-telephone"></i>
-            <span>+33 (0)3 66 88 02 34</span>
+            <span>+33 (0)4 85 44 01 24</span>
           </a>
-          <a href="mailto:conseil@naturamedicatrix.zendesk.com" class="therapeute-card-btn therapeute-card-email">
+          <a href="mailto:nutrition@naturamedicatrix.fr" class="therapeute-card-btn therapeute-card-email">
             <i class="bi bi-envelope"></i>
             <span>Par email</span>
           </a>

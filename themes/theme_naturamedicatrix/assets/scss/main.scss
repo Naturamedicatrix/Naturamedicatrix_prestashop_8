@@ -1,5 +1,6 @@
 @use 'variables' as *;
 @use 'fonts';
+@use './pages/custom-cms.scss';
 
 /* === STYLE GLOBAL === */
 
@@ -322,3 +323,57 @@ h2 {
   }
 }
 // END FORMS
+
+
+
+// TABLE
+table.table-light {
+  margin-bottom: 2rem;
+  border: 1px solid $color-custom-grayLight;
+  font-size: 12px;
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: 11px;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: 10px;
+    margin-bottom: 1rem;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  td, th {
+    padding: .3em .8em;
+    text-align: left;
+    border: 1px $color-custom-gray dotted;
+    color: $color-custom-gray;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: .25em .6em;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: .2em .5em;
+    }
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  &.text-center td, &.text-center th {
+    text-align: center;
+  }
+}
+
+.table-striped > tbody > tr:nth-of-type(even), table > tbody > tr:nth-of-type(even) {
+  background-color: rgb(248, 249, 253);
+}
+// END TABLE

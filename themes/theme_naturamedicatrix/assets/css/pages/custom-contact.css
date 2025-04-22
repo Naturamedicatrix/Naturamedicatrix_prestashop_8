@@ -147,7 +147,7 @@
 }
 .therapeute-card .therapeute-card-content {
   padding: 0 1.25rem 1.25rem 1.25rem;
-  color: #333;
+  color: #4B5563;
   z-index: 1;
   position: relative;
   width: 100%;
@@ -166,7 +166,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
-  color: #333;
+  color: #4B5563;
 }
 .therapeute-card .therapeute-card-content .therapeute-card-title {
   font-size: 0.8rem;
@@ -211,7 +211,7 @@
   transition: all 0.2s ease;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: white;
-  color: #333;
+  color: #4B5563;
 }
 .therapeute-card .therapeute-card-contact .therapeute-card-btn i {
   margin-right: 0.5rem;
