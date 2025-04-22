@@ -1,4 +1,7 @@
 @use '../variables' as *;
+@use '../partials/block_therapeute';
+@use '../partials/card_therapeute';
+
 /** === PAGE CONTACT === */
 
 body#contact {
@@ -32,6 +35,9 @@ body#contact {
         }
 
         .contact-form {
+            border-bottom: 1px solid $color-custom-gray;
+            margin-bottom: 4rem;
+
             form {
                 width: 100%;
                 margin: 0 auto;
@@ -92,6 +98,7 @@ body#contact {
                     width: 800px;
                     display: flex;
                     justify-content: flex-start;
+                    margin-bottom: 3rem;
 
                     @media (max-width: $breakpoint-xl) {
                         justify-content: center;

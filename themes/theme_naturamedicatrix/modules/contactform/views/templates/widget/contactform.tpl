@@ -1,5 +1,5 @@
 {**
- * Override du template contactform.tpl pour le thème enfant classic_tailwind
+ * Override du template contactform.tpl pour le thème enfant
  *}
 
 <section class="contact-form">

@@ -166,17 +166,17 @@
           <div class="footer-column-content" id="footer-content-2">
             <p class="footer-phone">
               <span class="phone-main">09 77 42 37 04</span>
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/fr.png" alt="France" class="flag-icon">
+              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/fr.png" alt="Naturamedicatrix France" class="flag-icon">
             </p>
 
             <p class="footer-phone">
               <span class="phone-secondary">+32 42 90 00 79</span>
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/be.png" alt="Belgique" class="flag-icon">
+              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/be.png" alt="Naturamedicatrix Belgique" class="flag-icon">
             </p>
 
             <p class="footer-phone">
               <span class="phone-secondary">+352 27 86 11 39</span>
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/lu.png" alt="Luxembourg" class="flag-icon">
+              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/lu.png" alt="Naturamedicatrix Luxembourg" class="flag-icon">
             </p>
 
             <p class="footer-email">
@@ -252,13 +252,13 @@
               <a href="{$link->getCMSLink(5)}" class="footer-bottom-link">{l s='Modes de paiement' d='Shop.Theme.Global'}</a>
             </div>
             <div class="footer-payment-logos">
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/alma.svg" alt="Alma" class="payment-logo">
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/bancontact.svg" alt="Bancontact" class="payment-logo">
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/visa.svg" alt="Visa" class="payment-logo">
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/paypal.svg" alt="PayPal" class="payment-logo">
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/mastercard.svg" alt="MasterCard" class="payment-logo">
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/payconiq.svg" alt="Payconiq" class="payment-logo">
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/applepay.svg" alt="Apple Pay" class="payment-logo">
+              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/alma.svg" alt="Naturamedicatrix Alma" class="payment-logo">
+              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/bancontact.svg" alt="Naturamedicatrix Bancontact" class="payment-logo">
+              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/visa.svg" alt="Naturamedicatrix Visa" class="payment-logo">
+              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/paypal.svg" alt="Naturamedicatrix PayPal" class="payment-logo">
+              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/mastercard.svg" alt="Naturamedicatrix MasterCard" class="payment-logo">
+              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/payconiq.svg" alt="Naturamedicatrix Payconiq" class="payment-logo">
+              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/applepay.svg" alt="Naturamedicatrix Apple Pay" class="payment-logo">
             </div>
           </div>
         </div>

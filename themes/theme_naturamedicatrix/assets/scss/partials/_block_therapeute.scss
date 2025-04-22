@@ -1,0 +1,53 @@
+/**
+ * Styles pour le bloc thérapeute
+ * Utilisé dans la page contact
+ */
+
+ @use '../variables' as *;
+
+.therapeute-block {
+  margin-bottom: 2rem;
+  
+  .therapeute-title {
+    font-size: 1.2rem !important;
+    font-weight: bolder;
+    color: $color-custom-black;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+.therapeute-contact {
+  background-color: $color-custom-information;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0;
+  text-align: center;
+  
+  .therapeute-notice {
+    margin: 0;
+    font-size: .9rem;
+    color: $color-custom-informationText;
+    
+    .notice-highlight {
+      display: block;
+      font-weight: 500;
+    }
+    
+    .notice-additional {
+      display: block;
+      
+      .notice-link {
+        font-weight: 600;
+        text-decoration: underline;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        
+        &:hover {
+          color: mix($color-custom-informationText, #000, 50%)
+        }
+      }
+    }
+  }
+}
+
