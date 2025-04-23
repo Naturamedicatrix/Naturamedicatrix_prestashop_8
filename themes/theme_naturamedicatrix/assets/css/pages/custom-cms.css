@@ -69,6 +69,7 @@ body#cms #main #content p a:hover {
 body#cms #main #content ul {
   padding-left: 40px;
   margin-top: 10px;
+  color: #4B5563;
 }
 @media (max-width: 640px) {
   body#cms #main #content ul {

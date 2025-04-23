@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/** === PAGE BRANDS === */
+body#manufacturer {
+  /* Force l'alignement des éléments dans la grille */
+  /* Styles pour les cards des marques */
+}
+body#manufacturer .breadcrumb {
+  display: none;
+}
+body#manufacturer .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+body#manufacturer .brand-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px;
+  height: 100%; /* Assure une hauteur égale */
+  min-height: 300px; /* Hauteur minimale pour uniformité */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 30px; /* Espacement vertical entre les cards */
+}
+body#manufacturer .brand-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+body#manufacturer .brand-card .brand-card-logo {
+  text-align: center;
+  margin-bottom: 15px;
+  height: 50px; /* Hauteur fixe pour le logo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body#manufacturer .brand-card .brand-card-logo img {
+  max-height: 50px;
+  max-width: 100%;
+  object-fit: contain;
+}
+body#manufacturer .brand-card .brand-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+  height: 40px; /* Hauteur fixe pour le titre */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body#manufacturer .brand-card .brand-card-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+  flex-grow: 1;
+  margin-bottom: 15px;
+  /* Pas de limite de hauteur ni de troncature */
+}
+body#manufacturer .brand-card .brand-card-action {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 15px;
+}
+body#manufacturer .brand-card .brand-card-action a {
+  display: inline-block;
+  color: #0275d8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+body#manufacturer .brand-card .brand-card-action a:hover {
+  color: rgb(1.2981651376, 75.9426605505, 140.2018348624);
+  text-decoration: underline;
+}

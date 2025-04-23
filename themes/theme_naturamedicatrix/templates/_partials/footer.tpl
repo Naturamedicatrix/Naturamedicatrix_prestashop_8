@@ -248,8 +248,8 @@
             <div class="footer-bottom-links">
               <a href="{$link->getCMSLink(3)}" class="footer-bottom-link">{l s='Conditions générales de vente' d='Shop.Theme.Global'}</a>
               <a href="{$link->getCMSLink(2)}" class="footer-bottom-link">{l s='Mentions légales' d='Shop.Theme.Global'}</a>
-              <a href="{$link->getCMSLink(1)}" class="footer-bottom-link">{l s='Livraison, frais de port et retours' d='Shop.Theme.Global'}</a>
-              <a href="{$link->getCMSLink(5)}" class="footer-bottom-link">{l s='Modes de paiement' d='Shop.Theme.Global'}</a>
+              <a href="{$link->getCMSLink(3)}#livraison" class="footer-bottom-link">{l s='Livraison, frais de port et retours' d='Shop.Theme.Global'}</a>
+              <a href="{$link->getCMSLink(3)}#paiement" class="footer-bottom-link">{l s='Modes de paiement' d='Shop.Theme.Global'}</a>
             </div>
             <div class="footer-payment-logos">
               <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/alma.svg" alt="Naturamedicatrix Alma" class="payment-logo">

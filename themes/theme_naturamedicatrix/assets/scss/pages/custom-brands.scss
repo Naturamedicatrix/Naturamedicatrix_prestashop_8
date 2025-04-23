@@ -1,0 +1,94 @@
+@use '../variables' as *;
+
+/** === PAGE BRANDS === */
+
+
+
+body#manufacturer {
+    .breadcrumb {
+        display: none;
+    }
+    
+    /* Force l'alignement des éléments dans la grille */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    
+    /* Styles pour les cards des marques */
+    .brand-card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #e8e8e8;
+        border-radius: 12px;
+        padding: 20px;
+        height: 100%; /* Assure une hauteur égale */
+        min-height: 300px; /* Hauteur minimale pour uniformité */
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        margin-bottom: 30px; /* Espacement vertical entre les cards */
+        
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .brand-card-logo {
+            text-align: center;
+            margin-bottom: 15px;
+            height: 50px; /* Hauteur fixe pour le logo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            img {
+                max-height: 50px;
+                max-width: 100%;
+                object-fit: contain;
+            }
+        }
+        
+        .brand-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #333;
+            height: 40px; /* Hauteur fixe pour le titre */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .brand-card-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #666;
+            flex-grow: 1;
+            margin-bottom: 15px;
+            /* Pas de limite de hauteur ni de troncature */
+        }
+        
+        .brand-card-action {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 15px;
+            
+            a {
+                display: inline-block;
+                color: #0275d8;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 500;
+                transition: color 0.2s ease;
+                
+                &:hover {
+                    color: darken(#0275d8, 15%);
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
