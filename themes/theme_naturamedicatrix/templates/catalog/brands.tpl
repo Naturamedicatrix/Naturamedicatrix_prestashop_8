@@ -24,7 +24,7 @@
 
     {* Bloc pour les 3 marques phares *}
     {block name='featured_brands'}
-      <div class="container mb-5">
+      <div class="container featured-brands">
         <p class="text-center mb-4">Nous distribuons ces produits en magasins et pharmacies.</p>
         <div class="row justify-content-center">
           {* Nous affichons les 3 premières marques comme marques phares *}
@@ -33,7 +33,7 @@
               {* Vérifier si la propriété id_manufacturer existe *}
               {if isset($brand.id_manufacturer)}
                 {if $brand.id_manufacturer == 3 || $brand.id_manufacturer == 4 || $brand.id_manufacturer == 5}
-                  <div class="col-6 col-md-4 col-lg-4">
+                  <div class="col-12 col-md-6 col-lg-4">
                     <div class="brand-card">
                       <div class="brand-card-logo">
                         <img src="{$brand.image}" alt="{$brand.name}">
@@ -57,20 +57,20 @@
 
     {* Liste complète des marques (excluant les marques stars) *}
     {block name='brand_miniature'}
-      <div class="container">
+      <div class="container brand-miniature">
         <p class="text-center mb-4">Nous ne distribuons pas ces produits en magasins ou pharmacies.</p>
         <div class="row">
           {foreach from=$brands item=brand}
             {* Exclure les marques stars *}
             {if isset($brand.id_manufacturer) && $brand.id_manufacturer != 3 && $brand.id_manufacturer != 4 && $brand.id_manufacturer != 5}
-              <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+              <div class="col-12 col-md-6 col-lg-4 col-xl-full">
                 <div class="brand-card">
                   <div class="brand-card-logo">
                     <img src="{$brand.image}" alt="{$brand.name}">
                   </div>
                   <h3 class="brand-card-title">{$brand.name}</h3>
                   <div class="brand-card-description">
-                    {$brand.text nofilter}
+                  {$brand.text nofilter}
                   </div>
                   <div class="brand-card-action">
                     <a href="{$brand.url}">Voir tous les produits</a>

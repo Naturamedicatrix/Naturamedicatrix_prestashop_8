@@ -18,6 +18,7 @@ module.exports = {
         'color-custom-text-black': '#4B5563',
         'color-custom-title-black': '#111827'
       },
+      
     },
   },
   plugins: [],
