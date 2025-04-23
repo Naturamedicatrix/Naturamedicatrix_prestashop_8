@@ -1,4 +1,5 @@
 @use '../variables' as *;
+@use 'sass:color';
 
 /** === PAGE BRANDS === */
 
@@ -20,6 +21,10 @@ body#manufacturer {
             flex: 0 0 25%;
             max-width: 25%;
         }
+    }
+
+    .brand-miniature {
+        margin: 50px 0;
     }
     
     
@@ -69,15 +74,15 @@ body#manufacturer {
             font-weight: 600;
             margin-bottom: 15px;
             text-align: left !important;
-            color: #333;
-            height: 40px; /* Hauteur fixe pour le titre */
+            color: $color-custom-black;
+            height: 40px; 
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Alignement à gauche */
+            justify-content: flex-start;
         }
         
         .brand-card-description {
-            color: #666;
+            color: $color-custom-gray;
             flex-grow: 1;
             margin-bottom: 0;
             text-align: left;
@@ -94,14 +99,14 @@ body#manufacturer {
             
             a {
                 display: inline-block;
-                color: #0275d8;
+                color: $color-custom-blue;
                 text-decoration: none;
                 font-size: 17px;
                 font-weight: 500;
                 transition: color 0.2s ease;
                 
                 &:hover {
-                    color: darken(#0275d8, 15%);
+                    color: color.adjust($color-custom-blue, $lightness: -15%);
                     text-decoration: underline;
                 }
             }

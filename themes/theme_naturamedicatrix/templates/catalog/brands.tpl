@@ -25,7 +25,7 @@
     {* Bloc pour les 3 marques phares *}
     {block name='featured_brands'}
       <div class="container featured-brands">
-        <p class="text-center mb-4">Nous distribuons ces produits en magasins et pharmacies.</p>
+        <p class="h3">Nous distribuons ces produits en magasins et pharmacies.</p>
         <div class="row justify-content-center">
           {* Nous affichons les 3 premières marques comme marques phares *}
           {if isset($brands) && $brands}
@@ -58,7 +58,7 @@
     {* Liste complète des marques (excluant les marques stars) *}
     {block name='brand_miniature'}
       <div class="container brand-miniature">
-        <p class="text-center mb-4">Nous ne distribuons pas ces produits en magasins ou pharmacies.</p>
+        <p class="h3">Nous ne distribuons pas ces produits en magasins ou pharmacies.</p>
         <div class="row">
           {foreach from=$brands item=brand}
             {* Exclure les marques stars *}

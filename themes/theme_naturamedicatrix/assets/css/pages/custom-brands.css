@@ -19,6 +19,9 @@ body#manufacturer #main .row {
     max-width: 25%;
   }
 }
+body#manufacturer .brand-miniature {
+  margin: 50px 0;
+}
 body#manufacturer .brand-card {
   display: flex;
   flex-direction: column;
@@ -62,14 +65,14 @@ body#manufacturer .brand-card .brand-card-title {
   font-weight: 600;
   margin-bottom: 15px;
   text-align: left !important;
-  color: #333;
-  height: 40px; /* Hauteur fixe pour le titre */
+  color: #111827;
+  height: 40px;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Alignement à gauche */
+  justify-content: flex-start;
 }
 body#manufacturer .brand-card .brand-card-description {
-  color: #666;
+  color: #4B5563;
   flex-grow: 1;
   margin-bottom: 0;
   text-align: left;
@@ -84,13 +87,13 @@ body#manufacturer .brand-card .brand-card-action {
 }
 body#manufacturer .brand-card .brand-card-action a {
   display: inline-block;
-  color: #0275d8;
+  color: #1F80C7;
   text-decoration: none;
   font-size: 17px;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 body#manufacturer .brand-card .brand-card-action a:hover {
-  color: rgb(1.2981651376, 75.9426605505, 140.2018348624);
+  color: rgb(20.6891304348, 85.4260869565, 132.8108695652);
   text-decoration: underline;
 }
