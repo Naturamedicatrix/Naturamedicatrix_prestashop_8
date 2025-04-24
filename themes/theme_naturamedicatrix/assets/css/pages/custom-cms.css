@@ -59,6 +59,9 @@ body#cms #main #content h4 {
 body#cms #main #content p {
   color: #4B5563;
 }
+body#cms #main #content p img {
+  margin: 0 auto;
+}
 body#cms #main #content p a {
   color: #1F80C7;
 }

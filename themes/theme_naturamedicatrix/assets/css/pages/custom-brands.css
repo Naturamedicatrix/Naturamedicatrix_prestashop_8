@@ -15,8 +15,8 @@ body#manufacturer #main .row {
 }
 @media (min-width: 1280px) {
   body#manufacturer #main .col-xl-full {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 20%;
+    max-width: 20%;
   }
 }
 body#manufacturer .featured-brands {

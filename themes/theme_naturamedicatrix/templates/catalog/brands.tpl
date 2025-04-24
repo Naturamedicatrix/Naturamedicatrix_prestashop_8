@@ -22,6 +22,8 @@
       </header>
     {/block}
 
+    {* {include file='catalog/_partials/miniatures/manufacturer_main.tpl' brand=$brand} *}
+
     {* Bloc pour les 3 marques phares *}
     {block name='featured_brands'}
       <div class="container featured-brands">

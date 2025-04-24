@@ -62,6 +62,10 @@ body#cms {
             p {
                 color: $color-custom-gray;
 
+                img {
+                    margin: 0 auto;
+                }
+
                 a {
                     color: $color-custom-blue;
                     &:hover {

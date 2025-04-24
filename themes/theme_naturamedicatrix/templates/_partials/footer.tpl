@@ -234,7 +234,7 @@
               <li><a href="{$urls.pages.cms|cat:'/6'}">Blog</a></li>
               <li><a href="{$urls.pages.manufacturer}">Nos marques</a></li>
               <li><a href="{$urls.pages.stores}">Points de vente</a></li>
-              <li><a href="{$urls.pages.cms|cat:'/7'}">Offres d'emploi</a></li>
+              <li><a href="{$link->getCMSLink(6)}">Offres d'emploi</a></li>
               <li><a href="{$urls.pages.cms|cat:'/8'}">Certificat bio</a></li>
             </ul>
           </div>
