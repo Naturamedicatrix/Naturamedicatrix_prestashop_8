@@ -49,6 +49,18 @@ body {
 }
 // End responsive container
 
+// Badge rose
+.badge-pink {
+  border: none;
+  padding: 5px 20px;
+  border-radius: 15px;
+  font-weight: normal;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  background-color: $color-custom-highlight;
+  color: $color-custom-white;
+}
+
 
 // LOGO Title
 .title-separator {
@@ -167,6 +179,10 @@ h2, .h2 {
   @media (max-width: $breakpoint-md) {
     font-size: .9rem;
   }
+}
+
+p {
+  color: $color-custom-gray;
 }
 // End Typography
 
