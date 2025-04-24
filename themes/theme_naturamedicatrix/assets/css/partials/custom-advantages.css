@@ -1,0 +1,147 @@
+/* === ADVANTAGES SECTION === */
+.advantages-container {
+  width: 100%;
+  background-color: #F9FAFB;
+  padding: 2rem 0;
+  border-top: 1px solid #4B5563;
+}
+@media (max-width: 768px) {
+  .advantages-container {
+    padding: 1rem 0;
+  }
+}
+
+.advantages-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .advantages-wrapper {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    row-gap: 1rem;
+  }
+}
+
+.advantage-item {
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .advantage-item {
+    width: 23%;
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 768px) {
+  .advantage-item {
+    width: 47%;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+  }
+  .advantage-item .advantage-icon {
+    margin-bottom: 0.5rem;
+  }
+  .advantage-item .advantage-text h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+  }
+  .advantage-item .advantage-text p {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+}
+.advantage-item .advantage-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.8rem;
+  border-radius: 50%;
+  overflow: visible;
+}
+@media (max-width: 768px) {
+  .advantage-item .advantage-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .advantage-item .advantage-icon img {
+    width: 1.5rem;
+    height: auto;
+  }
+  .advantage-item .advantage-icon::before {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+}
+.advantage-item .advantage-icon::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(131, 181, 139, 0.4);
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .advantage-item .advantage-icon::after {
+    width: 25px;
+    height: 25px;
+    top: -4px;
+    right: -4px;
+  }
+}
+.advantage-item .advantage-icon i {
+  font-size: 2.2rem;
+  color: #111827;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .advantage-item .advantage-icon i {
+    font-size: 2.2rem;
+  }
+}
+.advantage-item .advantage-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.advantage-item .advantage-content .advantage-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #4B5563;
+  margin-bottom: 0.2rem;
+}
+@media (max-width: 768px) {
+  .advantage-item .advantage-content .advantage-title {
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+  }
+}
+.advantage-item .advantage-content .advantage-text {
+  font-size: 0.9rem;
+  color: #4B5563;
+}
+@media (max-width: 768px) {
+  .advantage-item .advantage-content .advantage-text {
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

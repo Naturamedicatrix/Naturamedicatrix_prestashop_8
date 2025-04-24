@@ -23,7 +23,7 @@ assets:
         media: all
         priority: 70
       - id: custom-advantages-styles
-        path: assets/css/custom-advantages.css
+        path: assets/css/partials/custom-advantages.css
         media: all
         priority: 70
       - id: custom-footer-styles

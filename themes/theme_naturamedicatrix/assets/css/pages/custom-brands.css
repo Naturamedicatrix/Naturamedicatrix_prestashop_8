@@ -1,31 +1,31 @@
 @charset "UTF-8";
 /** === PAGE BRANDS === */
-body#manufacturer {
+body#manufacturer, .featured-brands {
   /* Force l'alignement des éléments dans la grille */
   /* Classe personnalisée pour avoir 5 colonnes en desktop */
   /* Styles pour les cards des marques */
 }
-body#manufacturer .breadcrumb {
+body#manufacturer .breadcrumb, .featured-brands .breadcrumb {
   display: none;
 }
-body#manufacturer #main .row {
+body#manufacturer #main .row, .featured-brands #main .row {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
 @media (min-width: 1200px) and (max-width: 1700px) {
-  body#manufacturer #main .col-xl-full {
+  body#manufacturer #main .col-xl-full, .featured-brands #main .col-xl-full {
     flex: 0 0 25%;
     max-width: 25%;
   }
 }
-body#manufacturer .featured-brands {
+body#manufacturer .featured-brands, .featured-brands .featured-brands {
   margin-bottom: 80px;
 }
-body#manufacturer .brand-miniature {
+body#manufacturer .brand-miniature, .featured-brands .brand-miniature {
   margin: 50px 0 80px 0;
 }
-body#manufacturer .brand-card {
+body#manufacturer .brand-card, .featured-brands .brand-card {
   display: flex;
   flex-direction: column;
   border: 1px solid #93A7C3;
@@ -41,24 +41,24 @@ body#manufacturer .brand-card {
   padding-bottom: 60px;
   /* Styles spécifiques pour les marques phares */
 }
-body#manufacturer .brand-card.featured-brand-card {
+body#manufacturer .brand-card.featured-brand-card, .featured-brands .brand-card.featured-brand-card {
   padding: 0 0 60px 0;
   overflow: hidden;
 }
-body#manufacturer .brand-card.featured-brand-card .brand-card-header {
+body#manufacturer .brand-card.featured-brand-card .brand-card-header, .featured-brands .brand-card.featured-brand-card .brand-card-header {
   width: 100%;
-  height: 220px;
+  height: 250px;
   overflow: hidden;
   position: relative;
 }
-body#manufacturer .brand-card.featured-brand-card .brand-card-header .brand-header-img {
+body#manufacturer .brand-card.featured-brand-card .brand-card-header .brand-header-img, .featured-brands .brand-card.featured-brand-card .brand-card-header .brand-header-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-body#manufacturer .brand-card.featured-brand-card .featured-logo {
+body#manufacturer .brand-card.featured-brand-card .featured-logo, .featured-brands .brand-card.featured-brand-card .featured-logo {
   position: absolute;
-  top: 115px;
+  top: 150px;
   left: 20%;
   transform: translateX(-50%);
   background-color: #f9fafb;
@@ -71,51 +71,51 @@ body#manufacturer .brand-card.featured-brand-card .featured-logo {
   margin-bottom: 0;
 }
 @media (max-width: 1599px) {
-  body#manufacturer .brand-card.featured-brand-card .featured-logo {
+  body#manufacturer .brand-card.featured-brand-card .featured-logo, .featured-brands .brand-card.featured-brand-card .featured-logo {
     top: 150px;
     left: 50%;
     transform: translateX(-50%);
   }
 }
-body#manufacturer .brand-card.featured-brand-card .featured-logo img {
+body#manufacturer .brand-card.featured-brand-card .featured-logo img, .featured-brands .brand-card.featured-brand-card .featured-logo img {
   width: 120px;
   height: 120px;
   max-width: none;
 }
-body#manufacturer .brand-card.featured-brand-card .featured-title {
+body#manufacturer .brand-card.featured-brand-card .featured-title, .featured-brands .brand-card.featured-brand-card .featured-title {
   text-align: center !important;
   justify-content: center;
   font-size: 24px;
   margin-top: 50px;
 }
 @media (max-width: 1599px) {
-  body#manufacturer .brand-card.featured-brand-card .featured-title {
+  body#manufacturer .brand-card.featured-brand-card .featured-title, .featured-brands .brand-card.featured-brand-card .featured-title {
     margin-top: 110px;
   }
 }
-body#manufacturer .brand-card.featured-brand-card .featured-description {
+body#manufacturer .brand-card.featured-brand-card .featured-description, .featured-brands .brand-card.featured-brand-card .featured-description {
   text-align: left;
   padding: 0 40px;
 }
-body#manufacturer .brand-card.featured-brand-card .featured-description p {
+body#manufacturer .brand-card.featured-brand-card .featured-description p, .featured-brands .brand-card.featured-brand-card .featured-description p {
   font-size: 16px;
   padding: 10px 0;
   color: #4B5563;
 }
-body#manufacturer .brand-card.featured-brand-card .brand-card-action {
+body#manufacturer .brand-card.featured-brand-card .brand-card-action, .featured-brands .brand-card.featured-brand-card .brand-card-action {
   text-align: left;
   padding: 0 40px;
 }
 @media (max-width: 640px) {
-  body#manufacturer .brand-card {
+  body#manufacturer .brand-card, .featured-brands .brand-card {
     min-width: 280px;
   }
 }
-body#manufacturer .brand-card:hover {
+body#manufacturer .brand-card:hover, .featured-brands .brand-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-body#manufacturer .brand-card .brand-card-logo {
+body#manufacturer .brand-card .brand-card-logo, .featured-brands .brand-card .brand-card-logo {
   text-align: center;
   margin-bottom: 5px;
   height: 130px;
@@ -123,13 +123,13 @@ body#manufacturer .brand-card .brand-card-logo {
   align-items: center;
   justify-content: center;
 }
-body#manufacturer .brand-card .brand-card-logo img {
+body#manufacturer .brand-card .brand-card-logo img, .featured-brands .brand-card .brand-card-logo img {
   height: 120px;
   width: 120px;
   object-fit: contain;
   max-width: none;
 }
-body#manufacturer .brand-card .brand-card-title {
+body#manufacturer .brand-card .brand-card-title, .featured-brands .brand-card .brand-card-title {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -140,21 +140,21 @@ body#manufacturer .brand-card .brand-card-title {
   align-items: center;
   justify-content: flex-start;
 }
-body#manufacturer .brand-card .brand-card-description {
+body#manufacturer .brand-card .brand-card-description, .featured-brands .brand-card .brand-card-description {
   color: #4B5563;
   flex-grow: 1;
   margin-bottom: 0;
   text-align: left;
 }
-body#manufacturer .brand-card .brand-card-description p {
+body#manufacturer .brand-card .brand-card-description p, .featured-brands .brand-card .brand-card-description p {
   font-size: 16px;
 }
-body#manufacturer .brand-card .brand-card-action {
+body#manufacturer .brand-card .brand-card-action, .featured-brands .brand-card .brand-card-action {
   text-align: left;
   position: absolute;
   bottom: 20px;
 }
-body#manufacturer .brand-card .brand-card-action a {
+body#manufacturer .brand-card .brand-card-action a, .featured-brands .brand-card .brand-card-action a {
   display: inline-block;
   color: #1F80C7;
   text-decoration: none;
@@ -162,7 +162,7 @@ body#manufacturer .brand-card .brand-card-action a {
   font-weight: 500;
   transition: color 0.2s ease;
 }
-body#manufacturer .brand-card .brand-card-action a:hover {
+body#manufacturer .brand-card .brand-card-action a:hover, .featured-brands .brand-card .brand-card-action a:hover {
   color: rgb(20.6891304348, 85.4260869565, 132.8108695652);
   text-decoration: underline;
 }

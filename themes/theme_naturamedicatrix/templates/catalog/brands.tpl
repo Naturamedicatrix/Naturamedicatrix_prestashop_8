@@ -22,51 +22,9 @@
       </header>
     {/block}
 
-    {* {include file='catalog/_partials/miniatures/manufacturer_main.tpl' brand=$brand} *}
-
-    {* Bloc pour les 3 marques phares *}
+    {* Bloc des 3 marques phares *}
     {block name='featured_brands'}
-      <div class="container featured-brands">
-        <p class="h3">Nous distribuons ces produits en magasins et pharmacies.</p>
-        <div class="row justify-content-center">
-          {* Nous affichons les 3 premières marques comme marques phares *}
-          {if isset($brands) && $brands}
-            {foreach from=$brands item=brand}
-              {* Vérifier si la propriété id_manufacturer existe *}
-              {if isset($brand.id_manufacturer)}
-                {if $brand.id_manufacturer == 3 || $brand.id_manufacturer == 4 || $brand.id_manufacturer == 5}
-                  <div class="col-12 col-md-12 col-xl-4">
-                    <div class="brand-card featured-brand-card">
-                      <div class="brand-card-header">
-                        <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/Test_banner.jpg" alt="Header image" class="brand-header-img">
-                      </div>
-                      <div class="brand-card-logo featured-logo">
-                        <img src="{$brand.image}" alt="{$brand.name}">
-                      </div>
-                      <h3 class="brand-card-title featured-title">{$brand.name}</h3>
-                      <div class="brand-card-description featured-description">
-                        {if $brand.id_manufacturer == 4}
-                          <p>NATURA<strong>Medicatrix</strong>, votre marque de confiance pour des compléments alimentaires de qualité supérieure, vous propose des formulations exclusives rigoureusement sélectionnées pour leur efficacité. Nous mettons un point d'honneur à choisir des composants à haute biodisponibilité, principalement d'origine naturelle, et à optimiser leur synergie.</p>
-                          <p>Tous nos produits sont exempts de gluten et de lactose, et la plupart sont entièrement végétaliens, garantissant ainsi des options saines pour tous.</p>
-                        {elseif $brand.id_manufacturer == 5}
-                          <p>L'olivier, éternel symbole de sagesse, de pouvoir et de paix, produit des fruits naturellement riches en polyphénols, aux propriétés exceptionnelles. Olivie Pharma®, avec sa gamme sélectionnée de produits naturels — huiles, gélules, crèmes et perles — offre de puissants antioxydants. Que ce soit pour des cures de minéraux, des vitamines ou des soins cosmétiques, nos produits répondent efficacement à vos besoins essentiels.</p>
-                          <p>Découvrez une protection 100% naturelle avec Olivie Pharma® !</p>
-                        {elseif $brand.id_manufacturer == 3}
-                          <p>Optez pour un mode de vie sain grâce à des produits et des concepts de santé holistiques.</p>
-                          <p>Depuis sa création en 1997, Dr. Jacob's Medical s'engage à développer des produits innovants et des stratégies de santé naturellement efficaces. Grâce à une expertise solide en recherche médicale et à des produits de haute qualité à base de plantes, nous vous offrons des compléments alimentaires qui sont à la fois fiables, sûrs et performants.</p>
-                        {/if}
-                      </div>
-                      <div class="brand-card-action">
-                        <a href="{$brand.url}">En savoir plus</a>
-                      </div>
-                    </div>
-                  </div>
-                {/if}
-              {/if}
-            {/foreach}
-          {/if}
-        </div>
-      </div>
+    {include file='_partials/brands-main.tpl'} 
     {/block}
 
     {* Liste complète des marques (excluant les marques stars) *}
