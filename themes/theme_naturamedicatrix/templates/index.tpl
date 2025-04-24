@@ -17,9 +17,26 @@
       
       {* BLOCK DES BRANDS *}
       {block name='featured_brands_home'}
+        {block name='brand_header'}
+          <header class="page-header">
+            <h2 class="text-center text-lg md:text-2xl font-bold mb-0">Nos marques et distributions</h2>
+            <div class="title-separator">
+              <svg id="logoTitle" class="logo-h3" data-name="Logo Title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504.59 360.15">
+                <path class="logo-title"
+                  d="m10.98,360.15S-67.72,47.82,196.27,21.22c76.88-7.74,212.55,15.2,308.32-21.22,0,0-44.43,238.67-232.96,262.91-157.14,20.21-208.67-28.88-208.67-28.88,0,0,81.7-121.23,304.77-145.6,0,0-368.26-32.3-356.77,271.72Z" />
+              </svg>
+            </div>
+          </header>
+        {/block}
         {include file='_partials/brands-main.tpl'}
       {/block}
       {* END BLOCK DES BRANDS *}
+      
+      {* BLOCK INTRO NATURAMEDICATRIX *}
+      {block name='intro_naturamedicatrix'}
+        {include file='_partials/intro_naturamedicatrix.tpl'}
+      {/block}
+      {* END BLOCK INTRO NATURAMEDICATRIX *}
       
     {/block}
   </section>

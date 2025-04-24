@@ -174,19 +174,13 @@ body#manufacturer, .featured-brands {
             position: absolute;
             bottom: 20px;
             
-            a {
-                display: inline-block;
-                color: $color-custom-blue;
-                text-decoration: none;
-                font-size: 17px;
-                font-weight: 500;
-                transition: color 0.2s ease;
-                
-                &:hover {
-                    color: color.adjust($color-custom-blue, $lightness: -15%);
-                    text-decoration: underline;
-                }
-            }
+          
         }
+    }
+}
+
+body#index {
+    .brands-title {
+        display: none;   
     }
 }

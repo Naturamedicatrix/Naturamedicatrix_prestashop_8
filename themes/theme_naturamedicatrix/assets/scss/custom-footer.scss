@@ -759,6 +759,7 @@
           color: $color-custom-gray;
           text-decoration: none;
           transition: color 0.2s ease;
+          border: none;
           
           &:hover {
             font-weight: bolder;

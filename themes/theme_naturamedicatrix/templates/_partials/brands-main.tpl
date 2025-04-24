@@ -7,17 +7,18 @@
 {* Récupération et formatage des données des marques *}
 {if !isset($brands) || $brands|count == 0}
   {assign var="manufacturers" value=Manufacturer::getManufacturers()}
+  
+  {* Création du tableau des marques formatées *}
   {assign var="formatted_brands" value=[]}
-
   {foreach from=$manufacturers item=manufacturer}
     {if $manufacturer.id_manufacturer == 3 || $manufacturer.id_manufacturer == 4 || $manufacturer.id_manufacturer == 5}
-      {assign var="brand" value=[
+      {* Ajout de la marque dans le array formatted_brands *}
+      {assign var="formatted_brands" value=$formatted_brands|array_merge:[[
         'id_manufacturer' => $manufacturer.id_manufacturer,
         'name' => $manufacturer.name,
         'image' => "{$urls.img_manu_url}{$manufacturer.id_manufacturer}.jpg",
         'url' => {url entity='manufacturer' id=$manufacturer.id_manufacturer}
-      ]}
-      {append var='formatted_brands' value=$brand}
+      ]]}
     {/if}
   {/foreach}
 {else}
@@ -27,7 +28,7 @@
 {* Bloc pour les 3 marques phares *}
 {block name='featured_brands'}
   <div class="container featured-brands">
-    <p class="h3">Nous distribuons ces produits en magasins et pharmacies.</p>
+    <p class="h3 brands-title">Nous distribuons ces produits en magasins et pharmacies.</p>
     <div class="row justify-content-center">
       {* Affichage des marques phares *}
       {if $formatted_brands|count > 0}

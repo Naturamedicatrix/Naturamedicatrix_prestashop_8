@@ -16,7 +16,7 @@
     <div id="login-page">
       <div class="login-columns">
         <div class="login-column left-column">
-          <h2>{l s='Already have an account?' d='Shop.Theme.Customeraccount'}</h2>
+          <h2 class="text-center font-light">{l s='Already have an account?' d='Shop.Theme.Customeraccount'}</h2>
           <section class="login-form">
             {render file='customer/_partials/login-form.tpl' ui=$login_form}
           </section>
@@ -26,7 +26,7 @@
         </div>
         
         <div class="login-column right-column">
-          <h2>{l s='Créer votre compte' d='Shop.Theme.Customeraccount'}</h2>
+          <h2 class="text-center font-light">{l s='Créer votre compte' d='Shop.Theme.Customeraccount'}</h2>
           <div class="register-info">
             <p>Vous n’avez pas encore de compte client chez nous ? Inscrivez-vous pour profiter de tous les services de notre boutique en ligne :</p>
             <ul>

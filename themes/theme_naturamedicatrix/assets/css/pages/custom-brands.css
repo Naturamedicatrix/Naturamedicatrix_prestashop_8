@@ -154,15 +154,7 @@ body#manufacturer .brand-card .brand-card-action, .featured-brands .brand-card .
   position: absolute;
   bottom: 20px;
 }
-body#manufacturer .brand-card .brand-card-action a, .featured-brands .brand-card .brand-card-action a {
-  display: inline-block;
-  color: #1F80C7;
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-body#manufacturer .brand-card .brand-card-action a:hover, .featured-brands .brand-card .brand-card-action a:hover {
-  color: rgb(20.6891304348, 85.4260869565, 132.8108695652);
-  text-decoration: underline;
+
+body#index .brands-title {
+  display: none;
 }

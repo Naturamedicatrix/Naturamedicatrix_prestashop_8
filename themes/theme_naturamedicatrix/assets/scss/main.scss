@@ -1,6 +1,7 @@
 @use 'variables' as *;
 @use 'fonts';
 @use './pages/custom-cms.scss';
+@use 'sass:color';
 
 /* === STYLE GLOBAL === */
 
@@ -103,6 +104,10 @@ body {
       stroke-width: 0px;
     }
   }
+
+  .logo-h3 {
+    width: 40px !important;
+  }
   
   @media (max-width: $breakpoint-md) {
     max-width: 400px;
@@ -151,38 +156,118 @@ body {
   }
 }
 
-h2, .h2 {
-  font-size: 2.5rem;
+h2 {
+  font-size: 2rem;
+  text-align: left;
+  font-weight: bold;
   color: $color-custom-black;
+  margin: 30px 0 10px 0;
+  
+  @media (max-width: $breakpoint-md) {
+      font-size: 1.8rem;
+      margin: 25px 0 10px 0;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+      font-size: 1.6rem;
+      margin: 20px 0 10px 0;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  text-align: left;
+  font-weight: bold;
+  color: $color-custom-black;
+  margin: 20px 0 5px 0;
+  
+  @media (max-width: $breakpoint-md) {
+      font-size: 1.4rem;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+      font-size: 1.3rem;
+  }
+}
+
+h4 {
+  font-size: 1.2rem;
+  text-align: left;
+  font-weight: bold;
+  color: $color-custom-black;
+  margin: 20px 0 5px 0;
+  
+  @media (max-width: $breakpoint-sm) {
+      font-size: 1.1rem;
+  }
+}
+
+#content p {
+  color: $color-custom-gray;
+  padding-bottom: 20px;
+}
+
+ul {
+  padding-left: 40px;
+  margin-top: 10px;
+  color: $color-custom-gray;
+  
+  @media (max-width: $breakpoint-sm) {
+      padding-left: 25px;
+  }
+}
+
+blockquote {
+  margin: 2em auto;
+  max-width: 85%;
+  padding: 1em 2em;
+  border-left: 5px solid $color-custom-grayLight;
+  font-style: italic;
+  
+  @media (max-width: $breakpoint-md) {
+      max-width: 90%;
+      padding: 1em 1.5em;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+      max-width: 100%;
+      padding: 1em;
+      margin: 1.5em auto;
+  }
+  
+  p {
+      font-size: 20px;
+      color: $color-custom-grayLight;
+      
+      @media (max-width: $breakpoint-md) {
+          font-size: 18px;
+      }
+      
+      @media (max-width: $breakpoint-sm) {
+          font-size: 16px;
+      }
+  }
+}
+
+.alert-light {
+  background: $color-custom-information;
+  color: $color-custom-informationText;
   text-align: center;
-  font-weight: lighter;
-
-  @media (max-width: $breakpoint-lg) {
-    font-size: 2.2rem;
-  }
-
+  max-width: 85%;
+  margin: 20px auto;
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  
   @media (max-width: $breakpoint-md) {
-    font-size: 2rem;
+      max-width: 90%;
   }
-}
-
-.h3 {
-  font-size: 1.1rem;
-  color: $color-custom-gray;
-  font-weight: bolder;
-  margin-bottom: 20px;
-
-  @media (max-width: $breakpoint-lg) {
-    font-size: 1rem;
+  
+  @media (max-width: $breakpoint-sm) {
+      max-width: 100%;
+      margin: 15px auto;
+      padding: 12px;
   }
-
-  @media (max-width: $breakpoint-md) {
-    font-size: .9rem;
-  }
-}
-
-p {
-  color: $color-custom-gray;
 }
 // End Typography
 
@@ -231,6 +316,18 @@ p {
   }
 }
 // End Bouton d'action
+
+// LINK
+#content a {
+  color: $color-custom-blue;
+  border-bottom: 1px solid $color-custom-blue;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+  &:hover {
+    color: color.adjust($color-custom-blue, $lightness: -15%);
+    border-bottom: 1px solid color.adjust($color-custom-blue, $lightness: -15%);
+  }
+}
+// END LINK
 
 
 
@@ -408,3 +505,13 @@ table.table-light {
   background-color: rgb(248, 249, 253);
 }
 // END TABLE
+
+
+
+
+
+// INTRO NATURAMEDICATRIX
+.intro-naturamedicatrix {  
+  border: 1px solid $color-custom-gray;
+}
+// END INTRO NATURAMEDICATRIX
