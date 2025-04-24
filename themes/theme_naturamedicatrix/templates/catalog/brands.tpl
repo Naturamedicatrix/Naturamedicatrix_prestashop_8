@@ -35,7 +35,7 @@
               {* Vérifier si la propriété id_manufacturer existe *}
               {if isset($brand.id_manufacturer)}
                 {if $brand.id_manufacturer == 3 || $brand.id_manufacturer == 4 || $brand.id_manufacturer == 5}
-                  <div class="col-12 col-md-6 col-lg-4">
+                  <div class="col-12 col-md-12 col-xl-4">
                     <div class="brand-card featured-brand-card">
                       <div class="brand-card-header">
                         <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/Test_banner.jpg" alt="Header image" class="brand-header-img">
@@ -77,7 +77,7 @@
           {foreach from=$brands item=brand}
             {* Exclure les marques stars *}
             {if isset($brand.id_manufacturer) && $brand.id_manufacturer != 3 && $brand.id_manufacturer != 4 && $brand.id_manufacturer != 5}
-              <div class="col-12 col-md-6 col-lg-4 col-xl-full">
+              <div class="col-12 col-md-6 col-lg-4 col-xl-2 col-xl-full">
                 <div class="brand-card">
                   <div class="brand-card-logo">
                     <img src="{$brand.image}" alt="{$brand.name}">

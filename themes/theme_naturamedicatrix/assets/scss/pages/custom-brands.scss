@@ -17,9 +17,9 @@ body#manufacturer {
     
     /* Classe personnalisée pour avoir 5 colonnes en desktop */
     #main .col-xl-full {
-        @media (min-width: $breakpoint-xl) {
-            flex: 0 0 20%;
-            max-width: 20%;
+        @media (min-width: 1200px) and (max-width: 1700px) {
+            flex: 0 0 25%;
+            max-width: 25%;
         }
     }
 
