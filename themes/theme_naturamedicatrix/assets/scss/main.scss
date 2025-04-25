@@ -2,6 +2,7 @@
 @use 'fonts';
 @use './pages/custom-category-brand.scss';
 @use './pages/custom-cms.scss';
+@use './partials/_sideblock.scss';
 @use 'sass:color';
 @use './partials/block_intro';
 /* === STYLE GLOBAL === */
@@ -13,8 +14,12 @@ body {
   background-color: $color-custom-whiteDarker;
 
   #wrapper {
-    background: $color-custom-bgWrapper;
     padding-top: 0;
+    background-color: $color-custom-bgWrapper;
+  }
+
+  #main {
+    background-color: $color-custom-bgWrapper;
   }
 
   header {

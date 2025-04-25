@@ -1,0 +1,18 @@
+@use '../variables' as *;
+
+// Dégradé sur le wrapper qui s'aligne avec la taille de la colonne de gauche
+body#manufacturer {
+    #wrapper {
+        background: linear-gradient(to right,  
+            $color-custom-whiteDarker 50%, 
+            $color-custom-bgWrapper 50%, 
+            );
+    }
+}
+
+// Style pour la colonne de gauche
+#left-column {
+    background: transparent; // Transparent pour laisser voir le dégradé du wrapper
+    height: fit-content;
+    padding: 1.5rem;
+}
