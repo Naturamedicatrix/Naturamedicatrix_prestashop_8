@@ -13,6 +13,10 @@ body#contact {
         position: relative;
         background: $color-custom-bgWrapper;
         overflow: hidden;
+
+        p {
+            padding: 0;
+        }
         
         &::before {
             content: '';

@@ -1,2 +1,18 @@
 @charset "UTF-8";
 /* === Page des catégories et des marques === */
+#manufacturer-short_description, .alert, #category-description {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+#manufacturer-short_description p, #category-description p {
+  font-size: 1.2rem;
+}
+
+#manufacturer-description {
+  margin-top: 50px;
+}
+
+#products {
+  margin: 50px auto;
+}

@@ -20,6 +20,7 @@ body {
 
   #main {
     background-color: $color-custom-bgWrapper;
+    padding: 100px 100px;
   }
 
   header {
@@ -148,12 +149,12 @@ body {
 
 // Typography
 .page-title,
-.h1 {
+.h1, h1 {
   color: $color-custom-black;
   font-size: 2.5rem;
-  margin-top: 3rem;
   text-align: center;
   font-weight: bolder;
+  padding-bottom: 2rem;
 
   @media (max-width: $breakpoint-md) {
     font-size: 2rem;
@@ -165,7 +166,7 @@ body {
   }
 }
 
-h2 {
+h2, .h2 {
   font-size: 2rem;
   text-align: left;
   font-weight: bold;
@@ -183,7 +184,7 @@ h2 {
   }
 }
 
-h3 {
+h3, .h3 {
   font-size: 1.5rem;
   text-align: left;
   font-weight: bold;
@@ -199,7 +200,7 @@ h3 {
   }
 }
 
-h4 {
+h4, .h4 {
   font-size: 1.2rem;
   text-align: left;
   font-weight: bold;
@@ -211,7 +212,7 @@ h4 {
   }
 }
 
-#content p {
+#wrapper p {
   color: $color-custom-gray;
   padding-bottom: 20px;
 }
@@ -545,3 +546,9 @@ table>tbody>tr:nth-of-type(even) {
 }
 
 // END FULL WIDTH SECTION
+
+// ALERT 
+.alert {
+  margin: 25px auto;
+}
+// END ALERT

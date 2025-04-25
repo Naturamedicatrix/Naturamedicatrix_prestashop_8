@@ -18,11 +18,12 @@
     {* En-tête avec logo et descriptions *}
     <div class="header-category-manufacturer">
       <div class="logo-manufacturer">
-        <img src="{$urls.img_manu_url}/{$manufacturer.id}-large_default.jpg" alt="{$manufacturer.name}" loading="lazy">
+        <img src="{$urls.img_manu_url}/{$manufacturer.id}-brand_simple.jpg" alt="{$manufacturer.name}" class="mx-auto" loading="lazy">
       </div>
+      <h1 class="text-center">{$manufacturer.name}</h1>
       
-      <div id="manufacturer-short_description">{$manufacturer.short_description nofilter}</div>
-      <div id="manufacturer-description">{$manufacturer.description nofilter}</div>
+      <div id="manufacturer-short_description" class="text-left">{$manufacturer.short_description nofilter}</div>
+  
     </div>
 
     {* Liste des produits *}
@@ -41,10 +42,11 @@
           {include file='_partials/pagination.tpl' pagination=$listing.pagination}
         {/block}
       {else}
-        <div class="alert alert-warning">
+        <div class="alert alert-warning text-center">
           {l s='No products available yet' d='Shop.Theme.Catalog'}
         </div>
       {/if}
     </section>
+    <div id="manufacturer-description" class="text-left">{$manufacturer.description nofilter}</div>
   </section>
 {/block}

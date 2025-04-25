@@ -1,18 +1,17 @@
 @use '../variables' as *;
 
-// Dégradé sur le wrapper qui s'aligne avec la taille de la colonne de gauche
-body#manufacturer {
+// Si body contient la classe ciblée alors le wrapper est line-gradient
+body[class*="manufacturer-id-"], body.layout-left-column {
     #wrapper {
         background: linear-gradient(to right,  
             $color-custom-whiteDarker 50%, 
             $color-custom-bgWrapper 50%, 
             );
+
+            .block-categories, #search_filters {
+                padding: 50px 70px 50px 0;
+                background-color: $color-custom-whiteDarker;
+            }
     }
 }
 
-// Style pour la colonne de gauche
-#left-column {
-    background: transparent; // Transparent pour laisser voir le dégradé du wrapper
-    height: fit-content;
-    padding: 1.5rem;
-}
