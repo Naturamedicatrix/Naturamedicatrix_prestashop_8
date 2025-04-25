@@ -14,7 +14,6 @@
   flex: 0 0 25%;
   background-image: url('../img/background-intro-naturamedicatrix.jpeg');
   background-size: cover;
-  background-position: center;
   min-height: 500px;
 }
 
@@ -23,7 +22,7 @@
   padding: 5rem 8rem;
 }
 
-@media (max-width: $breakpoint-md) {
+@media (max-width: $breakpoint-lg) {
   .intro-naturamedicatrix-container {
     flex-direction: column;
   }
@@ -31,6 +30,7 @@
   .intro-naturamedicatrix-image {
     flex: 0 0 200px;
     width: 100%;
+    min-height: 250px;
   }
   
   .intro-naturamedicatrix-content {

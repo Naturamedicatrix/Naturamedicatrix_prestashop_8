@@ -42,8 +42,7 @@ body#manufacturer, .featured-brands {
         height: 100%;
         min-height: 440px;
         background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.2s ease;
         margin-bottom: 30px;
         position: relative;
         padding-bottom: 60px;
@@ -107,11 +106,9 @@ body#manufacturer, .featured-brands {
             .featured-description {
                 text-align: left;
                 padding: 0 40px;
-                
-                p {
-                    font-size: 16px;
-                    padding: 10px 0;
-                    color: $color-custom-gray;
+
+                @media (max-width: $breakpoint-sm) {
+                    padding: 0 2rem;
                 }
             }
             
@@ -163,10 +160,6 @@ body#manufacturer, .featured-brands {
             flex-grow: 1;
             margin-bottom: 0;
             text-align: left;
-
-            p {
-                font-size: 16px;
-            }
         }
         
         .brand-card-action {
@@ -174,6 +167,10 @@ body#manufacturer, .featured-brands {
             position: absolute;
             bottom: 20px;
             
+            a {
+                color: $color-custom-blue;
+                border-bottom: 1px solid $color-custom-blue;
+            }
           
         }
     }
@@ -182,6 +179,15 @@ body#manufacturer, .featured-brands {
 body#index {
     .brands-title {
         display: none;   
+    }
+
+    .featured-brand-card {
+        padding: 0 0 20px 0;
+    }
+
+    .brand-card-action {
+       position: relative;
+       margin: 20px 0 0 0;
     }
 }
 
