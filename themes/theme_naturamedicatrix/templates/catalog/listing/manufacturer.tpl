@@ -17,10 +17,10 @@
   <section id="main">
     {* En-tête avec logo et descriptions *}
     <div class="header-category-manufacturer">
-      <div class="logo-manufacturer">
+      <div class="logo-manufacturer mb-12">
         <img src="{$urls.img_manu_url}/{$manufacturer.id}-brand_simple.jpg" alt="{$manufacturer.name}" class="mx-auto" loading="lazy">
       </div>
-      <h1 class="text-center">{$manufacturer.name}</h1>
+      <h1 class="text-center pb-4">{$manufacturer.name}</h1>
       
       <div id="manufacturer-short_description" class="text-left">{$manufacturer.short_description nofilter}</div>
   

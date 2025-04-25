@@ -1,11 +1,18 @@
 @charset "UTF-8";
 /* === Page des catégories et des marques === */
-#manufacturer-short_description, .alert, #category-description {
+body#category #wrapper p {
+  margin-bottom: 0;
+}
+
+#manufacturer-short_description,
+.alert,
+#category-description {
   max-width: 980px;
   margin: 0 auto;
 }
 
-#manufacturer-short_description p, #category-description p {
+#manufacturer-short_description p,
+#category-description p {
   font-size: 1.2rem;
 }
 
@@ -15,4 +22,26 @@
 
 #products {
   margin: 50px auto;
+}
+
+#subcategories ul li {
+  min-width: auto;
+  width: auto;
+}
+
+#subcategories {
+  padding: 0;
+  border-top: none;
+}
+#subcategories .subcategories-list {
+  justify-content: center;
+}
+
+.block-category {
+  min-height: auto;
+  margin-bottom: 0;
+}
+.block-category h1 {
+  margin-bottom: 0;
+  font-size: 2.5rem;
 }

@@ -20,7 +20,7 @@ body {
 
   #main {
     background-color: $color-custom-bgWrapper;
-    padding: 100px 100px;
+    padding: 100px 100px 0 100px;
   }
 
   header {
@@ -55,10 +55,9 @@ body {
     max-width: 2000px;
   }
 }
-
 // End responsive container
 
-// Badge rose
+// Badges
 .badge-pink {
   border: none;
   padding: 5px 20px;
@@ -69,6 +68,17 @@ body {
   background-color: $color-custom-highlight;
   color: $color-custom-white;
 }
+
+.badge-rounded {
+  text-transform: initial !important;
+  background: $color-custom-green;
+  padding: 10px 25px;
+  border-radius: 25px;
+  color: $color-custom-white;
+  font-size: 14px;
+  font-weight: bold;
+}
+// END Badges
 
 
 // LOGO Title
@@ -154,7 +164,6 @@ body {
   font-size: 2.5rem;
   text-align: center;
   font-weight: bolder;
-  padding-bottom: 2rem;
 
   @media (max-width: $breakpoint-md) {
     font-size: 2rem;
