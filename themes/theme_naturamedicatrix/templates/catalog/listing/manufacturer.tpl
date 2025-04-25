@@ -1,24 +1,50 @@
 {**
  * Fichier : manufacturer.tpl
- * 
- * Description : Template pour l'affichage de la page d'une marque spécifique
- * Ce fichier est utilisé lorsqu'un utilisateur clique sur une marque pour voir ses produits.
- * Il étend le template product-list.tpl pour hériter de la mise en page standard des listes de produits.
- *
- * Il affiche :
- * - Le titre de la page avec le nom de la marque
- * - La description courte de la marque
- * - La description complète de la marque
- * - La liste des produits de la marque (via le template products.tpl)
  *}
-{extends file='catalog/listing/product-list.tpl'}
+ 
+{* Extension du layout avec colonne gauche pour afficher les filtres *}
+{extends file='layouts/layout-left-column.tpl'}
 
-{block name='product_list_header'}
-  <h1>{l s='List of products by brand %brand_name%' sprintf=['%brand_name%' => $manufacturer.name] d='Shop.Theme.Catalog'}</h1>
-  <div id="manufacturer-short_description">{$manufacturer.short_description nofilter}</div>
-  <div id="manufacturer-description">{$manufacturer.description nofilter}</div>
+{* Bloc pour la colonne de gauche avec les filtres *}
+{block name='left_column'}
+  <div id="left-column" class="col-xs-12 col-md-4 col-lg-3">
+    {hook h="displayLeftColumn"}
+  </div>
 {/block}
 
-{block name='product_list'}
-  {include file='catalog/_partials/products.tpl' listing=$listing productClass="col-xs-12 col-sm-6 col-xl-3"}
+{* Bloc pour le contenu principal *}
+{block name='content'}
+  <section id="main">
+    {* En-tête avec logo et descriptions *}
+    <div class="header-category-manufacturer">
+      <div class="logo-manufacturer">
+        <img src="{$urls.img_manu_url}/{$manufacturer.id}-large_default.jpg" alt="{$manufacturer.name}" loading="lazy">
+      </div>
+      
+      <div id="manufacturer-short_description">{$manufacturer.short_description nofilter}</div>
+      <div id="manufacturer-description">{$manufacturer.description nofilter}</div>
+    </div>
+
+    {* Liste des produits *}
+    <section id="products">
+      {if $listing.products|count}
+        <div class="products row">
+          {foreach from=$listing.products item="product"}
+            <div class="{if isset($productClass)}{$productClass}{else}col-xs-12 col-sm-6 col-xl-3{/if}">
+              {include file="catalog/_partials/miniatures/product.tpl" product=$product}
+            </div>
+          {/foreach}
+        </div>
+
+        {* Pagination *}
+        {block name='pagination'}
+          {include file='_partials/pagination.tpl' pagination=$listing.pagination}
+        {/block}
+      {else}
+        <div class="alert alert-warning">
+          {l s='No products available yet' d='Shop.Theme.Catalog'}
+        </div>
+      {/if}
+    </section>
+  </section>
 {/block}
