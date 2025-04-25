@@ -2,7 +2,7 @@
 @use 'fonts';
 @use './pages/custom-cms.scss';
 @use 'sass:color';
-
+@use './partials/block_intro';
 /* === STYLE GLOBAL === */
 
 // Typographie globale
@@ -507,11 +507,14 @@ table.table-light {
 // END TABLE
 
 
-
-
-
-// INTRO NATURAMEDICATRIX
-.intro-naturamedicatrix {  
-  border: 1px solid $color-custom-gray;
+// FULL WIDTH SECTION
+.full-width-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 3rem 0 4rem 0;
 }
-// END INTRO NATURAMEDICATRIX
+// END FULL WIDTH SECTION

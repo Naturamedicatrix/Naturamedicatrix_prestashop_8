@@ -6,5 +6,5 @@ body#cms #main {
   padding: 1rem;
 }
 body#cms #main #content p img {
-  float: right;
+  margin: 0 auto;
 }

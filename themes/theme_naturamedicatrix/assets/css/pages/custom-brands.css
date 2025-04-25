@@ -158,3 +158,7 @@ body#manufacturer .brand-card .brand-card-action, .featured-brands .brand-card .
 body#index .brands-title {
   display: none;
 }
+
+.brands-manufacturers-section {
+  background-color: #F9FAFB;
+}
