@@ -16,7 +16,7 @@
        <div class="thumbnail-top">
          {block name='product_thumbnail'}
            {if $product.cover}
-             <a href="{$product.url}" class="thumbnail product-thumbnail mt-4">
+             <a href="{$product.url}" class="thumbnail product-thumbnail">
                <picture>
                  {if !empty($product.cover.bySize.home_default.sources.avif)}<source srcset="{$product.cover.bySize.home_default.sources.avif}" type="image/avif">{/if}
                  {if !empty($product.cover.bySize.home_default.sources.webp)}<source srcset="{$product.cover.bySize.home_default.sources.webp}" type="image/webp">{/if}
@@ -96,16 +96,7 @@
            {block name='product_price_and_shipping'}
             {if $product.show_price}
               <div class="product-price-and-shipping">
-                {if $product.has_discount}
-                  {hook h='displayProductPriceBlock' product=$product type="old_price"}
-
-                  <span class="regular-price" aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$product.regular_price}</span>
-                  {if $product.discount_type === 'percentage'}
-                    <span class="discount-percentage discount-product">{$product.discount_percentage}</span>
-                  {elseif $product.discount_type === 'amount'}
-                    <span class="discount-amount discount-product">{$product.discount_amount_to_display}</span>
-                  {/if}
-                {/if}
+                
 
                 {hook h='displayProductPriceBlock' product=$product type="before_price"}
 
@@ -118,13 +109,24 @@
                   {/if}
                 </span>
 
+                {if $product.has_discount}
+                  {hook h='displayProductPriceBlock' product=$product type="old_price"}
+
+                  <span class="regular-price" aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$product.regular_price}</span>
+                  {if $product.discount_type === 'percentage'}
+                    <span class="discount-percentage discount-product">{$product.discount_percentage}</span>
+                  {elseif $product.discount_type === 'amount'}
+                    <span class="discount-amount discount-product">{$product.discount_amount_to_display}</span>
+                  {/if}
+                {/if}
+
                 {hook h='displayProductPriceBlock' product=$product type='unit_price'}
                 {hook h='displayProductPriceBlock' product=$product type='weight'}
               </div>
             {/if}
           {/block}
           
-          {if $product.add_to_cart_url}
+          {* {if $product.add_to_cart_url}
             <form action="{$product.add_to_cart_url}" method="post" class="add-to-cart-or-refresh">
               <input type="hidden" name="token" value="{$static_token}">
               <input type="hidden" name="id_product" value="{$product.id_product}" class="product_page_product_id">
@@ -133,6 +135,21 @@
                 <i class="bi bi-bag-plus-fill"></i>
               </button>
             </form>
+          {/if} *}
+
+          {if $product.add_to_cart_url && !$product.has_attributes}
+            <a
+              href="{$product.add_to_cart_url}"
+              class="add-to-cart ajax-add-to-cart"
+              data-button-action="add-to-cart"
+              data-id-product="{$product.id_product}"
+            >
+            <i class="bi bi-bag-plus-fill"></i>
+            </a>
+          {else}
+            <a href="{$product.url}" class="add-to-cart">
+              <i class="bi bi-zoom-in"></i>
+            </a>
           {/if}
          </div>
 

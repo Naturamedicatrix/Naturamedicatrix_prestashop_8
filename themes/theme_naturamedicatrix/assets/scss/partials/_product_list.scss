@@ -29,13 +29,12 @@
     }
 
     .product-flags-container {
-        margin-bottom: 10px;
+        margin-top: 20px;
     }
     
     .product-flags {
         padding-left: 0px;
         margin-top: 0px;
-        margin-bottom: 5px;
         gap: 5px;
         position: relative;
         flex-direction: row;
@@ -43,7 +42,6 @@
         li.product-flag {
             font-size: 0.8rem;
             text-transform: inherit;
-            font-weight: normal;
             background: none;
             color: $color-custom-grayLight;
             border: 1px solid $color-custom-grayLight;
@@ -55,7 +53,6 @@
             min-height: auto;
             min-width: auto;
             font-weight: normal;
-
         }
 
         .discount {
@@ -65,15 +62,15 @@
         }
 
         .new {
-            background-color: $color-custom-blue !important;
-            color: $color-custom-white !important;
-            border-color:$color-custom-blue !important;
+            color: #136f9b !important;
+            background: #d1eaf6 !important;
+            border-color:#d1eaf6 !important;
         }
 
         .pack {
-            background-color: #1aae9c !important;
-            color: $color-custom-white !important;
-            border-color:#1aae9c !important;
+            background-color: #fffbeb !important;
+            color: #92400e !important;
+            border-color:#fffbeb !important;
         }
     }
 
@@ -88,7 +85,7 @@
     }
     
     .add-to-cart {
-        background-color: $color-custom-gray;
+        background-color: $color-custom-black;
         border: none;
         border-radius: 50%;
         width: 40px;
@@ -97,10 +94,12 @@
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease;
-        margin-top: 10px;
+        &:hover {
+            background-color: darken($color-custom-black, 10%);
+        }
         
         i {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: $color-custom-white;
         }
     
@@ -110,13 +109,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 15px;
         
         .product-price-and-shipping {
             margin-bottom: 0;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            font-weight: normal;
             
             .price {
                 font-size: 1.2rem;
