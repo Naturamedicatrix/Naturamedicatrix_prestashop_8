@@ -8,6 +8,10 @@
         margin-bottom: 30px;
         display: block;
         padding: 20px;
+        
+        a {
+            border: none !important;
+        }
 
         .thumbnail-container {
             margin-bottom: 0;
@@ -22,9 +26,10 @@
         text-transform: initial;
 
         a {
-            color: $color-custom-black;
+            color: $color-custom-black !important;
             font-size: 1rem;
             font-weight: 100;
+            border: none;
         }
     }
 
