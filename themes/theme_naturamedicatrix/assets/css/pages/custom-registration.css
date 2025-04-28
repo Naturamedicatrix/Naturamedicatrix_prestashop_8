@@ -14,6 +14,10 @@ body#registration #wrapper {
     padding-top: 1rem;
   }
 }
+body#registration #main {
+  padding: 0;
+  background-color: transparent;
+}
 body#registration .page-content.card.card-block {
   max-width: 100%;
   width: 100%;

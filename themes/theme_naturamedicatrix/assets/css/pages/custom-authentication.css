@@ -8,6 +8,10 @@ body#authentication #wrapper {
     background: white;
   }
 }
+body#authentication #main {
+  padding: 0;
+  background-color: transparent;
+}
 body#authentication .page-content.card.card-block {
   max-width: 100%;
   width: 100%;
@@ -75,6 +79,9 @@ body#authentication #login-page .login-columns .left-column .login-form form {
   body#authentication #login-page .login-columns .left-column .login-form form {
     align-items: center;
   }
+}
+body#authentication #login-page .login-columns .left-column .login-form .forgot-password a {
+  border: none;
 }
 body#authentication #login-page .login-columns .left-column .login-form .form-footer {
   width: 100%;

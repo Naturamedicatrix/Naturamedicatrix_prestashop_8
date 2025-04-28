@@ -18,6 +18,11 @@ body#registration {
       padding-top: 1rem;
     }
   }
+  
+  #main {
+    padding: 0;
+    background-color: transparent;
+  }
 
   //Supprime l'héritage du parent
   .page-content.card.card-block {

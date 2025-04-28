@@ -13,6 +13,11 @@ body#authentication {
     }
   }
 
+  #main {
+    padding: 0;
+    background-color: transparent;
+  }
+
   //Supprime l'héritage du parent
   .page-content.card.card-block {
     max-width: 100%;
@@ -87,6 +92,12 @@ body#authentication {
             // Tablette et desktop
             @media (min-width: $breakpoint-md) {
               align-items: center;
+            }
+          }
+
+          .forgot-password {
+            a {
+              border: none;
             }
           }
           

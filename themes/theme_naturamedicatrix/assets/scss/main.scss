@@ -5,6 +5,9 @@
 @use './partials/_sideblock.scss';
 @use 'sass:color';
 @use './partials/block_intro';
+@use './partials/_product_list.scss';
+
+
 /* === STYLE GLOBAL === */
 
 // Typographie globale
@@ -20,7 +23,7 @@ body {
 
   #main {
     background-color: $color-custom-bgWrapper;
-    padding: 100px 100px 0 100px;
+    padding: 100px 0px 0 100px;
   }
 
   header {
@@ -287,6 +290,11 @@ blockquote {
     margin: 15px auto;
     padding: 12px;
   }
+}
+
+.small {
+  color: $color-custom-grayLight;
+  font-size: .9rem;
 }
 
 // End Typography
