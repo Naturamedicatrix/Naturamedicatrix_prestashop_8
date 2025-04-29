@@ -5,9 +5,6 @@ body#manufacturer, .featured-brands {
   /* Classe personnalisée pour avoir 5 colonnes en desktop */
   /* Styles pour les cards des marques */
 }
-body#manufacturer .breadcrumb, .featured-brands .breadcrumb {
-  display: none;
-}
 body#manufacturer #main .row, .featured-brands #main .row {
   display: flex;
   flex-wrap: wrap;

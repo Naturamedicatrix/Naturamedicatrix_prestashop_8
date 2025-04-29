@@ -624,6 +624,33 @@ table>tbody>tr:nth-of-type(even) {
 // END ALERT
 
 
+/* BREADCRUMB */
+.breadcrumb {
+  background-color: #FFFFFF !important;
+  margin-bottom: 0 !important;
+  padding: 50px 0 0 30px !important;
+
+  ol {
+    li {
+      font-weight: 400 !important;
+      &:not(:last-child):after {
+        content: '»' !important;
+      }
+      a {
+        color: $color-custom-gray !important;
+        &:hover {
+          color: color.adjust($color-custom-gray, $lightness: -15%) !important;
+        }
+      }
+      
+      &:last-child {
+        font-weight: bold !important;
+        color: $color-custom-gray !important;
+      }
+    }
+  }
+}
+/* END BREADCRUMB */
 
 
 /* COLONNES CUSTOM */
