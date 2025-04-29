@@ -102,22 +102,22 @@ class Ps_Customeraccountlinks extends Module implements WidgetInterface
         $link = $this->context->link;
 
         $my_account_urls = [
-            2 => [
-                'title' => $this->trans('Orders', [], 'Admin.Global'),
-                'url' => $link->getPageLink('history', true),
-            ],
-            3 => [
-                'title' => $this->trans('Credit slips', [], 'Modules.Customeraccountlinks.Admin'),
-                'url' => $link->getPageLink('order-slip', true),
-            ],
-            4 => [
-                'title' => $this->trans('Addresses', [], 'Shop.Theme.Global'),
-                'url' => $link->getPageLink('addresses', true),
-            ],
-            0 => [
-                'title' => $this->trans('Personal info', [], 'Modules.Customeraccountlinks.Admin'),
-                'url' => $link->getPageLink('identity', true),
-            ],
+            // 2 => [
+            //     'title' => $this->trans('Orders', [], 'Admin.Global'),
+            //     'url' => $link->getPageLink('history', true),
+            // ],
+            // 3 => [
+            //     'title' => $this->trans('Credit slips', [], 'Modules.Customeraccountlinks.Admin'),
+            //     'url' => $link->getPageLink('order-slip', true),
+            // ],
+            // 4 => [
+            //     'title' => $this->trans('Addresses', [], 'Shop.Theme.Global'),
+            //     'url' => $link->getPageLink('addresses', true),
+            // ],
+            // 0 => [
+            //     'title' => $this->trans('Personal info', [], 'Modules.Customeraccountlinks.Admin'),
+            //     'url' => $link->getPageLink('identity', true),
+            // ],
         ];
 
         if ((int) Configuration::get('PS_ORDER_RETURN')) {

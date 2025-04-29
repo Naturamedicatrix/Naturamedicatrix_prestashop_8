@@ -1,6 +1,7 @@
 {**
 ** CUSTOM HEADER 
  *}
+{hook h='displayHeader'}
 {block name='header_banner'}
   <div class="header-banner text-carousel-banner">
     <div class="container">

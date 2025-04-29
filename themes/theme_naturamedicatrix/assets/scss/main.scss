@@ -83,7 +83,25 @@ body {
   font-size: 14px;
   font-weight: bold;
 }
+
+.wishlist-button-add {
+  top: -9px !important;
+  right: -10px !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+
+  // Style pour tous les icônes material-icons
+  i.material-icons {
+    color: $color-custom-grayLight !important;
+    
+    &:hover {
+      color: $color-custom-red !important;
+    }
+  }
+}
 // END Badges
+
+
 
 
 // LOGO Title
@@ -163,12 +181,18 @@ body {
 //End LOGO Title
 
 // Typography
+.page-header {
+  h1, .h4 {
+    text-align: center !important;
+  }
+}
 .page-title,
 .h1, h1 {
   color: $color-custom-black;
   font-size: 2.5rem;
   text-align: center;
   font-weight: bolder;
+  text-transform: none;
 
   @media (max-width: $breakpoint-md) {
     font-size: 2rem;
@@ -304,7 +328,7 @@ blockquote {
 // End Typography
 
 // Boutons d'actions
-.primary-btn {
+.primary-btn, .btn-primary {
   background-color: $color-custom-black !important;
   color: $color-custom-white !important;
   font-size: 15px;
@@ -326,6 +350,31 @@ blockquote {
     margin: 0 auto;
   }
 }
+
+.btn-secondary {
+  background-color: $color-custom-whiteDarker !important;
+  color: $color-custom-black !important;
+  font-size: 15px;
+  border: 1px solid $color-custom-black;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 50px;
+  text-transform: none;
+
+  &:hover {
+    background-color: $color-custom-black !important;
+    color: $color-custom-white !important;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 10px 80px;
+    margin: 0 auto;
+  }
+}
+
 
 
 .secondary-btn {
@@ -573,3 +622,65 @@ table>tbody>tr:nth-of-type(even) {
   margin: 25px auto;
 }
 // END ALERT
+
+
+
+
+/* COLONNES CUSTOM */
+@media (min-width: 1600px) {
+  .col-xxl-1 {
+    float: left;
+    width: 8.33333%
+  }
+
+  .col-xxl-2,.col-xxl-3 {
+    float: left;
+    width: 16.66667%
+  }
+
+  .col-xxl-3 {
+    width: 25%
+  }
+
+  .col-xxl-4,.col-xxl-5 {
+    float: left;
+    width: 33.33333%
+  }
+
+  .col-xxl-5 {
+    width: 41.66667%
+  }
+
+  .col-xxl-6,.col-xxl-7 {
+    float: left;
+    width: 50%
+  }
+
+  .col-xxl-7 {
+    width: 58.33333%
+  }
+
+  .col-xxl-8,.col-xxl-9 {
+    float: left;
+    width: 66.66667%
+  }
+
+  .col-xxl-9 {
+    width: 75%
+  }
+
+  .col-xxl-10 {
+    float: left;
+    width: 83.33333%
+  }
+
+  .col-xxl-11 {
+    float: left;
+    width: 91.66667%
+  }
+
+  .col-xxl-12 {
+    float: left;
+    width: 100%
+  }
+}
