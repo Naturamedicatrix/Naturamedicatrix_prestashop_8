@@ -293,8 +293,10 @@ blockquote {
 }
 
 .small {
-  color: $color-custom-grayLight;
+  color: $color-custom-gray;
   font-size: .9rem;
+  font-weight: 100;
+  line-height: 1;
 }
 
 // End Typography

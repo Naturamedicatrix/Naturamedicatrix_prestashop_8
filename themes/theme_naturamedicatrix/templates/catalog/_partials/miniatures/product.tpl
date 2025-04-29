@@ -70,6 +70,11 @@
            {/if}
          {/block}
 
+         {* BLOC DES VARIANTS *}
+           {block name='product_variants_complete'}
+             {include file='catalog/_partials/miniatures/product-variants.tpl' product=$product}
+           {/block}
+
  
          {block name='product_reviews'}
            {* {hook h='displayProductListReviews' product=$product} *}

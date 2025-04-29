@@ -10,7 +10,7 @@
         padding: 20px;
         
         a {
-            border: none !important;
+            border: none !important
         }
 
         .thumbnail-container {
@@ -30,6 +30,7 @@
             font-size: 1rem;
             font-weight: 100;
             border: none;
+            line-height: 1;
         }
     }
 
@@ -142,5 +143,12 @@
             justify-content: center;
             margin: 0;
         }
+    }
+
+    .variants-group {
+        font-size: .8rem;
+        color: $color-custom-gray;
+        line-height: 1;
+        font-weight: 100;
     }
 }
