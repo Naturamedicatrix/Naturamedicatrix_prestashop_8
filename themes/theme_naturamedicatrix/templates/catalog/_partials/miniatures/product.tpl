@@ -13,6 +13,22 @@
  <div class="js-product product{if !empty($productClasses)} {$productClasses}{/if}">
    <article class="product-miniature js-product-miniature" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}">
      <div class="thumbnail-container">
+     
+       {* Caractéristiques du produit *}
+       <div class="product-features-overlay mb-8">
+         {if isset($product.features) && $product.features}
+           <div class="product-features-list product-flags">
+             {foreach from=$product.features item=feature}
+               {* N'affiche pas la caractéristique "quantité" id=3 *}
+               {if isset($feature.value) && $feature.value|trim != '' && $feature.id_feature != 3}
+                 <span class="product-feature-item product-flag">{$feature.value|escape:'html':'UTF-8'}</span>
+               {/if}
+             {/foreach}
+           </div>
+         {/if}
+       </div>
+       {*END Caractéristiques du produit *}
+
        <div class="thumbnail-top">
          {block name='product_thumbnail'}
            {if $product.cover}
@@ -70,25 +86,50 @@
            {/if}
          {/block}
 
-         {* BLOC DES VARIANTS *}
+
+         {* Vérifie si le produit a des variants *}
+         {assign var='has_variants' value=false}
+         {assign var='combinations' value=Product::getProductAttributesIds($product.id_product)}
+         {if $combinations && count($combinations) > 0}
+           {assign var='has_variants' value=true}
+         {/if}
+
+         {* AFFICHE SOIT LES VARIANTS, SOIT LA CARACTÉRISTIQUE QUANTITÉ *}
+         {if $has_variants}
+           {* BLOC DES VARIANTS *}
            {block name='product_variants_complete'}
              {include file='catalog/_partials/miniatures/product-variants.tpl' product=$product}
            {/block}
+           {* END BLOC DES VARIANTS *}
+         {else}
+           {* BLOC CARACTÉRISTIQUE QUANTITÉ (ID 3) *}
+           {if isset($product.features) && $product.features}
+             <div class="product-quantity-info text-center">
+               {foreach from=$product.features item=feature}
+                 {* N'affiche QUE la caractéristique "quantité" id=3 *}
+                 {if isset($feature.value) && $feature.value|trim != '' && $feature.id_feature == 3}
+                   {$feature.value|escape:'html':'UTF-8'}
+                 {/if}
+               {/foreach}
+             </div>
+           {/if}
+           {* END BLOC CARACTÉRISTIQUE QUANTITÉ *}
+         {/if}
 
  
          {block name='product_reviews'}
-           {* {hook h='displayProductListReviews' product=$product} *}
-           <div class="review-product">
-            <div class="review-score text-center text-xs">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <span class="review-stats">238 avis</span>
+            {* {hook h='displayProductListReviews' product=$product} *}
+            <div class="review-product">
+              <div class="review-score text-center text-xs">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <span class="review-stats">238 avis</span>
+              </div>
             </div>
-           </div>
-         {/block}
+           {/block}
 
          
          {* Product flags *}

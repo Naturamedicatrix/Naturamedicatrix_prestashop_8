@@ -45,7 +45,7 @@
         position: relative;
         flex-direction: row;
 
-        li.product-flag {
+        .product-flag {
             font-size: 0.8rem;
             text-transform: inherit;
             background: none;
@@ -56,9 +56,9 @@
             border-top-right-radius: 2px;
             border-bottom-left-radius: 2px;
             line-height: 1.2;
-            min-height: auto;
+            min-height: auto !important;
             min-width: auto;
-            font-weight: normal;
+            font-weight: normal !important;
         }
 
         .discount {
@@ -82,7 +82,7 @@
 
     .review-score {
         color: $color-custom-stars;
-        padding-top: 10px;
+        padding-top: 5px;
 
         .review-stats {
             color: $color-custom-grayLight;
@@ -145,10 +145,12 @@
         }
     }
 
-    .variants-group {
+    .variants-group, .product-quantity-info {
         font-size: .8rem;
         color: $color-custom-gray;
         line-height: 1;
         font-weight: 100;
+        padding: 5px;
     }
+    
 }

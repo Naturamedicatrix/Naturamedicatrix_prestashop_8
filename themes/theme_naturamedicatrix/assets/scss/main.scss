@@ -15,6 +15,7 @@ html,
 body {
   font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: $color-custom-whiteDarker;
+  overflow-x: hidden;
 
   #wrapper {
     padding-top: 0;
@@ -25,6 +26,7 @@ body {
     background-color: $color-custom-bgWrapper;
     padding: 100px 0px 0 30px;
   }
+  
 
   header {
     @media (max-width: $breakpoint-sm) {
