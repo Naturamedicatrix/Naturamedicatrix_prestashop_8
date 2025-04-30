@@ -4,6 +4,25 @@
 /** === PAGE MON COMPTE === */
 
 body#my-account {
+    .content-account {
+        p {
+            text-align: center;
+            padding: 25px 0;
+        }
+        i {
+            font-size: 6rem;
+        }
+        h2 {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-top: 15px;
+        }
+    }
+
+    .btn-primary {
+            font-size: 1.3rem;
+            margin-bottom: 150px;
+    }
 
     .left-column-content {
         .account-list {
@@ -27,6 +46,7 @@ body#my-account {
                     color: $color-custom-gray;
                     font-weight: 100;
                     padding-bottom: 0;
+                    text-align: left;
                 }
             }
             

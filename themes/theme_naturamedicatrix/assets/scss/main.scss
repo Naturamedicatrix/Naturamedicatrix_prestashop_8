@@ -30,13 +30,16 @@ body {
     background-color: $color-custom-bgWrapper;
     padding: 100px 0px 0 30px;
   }
-  
 
   header {
     @media (max-width: $breakpoint-sm) {
       margin-bottom: .5rem !important;
     }
   }
+}
+
+#main .page-content, #main .page-footer, #main .page-header {
+  margin-bottom: 0;
 }
 
 // Responsive container
@@ -290,6 +293,7 @@ blockquote {
   p {
     font-size: 20px;
     color: $color-custom-grayLight;
+    line-height: 100;
 
     @media (max-width: $breakpoint-md) {
       font-size: 18px;
