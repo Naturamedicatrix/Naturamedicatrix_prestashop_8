@@ -53,6 +53,9 @@ assets:
       - id: custom-brands-styles
         path: assets/css/pages/custom-brands.css
         media: all
+      - id: custom-cart-styles
+        path: assets/css/pages/custom-cart.css
+        media: all
         priority: 70
       - id: main-styles
         path: assets/css/main.css

@@ -1,0 +1,53 @@
+@use "../variables" as *;
+@use 'sass:color';
+
+/* === STYLES DES MODALS === */
+
+
+/* MODAL Wishlish LOGIN */
+.wishlist-login {
+    .modal-footer {
+        @media (max-width: $breakpoint-sm) {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            
+            button, a {
+                width: 100% !important;
+                margin: 0 !important;
+                padding-left: 30px !important;
+                padding-right: 30px !important;
+            }
+        }
+    }
+}
+/* END MODAL Wishlish LOGIN */
+
+
+/** MODAL AJOUT PANIER **/
+#blockcart-modal {
+    .modal-content {
+        .product-name {
+            color: $color-custom-black !important;
+        }
+        .cart-content-btn {
+            margin-top: 15px;
+
+            @media (max-width: $breakpoint-md) {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            
+            button, a {
+                width: 100% !important;
+                margin: 0 !important;
+                padding-left: 30px !important;
+                padding-right: 30px !important;
+            }
+            }
+        }
+    }
+}
+/* END MODAL AJOUT PANIER */

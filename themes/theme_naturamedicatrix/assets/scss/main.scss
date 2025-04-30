@@ -1,11 +1,15 @@
+/* === UTILITIES === */
 @use 'variables' as *;
+@use 'sass:color';
 @use 'fonts';
+
+/* === PARTIALS/PAGES === */
 @use './pages/custom-category-brand.scss';
 @use './pages/custom-cms.scss';
 @use './partials/_sideblock.scss';
-@use 'sass:color';
 @use './partials/block_intro';
 @use './partials/_product_list.scss';
+@use './partials/_modal.scss';
 
 
 /* === STYLE GLOBAL === */

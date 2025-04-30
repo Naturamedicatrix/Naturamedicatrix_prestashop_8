@@ -300,4 +300,4 @@
   </div>
 </div>
 
-{* {hook h='displayFooter'} *}
+{hook h='displayFooter'}

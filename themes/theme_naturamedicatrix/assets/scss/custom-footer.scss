@@ -5,7 +5,7 @@
   padding-top: 0;
 }
 
-.block-contact {
+.block-contact, #block_myaccount_infos {
   display: none;
 }
 /* CUSTOM FOOTER CONTAINER */
@@ -493,7 +493,6 @@
   }
   
   @media (min-width: $breakpoint-md) {
-    // Ajuster l'espacement horizontal pour un meilleur équilibre
     &:nth-child(1) {
       padding-right: 0;
     }
@@ -522,16 +521,15 @@
     text-align: center;
     
     &#footer-title-1 {
-      // Style spécifique pour le titre NATURAMedicatrix
       .natura-light {
-        font-weight: 300; // Police légère pour NATURA
+        font-weight: 300;
         letter-spacing: 0.5px;
       }
       
       .medicatrix-bold {
-        font-weight: 700; // Police grasse pour Medicatrix
-        font-style: italic; // Italique pour Medicatrix
-        margin-left: -1px; // Ajustement de l'espacement
+        font-weight: 700;
+        font-style: italic;
+        margin-left: -1px;
       }
     }
     
