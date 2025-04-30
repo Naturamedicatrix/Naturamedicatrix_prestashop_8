@@ -3,7 +3,7 @@
 
 /** === PAGE MON COMPTE === */
 
-body#my-account {
+body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists {
     #main {
         padding-top: 50px;
         
@@ -209,7 +209,7 @@ body#my-account {
                 text-align: center;
 
                 a {
-                    margin-bottom: 20px;
+                    margin-bottom: 10px;
                 }
                 
                 @media (max-width: $breakpoint-sm) {
