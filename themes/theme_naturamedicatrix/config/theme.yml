@@ -57,6 +57,10 @@ assets:
         path: assets/css/pages/custom-cart.css
         media: all
         priority: 70
+      - id: custom-account-styles
+        path: assets/css/pages/custom-account.css
+        media: all
+        priority: 70
       - id: main-styles
         path: assets/css/main.css
         media: all

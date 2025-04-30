@@ -1,0 +1,61 @@
+@use "../variables" as *;
+@use 'sass:color';
+
+/** === PAGE MON COMPTE === */
+
+body#my-account {
+
+    .left-column-content {
+        .account-list {
+            border-radius: 4px;
+            padding: 1rem;
+            margin-top: 150px;
+            font-weight: 100;
+            
+            .customer-info {
+                margin-bottom: 1.5rem;
+                padding-left: 44px;
+                display: flex;
+                flex-direction: column;
+
+                h3 {
+                    font-size: 1.7rem;
+                }
+
+                .customer-email {
+                    font-size: 1rem;
+                    color: $color-custom-gray;
+                    font-weight: 100;
+                    padding-bottom: 0;
+                }
+            }
+            
+            .account-link {
+                display: flex;
+                align-items: center;
+                padding: 0.75rem 0;
+                color: $color-custom-gray;
+                transition: all 0.2s ease;
+                text-decoration: none;
+                
+              
+                
+                i {
+                    margin-right: 0.75rem;
+                    font-size: 1.2rem;
+                    vertical-align: middle;
+                }
+                
+                span {
+                    flex: 1;
+                }
+                
+                &:hover {
+                    color: color.adjust($color-custom-gray, $lightness: -15%);
+                    transform: translateX(5px);
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

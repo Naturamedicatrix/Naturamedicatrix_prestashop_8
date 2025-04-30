@@ -1,0 +1,43 @@
+/** === PAGE MON COMPTE === */
+body#my-account .left-column-content .account-list {
+  border-radius: 4px;
+  padding: 1rem;
+  margin-top: 150px;
+  font-weight: 100;
+}
+body#my-account .left-column-content .account-list .customer-info {
+  margin-bottom: 1.5rem;
+  padding-left: 44px;
+  display: flex;
+  flex-direction: column;
+}
+body#my-account .left-column-content .account-list .customer-info h3 {
+  font-size: 1.7rem;
+}
+body#my-account .left-column-content .account-list .customer-info .customer-email {
+  font-size: 1rem;
+  color: #4B5563;
+  font-weight: 100;
+  padding-bottom: 0;
+}
+body#my-account .left-column-content .account-list .account-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  color: #4B5563;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+body#my-account .left-column-content .account-list .account-link i {
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+body#my-account .left-column-content .account-list .account-link span {
+  flex: 1;
+}
+body#my-account .left-column-content .account-list .account-link:hover {
+  color: rgb(42.025862069, 47.6293103448, 55.474137931);
+  transform: translateX(5px);
+  font-weight: 700;
+}
