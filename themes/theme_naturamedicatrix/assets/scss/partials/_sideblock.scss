@@ -12,6 +12,10 @@ body[class*="manufacturer-id-"], body.layout-left-column {
                 padding: 50px 70px 50px 0;
                 background-color: $color-custom-whiteDarker;
             }
+
+            @media (max-width: $breakpoint-sm) {
+                background: $color-custom-white;
+            }
     }
 }
 

@@ -94,7 +94,14 @@
               <span>{l s='Déconnexion' d='Shop.Theme.Actions'}</span>
             </a>
           </li>
-        
+      </ul>
+      
+      {* Bouton mobile *}
+      <div class="mobile-action-button">
+        <a href="{$urls.pages.index}" class="btn-primary">
+          Continuer mes achats
+        </a>
+      </div>
     </div>
   </div>
 {/block}
