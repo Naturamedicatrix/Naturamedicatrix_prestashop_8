@@ -85,6 +85,15 @@
               <span>{l s='RGPD - Données personnelles' d='Shop.Theme.Customeraccount'}</span>
             </a>
           </li>
+
+          <hr />
+          
+          <li>
+            <a class="account-link" id="logout-link-side" href="{$urls.actions.logout}">
+              <i class="bi bi-power"></i>
+              <span>{l s='Déconnexion' d='Shop.Theme.Actions'}</span>
+            </a>
+          </li>
         
     </div>
   </div>

@@ -33,12 +33,10 @@ body#my-account {
             .account-link {
                 display: flex;
                 align-items: center;
-                padding: 0.75rem 0;
+                padding: 0.5rem 0;
                 color: $color-custom-gray;
                 transition: all 0.2s ease;
                 text-decoration: none;
-                
-              
                 
                 i {
                     margin-right: 0.75rem;
@@ -55,6 +53,14 @@ body#my-account {
                     transform: translateX(5px);
                     font-weight: 700;
                 }
+            }
+
+            #gdpr-link-side {
+                margin-bottom: 10px;
+            }
+
+            #logout-link-side {
+                margin-top: 10px;
             }
         }
     }
