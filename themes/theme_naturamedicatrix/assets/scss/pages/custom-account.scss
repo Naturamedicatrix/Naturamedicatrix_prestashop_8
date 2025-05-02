@@ -3,10 +3,16 @@
 
 /** === PAGE MON COMPTE === */
 body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#module-psgdpr-gdpr {
+    #wrapper {
+
+            @media (max-width: 767px) {
+                background: $color-custom-white;
+            }
+    }
     #main {
         padding-top: 50px;
         
-        @media (max-width: $breakpoint-md) {
+        @media (max-width: 767px) {
             padding-top: 30px;
         }
         
@@ -37,7 +43,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
             text-align: center;
             padding: 25px 0;
             
-            @media (max-width: $breakpoint-md) {
+            @media (max-width: 767px) {
                 padding: 20px 15px;
                 font-size: 0.95rem;
             }
@@ -46,7 +52,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         i {
             font-size: 6rem;
             
-            @media (max-width: $breakpoint-md) {
+            @media (max-width: 767px) {
                 font-size: 5rem;
             }
         }
@@ -57,7 +63,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         margin-bottom: 50px;
         margin-left: 1.5rem;
         
-        @media (max-width: $breakpoint-md) {
+        @media (max-width: 767px) {
             font-size: 1.1rem;
             margin-bottom: 100px;
             padding: 8px 40px;
@@ -70,7 +76,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
 
     // LEFT COLUMN
     .left-column-content {
-        @media (max-width: $breakpoint-md) {
+        @media (max-width: 767px) {
             margin-bottom: 30px;
         }
         
@@ -86,7 +92,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
             padding-top: 50px;
             font-weight: 100;
             
-            @media (max-width: $breakpoint-md) {
+            @media (max-width: 767px) {
                 padding-top: 20px;
                 padding-bottom: 10px;
             }
@@ -95,13 +101,28 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 padding: 15px;
             }
             
+            /* Wrapper pour la liste déroulante mobile */
+            .account-links-wrapper {
+                transition: max-height 0.4s ease, opacity 0.3s ease;
+                overflow: hidden;
+                
+                @media (max-width: $breakpoint-sm) {
+                    &.collapsed {
+                        max-height: 0;
+                        opacity: 0;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+            
             .account-links-list {
                 display: flex;
                 flex-wrap: wrap;
                 margin: 0 0;
                 padding-left: 0;
                 
-                @media (max-width: $breakpoint-md) {
+                @media (max-width: 767px) {
                     justify-content: space-between;
                 }
                 
@@ -110,7 +131,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     padding: 0.3rem 10px;
                     transition: all 0.2s ease;
                     
-                    @media (max-width: $breakpoint-md) {
+                    @media (max-width: 767px) {
                         flex: 0 0 48%;
                     }
                     
@@ -126,13 +147,13 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     &:hover {
                         transform: translateX(5px);
                         
-                        @media (max-width: $breakpoint-md) {
+                        @media (max-width: 767px) {
                             transform: translateY(-2px);
                         }
                     }
                     
                     &:nth-last-child(1), &:nth-last-child(2) {
-                        @media (max-width: $breakpoint-md) {
+                        @media (max-width: 767px) {
                             margin-top: 15px;
                         }
                     }
@@ -153,10 +174,50 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 border-bottom: 1px solid rgba(0,0,0,0.1);
                 text-align: center;
                 align-items: center;
+                position: relative;
                 
-                @media (max-width: $breakpoint-md) {
+                @media (max-width: 767px) {
                     margin-bottom: 1.5rem;
                     padding-bottom: 1.2rem;
+                }
+                
+                /* Bouton toggle pour mobile */
+                .mobile-toggle-account {
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 15px;
+                    padding: 8px 15px;
+                    border: none;
+                    background-color: $color-custom-bgLight;
+                    color: $color-custom-gray;
+                    border-radius: 5px;
+                    font-size: 0.9rem;
+                    transition: all 0.2s ease;
+                    border: 1px solid rgba(0,0,0,0.05);
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+                    width: 100%;
+                    max-width: 220px;
+                    
+                    i {
+                        margin-right: 8px;
+                        font-size: 0.9rem;
+                        transition: transform 0.3s;
+                    }
+                    
+                    &:hover, &.active {
+                        background-color: rgba($color-custom-green, 0.08);
+                        color: $color-custom-black;
+                    }
+                    
+                    &.active i {
+                        transform: rotate(180deg);
+                    }
+                    
+                    @media (max-width: $breakpoint-sm) {
+                        display: flex;
+                        margin-top: 20px;
+                    }
                 }
                 
                 &:before {
@@ -172,7 +233,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     background-repeat: no-repeat;
                     background-size: 40px 40px;
                     
-                    @media (max-width: $breakpoint-md) {
+                    @media (max-width: 767px) {
                         width: 75px;
                         height: 75px;
                         margin-bottom: 10px;
@@ -193,7 +254,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 h3 {
                     font-size: 1.7rem;
                     
-                    @media (max-width: $breakpoint-md) {
+                    @media (max-width: 767px) {
                         font-size: 1.4rem;
                     }
                     
@@ -209,7 +270,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     padding-bottom: 0;
                     text-align: left;
                     
-                    @media (max-width: $breakpoint-md) {
+                    @media (max-width: 767px) {
                         font-size: 0.9rem;
                     }
                     
@@ -232,7 +293,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 border: 1px solid rgba(0,0,0,0.05);
                 box-shadow: 0 1px 2px rgba(0,0,0,0.02);
                 
-                @media (max-width: $breakpoint-md) {
+                @media (max-width: 767px) {
                     padding: 0.7rem;
                     height: 100%;
                 }
@@ -251,7 +312,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     min-width: 20px;
                     text-align: center;
                     
-                    @media (max-width: $breakpoint-md) {
+                    @media (max-width: 767px) {
                         font-size: 1.1rem;
                     }
                     
@@ -265,7 +326,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     flex: 1;
                     line-height: 1.3;
                     
-                    @media (max-width: $breakpoint-md) {
+                    @media (max-width: 767px) {
                         font-size: 0.95rem;
                     }
                     
@@ -297,24 +358,6 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 }
             }
             
-            /* Style actif pour le lien correspondant à la page courante */
-            body#identity & li a#identity-link-side,
-            body#addresses & li a#addresses-link-side,
-            body#history & li a#history-link-side,
-            body#order-slip & li a#order-slips-link-side,
-            body#discount & li a#discounts-link-side,
-            body#order-follow & li a#returns-link-side,
-            body#module-blockwishlist-lists & li a#wishlist-link-side,
-            body#module-psgdpr-gdpr & li a#gdpr-link-side {
-                color: $color-custom-black;
-                background-color: rgba($color-custom-green, 0.08);
-                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-                font-weight: 600;
-                
-                i {
-                    color: darken($color-custom-green, 10%);
-                }
-            }
 
             #gdpr-link-side {
                 margin-bottom: 10px;
@@ -340,6 +383,12 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
             }
         }
     }
+
+    .form-footer {
+        @media (max-width: $breakpoint-sm) {
+            text-align: center;
+        }
+    }
 }
 
 
@@ -352,7 +401,7 @@ body#module-blockwishlist-lists, body#module-psgdpr-gdpr {
         padding-left: 15px;
         display: block !important;
         
-        @media (max-width: $breakpoint-md) {
+        @media (max-width: 767px) {
             width: 66.67%;
         }
         
@@ -382,6 +431,10 @@ body#identity {
 .password-toggle-btn {
     left: 310px;
 
+    @media (max-width: 800px) {
+       left: 280px;
+    }
+
     @media (max-width: $breakpoint-sm) {
         left: auto;
         right: 10px;
@@ -392,7 +445,7 @@ body#identity {
     width: 400px;
 
     @media (max-width: $breakpoint-sm) {
-        width: 320px;
+        width: 280px;
     }
   }
 

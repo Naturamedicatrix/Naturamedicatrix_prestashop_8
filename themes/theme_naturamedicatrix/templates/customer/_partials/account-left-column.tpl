@@ -4,7 +4,15 @@
     <div class="customer-info">
       <h3>{$customer.firstname} {$customer.lastname}</h3>
       <p class="customer-email">{$customer.email}</p>
+      <!-- Bouton toggle pour mobile -->
+      <button class="mobile-toggle-account" type="button">
+        <i class="bi bi-chevron-down"></i>
+        <span>{l s='Afficher les actions' d='Shop.Theme.Customeraccount'}</span>
+      </button>
     </div>
+    
+    <!-- Wrapper pour la liste déroulante -->
+    <div class="account-links-wrapper">
     <ul class="account-links-list">
       <li>
         <a class="account-link" id="identity-link-side" href="{$urls.pages.identity}">
@@ -95,5 +103,54 @@
         Continuer mes achats
       </a>
     </div>
+    </div> {* Fermeture de account-links-wrapper *}
   </div>
 </div>
+
+{* JavaScript pour gérer le toggle mobile *}
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var toggleButton = document.querySelector('.mobile-toggle-account');
+    var linksWrapper = document.querySelector('.account-links-wrapper');
+    
+    if (toggleButton && linksWrapper) {
+      // État initial sur mobile - caché
+      if (window.innerWidth <= 575) {
+        linksWrapper.classList.add('collapsed');
+      }
+      
+      // Fonction de toggle
+      toggleButton.addEventListener('click', function() {
+        linksWrapper.classList.toggle('collapsed');
+        toggleButton.classList.toggle('active');
+        
+        // Changer l'icône et le texte
+        var icon = toggleButton.querySelector('i');
+        var text = toggleButton.querySelector('span');
+        if (linksWrapper.classList.contains('collapsed')) {
+          icon.classList.remove('bi-chevron-up');
+          icon.classList.add('bi-chevron-down');
+          text.textContent = '{l s="Afficher les actions" d="Shop.Theme.Customeraccount"}';
+        } else {
+          icon.classList.remove('bi-chevron-down');
+          icon.classList.add('bi-chevron-up');
+          text.textContent = '{l s="Masquer les actions" d="Shop.Theme.Customeraccount"}';
+        }
+      });
+      
+      // Réagir au changement de taille de l'écran
+      window.addEventListener('resize', function() {
+        if (window.innerWidth <= 575) {
+          linksWrapper.classList.add('collapsed');
+          var icon = toggleButton.querySelector('i');
+          var text = toggleButton.querySelector('span');
+          icon.classList.remove('bi-chevron-up');
+          icon.classList.add('bi-chevron-down');
+          text.textContent = '{l s="Afficher les actions" d="Shop.Theme.Customeraccount"}';
+        } else {
+          linksWrapper.classList.remove('collapsed');
+        }
+      });
+    }
+  });
+</script>
