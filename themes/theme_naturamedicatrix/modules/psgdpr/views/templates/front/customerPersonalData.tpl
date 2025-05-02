@@ -11,7 +11,7 @@
 
 {block name='page_content_container'}
   {* BREADCRUMB *}
-  <nav data-depth="2" class="breadcrumb">
+  {* <nav data-depth="2" class="breadcrumb">
     <ol>
       <li>
         <a href="{$urls.base_url}"><span>{l s='Accueil' d='Shop.Theme.Global'}</span></a>
@@ -29,7 +29,7 @@
     {block name='page_title'}
       {include file='_partials/page-title-with-svg.tpl' title={l s='RGPD - Données personnelles' mod='psgdpr'}}
     {/block}
-  {/block}
+  {/block} *}
 
   <div class="page_content">
     <div class="col-xs-12 psgdprinfo17">

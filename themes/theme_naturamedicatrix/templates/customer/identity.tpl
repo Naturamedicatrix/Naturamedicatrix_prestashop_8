@@ -9,12 +9,12 @@
 {/block}
 {* END LEFT COLUMN *}
 
-{block name='page_title'}
+{* {block name='page_title'}
   <div class="title-with-sep">
     <span>{l s='Vos informations personnelles' d='Shop.Theme.Customeraccount'}</span>
     <div class="sep-leaf"></div>
   </div>
-{/block}
+{/block} *}
 
 {block name='page_content'}
   {render file='customer/_partials/customer-form.tpl' ui=$customer_form}

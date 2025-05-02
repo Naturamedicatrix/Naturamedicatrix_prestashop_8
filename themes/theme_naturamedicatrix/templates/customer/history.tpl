@@ -9,12 +9,12 @@
 {/block}
 {* END LEFT COLUMN *}
 
-{block name='page_title'}
+{* {block name='page_title'}
   <div class="title-with-sep">
     <span>{l s='Mon historique de commandes' d='Shop.Theme.Customeraccount'}</span>
     <div class="sep-leaf"></div>
   </div>
-{/block}
+{/block} *}
 
 {block name='page_content'}
   <h6>{l s='Voici les commandes que vous avez passées depuis la création de votre compte.' d='Shop.Theme.Customeraccount'}</h6>

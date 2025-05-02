@@ -12,7 +12,7 @@
     {if $page.page_name == 'identity'}
       <!-- Section Informations personnelles - Uniquement pour la page identité -->
       <div class="identity-section">
-        <h2>{l s='Informations personnelles' d='Shop.Theme.Customeraccount'}</h2>
+        <h1>{l s='Informations personnelles' d='Shop.Theme.Customeraccount'}</h1>
         <p class="instructions-account">
           {l s='Pour modifier vos informations personnelles, vous devrez saisir votre mot de passe dans la section ci-dessous.' d='Shop.Theme.Customeraccount'}
         </p>
