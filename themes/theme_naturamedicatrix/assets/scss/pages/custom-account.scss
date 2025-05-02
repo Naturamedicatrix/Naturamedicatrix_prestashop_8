@@ -11,7 +11,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         }
         
         @media (max-width: $breakpoint-sm) {
-            padding-top: 20px;
+            padding: 0;
         }
     }
 
@@ -53,13 +53,18 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
     }
 
     .btn-primary {
-        font-size: 1.3rem;
-        margin-bottom: 150px;
+        font-size: 1rem;
+        margin-bottom: 50px;
+        margin-left: 1.5rem;
         
         @media (max-width: $breakpoint-md) {
             font-size: 1.1rem;
             margin-bottom: 100px;
             padding: 8px 40px;
+        }
+
+        @media (max-width: $breakpoint-sm) {
+            margin: 0 auto;
         }
     }
 
@@ -78,7 +83,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         
         .account-list {
             border-radius: 4px;
-            padding-top: 30px;
+            padding-top: 50px;
             font-weight: 100;
             
             @media (max-width: $breakpoint-md) {
@@ -93,7 +98,8 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
             .account-links-list {
                 display: flex;
                 flex-wrap: wrap;
-                margin: 0 -10px;
+                margin: 0 0;
+                padding-left: 0;
                 
                 @media (max-width: $breakpoint-md) {
                     justify-content: space-between;
@@ -364,7 +370,6 @@ body#identity {
     padding: 1.5rem;
     border-radius: 4px;
     margin-bottom: 1rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
 
   .instructions-account, .delete-account-section p {
@@ -376,10 +381,19 @@ body#identity {
 
 .password-toggle-btn {
     left: 310px;
+
+    @media (max-width: $breakpoint-sm) {
+        left: auto;
+        right: 10px;
+    }
 }
 
   .password-strength-feedback {
     width: 400px;
+
+    @media (max-width: $breakpoint-sm) {
+        width: 320px;
+    }
   }
 
   .delete-account-section {

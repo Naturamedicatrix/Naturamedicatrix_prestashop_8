@@ -10,7 +10,7 @@ body#my-account #main, body#identity #main, body#addresses #main, body#history #
 }
 @media (max-width: 640px) {
   body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#module-psgdpr-gdpr #main {
-    padding-top: 20px;
+    padding: 0;
   }
 }
 body#my-account #content, body#identity #content, body#addresses #content, body#history #content, body#order-slip #content, body#module-blockwishlist-lists #content, body#module-psgdpr-gdpr #content {
@@ -44,14 +44,20 @@ body#my-account .content-account i, body#identity .content-account i, body#addre
   }
 }
 body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary, body#module-psgdpr-gdpr .btn-primary {
-  font-size: 1.3rem;
-  margin-bottom: 150px;
+  font-size: 1rem;
+  margin-bottom: 50px;
+  margin-left: 1.5rem;
 }
 @media (max-width: 768px) {
   body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary, body#module-psgdpr-gdpr .btn-primary {
     font-size: 1.1rem;
     margin-bottom: 100px;
     padding: 8px 40px;
+  }
+}
+@media (max-width: 640px) {
+  body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary, body#module-psgdpr-gdpr .btn-primary {
+    margin: 0 auto;
   }
 }
 @media (max-width: 768px) {
@@ -69,7 +75,7 @@ body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-pr
 }
 body#my-account .left-column-content .account-list, body#identity .left-column-content .account-list, body#addresses .left-column-content .account-list, body#history .left-column-content .account-list, body#order-slip .left-column-content .account-list, body#module-blockwishlist-lists .left-column-content .account-list, body#module-psgdpr-gdpr .left-column-content .account-list {
   border-radius: 4px;
-  padding-top: 30px;
+  padding-top: 50px;
   font-weight: 100;
   /* Style actif pour le lien correspondant à la page courante */
 }
@@ -87,7 +93,8 @@ body#my-account .left-column-content .account-list, body#identity .left-column-c
 body#my-account .left-column-content .account-list .account-links-list, body#identity .left-column-content .account-list .account-links-list, body#addresses .left-column-content .account-list .account-links-list, body#history .left-column-content .account-list .account-links-list, body#order-slip .left-column-content .account-list .account-links-list, body#module-blockwishlist-lists .left-column-content .account-list .account-links-list, body#module-psgdpr-gdpr .left-column-content .account-list .account-links-list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -10px;
+  margin: 0 0;
+  padding-left: 0;
 }
 @media (max-width: 768px) {
   body#my-account .left-column-content .account-list .account-links-list, body#identity .left-column-content .account-list .account-links-list, body#addresses .left-column-content .account-list .account-links-list, body#history .left-column-content .account-list .account-links-list, body#order-slip .left-column-content .account-list .account-links-list, body#module-blockwishlist-lists .left-column-content .account-list .account-links-list, body#module-psgdpr-gdpr .left-column-content .account-list .account-links-list {
@@ -338,7 +345,6 @@ body#identity .identity-section {
   padding: 1.5rem;
   border-radius: 4px;
   margin-bottom: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 body#identity .instructions-account, body#identity .delete-account-section p {
   font-size: 0.9rem;
@@ -349,8 +355,19 @@ body#identity .instructions-account, body#identity .delete-account-section p {
 body#identity .password-toggle-btn {
   left: 310px;
 }
+@media (max-width: 640px) {
+  body#identity .password-toggle-btn {
+    left: auto;
+    right: 10px;
+  }
+}
 body#identity .password-strength-feedback {
   width: 400px;
+}
+@media (max-width: 640px) {
+  body#identity .password-strength-feedback {
+    width: 320px;
+  }
 }
 body#identity .delete-account-section {
   margin-top: 20px;
