@@ -48,9 +48,9 @@
   {include file="module:blockwishlist/views/templates/components/modals/rename.tpl" url=$renameUrl}
 {/block}
 
-{block name='page_footer_container'}
+{* {block name='page_footer_container'}
   <div class="wishlist-footer-links">
     <a href="{$link->getPageLink('my-account', true)|escape:'html'}" class="text-primary"><i class="bi bi-chevron-left"></i>{l s='Retour à mon compte' d='Modules.Blockwishlist.Shop'}</a>
     <a href="{$urls.base_url}" class="text-primary"><i class="bi bi-house"></i>{l s='Accueil' d='Shop.Theme.Global'}</a>
   </div>
-{/block}
+{/block} *}
