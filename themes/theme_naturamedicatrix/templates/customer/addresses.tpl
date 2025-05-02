@@ -16,10 +16,12 @@
   </div>
 {/block} *}
 
+
 {block name='page_content'}
+  <h1>Mes adresses</h1>
   {if $customer.addresses}
     {foreach $customer.addresses as $address}
-      <div class="col-lg-4 col-md-6 col-sm-6">
+      <div class="col-xxl-4 col-lg-6 col-md-12 col-sm-12">
       {block name='customer_address'}
         {include file='customer/_partials/block-address.tpl' address=$address}
       {/block}
@@ -32,7 +34,7 @@
   {/if}
   <div class="clearfix"></div>
   <div class="addresses-footer">
-    <a href="{$urls.pages.address}" data-link-action="add-address">
+    <a href="{$urls.pages.address}" data-link-action="add-address" class="btn-primary">
       <i class="bi bi-plus-circle"></i>
       <span>{l s='Créer une nouvelle adresse' d='Shop.Theme.Actions'}</span>
     </a>

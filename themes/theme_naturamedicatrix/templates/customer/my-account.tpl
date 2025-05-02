@@ -19,7 +19,7 @@
     <p>Dans votre espace client NATURAMedicatrix, vous pouvez gérer vos commandes et vos retours, ainsi que vos informations personnelles.</p>
     <div class="content-account-logo text-center">
       <i class="bi bi-bag"></i>
-      <h2>Tout est à jour :)</h2>
+      <p class="text-2xl font-bold">Tout est à jour :)</p>
     </div>
   </div>
   

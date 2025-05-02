@@ -360,10 +360,10 @@ blockquote {
 }
 
 .btn-secondary {
-  background-color: $color-custom-whiteDarker !important;
+  background-color: transparent !important;
   color: $color-custom-black !important;
   font-size: 15px;
-  border: 1px solid $color-custom-black;
+  border: 1px solid $color-custom-black !important;
   font-weight: 600;
   border-radius: 4px;
   cursor: pointer;
@@ -383,26 +383,11 @@ blockquote {
   }
 }
 
-
-
-.secondary-btn {
-  background-color: $color-custom-black !important;
-  color: $color-custom-white !important;
-  font-size: 15px;
-  padding: 0 1.5rem;
-  border: none;
-  font-weight: 600;
-  border-radius: 0 0.2rem 0.2rem 0;
-  cursor: pointer;
-  width: 170px;
-
-  &:hover {
-    background-color: $color-custom-blackHover !important;
-  }
-
-  @media (max-width: $breakpoint-md) {
-    font-size: 14px;
-  }
+.btn-small {
+  font-size: 12px;
+  padding: 9px 15px;
+  font-weight: normal;
+  line-height: 1;
 }
 
 // End Bouton d'action
@@ -628,6 +613,11 @@ table>tbody>tr:nth-of-type(even) {
 // ALERT 
 .alert {
   margin: 25px auto;
+
+  ul {
+    padding-left: 0;
+    margin-top: 0;
+  }
 }
 // END ALERT
 
@@ -717,5 +707,20 @@ table>tbody>tr:nth-of-type(even) {
   .col-xxl-12 {
     float: left;
     width: 100%
+  }
+}
+
+
+/* CARDS */
+.card {
+  border: 1px solid darken($color-custom-whiteDarker, 15%);
+  border-radius: 10px;
+  margin-bottom: 30px;
+  display: block;
+  padding: 30px;
+  margin-top: 20px;
+
+  h4 {
+    margin-top: 0;
   }
 }

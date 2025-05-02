@@ -17,7 +17,7 @@
 {/block} *}
 
 {block name='page_content'}
-  <h6>{l s='Voici les commandes que vous avez passées depuis la création de votre compte.' d='Shop.Theme.Customeraccount'}</h6>
+  <h1>{l s='Historique des commandes' d='Shop.Theme.Customeraccount'}</h1>
 
   {if $orders}
     <table class="table table-striped table-bordered table-labeled hidden-sm-down">

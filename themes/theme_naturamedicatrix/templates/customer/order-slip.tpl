@@ -17,7 +17,7 @@
 {/block} *}
 
 {block name='page_content'}
-  <h6>{l s='Avoirs reçus suite à des commandes annulées.' d='Shop.Theme.Customeraccount'}</h6>
+  <h1>{l s='Mes bons de réduction' d='Shop.Theme.Customeraccount'}</h1>
 
   {if $credit_slips}
     <table class="table table-striped table-bordered hidden-sm-down">
@@ -66,6 +66,6 @@
       {/foreach}
     </div>
   {else}
-    <div class="alert alert-info" role="alert" data-alert="info">{l s='Vous n\'avez reçu aucun avoir.' d='Shop.Notifications.Warning'}</div>
+    <div class="alert alert-info" role="alert" data-alert="info">{l s='Vous n\'avez reçu aucun bon de réduction.' d='Shop.Notifications.Warning'}</div>
   {/if}
 {/block}

@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /** === PAGE MON COMPTE === */
+body#my-account .page-header h1 {
+  text-align: center !important;
+}
+
 @media (max-width: 767px) {
   body#my-account #wrapper, body#identity #wrapper, body#addresses #wrapper, body#history #wrapper, body#order-slip #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper {
     background: #f9fafb;
@@ -7,6 +11,7 @@
 }
 body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#module-psgdpr-gdpr #main {
   padding-top: 50px;
+  min-height: 850px;
 }
 @media (max-width: 767px) {
   body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#module-psgdpr-gdpr #main {
@@ -16,16 +21,41 @@ body#my-account #main, body#identity #main, body#addresses #main, body#history #
 @media (max-width: 640px) {
   body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#module-psgdpr-gdpr #main {
     padding: 0;
+    min-height: 100px;
   }
 }
 body#my-account #content, body#identity #content, body#addresses #content, body#history #content, body#order-slip #content, body#module-blockwishlist-lists #content, body#module-psgdpr-gdpr #content {
   padding-top: 0;
+}
+body#my-account .alert, body#identity .alert, body#addresses .alert, body#history .alert, body#order-slip .alert, body#module-blockwishlist-lists .alert, body#module-psgdpr-gdpr .alert {
+  margin-left: 0;
+  display: inline-block;
+  padding: 0.75rem 3.25rem;
+}
+@media (max-width: 640px) {
+  body#my-account .alert, body#identity .alert, body#addresses .alert, body#history .alert, body#order-slip .alert, body#module-blockwishlist-lists .alert, body#module-psgdpr-gdpr .alert {
+    padding: 0.75rem 1.25rem;
+  }
+}
+body#my-account .address-body, body#identity .address-body, body#addresses .address-body, body#history .address-body, body#order-slip .address-body, body#module-blockwishlist-lists .address-body, body#module-psgdpr-gdpr .address-body {
+  padding: 0;
+}
+body#my-account .address-body address, body#identity .address-body address, body#addresses .address-body address, body#history .address-body address, body#order-slip .address-body address, body#module-blockwishlist-lists .address-body address, body#module-psgdpr-gdpr .address-body address {
+  min-height: auto;
+}
+body#my-account .address-footer, body#identity .address-footer, body#addresses .address-footer, body#history .address-footer, body#order-slip .address-footer, body#module-blockwishlist-lists .address-footer, body#module-psgdpr-gdpr .address-footer {
+  padding: 10px 0 0 0;
 }
 body#my-account h1, body#my-account h2, body#identity h1, body#identity h2, body#addresses h1, body#addresses h2, body#history h1, body#history h2, body#order-slip h1, body#order-slip h2, body#module-blockwishlist-lists h1, body#module-blockwishlist-lists h2, body#module-psgdpr-gdpr h1, body#module-psgdpr-gdpr h2 {
   text-align: left !important;
   margin: 0 !important;
   padding-bottom: 10px;
   font-size: 2rem;
+}
+@media (max-width: 640px) {
+  body#my-account h1, body#my-account h2, body#identity h1, body#identity h2, body#addresses h1, body#addresses h2, body#history h1, body#history h2, body#order-slip h1, body#order-slip h2, body#module-blockwishlist-lists h1, body#module-blockwishlist-lists h2, body#module-psgdpr-gdpr h1, body#module-psgdpr-gdpr h2 {
+    font-size: 1.5rem;
+  }
 }
 body#my-account .breadcrumb, body#identity .breadcrumb, body#addresses .breadcrumb, body#history .breadcrumb, body#order-slip .breadcrumb, body#module-blockwishlist-lists .breadcrumb, body#module-psgdpr-gdpr .breadcrumb {
   display: none;
@@ -48,23 +78,6 @@ body#my-account .content-account i, body#identity .content-account i, body#addre
     font-size: 5rem;
   }
 }
-body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary, body#module-psgdpr-gdpr .btn-primary {
-  font-size: 1rem;
-  margin-bottom: 50px;
-  margin-left: 1.5rem;
-}
-@media (max-width: 767px) {
-  body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary, body#module-psgdpr-gdpr .btn-primary {
-    font-size: 1.1rem;
-    margin-bottom: 100px;
-    padding: 8px 40px;
-  }
-}
-@media (max-width: 640px) {
-  body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary, body#module-psgdpr-gdpr .btn-primary {
-    margin: 0 auto;
-  }
-}
 @media (max-width: 767px) {
   body#my-account .left-column-content, body#identity .left-column-content, body#addresses .left-column-content, body#history .left-column-content, body#order-slip .left-column-content, body#module-blockwishlist-lists .left-column-content, body#module-psgdpr-gdpr .left-column-content {
     margin-bottom: 30px;
@@ -80,7 +93,7 @@ body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-pr
 }
 body#my-account .left-column-content .account-list, body#identity .left-column-content .account-list, body#addresses .left-column-content .account-list, body#history .left-column-content .account-list, body#order-slip .left-column-content .account-list, body#module-blockwishlist-lists .left-column-content .account-list, body#module-psgdpr-gdpr .left-column-content .account-list {
   border-radius: 4px;
-  padding-top: 50px;
+  padding-top: 45px;
   font-weight: 100;
   /* Wrapper pour la liste déroulante mobile */
 }
