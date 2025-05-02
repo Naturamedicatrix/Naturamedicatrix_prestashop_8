@@ -2,8 +2,7 @@
 @use 'sass:color';
 
 /** === PAGE MON COMPTE === */
-
-body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists {
+body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#module-psgdpr-gdpr {
     #main {
         padding-top: 50px;
         
@@ -219,3 +218,29 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         }
     }
 }
+
+
+/* STYLE POUR LE MODULE LISTE DES ENVIES / GDPR */
+body#module-blockwishlist-lists, body#module-psgdpr-gdpr {
+
+    .breadcrumb {
+        padding-top: 0 !important;
+        padding-left: 0 !important;
+    }
+    
+    #content-wrapper {
+        float: left;
+        width: 75%;
+        padding-left: 15px;
+        display: block !important;
+        
+        @media (max-width: $breakpoint-md) {
+            width: 66.67%;
+        }
+        
+        @media (max-width: $breakpoint-sm) {
+            display: none !important;
+        }
+    }
+}
+// END STYLE POUR LE MODULE LISTE DES ENVIES

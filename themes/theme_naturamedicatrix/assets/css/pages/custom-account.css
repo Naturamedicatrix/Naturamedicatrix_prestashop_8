@@ -1,105 +1,105 @@
 /** === PAGE MON COMPTE === */
-body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main {
+body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#module-psgdpr-gdpr #main {
   padding-top: 50px;
 }
 @media (max-width: 768px) {
-  body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main {
+  body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#module-psgdpr-gdpr #main {
     padding-top: 30px;
   }
 }
 @media (max-width: 640px) {
-  body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main {
+  body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#module-psgdpr-gdpr #main {
     padding-top: 20px;
   }
 }
 @media (max-width: 640px) {
-  body#my-account #content-wrapper, body#identity #content-wrapper, body#addresses #content-wrapper, body#history #content-wrapper, body#order-slip #content-wrapper, body#module-blockwishlist-lists #content-wrapper {
+  body#my-account #content-wrapper, body#identity #content-wrapper, body#addresses #content-wrapper, body#history #content-wrapper, body#order-slip #content-wrapper, body#module-blockwishlist-lists #content-wrapper, body#module-psgdpr-gdpr #content-wrapper {
     display: none;
   }
 }
-body#my-account .content-account p, body#identity .content-account p, body#addresses .content-account p, body#history .content-account p, body#order-slip .content-account p, body#module-blockwishlist-lists .content-account p {
+body#my-account .content-account p, body#identity .content-account p, body#addresses .content-account p, body#history .content-account p, body#order-slip .content-account p, body#module-blockwishlist-lists .content-account p, body#module-psgdpr-gdpr .content-account p {
   text-align: center;
   padding: 25px 0;
 }
 @media (max-width: 768px) {
-  body#my-account .content-account p, body#identity .content-account p, body#addresses .content-account p, body#history .content-account p, body#order-slip .content-account p, body#module-blockwishlist-lists .content-account p {
+  body#my-account .content-account p, body#identity .content-account p, body#addresses .content-account p, body#history .content-account p, body#order-slip .content-account p, body#module-blockwishlist-lists .content-account p, body#module-psgdpr-gdpr .content-account p {
     padding: 20px 15px;
     font-size: 0.95rem;
   }
 }
-body#my-account .content-account i, body#identity .content-account i, body#addresses .content-account i, body#history .content-account i, body#order-slip .content-account i, body#module-blockwishlist-lists .content-account i {
+body#my-account .content-account i, body#identity .content-account i, body#addresses .content-account i, body#history .content-account i, body#order-slip .content-account i, body#module-blockwishlist-lists .content-account i, body#module-psgdpr-gdpr .content-account i {
   font-size: 6rem;
 }
 @media (max-width: 768px) {
-  body#my-account .content-account i, body#identity .content-account i, body#addresses .content-account i, body#history .content-account i, body#order-slip .content-account i, body#module-blockwishlist-lists .content-account i {
+  body#my-account .content-account i, body#identity .content-account i, body#addresses .content-account i, body#history .content-account i, body#order-slip .content-account i, body#module-blockwishlist-lists .content-account i, body#module-psgdpr-gdpr .content-account i {
     font-size: 5rem;
   }
 }
-body#my-account .content-account h2, body#identity .content-account h2, body#addresses .content-account h2, body#history .content-account h2, body#order-slip .content-account h2, body#module-blockwishlist-lists .content-account h2 {
+body#my-account .content-account h2, body#identity .content-account h2, body#addresses .content-account h2, body#history .content-account h2, body#order-slip .content-account h2, body#module-blockwishlist-lists .content-account h2, body#module-psgdpr-gdpr .content-account h2 {
   text-align: center;
   font-size: 1.3rem;
   margin-top: 15px;
 }
 @media (max-width: 768px) {
-  body#my-account .content-account h2, body#identity .content-account h2, body#addresses .content-account h2, body#history .content-account h2, body#order-slip .content-account h2, body#module-blockwishlist-lists .content-account h2 {
+  body#my-account .content-account h2, body#identity .content-account h2, body#addresses .content-account h2, body#history .content-account h2, body#order-slip .content-account h2, body#module-blockwishlist-lists .content-account h2, body#module-psgdpr-gdpr .content-account h2 {
     font-size: 1.2rem;
     margin-top: 10px;
   }
 }
-body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary {
+body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary, body#module-psgdpr-gdpr .btn-primary {
   font-size: 1.3rem;
   margin-bottom: 150px;
 }
 @media (max-width: 768px) {
-  body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary {
+  body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary, body#module-psgdpr-gdpr .btn-primary {
     font-size: 1.1rem;
     margin-bottom: 100px;
     padding: 8px 40px;
   }
 }
 @media (max-width: 768px) {
-  body#my-account .left-column-content, body#identity .left-column-content, body#addresses .left-column-content, body#history .left-column-content, body#order-slip .left-column-content, body#module-blockwishlist-lists .left-column-content {
+  body#my-account .left-column-content, body#identity .left-column-content, body#addresses .left-column-content, body#history .left-column-content, body#order-slip .left-column-content, body#module-blockwishlist-lists .left-column-content, body#module-psgdpr-gdpr .left-column-content {
     margin-bottom: 30px;
   }
 }
 @media (max-width: 640px) {
-  body#my-account .left-column-content, body#identity .left-column-content, body#addresses .left-column-content, body#history .left-column-content, body#order-slip .left-column-content, body#module-blockwishlist-lists .left-column-content {
+  body#my-account .left-column-content, body#identity .left-column-content, body#addresses .left-column-content, body#history .left-column-content, body#order-slip .left-column-content, body#module-blockwishlist-lists .left-column-content, body#module-psgdpr-gdpr .left-column-content {
     margin-bottom: 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     background-color: #f9f9f9;
   }
 }
-body#my-account .left-column-content .account-list, body#identity .left-column-content .account-list, body#addresses .left-column-content .account-list, body#history .left-column-content .account-list, body#order-slip .left-column-content .account-list, body#module-blockwishlist-lists .left-column-content .account-list {
+body#my-account .left-column-content .account-list, body#identity .left-column-content .account-list, body#addresses .left-column-content .account-list, body#history .left-column-content .account-list, body#order-slip .left-column-content .account-list, body#module-blockwishlist-lists .left-column-content .account-list, body#module-psgdpr-gdpr .left-column-content .account-list {
   border-radius: 4px;
   padding-top: 30px;
   font-weight: 100;
 }
 @media (max-width: 768px) {
-  body#my-account .left-column-content .account-list, body#identity .left-column-content .account-list, body#addresses .left-column-content .account-list, body#history .left-column-content .account-list, body#order-slip .left-column-content .account-list, body#module-blockwishlist-lists .left-column-content .account-list {
+  body#my-account .left-column-content .account-list, body#identity .left-column-content .account-list, body#addresses .left-column-content .account-list, body#history .left-column-content .account-list, body#order-slip .left-column-content .account-list, body#module-blockwishlist-lists .left-column-content .account-list, body#module-psgdpr-gdpr .left-column-content .account-list {
     padding-top: 20px;
     padding-bottom: 10px;
   }
 }
 @media (max-width: 640px) {
-  body#my-account .left-column-content .account-list, body#identity .left-column-content .account-list, body#addresses .left-column-content .account-list, body#history .left-column-content .account-list, body#order-slip .left-column-content .account-list, body#module-blockwishlist-lists .left-column-content .account-list {
+  body#my-account .left-column-content .account-list, body#identity .left-column-content .account-list, body#addresses .left-column-content .account-list, body#history .left-column-content .account-list, body#order-slip .left-column-content .account-list, body#module-blockwishlist-lists .left-column-content .account-list, body#module-psgdpr-gdpr .left-column-content .account-list {
     padding: 15px;
   }
 }
-body#my-account .left-column-content .account-list .customer-info, body#identity .left-column-content .account-list .customer-info, body#addresses .left-column-content .account-list .customer-info, body#history .left-column-content .account-list .customer-info, body#order-slip .left-column-content .account-list .customer-info, body#module-blockwishlist-lists .left-column-content .account-list .customer-info {
+body#my-account .left-column-content .account-list .customer-info, body#identity .left-column-content .account-list .customer-info, body#addresses .left-column-content .account-list .customer-info, body#history .left-column-content .account-list .customer-info, body#order-slip .left-column-content .account-list .customer-info, body#module-blockwishlist-lists .left-column-content .account-list .customer-info, body#module-psgdpr-gdpr .left-column-content .account-list .customer-info {
   margin-bottom: 1.5rem;
   padding-left: 44px;
   display: flex;
   flex-direction: column;
 }
 @media (max-width: 768px) {
-  body#my-account .left-column-content .account-list .customer-info, body#identity .left-column-content .account-list .customer-info, body#addresses .left-column-content .account-list .customer-info, body#history .left-column-content .account-list .customer-info, body#order-slip .left-column-content .account-list .customer-info, body#module-blockwishlist-lists .left-column-content .account-list .customer-info {
+  body#my-account .left-column-content .account-list .customer-info, body#identity .left-column-content .account-list .customer-info, body#addresses .left-column-content .account-list .customer-info, body#history .left-column-content .account-list .customer-info, body#order-slip .left-column-content .account-list .customer-info, body#module-blockwishlist-lists .left-column-content .account-list .customer-info, body#module-psgdpr-gdpr .left-column-content .account-list .customer-info {
     padding-left: 25px;
     margin-bottom: 1rem;
   }
 }
 @media (max-width: 640px) {
-  body#my-account .left-column-content .account-list .customer-info, body#identity .left-column-content .account-list .customer-info, body#addresses .left-column-content .account-list .customer-info, body#history .left-column-content .account-list .customer-info, body#order-slip .left-column-content .account-list .customer-info, body#module-blockwishlist-lists .left-column-content .account-list .customer-info {
+  body#my-account .left-column-content .account-list .customer-info, body#identity .left-column-content .account-list .customer-info, body#addresses .left-column-content .account-list .customer-info, body#history .left-column-content .account-list .customer-info, body#order-slip .left-column-content .account-list .customer-info, body#module-blockwishlist-lists .left-column-content .account-list .customer-info, body#module-psgdpr-gdpr .left-column-content .account-list .customer-info {
     padding-left: 5px;
     text-align: center;
     align-items: center;
@@ -107,20 +107,20 @@ body#my-account .left-column-content .account-list .customer-info, body#identity
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
-body#my-account .left-column-content .account-list .customer-info h3, body#identity .left-column-content .account-list .customer-info h3, body#addresses .left-column-content .account-list .customer-info h3, body#history .left-column-content .account-list .customer-info h3, body#order-slip .left-column-content .account-list .customer-info h3, body#module-blockwishlist-lists .left-column-content .account-list .customer-info h3 {
+body#my-account .left-column-content .account-list .customer-info h3, body#identity .left-column-content .account-list .customer-info h3, body#addresses .left-column-content .account-list .customer-info h3, body#history .left-column-content .account-list .customer-info h3, body#order-slip .left-column-content .account-list .customer-info h3, body#module-blockwishlist-lists .left-column-content .account-list .customer-info h3, body#module-psgdpr-gdpr .left-column-content .account-list .customer-info h3 {
   font-size: 1.7rem;
 }
 @media (max-width: 768px) {
-  body#my-account .left-column-content .account-list .customer-info h3, body#identity .left-column-content .account-list .customer-info h3, body#addresses .left-column-content .account-list .customer-info h3, body#history .left-column-content .account-list .customer-info h3, body#order-slip .left-column-content .account-list .customer-info h3, body#module-blockwishlist-lists .left-column-content .account-list .customer-info h3 {
+  body#my-account .left-column-content .account-list .customer-info h3, body#identity .left-column-content .account-list .customer-info h3, body#addresses .left-column-content .account-list .customer-info h3, body#history .left-column-content .account-list .customer-info h3, body#order-slip .left-column-content .account-list .customer-info h3, body#module-blockwishlist-lists .left-column-content .account-list .customer-info h3, body#module-psgdpr-gdpr .left-column-content .account-list .customer-info h3 {
     font-size: 1.4rem;
   }
 }
 @media (max-width: 640px) {
-  body#my-account .left-column-content .account-list .customer-info h3, body#identity .left-column-content .account-list .customer-info h3, body#addresses .left-column-content .account-list .customer-info h3, body#history .left-column-content .account-list .customer-info h3, body#order-slip .left-column-content .account-list .customer-info h3, body#module-blockwishlist-lists .left-column-content .account-list .customer-info h3 {
+  body#my-account .left-column-content .account-list .customer-info h3, body#identity .left-column-content .account-list .customer-info h3, body#addresses .left-column-content .account-list .customer-info h3, body#history .left-column-content .account-list .customer-info h3, body#order-slip .left-column-content .account-list .customer-info h3, body#module-blockwishlist-lists .left-column-content .account-list .customer-info h3, body#module-psgdpr-gdpr .left-column-content .account-list .customer-info h3 {
     font-size: 1.3rem;
   }
 }
-body#my-account .left-column-content .account-list .customer-info .customer-email, body#identity .left-column-content .account-list .customer-info .customer-email, body#addresses .left-column-content .account-list .customer-info .customer-email, body#history .left-column-content .account-list .customer-info .customer-email, body#order-slip .left-column-content .account-list .customer-info .customer-email, body#module-blockwishlist-lists .left-column-content .account-list .customer-info .customer-email {
+body#my-account .left-column-content .account-list .customer-info .customer-email, body#identity .left-column-content .account-list .customer-info .customer-email, body#addresses .left-column-content .account-list .customer-info .customer-email, body#history .left-column-content .account-list .customer-info .customer-email, body#order-slip .left-column-content .account-list .customer-info .customer-email, body#module-blockwishlist-lists .left-column-content .account-list .customer-info .customer-email, body#module-psgdpr-gdpr .left-column-content .account-list .customer-info .customer-email {
   font-size: 1rem;
   color: #4B5563;
   font-weight: 100;
@@ -128,17 +128,17 @@ body#my-account .left-column-content .account-list .customer-info .customer-emai
   text-align: left;
 }
 @media (max-width: 768px) {
-  body#my-account .left-column-content .account-list .customer-info .customer-email, body#identity .left-column-content .account-list .customer-info .customer-email, body#addresses .left-column-content .account-list .customer-info .customer-email, body#history .left-column-content .account-list .customer-info .customer-email, body#order-slip .left-column-content .account-list .customer-info .customer-email, body#module-blockwishlist-lists .left-column-content .account-list .customer-info .customer-email {
+  body#my-account .left-column-content .account-list .customer-info .customer-email, body#identity .left-column-content .account-list .customer-info .customer-email, body#addresses .left-column-content .account-list .customer-info .customer-email, body#history .left-column-content .account-list .customer-info .customer-email, body#order-slip .left-column-content .account-list .customer-info .customer-email, body#module-blockwishlist-lists .left-column-content .account-list .customer-info .customer-email, body#module-psgdpr-gdpr .left-column-content .account-list .customer-info .customer-email {
     font-size: 0.9rem;
   }
 }
 @media (max-width: 640px) {
-  body#my-account .left-column-content .account-list .customer-info .customer-email, body#identity .left-column-content .account-list .customer-info .customer-email, body#addresses .left-column-content .account-list .customer-info .customer-email, body#history .left-column-content .account-list .customer-info .customer-email, body#order-slip .left-column-content .account-list .customer-info .customer-email, body#module-blockwishlist-lists .left-column-content .account-list .customer-info .customer-email {
+  body#my-account .left-column-content .account-list .customer-info .customer-email, body#identity .left-column-content .account-list .customer-info .customer-email, body#addresses .left-column-content .account-list .customer-info .customer-email, body#history .left-column-content .account-list .customer-info .customer-email, body#order-slip .left-column-content .account-list .customer-info .customer-email, body#module-blockwishlist-lists .left-column-content .account-list .customer-info .customer-email, body#module-psgdpr-gdpr .left-column-content .account-list .customer-info .customer-email {
     font-size: 0.85rem;
     text-align: center;
   }
 }
-body#my-account .left-column-content .account-list .account-link, body#identity .left-column-content .account-list .account-link, body#addresses .left-column-content .account-list .account-link, body#history .left-column-content .account-list .account-link, body#order-slip .left-column-content .account-list .account-link, body#module-blockwishlist-lists .left-column-content .account-list .account-link {
+body#my-account .left-column-content .account-list .account-link, body#identity .left-column-content .account-list .account-link, body#addresses .left-column-content .account-list .account-link, body#history .left-column-content .account-list .account-link, body#order-slip .left-column-content .account-list .account-link, body#module-blockwishlist-lists .left-column-content .account-list .account-link, body#module-psgdpr-gdpr .left-column-content .account-list .account-link {
   display: flex;
   align-items: center;
   padding: 0.5rem 0;
@@ -147,67 +147,89 @@ body#my-account .left-column-content .account-list .account-link, body#identity 
   text-decoration: none;
 }
 @media (max-width: 768px) {
-  body#my-account .left-column-content .account-list .account-link, body#identity .left-column-content .account-list .account-link, body#addresses .left-column-content .account-list .account-link, body#history .left-column-content .account-list .account-link, body#order-slip .left-column-content .account-list .account-link, body#module-blockwishlist-lists .left-column-content .account-list .account-link {
+  body#my-account .left-column-content .account-list .account-link, body#identity .left-column-content .account-list .account-link, body#addresses .left-column-content .account-list .account-link, body#history .left-column-content .account-list .account-link, body#order-slip .left-column-content .account-list .account-link, body#module-blockwishlist-lists .left-column-content .account-list .account-link, body#module-psgdpr-gdpr .left-column-content .account-list .account-link {
     padding: 0.4rem 0;
   }
 }
 @media (max-width: 640px) {
-  body#my-account .left-column-content .account-list .account-link, body#identity .left-column-content .account-list .account-link, body#addresses .left-column-content .account-list .account-link, body#history .left-column-content .account-list .account-link, body#order-slip .left-column-content .account-list .account-link, body#module-blockwishlist-lists .left-column-content .account-list .account-link {
+  body#my-account .left-column-content .account-list .account-link, body#identity .left-column-content .account-list .account-link, body#addresses .left-column-content .account-list .account-link, body#history .left-column-content .account-list .account-link, body#order-slip .left-column-content .account-list .account-link, body#module-blockwishlist-lists .left-column-content .account-list .account-link, body#module-psgdpr-gdpr .left-column-content .account-list .account-link {
     padding: 0.6rem 0;
     font-size: 0.9rem;
     justify-content: flex-start;
   }
 }
-body#my-account .left-column-content .account-list .account-link i, body#identity .left-column-content .account-list .account-link i, body#addresses .left-column-content .account-list .account-link i, body#history .left-column-content .account-list .account-link i, body#order-slip .left-column-content .account-list .account-link i, body#module-blockwishlist-lists .left-column-content .account-list .account-link i {
+body#my-account .left-column-content .account-list .account-link i, body#identity .left-column-content .account-list .account-link i, body#addresses .left-column-content .account-list .account-link i, body#history .left-column-content .account-list .account-link i, body#order-slip .left-column-content .account-list .account-link i, body#module-blockwishlist-lists .left-column-content .account-list .account-link i, body#module-psgdpr-gdpr .left-column-content .account-list .account-link i {
   margin-right: 0.75rem;
   font-size: 1.2rem;
   vertical-align: middle;
 }
 @media (max-width: 768px) {
-  body#my-account .left-column-content .account-list .account-link i, body#identity .left-column-content .account-list .account-link i, body#addresses .left-column-content .account-list .account-link i, body#history .left-column-content .account-list .account-link i, body#order-slip .left-column-content .account-list .account-link i, body#module-blockwishlist-lists .left-column-content .account-list .account-link i {
+  body#my-account .left-column-content .account-list .account-link i, body#identity .left-column-content .account-list .account-link i, body#addresses .left-column-content .account-list .account-link i, body#history .left-column-content .account-list .account-link i, body#order-slip .left-column-content .account-list .account-link i, body#module-blockwishlist-lists .left-column-content .account-list .account-link i, body#module-psgdpr-gdpr .left-column-content .account-list .account-link i {
     font-size: 1.1rem;
   }
 }
 @media (max-width: 640px) {
-  body#my-account .left-column-content .account-list .account-link i, body#identity .left-column-content .account-list .account-link i, body#addresses .left-column-content .account-list .account-link i, body#history .left-column-content .account-list .account-link i, body#order-slip .left-column-content .account-list .account-link i, body#module-blockwishlist-lists .left-column-content .account-list .account-link i {
+  body#my-account .left-column-content .account-list .account-link i, body#identity .left-column-content .account-list .account-link i, body#addresses .left-column-content .account-list .account-link i, body#history .left-column-content .account-list .account-link i, body#order-slip .left-column-content .account-list .account-link i, body#module-blockwishlist-lists .left-column-content .account-list .account-link i, body#module-psgdpr-gdpr .left-column-content .account-list .account-link i {
     font-size: 1rem;
     margin-right: 0.5rem;
   }
 }
-body#my-account .left-column-content .account-list .account-link span, body#identity .left-column-content .account-list .account-link span, body#addresses .left-column-content .account-list .account-link span, body#history .left-column-content .account-list .account-link span, body#order-slip .left-column-content .account-list .account-link span, body#module-blockwishlist-lists .left-column-content .account-list .account-link span {
+body#my-account .left-column-content .account-list .account-link span, body#identity .left-column-content .account-list .account-link span, body#addresses .left-column-content .account-list .account-link span, body#history .left-column-content .account-list .account-link span, body#order-slip .left-column-content .account-list .account-link span, body#module-blockwishlist-lists .left-column-content .account-list .account-link span, body#module-psgdpr-gdpr .left-column-content .account-list .account-link span {
   flex: 1;
 }
 @media (max-width: 640px) {
-  body#my-account .left-column-content .account-list .account-link span, body#identity .left-column-content .account-list .account-link span, body#addresses .left-column-content .account-list .account-link span, body#history .left-column-content .account-list .account-link span, body#order-slip .left-column-content .account-list .account-link span, body#module-blockwishlist-lists .left-column-content .account-list .account-link span {
+  body#my-account .left-column-content .account-list .account-link span, body#identity .left-column-content .account-list .account-link span, body#addresses .left-column-content .account-list .account-link span, body#history .left-column-content .account-list .account-link span, body#order-slip .left-column-content .account-list .account-link span, body#module-blockwishlist-lists .left-column-content .account-list .account-link span, body#module-psgdpr-gdpr .left-column-content .account-list .account-link span {
     font-size: 0.9rem;
   }
 }
-body#my-account .left-column-content .account-list .account-link:hover, body#identity .left-column-content .account-list .account-link:hover, body#addresses .left-column-content .account-list .account-link:hover, body#history .left-column-content .account-list .account-link:hover, body#order-slip .left-column-content .account-list .account-link:hover, body#module-blockwishlist-lists .left-column-content .account-list .account-link:hover {
+body#my-account .left-column-content .account-list .account-link:hover, body#identity .left-column-content .account-list .account-link:hover, body#addresses .left-column-content .account-list .account-link:hover, body#history .left-column-content .account-list .account-link:hover, body#order-slip .left-column-content .account-list .account-link:hover, body#module-blockwishlist-lists .left-column-content .account-list .account-link:hover, body#module-psgdpr-gdpr .left-column-content .account-list .account-link:hover {
   color: rgb(42.025862069, 47.6293103448, 55.474137931);
   transform: translateX(5px);
   font-weight: 700;
 }
 @media (max-width: 640px) {
-  body#my-account .left-column-content .account-list .account-link:hover, body#identity .left-column-content .account-list .account-link:hover, body#addresses .left-column-content .account-list .account-link:hover, body#history .left-column-content .account-list .account-link:hover, body#order-slip .left-column-content .account-list .account-link:hover, body#module-blockwishlist-lists .left-column-content .account-list .account-link:hover {
+  body#my-account .left-column-content .account-list .account-link:hover, body#identity .left-column-content .account-list .account-link:hover, body#addresses .left-column-content .account-list .account-link:hover, body#history .left-column-content .account-list .account-link:hover, body#order-slip .left-column-content .account-list .account-link:hover, body#module-blockwishlist-lists .left-column-content .account-list .account-link:hover, body#module-psgdpr-gdpr .left-column-content .account-list .account-link:hover {
     transform: translateX(3px);
   }
 }
-body#my-account .left-column-content .account-list #gdpr-link-side, body#identity .left-column-content .account-list #gdpr-link-side, body#addresses .left-column-content .account-list #gdpr-link-side, body#history .left-column-content .account-list #gdpr-link-side, body#order-slip .left-column-content .account-list #gdpr-link-side, body#module-blockwishlist-lists .left-column-content .account-list #gdpr-link-side {
+body#my-account .left-column-content .account-list #gdpr-link-side, body#identity .left-column-content .account-list #gdpr-link-side, body#addresses .left-column-content .account-list #gdpr-link-side, body#history .left-column-content .account-list #gdpr-link-side, body#order-slip .left-column-content .account-list #gdpr-link-side, body#module-blockwishlist-lists .left-column-content .account-list #gdpr-link-side, body#module-psgdpr-gdpr .left-column-content .account-list #gdpr-link-side {
   margin-bottom: 10px;
 }
-body#my-account .left-column-content .account-list #logout-link-side, body#identity .left-column-content .account-list #logout-link-side, body#addresses .left-column-content .account-list #logout-link-side, body#history .left-column-content .account-list #logout-link-side, body#order-slip .left-column-content .account-list #logout-link-side, body#module-blockwishlist-lists .left-column-content .account-list #logout-link-side {
+body#my-account .left-column-content .account-list #logout-link-side, body#identity .left-column-content .account-list #logout-link-side, body#addresses .left-column-content .account-list #logout-link-side, body#history .left-column-content .account-list #logout-link-side, body#order-slip .left-column-content .account-list #logout-link-side, body#module-blockwishlist-lists .left-column-content .account-list #logout-link-side, body#module-psgdpr-gdpr .left-column-content .account-list #logout-link-side {
   margin-top: 10px;
 }
-body#my-account .left-column-content .account-list .mobile-action-button, body#identity .left-column-content .account-list .mobile-action-button, body#addresses .left-column-content .account-list .mobile-action-button, body#history .left-column-content .account-list .mobile-action-button, body#order-slip .left-column-content .account-list .mobile-action-button, body#module-blockwishlist-lists .left-column-content .account-list .mobile-action-button {
+body#my-account .left-column-content .account-list .mobile-action-button, body#identity .left-column-content .account-list .mobile-action-button, body#addresses .left-column-content .account-list .mobile-action-button, body#history .left-column-content .account-list .mobile-action-button, body#order-slip .left-column-content .account-list .mobile-action-button, body#module-blockwishlist-lists .left-column-content .account-list .mobile-action-button, body#module-psgdpr-gdpr .left-column-content .account-list .mobile-action-button {
   display: none;
   margin-top: 2rem;
   text-align: center;
 }
-body#my-account .left-column-content .account-list .mobile-action-button a, body#identity .left-column-content .account-list .mobile-action-button a, body#addresses .left-column-content .account-list .mobile-action-button a, body#history .left-column-content .account-list .mobile-action-button a, body#order-slip .left-column-content .account-list .mobile-action-button a, body#module-blockwishlist-lists .left-column-content .account-list .mobile-action-button a {
+body#my-account .left-column-content .account-list .mobile-action-button a, body#identity .left-column-content .account-list .mobile-action-button a, body#addresses .left-column-content .account-list .mobile-action-button a, body#history .left-column-content .account-list .mobile-action-button a, body#order-slip .left-column-content .account-list .mobile-action-button a, body#module-blockwishlist-lists .left-column-content .account-list .mobile-action-button a, body#module-psgdpr-gdpr .left-column-content .account-list .mobile-action-button a {
   margin-bottom: 10px;
 }
 @media (max-width: 640px) {
-  body#my-account .left-column-content .account-list .mobile-action-button, body#identity .left-column-content .account-list .mobile-action-button, body#addresses .left-column-content .account-list .mobile-action-button, body#history .left-column-content .account-list .mobile-action-button, body#order-slip .left-column-content .account-list .mobile-action-button, body#module-blockwishlist-lists .left-column-content .account-list .mobile-action-button {
+  body#my-account .left-column-content .account-list .mobile-action-button, body#identity .left-column-content .account-list .mobile-action-button, body#addresses .left-column-content .account-list .mobile-action-button, body#history .left-column-content .account-list .mobile-action-button, body#order-slip .left-column-content .account-list .mobile-action-button, body#module-blockwishlist-lists .left-column-content .account-list .mobile-action-button, body#module-psgdpr-gdpr .left-column-content .account-list .mobile-action-button {
     display: block;
+  }
+}
+
+/* STYLE POUR LE MODULE LISTE DES ENVIES / GDPR */
+body#module-blockwishlist-lists .breadcrumb, body#module-psgdpr-gdpr .breadcrumb {
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+}
+body#module-blockwishlist-lists #content-wrapper, body#module-psgdpr-gdpr #content-wrapper {
+  float: left;
+  width: 75%;
+  padding-left: 15px;
+  display: block !important;
+}
+@media (max-width: 768px) {
+  body#module-blockwishlist-lists #content-wrapper, body#module-psgdpr-gdpr #content-wrapper {
+    width: 66.67%;
+  }
+}
+@media (max-width: 640px) {
+  body#module-blockwishlist-lists #content-wrapper, body#module-psgdpr-gdpr #content-wrapper {
+    display: none !important;
   }
 }
