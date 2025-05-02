@@ -27,6 +27,9 @@ body#my-account #main, body#identity #main, body#addresses #main, body#history #
 body#my-account #content, body#identity #content, body#addresses #content, body#history #content, body#order-slip #content, body#module-blockwishlist-lists #content, body#module-psgdpr-gdpr #content {
   padding-top: 0;
 }
+body#my-account .psgdprinfo17, body#identity .psgdprinfo17, body#addresses .psgdprinfo17, body#history .psgdprinfo17, body#order-slip .psgdprinfo17, body#module-blockwishlist-lists .psgdprinfo17, body#module-psgdpr-gdpr .psgdprinfo17 {
+  background-color: transparent;
+}
 body#my-account .alert, body#identity .alert, body#addresses .alert, body#history .alert, body#order-slip .alert, body#module-blockwishlist-lists .alert, body#module-psgdpr-gdpr .alert {
   margin-left: 0;
   display: inline-block;

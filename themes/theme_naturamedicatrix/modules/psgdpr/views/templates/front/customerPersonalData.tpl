@@ -32,7 +32,7 @@
   {/block} *}
 
   <div class="page_content">
-    <div class="col-xs-12 psgdprinfo17">
+    <div class="col-xs-12 psgdprinfo17 card">
       <h2>{l s='Accès à mes données' mod='psgdpr'}</h2>
       <p>{l s='À tout moment, vous avez le droit de récupérer les données que vous avez fournies à notre site. Cliquez sur "Obtenir mes données" pour télécharger automatiquement une copie de vos données personnelles au format PDF ou CSV.' mod='psgdpr'}</p>
       <div class="data-export-buttons">

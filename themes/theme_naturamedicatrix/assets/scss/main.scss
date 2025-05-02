@@ -388,6 +388,13 @@ blockquote {
   padding: 9px 15px;
   font-weight: normal;
   line-height: 1;
+  
+  @media (max-width: $breakpoint-lg) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
 }
 
 // End Bouton d'action
