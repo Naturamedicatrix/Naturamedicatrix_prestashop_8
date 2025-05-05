@@ -7,7 +7,7 @@
       <!-- Bouton toggle pour mobile -->
       <button class="mobile-toggle-account" type="button">
         <i class="bi bi-chevron-down"></i>
-        <span>{l s='Afficher les actions' d='Shop.Theme.Customeraccount'}</span>
+        <span>{l s='Afficher les paramètres' d='Shop.Theme.Customeraccount'}</span>
       </button>
     </div>
     
@@ -130,11 +130,11 @@
         if (linksWrapper.classList.contains('collapsed')) {
           icon.classList.remove('bi-chevron-up');
           icon.classList.add('bi-chevron-down');
-          text.textContent = '{l s="Afficher les actions" d="Shop.Theme.Customeraccount"}';
+          text.textContent = '{l s="Afficher les paramètres" d="Shop.Theme.Customeraccount"}';
         } else {
           icon.classList.remove('bi-chevron-down');
           icon.classList.add('bi-chevron-up');
-          text.textContent = '{l s="Masquer les actions" d="Shop.Theme.Customeraccount"}';
+          text.textContent = '{l s="Masquer les paramètres" d="Shop.Theme.Customeraccount"}';
         }
       });
       
@@ -146,7 +146,7 @@
           var text = toggleButton.querySelector('span');
           icon.classList.remove('bi-chevron-up');
           icon.classList.add('bi-chevron-down');
-          text.textContent = '{l s="Afficher les actions" d="Shop.Theme.Customeraccount"}';
+          text.textContent = '{l s="Afficher les paramètres" d="Shop.Theme.Customeraccount"}';
         } else {
           linksWrapper.classList.remove('collapsed');
         }

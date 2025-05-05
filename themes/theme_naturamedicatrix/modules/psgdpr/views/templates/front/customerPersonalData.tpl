@@ -5,7 +5,9 @@
 
 {* LEFT COLUMN *}
 {block name="left_column"}
-  {include file='customer/_partials/account-left-column.tpl'}
+  <div class="gdpr-page-layout">
+    {include file='customer/_partials/account-left-column.tpl'}
+  </div>
 {/block}
 {* END LEFT COLUMN *}
 
@@ -36,8 +38,8 @@
       <h2>{l s='Accès à mes données' mod='psgdpr'}</h2>
       <p>{l s='À tout moment, vous avez le droit de récupérer les données que vous avez fournies à notre site. Cliquez sur "Obtenir mes données" pour télécharger automatiquement une copie de vos données personnelles au format PDF ou CSV.' mod='psgdpr'}</p>
       <div class="data-export-buttons">
-        <a id="exportDataToCsv" class="btn btn-primary psgdprgetdatabtn17" target="_blank" href="{$psgdpr_csv_controller|escape:'htmlall':'UTF-8'}">{l s='OBTENIR MES DONNÉES EN CSV' mod='psgdpr'}</a>
-        <a id="exportDataToPdf" class="btn btn-primary psgdprgetdatabtn17" target="_blank" href="{$psgdpr_pdf_controller|escape:'htmlall':'UTF-8'}">{l s='OBTENIR MES DONNÉES EN PDF' mod='psgdpr'}</a>
+        <a id="exportDataToCsv" class="btn-primary psgdprgetdatabtn17 mb-1" target="_blank" href="{$psgdpr_csv_controller|escape:'htmlall':'UTF-8'}">{l s='OBTENIR MES DONNÉES EN CSV' mod='psgdpr'}</a>
+        <a id="exportDataToPdf" class="btn-primary psgdprgetdatabtn17" target="_blank" href="{$psgdpr_pdf_controller|escape:'htmlall':'UTF-8'}">{l s='OBTENIR MES DONNÉES EN PDF' mod='psgdpr'}</a>
       </div>
     </div>
     <div class="col-xs-12 psgdprinfo17">

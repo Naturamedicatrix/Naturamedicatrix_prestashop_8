@@ -5,7 +5,9 @@
 
 {* LEFT COLUMN *}
 {block name="left_column"}
-  {include file='customer/_partials/account-left-column.tpl'}
+  <div class="wishlist-page-layout">
+    {include file='customer/_partials/account-left-column.tpl'}
+  </div>
 {/block}
 {* END LEFT COLUMN *}
 
