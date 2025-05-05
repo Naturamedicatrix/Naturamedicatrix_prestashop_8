@@ -9,7 +9,7 @@ body#my-account {
 }
 
 /* Styles spécifiques pour la page RGPD et la page des listes d'envies */
-body#module-psgdpr-gdpr, body#module-blockwishlist-lists {
+body#module-psgdpr-gdpr, body#module-blockwishlist-lists, body#view {
     #main {
         min-height: 1100px !important;
 
@@ -114,7 +114,7 @@ body#module-psgdpr-gdpr, body#module-blockwishlist-lists {
     }
 }
 
-body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#address {
+body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#view, body#module-blockwishlist-view, body#module-psgdpr-gdpr, body#address {
     #wrapper {
 
             @media (max-width: 767px) {
@@ -541,7 +541,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
 
 
 /* STYLE POUR LE MODULE LISTE DES ENVIES / GDPR */
-body#module-blockwishlist-lists, body#module-psgdpr-gdpr {
+body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view {
     
     #content-wrapper {
         float: left;
@@ -656,5 +656,42 @@ body#identity {
 body#address {
     .form-footer {
      padding-left: 0;   
+    }
+}
+
+
+// LISTE DES PRODUITS DANS LES ENVIES
+body#view {
+    #content-wrapper {
+        width: 65%;
+    }
+
+    .wishlist-button-add {
+        i {
+            color: $color-custom-gray !important;
+        }
+        @media (max-width: $breakpoint-md) {
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    .wishlist-product-title {
+        color: $color-custom-black;
+        font-size: 1rem;
+        font-weight: 100;
+        border: none;
+        line-height: 1;
+        text-align: center;
+
+        @media (max-width: $breakpoint-md) {
+            text-align: left;
+        }
+    }
+
+    .wishlist-product-combinations {
+        i {
+            display: none;
+        }
     }
 }

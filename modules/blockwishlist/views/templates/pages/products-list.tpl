@@ -16,7 +16,13 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
  *}
-{extends file='page.tpl'}
+{extends file='customer/page.tpl'}
+
+{* LEFT COLUMN *}
+{block name="left_column"}
+  {include file='customer/_partials/account-left-column.tpl'}
+{/block}
+{* END LEFT COLUMN *}
 
 {block name='page_header_container'}
 {/block}
@@ -41,9 +47,9 @@
 {/block}
 
 
-{block name='page_footer_container'}
+{* {block name='page_footer_container'}
   <div class="wishlist-footer-links">
     <a href="{$wishlistsLink}"><i class="material-icons">chevron_left</i>{l s='Return to wishlists' d='Modules.Blockwishlist.Shop'}</a>
     <a href="{$urls.base_url}"><i class="material-icons">home</i>{l s='Home' d='Shop.Theme.Global'}</a>
   </div>
-{/block}
+{/block} *}

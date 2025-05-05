@@ -401,6 +401,8 @@
 
 /* Styles pour le module de connexion (Mon compte) */
 .user-info {
+  margin-left: 0 !important;
+
   .login, .account {
     display: flex;
     align-items: center;
@@ -408,9 +410,11 @@
     background-color: $color-custom-green;
     border-radius: 4px;
     transition: all 0.3s ease;
+
     
     &:hover {
       background-color: color.adjust($color-custom-green, $lightness: -10%);
+      padding: 0 10px;
     }
     
     .account-icon {
@@ -494,6 +498,7 @@
 
       &:hover {
         background-color: color.adjust($color-custom-green, $lightness: -10%);
+        padding: 0 20px !important;
       }
 
       .shopping-cart-icon,

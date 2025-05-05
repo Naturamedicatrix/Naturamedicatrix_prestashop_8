@@ -238,6 +238,9 @@ body#contact #wrapper {
   background: #FFFFFF;
   overflow: hidden;
 }
+body#contact #wrapper .card {
+  border: none;
+}
 body#contact #wrapper p {
   padding: 0;
 }

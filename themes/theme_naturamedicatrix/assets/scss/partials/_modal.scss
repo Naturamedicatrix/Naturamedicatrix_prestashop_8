@@ -3,6 +3,39 @@
 
 /* === STYLES DES MODALS === */
 
+//GLOBAL
+.modal-content {
+    .wishlist-add-to-new {
+        &:hover {
+            color: $color-custom-white !important;
+            background-color: $color-custom-black !important;
+            opacity: .9 !important;
+        }
+        i {
+            color: $color-custom-white;
+        }
+    }
+
+    .wishlist-list {
+        padding-left: 0;
+        .wishlist-list-item {
+            &:hover {
+                padding-left: 10px;
+                background-color: $color-custom-whiteDarker !important;
+                p {
+                    font-weight: 700 !important;
+                }
+            }
+        }
+    }
+
+    .modal-footer {
+        @media (max-width: $breakpoint-sm) {
+            text-align: center !important;
+        }
+    }
+}
+
 
 /* MODAL Wishlish LOGIN */
 .wishlist-login {
@@ -51,3 +84,5 @@
     }
 }
 /* END MODAL AJOUT PANIER */
+
+
