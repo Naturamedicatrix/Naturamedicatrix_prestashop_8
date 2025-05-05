@@ -114,7 +114,7 @@ body#module-psgdpr-gdpr, body#module-blockwishlist-lists {
     }
 }
 
-body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#module-psgdpr-gdpr {
+body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#address {
     #wrapper {
 
             @media (max-width: 767px) {
@@ -554,11 +554,16 @@ body#module-blockwishlist-lists, body#module-psgdpr-gdpr {
         }
         
     }
+    .wishlist-list {
+        i {
+            color: $color-custom-gray;
+        }
+    }
     .wishlist-list-item-default {
         border-bottom: none;
     }
 
-    a {
+    .wishlist-list-item-link {
         border-bottom: 1px solid $color-custom-grayLight;
         
         &:hover {
@@ -645,3 +650,11 @@ body#identity {
   
 }
 // END STYLE POUR LA PAGE IDENTITE
+
+
+//Nouvelle adresse 
+body#address {
+    .form-footer {
+     padding-left: 0;   
+    }
+}
