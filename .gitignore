@@ -70,7 +70,7 @@ Thumbs.db
 
 # Fichiers de compilation et CSS générés
 /themes/*/assets/css/*.css.map
-/themes/*/assets/css/*.css
+# /themes/*/assets/css/*.css  # Commenté pour permettre le versionnement des fichiers CSS
 !/themes/*/assets/css/index.php
 
 # Source maps

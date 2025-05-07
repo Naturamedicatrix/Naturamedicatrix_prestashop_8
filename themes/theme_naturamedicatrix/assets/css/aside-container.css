@@ -1,0 +1,110 @@
+/** === ASIDE CONTAINER === */
+.side-column {
+  height: 130vh;
+  background-color: #EDEFF1;
+}
+@media (max-width: 1580px) {
+  .side-column {
+    height: 190vh;
+  }
+}
+@media (max-width: 480px) {
+  .side-column {
+    height: 150vh;
+  }
+}
+.side-column .side-block {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+.side-column h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+  margin-top: 0;
+}
+.side-column .icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto;
+}
+.side-column .icon-container::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(131, 181, 139, 0.4);
+  z-index: 1;
+}
+.side-column .icon-container i {
+  font-size: 2.8rem;
+  color: #111827;
+  z-index: 2;
+}
+.side-column .support-client > p {
+  color: #4B5563;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+.side-column .contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.side-column .country-block {
+  text-align: center;
+  width: 100%;
+  border-bottom: none;
+  margin-bottom: 15px;
+}
+.side-column .flag-icon {
+  width: 20px;
+  height: 17px;
+  display: inline-block;
+  object-fit: cover;
+}
+.side-column .country-name {
+  font-size: 0.9rem;
+  color: #4B5563;
+  margin: 0.25rem 0;
+}
+.side-column .phone-number {
+  font-weight: 600;
+  color: #4B5563;
+  font-size: 1.1rem;
+  margin: 0.25rem 0;
+}
+.side-column .address-section {
+  margin-top: 1rem;
+}
+.side-column .address-block {
+  margin-top: 0.75rem;
+  margin-bottom: 2rem;
+}
+.side-column .address-block h4 {
+  font-weight: 600;
+  color: #4B5563;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  text-decoration: underline;
+  text-align: center;
+}
+.side-column .address-block p {
+  font-size: 0.9rem;
+  color: #4B5563;
+  margin: 0.1rem 0;
+  line-height: 1.2;
+}
+.side-column :last-child {
+  margin-bottom: 0;
+}
