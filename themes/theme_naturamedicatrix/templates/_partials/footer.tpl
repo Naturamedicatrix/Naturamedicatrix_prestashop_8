@@ -249,7 +249,7 @@
           <h4 id="footer-title-4">Liens utiles</h4>
           <div class="footer-column-content" id="footer-content-4">
             <ul class="footer-links">
-              <li><a href="{$urls.pages.category}">Catégories</a></li>
+              <li><a href="{$link->getCMSLink(7)}">Catégories</a></li>
               <li><a href="{$urls.pages.new_products}">Nouveautés</a></li>
               <li><a href="{$urls.pages.prices_drop}">Bonnes affaires</a></li>
               <li><a href="{$urls.pages.cms|cat:'/5'}">Catalogues</a></li>
