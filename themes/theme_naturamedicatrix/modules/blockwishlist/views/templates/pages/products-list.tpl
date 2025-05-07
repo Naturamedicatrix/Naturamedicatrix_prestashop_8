@@ -13,7 +13,7 @@
   <h1>{$wishlistName}</h1>
   
   <div
-    class="wishlist-products-container tututu"
+    class="wishlist-products-container"
     data-url="{$url}"
     data-list-id="{$id}"
     data-default-sort="{l s='Last added' d='Modules.Blockwishlist.Shop'}"

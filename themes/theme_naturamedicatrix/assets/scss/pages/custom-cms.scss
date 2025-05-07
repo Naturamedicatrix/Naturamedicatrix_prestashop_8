@@ -18,3 +18,43 @@ body#cms {
         }
     }
 }
+
+body.cms-id-7 {
+    #main {
+        max-width: inherit !important;
+
+        .category-list {
+           list-style: none;
+           padding-left: 0;
+
+           h2 {
+            font-size: 1.1rem;
+           }
+
+           a {
+            color: $color-custom-black;
+            border-bottom: none;
+           }
+
+
+           img {
+            border-radius: 15px;
+           }
+
+           .category-info {
+            padding: 0 15px 15px 15px;
+           }
+        }
+
+        .subcategory-list {
+            h3 {
+             display: inline-block;
+             font-size: 1rem;   
+             
+             a {
+                color: $color-custom-gray;
+             }
+            }
+        }
+    }
+}

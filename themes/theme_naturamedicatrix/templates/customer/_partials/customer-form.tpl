@@ -109,7 +109,6 @@
     {/if}
   </div>
 
-  {* Note importante - bouton d'enregistrement standard de PrestaShop *}
   <div class="form-footer-container">
     <p class="required-fields">*{l s='champs obligatoires' d='Shop.Forms.Labels'}</p>
   </div>

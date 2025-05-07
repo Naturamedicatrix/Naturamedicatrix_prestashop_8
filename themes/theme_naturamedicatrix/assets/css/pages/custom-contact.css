@@ -238,6 +238,12 @@ body#contact #wrapper {
   background: #FFFFFF;
   overflow: hidden;
 }
+@media (max-width: 640px) {
+  body#contact #wrapper #main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 body#contact #wrapper .card {
   border: none;
 }

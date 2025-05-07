@@ -14,6 +14,13 @@ body#contact {
         background: $color-custom-bgWrapper;
         overflow: hidden;
 
+        #main {
+            @media (max-width: $breakpoint-sm) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
         .card {
             border: none;
         }

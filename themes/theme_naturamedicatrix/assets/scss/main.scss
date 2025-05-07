@@ -293,7 +293,6 @@ blockquote {
   p {
     font-size: 20px;
     color: $color-custom-grayLight;
-    line-height: 100;
 
     @media (max-width: $breakpoint-md) {
       font-size: 18px;
@@ -346,8 +345,9 @@ blockquote {
   cursor: pointer;
   display: inline-block;
   text-align: center;
-  padding: 10px 50px;
+  padding: 13px 50px;
   text-transform: none;
+  line-height: 1;
 
   &:hover {
     background-color: $color-custom-blackHover !important;
@@ -369,8 +369,9 @@ blockquote {
   cursor: pointer;
   display: inline-block;
   text-align: center;
-  padding: 10px 50px;
+  padding: 13px 50px;
   text-transform: none;
+  line-height: 1;
 
   &:hover {
     background-color: $color-custom-black !important;

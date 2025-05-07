@@ -163,6 +163,11 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         }
     }
 
+    // Masque les requierements pour le mot de passe actuel (page identity)
+    .identity-section .field-password-policy:first-of-type .password-strength-feedback {
+        display: none !important;
+    }
+
     .address-body {
         padding: 0;
 
@@ -475,13 +480,13 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     }
                 }
                 
-                &:hover {
-                    color: $color-custom-black;
-                    background-color: rgba($color-custom-green, 0.08);
+                &:hover, &.active {
+                    color: $color-custom-white;
+                    background-color: $color-custom-green;
                     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
                     
                     i {
-                        color: darken($color-custom-green, 10%);
+                        color: $color-custom-white;
                     }
                 }
                 
@@ -530,6 +535,14 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
             text-align: center;
             padding-left: 0;
         }
+        
+    }
+
+    .addresses-footer {
+        i {
+            position: relative;
+            top: 2px;
+        }
     }
 
     .btn-primary {
@@ -571,22 +584,11 @@ body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view {
         }
     }
 
-    .wishlist-add-to-new {
-        background-color: $color-custom-black !important;
-        color: $color-custom-white !important;
-        font-size: 15px;
-        border: none;
-        font-weight: 600;
-        border-radius: 4px;
-        cursor: pointer;
-        display: inline-block;
-        text-align: center;
-        padding: 10px 50px;
-        text-transform: none;
-
-        @media (max-width: $breakpoint-sm) {
-            padding: 10px 80px;
-            margin: 0 auto;
+    a.text-primary {
+        &:hover {
+            color: $color-custom-white !important;
+            opacity: 1 !important;
+            background: $color-custom-blackHover !important;
         }
     }
 
@@ -597,6 +599,24 @@ body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view {
         button {
             @media (max-width: $breakpoint-sm) {
                 width: 100%;
+            }
+        }
+    }
+}
+
+body#view {
+    #content {
+        border: none;
+
+        .wishlist-products-item {
+            border: 1px solid $color-custom-grayLight;
+            border-radius: 10px;
+            padding: 20px;
+
+            .wishlist-product {
+                a {
+                    border-bottom: none;
+                }
             }
         }
     }

@@ -8,3 +8,31 @@ body#cms #main {
 body#cms #main #content p img {
   margin: 0 auto;
 }
+
+body.cms-id-7 #main {
+  max-width: inherit !important;
+}
+body.cms-id-7 #main .category-list {
+  list-style: none;
+  padding-left: 0;
+}
+body.cms-id-7 #main .category-list h2 {
+  font-size: 1.1rem;
+}
+body.cms-id-7 #main .category-list a {
+  color: #111827;
+  border-bottom: none;
+}
+body.cms-id-7 #main .category-list img {
+  border-radius: 15px;
+}
+body.cms-id-7 #main .category-list .category-info {
+  padding: 0 15px 15px 15px;
+}
+body.cms-id-7 #main .subcategory-list h3 {
+  display: inline-block;
+  font-size: 1rem;
+}
+body.cms-id-7 #main .subcategory-list h3 a {
+  color: #4B5563;
+}

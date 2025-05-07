@@ -20,7 +20,7 @@
   <div class="wishlist-products-container">
     <div class="wishlist-products-container-header">
       <h1>
-        {{ title }}
+        TEST
 
         <span
           class="wishlist-products-count"

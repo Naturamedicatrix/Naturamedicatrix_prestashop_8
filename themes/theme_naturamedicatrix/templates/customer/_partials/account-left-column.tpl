@@ -15,7 +15,7 @@
     <div class="account-links-wrapper">
     <ul class="account-links-list">
       <li>
-        <a class="account-link" id="identity-link-side" href="{$urls.pages.identity}">
+        <a class="account-link {if $page.page_name == 'identity'}active{/if}" id="identity-link-side" href="{$urls.pages.identity}">
           <i class="bi bi-person"></i>
           <span>{l s='Mes informations personnelles' d='Shop.Theme.Customeraccount'}</span>
         </a>
@@ -23,14 +23,14 @@
 
       {if $customer.addresses|count}
         <li>
-          <a class="account-link" id="addresses-link-side" href="{$urls.pages.addresses}">
+          <a class="account-link {if $page.page_name == 'addresses'}active{/if}" id="addresses-link-side" href="{$urls.pages.addresses}">
             <i class="bi bi-house-door"></i>
             <span>{l s='Mes adresses' d='Shop.Theme.Customeraccount'}</span>
           </a>
         </li>
       {else}
         <li>
-          <a class="account-link" id="address-link-side" href="{$urls.pages.address}">
+          <a class="account-link {if $page.page_name == 'address'}active{/if}" id="address-link-side" href="{$urls.pages.address}">
           <i class="bi bi-house-door"></i>
             <span>{l s='Ajouter une première adresse' d='Shop.Theme.Customeraccount'}</span>
           </a>
@@ -39,7 +39,7 @@
 
       {if !$configuration.is_catalog}
         <li>
-          <a class="account-link" id="history-link-side" href="{$urls.pages.history}">
+          <a class="account-link {if $page.page_name == 'history'}active{/if}" id="history-link-side" href="{$urls.pages.history}">
             <i class="bi bi-card-list"></i>
             <span>{l s='Mon historique de commandes' d='Shop.Theme.Customeraccount'}</span>
           </a>
@@ -48,7 +48,7 @@
 
       {if !$configuration.is_catalog}
         <li>
-          <a class="account-link" id="order-slips-link-side" href="{$urls.pages.order_slip}">
+          <a class="account-link {if $page.page_name == 'order-slip'}active{/if}" id="order-slips-link-side" href="{$urls.pages.order_slip}">
             <i class="bi bi-credit-card-2-front"></i>
             <span>{l s='Mes bons de réduction' d='Shop.Theme.Customeraccount'}</span>
           </a>
@@ -57,7 +57,7 @@
 
       {if $configuration.voucher_enabled && !$configuration.is_catalog}
         <li>
-          <a class="account-link" id="discounts-link-side" href="{$urls.pages.discount}">
+          <a class="account-link {if $page.page_name == 'discount'}active{/if}" id="discounts-link-side" href="{$urls.pages.discount}">
             <i class="bi bi-credit-card-2-front"></i>
             <span>{l s='Mes bons d\'achat' d='Shop.Theme.Customeraccount'}</span>
           </a>
@@ -66,7 +66,7 @@
 
       {if $configuration.return_enabled && !$configuration.is_catalog}
         <li>
-          <a class="account-link" id="returns-link-side" href="{$urls.pages.order_follow}">
+          <a class="account-link {if $page.page_name == 'order-follow'}active{/if}" id="returns-link-side" href="{$urls.pages.order_follow}">
             <i class="bi bi-credit-card-2-front"></i>
             <span>{l s='Mes retours produits' d='Shop.Theme.Customeraccount'}</span>
           </a>
@@ -74,14 +74,14 @@
       {/if}
  
         <li>
-          <a class="account-link" id="wishlist-link-side" href="{$link->getModuleLink('blockwishlist', 'lists')}">
+          <a class="account-link {if $page.page_name == 'module-blockwishlist-lists'}active{/if}" id="wishlist-link-side" href="{$link->getModuleLink('blockwishlist', 'lists')}">
               <i class="bi bi-heart"></i>
             <span>{l s='Mes listes d\'envies' d='Shop.Theme.Customeraccount'}</span>
           </a>
         </li>
         
         <li>
-          <a class="account-link" id="gdpr-link-side" href="{$link->getModuleLink('psgdpr', 'gdpr')}">
+          <a class="account-link {if $page.page_name == 'module-psgdpr-gdpr'}active{/if}" id="gdpr-link-side" href="{$link->getModuleLink('psgdpr', 'gdpr')}">
             <i class="bi bi-lock"></i>
             <span>{l s='RGPD - Données personnelles' d='Shop.Theme.Customeraccount'}</span>
           </a>
