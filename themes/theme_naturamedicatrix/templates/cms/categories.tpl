@@ -19,7 +19,7 @@
                     <h2><a href="{$link->getCategoryLink($cat.id_category)}">{$cat.name}</a></h2>
 
                     {if $cat.description}
-                        {$cat.description nofilter}
+                        <div class="custom-scrollbar">{$cat.description nofilter}</div>
                     {/if}
 
                     {* Sous-catégories *}
@@ -40,6 +40,7 @@
                     {/foreach}
                 </ul>
             {/if}
+                    <a href="{$link->getCategoryLink($cat.id_category)}" class="view-all-products link-blue">Voir tous les produits</a>
                 </div>
             </div>
 
@@ -50,3 +51,19 @@
     {/if}
 {/foreach}
 </ul>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionne tous les conteneurs avec la classe custom-scrollbar
+    const scrollContainers = document.querySelectorAll('.custom-scrollbar');
+    
+    // Pour chaque conteneur
+    scrollContainers.forEach(function(container) {
+      // Vérifie si la scrollbar est présente
+      if (container.scrollHeight > container.clientHeight) {
+        container.style.marginBottom = '20px';
+        container.style.paddingRight = '20px';
+      }
+    });
+  });
+</script>

@@ -52,10 +52,13 @@ body#category #wrapper p {
 
 /* Custom CMS Styles */
 body#cms #main {
-  max-width: 1200px;
+  max-width: 1280px;
   width: 100%;
   margin: 0 auto;
   padding: 1rem;
+}
+body#cms #main h1 {
+  margin-top: 70px;
 }
 body#cms #main #content p img {
   margin: 0 auto;
@@ -67,15 +70,29 @@ body.cms-id-7 #main {
 body.cms-id-7 #main .category-list {
   list-style: none;
   padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+body.cms-id-7 #main .category-list .category-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+body.cms-id-7 #main .category-list .category-block {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 15px;
 }
 body.cms-id-7 #main .category-list h2 {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
-body.cms-id-7 #main .category-list a {
+body.cms-id-7 #main .category-list h2 a {
   color: #111827;
   border-bottom: none;
 }
-body.cms-id-7 #main .category-list a:hover {
+body.cms-id-7 #main .category-list h2 a:hover {
   text-decoration: underline;
 }
 body.cms-id-7 #main .category-list img {
@@ -83,6 +100,29 @@ body.cms-id-7 #main .category-list img {
 }
 body.cms-id-7 #main .category-list .category-info {
   padding: 0 15px 15px 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+body.cms-id-7 #main .category-list .category-info .custom-scrollbar {
+  max-height: 150px;
+  overflow-y: auto;
+}
+body.cms-id-7 #main .category-list .category-info .custom-scrollbar p {
+  padding-bottom: 15px;
+}
+body.cms-id-7 #main .category-list .category-info .view-all-products {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  align-self: flex-start;
+  clear: both;
+}
+body.cms-id-7 #main .category-list .category-info .subcategory-list {
+  clear: both;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
 }
 body.cms-id-7 #main .subcategory-list {
   padding-left: 0;
@@ -93,6 +133,7 @@ body.cms-id-7 #main .subcategory-list h3 {
 }
 body.cms-id-7 #main .subcategory-list h3 a {
   color: #4B5563;
+  border-bottom: none;
 }
 body.cms-id-7 #main .subcategory-list h3 a:hover {
   color: #111827;
@@ -723,22 +764,22 @@ blockquote p {
   }
 }
 
-#content a {
+#content a, .link-blue {
   color: #1F80C7;
   border-bottom: 1px solid #1F80C7;
   transition: color 0.2s ease, border-bottom 0.2s ease;
 }
-#content a:hover {
+#content a:hover, .link-blue:hover {
   color: rgb(20.6891304348, 85.4260869565, 132.8108695652);
   border-bottom: 1px solid rgb(20.6891304348, 85.4260869565, 132.8108695652);
 }
 @media (max-width: 768px) {
-  #content a {
+  #content a, .link-blue {
     font-size: 18px;
   }
 }
 @media (max-width: 640px) {
-  #content a {
+  #content a, .link-blue {
     font-size: 13px;
   }
 }
@@ -1002,4 +1043,15 @@ table > tbody > tr:nth-of-type(even) {
 }
 .card h4 {
   margin-top: 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #4B5563;
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(107.974137931, 122.3706896552, 142.525862069);
 }
