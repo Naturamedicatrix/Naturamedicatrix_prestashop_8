@@ -81,6 +81,9 @@ body.cms-id-7 #main .category-list img {
 body.cms-id-7 #main .category-list .category-info {
   padding: 0 15px 15px 15px;
 }
+body.cms-id-7 #main .subcategory-list {
+  padding-left: 0;
+}
 body.cms-id-7 #main .subcategory-list h3 {
   display: inline-block;
   font-size: 1rem;
