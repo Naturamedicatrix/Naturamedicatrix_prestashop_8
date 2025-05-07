@@ -75,6 +75,9 @@ body.cms-id-7 #main .category-list a {
   color: #111827;
   border-bottom: none;
 }
+body.cms-id-7 #main .category-list a:hover {
+  text-decoration: underline;
+}
 body.cms-id-7 #main .category-list img {
   border-radius: 15px;
 }
@@ -90,6 +93,10 @@ body.cms-id-7 #main .subcategory-list h3 {
 }
 body.cms-id-7 #main .subcategory-list h3 a {
   color: #4B5563;
+}
+body.cms-id-7 #main .subcategory-list h3 a:hover {
+  color: #111827;
+  text-decoration: underline;
 }
 
 body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper {

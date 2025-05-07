@@ -35,6 +35,10 @@ body.cms-id-7 {
            a {
             color: $color-custom-black;
             border-bottom: none;
+
+            &:hover {
+                text-decoration: underline;
+             }
            }
 
 
@@ -51,10 +55,14 @@ body.cms-id-7 {
             padding-left: 0;
             h3 {
              display: inline-block;
-             font-size: 1rem;   
+             font-size: 1rem;
              
              a {
                 color: $color-custom-gray;
+                &:hover {
+                    color: $color-custom-black;
+                    text-decoration: underline;
+                 }
              }
             }
         }
