@@ -416,6 +416,7 @@ body {
   font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #EDEFF1;
   overflow-x: hidden;
+  line-height: 1.4 !important;
 }
 html #wrapper,
 body #wrapper {
@@ -467,7 +468,7 @@ body #main {
 @media (min-width: 1600px) {
   .container,
   #content {
-    max-width: 2000px;
+    max-width: 1600px;
   }
 }
 
