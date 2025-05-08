@@ -1,6 +1,5 @@
 /**
- * Texte Carousel pour l'en-tête
- * Pour thème classic_tailwind de Naturamedicatrix
+ * Texte Carousel pour le nav
  */
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.getElementById('text-carousel');
@@ -10,15 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
   const prevButton = document.getElementById('carousel-prev');
   const nextButton = document.getElementById('carousel-next');
   let currentIndex = 0;
+  let slideInterval; // stock l'id de l'intervalle
   
   function showSlide(index) {
-    // Masquer tous les slides
+    // Masque tous les slides
     items.forEach(item => {
       item.classList.remove('active');
       item.classList.add('inactive');
     });
     
-    // Afficher le slide actif avec animation de défilement
+    // Affiche le slide actif avec animation de défilement
     items[index].classList.remove('inactive');
     items[index].classList.add('active');
   }
@@ -33,14 +33,34 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(currentIndex);
   }
   
-  // Initialiser la première slide
+  // Fonction pour le défilement auto (3sec)
+  function startAutoSlide() {
+    stopAutoSlide();
+    slideInterval = setInterval(function() {
+      nextSlide();
+    }, 3000);
+  }
+  
+  // Fonction pour stop le défilement automatique
+  function stopAutoSlide() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+    }
+  }
+  
+  // Initialise 1er slide
   showSlide(0);
   
-  // Ajouter des interactions aux boutons de navigation
+  // Démarre le défilement automatique
+  startAutoSlide();
+  
+  // Défilement avec les boutons
   if (prevButton) {
     prevButton.addEventListener('click', (e) => {
       e.preventDefault();
       prevSlide();
+      // Redemarre le slide auto après avoir cliqué sur les btn de défilement
+      startAutoSlide();
     });
   }
   
@@ -48,6 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
     nextButton.addEventListener('click', (e) => {
       e.preventDefault();
       nextSlide();
+      startAutoSlide();
     });
   }
+  
+  // Stop le slide auto quand on passe la souris dessus
+  carousel.addEventListener('mouseenter', stopAutoSlide);
+  // Reprend le slide auto si la souris quitte le slide
+  carousel.addEventListener('mouseleave', startAutoSlide);
 });
