@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>dgtranslationall</name>
+    <displayName><![CDATA[Traduire tout - Traduction gratuite et illimit&eacute;e]]></displayName>
+    <version><![CDATA[4.27.0]]></version>
+    <description><![CDATA[Traduisez l&rsquo;ensemble de votre boutique automatiquement! Avec plus de 3000 boutiques traduites dans plus de 110 langues depuis sa cr&eacute;ation, Traduction de tout est le meilleur module pour traduire votre boutique.]]></description>
+    <author><![CDATA[Dingedi]]></author>
+    <tab><![CDATA[i18n_localization]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+</module>

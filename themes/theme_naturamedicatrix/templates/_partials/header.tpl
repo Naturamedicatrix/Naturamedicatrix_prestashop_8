@@ -1,30 +1,43 @@
 {**
- * Copyright since 2007 PrestaShop SA and Contributors
- * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.md.
- * It is also available through the world-wide-web at this URL:
- * https://opensource.org/licenses/AFL-3.0
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
- * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to https://devdocs.prestashop.com/ for more information.
- *
- * @author    PrestaShop SA and Contributors <contact@prestashop.com>
- * @copyright Since 2007 PrestaShop SA and Contributors
- * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+** CUSTOM HEADER 
  *}
- {block name='header_banner'}
-  <div class="header-banner">
-    {hook h='displayBanner'}
+{hook h='displayHeader'}
+{block name='header_banner'}
+  <div class="header-banner text-carousel-banner">
+    <div class="container">
+      <div class="banner-wrapper">
+        <!-- CAROUSEL TEXT -->
+        <div class="text-carousel-container">
+          <!-- Flèche gauche -->
+          <button id="carousel-prev" class="carousel-nav-button">
+            &lt;
+          </button>
+
+          <!-- CONTENU DU TEXT CAROUSEL -->
+          <div id="text-carousel">
+            <div class="carousel-item active">
+              <span class="highlight-text">{l s='Livraison offerte' d='Shop.Theme.Global'}</span>
+              {l s='apd 35€ en Point Relais & 50€ à domicile' d='Shop.Theme.Global'}
+            </div>
+            <div class="carousel-item inactive">
+              {l s='Remise sur le total de la commande : <span class="highlight-text">-10% àpd 150€</span> | -5% àpd 75€' d='Shop.Theme.Global'}
+            </div>
+            <div class="carousel-item inactive">
+              {l s='Payez en <span class="highlight-text">2x 3x avec alma</span>' d='Shop.Theme.Global'}
+            </div>
+          </div>
+
+          <!-- Flèche droite -->
+          <button id="carousel-next" class="carousel-nav-button">
+            &gt;
+          </button>
+        </div>
+
+        <!-- Language selector -->
+        {hook h='displayLanguageSelector'}
+      </div>
+      {hook h='displayBanner'}
+    </div>
   </div>
 {/block}
 
@@ -33,20 +46,51 @@
     <div class="container">
       <div class="row">
         <div class="hidden-sm-down">
-          <div class="col-md-5 col-xs-12">
+          <!-- Contact à gauche -->
+          <div class="col-md-3 col-xs-12">
             {hook h='displayNav1'}
           </div>
-          <div class="col-md-7 right-nav">
-              {hook h='displayNav2'}
+
+          <!-- Logo -->
+          <div class="col-md-6" id="_desktop_logo">
+            {if $shop.logo_details}
+              {if $page.page_name == 'index'}
+                <h1>
+                  {renderLogo}
+                </h1>
+              {else}
+                {renderLogo}
+              {/if}
+            {/if}
+          </div>
+
+          <!-- Mon compte -->
+          <div class="col-md-3 right-nav">
+            {hook h='displayNav2'}
           </div>
         </div>
         <div class="hidden-md-up text-sm-center mobile">
-          <div class="float-xs-left" id="menu-icon">
-            <i class="material-icons d-inline">&#xE5D2;</i>
+          <div class="mobile-header-container">
+            <div class="mobile-logo" id="_mobile_logo"></div>
+            <div class="mobile-nav-icons">
+              <div class="mobile-user-icon">
+                <a href="{$urls.pages.my_account}">
+                  <i class="material-icons account-icon">person_outline</i>
+                </a>
+              </div>
+              <div class="mobile-cart-icon">
+                <a href="{$urls.pages.cart}">
+                  <i class="material-icons shopping-cart-icon">shopping_cart</i>
+                  {if $cart.products_count > 0}
+                    <span class="cart-products-count">{$cart.products_count}</span>
+                  {/if}
+                </a>
+              </div>
+              <div id="menu-icon">
+                <i class="material-icons d-inline">menu</i>
+              </div>
+            </div>
           </div>
-          <div class="float-xs-right" id="_mobile_cart"></div>
-          <div class="float-xs-right" id="_mobile_user_info"></div>
-          <div class="top-logo" id="_mobile_logo"></div>
           <div class="clearfix"></div>
         </div>
       </div>
@@ -57,19 +101,8 @@
 {block name='header_top'}
   <div class="header-top">
     <div class="container">
-       <div class="row">
-        <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
-          {if $shop.logo_details}
-            {if $page.page_name == 'index'}
-              <h1>
-                {renderLogo}
-              </h1>
-            {else}
-              {renderLogo}
-            {/if}
-          {/if}
-        </div>
-        <div class="header-top-right col-md-10 col-sm-12 position-static">
+      <div class="row">
+        <div class="header-top-right col-md-12 col-sm-12 position-static">
           {hook h='displayTop'}
         </div>
       </div>

@@ -1,0 +1,19 @@
+{
+    "name": "prestamodule/pm_advancedtopmenu",
+    "description": "Horizontal menu with sub menu in column",
+    "license": "see file: LICENSE.txt",
+    "authors": [{
+        "name": "Presta-Module.com",
+        "email": "support@presta-module.com"
+    }],
+    "autoload": {
+        "psr-4": {
+        },
+        "exclude-from-classmap": []
+    },
+    "config": {
+        "preferred-install": "dist",
+        "prepend-autoloader": false
+    },
+    "type": "prestashop-module"
+}

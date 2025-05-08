@@ -1,0 +1,14 @@
+li.advtm_menu_3 a.a-niveau1 {border-width:unset unset unset unset!important;}
+.advtm_menu_3 div.adtm_sub {border-width:unset unset unset unset!important;}
+li.advtm_menu_4 a.a-niveau1 {border-width:unset unset unset unset!important;}
+.advtm_menu_4 div.adtm_sub {border-width:unset unset unset unset!important;}
+li.advtm_menu_5 a.a-niveau1 {border-width:unset unset unset unset!important;}
+.advtm_menu_5 div.adtm_sub {border-width:unset unset unset unset!important;}
+li.advtm_menu_2 a.a-niveau1 {border-width:unset unset unset unset!important;}
+.advtm_menu_2 div.adtm_sub {border-width:unset unset unset unset!important;}
+.advtm_menu_1 a .advtm_menu_span_1 {background:#ffffff!important;filter: none!important;}
+.advtm_menu_1 a:hover .advtm_menu_span_1, .advtm_menu_1 a.advtm_menu_actif .advtm_menu_span_1, .advtm_menu_1:hover > a.a-niveau1 .advtm_menu_span_1 {background:#f1f1f1!important;filter: none!important;}
+* html .advtm_menu_1 a:hover .advtm_menu_span_1, .advtm_menu_1 a.advtm_menu_actif .advtm_menu_span_1 {background:#f1f1f1!important;filter:none!important;}
+* html .advtm_menu_1 a:hover, .advtm_menu_1 a.advtm_menu_actif {filter:none!important;}
+li.advtm_menu_1 a.a-niveau1 {border-width:0px 0px 0px 0px!important;}
+.advtm_menu_1 div.adtm_sub {border-width:0px 0px 0px 0px!important;}
