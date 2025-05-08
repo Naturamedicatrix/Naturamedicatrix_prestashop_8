@@ -493,12 +493,11 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 &#logout-link-side {
                     background-color: rgba($color-custom-green, 0.08);
                     
-                    i {
-                        color: $color-custom-gray;
-                    }
-                    
                     &:hover {
-                        background-color: rgba($color-custom-green, 0.15);
+                        background-color: color.adjust($color-custom-green, $alpha: -0.15);
+                        i {
+                            color: $color-custom-white;
+                        }
                     }
                 }
             }

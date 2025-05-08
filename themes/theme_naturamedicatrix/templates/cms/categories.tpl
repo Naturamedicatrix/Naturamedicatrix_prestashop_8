@@ -43,9 +43,6 @@
                     <a href="{$link->getCategoryLink($cat.id_category)}" class="view-all-products link-blue">Voir tous les produits</a>
                 </div>
             </div>
-
-
-            
         </div>
         </li>
     {/if}

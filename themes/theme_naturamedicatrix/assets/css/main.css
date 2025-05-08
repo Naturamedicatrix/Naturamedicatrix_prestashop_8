@@ -60,6 +60,11 @@ body#cms #main {
 body#cms #main h1 {
   margin-top: 70px;
 }
+@media (max-width: 640px) {
+  body#cms #main h1 {
+    margin-top: 30px;
+  }
+}
 body#cms #main #content p img {
   margin: 0 auto;
 }
@@ -73,6 +78,11 @@ body.cms-id-7 #main .category-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+}
+@media (max-width: 640px) {
+  body.cms-id-7 #main .category-list .category-item {
+    padding: 20px 0;
+  }
 }
 body.cms-id-7 #main .category-list .category-content {
   display: flex;
@@ -95,6 +105,11 @@ body.cms-id-7 #main .category-list h2 a {
 body.cms-id-7 #main .category-list h2 a:hover {
   text-decoration: underline;
 }
+@media (max-width: 768px) {
+  body.cms-id-7 #main .category-list h2 a {
+    font-size: 1.3rem;
+  }
+}
 body.cms-id-7 #main .category-list img {
   border-radius: 15px;
 }
@@ -110,6 +125,11 @@ body.cms-id-7 #main .category-list .category-info .custom-scrollbar {
 }
 body.cms-id-7 #main .category-list .category-info .custom-scrollbar p {
   padding-bottom: 15px;
+}
+@media (max-width: 768px) {
+  body.cms-id-7 #main .category-list .category-info .custom-scrollbar p {
+    font-size: 0.9rem;
+  }
 }
 body.cms-id-7 #main .category-list .category-info .view-all-products {
   margin-top: 10px;
@@ -138,6 +158,11 @@ body.cms-id-7 #main .subcategory-list h3 a {
 body.cms-id-7 #main .subcategory-list h3 a:hover {
   color: #111827;
   text-decoration: underline;
+}
+@media (max-width: 1024px) {
+  body.cms-id-7 #main .subcategory-list h3 a {
+    font-size: 0.95rem;
+  }
 }
 
 body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper {
@@ -564,8 +589,7 @@ body #main {
 @media (max-width: 640px) {
   .page-title,
   .h1, h1 {
-    font-size: 1.5rem;
-    margin-top: 1rem;
+    font-size: 2rem;
   }
 }
 
@@ -775,12 +799,7 @@ blockquote p {
 }
 @media (max-width: 768px) {
   #content a, .link-blue {
-    font-size: 18px;
-  }
-}
-@media (max-width: 640px) {
-  #content a, .link-blue {
-    font-size: 13px;
+    font-size: 0.95rem;
   }
 }
 

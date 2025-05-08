@@ -206,8 +206,7 @@ body {
   }
 
   @media (max-width: $breakpoint-sm) {
-    font-size: 1.5rem;
-    margin-top: 1rem;
+    font-size: 2rem;
   }
 }
 
@@ -412,12 +411,9 @@ blockquote {
   }
 
   @media (max-width: $breakpoint-md) {
-    font-size: 18px;
+    font-size: .95rem;
   }
 
-  @media (max-width: $breakpoint-sm) {
-    font-size: 13px;
-  }
 }
 
 // END LINK
