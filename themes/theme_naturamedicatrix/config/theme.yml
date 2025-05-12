@@ -61,6 +61,10 @@ assets:
         path: assets/css/pages/custom-account.css
         media: all
         priority: 70
+      - id: custom-checkout-styles
+        path: assets/css/pages/custom-checkout.css
+        media: all
+        priority: 70
       - id: main-styles
         path: assets/css/main.css
         media: all

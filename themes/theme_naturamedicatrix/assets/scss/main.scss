@@ -747,3 +747,62 @@ table>tbody>tr:nth-of-type(even) {
   }
 }
 // END Custom Scrollbar
+
+
+/* === BLOC BESOIN D'AIDE === */
+.help-block {
+    padding: 25px 15px;
+    margin-bottom: 15px;
+    
+    h5 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: $color-custom-black
+    }
+
+    .title-separator {
+      margin-bottom: 1rem;
+      &:before {
+        left: 43%;
+        right: calc(48% + 20px + 0.5rem);
+      }
+      &:after {
+        right: 43%;
+        left: calc(48% + 20px + 0.5rem);
+      }
+     
+      #logoTitle {
+        width: 20px;
+      }
+    }
+
+    p {
+      color: $color-custom-gray;
+      font-size: .95rem;
+    }
+    .contact-text {
+        margin-bottom: 0.25rem;
+        
+        .contact-phone {
+            font-weight: 600;
+            color: $color-custom-gray;
+            font-size: 1rem;
+        }
+    }
+    
+    .contact-email {
+        margin-bottom: 0;
+        
+        .contact-link {
+            color: $color-custom-blue;
+            text-decoration: none;
+            font-weight: bold;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+// END BLOC BESOIN D'AIDE

@@ -1,0 +1,33 @@
+@use "../variables" as *;
+@use 'sass:color';
+
+/* === PAGE CHECKOUT === */
+
+body#checkout {
+    display: flex;
+    flex-direction: column;
+    
+    .header-nav {
+        min-height: 130px;
+
+        .logo {
+            @media (max-width: $breakpoint-sm) {
+                max-width: 230px !important;
+            }
+        }
+        
+        .secure-checkout-text {
+            color: $color-custom-white;
+            font-weight: bold;
+    
+            i {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    .checkout-footer {
+        border-top: 1px solid $color-custom-gray;
+        background-color: #ffff;
+    }
+}

@@ -1081,3 +1081,52 @@ table > tbody > tr:nth-of-type(even) {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgb(107.974137931, 122.3706896552, 142.525862069);
 }
+
+/* === BLOC BESOIN D'AIDE === */
+.help-block {
+  padding: 25px 15px;
+  margin-bottom: 15px;
+}
+.help-block h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+.help-block .title-separator {
+  margin-bottom: 1rem;
+}
+.help-block .title-separator:before {
+  left: 43%;
+  right: calc(48% + 20px + 0.5rem);
+}
+.help-block .title-separator:after {
+  right: 43%;
+  left: calc(48% + 20px + 0.5rem);
+}
+.help-block .title-separator #logoTitle {
+  width: 20px;
+}
+.help-block p {
+  color: #4B5563;
+  font-size: 0.95rem;
+}
+.help-block .contact-text {
+  margin-bottom: 0.25rem;
+}
+.help-block .contact-text .contact-phone {
+  font-weight: 600;
+  color: #4B5563;
+  font-size: 1rem;
+}
+.help-block .contact-email {
+  margin-bottom: 0;
+}
+.help-block .contact-email .contact-link {
+  color: #1F80C7;
+  text-decoration: none;
+  font-weight: bold;
+}
+.help-block .contact-email .contact-link:hover {
+  text-decoration: underline;
+}

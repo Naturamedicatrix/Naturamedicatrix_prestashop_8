@@ -12,11 +12,12 @@
   </div>
 </div>
 
-<div class="text-sm-center">
-  {if $tos_cms != false}
-    <span class="d-block js-terms">{$tos_cms nofilter}</span>
-  {/if}
-  {block name='copyright_link'}
-    {l s='%copyright% %year% - Ecommerce software by %prestashop%' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}
-  {/block}
+<div class="checkout-footer">
+  {include file='_partials/block_besoin_aide.tpl'}
+  
+  <div class="copyright text-center mt-8">
+    {block name='copyright_link'}
+      {l s='%copyright% 2009 - %year% NATURA%italictext%. %rights%' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©', '%italictext%' => '<i><strong>Medicatrix</strong></i>', '%rights%' => 'Tous droits réservés.'] d='Shop.Theme.Global'}
+    {/block}
+  </div>
 </div>
