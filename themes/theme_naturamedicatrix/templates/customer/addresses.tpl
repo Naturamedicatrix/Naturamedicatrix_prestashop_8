@@ -21,7 +21,7 @@
   <h1>Mes adresses</h1>
   {if $customer.addresses}
     {foreach $customer.addresses as $address}
-      <div class="col-xxl-4 col-lg-6 col-md-12 col-sm-12">
+      <div class="col-lg-6 col-md-12 col-sm-12">
       {block name='customer_address'}
         {include file='customer/_partials/block-address.tpl' address=$address}
       {/block}

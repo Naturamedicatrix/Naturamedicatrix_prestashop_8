@@ -206,7 +206,7 @@
             </p>
 
             <div class="footer-contact-btn">
-              <a href="{$urls.pages.contact}" class="btn-contact btn-primary">Contactez-nous</a>
+              <a href="{$urls.pages.contact}" class="btn-primary">Contactez-nous</a>
             </div>
 
             <p class="footer-contact-text">
@@ -226,21 +226,21 @@
 
             <div class="footer-store">
               <p class="store-name">NATURAMedicatrix</p>
-              <p class="store-address">26 avenue Émile Digneffe, 4000 Liège,<br>Belgique</p>
+              <p class="store-address">26 avenue Émile Digneffe, 4000 Liège, Belgique</p>
             </div>
 
             <div class="footer-store">
               <p class="store-name">Pharmacie Matt Anne-Laure</p>
-              <p class="store-address">21 Rue des Jardins, 68110 Illzach,<br>France</p>
+              <p class="store-address">21 Rue des Jardins, 68110 Illzach, France</p>
             </div>
 
             <div class="footer-store">
               <p class="store-name">Euro Nutri Santé S.A.</p>
-              <p class="store-address">14 rue de la Libération, L-3510 Dudelange,<br>Luxembourg</p>
+              <p class="store-address">14 rue de la Libération, L-3510 Dudelange, Luxembourg</p>
             </div>
 
             <div class="footer-stores-btn">
-              <a href="{$urls.pages.stores}" class="btn-stores">Tous nos magasins partenaires</a>
+              <a href="{$urls.pages.stores}" class="btn-secondary btn-small">Tous nos magasins partenaires</a>
             </div>
           </div>
         </div>

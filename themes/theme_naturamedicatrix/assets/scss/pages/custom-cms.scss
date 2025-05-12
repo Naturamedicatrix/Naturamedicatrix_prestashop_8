@@ -75,6 +75,12 @@ body.cms-id-7 {
             }
            }
 
+           .category-image {
+            height: 200px;
+            overflow: hidden;
+            border-radius: 15px;
+           }
+
            img {
             border-radius: 15px;
            }
@@ -88,6 +94,7 @@ body.cms-id-7 {
             .custom-scrollbar {
               max-height: 150px;
               overflow-y: auto;
+              text-align : left;
               p {
                 padding-bottom: 15px;
 

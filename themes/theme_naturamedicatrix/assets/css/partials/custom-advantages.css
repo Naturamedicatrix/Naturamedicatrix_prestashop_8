@@ -88,11 +88,12 @@
 }
 .advantage-item .advantage-icon::after {
   content: "";
+  content: "";
   position: absolute;
-  top: -5px;
-  right: -5px;
-  width: 30px;
-  height: 30px;
+  top: 0px;
+  right: 0px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background-color: rgba(131, 181, 139, 0.4);
   z-index: 1;
@@ -106,13 +107,13 @@
   }
 }
 .advantage-item .advantage-icon i {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #111827;
   z-index: 2;
 }
 @media (max-width: 768px) {
   .advantage-item .advantage-icon i {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 }
 .advantage-item .advantage-content {
@@ -122,10 +123,10 @@
   min-width: 0;
 }
 .advantage-item .advantage-content .advantage-title {
-  font-size: 1.1rem;
   font-weight: bold;
   color: #4B5563;
-  margin-bottom: 0.2rem;
+  line-height: 1.2;
+  font-size: 0.9rem;
 }
 @media (max-width: 768px) {
   .advantage-item .advantage-content .advantage-title {
@@ -134,7 +135,7 @@
   }
 }
 .advantage-item .advantage-content .advantage-text {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #4B5563;
 }
 @media (max-width: 768px) {

@@ -110,6 +110,11 @@ body.cms-id-7 #main .category-list h2 a:hover {
     font-size: 1.3rem;
   }
 }
+body.cms-id-7 #main .category-list .category-image {
+  height: 200px;
+  overflow: hidden;
+  border-radius: 15px;
+}
 body.cms-id-7 #main .category-list img {
   border-radius: 15px;
 }
@@ -122,6 +127,7 @@ body.cms-id-7 #main .category-list .category-info {
 body.cms-id-7 #main .category-list .category-info .custom-scrollbar {
   max-height: 150px;
   overflow-y: auto;
+  text-align: left;
 }
 body.cms-id-7 #main .category-list .category-info .custom-scrollbar p {
   padding-bottom: 15px;

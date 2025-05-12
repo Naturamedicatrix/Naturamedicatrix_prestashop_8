@@ -171,6 +171,11 @@
   margin-bottom: 0.25rem;
   color: #4B5563;
 }
+@media (max-width: 1500px) {
+  .therapeute-card .therapeute-card-content .therapeute-card-name {
+    text-align: center;
+  }
+}
 .therapeute-card .therapeute-card-content .therapeute-card-title {
   font-size: 0.8rem;
   font-weight: 500;
