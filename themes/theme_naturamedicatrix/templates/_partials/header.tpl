@@ -47,8 +47,15 @@
       <div class="row">
         <div class="hidden-sm-down">
           <!-- Contact à gauche -->
-          <div class="col-md-3 col-xs-12">
-            {hook h='displayNav1'}
+          <div class="col-md-3 col-xs-12 nav-contact">
+            {* {hook h='displayNav1'} *}
+            <a href="{$urls.pages.contact}" class="contact-link">
+              <i class="bi bi-telephone"></i>
+              <div>
+                <p class="font-bold">Contactez-nous</p>
+                <p>+33 (0)9 77 42 37 04</p>
+              </div>
+            </a>
           </div>
 
           <!-- Logo -->

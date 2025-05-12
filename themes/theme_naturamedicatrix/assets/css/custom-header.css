@@ -1,9 +1,24 @@
+@charset "UTF-8";
 /* === CUSTOM HEADER STYLE === */
 /* Header global */
 .header-nav {
-  background: #83b58b;
+  background-color: #83b58b;
+  margin-bottom: 0.8rem;
   height: 80px;
   max-height: 80px !important;
+}
+.header-nav .container {
+  height: 100%;
+}
+.header-nav .row {
+  height: 100%;
+  align-items: center;
+}
+.header-nav .hidden-sm-down {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 @media (max-width: 640px) {
   .header-nav {
@@ -154,6 +169,8 @@
   border: 1px solid rgb(68.9545454545, 115.5454545455, 76.4090909091);
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Masque le menu déroulant par défaut */
+  z-index: 50;
 }
 #_desktop_language_selector .dropdown-menu li {
   border-bottom: 1px solid rgb(78.4848484848, 131.5151515152, 86.9696969697);
@@ -168,6 +185,8 @@
   color: #f9fafb;
   padding: 8px 15px;
   font-weight: bold;
+  background-color: #83b58b;
+  border: 1px solid rgb(68.9545454545, 115.5454545455, 76.4090909091);
 }
 #_desktop_language_selector .dropdown-menu .dropdown-item:hover, #_desktop_language_selector .dropdown-menu .dropdown-item:focus {
   background-color: rgb(78.4848484848, 131.5151515152, 86.9696969697);
@@ -175,12 +194,47 @@
 }
 
 /* End Language selector */
+.nav-contact {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.nav-contact .contact-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+.nav-contact .contact-link:hover {
+  padding-left: 10px;
+  background-color: rgb(99.0606060606, 161.9393939394, 109.1212121212);
+}
+.nav-contact i {
+  color: #f9fafb;
+  font-size: 25px;
+  margin-right: 10px;
+}
+.nav-contact div {
+  display: flex;
+  flex-direction: column;
+}
+.nav-contact div:hover {
+  cursor: pointer;
+}
+.nav-contact div p {
+  color: #f9fafb;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
 /* Logo */
 #_desktop_logo {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 #_desktop_logo img.logo {
   max-width: 300px;
@@ -190,13 +244,11 @@
 @media (max-width: 1024px) {
   #_desktop_logo img.logo {
     max-width: 280px;
-    top: 5px;
   }
 }
 @media (max-width: 768px) {
   #_desktop_logo img.logo {
     max-width: 250px;
-    top: 5px;
   }
 }
 @media (max-width: 640px) {
@@ -388,6 +440,10 @@
 /* Styles pour le module de connexion (Mon compte) */
 .user-info {
   margin-left: 0 !important;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 0 !important;
 }
 .user-info .login, .user-info .account {
   display: flex;
@@ -444,8 +500,9 @@
 /* END MODULE DE CONNEXION */
 /* Styles pour le module de panier */
 #blockcart-wrapper {
-  position: relative;
-  top: 11px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .blockcart .shopping-cart-container {
@@ -512,3 +569,10 @@
 }
 
 /* END MENU */
+/* Right nav section */
+.right-nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

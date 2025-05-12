@@ -188,17 +188,17 @@
           <div class="footer-column-content" id="footer-content-2">
             <p class="footer-phone">
               <span class="phone-main">09 77 42 37 04</span>
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/fr.png" alt="Naturamedicatrix France" class="flag-icon">
+              🇫🇷
             </p>
 
             <p class="footer-phone">
               <span class="phone-secondary">+32 42 90 00 79</span>
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/be.png" alt="Naturamedicatrix Belgique" class="flag-icon">
+              🇧🇪
             </p>
 
             <p class="footer-phone">
               <span class="phone-secondary">+352 27 86 11 39</span>
-              <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/lu.png" alt="Naturamedicatrix Luxembourg" class="flag-icon">
+              🇱🇺
             </p>
 
             <p class="footer-email">

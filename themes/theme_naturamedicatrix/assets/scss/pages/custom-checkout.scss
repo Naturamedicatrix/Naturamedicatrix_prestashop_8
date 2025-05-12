@@ -29,5 +29,10 @@ body#checkout {
     .checkout-footer {
         border-top: 1px solid $color-custom-gray;
         background-color: #ffff;
+        padding-top: 25px;
+    }
+
+    .copyright {
+        font-size: .85rem;
     }
 }

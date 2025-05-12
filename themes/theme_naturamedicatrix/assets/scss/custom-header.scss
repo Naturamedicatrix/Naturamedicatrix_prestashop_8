@@ -4,9 +4,26 @@
 
 /* Header global */
 .header-nav {
-  background: $color-custom-green;
+  background-color: $color-custom-green;
+  margin-bottom: 0.8rem;
   height: 80px;
   max-height: 80px !important;
+  
+  .container {
+    height: 100%;
+  }
+  
+  .row {
+    height: 100%;
+    align-items: center;
+  }
+  
+  .hidden-sm-down {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
   @media (max-width: $breakpoint-sm) {
     height: 65px;
     max-height: 65px !important;
@@ -170,6 +187,9 @@
     border: 1px solid color.adjust($color-custom-green, $lightness: -25%);
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Masque le menu déroulant par défaut */
+    z-index:50;
+    
     
     li {
       border-bottom: 1px solid color.adjust($color-custom-green, $lightness: -20%);
@@ -187,6 +207,8 @@
       color: $color-custom-white;
       padding: 8px 15px;
       font-weight: bold;
+      background-color: $color-custom-green;
+      border: 1px solid color.adjust($color-custom-green, $lightness: -25%);
       
       &:hover, &:focus {
         background-color: color.adjust($color-custom-green, $lightness: -20%);
@@ -197,12 +219,52 @@
 }
 /* End Language selector */
 
+.nav-contact {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  
+  .contact-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: 200px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      padding-left: 10px;
+      background-color: color.adjust($color-custom-green, $lightness: -10%);
+    }
+  }
+  
+  i {
+    color: $color-custom-white;
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    &:hover {
+      cursor: pointer;
+    }
+    
+    p {
+      color: $color-custom-white;
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+  }
+}
+
 /* Logo */
 #_desktop_logo {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
   
   img.logo {
     max-width: 300px;
@@ -211,12 +273,10 @@
     
     @media (max-width: $breakpoint-lg) {
       max-width: 280px;
-      top: 5px;
     }
     
     @media (max-width: $breakpoint-md) {
       max-width: 250px;
-      top: 5px;
     }
     
     @media (max-width: $breakpoint-sm) {
@@ -408,6 +468,10 @@
 /* Styles pour le module de connexion (Mon compte) */
 .user-info {
   margin-left: 0 !important;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 0 !important;
 
   .login, .account {
     display: flex;
@@ -476,8 +540,9 @@
 
 /* Styles pour le module de panier */
 #blockcart-wrapper {
-  position: relative;
-  top: 11px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 .blockcart {
   .shopping-cart-container {
@@ -555,3 +620,11 @@
   }
 }
 /* END MENU */
+
+/* Right nav section */
+.right-nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

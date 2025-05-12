@@ -21,4 +21,8 @@ body#checkout .header-nav .secure-checkout-text i {
 body#checkout .checkout-footer {
   border-top: 1px solid #4B5563;
   background-color: white;
+  padding-top: 25px;
+}
+body#checkout .copyright {
+  font-size: 0.85rem;
 }

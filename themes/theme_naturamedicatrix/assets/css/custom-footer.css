@@ -444,9 +444,6 @@
 .footer-column {
   width: 23%;
 }
-.footer-column:nth-child(1) {
-  padding-left: 140px;
-}
 @media (min-width: 768px) {
   .footer-column:nth-child(1) {
     padding-right: 0;
