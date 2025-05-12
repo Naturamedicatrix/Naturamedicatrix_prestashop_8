@@ -79,7 +79,7 @@
                 </a>
               </div>
               <div class="mobile-cart-icon">
-                <a href="{$urls.pages.cart}">
+                <a href="{$link->getPageLink('cart', true, null, ['action' => 'show'])}">
                   <i class="material-icons shopping-cart-icon">shopping_cart</i>
                   {if $cart.products_count > 0}
                     <span class="cart-products-count">{$cart.products_count}</span>
