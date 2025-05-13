@@ -74,7 +74,7 @@
     </div>
 
     {* BLOC RÉSEAUX SOCIAUX *}
-    <div class="social-icons-block text-center col-lg-6 col-md-6 col-sm-12">
+    <div class="social-icons-block text-center col-lg-3 col-md-3 col-sm-12">
       <div class="social-title">{l s='Nos réseaux sociaux' d='Shop.Theme.Global'}</div>
       <div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=61559694586944" target="_blank" rel="noopener noreferrer"
