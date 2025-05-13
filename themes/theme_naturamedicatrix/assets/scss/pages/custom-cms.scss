@@ -143,4 +143,14 @@ body.cms-id-7 {
         }
     }
 }
+
+
+.page-content.page-cms ul, p {
+    color: $color-custom-gray !important;
+}
+
+.page-content.page-cms {
+  text-align: left !important;
+  max-width: 960px !important;
+}
 // END CMS Page Catégorie

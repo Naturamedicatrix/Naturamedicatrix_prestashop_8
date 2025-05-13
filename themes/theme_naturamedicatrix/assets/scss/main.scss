@@ -30,7 +30,6 @@ body {
 
   #main {
     background-color: $color-custom-bgWrapper;
-    padding: 100px 0px 0 30px;
   }
 
   header {
@@ -113,6 +112,7 @@ body {
 
 
 
+
 // LOGO Title
 .title-separator {
   position: relative;
@@ -190,6 +190,10 @@ body {
 //End LOGO Title
 
 // Typography
+p {
+  padding-bottom: 10px;
+}
+
 .h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6 {
   color: $color-custom-black !important;
   text-transform: inherit !important;
@@ -258,11 +262,6 @@ h4, .h4 {
   @media (max-width: $breakpoint-sm) {
     font-size: 1.1rem;
   }
-}
-
-#wrapper p {
-  color: $color-custom-gray;
-  padding-bottom: 10px;
 }
 
 ul {
@@ -809,7 +808,7 @@ table>tbody>tr:nth-of-type(even) {
 
 
 
-// AUTRE STYLE
+// AUTRES STYLES
 .pull-right {
     float: right;
 }
@@ -818,6 +817,6 @@ table>tbody>tr:nth-of-type(even) {
     float: left;
 }
 
-.page-content.page-cms ul, p {
-    color: $color-custom-gray;
+.alert p {
+  padding-bottom: 0 !important;
 }

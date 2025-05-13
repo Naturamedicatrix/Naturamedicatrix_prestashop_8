@@ -251,8 +251,9 @@
     }
     
     p {
-      color: $color-custom-white;
+      color: $color-custom-white !important;
       margin-bottom: 0;
+      padding: 0;
       font-size: 14px;
     }
   }
