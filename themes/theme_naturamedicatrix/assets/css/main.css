@@ -576,13 +576,18 @@ body #main {
   }
 }
 
+.h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6 {
+  color: #111827 !important;
+  text-transform: inherit !important;
+  font-weight: bold;
+}
+
 .page-header h1, .page-header .h4 {
   text-align: center !important;
 }
 
 .page-title,
 .h1, h1 {
-  color: #111827;
   font-size: 2.5rem;
   text-align: center;
   font-weight: bolder;
@@ -605,7 +610,6 @@ h2, .h2 {
   font-size: 2rem;
   text-align: left;
   font-weight: bold;
-  color: #111827;
   margin: 30px 0 10px 0;
 }
 @media (max-width: 768px) {
@@ -625,7 +629,6 @@ h3, .h3 {
   font-size: 1.5rem;
   text-align: left;
   font-weight: bold;
-  color: #111827;
   margin: 20px 0 5px 0;
 }
 @media (max-width: 768px) {
@@ -643,7 +646,6 @@ h4, .h4 {
   font-size: 1.2rem;
   text-align: left;
   font-weight: bold;
-  color: #111827;
   margin: 20px 0 5px 0;
 }
 @media (max-width: 640px) {
@@ -654,7 +656,7 @@ h4, .h4 {
 
 #wrapper p {
   color: #4B5563;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 ul {
@@ -1126,4 +1128,16 @@ table > tbody > tr:nth-of-type(even) {
 }
 .help-block .contact-email .contact-link:hover {
   text-decoration: underline;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.page-content.page-cms ul, p {
+  color: #4B5563;
 }

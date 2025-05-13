@@ -190,6 +190,12 @@ body {
 //End LOGO Title
 
 // Typography
+.h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6 {
+  color: $color-custom-black !important;
+  text-transform: inherit !important;
+  font-weight: bold;
+}
+
 .page-header {
   h1, .h4 {
     text-align: center !important;
@@ -197,7 +203,6 @@ body {
 }
 .page-title,
 .h1, h1 {
-  color: $color-custom-black;
   font-size: 2.5rem;
   text-align: center;
   font-weight: bolder;
@@ -216,7 +221,6 @@ h2, .h2 {
   font-size: 2rem;
   text-align: left;
   font-weight: bold;
-  color: $color-custom-black;
   margin: 30px 0 10px 0;
 
   @media (max-width: $breakpoint-md) {
@@ -234,7 +238,6 @@ h3, .h3 {
   font-size: 1.5rem;
   text-align: left;
   font-weight: bold;
-  color: $color-custom-black;
   margin: 20px 0 5px 0;
 
   @media (max-width: $breakpoint-md) {
@@ -250,7 +253,6 @@ h4, .h4 {
   font-size: 1.2rem;
   text-align: left;
   font-weight: bold;
-  color: $color-custom-black;
   margin: 20px 0 5px 0;
 
   @media (max-width: $breakpoint-sm) {
@@ -260,7 +262,7 @@ h4, .h4 {
 
 #wrapper p {
   color: $color-custom-gray;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 ul {
@@ -804,3 +806,18 @@ table>tbody>tr:nth-of-type(even) {
     }
 }
 // END BLOC BESOIN D'AIDE
+
+
+
+// AUTRE STYLE
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.page-content.page-cms ul, p {
+    color: $color-custom-gray;
+}
