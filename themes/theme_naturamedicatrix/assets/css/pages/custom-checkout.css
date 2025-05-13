@@ -1,7 +1,6 @@
 /* === PAGE CHECKOUT === */
 body#checkout {
-  display: flex;
-  flex-direction: column;
+  background-color: white;
 }
 body#checkout .header-nav {
   min-height: 130px;
@@ -11,9 +10,18 @@ body#checkout .header-nav {
     max-width: 230px !important;
   }
 }
+body#checkout .header-nav #_desktop_logo {
+  align-items: baseline;
+  height: auto;
+}
+body#checkout .header-nav .secure-block {
+  justify-content: center;
+  height: auto;
+}
 body#checkout .header-nav .secure-checkout-text {
   color: #f9fafb;
   font-weight: bold;
+  position: relative;
 }
 body#checkout .header-nav .secure-checkout-text i {
   font-size: 1.3rem;

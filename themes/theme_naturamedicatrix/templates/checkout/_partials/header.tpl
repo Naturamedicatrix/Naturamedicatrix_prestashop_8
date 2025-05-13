@@ -8,7 +8,7 @@
         <div class="col-md-12 text-center hidden-sm-down mt-4" id="_desktop_logo">
             {renderLogo}
         </div>
-        <div class="col-md-12 text-center hidden-sm-down md:mt-4 xl:mt-0">
+        <div class="secure-block col-md-12 text-center hidden-sm-down md:mt-4 xl:mt-0">
             <div class="secure-checkout-text">
               <i class="bi bi-lock"></i> 100% sécurisé
             </div>

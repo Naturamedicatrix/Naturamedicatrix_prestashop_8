@@ -3,10 +3,9 @@
 
 /* === PAGE CHECKOUT === */
 
-body#checkout {
-    display: flex;
-    flex-direction: column;
-    
+body#checkout { 
+    background-color: #ffff;
+
     .header-nav {
         min-height: 130px;
 
@@ -15,10 +14,20 @@ body#checkout {
                 max-width: 230px !important;
             }
         }
+
+        #_desktop_logo {
+            align-items: baseline;
+            height: auto;
+        }
         
+        .secure-block {
+            justify-content: center;
+            height: auto;
+        }
         .secure-checkout-text {
             color: $color-custom-white;
             font-weight: bold;
+            position: relative;
     
             i {
                 font-size: 1.3rem;

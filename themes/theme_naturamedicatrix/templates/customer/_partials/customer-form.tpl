@@ -53,8 +53,8 @@
         </div>
       </div>
 
-      {* Champs RGPD requis mais invisibles et pré-cochés - Uniquement pour la page identité *}
-      <div style="position: absolute; left: -9999px; visibility: hidden;">
+      {* Checkbox RGPD *}
+      <div>
         {foreach from=$formFields item="field"}
           {if $field.name == 'psgdpr' || $field.name == 'customer_privacy'}
             {* Modifie le champ pour qu'il soit pré-coché *}
@@ -69,8 +69,8 @@
         {/foreach}
       </div>
       
-      {* Champs de newsletter également masqués mais fonctionnels - Uniquement pour la page identité *}
-      <div style="position: absolute; left: -9999px; visibility: hidden;">
+      {* Checkbox de newsletter *}
+      <div>
           {foreach from=$formFields item="field"}
             {if $field.name == 'newsletter' || $field.name == 'optin'}
               <div class="custom-checkbox">
@@ -85,7 +85,7 @@
       {* Important - Rendre les champs restants pour assurer la compatibilité - Uniquement pour la page identité *}
       {foreach from=$formFields item="field"}
         {if $field.name != 'id_gender' && $field.name != 'firstname' && $field.name != 'lastname' && $field.name != 'birthday' && $field.name != 'email' && $field.type !== "password" && $field.name != 'newsletter' && $field.name != 'optin' && $field.name != 'psgdpr' && $field.name != 'customer_privacy'}
-          <div style="display: none;">
+          <div>
             {form_field field=$field}
           </div>
         {/if}

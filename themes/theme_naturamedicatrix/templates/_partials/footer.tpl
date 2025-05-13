@@ -1,25 +1,3 @@
-{* Récupération des marques pour l'affichage dans le footer avec le bon format de données *}
-{* {assign var="manufacturers" value=Manufacturer::getManufacturers()}
-{assign var="brands_test" value=[]}
-
-{foreach from=$manufacturers item=manufacturer}
-  {if $manufacturer.id_manufacturer == 3 || $manufacturer.id_manufacturer == 4 || $manufacturer.id_manufacturer == 5}
-    {assign var="brand" value=[
-      'id_manufacturer' => $manufacturer.id_manufacturer,
-      'name' => $manufacturer.name,
-      'image' => "{$urls.img_manu_url}{$manufacturer.id_manufacturer}.jpg",
-      'url' => {url entity='manufacturer' id=$manufacturer.id_manufacturer}
-    ]}
-    {append var='brands_test' value=$brand}
-  {/if}
-{/foreach} *}
-
-{* Inclusion du template avec les données correctement formatées *}
-{* {if $brands_test|count > 0}
-  {include file='_partials/brands-main.tpl' brands=$brands_test}
-{/if} *}
-
-
 {**
 ** CUSTOM FOOTER
  *}
