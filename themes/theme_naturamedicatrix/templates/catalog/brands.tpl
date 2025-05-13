@@ -24,13 +24,13 @@
 
     {* Bloc des 3 marques phares *}
     {block name='featured_brands'}
-    {include file='_partials/brands-main.tpl'} 
+      {include file='_partials/brands-main.tpl'} 
     {/block}
 
     {* Liste complète des marques (excluant les marques stars) *}
     {block name='brand_miniature'}
       <div class="container brand-miniature">
-        <p class="h3">Nous ne distribuons pas ces produits en magasins ou pharmacies.</p>
+        <div class="alert alert-info text-center">Nous ne distribuons pas ces produits en magasins ou pharmacies.</div>
         <div class="row">
           {foreach from=$brands item=brand}
             {* Exclure les marques stars *}

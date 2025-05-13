@@ -64,15 +64,15 @@ body#manufacturer, .featured-brands {
             
             .featured-logo {
                 position: absolute;
-                top: 150px;
+                top: 170px;
                 left: 20%;
                 transform: translateX(-50%);
                 background-color: $color-custom-white;
                 border-radius: 50%;
                 border: 1px solid $color-custom-gray;
                 padding: 20px;
-                width: 160px;
-                height: 160px;
+                width: 140px;
+                height: 140px;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
                 margin-bottom: 0;
                 
@@ -82,11 +82,6 @@ body#manufacturer, .featured-brands {
                     transform: translateX(-50%);
                 }
                 
-                img {
-                    width: 120px;
-                    height: 120px;
-                    max-width: none;
-                }
             }
             
             .featured-title {
@@ -133,8 +128,6 @@ body#manufacturer, .featured-brands {
             justify-content: center;
             
             img {
-                height: 120px;
-                width: 120px;;
                 object-fit: contain;
                 max-width: none;
             }

@@ -16,8 +16,9 @@
       {assign var="formatted_brands" value=$formatted_brands|array_merge:[[
         'id_manufacturer' => $manufacturer.id_manufacturer,
         'name' => $manufacturer.name,
-        'image' => "{$urls.img_manu_url}{$manufacturer.id_manufacturer}.jpg",
-        'url' => {url entity='manufacturer' id=$manufacturer.id_manufacturer}
+        'image' => "{$urls.img_manu_url}{$manufacturer.id_manufacturer}-small_default.jpg",
+        'url' => {url entity='manufacturer' id=$manufacturer.id_manufacturer},
+        'short_description' => $manufacturer.short_description
       ]]}
     {/if}
   {/foreach}
@@ -47,21 +48,12 @@
                     <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-jacob.jpg" alt="{$brand.name}" class="brand-header-img">
                   {/if}
                   </div>
-                  <div class="brand-card-logo featured-logo">
+                  <div class="brand-card-logo featured-logo test">
                       <img src="{$brand.image}" alt="{$brand.name}">
                   </div>
                   <h3 class="brand-card-title featured-title">{$brand.name}</h3>
                   <div class="brand-card-description featured-description">
-                    {if $brand.id_manufacturer == 4}
-                      <p>NATURA<strong>Medicatrix</strong>, votre marque de confiance pour des compléments alimentaires de qualité supérieure, vous propose des formulations exclusives rigoureusement sélectionnées pour leur efficacité. Nous mettons un point d'honneur à choisir des composants à haute biodisponibilité, principalement d'origine naturelle, et à optimiser leur synergie.</p>
-                      <p>Tous nos produits sont exempts de gluten et de lactose, et la plupart sont entièrement végétaliens, garantissant ainsi des options saines pour tous.</p>
-                    {elseif $brand.id_manufacturer == 5}
-                      <p>L'olivier, éternel symbole de sagesse, de pouvoir et de paix, produit des fruits naturellement riches en polyphénols, aux propriétés exceptionnelles. Olivie Pharma®, avec sa gamme sélectionnée de produits naturels — huiles, gélules, crèmes et perles — offre de puissants antioxydants. Que ce soit pour des cures de minéraux, des vitamines ou des soins cosmétiques, nos produits répondent efficacement à vos besoins essentiels.</p>
-                      <p>Découvrez une protection 100% naturelle avec Olivie Pharma® !</p>
-                    {elseif $brand.id_manufacturer == 3}
-                      <p>Optez pour un mode de vie sain grâce à des produits et des concepts de santé holistiques.</p>
-                      <p>Depuis sa création en 1997, Dr. Jacob's Medical s'engage à développer des produits innovants et des stratégies de santé naturellement efficaces. Grâce à une expertise solide en recherche médicale et à des produits de haute qualité à base de plantes, nous vous offrons des compléments alimentaires qui sont à la fois fiables, sûrs et performants.</p>
-                    {/if}
+                    {$brand.short_description nofilter}
                   </div>
                   <div class="brand-card-action">
                     <a href="{$brand.url}">En savoir plus</a>
