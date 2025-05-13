@@ -620,6 +620,7 @@ table>tbody>tr:nth-of-type(even) {
 // ALERT 
 .alert {
   margin: 25px auto;
+  max-width: 85%;
 
   ul {
     padding-left: 0;

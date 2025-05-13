@@ -25,6 +25,7 @@ body#cms {
 
         }
     }
+
 }
 
 // CMS Page Catégorie
@@ -144,9 +145,8 @@ body.cms-id-7 {
     }
 }
 
-
 .page-content.page-cms ul, p {
-    color: $color-custom-gray !important;
+    color: $color-custom-gray;
 }
 
 .page-content.page-cms {

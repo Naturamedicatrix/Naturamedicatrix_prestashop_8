@@ -172,7 +172,7 @@ body.cms-id-7 #main .subcategory-list h3 a:hover {
 }
 
 .page-content.page-cms ul, p {
-  color: #4B5563 !important;
+  color: #4B5563;
 }
 
 .page-content.page-cms {
@@ -991,6 +991,7 @@ table > tbody > tr:nth-of-type(even) {
 
 .alert {
   margin: 25px auto;
+  max-width: 85%;
 }
 .alert ul {
   padding-left: 0;

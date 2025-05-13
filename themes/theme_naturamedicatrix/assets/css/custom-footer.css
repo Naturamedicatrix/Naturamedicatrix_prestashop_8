@@ -393,13 +393,6 @@
 }
 
 /* LISTE FOOTER */
-.footer-columns {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  align-items: flex-start;
-  width: 100%;
-}
 @media (max-width: 768px) {
   .footer-columns {
     flex-direction: column;

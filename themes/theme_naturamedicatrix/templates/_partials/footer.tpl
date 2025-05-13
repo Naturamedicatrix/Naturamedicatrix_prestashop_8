@@ -12,8 +12,10 @@
         <i class="bi bi-lock"></i>
       </div>
       <div class="advantage-content">
-        <div class="advantage-title">Paiement sécurisé</div>
-        <div class="advantage-text">100% sécurisé</div>
+        <a href="{$link->getCMSLink(3)}#paiement">
+          <div class="advantage-title">Paiement sécurisé</div>
+          <div class="advantage-text">100% sécurisé</div>
+        </a>
       </div>
     </div>
 
@@ -23,8 +25,10 @@
         <i class="bi bi-truck"></i>
       </div>
       <div class="advantage-content">
-        <div class="advantage-title">Livraison offerte</div>
-        <div class="advantage-text">à partir de 35€ en Point Relais*</div>
+        <a href="#">
+          <div class="advantage-title">Livraison offerte</div>
+          <div class="advantage-text">à partir de 35€ en Point Relais*</div>
+        </a>
       </div>
     </div>
 
@@ -34,8 +38,10 @@
         <i class="bi bi-trophy"></i>
       </div>
       <div class="advantage-content">
-        <div class="advantage-title">Produits certifiés</div>
-        <div class="advantage-text">Naturels et de qualité</div>
+        <a href="{$link->getCMSLink(3)}#produits">
+          <div class="advantage-title">Produits certifiés</div>
+          <div class="advantage-text">Naturels et de qualité</div>
+        </a>
       </div>
     </div>
 
@@ -45,8 +51,10 @@
         <i class="bi bi-chat-heart"></i>
       </div>
       <div class="advantage-content">
-        <div class="advantage-title">Service client</div>
-        <div class="advantage-text">Un problème ? Une question ?</div>
+        <a href="{$urls.pages.contact}">
+          <div class="advantage-title">Service client</div>
+          <div class="advantage-text">Un problème ? Une question ?</div>
+        </a>
       </div>
     </div>
   </div>
@@ -142,7 +150,7 @@
   <div class="container">
       {* LIST FOOTER *}
       <div class="footer-columns row">
-        <div class="footer-column col-lg-3 col-md-3 col-sm-6">
+        <div class="footer-column col-lg-3 col-md-3 col-sm-6 text-center">
           <h4 id="footer-title-1"><span class="natura-light">NATURA</span><span
               class="medicatrix-bold">Medicatrix</span></h4>
           <div class="footer-column-content" id="footer-content-1">
@@ -194,7 +202,7 @@
           </div>
         </div>
 
-        <div class="footer-column col-lg-3 col-md-3 col-sm-6">
+        <div class="footer-column col-lg-3 col-md-3 col-sm-6 text-center">
           <h4 id="footer-title-3">Nos magasins partenaires</h4>
           <div class="footer-column-content" id="footer-content-3">
             <p class="footer-stores-intro">
