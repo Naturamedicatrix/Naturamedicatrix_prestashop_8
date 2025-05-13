@@ -17,6 +17,9 @@ body#cms #main #content p img {
   margin: 0 auto;
 }
 
+body.cms-id-7 .page-content {
+  max-width: none !important;
+}
 body.cms-id-7 #main {
   max-width: inherit !important;
 }

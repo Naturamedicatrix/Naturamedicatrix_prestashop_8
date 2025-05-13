@@ -25,7 +25,7 @@
         <i class="bi bi-truck"></i>
       </div>
       <div class="advantage-content">
-        <a href="#">
+        <a href="{$link->getCMSLink(3)}#livraison">
           <div class="advantage-title">Livraison offerte</div>
           <div class="advantage-text">à partir de 35€ en Point Relais*</div>
         </a>
@@ -38,7 +38,7 @@
         <i class="bi bi-trophy"></i>
       </div>
       <div class="advantage-content">
-        <a href="{$link->getCMSLink(3)}#produits">
+        <a href="#">
           <div class="advantage-title">Produits certifiés</div>
           <div class="advantage-text">Naturels et de qualité</div>
         </a>

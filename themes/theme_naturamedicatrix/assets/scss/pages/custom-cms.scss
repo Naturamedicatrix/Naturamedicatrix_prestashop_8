@@ -30,6 +30,9 @@ body#cms {
 
 // CMS Page Catégorie
 body.cms-id-7 {
+    .page-content {
+        max-width: none !important;
+    }
     #main {
         max-width: inherit !important;
 
