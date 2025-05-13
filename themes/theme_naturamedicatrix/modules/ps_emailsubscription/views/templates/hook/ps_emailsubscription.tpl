@@ -16,15 +16,7 @@
     
     {* Vérification si l'utilisateur est connecté et déjà abonné *}
     {if $customer.is_logged && isset($customer.newsletter) && $customer.newsletter == 1}
-      <div class="newsletter-form-wrapper">
-        <input 
-          type="text" 
-          value="{l s='Vous êtes déjà abonné à notre newsletter' d='Modules.Emailsubscription.Shop'}" 
-          class="newsletter-input alert alert-info" 
-          readonly
-          disabled
-        />
-      </div>
+      <p class="alert alert-success">{l s='Vous êtes déjà abonné à notre newsletter' d='Modules.Emailsubscription.Shop'}</p>
     {else}
       <form action="{$urls.current_url}#blockEmailSubscription_{$hookName}" method="post">
         <div class="newsletter-form-wrapper">

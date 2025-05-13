@@ -4,9 +4,10 @@
 
 {* SECTION AVANTAGES *}
 <div class="advantages-container">
-  <div class="advantages-wrapper">
+  <div class="container">
+    <div class="advantages-wrapper row">
     {* AVANTAGE 1 - PAIEMENT SÉCURISÉ *}
-    <div class="advantage-item">
+    <div class="advantage-item col-lg-3 col-md-3 col-sm-6">
       <div class="advantage-icon">
         <i class="bi bi-lock"></i>
       </div>
@@ -17,7 +18,7 @@
     </div>
 
     {* AVANTAGE 2 - LIVRAISON OFFERTE *}
-    <div class="advantage-item">
+    <div class="advantage-item col-lg-3 col-md-3 col-sm-6">
       <div class="advantage-icon">
         <i class="bi bi-truck"></i>
       </div>
@@ -28,7 +29,7 @@
     </div>
 
     {* AVANTAGE 3 - PRODUITS CERTIFIÉS *}
-    <div class="advantage-item">
+    <div class="advantage-item col-lg-3 col-md-3 col-sm-6">
       <div class="advantage-icon">
         <i class="bi bi-trophy"></i>
       </div>
@@ -39,7 +40,7 @@
     </div>
 
     {* AVANTAGE 4 - SERVICE CLIENT *}
-    <div class="advantage-item">
+    <div class="advantage-item col-lg-3 col-md-3 col-sm-6">
       <div class="advantage-icon">
         <i class="bi bi-chat-heart"></i>
       </div>
@@ -49,13 +50,14 @@
       </div>
     </div>
   </div>
+  </div>
 </div>
 
 {* BLOC TOP FOOTER - VERSION DESKTOP *}
-<div class="custom-footer-container desktop-footer">
-  <div class="custom-footer-wrapper">
+<div class="custom-footer-container desktop-footer container">
+  <div class="custom-footer-wrapper row">
     {* BLOC RATING *}
-    <div class="footer-rating-block">
+    <div class="footer-rating-block text-center col-lg-3 col-md-3 col-sm-12">
       <div class="rating-value">4,8<span class="rating-max"> / 5</span></div>
       <div class="rating-stars">
         <i class="material-icons star-full">star</i>
@@ -67,12 +69,12 @@
     </div>
 
     {* BLOC NEWSLETTER *}
-    <div class="newsletter-main-block">
+    <div class="newsletter-main-block col-lg-6 col-md-6 col-sm-12">
       {hook h='displayFooterBefore'}
     </div>
 
     {* BLOC RÉSEAUX SOCIAUX *}
-    <div class="social-icons-block">
+    <div class="social-icons-block text-center col-lg-6 col-md-6 col-sm-12">
       <div class="social-title">{l s='Nos réseaux sociaux' d='Shop.Theme.Global'}</div>
       <div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=61559694586944" target="_blank" rel="noopener noreferrer"
@@ -138,30 +140,28 @@
 
 <div class="footer-container">
   <div class="container">
-    <div class="row">
-
       {* LIST FOOTER *}
-      <div class="footer-columns">
-        <div class="footer-column">
+      <div class="footer-columns row">
+        <div class="footer-column col-lg-3 col-md-3 col-sm-6">
           <h4 id="footer-title-1"><span class="natura-light">NATURA</span><span
               class="medicatrix-bold">Medicatrix</span></h4>
           <div class="footer-column-content" id="footer-content-1">
-            <p class="footer-address"><strong>Maison mère — Siège social</strong><br>
+            <address class="footer-address"><strong>Maison mère — Siège social</strong><br>
               22, route des Fagnes<br>
               B-4190 Ferrières<br>
-              Belgique</p>
+              Belgique</address>
             <p class="footer-tax">TVA : BE0543862766</p>
 
-            <p class="footer-address"><strong>Nos bureaux</strong><br>
+            <address class="footer-address"><strong>Nos bureaux</strong><br>
               8, Hannert dem Duarref<br>
               L-9772 Troine (Wincrange)<br>
-              Grand Duché de Luxembourg</p>
+              Grand Duché de Luxembourg</address>
             <p class="footer-tax">TVA : LU26788281<br>
               MATRICULE : 20142414296</p>
           </div>
         </div>
 
-        <div class="footer-column">
+        <div class="footer-column col-lg-3 col-md-3 col-sm-6">
           <h4 id="footer-title-2">Service client</h4>
           <div class="footer-column-content" id="footer-content-2">
             <p class="footer-phone">
@@ -194,7 +194,7 @@
           </div>
         </div>
 
-        <div class="footer-column">
+        <div class="footer-column col-lg-3 col-md-3 col-sm-6">
           <h4 id="footer-title-3">Nos magasins partenaires</h4>
           <div class="footer-column-content" id="footer-content-3">
             <p class="footer-stores-intro">
@@ -204,17 +204,17 @@
 
             <div class="footer-store">
               <p class="store-name">NATURAMedicatrix</p>
-              <p class="store-address">26 avenue Émile Digneffe, 4000 Liège, Belgique</p>
+              <address class="store-address">26 avenue Émile Digneffe, 4000 Liège, Belgique</address>
             </div>
 
             <div class="footer-store">
               <p class="store-name">Pharmacie Matt Anne-Laure</p>
-              <p class="store-address">21 Rue des Jardins, 68110 Illzach, France</p>
+              <address class="store-address">21 Rue des Jardins, 68110 Illzach, France</address>
             </div>
 
             <div class="footer-store">
               <p class="store-name">Euro Nutri Santé S.A.</p>
-              <p class="store-address">14 rue de la Libération, L-3510 Dudelange, Luxembourg</p>
+              <address class="store-address">14 rue de la Libération, L-3510 Dudelange, Luxembourg</address>
             </div>
 
             <div class="footer-stores-btn">
@@ -223,7 +223,7 @@
           </div>
         </div>
 
-        <div class="footer-column">
+        <div class="footer-column col-lg-3 col-md-3 col-sm-6">
           <h4 id="footer-title-4">Liens utiles</h4>
           <div class="footer-column-content" id="footer-content-4">
             <ul class="footer-links">
@@ -240,18 +240,20 @@
           </div>
         </div>
       </div>
+    </div>
+    </div>
 
       {* PAYMENT METHODS AND LINKS ROW *}
       <div class="footer-bottom-row">
         <div class="container">
-          <div class="footer-links-payment-wrapper">
-            <div class="footer-bottom-links">
+          <div class="footer-links-payment-wrapper row">
+            <div class="footer-bottom-links col-lg-8 col-md-8 col-sm-12">
               <a href="{$link->getCMSLink(3)}" class="footer-bottom-link">{l s='Conditions générales de vente' d='Shop.Theme.Global'}</a>
               <a href="{$link->getCMSLink(2)}" class="footer-bottom-link">{l s='Mentions légales' d='Shop.Theme.Global'}</a>
               <a href="{$link->getCMSLink(3)}#livraison" class="footer-bottom-link">{l s='Livraison, frais de port et retours' d='Shop.Theme.Global'}</a>
               <a href="{$link->getCMSLink(3)}#paiement" class="footer-bottom-link">{l s='Modes de paiement' d='Shop.Theme.Global'}</a>
             </div>
-            <div class="footer-payment-logos">
+            <div class="footer-payment-logos col-lg-4 col-md-4 col-sm-12">
               <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/alma.svg" alt="Naturamedicatrix Alma" class="payment-logo">
               <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/bancontact.svg" alt="Naturamedicatrix Bancontact" class="payment-logo">
               <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/credit_card/visa.svg" alt="Naturamedicatrix Visa" class="payment-logo">
@@ -266,7 +268,7 @@
 
       {* COPYRIGHT *}
       <div class="col-md-12 text-center footer-copyright">
-        <p class="text-sm-center">
+        <p class="text-sm-center pb-0">
           {block name='copyright_link'}
             <span>
               {l s='%copyright% 2009 - %year% NATURA%italictext%. %rights%' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©', '%italictext%' => '<i><strong>Medicatrix</strong></i>', '%rights%' => 'Tous droits réservés.'] d='Shop.Theme.Global'}
@@ -274,7 +276,6 @@
           {/block}
         </p>
       </div>
-    </div>
   </div>
 </div>
 

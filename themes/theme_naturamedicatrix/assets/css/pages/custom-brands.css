@@ -160,3 +160,6 @@ body#index .brand-card-action {
 .brands-manufacturers-section {
   background-color: #F9FAFB;
 }
+.brands-manufacturers-section .alert-success {
+  display: none;
+}

@@ -184,4 +184,9 @@ body#index {
 
 .brands-manufacturers-section {
     background-color: $color-custom-bgLight;
+
+
+    .alert-success {
+        display: none;
+    }
 }
