@@ -4999,7 +4999,10 @@ class PM_AdvancedTopMenu extends Module implements PrestaShop\PrestaShop\Core\Mo
         if ($this->context->controller->php_self == 'manufacturer') {
             $urlActive['type'] = 'brands';
             if (method_exists($this->context->controller, 'getManufacturer')) {
-                $urlActive['id'] = (int)$this->context->controller->getManufacturer()->id;
+                $manufacturer = $this->context->controller->getManufacturer();
+                if ($manufacturer !== null) {
+                    $urlActive['id'] = (int)$manufacturer->id;
+                }
             } elseif (Tools::getIsset('id_manufacturer') && Tools::getValue('id_manufacturer')) {
                 $urlActive['id'] = (int)Tools::getValue('id_manufacturer');
             }
