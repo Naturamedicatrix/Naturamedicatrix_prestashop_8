@@ -5,14 +5,6 @@ body#cms #main {
   margin: 0 auto;
   padding: 1rem;
 }
-body#cms #main h1 {
-  margin-top: 70px;
-}
-@media (max-width: 640px) {
-  body#cms #main h1 {
-    margin-top: 30px;
-  }
-}
 body#cms #main #content p img {
   margin: 0 auto;
 }

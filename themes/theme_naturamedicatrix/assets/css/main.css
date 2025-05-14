@@ -57,14 +57,6 @@ body#cms #main {
   margin: 0 auto;
   padding: 1rem;
 }
-body#cms #main h1 {
-  margin-top: 70px;
-}
-@media (max-width: 640px) {
-  body#cms #main h1 {
-    margin-top: 30px;
-  }
-}
 body#cms #main #content p img {
   margin: 0 auto;
 }
@@ -457,6 +449,15 @@ body #main {
   margin-bottom: 0;
 }
 
+.page-header {
+  margin-top: 70px;
+}
+@media (max-width: 640px) {
+  .page-header {
+    margin-top: 30px;
+  }
+}
+
 .container,
 #content {
   width: 100%;
@@ -758,9 +759,10 @@ blockquote p {
   padding: 13px 50px;
   text-transform: none;
   line-height: 1;
+  transition: all 0.2s ease-in-out !important;
 }
 .primary-btn:hover, .btn-primary:hover, .wishlist-add-to-new:hover {
-  background-color: #1f2937 !important;
+  background-color: rgb(47.9642857143, 67.7142857143, 110.0357142857) !important;
 }
 @media (max-width: 640px) {
   .primary-btn, .btn-primary, .wishlist-add-to-new {
@@ -782,6 +784,7 @@ blockquote p {
   padding: 13px 50px;
   text-transform: none;
   line-height: 1;
+  transition: all 0.2s ease-in-out !important;
 }
 .btn-secondary:hover {
   background-color: #111827 !important;
@@ -1005,7 +1008,7 @@ table > tbody > tr:nth-of-type(even) {
 .breadcrumb {
   background-color: #FFFFFF !important;
   margin-bottom: 0 !important;
-  padding: 50px 0 0 30px !important;
+  padding: 50px 0 0 0 !important;
 }
 .breadcrumb ol li {
   font-weight: 400 !important;
@@ -1079,7 +1082,6 @@ table > tbody > tr:nth-of-type(even) {
   margin-bottom: 30px;
   display: block;
   padding: 30px;
-  margin-top: 20px;
 }
 .card h4 {
   margin-top: 0;
@@ -1139,6 +1141,11 @@ table > tbody > tr:nth-of-type(even) {
 }
 .help-block .contact-email .contact-link:hover {
   text-decoration: underline;
+}
+
+.layout-left-column #left-column {
+  background: #EDEFF1;
+  padding-left: 50px;
 }
 
 .pull-right {

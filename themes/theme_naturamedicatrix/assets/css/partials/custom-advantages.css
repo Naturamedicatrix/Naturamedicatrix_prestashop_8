@@ -20,7 +20,7 @@
     width: 47%;
     flex-direction: column;
     text-align: center;
-    margin: 0;
+    margin: 10px 0;
   }
   .advantage-item .advantage-icon {
     margin-bottom: 0.5rem;

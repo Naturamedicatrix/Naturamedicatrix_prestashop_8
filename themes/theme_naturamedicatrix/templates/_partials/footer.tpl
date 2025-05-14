@@ -7,7 +7,7 @@
   <div class="container">
     <div class="advantages-wrapper row">
     {* AVANTAGE 1 - PAIEMENT SÉCURISÉ *}
-    <div class="advantage-item col-lg-3 col-md-3 col-sm-6">
+    <div class="advantage-item col-lg-3 col-md-3 col-sm-6 col-xs-6">
       <div class="advantage-icon">
         <i class="bi bi-lock"></i>
       </div>
@@ -20,7 +20,7 @@
     </div>
 
     {* AVANTAGE 2 - LIVRAISON OFFERTE *}
-    <div class="advantage-item col-lg-3 col-md-3 col-sm-6">
+    <div class="advantage-item col-lg-3 col-md-3 col-sm-6 col-xs-6">
       <div class="advantage-icon">
         <i class="bi bi-truck"></i>
       </div>
@@ -33,7 +33,7 @@
     </div>
 
     {* AVANTAGE 3 - PRODUITS CERTIFIÉS *}
-    <div class="advantage-item col-lg-3 col-md-3 col-sm-6">
+    <div class="advantage-item col-lg-3 col-md-3 col-sm-6 col-xs-6">
       <div class="advantage-icon">
         <i class="bi bi-trophy"></i>
       </div>
@@ -46,7 +46,7 @@
     </div>
 
     {* AVANTAGE 4 - SERVICE CLIENT *}
-    <div class="advantage-item col-lg-3 col-md-3 col-sm-6">
+    <div class="advantage-item col-lg-3 col-md-3 col-sm-6 col-xs-6">
       <div class="advantage-icon">
         <i class="bi bi-chat-heart"></i>
       </div>
@@ -238,7 +238,7 @@
               <li><a href="{$link->getCMSLink(7)}">Catégories</a></li>
               <li><a href="{$urls.pages.new_products}">Nouveautés</a></li>
               <li><a href="{$urls.pages.prices_drop}">Bonnes affaires</a></li>
-              <li><a href="{$urls.pages.cms|cat:'/5'}">Catalogues</a></li>
+              <li><a href="{$link->getCMSLink(8)}">Catalogues</a></li>
               <li><a href="{$urls.pages.cms|cat:'/6'}">Blog</a></li>
               <li><a href="{$urls.pages.manufacturer}">Nos marques</a></li>
               <li><a href="{$urls.pages.stores}">Points de vente</a></li>

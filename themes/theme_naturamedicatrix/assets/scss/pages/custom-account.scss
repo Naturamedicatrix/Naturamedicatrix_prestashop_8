@@ -586,8 +586,7 @@ body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view {
     a.text-primary {
         &:hover {
             color: $color-custom-white !important;
-            opacity: 1 !important;
-            background: $color-custom-blackHover !important;
+            opacity: 1;
         }
     }
 

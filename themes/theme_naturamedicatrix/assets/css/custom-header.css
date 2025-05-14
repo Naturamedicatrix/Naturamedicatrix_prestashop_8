@@ -33,11 +33,17 @@
 #header .header-top {
   padding: 0;
 }
+#header .header-top #search_widget {
+  display: none;
+}
 #header a {
   color: #f9fafb;
 }
 #header a:hover {
   color: rgb(218.4, 224.5, 230.6);
+}
+#header .header-nav {
+  margin-bottom: 0;
 }
 #header .header-nav .blockcart {
   background-color: #83b58b;

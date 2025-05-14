@@ -43,6 +43,14 @@ body {
   margin-bottom: 0;
 }
 
+.page-header {
+  margin-top: 70px;
+
+  @media (max-width: $breakpoint-sm) {
+    margin-top: 30px;
+  }
+}
+
 // Responsive container
 .container,
 #content {
@@ -350,6 +358,7 @@ blockquote {
   padding: 13px 50px;
   text-transform: none;
   line-height: 1;
+  transition: all .2s ease-in-out !important;
 
   &:hover {
     background-color: $color-custom-blackHover !important;
@@ -374,6 +383,7 @@ blockquote {
   padding: 13px 50px;
   text-transform: none;
   line-height: 1;
+  transition: all .2s ease-in-out !important;
 
   &:hover {
     background-color: $color-custom-black !important;
@@ -634,7 +644,7 @@ table>tbody>tr:nth-of-type(even) {
 .breadcrumb {
   background-color: #FFFFFF !important;
   margin-bottom: 0 !important;
-  padding: 50px 0 0 30px !important;
+  padding: 50px 0 0 0 !important;
 
   ol {
     li {
@@ -726,7 +736,6 @@ table>tbody>tr:nth-of-type(even) {
   margin-bottom: 30px;
   display: block;
   padding: 30px;
-  margin-top: 20px;
 
   h4 {
     margin-top: 0;
@@ -806,6 +815,20 @@ table>tbody>tr:nth-of-type(even) {
     }
 }
 // END BLOC BESOIN D'AIDE
+
+
+
+//LEFT COLUMN
+.layout-left-column {
+
+  #left-column {
+    background : $color-custom-whiteDarker;
+    padding-left: 50px;
+  }
+}
+
+
+//END LEFT COLUMN
 
 
 

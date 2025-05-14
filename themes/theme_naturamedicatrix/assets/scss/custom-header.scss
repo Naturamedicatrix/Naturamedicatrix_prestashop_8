@@ -35,7 +35,12 @@
   
   .header-top {
     padding: 0;
+
+    #search_widget { //MODULE DE RECHERCHE
+      display: none;
+    }
   }
+
   a {
     color: $color-custom-white;
     
@@ -45,6 +50,8 @@
   }
   
   .header-nav {
+    margin-bottom: 0;
+    
     .blockcart {
       background-color: $color-custom-green;
       color: $color-custom-white;

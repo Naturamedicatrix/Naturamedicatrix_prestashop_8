@@ -3,7 +3,7 @@
  *}
  <div id="js-product-list-header">
  {if $listing.pagination.items_shown_from == 1}
-     <div class="block-category card card-block">
+     <div class="block-category">
      <header class="page-header">
      <h1 class="page-title">{$category.name}</h1>
      <div class="title-separator">

@@ -12,40 +12,16 @@
   }
 }
 
-.advantages-wrapper {
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: space-between;
-  // align-items: center;
-  // flex-wrap: nowrap;
-  // width: 100%;
-  // max-width: 1700px;
-  // margin: 0 auto;
-  // padding: 0 1rem;
-  // gap: 1rem;
-  
-  // @media (max-width: $breakpoint-md) {
-  //   flex-wrap: wrap;
-  //   justify-content: space-between;
-  //   gap: 0.75rem;
-  //   row-gap: 1rem;
-  // }
-}
 
 .advantage-item {
   display: flex;
   align-items: center;
   
-  // @media (min-width: $breakpoint-lg) {
-  //   width: 23%;
-  //   flex-shrink: 0;
-  // }
-  
   @media (max-width: $breakpoint-md) {
     width: 47%;
     flex-direction: column;
     text-align: center;
-    margin: 0;
+    margin: 10px 0;
     
     .advantage-icon {
       margin-bottom: 0.5rem;

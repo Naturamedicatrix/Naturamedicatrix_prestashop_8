@@ -17,7 +17,7 @@
     <div class="text-center">
       <p>La page demandée est introuvable.</p>
       <p class="mb-8">Mais la nature regorge de belles découvertes... Utilisez la recherche ci-dessous pour retrouver votre chemin.</p>
-      <p class="mb-1 text-lg font-semibold">Chercher dans notre catalogue</p>
+      <p class="mb-0 text-lg font-semibold">Chercher dans notre catalogue</p>
     </div>
 {/capture}
 
