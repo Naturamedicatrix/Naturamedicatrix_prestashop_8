@@ -115,7 +115,7 @@
   position: static;
 }
 .mobile-footer .mobile-newsletter-block .block_newsletter .newsletter-submit-btn:hover {
-  background-color: rgb(47.9642857143, 67.7142857143, 110.0357142857);
+  background-color: #374151;
 }
 .mobile-footer .mobile-newsletter-block .block_newsletter .newsletter-privacy-text {
   font-size: 0.7rem;

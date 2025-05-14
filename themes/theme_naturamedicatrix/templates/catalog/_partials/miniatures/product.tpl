@@ -180,7 +180,7 @@
               <input type="hidden" name="qty" value="1">
               {if $product.add_to_cart_url && !$product.has_attributes}
                 <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                  <i class="bi bi-bag-plus-fill"></i>
+                  <i class="bi bi-handbag"></i>
                 </button>
               {else}
                 <a href="{$product.url}" class="add-to-cart">
