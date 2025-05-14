@@ -8,7 +8,7 @@
 
 {block name='page_title'}
   <div class="text-center mb-1 h4 mx-auto">
-    <span class="badge-pink">404</span>
+    <span class="badge-pink mt-12">404</span>
   </div>
   Oups... cette page s'est perdue dans la nature
 {/block}

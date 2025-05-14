@@ -826,8 +826,6 @@ table>tbody>tr:nth-of-type(even) {
     padding-left: 50px;
   }
 }
-
-
 //END LEFT COLUMN
 
 
@@ -844,3 +842,17 @@ table>tbody>tr:nth-of-type(even) {
 .alert p {
   padding-bottom: 0 !important;
 }
+
+
+
+// PAGE 404
+body#pagenotfound {
+  .page-header {
+    margin-top: 100px !important;
+  }
+
+  .page-not-found {
+    margin-bottom: 80px !important;
+  }
+}
+// END PAGE 404
