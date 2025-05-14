@@ -1160,6 +1160,34 @@ table > tbody > tr:nth-of-type(even) {
   padding-bottom: 0 !important;
 }
 
+.help-block ul {
+  padding-left: 0;
+}
+
+.block-checkbox-newsletter-rgpd {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 20px 0;
+}
+.block-checkbox-newsletter-rgpd .custom-checkbox {
+  display: flex;
+  align-items: flex-start;
+}
+.block-checkbox-newsletter-rgpd .custom-checkbox span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+}
+.block-checkbox-newsletter-rgpd .custom-checkbox label {
+  color: rgb(107.974137931, 122.3706896552, 142.525862069);
+  padding-left: 5px;
+}
+.block-checkbox-newsletter-rgpd .custom-checkbox label a {
+  border-bottom: none !important;
+}
+
 body#pagenotfound .page-header {
   margin-top: 100px !important;
 }

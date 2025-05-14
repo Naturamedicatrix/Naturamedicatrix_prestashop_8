@@ -814,7 +814,6 @@ table>tbody>tr:nth-of-type(even) {
         }
     }
 }
-// END BLOC BESOIN D'AIDE
 
 
 
@@ -843,6 +842,43 @@ table>tbody>tr:nth-of-type(even) {
   padding-bottom: 0 !important;
 }
 
+.help-block {
+  ul {
+    padding-left: 0;
+  }
+}
+
+
+// CHECKBOX NEWSLETTER & RGPD
+.block-checkbox-newsletter-rgpd {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    padding: 20px 0;
+    
+    .custom-checkbox {
+      display: flex;
+      align-items: flex-start;
+      
+      span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 20px;
+      }
+      
+      label {
+        color: color.adjust($color-custom-gray, $lightness: 15%);
+        padding-left: 5px;
+
+        a {
+          border-bottom: none !important;
+        }
+      }
+    }
+    
+}
+// END CHECKBOX NEWSLETTER & RGPD
 
 
 // PAGE 404

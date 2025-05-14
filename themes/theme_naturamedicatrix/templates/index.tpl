@@ -36,6 +36,7 @@
       </div>
       {* END BLOCK DES BRANDS *}
       
+      
       {* BLOCK INTRO NATURAMEDICATRIX *}
       {block name='intro_naturamedicatrix'}
         <div class="full-width-section">

@@ -103,7 +103,10 @@
         Continuer mes achats
       </a>
     </div>
-    </div> {* Fermeture de account-links-wrapper *}
+      
+      {* BLOCK BESOIN D'AIDE *}
+      {include file='../../_partials/block_besoin_aide.tpl'}
+    </div>
   </div>
 </div>
 

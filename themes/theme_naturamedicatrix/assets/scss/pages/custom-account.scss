@@ -122,8 +122,8 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
             }
     }
     #main {
-        padding-top: 50px;
-        min-height: 850px;
+        padding: 50px;
+        min-height: 1100px;
         
         @media (max-width: 767px) {
             padding-top: 30px;
@@ -131,15 +131,15 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         
         @media (max-width: $breakpoint-sm) {
             padding: 0;
+            margin-bottom: 50px;
             min-height: 100px;
         }
     }
 
     #content {
-        padding-top: 0;
-        padding-bottom: 50px;
+        padding: 0 !important;
         @media (max-width: $breakpoint-sm) {
-            margin-bottom: 30px;
+            padding: 0 15px !important;
         }
     }
 
@@ -273,7 +273,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 
                 li {
                     flex: 0 0 100%;
-                    padding: 0.3rem 10px;
+                    padding: 0.3rem 0px;
                     transition: all 0.2s ease;
                     
                     @media (max-width: 767px) {
@@ -525,11 +525,51 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     display: block;
                 }
             }
+            
+            // Styles pour le bloc d'aide
+            .help-block {
+                margin-top: 60px !important;
+                border-top: 4px solid white;
+            
+                h5 {
+                    text-align: left;
+                    padding: 30px 0 10px 0;
+                }
+                
+                p {
+                    text-align: left;
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                }
+                
+                .title-separator {
+                    display: none;
+                }
+                
+                // Styles spécifiques pour mobile
+                @media (max-width: $breakpoint-sm) {
+                    margin-top: 20px !important;
+                    border-top: 2px solid $color-custom-gray;
+                    
+                    .account-links-wrapper.collapsed & {
+                        display: none;
+                    }
+                    
+                    h5 {
+                        font-size: 1.1rem;
+                        padding: 20px 0;
+                    }
+                    
+                    p {
+                        font-size: 0.9rem;
+                        line-height: 1.4;
+                    }
+                }
+            }
         }
     }
 
     .form-footer {
-        padding-left: 1.5rem;
         @media (max-width: $breakpoint-sm) {
             text-align: center;
             padding-left: 0;
@@ -548,6 +588,10 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         @media (max-width: $breakpoint-sm) {
             padding: 10px 65px
         }
+    }
+
+    .block-address {
+        padding: 0 15px 0 0;
     }
 }
 
@@ -625,8 +669,6 @@ body#view {
 body#identity {
   
   .identity-section {
-    padding: 1.5rem;
-    border-radius: 4px;
     margin-bottom: 1rem;
   }
 
