@@ -35,9 +35,9 @@
           <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
           <label for="{$field.name}">
             {if $field.name == 'customer_privacy'}
-              En validant ce formulaire, j'accepte que les données confidentielles saisies peuvent être utilisées par NATURA<span class="font-bold italic">Medicatrix</span>
+              En validant ce formulaire, j'accepte que les données confidentielles saisies peuvent être utilisées par NATURA<span class="font-bold italic">Medicatrix</span>*
             {else}
-              {$field.label nofilter}
+              {$field.label nofilter}*
             {/if}
           </label>
         </div>
