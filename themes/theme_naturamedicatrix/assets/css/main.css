@@ -25,7 +25,7 @@ body#category #wrapper p {
 }
 
 #products {
-  margin: 50px auto;
+  margin: 0 auto 50px auto;
 }
 
 #subcategories ul li {
@@ -455,7 +455,7 @@ body #main {
 }
 
 .page-header {
-  margin-top: 70px;
+  margin-top: 50px;
 }
 @media (max-width: 640px) {
   .page-header {
@@ -1070,7 +1070,8 @@ table > tbody > tr:nth-of-type(even) {
 .breadcrumb {
   background-color: #FFFFFF !important;
   margin-bottom: 0 !important;
-  padding: 50px 0 0 0 !important;
+  padding: 35px 0 0 0 !important;
+  font-size: 0.9rem;
 }
 .breadcrumb ol li {
   font-weight: 400 !important;
@@ -1205,6 +1206,15 @@ table > tbody > tr:nth-of-type(even) {
   text-decoration: underline;
 }
 
+#left-column {
+  margin-top: 35px;
+}
+#left-column h6 {
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
 .layout-left-column .left-column {
   background: white;
   padding-left: 50px;
@@ -1215,19 +1225,36 @@ table > tbody > tr:nth-of-type(even) {
   padding-left: 50px;
 }
 
+.products-sort-order {
+  margin-bottom: 16px;
+  border-bottom: 1px solid;
+  margin-right: 35px;
+  padding-bottom: 0.5rem;
+}
+
+body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufacturer-id-] #wrapper #search_filters, body.layout-left-column #wrapper .block-categories, body.layout-left-column #wrapper #search_filters, body#module-blockwishlist-lists #wrapper .block-categories, body#module-blockwishlist-lists #wrapper #search_filters, body#module-psgdpr-gdpr #wrapper .block-categories, body#module-psgdpr-gdpr #wrapper #search_filters, body#view #wrapper .block-categories, body#view #wrapper #search_filters {
+  padding: 50px 70px 50px 0;
+  background-color: #EDEFF1;
+}
+
+.facet-title, .PM_ASCriterionsGroupTitle {
+  margin-bottom: 0.7rem !important;
+  font-size: 1.2rem !important;
+  border-bottom: none !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 #search_filters {
   padding: 0 35px 50px 0 !important;
 }
-#search_filters .facet-title {
-  margin-bottom: 0.7rem !important;
-  font-size: 1.2rem !important;
-}
 
-#search_filters .facet, #search_filters_brands .facet, #search_filters_suppliers .facet {
-  padding-top: 0;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #4B5563;
-  margin-bottom: 2rem;
+#search_filters .facet, #search_filters_brands .facet, #search_filters_suppliers .facet, .PM_ASCriterionsGroup {
+  border-top: 1px solid #acb3bc;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
 }
 
 #search_filters .facet .facet-label a, #search_filters_brands .facet .facet-label a, #search_filters_suppliers .facet .facet-label a {
@@ -1243,6 +1270,92 @@ table > tbody > tr:nth-of-type(even) {
 
 #search_filters .facet .facet-title, #search_filters_brands .facet .facet-title, #search_filters_suppliers .facet .facet-title {
   padding-bottom: 0;
+}
+
+.active_filters .filter-block {
+  border-radius: 20px;
+}
+
+div#_desktop_search_filters_clear_all {
+  margin-bottom: 15px;
+}
+
+.magnitude, .PM_ASCriterionNbProduct {
+  padding: 0 6px;
+  background: #dedede;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  opacity: 1 !important;
+}
+
+.PM_ASBlockOutput .card {
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  display: block;
+  padding: 0;
+  padding-right: 35px;
+  background: transparent;
+}
+.PM_ASBlockOutput .card .card-header {
+  padding: 0;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-bottom: none;
+}
+.PM_ASBlockOutput .card .card-header .PM_ASBlockTitle {
+  font-size: 1.4rem;
+  color: #111827;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.PM_ASBlockOutput .card .card-header .PM_ASBlockNbProductValue {
+  opacity: 0.6;
+  background: #83b58b;
+  color: white;
+  opacity: 1;
+  border-radius: 25px;
+  padding: 2px 5px;
+  font-size: 0.8rem;
+}
+.PM_ASBlockOutput .card .card-block {
+  padding: 0;
+}
+.PM_ASBlockOutput .card .card-block .active-filter-title {
+  display: none;
+}
+.PM_ASBlockOutput ul {
+  padding-left: 0;
+}
+.PM_ASBlockOutput ul li a.PM_ASSelectionsRemoveLink {
+  margin-bottom: 5px;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  font-size: 0.8rem;
+  display: inline-block !important;
+}
+.PM_ASBlockOutput a {
+  color: #4B5563 !important;
+}
+.PM_ASBlockOutput .PM_ASCritRange {
+  margin-top: 15px;
+}
+.PM_ASBlockOutput .PM_ASCritRangeValue {
+  font-size: 0.9rem;
+}
+
+#PM_ASBlockOutput_1.PM_ASBlockOutputVertical .PM_ASSelections li {
+  display: inline-block !important;
+}
+
+.PM_ASCriterionGroupCheckbox .PM_ASLabelCheckbox .PM_ASLabelLink {
+  transition: all 0.2s ease-in-out !important;
+}
+.PM_ASCriterionGroupCheckbox .PM_ASLabelCheckbox .PM_ASLabelLink:hover {
+  color: #111827 !important;
+  font-weight: normal !important;
 }
 
 .pull-right {
@@ -1270,6 +1383,17 @@ table > tbody > tr:nth-of-type(even) {
   width: 1rem;
   height: 1rem;
   color: #111827 !important;
+}
+
+.form-check-label {
+  padding-left: 0;
+  margin-bottom: 0;
+  color: #4B5563;
+}
+
+.form-check {
+  margin-bottom: 0.5rem;
+  margin-left: 25px;
 }
 
 .block-checkbox-newsletter-rgpd {

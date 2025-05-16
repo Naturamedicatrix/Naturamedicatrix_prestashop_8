@@ -21,7 +21,7 @@ body#category #wrapper p {
 }
 
 #products {
-  margin: 50px auto;
+  margin: 0 auto 50px auto;
 }
 
 #subcategories ul li {

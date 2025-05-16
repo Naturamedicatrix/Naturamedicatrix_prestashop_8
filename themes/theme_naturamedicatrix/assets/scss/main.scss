@@ -44,7 +44,7 @@ body {
 }
 
 .page-header {
-  margin-top: 70px;
+  margin-top: 50px;
 
   @media (max-width: $breakpoint-sm) {
     margin-top: 30px;
@@ -700,7 +700,8 @@ table>tbody>tr:nth-of-type(even) {
 .breadcrumb {
   background-color: #FFFFFF !important;
   margin-bottom: 0 !important;
-  padding: 50px 0 0 0 !important;
+  padding: 35px 0 0 0 !important;
+  font-size: 0.9rem; 
 
   ol {
     li {
@@ -874,6 +875,15 @@ table>tbody>tr:nth-of-type(even) {
 
 
 //LEFT COLUMN
+#left-column {
+  margin-top: 35px;
+
+  h6 {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
+  }
+}
 .layout-left-column {
 
   .left-column {
@@ -886,21 +896,39 @@ table>tbody>tr:nth-of-type(even) {
 //END LEFT COLUMN
 
 
-// FILTRE LEFT COLUMN
+// FILTRES LEFT COLUMN
+.products-sort-order {
+  margin-bottom: 16px;
+  border-bottom: 1px solid;
+  margin-right: 35px;
+  padding-bottom: 0.5rem;
+}
+
+body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufacturer-id-] #wrapper #search_filters, body.layout-left-column #wrapper .block-categories, body.layout-left-column #wrapper #search_filters, body#module-blockwishlist-lists #wrapper .block-categories, body#module-blockwishlist-lists #wrapper #search_filters, body#module-psgdpr-gdpr #wrapper .block-categories, body#module-psgdpr-gdpr #wrapper #search_filters, body#view #wrapper .block-categories, body#view #wrapper #search_filters {
+  padding: 50px 70px 50px 0;
+  background-color: #EDEFF1;
+}
+
+.facet-title, .PM_ASCriterionsGroupTitle {
+  margin-bottom: 0.7rem !important;
+  font-size: 1.2rem !important;
+  border-bottom: none !important;
+  margin-top: 0 !important;
+  margin-bottom: .5rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+
 #search_filters {
   padding: 0 35px 50px 0 !important;
 
-  .facet-title {
-    margin-bottom: 0.7rem !important;
-    font-size: 1.2rem !important;
-  }
 }
 
-#search_filters .facet, #search_filters_brands .facet, #search_filters_suppliers .facet {
-  padding-top: 0;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #4B5563;
-  margin-bottom: 2rem;
+#search_filters .facet, #search_filters_brands .facet, #search_filters_suppliers .facet, .PM_ASCriterionsGroup {
+  border-top: 1px solid #acb3bc;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
 }
 
 #search_filters .facet .facet-label a, #search_filters_brands .facet .facet-label a, #search_filters_suppliers .facet .facet-label a {
@@ -917,6 +945,109 @@ table>tbody>tr:nth-of-type(even) {
 #search_filters .facet .facet-title, #search_filters_brands .facet .facet-title, #search_filters_suppliers .facet .facet-title {
   padding-bottom: 0;
 }
+
+.active_filters .filter-block {
+  border-radius : 20px;
+}
+
+div#_desktop_search_filters_clear_all {
+  margin-bottom: 15px;
+}
+
+.magnitude, .PM_ASCriterionNbProduct {
+  padding: 0 6px;
+  background: #dedede;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  opacity: 1 !important;
+}
+
+//FILTRE PRO
+.PM_ASBlockOutput {
+  .card {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    display: block;
+    padding: 0;
+    padding-right: 35px;
+    background: transparent;
+
+    .card-header {
+      padding: 0;
+      margin-bottom: 1rem;
+      background-color: transparent;
+      border-bottom: none;
+
+      .PM_ASBlockTitle {
+        font-size: 1.4rem;
+        color: $color-custom-black;
+        font-weight: bold;
+        margin-bottom: .5rem;
+      }
+
+      .PM_ASBlockNbProductValue {
+        opacity: 0.6;
+        background: $color-custom-green;
+        color: white;
+        opacity: 1;
+        border-radius: 25px;
+        padding: 2px 5px;
+        font-size: .8rem;
+      }
+    }
+
+    .card-block {
+      padding: 0;
+
+      .active-filter-title {
+        display: none;
+      }
+    }
+  }
+
+  ul {
+    padding-left : 0;
+
+    li {
+
+      a.PM_ASSelectionsRemoveLink {
+        margin-bottom: 5px;
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+        font-size: 0.8rem;
+        display: inline-block !important;
+      }
+    }
+  }
+
+  a {
+    color: $color-custom-gray !important;
+  }
+  
+
+  .PM_ASCritRange {
+    margin-top: 15px;
+  }
+  .PM_ASCritRangeValue {
+    font-size: .9rem;
+  }
+}
+
+#PM_ASBlockOutput_1.PM_ASBlockOutputVertical .PM_ASSelections li {
+  display: inline-block !important;
+}
+
+.PM_ASCriterionGroupCheckbox .PM_ASLabelCheckbox .PM_ASLabelLink {
+  transition: all .2s ease-in-out !important;
+  &:hover {
+    color: $color-custom-black !important;
+    font-weight: normal !important;
+  }
+}
+//END FILTRE PRO
 
 // END FILTRE LEFT COLUMN
 
@@ -952,6 +1083,17 @@ table>tbody>tr:nth-of-type(even) {
   width: 1rem;
   height: 1rem;
   color: $color-custom-black !important;
+}
+
+.form-check-label {
+  padding-left: 0;
+  margin-bottom: 0;
+  color: $color-custom-gray;
+}
+
+.form-check {
+  margin-bottom: 0.5rem;
+  margin-left: 25px;
 }
 // END CHECKBOX CUSTOM
 
