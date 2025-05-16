@@ -564,11 +564,11 @@
 
 /* END PANIER */
 /* MENU */
-#_desktop_top_menu .menuHaveNoMobileSubMenu a {
+#_desktop_top_menu .menuHaveNoMobileSubMenu a span {
   border-bottom: 3px solid transparent;
   transition: all 0.2s ease;
 }
-#_desktop_top_menu .menuHaveNoMobileSubMenu a:hover, #_desktop_top_menu .menuHaveNoMobileSubMenu a.advtm_menu_actif {
+#_desktop_top_menu .menuHaveNoMobileSubMenu a span:hover, #_desktop_top_menu .menuHaveNoMobileSubMenu a span.advtm_menu_actif span {
   border-bottom: 3px solid #83b58b;
 }
 

@@ -6,11 +6,11 @@
 {extends file='layouts/layout-left-column.tpl'}
 
 {* Bloc pour la colonne de gauche avec les filtres *}
-{block name='left_column'}
+{* {block name='left_column'}
   <div id="left-column" class="col-xs-12 col-md-4 col-lg-3">
     {hook h="displayLeftColumn"}
   </div>
-{/block}
+{/block} *}
 
 {* Bloc pour le contenu principal *}
 {block name='content'}

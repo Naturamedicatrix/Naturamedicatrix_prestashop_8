@@ -132,7 +132,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem auto 2rem;
+  margin: 0.4rem auto 1rem;
   width: 100%;
   max-width: 500px;
 
@@ -902,6 +902,7 @@ table>tbody>tr:nth-of-type(even) {
   border-bottom: 1px solid;
   margin-right: 35px;
   padding-bottom: 0.5rem;
+  color: #acb3bc;
 }
 
 body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufacturer-id-] #wrapper #search_filters, body.layout-left-column #wrapper .block-categories, body.layout-left-column #wrapper #search_filters, body#module-blockwishlist-lists #wrapper .block-categories, body#module-blockwishlist-lists #wrapper #search_filters, body#module-psgdpr-gdpr #wrapper .block-categories, body#module-psgdpr-gdpr #wrapper #search_filters, body#view #wrapper .block-categories, body#view #wrapper #search_filters {
@@ -931,6 +932,10 @@ body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufactur
   padding-top: 1.25rem;
 }
 
+#search_filters .facet, #search_filters_brands .facet, #search_filters_suppliers .facet, .PM_ASCriterionsGroup:nth-child(1){
+  border-top: none;
+}
+
 #search_filters .facet .facet-label a, #search_filters_brands .facet .facet-label a, #search_filters_suppliers .facet .facet-label a {
   color: #4B5563;
   margin-top: 0;
@@ -955,12 +960,12 @@ div#_desktop_search_filters_clear_all {
 }
 
 .magnitude, .PM_ASCriterionNbProduct {
-  padding: 0 6px;
+  padding: 1px 5px;
   background: #dedede;
   display: inline-block;
   text-align: center;
   border-radius: 50%;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   opacity: 1 !important;
 }
 
@@ -1023,6 +1028,11 @@ div#_desktop_search_filters_clear_all {
     }
   }
 
+  label {
+    color: $color-custom-gray;
+    margin-bottom: .2rem;
+  }
+
   a {
     color: $color-custom-gray !important;
   }
@@ -1036,16 +1046,30 @@ div#_desktop_search_filters_clear_all {
   }
 }
 
-#PM_ASBlockOutput_1.PM_ASBlockOutputVertical .PM_ASSelections li {
-  display: inline-block !important;
+#PM_ASBlockOutput_1.PM_ASBlockOutputVertical .PM_ASSelections {
+    li {
+      display: inline-block !important;   
+    }
 }
 
-.PM_ASCriterionGroupCheckbox .PM_ASLabelCheckbox .PM_ASLabelLink {
-  transition: all .2s ease-in-out !important;
+.PM_ASCriterionGroupCheckbox .PM_ASLabelCheckbox:not(.PM_ASLabelCheckboxSelected) .PM_ASLabelLink {
+  font-weight: normal !important;
+  color: $color-custom-gray !important;
+
   &:hover {
     color: $color-custom-black !important;
-    font-weight: normal !important;
   }
+}
+
+.PM_ASCriterionGroupCheckbox .PM_ASLabelCheckboxSelected .PM_ASLabelLink {
+  &:hover {
+    color: $color-custom-black !important;
+  }
+}
+
+.PM_ASSelections {
+  background-color: $color-custom-whiteDarker !important;
+  border: none !important;
 }
 //END FILTRE PRO
 
@@ -1089,6 +1113,9 @@ div#_desktop_search_filters_clear_all {
   padding-left: 0;
   margin-bottom: 0;
   color: $color-custom-gray;
+  &:hover {
+    color: $color-custom-black !important;
+  }
 }
 
 .form-check {

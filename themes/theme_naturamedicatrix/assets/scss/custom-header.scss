@@ -615,11 +615,11 @@
 
 /* MENU */
 #_desktop_top_menu {
-  .menuHaveNoMobileSubMenu a {
+  .menuHaveNoMobileSubMenu a span {
     border-bottom: 3px solid transparent;
     transition: all 0.2s ease;
     
-    &:hover, &.advtm_menu_actif {
+    &:hover, &.advtm_menu_actif span {
       border-bottom: 3px solid $color-custom-green;
     }
   }
