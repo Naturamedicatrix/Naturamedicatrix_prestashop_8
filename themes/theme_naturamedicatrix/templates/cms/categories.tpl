@@ -7,7 +7,7 @@
 <ul class="category-list row">
 {foreach from=$categories item=cat}
     {if $cat.id_category != 2 && $cat.id_parent == 2} {* Catégorie principale uniquement *}
-        <li class="category-item col-xs-12 col-sm-6 col-md-6 col-xl-4 col-xxl-3">
+        <li class="category-item col-xs-12 col-sm-4 col-md-4 col-xl-2">
         <div class="category-content">
             <div class="category-block">
                 {if file_exists("img/c/{$cat.id_category}.jpg")}
@@ -18,9 +18,9 @@
                 <div class="category-info">
                     <h2><a href="{$link->getCategoryLink($cat.id_category)}">{$cat.name}</a></h2>
 
-                    {if $cat.description}
+                    {* {if $cat.description}
                         <div class="custom-scrollbar">{$cat.description nofilter}</div>
-                    {/if}
+                    {/if} *}
 
                     {* Sous-catégories *}
                     {assign var='subcats' value=[]}

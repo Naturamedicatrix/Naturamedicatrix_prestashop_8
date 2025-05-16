@@ -16,7 +16,7 @@
       <div class="thumbnail-container">
 
         {* Caractéristiques du produit *}
-        <div class="product-features-overlay mb-8">
+        <div class="product-features-overlay mb-4">
           {if isset($product.features) && $product.features}
             <div class="product-features-list product-flags">
               {foreach from=$product.features item=feature}
@@ -130,6 +130,7 @@
           {/block}
 
 
+        <div class="block-product-flags">
           {* Product flags *}
           <div class="product-flags-container">
             {include file='catalog/_partials/product-flags.tpl'}
@@ -184,13 +185,14 @@
                 </button>
               {else}
                 <a href="{$product.url}" class="add-to-cart">
-                  <i class="bi bi-zoom-in"></i>
+                  <i class="bi bi-search"></i>
                 </a>
               {/if}
             </form>
             {* END ADD TO CART BUTTON *}
 
           </div>
+        </div>
 
         </div>
       </div>

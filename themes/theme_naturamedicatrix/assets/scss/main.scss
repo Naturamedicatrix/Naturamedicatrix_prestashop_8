@@ -98,6 +98,11 @@ body {
   color: $color-custom-white;
   font-size: 14px;
   font-weight: bold;
+  transition: all .2s ease-in-out !important;
+  &:hover {
+    color: $color-custom-white !important;
+    background-color: color.adjust($color-custom-green, $lightness: -15%);
+  }
 }
 
 .wishlist-button-add {
@@ -353,6 +358,7 @@ blockquote {
   font-weight: 600;
   border-radius: 4px;
   cursor: pointer;
+  border: 1px solid $color-custom-black !important;
   display: inline-block;
   text-align: center;
   padding: 13px 50px;
@@ -372,6 +378,32 @@ blockquote {
 
 .btn-secondary {
   background-color: transparent !important;
+  color: $color-custom-green !important;
+  font-size: 15px;
+  border: 1px solid $color-custom-green !important;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  padding: 13px 50px;
+  text-transform: none;
+  line-height: 1;
+  transition: all .2s ease-in-out !important;
+
+  &:hover {
+    background-color: $color-custom-green !important;
+    color: $color-custom-white !important;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 10px 80px;
+    margin: 0 auto;
+  }
+}
+
+.btn-outline {
+  background-color: transparent !important;
   color: $color-custom-black !important;
   font-size: 15px;
   border: 1px solid $color-custom-black !important;
@@ -389,6 +421,28 @@ blockquote {
     background-color: $color-custom-black !important;
     color: $color-custom-white !important;
   }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 10px 80px;
+    margin: 0 auto;
+  }
+}
+
+.btn-disabled {
+  background-color: #e1e1e1 !important;
+  color: #a1a1a1 !important;
+  font-size: 15px;
+  border: 1px solid #e1e1e1 !important;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: not-allowed;
+  display: inline-block;
+  text-align: center;
+  padding: 13px 50px;
+  text-transform: none;
+  line-height: 1;
+  transition: all .2s ease-in-out !important;
+  text-decoration: none;
 
   @media (max-width: $breakpoint-sm) {
     padding: 10px 80px;
@@ -448,14 +502,14 @@ blockquote {
 
   &.row {
     display: block;
-    margin: 20px 0 0 0;
+    margin: 0 0 25px 0;
   }
 
   .form-control-label {
     display: block;
     width: 100%;
     text-align: left;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
     padding: 0;
     font-weight: 600;
     color: $color-custom-gray;
@@ -493,6 +547,8 @@ blockquote {
 .forgot-password {
   text-align: right !important;
   margin: 0 !important;
+  position: relative;
+  top: -15px;
   ;
 
   a {
@@ -820,12 +876,49 @@ table>tbody>tr:nth-of-type(even) {
 //LEFT COLUMN
 .layout-left-column {
 
-  #left-column {
-    background : $color-custom-whiteDarker;
+  .left-column {
+    background : white;
     padding-left: 50px;
   }
 }
+
+#manufacturer .left-column { background: white; padding-left : 50px ; }
 //END LEFT COLUMN
+
+
+// FILTRE LEFT COLUMN
+#search_filters {
+  padding: 0 35px 50px 0 !important;
+
+  .facet-title {
+    margin-bottom: 0.7rem !important;
+    font-size: 1.2rem !important;
+  }
+}
+
+#search_filters .facet, #search_filters_brands .facet, #search_filters_suppliers .facet {
+  padding-top: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #4B5563;
+  margin-bottom: 2rem;
+}
+
+#search_filters .facet .facet-label a, #search_filters_brands .facet .facet-label a, #search_filters_suppliers .facet .facet-label a {
+  color: #4B5563;
+  margin-top: 0;
+}
+
+#search_filters .facet .collapse, #search_filters_brands .facet .collapse, #search_filters_suppliers .facet .collapse {
+  display: block;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+#search_filters .facet .facet-title, #search_filters_brands .facet .facet-title, #search_filters_suppliers .facet .facet-title {
+  padding-bottom: 0;
+}
+
+// END FILTRE LEFT COLUMN
 
 
 
@@ -848,9 +941,19 @@ table>tbody>tr:nth-of-type(even) {
   }
 }
 
+
+// CHECKBOX CUSTOM
 .custom-radio input[type=radio]:checked+span {
     background-color: $color-custom-green;
 }
+
+.custom-checkbox input[type=checkbox]+span {
+  border-radius : 3px;
+  width: 1rem;
+  height: 1rem;
+  color: $color-custom-black !important;
+}
+// END CHECKBOX CUSTOM
 
 
 // CHECKBOX NEWSLETTER & RGPD
@@ -896,3 +999,17 @@ body#pagenotfound {
   }
 }
 // END PAGE 404
+
+
+// PAGE NOT FOUND
+.page-not-found {
+  text-align: center;
+    h4 { text-align : center; }
+
+    #search_widget {
+        display: block;
+        float: none;
+        margin-bottom: 10px; 
+    }
+}
+// END PAGE NOT FOUND

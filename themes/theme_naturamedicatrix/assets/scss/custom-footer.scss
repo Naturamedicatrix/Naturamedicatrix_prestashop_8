@@ -715,10 +715,7 @@
           border: none;
           
           &:hover {
-            font-weight: bolder;
-          }
-          &:active {
-            font-weight: bolder;
+            color: $color-custom-black;
           }
         }
       }

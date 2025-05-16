@@ -226,7 +226,7 @@
             </div>
 
             <div class="footer-stores-btn">
-              <a href="{$urls.pages.stores}" class="btn-secondary btn-small">Tous nos magasins partenaires</a>
+              <a href="{$urls.pages.stores}" class="btn-outline btn-small">Tous nos magasins partenaires</a>
             </div>
           </div>
         </div>

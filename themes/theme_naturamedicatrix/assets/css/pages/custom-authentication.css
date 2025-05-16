@@ -1,7 +1,7 @@
 /** === PAGE AUTHENTICATION === */
 body#authentication #wrapper {
   background: linear-gradient(to right, white 50%, #F9FAFB 50%);
-  padding-top: 3rem;
+  padding: 3rem 0;
 }
 @media (max-width: 1024px) {
   body#authentication #wrapper {
@@ -55,7 +55,7 @@ body#authentication #login-page .login-columns .login-column {
   }
 }
 body#authentication #login-page .login-columns .login-column h2 {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 body#authentication #login-page .login-columns .left-column {
   background-color: white;

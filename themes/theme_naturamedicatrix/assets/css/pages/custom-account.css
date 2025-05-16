@@ -599,6 +599,7 @@ body#identity .instructions-account, body#identity .delete-account-section p {
   font-size: 0.9rem;
   color: rgb(107.974137931, 122.3706896552, 142.525862069);
   line-height: 1;
+  margin-bottom: 25px;
   padding-bottom: 0;
 }
 body#identity .password-toggle-btn {

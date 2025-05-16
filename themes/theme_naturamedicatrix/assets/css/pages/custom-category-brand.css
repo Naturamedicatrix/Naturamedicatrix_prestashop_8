@@ -35,6 +35,8 @@ body#category #wrapper p {
 }
 #subcategories .subcategories-list {
   justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .block-category {

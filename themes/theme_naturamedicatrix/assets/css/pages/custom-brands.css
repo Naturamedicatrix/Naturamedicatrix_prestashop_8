@@ -81,7 +81,7 @@ body#manufacturer .brand-card.featured-brand-card .featured-title, .featured-bra
 }
 @media (max-width: 1599px) {
   body#manufacturer .brand-card.featured-brand-card .featured-title, .featured-brands .brand-card.featured-brand-card .featured-title {
-    margin-top: 110px;
+    margin-top: 60px;
   }
 }
 body#manufacturer .brand-card.featured-brand-card .featured-description, .featured-brands .brand-card.featured-brand-card .featured-description {

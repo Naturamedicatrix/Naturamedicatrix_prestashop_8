@@ -16,7 +16,7 @@
             {if $field.name == 'optin'}
               Recevoir des informations santé de nos partenaires <a href="https://www.medicatrix.be/?utm_source=NaturaMedicatrix&utm_medium=link&utm_campaign=identity%2F" target="_blank">Medicatrix</a> & <a href="https://www.editionsmarcopietteur.com/" target="_blank">Editions marco pietteur</a>
             {elseif $field.name == 'newsletter'}
-              S'inscrire à notre newsletter!
+              S'inscrire à notre newsletter
             {else}
               {$field.label nofilter}
             {/if}

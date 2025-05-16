@@ -33,9 +33,6 @@
 #header .header-top {
   padding: 0;
 }
-#header .header-top #search_widget {
-  display: none;
-}
 #header a {
   color: #f9fafb;
 }

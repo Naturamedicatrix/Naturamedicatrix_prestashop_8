@@ -6,9 +6,10 @@ body#cms {
         max-width: $breakpoint-xl;
         width: 100%;
         margin: 0 auto;
-        padding: 1rem;
+        padding: 0;
         
         #content {
+            padding: 0 15px 50px;
             p {
                 img {
                     margin: 0 auto;
@@ -36,12 +37,12 @@ body.cms-id-7 {
            justify-content: flex-start;
 
            .category-item {
+            margin-bottom: 50px;
+
             @media (max-width: $breakpoint-sm) {
                 padding: 20px 0;
             }
            }
-
-          
 
            .category-content {
             display: flex;
@@ -57,7 +58,7 @@ body.cms-id-7 {
            }
 
            h2 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             a {
                 color:$color-custom-black;
                 border-bottom: none;
@@ -66,13 +67,13 @@ body.cms-id-7 {
                  }
 
                  @media (max-width: $breakpoint-md) {
-                    font-size: 1.3rem;
+                    font-size: 1.1rem;
                  }
             }
            }
 
            .category-image {
-            height: 200px;
+            height: 140px;
             overflow: hidden;
             border-radius: 15px;
            }
@@ -87,18 +88,18 @@ body.cms-id-7 {
             flex-direction: column;
             flex: 1;
 
-            .custom-scrollbar {
-              max-height: 150px;
-              overflow-y: auto;
-              text-align : left;
-              p {
-                padding-bottom: 15px;
+            // .custom-scrollbar {
+            //   max-height: 150px;
+            //   overflow-y: auto;
+            //   text-align : left;
+            //   p {
+            //     padding-bottom: 15px;
 
-                @media (max-width: $breakpoint-md) {
-                    font-size: .9rem;
-                }
-              }
-            }
+            //     @media (max-width: $breakpoint-md) {
+            //         font-size: .9rem;
+            //     }
+            //   }
+            // }
 
             .view-all-products {
               margin-top: 10px;
@@ -106,6 +107,7 @@ body.cms-id-7 {
               display: inline-block;
               align-self: flex-start;
               clear: both;
+              font-size: .9rem;
             }
 
             .subcategory-list {
@@ -121,7 +123,9 @@ body.cms-id-7 {
             padding-left: 0;
             h3 {
              display: inline-block;
-             font-size: 1rem;
+             font-size: .9rem;
+             font-weight: lighter;
+
              
              a {
                 color: $color-custom-gray;

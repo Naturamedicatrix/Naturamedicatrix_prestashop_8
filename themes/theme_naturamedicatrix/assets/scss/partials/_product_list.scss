@@ -3,7 +3,7 @@
 /* === PRODUCT LIST === */
 
 .product-miniature{
-    border: 1px solid darken($color-custom-whiteDarker, 15%);
+    border: 1px solid #e5e8ea;
         border-radius: 10px;
         margin-bottom: 30px;
         display: block;
@@ -20,6 +20,9 @@
 
     .product-description {
         padding: 0;
+        &::after {
+            border-top: none !important;
+        }
     }
 
     .product-title {
@@ -35,8 +38,8 @@
     }
 
     .product-flags-container {
-        margin-top: 20px;
-        margin-bottom: 10px;
+        margin-top: 25px;
+        margin-bottom: 0;
     }
     
     .product-flags {
@@ -50,7 +53,7 @@
             font-size: 0.8rem;
             text-transform: inherit;
             background: none;
-            color: $color-custom-grayLight;
+            color: #68768a;
             border: 1px solid $color-custom-grayLight;
             padding: 4px 10px 2px;
             border-radius: 15px;
@@ -63,10 +66,15 @@
             text-align: center;
         }
 
+        li.product-flag {
+            margin-top: 0;
+        }
+
         .discount {
             background-color: $color-custom-highlight !important;
             color: $color-custom-white !important;
             border-color:$color-custom-highlight !important;
+            font-weight: 900 !important;
         }
 
         .new {

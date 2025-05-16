@@ -3,7 +3,10 @@ body#cms #main {
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0;
+}
+body#cms #main #content {
+  padding: 0 15px 50px;
 }
 body#cms #main #content p img {
   margin: 0 auto;
@@ -22,6 +25,9 @@ body.cms-id-7 #main .category-list {
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+body.cms-id-7 #main .category-list .category-item {
+  margin-bottom: 50px;
+}
 @media (max-width: 640px) {
   body.cms-id-7 #main .category-list .category-item {
     padding: 20px 0;
@@ -39,7 +45,7 @@ body.cms-id-7 #main .category-list .category-block {
   border-radius: 15px;
 }
 body.cms-id-7 #main .category-list h2 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 body.cms-id-7 #main .category-list h2 a {
   color: #111827;
@@ -50,11 +56,11 @@ body.cms-id-7 #main .category-list h2 a:hover {
 }
 @media (max-width: 768px) {
   body.cms-id-7 #main .category-list h2 a {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 }
 body.cms-id-7 #main .category-list .category-image {
-  height: 200px;
+  height: 140px;
   overflow: hidden;
   border-radius: 15px;
 }
@@ -67,25 +73,13 @@ body.cms-id-7 #main .category-list .category-info {
   flex-direction: column;
   flex: 1;
 }
-body.cms-id-7 #main .category-list .category-info .custom-scrollbar {
-  max-height: 150px;
-  overflow-y: auto;
-  text-align: left;
-}
-body.cms-id-7 #main .category-list .category-info .custom-scrollbar p {
-  padding-bottom: 15px;
-}
-@media (max-width: 768px) {
-  body.cms-id-7 #main .category-list .category-info .custom-scrollbar p {
-    font-size: 0.9rem;
-  }
-}
 body.cms-id-7 #main .category-list .category-info .view-all-products {
   margin-top: 10px;
   margin-bottom: 10px;
   display: inline-block;
   align-self: flex-start;
   clear: both;
+  font-size: 0.9rem;
 }
 body.cms-id-7 #main .category-list .category-info .subcategory-list {
   clear: both;
@@ -98,7 +92,8 @@ body.cms-id-7 #main .subcategory-list {
 }
 body.cms-id-7 #main .subcategory-list h3 {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: lighter;
 }
 body.cms-id-7 #main .subcategory-list h3 a {
   color: #4B5563;

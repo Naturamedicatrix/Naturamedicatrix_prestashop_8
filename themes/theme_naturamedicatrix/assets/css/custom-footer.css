@@ -628,10 +628,7 @@
   border: none;
 }
 .footer-column .footer-column-content .footer-links li a:hover {
-  font-weight: bolder;
-}
-.footer-column .footer-column-content .footer-links li a:active {
-  font-weight: bolder;
+  color: #111827;
 }
 @media (max-width: 1200px) {
   .footer-column {
