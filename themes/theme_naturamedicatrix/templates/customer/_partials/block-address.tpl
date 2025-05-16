@@ -13,11 +13,11 @@
   
       {block name='address_block_item_actions'}
         <div class="address-footer">
-          <a href="{url entity=address id=$address.id}" data-link-action="edit-address" class="btn-secondary btn-small">
+          <a href="{url entity=address id=$address.id}" data-link-action="edit-address" class="btn btn-outline btn-small">
             <i class="material-icons">&#xE254;</i>
             <span>{l s='Update' d='Shop.Theme.Actions'}</span>
           </a>
-          <a href="{url entity=address id=$address.id params=['delete' => 1, 'token' => $token]}" data-link-action="delete-address" class="btn-secondary btn-small">
+          <a href="{url entity=address id=$address.id params=['delete' => 1, 'token' => $token]}" data-link-action="delete-address" class="btn btn-outline btn-small">
             <i class="material-icons">&#xE872;</i>
             <span>{l s='Delete' d='Shop.Theme.Actions'}</span>
           </a>

@@ -156,7 +156,7 @@ body#registration #registration-page .registration-columns .left-column .registe
   }
 }
 body#registration #registration-page .registration-columns .left-column .register-form .form-footer {
-  text-align: center;
+  text-align: left;
 }
 body#registration #registration-page .registration-columns .left-column .register-form .form-footer .primary-btn {
   min-width: 200px;

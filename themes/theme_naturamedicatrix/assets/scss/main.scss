@@ -342,54 +342,50 @@ blockquote {
 
 .small {
   color: $color-custom-gray;
-  font-size: .9rem;
+  font-size: .8rem;
   font-weight: 100;
-  line-height: 1;
+  line-height: 1.5;
 }
 
 // End Typography
 
 // Boutons d'actions
-.primary-btn, .btn-primary, .wishlist-add-to-new {
-  background-color: $color-custom-black !important;
-  color: $color-custom-white !important;
-  font-size: 15px;
-  border: none;
-  font-weight: 600;
+.btn, .wishlist-add-to-new {
   border-radius: 4px;
   cursor: pointer;
-  border: 1px solid $color-custom-black !important;
-  display: inline-block;
   text-align: center;
-  padding: 13px 50px;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 15px;
   text-transform: none;
+  padding: 13px;
+  min-width: 225px;
   line-height: 1;
   transition: all .2s ease-in-out !important;
-
-  &:hover {
-    background-color: $color-custom-blackHover !important;
-  }
-
+  border: 1px solid transparent;
+  
   @media (max-width: $breakpoint-sm) {
     padding: 10px 80px;
     margin: 0 auto;
   }
 }
 
+.primary-btn, .btn-primary, .wishlist-add-to-new {
+  background-color: $color-custom-black !important;
+  color: $color-custom-white !important;
+  border-color: $color-custom-black !important;
+
+  &:hover {
+    background-color: $color-custom-blackHover !important;
+    color: $color-custom-white !important;
+    border-color: $color-custom-blackHover !important;
+  }
+}
+
 .btn-secondary {
   background-color: transparent !important;
   color: $color-custom-green !important;
-  font-size: 15px;
-  border: 1px solid $color-custom-green !important;
-  font-weight: 600;
-  border-radius: 4px;
-  cursor: pointer;
-  display: inline-block;
-  text-align: center;
-  padding: 13px 50px;
-  text-transform: none;
-  line-height: 1;
-  transition: all .2s ease-in-out !important;
+  border-color: $color-custom-green !important;
 
   &:hover {
     background-color: $color-custom-green !important;
@@ -405,63 +401,33 @@ blockquote {
 .btn-outline {
   background-color: transparent !important;
   color: $color-custom-black !important;
-  font-size: 15px;
-  border: 1px solid $color-custom-black !important;
-  font-weight: 600;
-  border-radius: 4px;
-  cursor: pointer;
-  display: inline-block;
-  text-align: center;
-  padding: 13px 50px;
-  text-transform: none;
-  line-height: 1;
-  transition: all .2s ease-in-out !important;
+  border-color: $color-custom-black !important;
 
   &:hover {
     background-color: $color-custom-black !important;
     color: $color-custom-white !important;
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    padding: 10px 80px;
-    margin: 0 auto;
   }
 }
 
 .btn-disabled {
   background-color: #e1e1e1 !important;
   color: #a1a1a1 !important;
-  font-size: 15px;
-  border: 1px solid #e1e1e1 !important;
-  font-weight: 600;
-  border-radius: 4px;
+  border-color: #e1e1e1 !important;
   cursor: not-allowed;
-  display: inline-block;
-  text-align: center;
-  padding: 13px 50px;
-  text-transform: none;
-  line-height: 1;
-  transition: all .2s ease-in-out !important;
   text-decoration: none;
-
-  @media (max-width: $breakpoint-sm) {
-    padding: 10px 80px;
-    margin: 0 auto;
-  }
 }
 
 .btn-small {
   font-size: 12px;
   padding: 9px 15px;
   font-weight: normal;
-  line-height: 1;
+  min-width: auto;
   
   @media (max-width: $breakpoint-lg) {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
   }
-
 }
 
 // End Bouton d'action
@@ -890,9 +856,14 @@ table>tbody>tr:nth-of-type(even) {
     background : white;
     padding-left: 50px;
   }
+  
 }
 
-#manufacturer .left-column { background: white; padding-left : 50px ; }
+#manufacturer .left-column {
+  background: white; 
+  padding-left : 50px ; 
+  padding-bottom: 50px;
+}
 //END LEFT COLUMN
 
 
@@ -999,8 +970,10 @@ div#_desktop_search_filters_clear_all {
         color: white;
         opacity: 1;
         border-radius: 25px;
-        padding: 2px 5px;
+        padding: 2px 6px;
         font-size: .8rem;
+        position: relative;
+        top: -3px;
       }
     }
 
@@ -1094,6 +1067,16 @@ div#_desktop_search_filters_clear_all {
   ul {
     padding-left: 0;
   }
+}
+
+.count-product {
+  font-size: .9rem;
+  background-color: $color-custom-whiteDarker !important;
+  color: $color-custom-gray;
+  padding: 3px 15px;
+  margin-bottom: 1rem !important;
+  border-radius: 25px;
+  display: inline-block;
 }
 
 

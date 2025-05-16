@@ -21,6 +21,15 @@
         <img src="{$urls.img_manu_url}/{$manufacturer.id}-brand_simple.jpg" alt="{$manufacturer.name}" class="mx-auto" loading="lazy">
       </div>
       <h1 class="text-center pb-4">{$manufacturer.name}</h1>
+
+      {* NB DE PRODUITS *}
+    <div class="total-products text-center">
+      {if $listing.pagination.total_items > 1}
+          <p class="count-product">{l s='%product_count% produits' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</p>
+      {elseif $listing.pagination.total_items > 0}
+          <p class="count-product">{l s='%product_count% produit' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</p>
+      {/if}
+    </div>
       
       <div id="manufacturer-short_description" class="text-left">{$manufacturer.short_description nofilter}</div>
   

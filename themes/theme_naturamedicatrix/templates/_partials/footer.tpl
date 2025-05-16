@@ -192,7 +192,7 @@
             </p>
 
             <div class="footer-contact-btn">
-              <a href="{$urls.pages.contact}" class="btn-primary">Contactez-nous</a>
+              <a href="{$urls.pages.contact}" class="btn btn-primary">Contactez-nous</a>
             </div>
 
             <p class="footer-contact-text">
@@ -226,7 +226,7 @@
             </div>
 
             <div class="footer-stores-btn">
-              <a href="{$urls.pages.stores}" class="btn-outline btn-small">Tous nos magasins partenaires</a>
+              <a href="{$urls.pages.stores}" class="btn btn-outline btn-small">Tous nos magasins partenaires</a>
             </div>
           </div>
         </div>

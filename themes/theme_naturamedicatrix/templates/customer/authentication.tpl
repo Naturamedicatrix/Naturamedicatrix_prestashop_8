@@ -35,7 +35,7 @@
               <li>Historique de mes achats</li>
             </ul>
             <div class="create-account-button">
-              <a href="{$urls.pages.register}" class="primary-btn" data-link-action="display-register-form">
+              <a href="{$urls.pages.register}" class="btn primary-btn" data-link-action="display-register-form">
                 {l s='Create an account' d='Shop.Theme.Customeraccount'}
               </a>
             </div>

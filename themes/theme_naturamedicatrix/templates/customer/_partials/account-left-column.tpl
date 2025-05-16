@@ -99,7 +99,7 @@
     
     {* Bouton mobile visible uniquement sur les petits écrans *}
     <div class="mobile-action-button">
-      <a href="{$urls.pages.index}" class="btn-primary">
+      <a href="{$urls.pages.index}" class="btn btn-primary">
         Continuer mes achats
       </a>
     </div>

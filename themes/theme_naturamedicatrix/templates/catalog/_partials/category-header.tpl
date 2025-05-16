@@ -13,20 +13,29 @@
        </svg>
      </div>
    </header>
-         <div class="block-category-inner">
-             {if $category.description}
-                 <div id="category-description" class="text-muted">{$category.description nofilter}</div>
-             {/if}
-             {* {if !empty($category.image.large.url)}
-                 <div class="category-cover">
-                     <picture>
+
+   {* NB DE PRODUITS *}
+    <div class="total-products text-center">
+        {if $listing.pagination.total_items > 1}
+            <p class="count-product">{l s='%product_count% produits' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</p>
+        {elseif $listing.pagination.total_items > 0}
+            <p class="count-product">{l s='%product_count% produit' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</p>
+        {/if}
+    </div>
+
+    <div class="block-category-inner">
+        {if $category.description}
+            <div id="category-description" class="text-muted">{$category.description nofilter}</div>
+        {/if}
+        {* {if !empty($category.image.large.url)}
+            <div class="category-cover">
+                <picture>
                          {if !empty($category.image.large.sources.avif)}<source srcset="{$category.image.large.sources.avif}" type="image/avif">{/if}
                          {if !empty($category.image.large.sources.webp)}<source srcset="{$category.image.large.sources.webp}" type="image/webp">{/if}
                          <img src="{$category.image.large.url}" alt="{if !empty($category.image.legend)}{$category.image.legend}{else}{$category.name}{/if}" loading="lazy" width="141" height="180">
                      </picture>
                  </div>
              {/if} *}
-         </div>
-     </div>
+    </div>
  {/if}
 </div>

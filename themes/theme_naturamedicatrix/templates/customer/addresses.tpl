@@ -34,7 +34,7 @@
   {/if}
   <div class="clearfix"></div>
   <div class="addresses-footer">
-    <a href="{$urls.pages.address}" data-link-action="add-address" class="btn-primary">
+    <a href="{$urls.pages.address}" data-link-action="add-address" class="btn btn-primary">
       <i class="bi bi-plus-circle"></i>
       <span>{l s='Créer une nouvelle adresse' d='Shop.Theme.Actions'}</span>
     </a>

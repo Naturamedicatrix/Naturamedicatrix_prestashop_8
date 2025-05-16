@@ -35,7 +35,7 @@
           <input type="email" name="email" id="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" class="form-control" required>
         </div>
         <div class="form-group-btn">
-          <button class="primary-btn" name="submit" type="submit">
+          <button class="btn primary-btn" name="submit" type="submit">
             {l s='Send' d='Shop.Theme.Actions'}
           </button>
         </div>

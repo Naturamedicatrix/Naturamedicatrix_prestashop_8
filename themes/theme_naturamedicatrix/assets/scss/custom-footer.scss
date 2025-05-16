@@ -348,6 +348,7 @@
         right: 8px;
         top: 8px;
         bottom: 8px;
+        min-width: 150px !important;
         
         @media (max-width: $breakpoint-md) {
           position: static;

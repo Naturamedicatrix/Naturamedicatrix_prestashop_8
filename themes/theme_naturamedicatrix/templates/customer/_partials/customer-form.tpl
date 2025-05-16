@@ -112,7 +112,7 @@
     <footer class="form-footer clearfix">
       <input type="hidden" name="submitCreate" value="1">
       {block "form_buttons"}
-        <button class="btn-primary form-control-submit" data-link-action="save-customer" type="submit">
+        <button class="btn btn-primary form-control-submit" data-link-action="save-customer" type="submit">
           {l s='Enregistrer les modifications' d='Shop.Theme.Actions'}
         </button>
       {/block}

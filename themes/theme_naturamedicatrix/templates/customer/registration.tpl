@@ -33,7 +33,7 @@
               <li>Historique de mes achats</li>
             </ul>
             <div class="login-button">
-              <a href="{$urls.pages.authentication}" class="primary-btn" data-link-action="display-login-form">
+              <a href="{$urls.pages.authentication}" class="btn primary-btn" data-link-action="display-login-form">
                 {l s='Log in instead!' d='Shop.Theme.Customeraccount'}
               </a>
             </div>

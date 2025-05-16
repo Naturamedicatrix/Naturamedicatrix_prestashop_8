@@ -30,7 +30,7 @@
       <footer class="form-footer clearfix">
         <input type="hidden" name="submitAddress" value="1">
         {block name='form_buttons'}
-          <button class="btn-primary form-control-submit mt-2" type="submit">
+          <button class="btn btn-primary form-control-submit mt-2" type="submit">
             {l s='Save' d='Shop.Theme.Actions'}
           </button>
         {/block}

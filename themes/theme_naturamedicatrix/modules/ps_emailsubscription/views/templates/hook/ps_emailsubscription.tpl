@@ -32,7 +32,7 @@
           <button 
             type="submit" 
             name="submitNewsletter" 
-            class="newsletter-submit-btn btn-primary"
+            class="newsletter-submit-btn btn btn-primary"
           >
             {l s='Valider' d='Modules.Emailsubscription.Shop'}
           </button>

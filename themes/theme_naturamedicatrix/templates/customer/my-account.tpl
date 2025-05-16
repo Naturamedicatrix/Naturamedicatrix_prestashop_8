@@ -24,7 +24,7 @@
   </div>
   
   <div class="text-center mt-12">
-    <a href="{$urls.pages.index}" class="btn-primary">
+    <a href="{$urls.pages.index}" class="btn btn-primary">
       Continuer mes achats
     </a>
   </div>
