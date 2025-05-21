@@ -756,3 +756,12 @@ body#view {
         }
     }
 }
+
+
+body#my-account h1, body#my-account h2, body#identity h1, body#identity h2, body#addresses h1, body#addresses h2, body#history h1, body#history h2, body#order-slip h1, body#order-slip h2, body#module-blockwishlist-lists h1, body#module-blockwishlist-lists h2, body#view h1, body#view h2, body#module-blockwishlist-view h1, body#module-blockwishlist-view h2, body#module-psgdpr-gdpr h1, body#module-psgdpr-gdpr h2, body#address h1, body#address h2 {
+    padding-bottom: 0;
+}
+
+body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#view #main, body#module-blockwishlist-view #main, body#module-psgdpr-gdpr #main, body#address #main {
+    padding-top: 0;
+}

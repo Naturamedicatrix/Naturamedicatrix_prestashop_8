@@ -11,15 +11,23 @@
 {block name='content'}
   <section id="content">
     <div class="row">
-      <div class="cart-grid-body col-xs-12 col-lg-8">
+      <div class="cart-grid-body col-xs-12 col-lg-7">
+        
+        {block name='steps'}
+          {include file='checkout/_partials/steps.tpl'}
+        {/block}
+        
+        
         {block name='checkout_process'}
           {render file='checkout/checkout-process.tpl' ui=$checkout_process}
         {/block}
       </div>
-      <div class="cart-grid-right col-xs-12 col-lg-4">
+      <div class="cart-grid-right col-xs-12 col-lg-5">
+        <h3>Votre commande</h3>
         {block name='cart_summary'}
           {include file='checkout/_partials/cart-summary.tpl' cart=$cart}
         {/block}
+        
         {hook h='displayReassurance'}
       </div>
     </div>
