@@ -21,7 +21,7 @@
     {block name='search'}
       {hook h='displaySearch'}
       <div class="text-center mb-4">
-        <a href="{$urls.base_url}" class="primary-btn mt-8">{l s='Continuer mes achats' d='Shop.Theme.Global'}</a>
+        <a href="{$urls.base_url}" class="primary-btn btn mt-0">{l s='Continuer mes achats' d='Shop.Theme.Global'}</a>
       </div>
     {/block}
 

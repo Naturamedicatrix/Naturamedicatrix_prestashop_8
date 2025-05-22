@@ -410,7 +410,7 @@ blockquote {
   }
 }
 
-.btn-disabled {
+.btn-disabled, .disabled {
   background-color: #e1e1e1 !important;
   color: #a1a1a1 !important;
   border: 1px solid #e1e1e1 !important;
@@ -421,7 +421,7 @@ blockquote {
 .btn-small {
   font-size: 12px;
   padding: 9px 15px 7px 15px;
-  font-weight: bold;
+  font-weight: normal;
   min-width: auto;
   border: 1px solid transparent;
   
@@ -1006,8 +1006,8 @@ div#_desktop_search_filters_clear_all {
     }
   }
 
-  label {
-    color: $color-custom-gray;
+  label, .label {
+    color: $color-custom-black;
     margin-bottom: .2rem;
   }
 

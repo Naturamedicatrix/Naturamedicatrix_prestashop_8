@@ -38,7 +38,7 @@
     }
 
     .product-flags-container {
-        margin-top: 25px;
+        margin-top: 0;
         margin-bottom: 0;
     }
     
@@ -103,6 +103,7 @@
     
     .block-product-flags {
         position: relative;
+        margin-top: 25px;
     }
     
     .add-to-cart-or-refresh {

@@ -459,7 +459,7 @@
 }
 .user-info .login:hover, .user-info .account:hover {
   background-color: rgb(99.0606060606, 161.9393939394, 109.1212121212);
-  padding: 0 10px;
+  padding: 5px 10px;
 }
 .user-info .login .account-icon, .user-info .account .account-icon {
   margin-right: 10px;
@@ -547,7 +547,7 @@
 }
 .blockcart .shopping-cart-container .cart-icon-container .cart-products-count {
   position: absolute;
-  top: -12px;
+  top: -5px;
   right: 5px;
   background-color: #f9fafb;
   color: #83b58b;
@@ -559,7 +559,7 @@
   justify-content: center;
   font-size: 12px;
   font-weight: bold;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: 1px solid #83b58b;
 }
 
 /* END PANIER */

@@ -7,7 +7,7 @@
       class="js-address-item address-item{if $address.id == $selected} selected{/if}"
       id="{$name|classname}-address-{$address.id}"
     >
-      <header class="h4">
+      <header>
         <label class="radio-block">
           <span class="custom-radio">
             <input

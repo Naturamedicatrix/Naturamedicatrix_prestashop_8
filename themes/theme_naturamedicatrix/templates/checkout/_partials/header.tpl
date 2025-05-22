@@ -6,7 +6,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center hidden-sm-down mt-4" id="_desktop_logo">
-            {renderLogo}
+            <a href="{$urls.pages.cart}?action=show">
+              <img
+                class="logo img-fluid"
+                src="{$shop.logo_details.src}"
+                alt="{$shop.name}"
+                width="{$shop.logo_details.width}"
+                height="{$shop.logo_details.height}">
+            </a>
         </div>
         <div class="secure-block col-md-12 text-center hidden-sm-down md:mt-4 xl:mt-0">
             <div class="secure-checkout-text">
@@ -15,7 +22,14 @@
         </div>
         <div class="hidden-md-up text-sm-center mobile">
         <div class="col-md-12 text-center mt-4" id="_desktop_logo">
-            {renderLogo}
+            <a href="{$urls.pages.cart}?action=show">
+              <img
+                class="logo img-fluid"
+                src="{$shop.logo_details.src}"
+                alt="{$shop.name}"
+                width="{$shop.logo_details.width}"
+                height="{$shop.logo_details.height}">
+            </a>
         </div>
         <div class="col-md-12 text-center mt-4">
             <div class="secure-checkout-text">

@@ -185,6 +185,15 @@ body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufactur
   }
 }
 
+body#checkout #wrapper {
+  background: linear-gradient(to right, #FFFFFF 53%, #EDEFF1 50%);
+}
+@media (max-width: 1199px) {
+  body#checkout #wrapper {
+    background: #f9fafb;
+  }
+}
+
 .intro-naturamedicatrix-container {
   display: flex;
   margin: 2rem 0;
@@ -252,7 +261,7 @@ body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufactur
   line-height: 1;
 }
 .product-miniature .product-flags-container {
-  margin-top: 25px;
+  margin-top: 0;
   margin-bottom: 0;
 }
 .product-miniature .product-flags {
@@ -308,6 +317,7 @@ body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufactur
 }
 .product-miniature .block-product-flags {
   position: relative;
+  margin-top: 25px;
 }
 .product-miniature .add-to-cart-or-refresh {
   position: absolute;
@@ -822,7 +832,7 @@ blockquote p {
   color: #f9fafb !important;
 }
 
-.btn-disabled {
+.btn-disabled, .disabled {
   background-color: #e1e1e1 !important;
   color: #a1a1a1 !important;
   border: 1px solid #e1e1e1 !important;
@@ -833,7 +843,7 @@ blockquote p {
 .btn-small {
   font-size: 12px;
   padding: 9px 15px 7px 15px;
-  font-weight: bold;
+  font-weight: normal;
   min-width: auto;
   border: 1px solid transparent;
 }
@@ -1320,8 +1330,8 @@ div#_desktop_search_filters_clear_all {
   font-size: 0.8rem;
   display: inline-block !important;
 }
-.PM_ASBlockOutput label {
-  color: #4B5563;
+.PM_ASBlockOutput label, .PM_ASBlockOutput .label {
+  color: #111827;
   margin-bottom: 0.2rem;
 }
 .PM_ASBlockOutput a {

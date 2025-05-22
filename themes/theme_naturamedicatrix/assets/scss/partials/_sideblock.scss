@@ -2,7 +2,7 @@
 @use 'sass:color';
 
 // Si body contient la classe ciblée alors le wrapper est line-gradient
-body[class*="manufacturer-id-"], body.layout-left-column, body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view {
+body[class*="manufacturer-id-"], body.layout-left-column, body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view{
     #wrapper {
         background: linear-gradient(to right,  
             $color-custom-whiteDarker 50%, 
@@ -19,4 +19,19 @@ body[class*="manufacturer-id-"], body.layout-left-column, body#module-blockwishl
             }
     }
 }
+
+
+body#checkout {
+    #wrapper {
+        background: linear-gradient(to right,  
+            $color-custom-bgWrapper 53%, 
+            $color-custom-whiteDarker 50%, 
+            );
+
+            @media (max-width: 1199px) {
+                background: $color-custom-white;
+            }
+    }
+}
+    
 
