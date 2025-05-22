@@ -231,3 +231,7 @@ body#checkout .payment-options .payment-option label {
 body#checkout .payment-options #payment-option-1-container {
   border-top: none;
 }
+body#checkout .additional-information {
+  margin-top: 0;
+  margin-left: 0;
+}
