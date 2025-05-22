@@ -52,7 +52,7 @@
                       <div class="row">
                         <div class="col-sm-9 col-xs-12">
                           <div class="row carrier{if $carrier.logo} carrier-hasLogo{/if}">
-                            {if $carrier.id == 25 || $carrier.id == 26}<i class="bi bi-shop"></i>{else}<i class="bi bi-house-door"></i>{/if}
+                            {if $carrier.id == 25 || $carrier.id == 32}<i class="bi bi-shop"></i>{else}<i class="bi bi-house-door"></i>{/if}
                             
                             <div class="col-xs-12 carriere-name-container{if $carrier.logo} col-md-8{/if}">
                               <span class="h6 carrier-name">{$carrier.name}</span>

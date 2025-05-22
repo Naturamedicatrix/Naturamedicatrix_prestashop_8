@@ -5,7 +5,8 @@
   {if $customer.is_logged}
     <a class="account" href="{$urls.pages.my_account}" title="{l s='View my customer account' d='Shop.Theme.Customeraccount'}" rel="nofollow">
       <div class="account-icon">
-        <i class="material-icons user-icon-transparent">person_outline</i>
+        {* <i class="material-icons user-icon-transparent">person_outline</i> *}
+        <i class="bi bi-person-check user-icon-transparent"></i>
       </div>
       <div class="account-content">
         <div class="account-title">{l s='My account' d='Shop.Theme.Customeraccount'}</div>
@@ -16,7 +17,8 @@
   {else}
     <a class="login" href="{$urls.pages.authentication}?back={$urls.current_url}" rel="nofollow" title="{l s='Log in to your customer account' d='Shop.Theme.Customeraccount'}">
       <div class="account-icon">
-        <i class="material-icons user-icon-transparent">person_outline</i>
+        {* <i class="material-icons user-icon-transparent">person_outline</i> *}
+        <i class="bi bi-person user-icon-transparent"></i>
       </div>
       <div class="account-content">
         <div class="account-title">{l s='My account' d='Shop.Theme.Customeraccount'}</div>
