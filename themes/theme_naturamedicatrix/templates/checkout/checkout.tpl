@@ -11,7 +11,7 @@
 {block name='content'}
   <section id="content">
     <div class="row">
-      <div class="cart-grid-body col-xs-12 col-lg-7">
+      <div class="cart-grid-body section-step-checkout col-xs-12 col-lg-7">
         
         {block name='steps'}
           {include file='checkout/_partials/steps.tpl'}

@@ -203,23 +203,22 @@ body#checkout {
     
     // Checkout Step Styles
     section.checkout-step {
-        .address-footer {
-            .delete-address, .edit-address {
-                .delete, .edit {
-                    font-size: 0.8rem;
-                }
-                i {
-                    margin-right: 3px;
-                }
-                &:hover {
-                    color: $color-custom-white !important;
-                }
+        .delete-address, .edit-address {
+            .delete, .edit {
+                font-size: 0.8rem;
+            }
+            i {
+                margin-right: 3px;
+            }
+            &:hover {
+                color: $color-custom-white !important;
             }
         }
         
         .address-item {
             border-radius: 4px;
             background: white;
+            border: 1px solid transparent;
             
             &.selected {
                 border: 2px solid $color-custom-green;
@@ -311,4 +310,6 @@ body#checkout {
             border-top: none;
         }
     }
+   
+
 }

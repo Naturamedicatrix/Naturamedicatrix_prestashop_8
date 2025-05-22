@@ -67,7 +67,7 @@
         </style>
         <input type="text" name="url" value=""/>
         <input type="hidden" name="token" value="{$token|escape:'htmlall':'UTF-8'}" />
-        <button type="submit" name="submitMessage" class="primary-btn">
+        <button type="submit" name="submitMessage" class="primary-btn btn">
           {l s='Envoyer' d='Modules.Contactform.Shop'}
         </button>
       </footer>

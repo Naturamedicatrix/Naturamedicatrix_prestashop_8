@@ -355,10 +355,10 @@ blockquote {
   cursor: pointer;
   text-align: center;
   display: inline-block;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 15px;
   text-transform: none;
-  padding: 13px;
+  padding: 13px 25px;
   min-width: 225px;
   line-height: 1;
   transition: all .2s ease-in-out !important;
@@ -374,6 +374,7 @@ blockquote {
   background-color: $color-custom-black !important;
   color: $color-custom-white !important;
   border-color: $color-custom-black !important;
+  border: 1px solid transparent !important;
 
   &:hover {
     background-color: $color-custom-blackHover !important;
@@ -385,7 +386,7 @@ blockquote {
 .btn-secondary {
   background-color: transparent !important;
   color: $color-custom-green !important;
-  border-color: $color-custom-green !important;
+  border: 1px solid $color-custom-green !important;
 
   &:hover {
     background-color: $color-custom-green !important;
@@ -401,7 +402,7 @@ blockquote {
 .btn-outline {
   background-color: transparent !important;
   color: $color-custom-black !important;
-  border-color: $color-custom-black !important;
+  border: 1px solid $color-custom-black !important;
 
   &:hover {
     background-color: $color-custom-black !important;
@@ -412,16 +413,17 @@ blockquote {
 .btn-disabled {
   background-color: #e1e1e1 !important;
   color: #a1a1a1 !important;
-  border-color: #e1e1e1 !important;
-  cursor: not-allowed;
-  text-decoration: none;
+  border: 1px solid #e1e1e1 !important;
+  cursor: not-allowed !important;
+  text-decoration: none !important;
 }
 
 .btn-small {
   font-size: 12px;
-  padding: 9px 15px;
-  font-weight: normal;
+  padding: 9px 15px 7px 15px;
+  font-weight: bold;
   min-width: auto;
+  border: 1px solid transparent;
   
   @media (max-width: $breakpoint-lg) {
     display: flex;
@@ -814,7 +816,9 @@ table>tbody>tr:nth-of-type(even) {
       font-size: .95rem;
     }
     .contact-text {
-        margin-bottom: 0.25rem;
+      margin-bottom: 0;
+      padding: 0;
+  
         
         .contact-phone {
             font-weight: 600;
@@ -1066,6 +1070,16 @@ div#_desktop_search_filters_clear_all {
 .help-block {
   ul {
     padding-left: 0;
+  }
+}
+
+.text-muted {
+  color: $color-custom-gray !important;
+  margin-right: 0 !important;
+  transition: color .2s ease-in-out !important;
+  
+  &:hover {
+    color: $color-custom-black !important;
   }
 }
 

@@ -761,10 +761,10 @@ blockquote p {
   cursor: pointer;
   text-align: center;
   display: inline-block;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 15px;
   text-transform: none;
-  padding: 13px;
+  padding: 13px 25px;
   min-width: 225px;
   line-height: 1;
   transition: all 0.2s ease-in-out !important;
@@ -781,6 +781,7 @@ blockquote p {
   background-color: #111827 !important;
   color: #f9fafb !important;
   border-color: #111827 !important;
+  border: 1px solid transparent !important;
 }
 .primary-btn:hover, .btn-primary:hover, .wishlist-add-to-new:hover {
   background-color: #374151 !important;
@@ -791,7 +792,7 @@ blockquote p {
 .btn-secondary {
   background-color: transparent !important;
   color: #83b58b !important;
-  border-color: #83b58b !important;
+  border: 1px solid #83b58b !important;
 }
 .btn-secondary:hover {
   background-color: #83b58b !important;
@@ -807,7 +808,7 @@ blockquote p {
 .btn-outline {
   background-color: transparent !important;
   color: #111827 !important;
-  border-color: #111827 !important;
+  border: 1px solid #111827 !important;
 }
 .btn-outline:hover {
   background-color: #111827 !important;
@@ -817,16 +818,17 @@ blockquote p {
 .btn-disabled {
   background-color: #e1e1e1 !important;
   color: #a1a1a1 !important;
-  border-color: #e1e1e1 !important;
-  cursor: not-allowed;
-  text-decoration: none;
+  border: 1px solid #e1e1e1 !important;
+  cursor: not-allowed !important;
+  text-decoration: none !important;
 }
 
 .btn-small {
   font-size: 12px;
-  padding: 9px 15px;
-  font-weight: normal;
+  padding: 9px 15px 7px 15px;
+  font-weight: bold;
   min-width: auto;
+  border: 1px solid transparent;
 }
 @media (max-width: 1024px) {
   .btn-small {
@@ -1152,7 +1154,8 @@ table > tbody > tr:nth-of-type(even) {
   font-size: 0.95rem;
 }
 .help-block .contact-text {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
+  padding: 0;
 }
 .help-block .contact-text .contact-phone {
   font-weight: 600;
@@ -1358,6 +1361,15 @@ div#_desktop_search_filters_clear_all {
 
 .help-block ul {
   padding-left: 0;
+}
+
+.text-muted {
+  color: #4B5563 !important;
+  margin-right: 0 !important;
+  transition: color 0.2s ease-in-out !important;
+}
+.text-muted:hover {
+  color: #111827 !important;
 }
 
 .count-product {

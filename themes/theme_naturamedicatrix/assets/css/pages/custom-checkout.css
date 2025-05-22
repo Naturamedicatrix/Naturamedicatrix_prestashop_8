@@ -153,18 +153,19 @@ body#checkout #cart-summary-product-list picture {
 body#checkout #cart-summary-product-list img {
   border: none !important;
 }
-body#checkout section.checkout-step .address-footer .delete-address .delete, body#checkout section.checkout-step .address-footer .delete-address .edit, body#checkout section.checkout-step .address-footer .edit-address .delete, body#checkout section.checkout-step .address-footer .edit-address .edit {
+body#checkout section.checkout-step .delete-address .delete, body#checkout section.checkout-step .delete-address .edit, body#checkout section.checkout-step .edit-address .delete, body#checkout section.checkout-step .edit-address .edit {
   font-size: 0.8rem;
 }
-body#checkout section.checkout-step .address-footer .delete-address i, body#checkout section.checkout-step .address-footer .edit-address i {
+body#checkout section.checkout-step .delete-address i, body#checkout section.checkout-step .edit-address i {
   margin-right: 3px;
 }
-body#checkout section.checkout-step .address-footer .delete-address:hover, body#checkout section.checkout-step .address-footer .edit-address:hover {
+body#checkout section.checkout-step .delete-address:hover, body#checkout section.checkout-step .edit-address:hover {
   color: #f9fafb !important;
 }
 body#checkout section.checkout-step .address-item {
   border-radius: 4px;
   background: white;
+  border: 1px solid transparent;
 }
 body#checkout section.checkout-step .address-item.selected {
   border: 2px solid #83b58b;
