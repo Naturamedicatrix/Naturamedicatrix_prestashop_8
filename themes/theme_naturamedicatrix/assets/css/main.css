@@ -185,11 +185,11 @@ body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufactur
   }
 }
 
-body#checkout #wrapper {
+body#checkout #wrapper, body#cart #wrapper {
   background: linear-gradient(to right, #FFFFFF 53%, #EDEFF1 50%);
 }
 @media (max-width: 1199px) {
-  body#checkout #wrapper {
+  body#checkout #wrapper, body#cart #wrapper {
     background: #f9fafb;
   }
 }
@@ -550,6 +550,14 @@ body #main {
 }
 .wishlist-button-add i.material-icons:hover {
   color: #ee5c58 !important;
+}
+
+.color-title {
+  color: #111827 !important;
+}
+
+.color-text {
+  color: #4B5563 !important;
 }
 
 .title-separator {

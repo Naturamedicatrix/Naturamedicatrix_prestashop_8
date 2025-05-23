@@ -21,7 +21,7 @@ body[class*="manufacturer-id-"], body.layout-left-column, body#module-blockwishl
 }
 
 
-body#checkout {
+body#checkout, body#cart {
     #wrapper {
         background: linear-gradient(to right,  
             $color-custom-bgWrapper 53%, 

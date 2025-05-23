@@ -95,7 +95,7 @@ body#checkout .cart-grid-body {
   }
 }
 body#checkout .cart-grid-right {
-  padding-left: 7rem;
+  padding-left: 6rem;
   padding-right: 10rem;
   background: #EDEFF1;
 }
@@ -306,12 +306,84 @@ body#checkout #footer {
   padding-top: 0;
 }
 
+body#cart .cart-grid {
+  background-color: #EDEFF1;
+  margin-bottom: 0;
+}
+body#cart .cart-grid-body {
+  background-color: white;
+  margin-bottom: 0;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+body#cart .cart-grid-right {
+  background-color: #EDEFF1;
+  padding-left: 7rem;
+  padding-right: 10rem;
+  padding-top: 3rem;
+}
+body#cart .cart-grid-right h3 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+body#cart .cart-grid-right .cart-summary {
+  background-color: #EDEFF1;
+}
+body#cart .product-line-grid-right .cart-line-product-actions, body#cart .product-line-grid-right .product-price {
+  line-height: inherit;
+}
 body#cart .bootstrap-touchspin .input-group-btn-vertical > .btn {
   min-width: auto !important;
 }
+body#cart .cart-overview, body#cart .cart-items {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+body#cart .cart-overview {
+  margin-bottom: 3rem !important;
+}
+body#cart .product-line-grid-right .cart-line-product-actions, body#cart .product-line-grid-right .product-price {
+  line-height: inherit;
+}
+body#cart .charity-block {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 2rem 3rem;
+}
+body#cart .charity-block .donation-block {
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+body#cart .charity-block .donation-title {
+  color: #111827;
+  padding-bottom: 0.5rem;
+}
+body#cart .charity-block .donation-description, body#cart .charity-block .donation-note, body#cart .charity-block .donation-description p {
+  color: #4B5563;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  padding-top: 0;
+}
+body#cart .charity-block .donation-btn-text {
+  min-width: auto;
+}
+body#cart .charity-block .donation-price-div {
+  width: 80px;
+}
+body#cart .charity-block .donation-price-div, body#cart .charity-block .donation-btn {
+  padding-top: 0;
+}
 
+.block-promo #promo-code {
+  display: block !important;
+}
 .block-promo .display-promo {
   padding: 1rem 0;
+}
+.block-promo .promo-code-button {
+  display: none;
 }
 .block-promo .promo-code {
   padding: 1rem 0;
@@ -348,5 +420,43 @@ body#cart .bootstrap-touchspin .input-group-btn-vertical > .btn {
   }
 }
 .block-promo .promo-code .cancel-promo {
+  display: none !important;
+}
+
+#cart .h1 {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  text-align: left;
+  font-weight: bold;
+}
+#cart .card {
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  display: block;
+  padding: 0;
+}
+#cart .card-block {
+  padding: 0;
+}
+#cart .separator {
   display: none;
+}
+
+body#discount .discount, body#cart .discount {
+  border-radius: 15px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  line-height: 1.2;
+  font-size: 0.8rem !important;
+  background-color: #e45b7f !important;
+  color: #f9fafb !important;
+  border-color: #e45b7f !important;
+  font-weight: 900;
+  padding: 4px 10px 2px;
+}
+body#discount a:hover, body#cart a:hover {
+  color: #4B5563 !important;
 }
