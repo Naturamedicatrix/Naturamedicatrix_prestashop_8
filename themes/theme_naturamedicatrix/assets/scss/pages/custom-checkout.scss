@@ -114,6 +114,12 @@ body#checkout {
             padding-left: 7rem;
             padding-right: 10rem;
             background: $color-custom-whiteDarker;
+            @media (max-width: $breakpoint-sm) {
+                padding: 25px;
+            }
+            @media (max-width: $breakpoint-md) {
+                padding: 47px 47px;
+            }
             
             h3 {
                 margin-top: 0;
@@ -375,6 +381,49 @@ body#checkout {
 
     #footer {
         padding-top: 0;
+    }
+
+    .block-promo {
+        .display-promo {
+            padding: 1rem 0;
+        }
+        .promo-code {
+            padding: 1rem 0;
+
+            form {
+                text-align: left;
+
+                .promo-input {
+                    width: 100%;
+
+                    @media (max-width: $breakpoint-sm) {
+                        width: 100%;
+                    }
+
+                    @media (max-width: $breakpoint-md) {
+                        width: 50%;
+                    }
+                }
+
+                .btn {
+                    width: 100%;
+                    margin-top: 3px;
+                    margin-left: 0;
+
+                    @media (max-width: $breakpoint-sm) {
+                        width: 100%;
+                    }
+
+                    @media (max-width: $breakpoint-md) {
+                        width: 50%;
+                    }
+                }
+            }
+
+            .cancel-promo {
+                display: none;
+            }
+        }
     }
 
 }

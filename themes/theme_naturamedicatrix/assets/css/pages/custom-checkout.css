@@ -92,6 +92,16 @@ body#checkout .cart-grid-right {
   padding-right: 10rem;
   background: #EDEFF1;
 }
+@media (max-width: 640px) {
+  body#checkout .cart-grid-right {
+    padding: 25px;
+  }
+}
+@media (max-width: 768px) {
+  body#checkout .cart-grid-right {
+    padding: 47px 47px;
+  }
+}
 body#checkout .cart-grid-right h3 {
   margin-top: 0;
   margin-bottom: 1.25rem;
@@ -286,6 +296,46 @@ body#checkout section.checkout-step .address-item > header {
 }
 body#checkout #footer {
   padding-top: 0;
+}
+body#checkout .block-promo .display-promo {
+  padding: 1rem 0;
+}
+body#checkout .block-promo .promo-code {
+  padding: 1rem 0;
+}
+body#checkout .block-promo .promo-code form {
+  text-align: left;
+}
+body#checkout .block-promo .promo-code form .promo-input {
+  width: 100%;
+}
+@media (max-width: 640px) {
+  body#checkout .block-promo .promo-code form .promo-input {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  body#checkout .block-promo .promo-code form .promo-input {
+    width: 50%;
+  }
+}
+body#checkout .block-promo .promo-code form .btn {
+  width: 100%;
+  margin-top: 3px;
+  margin-left: 0;
+}
+@media (max-width: 640px) {
+  body#checkout .block-promo .promo-code form .btn {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  body#checkout .block-promo .promo-code form .btn {
+    width: 50%;
+  }
+}
+body#checkout .block-promo .promo-code .cancel-promo {
+  display: none;
 }
 
 body#cart .bootstrap-touchspin .input-group-btn-vertical > .btn {
