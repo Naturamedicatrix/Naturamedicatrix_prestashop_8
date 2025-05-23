@@ -94,43 +94,49 @@ body#checkout {
     }
     
     // Cart Grid Styles
-    .cart-grid {
-        &-body, &-right {
-            padding-top: 3rem;
-            
+    #content > .row {
+        @media (max-width: $breakpoint-md) {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    
+    .cart-grid-body, .cart-grid-right {
+        padding-top: 3rem;
+    }
+    
+    .cart-grid-body {
+        padding-left: 8rem;
+        padding-right: 7rem;
+        margin-bottom: 0;
+        @media (max-width: $breakpoint-md) {
+            padding-left: 0;
+            padding-right: 0;
+            order: 2 !important;
+        }
+    }
+    
+    .cart-grid-right {
+        padding-left: 7rem;
+        padding-right: 10rem;
+        background: $color-custom-whiteDarker;
+        @media (max-width: $breakpoint-sm) {
+            padding: 25px;
+        }
+        @media (max-width: $breakpoint-md) {
+            padding: 47px 47px;
+            order: 1 !important;
         }
         
-        &-body {
-            padding-left: 8rem;
-            padding-right: 7rem;
-            margin-bottom: 0;
-            @media (max-width: $breakpoint-md) {
-                padding-left: 0;
-                padding-right: 0;
-            }
+        h3 {
+            margin-top: 0;
+            margin-bottom: 1.25rem;
         }
         
-        &-right {
-            padding-left: 7rem;
-            padding-right: 10rem;
-            background: $color-custom-whiteDarker;
-            @media (max-width: $breakpoint-sm) {
-                padding: 25px;
-            }
-            @media (max-width: $breakpoint-md) {
-                padding: 47px 47px;
-            }
-            
-            h3 {
-                margin-top: 0;
-                margin-bottom: 1.25rem;
-            }
-            
-            .card,
-            .card-block {
-                padding: 0;
-                background: transparent;
-            }
+        .card,
+        .card-block {
+            padding: 0;
+            background: transparent;
         }
     }
     
@@ -383,53 +389,53 @@ body#checkout {
         padding-top: 0;
     }
 
-    .block-promo {
-        .display-promo {
-            padding: 1rem 0;
-        }
-        .promo-code {
-            padding: 1rem 0;
-
-            form {
-                text-align: left;
-
-                .promo-input {
-                    width: 100%;
-
-                    @media (max-width: $breakpoint-sm) {
-                        width: 100%;
-                    }
-
-                    @media (max-width: $breakpoint-md) {
-                        width: 50%;
-                    }
-                }
-
-                .btn {
-                    width: 100%;
-                    margin-top: 3px;
-                    margin-left: 0;
-
-                    @media (max-width: $breakpoint-sm) {
-                        width: 100%;
-                    }
-
-                    @media (max-width: $breakpoint-md) {
-                        width: 50%;
-                    }
-                }
-            }
-
-            .cancel-promo {
-                display: none;
-            }
-        }
-    }
-
 }
 
 body#cart {
     .bootstrap-touchspin .input-group-btn-vertical>.btn {
         min-width: auto !important;
+    }
+}
+
+.block-promo {
+    .display-promo {
+        padding: 1rem 0;
+    }
+    .promo-code {
+        padding: 1rem 0;
+
+        form {
+            text-align: left;
+
+            .promo-input {
+                width: 100%;
+
+                @media (max-width: $breakpoint-sm) {
+                    width: 100%;
+                }
+
+                @media (max-width: $breakpoint-md) {
+                    width: 50%;
+                }
+            }
+
+            .btn {
+                width: 100%;
+                margin-top: 3px;
+                margin-left: 0;
+
+                @media (max-width: $breakpoint-sm) {
+                    width: 100%;
+                }
+
+                @media (max-width: $breakpoint-md) {
+                    width: 50%;
+                }
+            }
+        }
+
+        .cancel-promo {
+            display: none;
+        }
     }
 }
