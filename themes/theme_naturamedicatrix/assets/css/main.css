@@ -552,6 +552,21 @@ body #main {
   color: #ee5c58 !important;
 }
 
+.icon-special {
+  position: relative;
+}
+.icon-special:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(131, 181, 139, 0.3);
+  z-index: 1;
+  top: -5px;
+  right: -5px;
+}
+
 .color-title {
   color: #111827 !important;
 }

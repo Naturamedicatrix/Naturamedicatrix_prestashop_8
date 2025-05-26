@@ -66,25 +66,6 @@
       }
     }
     
-    &::after {
-      content: '';
-      content: "";
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background-color: rgba($color-custom-green, 0.4);
-      z-index: 1;
-      
-      @media (max-width: $breakpoint-md) {
-        width: 25px;
-        height: 25px;
-        top: -4px;
-        right: -4px;
-      }
-    }
     
     i {
       font-size: 2rem;
@@ -94,6 +75,12 @@
       @media (max-width: $breakpoint-md) {
         font-size: 2rem;
       }
+    }
+
+    .icon-special::after{
+      right: -5px;
+      height: 25px;
+      width: 25px;
     }
   }
   

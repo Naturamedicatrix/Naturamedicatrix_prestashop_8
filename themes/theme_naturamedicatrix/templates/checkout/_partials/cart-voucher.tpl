@@ -3,11 +3,11 @@ CUSTOM ZONE PROMO
 *}
  {if $cart.vouchers.allowed}
     {block name='cart_voucher'}
-      <div class="block-promo">
+      <div class="block-promo py-6">
         <div class="cart-voucher js-cart-voucher">
           {if $cart.vouchers.added}
             {block name='cart_voucher_list'}
-              <ul class="promo-name card-block">
+              {* <ul class="promo-name card-block">
                 {foreach from=$cart.vouchers.added item=voucher}
                   <li class="cart-summary-line">
                     <span class="label">{$voucher.name}</span>
@@ -19,7 +19,7 @@ CUSTOM ZONE PROMO
                     </div>
                   </li>
                 {/foreach}
-              </ul>
+              </ul> *}
             {/block}
           {/if}
   
@@ -31,13 +31,14 @@ CUSTOM ZONE PROMO
   
           <div id="promo-code" class="collapse{if $cart.discounts|count > 0} in{/if}">
             <div class="promo-code">
-            <p class="text-center pb-0 font-bold">Vous avez un code promo ?</p>
               {block name='cart_voucher_form'}
                 <form action="{$urls.pages.cart}" data-link-action="add-voucher" method="post">
                   <input type="hidden" name="token" value="{$static_token}">
                   <input type="hidden" name="addDiscount" value="1">
-                  <input class="promo-input" type="text" name="discount_name" placeholder="{l s='Promo code' d='Shop.Theme.Checkout'}">
-                  <button type="submit" class="btn btn-primary"><span>{l s='Add' d='Shop.Theme.Actions'}</span></button>
+                  <div class="promo-form-group">
+                    <input class="promo-input" type="text" name="discount_name" placeholder="{l s='Promo code' d='Shop.Theme.Checkout'}">
+                    <button type="submit" class="btn btn-outline"><span>Ajouter</span></button>
+                  </div>
                 </form>
               {/block}
   
@@ -47,13 +48,13 @@ CUSTOM ZONE PROMO
                 </div>
               {/block}
   
-              <a class="collapse-button promo-code-button cancel-promo" role="button" data-toggle="collapse" data-target="#promo-code" aria-expanded="true" aria-controls="promo-code">
+              {* <a class="collapse-button promo-code-button cancel-promo" role="button" data-toggle="collapse" data-target="#promo-code" aria-expanded="true" aria-controls="promo-code">
                 {l s='Close' d='Shop.Theme.Checkout'}
-              </a>
+              </a> *}
             </div>
           </div>
   
-          {if $cart.discounts|count > 0}
+          {* {if $cart.discounts|count > 0}
             <p class="block-promo promo-highlighted">
               {l s='Take advantage of our exclusive offers:' d='Shop.Theme.Actions'}
             </p>
@@ -66,7 +67,7 @@ CUSTOM ZONE PROMO
                 </li>
               {/foreach}
             </ul>
-          {/if}
+          {/if} *}
         </div>
       </div>
     {/block}

@@ -23,7 +23,7 @@
         {/block}
       </div>
       <div class="cart-grid-right col-xs-12 col-xl-5">
-        <h3>Votre commande</h3>
+        <h3>Récapitulatif</h3>
         {block name='cart_summary'}
           {include file='checkout/_partials/cart-summary.tpl' cart=$cart}
         {/block}

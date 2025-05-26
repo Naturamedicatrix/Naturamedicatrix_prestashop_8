@@ -9,7 +9,7 @@
     {* AVANTAGE 1 - PAIEMENT SÉCURISÉ *}
     <div class="advantage-item col-lg-3 col-md-3 col-sm-6 col-xs-6">
       <div class="advantage-icon">
-        <i class="bi bi-lock"></i>
+        <i class="bi bi-lock icon-special"></i>
       </div>
       <div class="advantage-content">
         <a href="{$link->getCMSLink(3)}#paiement">
@@ -22,7 +22,7 @@
     {* AVANTAGE 2 - LIVRAISON OFFERTE *}
     <div class="advantage-item col-lg-3 col-md-3 col-sm-6 col-xs-6">
       <div class="advantage-icon">
-        <i class="bi bi-truck"></i>
+        <i class="bi bi-truck icon-special"></i>
       </div>
       <div class="advantage-content">
         <a href="{$link->getCMSLink(3)}#livraison">
@@ -35,7 +35,7 @@
     {* AVANTAGE 3 - PRODUITS CERTIFIÉS *}
     <div class="advantage-item col-lg-3 col-md-3 col-sm-6 col-xs-6">
       <div class="advantage-icon">
-        <i class="bi bi-trophy"></i>
+        <i class="bi bi-trophy icon-special"></i>
       </div>
       <div class="advantage-content">
         <a href="#">
@@ -48,7 +48,7 @@
     {* AVANTAGE 4 - SERVICE CLIENT *}
     <div class="advantage-item col-lg-3 col-md-3 col-sm-6 col-xs-6">
       <div class="advantage-icon">
-        <i class="bi bi-chat-heart"></i>
+        <i class="bi bi-chat-heart icon-special"></i>
       </div>
       <div class="advantage-content">
         <a href="{$urls.pages.contact}">

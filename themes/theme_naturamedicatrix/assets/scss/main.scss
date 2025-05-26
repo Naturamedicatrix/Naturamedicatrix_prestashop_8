@@ -120,6 +120,22 @@ body {
     }
   }
 }
+
+.icon-special {
+  position: relative;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba($color-custom-green, 0.3);
+    z-index: 1;
+    top: -5px;
+    right: -5px;
+  }
+}
 // END Badges
 
 

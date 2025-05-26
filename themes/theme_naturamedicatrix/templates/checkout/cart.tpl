@@ -27,7 +27,7 @@
 {block name='content'}
 
   <section id="main">
-    <div class="cart-grid row">
+    <div class="cart-grid">
 
       <!-- Left Block: cart product informations & shipping -->
       <div class="cart-grid-body col-lg-8">
