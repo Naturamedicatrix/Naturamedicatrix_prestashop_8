@@ -333,6 +333,9 @@ body#checkout .custom-checkbox > label {
 body#checkout .remove-discount-button {
   display: none;
 }
+body#checkout #js-checkout-summary .alert, body#checkout #js-checkout-summary .alert-info {
+  max-width: 100% !important;
+}
 
 @media (max-width: 640px) {
   body#cart h1 {
@@ -578,4 +581,32 @@ body#discount .promo-form-group, body#cart .promo-form-group {
 }
 .cart-summary-line .remove-discount-text:hover, .cart-summary-line a:hover {
   color: #4B5563 !important;
+}
+
+.cart-total {
+  margin-bottom: 0 !important;
+}
+
+#checkout-steps-status {
+  text-align: center;
+}
+#checkout-steps-status i {
+  font-size: 1rem !important;
+  padding-top: 0 !important;
+  margin-right: 0 !important;
+}
+
+.cart-grid-body #conditions-to-approve, .cart-grid-body #payment-confirmation {
+  display: none !important;
+}
+@media (max-width: 640px) {
+  .cart-grid-body #conditions-to-approve, .cart-grid-body #payment-confirmation {
+    display: block !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #js-checkout-summary .js-cart-summary-checkout-button {
+    display: none !important;
+  }
 }

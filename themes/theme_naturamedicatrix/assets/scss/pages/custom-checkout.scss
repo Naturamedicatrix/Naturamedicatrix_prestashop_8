@@ -420,6 +420,12 @@ body#checkout {
     .remove-discount-button {
         display: none;
     }
+
+    #js-checkout-summary {
+        .alert, .alert-info {
+            max-width: 100% !important;
+        }
+    }
 }
 
 
@@ -722,3 +728,38 @@ body#discount, body#cart {
         color: $color-custom-gray !important;
     }
 }
+
+.cart-total {
+    margin-bottom: 0 !important;
+}
+
+#checkout-steps-status{
+    text-align: center;
+
+    i {
+        font-size: 1rem !important;
+        padding-top: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+
+.cart-grid-body{
+    #conditions-to-approve, #payment-confirmation {
+        display: none !important;
+
+        @media (max-width: $breakpoint-sm) {
+            display: block !important;
+        }
+    }
+}
+
+#js-checkout-summary {
+    .js-cart-summary-checkout-button {
+        @media (max-width: $breakpoint-sm) {
+            display: none !important;
+        }
+    }
+}
+
+

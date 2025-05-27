@@ -86,11 +86,7 @@
   </div>
 
   {if $conditions_to_approve|count}
-    <p class="ps-hidden-by-js alert alert-info text-center;">
-      {* At the moment, we're not showing the checkboxes when JS is disabled
-         because it makes ensuring they were checked very tricky and overcomplicates
-         the template. Might change later.
-      *}
+    <p class="ps-hidden-by-js alert alert-warning text-center">
       {l s='By confirming the order, you certify that you have read and agree with all of the conditions below:' d='Shop.Theme.Checkout'}
     </p>
 
@@ -105,7 +101,7 @@
                         required
                         type  = "checkbox"
                         value = "1"
-                        class = "ps-shown-by-js"
+                        class = "ps-shown-by-js original-checkbox"
                 >
                 <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
               </span>
@@ -127,9 +123,9 @@
     {include file='checkout/_partials/order-final-summary.tpl'}
   {/if}
 
-  <div id="payment-confirmation" class="js-payment-confirmation">
+  <div id="payment-confirmation" class="js-payment-confirmation d-none">
     <div class="ps-shown-by-js">
-      <button type="submit" class="btn btn-primary center-block{if !$selected_payment_option} disabled{/if}">
+      <button type="submit" class="btn btn-primary center-block original-checkout-button{if !$selected_payment_option} disabled{/if}">
         {l s='Place order' d='Shop.Theme.Checkout'}
       </button>
       {if $show_final_summary}
