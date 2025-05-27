@@ -3,7 +3,7 @@ CUSTOM ZONE PROMO
 *}
  {if $cart.vouchers.allowed}
     {block name='cart_voucher'}
-      <div class="block-promo py-6">
+      <div class="block-promo">
         <div class="cart-voucher js-cart-voucher">
           {if $cart.vouchers.added}
             {block name='cart_voucher_list'}

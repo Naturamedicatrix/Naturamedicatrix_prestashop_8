@@ -417,6 +417,9 @@ body#checkout {
         padding-left: 0.5rem;
     }
 
+    .remove-discount-button {
+        display: none;
+    }
 }
 
 
@@ -695,17 +698,27 @@ body#discount, body#cart {
     }
 
     .remove-discount-button {
-        position: absolute;
-        right: -20px;
-        color: $color-custom-red;
+        display: none;
+    }
 
-        @media (max-width: $breakpoint-sm) {
-            right: 290px;
-        }
-
+    .cart-summary-line .remove-discount-text {
         &:hover {
-            color: color.adjust($color-custom-red, $lightness: -10%) !important;
+            color: $color-custom-gray !important;
         }
     }
 
+    .promo-form-group {
+        padding: 1.25rem 0;
+    }
+}
+
+.cart-summary-line .remove-discount-text, .cart-summary-line a {
+    font-size: .9rem !important;
+    padding-left: 5px !important;
+    color: color.adjust($color-custom-gray, $lightness: 15%) !important;
+    transition: color .2s ease-in-out !important;
+    border: none !important;
+    &:hover {
+        color: $color-custom-gray !important;
+    }
 }

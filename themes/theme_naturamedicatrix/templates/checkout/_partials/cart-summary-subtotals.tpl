@@ -25,22 +25,90 @@
 
 <div class="card-block cart-summary-subtotals-container js-cart-summary-subtotals-container">
 
+  {* Liste des articles et sous-totaux *}
   {foreach from=$cart.subtotals item="subtotal"}
-    {if $subtotal && $subtotal.value|count_characters > 0 && $subtotal.type !== 'tax'}
+    {if $subtotal && $subtotal.value|count_characters > 0 && $subtotal.type == 'products'}
       <div class="cart-summary-line cart-summary-subtotals" id="cart-subtotal-{$subtotal.type}">
-
         <span class="label">
-            {$subtotal.label}
+          {$subtotal.label}
         </span>
-
         <span class="value{if 'gratuit' == $subtotal.value} free{/if}">
-          {if 'discount' == $subtotal.type}-&nbsp;{/if}{$subtotal.value}
+          {$subtotal.value}
         </span>
       </div>
-
-      
+    {/if}
+  {/foreach}
+  
+  {* Affichage individuel de chaque code promo *}
+  {if isset($cart.vouchers.added) && $cart.vouchers.added|count > 0}
+    {foreach from=$cart.vouchers.added item=voucher}
+      <div class="cart-summary-line cart-summary-subtotals">
+        <span class="label">
+          <span class="promo-code">"{$voucher.code}"</span>
+        </span>
+        <span class="value">
+          {$voucher.reduction_formatted}
+        </span>
+        <a href="#" data-voucher-url="{$voucher.delete_url}" class="remove-discount-text js-remove-voucher-checkout">(Supprimer)</a>
+      </div>
+    {/foreach}
+  {/if}
+  
+  {* Autres sous-totaux (livraison, etc.) *}
+  {foreach from=$cart.subtotals item="subtotal"}
+    {if $subtotal && $subtotal.value|count_characters > 0 && $subtotal.type !== 'tax' && $subtotal.type !== 'discount' && $subtotal.type !== 'products'}
+      <div class="cart-summary-line cart-summary-subtotals" id="cart-subtotal-{$subtotal.type}">
+        <span class="label">
+          {$subtotal.label}
+        </span>
+        <span class="value{if 'gratuit' == $subtotal.value} free{/if}">
+          {$subtotal.value}
+        </span>
+      </div>
     {/if}
   {/foreach}
 
 </div>
 
+{block name='javascript_bottom'}
+  {literal}
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('click', function(event) {
+        // Vérifie si l'élément cliqué ou un de ses parents a la classe js-remove-voucher-checkout
+        var target = event.target;
+        
+        while (target != null && !target.classList.contains('js-remove-voucher-checkout')) {
+          target = target.parentElement;
+        }
+        
+        if (target && target.classList.contains('js-remove-voucher-checkout')) {
+          event.preventDefault();
+          
+          var voucherUrl = target.getAttribute('data-voucher-url');
+          
+          // Requete AJAX
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', voucherUrl, true);
+          
+          // Réponse
+          xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              window.location.reload();
+            } else {
+              console.error('Erreur lors de la suppression du code promo');
+            }
+          };
+          
+          xhr.onerror = function () {
+            console.error('Erreur de connexion lors de la suppression du code promo');
+          };
+          
+          // Envoie la requete
+          xhr.send();
+        }
+      });
+    });
+  </script>
+  {/literal}
+{/block}

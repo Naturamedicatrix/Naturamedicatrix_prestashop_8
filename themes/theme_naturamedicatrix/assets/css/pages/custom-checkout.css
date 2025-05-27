@@ -330,6 +330,9 @@ body#checkout .custom-checkbox span {
 body#checkout .custom-checkbox > label {
   padding-left: 0.5rem;
 }
+body#checkout .remove-discount-button {
+  display: none;
+}
 
 @media (max-width: 640px) {
   body#cart h1 {
@@ -557,15 +560,22 @@ body#discount .cart-summary-line:last-child, body#cart .cart-summary-line:last-c
   padding: 0 0 1rem 0;
 }
 body#discount .remove-discount-button, body#cart .remove-discount-button {
-  position: absolute;
-  right: -20px;
-  color: #ee5c58;
+  display: none;
 }
-@media (max-width: 640px) {
-  body#discount .remove-discount-button, body#cart .remove-discount-button {
-    right: 290px;
-  }
+body#discount .cart-summary-line .remove-discount-text:hover, body#cart .cart-summary-line .remove-discount-text:hover {
+  color: #4B5563 !important;
 }
-body#discount .remove-discount-button:hover, body#cart .remove-discount-button:hover {
-  color: rgb(233.2880434783, 46.8206521739, 41.7119565217) !important;
+body#discount .promo-form-group, body#cart .promo-form-group {
+  padding: 1.25rem 0;
+}
+
+.cart-summary-line .remove-discount-text, .cart-summary-line a {
+  font-size: 0.9rem !important;
+  padding-left: 5px !important;
+  color: rgb(107.974137931, 122.3706896552, 142.525862069) !important;
+  transition: color 0.2s ease-in-out !important;
+  border: none !important;
+}
+.cart-summary-line .remove-discount-text:hover, .cart-summary-line a:hover {
+  color: #4B5563 !important;
 }
