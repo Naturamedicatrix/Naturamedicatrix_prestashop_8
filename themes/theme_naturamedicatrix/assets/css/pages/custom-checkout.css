@@ -599,13 +599,16 @@ body#discount .promo-form-group, body#cart .promo-form-group {
 .cart-grid-body #conditions-to-approve, .cart-grid-body #payment-confirmation {
   display: none !important;
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .cart-grid-body #conditions-to-approve, .cart-grid-body #payment-confirmation {
     display: block !important;
   }
 }
+.cart-grid-body #conditions-to-approve .btn, .cart-grid-body #payment-confirmation .btn {
+  width: 100%;
+}
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   #js-checkout-summary .js-cart-summary-checkout-button {
     display: none !important;
   }

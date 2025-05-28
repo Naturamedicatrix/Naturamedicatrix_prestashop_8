@@ -748,15 +748,19 @@ body#discount, body#cart {
     #conditions-to-approve, #payment-confirmation {
         display: none !important;
 
-        @media (max-width: $breakpoint-sm) {
+        @media (max-width: $breakpoint-md) {
             display: block !important;
+        }
+
+        .btn {
+            width: 100%;
         }
     }
 }
 
 #js-checkout-summary {
     .js-cart-summary-checkout-button {
-        @media (max-width: $breakpoint-sm) {
+        @media (max-width: $breakpoint-md) {
             display: none !important;
         }
     }

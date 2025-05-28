@@ -249,9 +249,9 @@ class ModuleRepository implements ModuleRepositoryInterface
                     $attributes[$attribute] = $tmpModule->{$attribute};
                 }
             }
-            $attributes['parent_class'] = get_parent_class($tmpModule);
-            $attributes['is_paymentModule'] = is_subclass_of($tmpModule, 'PaymentModule');
-            $attributes['is_configurable'] = method_exists($tmpModule, 'getContent');
+            $attributes['parent_class'] = is_object($tmpModule) ? get_parent_class($tmpModule) : '';
+            $attributes['is_paymentModule'] = is_object($tmpModule) && is_subclass_of($tmpModule, 'PaymentModule');
+            $attributes['is_configurable'] = is_object($tmpModule) && method_exists($tmpModule, 'getContent');
         }
 
         return $attributes;
@@ -265,7 +265,7 @@ class ModuleRepository implements ModuleRepositoryInterface
             'filemtime' => $filemtime,
             'is_present' => $filemtime > 0,
             'is_valid' => $isValid,
-            'version' => $isValid ? ModuleLegacy::getInstanceByName($moduleName)->version : null,
+            'version' => $isValid ? (($tmpModule = ModuleLegacy::getInstanceByName($moduleName)) && is_object($tmpModule) ? $tmpModule->version : null) : null,
             'path' => $path,
         ];
     }
