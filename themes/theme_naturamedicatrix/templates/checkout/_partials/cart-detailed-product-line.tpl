@@ -24,31 +24,48 @@ CUSTOM PRODUCTS DETAILS CART
 
   <!--  product line body: label, discounts, price, attributes, customizations -->
   <div class="product-line-grid-body flex flex-col justify-center flex-1 min-w-[200px]">
+    {* Affichage des caractéristiques du produit (SQL) *}
+    {assign var="id_product" value=$product.id_product}
+    {assign var="id_lang" value=Context::getContext()->language->id}
+    
+    {* Requête SQL directe pour récupérer les caractéristiques du produit *}
+    {assign var="features_query" value="SELECT 
+      f.id_feature, 
+      fl.name as feature_name, 
+      fv.id_feature_value, 
+      fvl.value
+      FROM {if isset($smarty.const._DB_PREFIX_)}{$smarty.const._DB_PREFIX_}{else}ps_{/if}feature_product fp
+      LEFT JOIN {if isset($smarty.const._DB_PREFIX_)}{$smarty.const._DB_PREFIX_}{else}ps_{/if}feature f ON (f.id_feature = fp.id_feature)
+      LEFT JOIN {if isset($smarty.const._DB_PREFIX_)}{$smarty.const._DB_PREFIX_}{else}ps_{/if}feature_lang fl ON (fl.id_feature = f.id_feature AND fl.id_lang = {$id_lang})
+      LEFT JOIN {if isset($smarty.const._DB_PREFIX_)}{$smarty.const._DB_PREFIX_}{else}ps_{/if}feature_value fv ON (fv.id_feature_value = fp.id_feature_value)
+      LEFT JOIN {if isset($smarty.const._DB_PREFIX_)}{$smarty.const._DB_PREFIX_}{else}ps_{/if}feature_value_lang fvl ON (fvl.id_feature_value = fv.id_feature_value AND fvl.id_lang = {$id_lang})
+      WHERE fp.id_product = {$id_product}
+      ORDER BY f.position ASC"}
+    
+    {* Exécute la requête avec getInstance *}
+    {assign var="features_result" value=Db::getInstance()->executeS($features_query)}
+    
+    {* Affichage des caractéristiques si présentes *}
+    {if $features_result && count($features_result) > 0}
+      <div class="product-features">
+        <div class="product-line-info text-gray-500 text-xs label-features">
+          {foreach from=$features_result item=feature name=features_loop}
+            {if isset($feature.value) && $feature.value|trim != ''}
+              <span class="product-feature-item product-flag">{$feature.value|escape:'html':'UTF-8'}</span>
+              {if !$smarty.foreach.features_loop.last}{/if}
+            {/if}
+          {/foreach}
+        </div>
+      </div>
+    {/if}
+    
     <div class="product-line-info pb-0.5 color-title">
       <a href="{$product.url}" data-id_customization="{$product.id_customization|intval}">{$product.name}</a>
     </div>
 
-    {foreach from=$product.attributes key="attribute" item="value"}
-      <div class="product-line-info text-gray-500 text-xs {$attribute|lower}">
-        <span class="labelle">{$attribute}:</span>
-        <span class="value">{$value}</span>
-      </div>
-    {/foreach}
-    
-    {* DLU - avec format de date personnalisé *}
-    {if isset($product.dlu) && $product.dlu}
-      <div class="product-line-info text-gray-500 text-xs">
-        <span class="labelle">Date limite conseillée:</span>
-        <span class="value font-semibold">
-            {* Formate la date en DD-MM-YYYY *}
-            {assign var="dluDate" value=$product.dlu|strtotime}
-            {$dluDate|date_format:"%d-%m-%Y"}
-        </span>
-      </div>
-    {/if}
-
-    {* Affichage du statut de stock *}
-    <div class="product-line-info text-xs">
+    <div class="products-lines-infos">
+      {* Affichage du statut de stock *}
+      <div class="product-line-info text-xs">
       {* Vérifier si la variable quantity_available existe, sinon utiliser stock_quantity ou available_now comme fallback *}
       {if isset($product.quantity_available)}
         {assign var="stockQuantity" value=$product.quantity_available}
@@ -65,7 +82,28 @@ CUSTOM PRODUCTS DETAILS CART
       {else}
         <span class="value font-semibold text-red-600">Rupture de stock</span>
       {/if}
+      </div>
+      {* DLU - avec format de date personnalisé *}
+      {if isset($product.dlu) && $product.dlu}
+        <div class="product-line-info text-gray-500 text-xs">
+          <span class="labelle">Date limite conseillée:</span>
+          <span class="value font-semibold">
+              {* Formate la date en DD-MM-YYYY *}
+              {assign var="dluDate" value=$product.dlu|strtotime}
+              {$dluDate|date_format:"%d-%m-%Y"}
+          </span>
+        </div>
+      {/if} 
     </div>
+
+    {foreach from=$product.attributes key="attribute" item="value"}
+      <div class="product-line-info text-gray-500 text-sm label-attributes {$attribute|lower}">
+        <span class="labelle">{$attribute}:</span>
+        <span class="value">{$value}</span>
+      </div>
+    {/foreach}
+    
+    {* Les caractéristiques sont maintenant affichées au-dessus du titre du produit *}
 
     {if is_array($product.customizations) && $product.customizations|count}
       <br>

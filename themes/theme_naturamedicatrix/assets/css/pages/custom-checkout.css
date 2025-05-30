@@ -423,6 +423,20 @@ body#cart .cart-overview .cart-item {
 body#cart .cart-overview .cart-item .icon-special::after {
   right: -5px;
 }
+body#cart .cart-overview .cart-item .product-line-info {
+  color: #4B5563;
+  font-weight: 100;
+}
+body#cart .cart-overview .cart-item .product-line-grid-body .color-title {
+  font-weight: 700 !important;
+  color: #4B5563 !important;
+  font-size: 0.9rem;
+}
+body#cart .cart-overview .cart-item .product-line-grid-body .label-attributes {
+  padding-top: 3px;
+  color: #4B5563;
+  font-weight: 100;
+}
 body#cart .cart-overview {
   margin-bottom: 3rem !important;
 }
@@ -489,6 +503,25 @@ body#cart .charity-block .donation-price-div {
 }
 body#cart .charity-block .donation-price-div, body#cart .charity-block .donation-btn {
   padding-top: 0;
+}
+body#cart .product-features {
+  margin: 0 0 8px 0;
+}
+body#cart .product-features .product-flag {
+  font-size: 0.7rem;
+  text-transform: inherit;
+  background: none;
+  color: #68768a;
+  border: 1px solid #93A7C3;
+  padding: 4px 10px 2px;
+  border-radius: 15px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  line-height: 1.2;
+  min-height: auto !important;
+  min-width: auto;
+  font-weight: normal !important;
+  text-align: center;
 }
 
 .block-promo {
