@@ -431,6 +431,13 @@ body#checkout {
 
 // PANIER
 body#cart {
+    .alert {
+        margin: 0;
+        max-width: 58.5%;
+        @media (max-width: 1200px) {
+            max-width: 100%;
+        }
+    }
     h1 {
         @media (max-width: $breakpoint-sm) {
             text-align: center !important;

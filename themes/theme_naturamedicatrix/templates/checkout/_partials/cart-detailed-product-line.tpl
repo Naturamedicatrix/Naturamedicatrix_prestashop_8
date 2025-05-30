@@ -34,6 +34,38 @@ CUSTOM PRODUCTS DETAILS CART
         <span class="value">{$value}</span>
       </div>
     {/foreach}
+    
+    {* DLU - avec format de date personnalisé *}
+    {if isset($product.dlu) && $product.dlu}
+      <div class="product-line-info text-gray-500 text-xs">
+        <span class="labelle">Date limite conseillée:</span>
+        <span class="value font-semibold">
+            {* Formate la date en DD-MM-YYYY *}
+            {assign var="dluDate" value=$product.dlu|strtotime}
+            {$dluDate|date_format:"%d-%m-%Y"}
+        </span>
+      </div>
+    {/if}
+
+    {* Affichage du statut de stock *}
+    <div class="product-line-info text-xs">
+      {* Vérifier si la variable quantity_available existe, sinon utiliser stock_quantity ou available_now comme fallback *}
+      {if isset($product.quantity_available)}
+        {assign var="stockQuantity" value=$product.quantity_available}
+      {elseif isset($product.stock_quantity)}
+        {assign var="stockQuantity" value=$product.stock_quantity}
+      {elseif isset($product.available_now) && $product.available_now == ''}
+        {assign var="stockQuantity" value=0}
+      {else}
+        {assign var="stockQuantity" value=1}
+      {/if}
+
+      {if $stockQuantity > 0}
+        <span class="value font-semibold text-green-600">En stock</span>
+      {else}
+        <span class="value font-semibold text-red-600">Rupture de stock</span>
+      {/if}
+    </div>
 
     {if is_array($product.customizations) && $product.customizations|count}
       <br>

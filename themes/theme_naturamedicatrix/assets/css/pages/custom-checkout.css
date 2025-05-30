@@ -337,6 +337,15 @@ body#checkout #js-checkout-summary .alert, body#checkout #js-checkout-summary .a
   max-width: 100% !important;
 }
 
+body#cart .alert {
+  margin: 0;
+  max-width: 58.5%;
+}
+@media (max-width: 1200px) {
+  body#cart .alert {
+    max-width: 100%;
+  }
+}
 @media (max-width: 640px) {
   body#cart h1 {
     text-align: center !important;
