@@ -21,7 +21,7 @@ body[class*="manufacturer-id-"], body.layout-left-column, body#module-blockwishl
 }
 
 
-body#checkout, body#cart {
+body#checkout {
     #wrapper {
         background: linear-gradient(to right,  
             $color-custom-bgWrapper 53%, 
@@ -30,6 +30,22 @@ body#checkout, body#cart {
 
             @media (max-width: 1199px) {
                 background: $color-custom-white;
+            }
+    }
+}
+
+body#cart {
+    #wrapper {
+        background: linear-gradient(to right,  
+            $color-custom-bgWrapper 70%, 
+            $color-custom-whiteDarker 50%, 
+            );
+
+            @media (max-width: 1399px) {
+                background: linear-gradient(to right,  
+                $color-custom-bgWrapper 63%, 
+                $color-custom-whiteDarker 50%, 
+                );
             }
     }
 }

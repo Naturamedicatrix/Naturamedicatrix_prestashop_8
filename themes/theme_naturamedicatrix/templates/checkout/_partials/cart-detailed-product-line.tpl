@@ -48,7 +48,7 @@ CUSTOM PRODUCTS DETAILS CART
     {* Affichage des caractéristiques si présentes *}
     {if $features_result && count($features_result) > 0}
       <div class="product-features">
-        <div class="product-line-info text-gray-500 text-xs label-features">
+        <div class="product-line-info flex text-gray-500 text-xs label-features">
           {foreach from=$features_result item=feature name=features_loop}
             {if isset($feature.value) && $feature.value|trim != ''}
               <span class="product-feature-item product-flag">{$feature.value|escape:'html':'UTF-8'}</span>

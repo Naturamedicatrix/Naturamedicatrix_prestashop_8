@@ -80,6 +80,10 @@
           {hook h='displayReassurance'}
         {/block}
 
+        {* BLOC ADVANTAGES *}
+        {include file='checkout/_partials/cart-advantages-block.tpl'}
+
+
       </div>
 
     </div>

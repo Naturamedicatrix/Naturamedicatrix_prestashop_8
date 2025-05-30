@@ -385,7 +385,7 @@ body#cart .cart-grid-right {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1600px) {
   body#cart .cart-grid-right {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -426,6 +426,8 @@ body#cart .cart-overview .cart-item .icon-special::after {
 body#cart .cart-overview .cart-item .product-line-info {
   color: #4B5563;
   font-weight: 100;
+  align-items: center;
+  gap: 5px;
 }
 body#cart .cart-overview .cart-item .product-line-grid-body .color-title {
   font-weight: 700 !important;
@@ -654,4 +656,70 @@ body#discount .promo-form-group, body#cart .promo-form-group {
   #js-checkout-summary .js-cart-summary-checkout-button {
     display: none !important;
   }
+}
+
+/* BLOCK ADVANTAGE */
+.cart-advantages .title-separator #logoTitle {
+  width: 22px;
+}
+.cart-advantages .title-separator::before {
+  right: calc(50% + 16px + 0.1rem);
+}
+.cart-advantages .title-separator::after {
+  left: calc(50% + 16px + 0.1rem);
+}
+.cart-advantages .advantage-block .advantage-icon i {
+  font-size: 1.6rem;
+}
+.cart-advantages .advantage-block .advantage-icon i::after {
+  width: 20px;
+  height: 20px;
+}
+.cart-advantages .advantage-block .advantage-texte {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.cart-advantages .advantage-block .advantage-content h5 {
+  color: rgb(96.9827586207, 109.9137931034, 128.0172413793) !important;
+}
+.cart-advantages .advantage-block .advantage-content .advantage-texte {
+  padding-top: 10px;
+}
+.cart-advantages .advantage-block .advantage-content .advantage-texte p {
+  padding-bottom: 0;
+  color: rgb(96.9827586207, 109.9137931034, 128.0172413793) !important;
+}
+.cart-advantages .advantage-block .advantage-content .discount-blocks .discount-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.cart-advantages .advantage-block .advantage-content .discount-blocks .discount-row .discount-block {
+  margin-top: 10px;
+}
+.cart-advantages .advantage-block .advantage-content .discount-blocks .discount-row .discount-block .discount-amount {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: rgb(96.9827586207, 109.9137931034, 128.0172413793);
+}
+.cart-advantages .advantage-block .advantage-content .discount-blocks .discount-row .discount-block .discount-condition {
+  font-size: 0.8rem;
+  color: rgb(96.9827586207, 109.9137931034, 128.0172413793);
+}
+.cart-advantages .help-block h5 {
+  color: rgb(96.9827586207, 109.9137931034, 128.0172413793) !important;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.cart-advantages .help-block .title-separator {
+  display: none;
+}
+.cart-advantages .help-block .contact-text, .cart-advantages .help-block .contact-email {
+  color: rgb(96.9827586207, 109.9137931034, 128.0172413793) !important;
+  font-size: 0.8rem;
+}
+.cart-advantages .help-block .contact-phone {
+  font-size: 0.8rem !important;
 }

@@ -23,5 +23,6 @@ CUSTOM RESUME PANIER
  {block name='cart_summary_checkout_button'}
    {include file='checkout/_partials/cart-summary-checkout-button.tpl'}
  {/block}
+ 
 
 </section>

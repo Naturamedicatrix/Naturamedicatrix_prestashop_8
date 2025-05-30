@@ -475,7 +475,7 @@ body#cart {
        padding-top: 3rem;
        padding-bottom: 3rem;
 
-       @media (max-width: 1024px) {
+       @media (max-width: 1600px) {
             padding-left: 2rem;
             padding-right: 2rem;
        }
@@ -522,6 +522,8 @@ body#cart {
         .product-line-info {
             color: $color-custom-gray;
             font-weight: 100;
+            align-items: center;
+            gap: 5px;
         }
 
         .product-line-grid-body {
@@ -810,4 +812,95 @@ body#discount, body#cart {
     }
 }
 
+
+
+/* BLOCK ADVANTAGE */
+.cart-advantages {
+    .title-separator {
+        #logoTitle {
+            width: 22px;
+        }
+        &::before {
+            right: calc(50% + 16px + 0.1rem);
+        }
+        &::after {
+            left: calc(50% + 16px + 0.1rem);
+        }
+    }
+
+    .advantage-block {
+        .advantage-icon {
+            i {
+                font-size: 1.6rem;
+                &::after {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        .advantage-texte {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .advantage-content {
+            h5 {
+                color: color.adjust($color-custom-gray, $lightness: 10%) !important;
+            }
+
+            .advantage-texte {
+                padding-top: 10px;
+
+                p {
+                    padding-bottom: 0;
+                    color: color.adjust($color-custom-gray, $lightness: 10%) !important;
+                }
+            }
+     
+            .discount-blocks {
+                .discount-row {
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                    
+                    .discount-block {
+                        margin-top: 10px;
+                        .discount-amount {
+                            font-size: 1.4rem;
+                            font-weight: bold;
+                            color: color.adjust($color-custom-gray, $lightness: 10%);
+                        }
+                        
+                        .discount-condition {
+                            font-size: 0.8rem;
+                            color: color.adjust($color-custom-gray, $lightness: 10%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .help-block {
+        h5 {
+            color: color.adjust($color-custom-gray, $lightness: 10%) !important;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .title-separator {
+            display: none;
+        }
+        
+        .contact-text, .contact-email {
+            color: color.adjust($color-custom-gray, $lightness: 10%) !important;
+            font-size: 0.8rem;
+        }
+        .contact-phone {
+            font-size: 0.8rem !important;
+        }
+    }
+    
+}
 

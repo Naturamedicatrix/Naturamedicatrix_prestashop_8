@@ -185,12 +185,21 @@ body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufactur
   }
 }
 
-body#checkout #wrapper, body#cart #wrapper {
+body#checkout #wrapper {
   background: linear-gradient(to right, #FFFFFF 53%, #EDEFF1 50%);
 }
 @media (max-width: 1199px) {
-  body#checkout #wrapper, body#cart #wrapper {
+  body#checkout #wrapper {
     background: #f9fafb;
+  }
+}
+
+body#cart #wrapper {
+  background: linear-gradient(to right, #FFFFFF 70%, #EDEFF1 50%);
+}
+@media (max-width: 1399px) {
+  body#cart #wrapper {
+    background: linear-gradient(to right, #FFFFFF 63%, #EDEFF1 50%);
   }
 }
 
