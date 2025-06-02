@@ -267,6 +267,9 @@
         .product-image-container {
             flex: 0 0 140px;
             margin-right: 70px;
+            @media (min-width: 992px) and (max-width: 1400px) {
+                margin-right: 0px;
+            }
         }
         
         .content {

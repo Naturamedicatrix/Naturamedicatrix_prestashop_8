@@ -471,6 +471,11 @@ body#cart #wrapper {
   flex: 0 0 140px;
   margin-right: 70px;
 }
+@media (min-width: 992px) and (max-width: 1400px) {
+  .product-miniature-light .container .product-image-container {
+    margin-right: 0px;
+  }
+}
 .product-miniature-light .container .content {
   flex: 1;
   display: flex;

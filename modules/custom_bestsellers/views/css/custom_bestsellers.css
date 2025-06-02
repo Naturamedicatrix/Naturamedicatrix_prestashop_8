@@ -1,3 +1,123 @@
 /**
  * Styles pour le module custom_bestsellers
  */
+
+/* Styles du carousel */
+.product-list-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Gestion de l'affichage responsive */
+.carousel-slides-desktop {
+    display: none;
+}
+
+.carousel-slides-mobile {
+    display: block;
+}
+
+.desktop-pagination {
+    display: none;
+}
+
+.mobile-pagination {
+    display: flex;
+}
+
+/* Media query pour desktop uniquement (992px et plus) */
+@media (min-width: 992px) {
+    .carousel-slides-desktop {
+        display: block;
+    }
+    
+    .carousel-slides-mobile {
+        display: none;
+    }
+    
+    .desktop-pagination {
+        display: flex;
+    }
+    
+    .mobile-pagination {
+        display: none;
+    }
+}
+
+.carousel-slide {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
+    display: block;
+}
+
+.carousel-slide.prev {
+    transform: translateX(-100%);
+}
+
+.carousel-slide.next {
+    transform: translateX(100%);
+}
+
+.product-list-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.product-list-pagination .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #e5e8ea;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-list-pagination .dot.active {
+    background-color: #68768a;
+}
+
+.bestsellers-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.bestsellers-nav:hover {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bestsellers-nav.prev {
+    left: 10px;
+}
+
+.bestsellers-nav.next {
+    right: 10px;
+}

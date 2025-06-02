@@ -21,6 +21,55 @@
     </svg>
   </div>
   
-  {include file="catalog/_partials/productlist-bestseller.tpl" products=$products cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-4"}
+  <!-- Module custom_bestsellers: PHP, JS, CSS -->
+  <div id="bestsellers-carousel" class="product-list-carousel">
+    {* Slides pour desktop (3 produits par slide) *}
+    <div class="carousel-slides-desktop">
+      {* Page 1 *}
+      <div class="carousel-slide active">
+        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage1 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-4"}
+      </div>
+      
+      {* Page 2 *}
+      <div class="carousel-slide">
+        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage2 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-4"}
+      </div>
+      
+      {* Page 3 *}
+      <div class="carousel-slide">
+        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage3 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-4"}
+      </div>
+    </div>
+    
+    {* Slides pour mobile (1 produit par slide) *}
+    <div class="carousel-slides-mobile">
+      {* Génération dynamique des slides pour mobile (1 produit par slide) *}
+      {foreach from=$allProducts item="product" key="index"}
+        <div class="carousel-slide {if $index == 0}active{/if}">
+          <div class="row">
+            <div class="col-xs-12">
+              {include file="catalog/_partials/miniatures/product-bestseller.tpl" product=$product productClasses=""}
+            </div>
+          </div>
+        </div>
+      {/foreach}
+    </div>
+  </div>
+  
+  {* Pagination pour desktop (3 points) *}
+  <div class="product-list-pagination desktop-pagination">
+    <span class="dot active" data-slide="0"></span>
+    <span class="dot" data-slide="1"></span>
+    <span class="dot" data-slide="2"></span>
+  </div>
+  
+  {* Pagination pour mobile (un point par produit) *}
+  <div class="product-list-pagination mobile-pagination">
+    {foreach from=$allProducts item="product" key="index"}
+      <span class="dot {if $index == 0}active{/if}" data-slide="{$index}"></span>
+    {/foreach}
+  </div>
 </section>
 </div>
+
+

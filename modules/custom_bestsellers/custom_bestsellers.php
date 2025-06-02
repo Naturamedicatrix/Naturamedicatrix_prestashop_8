@@ -45,19 +45,42 @@ class Custom_Bestsellers extends Module
     public function hookDisplayHeader()
     {
         $this->context->controller->addCSS($this->_path.'views/css/custom_bestsellers.css', 'all');
+        $this->context->controller->addJS($this->_path.'views/js/product-carousel.js');
     }
 
     public function hookDisplayHome()
     {
-        // IDs des produits spécifiques à afficher
-        $specificProductIds = [19, 17, 16];
+        // IDs des produits spécifiques à afficher (3 par page pour le carousel)
+        // Page 1
+        $page1ProductIds = [19, 17, 16];
+        // Page 2
+        $page2ProductIds = [1, 2, 3];
+        // Page 3
+        $page3ProductIds = [4, 5, 6];
         
-        // Récupérer les produits spécifiques
+        // Combine tous les IDs de produits
+        $allProductIds = array_merge($page1ProductIds, $page2ProductIds, $page3ProductIds);
+        
+        // Récupère les produits spécifiques
         $products = [];
-        foreach ($specificProductIds as $productId) {
+        $productsPage1 = [];
+        $productsPage2 = [];
+        $productsPage3 = [];
+        
+        foreach ($allProductIds as $index => $productId) {
             $product = new Product($productId, true, $this->context->language->id);
             if (Validate::isLoadedObject($product) && $product->active) {
+                // Ajoute à la liste complète
                 $products[] = $product;
+                
+                // Ajoute à la page correspondante
+                if (in_array($productId, $page1ProductIds)) {
+                    $productsPage1[] = $product;
+                } elseif (in_array($productId, $page2ProductIds)) {
+                    $productsPage2[] = $product;
+                } elseif (in_array($productId, $page3ProductIds)) {
+                    $productsPage3[] = $product;
+                }
             }
         }
         
@@ -65,24 +88,56 @@ class Custom_Bestsellers extends Module
             return '';
         }
         
-        // Préparer les données des produits pour l'affichage
+        // Prépare les données des produits pour l'affichage
         $assembler = new ProductAssembler($this->context);
         $presenterFactory = new ProductPresenterFactory($this->context);
         $presentationSettings = $presenterFactory->getPresentationSettings();
         $presenter = $presenterFactory->getPresenter();
         
-        $products_for_template = [];
+        // Prépare les produits pour chaque page
+        $productsPage1ForTemplate = [];
+        $productsPage2ForTemplate = [];
+        $productsPage3ForTemplate = [];
+        $allProductsForTemplate = [];
         
-        foreach ($products as $product) {
-            $products_for_template[] = $presenter->present(
+        // Page 1
+        foreach ($productsPage1 as $product) {
+            $productData = $presenter->present(
                 $presentationSettings,
                 $assembler->assembleProduct(['id_product' => $product->id]),
                 $this->context->language
             );
+            $productsPage1ForTemplate[] = $productData;
+            $allProductsForTemplate[] = $productData; // Ajoute à la liste complète pour mobile
+        }
+        
+        // Page 2
+        foreach ($productsPage2 as $product) {
+            $productData = $presenter->present(
+                $presentationSettings,
+                $assembler->assembleProduct(['id_product' => $product->id]),
+                $this->context->language
+            );
+            $productsPage2ForTemplate[] = $productData;
+            $allProductsForTemplate[] = $productData; // Ajoute à la liste complète pour mobile
+        }
+        
+        // Page 3
+        foreach ($productsPage3 as $product) {
+            $productData = $presenter->present(
+                $presentationSettings,
+                $assembler->assembleProduct(['id_product' => $product->id]),
+                $this->context->language
+            );
+            $productsPage3ForTemplate[] = $productData;
+            $allProductsForTemplate[] = $productData; // Ajoute à la liste complète pour mobile
         }
         
         $this->smarty->assign([
-            'products' => $products_for_template,
+            'productsPage1' => $productsPage1ForTemplate,
+            'productsPage2' => $productsPage2ForTemplate,
+            'productsPage3' => $productsPage3ForTemplate,
+            'allProducts' => $allProductsForTemplate, // Pour l'affichage mobile
             'allProductsLink' => $this->context->link->getCategoryLink(2),
             'homeLink' => $this->context->link->getPageLink('index'),
             'pricesDropLink' => $this->context->link->getPageLink('prices-drop'),
