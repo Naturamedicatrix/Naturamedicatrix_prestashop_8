@@ -437,6 +437,22 @@ blockquote {
   }
 }
 
+.btn-light {
+  background-color: transparent !important;
+  color: $color-custom-grayLight !important;
+  border: 1px solid $color-custom-grayLight !important;
+
+  &:hover {
+    color: $color-custom-black !important;
+    border-color: $color-custom-black !important;
+  }
+  &.active {
+    background-color: transparent !important;
+    color: $color-custom-black !important;
+    border: 1px solid $color-custom-black !important;
+  }
+}
+
 .btn-disabled, .disabled {
   background-color: #e1e1e1 !important;
   color: #a1a1a1 !important;

@@ -386,6 +386,44 @@ body#cart #wrapper {
   padding: 5px;
 }
 
+.featured-products .all-product-link {
+  margin: 0 auto;
+}
+.featured-products .all-product-link a {
+  color: #4B5563 !important;
+  border-bottom: none !important;
+  font-weight: 100 !important;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+.featured-products .all-product-link a:hover {
+  color: #111827 !important;
+}
+.featured-products h2 {
+  margin: 0.4rem 0 0.2rem 0 !important;
+  font-size: 1.3rem;
+  font-weight: bold !important;
+}
+.featured-products .title-separator {
+  margin-top: 0;
+}
+.featured-products .title-separator::before {
+  left: 39%;
+  right: calc(50% + 17px + 0.5rem);
+}
+.featured-products .title-separator::after {
+  right: 40%;
+  left: calc(50% + 11px + 0.5rem);
+}
+.featured-products .title-separator #logoTitle {
+  width: 27px;
+}
+.featured-products .product-filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 /* === STYLES DES MODALS === */
 .modal-content .wishlist-add-to-new:hover {
   color: #f9fafb !important;
@@ -920,6 +958,21 @@ blockquote p {
 .btn-outline:hover {
   background-color: #111827 !important;
   color: #f9fafb !important;
+}
+
+.btn-light {
+  background-color: transparent !important;
+  color: #93A7C3 !important;
+  border: 1px solid #93A7C3 !important;
+}
+.btn-light:hover {
+  color: #111827 !important;
+  border-color: #111827 !important;
+}
+.btn-light.active {
+  background-color: transparent !important;
+  color: #111827 !important;
+  border: 1px solid #111827 !important;
 }
 
 .btn-disabled, .disabled {

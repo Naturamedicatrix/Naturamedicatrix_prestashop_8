@@ -172,3 +172,54 @@
     }
     
 }
+//END PRODUCT LIST
+
+
+// Nos produits populaires
+.featured-products {
+    .all-product-link {
+        margin: 0 auto;
+
+        a {
+            color: $color-custom-gray !important;
+            border-bottom: none !important;
+            font-weight: 100 !important;
+            transition: all .2s ease;
+            font-size: .9rem;
+
+            &:hover {
+                color: $color-custom-black !important;
+            }
+        }
+    }
+
+    h2 {
+        margin: .4rem 0 .2rem 0 !important;
+        font-size: 1.3rem;
+        font-weight: bold !important;
+    }
+
+    .title-separator {
+        margin-top: 0;
+        &::before {
+            left: 39%;
+            right: calc(50% + 17px + 0.5rem)
+        }
+        &::after {
+            right: 40%;
+            left: calc(50% + 11px + 0.5rem);
+        }
+        #logoTitle {
+            width: 27px;
+        }
+    }
+    
+    .product-filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+    }
+}
+
+//End Nos produits populaires

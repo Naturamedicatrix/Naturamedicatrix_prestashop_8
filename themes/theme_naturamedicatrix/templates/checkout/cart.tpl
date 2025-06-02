@@ -91,4 +91,6 @@
     {hook h='displayCrossSellingShoppingCart'}
     
   </section>
+
+  <div id="shopimind-interets-products"></div>
 {/block}
