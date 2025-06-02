@@ -175,8 +175,10 @@
 //END PRODUCT LIST
 
 
-// Nos produits populaires
+// Catégories des listes
 .featured-products {
+    padding: 4rem 0;
+
     .all-product-link {
         margin: 0 auto;
 
@@ -222,4 +224,23 @@
     }
 }
 
-//End Nos produits populaires
+
+
+// Best sellers
+.block-bestsellers-wrapper {
+    width: 100vw;
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
+    background-color: $color-custom-white;
+    padding: 4rem 0;
+}
+
+.block-bestsellers {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+//End Best Sellers
+//End Catégories des listes
