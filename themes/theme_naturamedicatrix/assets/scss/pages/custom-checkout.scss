@@ -522,7 +522,8 @@ body#cart {
         .product-line-info {
             color: $color-custom-gray;
             font-weight: 100;
-            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
             gap: 5px;
         }
 
@@ -640,6 +641,15 @@ body#cart {
             font-weight: normal !important;
             text-align: center;
         }       
+    }
+
+    .continue-shopping {
+        .btn-outline {
+            width: 100%;
+            &:hover {
+                color: $color-custom-white !important;
+            }
+        }
     }
 }
 

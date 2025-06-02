@@ -426,7 +426,8 @@ body#cart .cart-overview .cart-item .icon-special::after {
 body#cart .cart-overview .cart-item .product-line-info {
   color: #4B5563;
   font-weight: 100;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
   gap: 5px;
 }
 body#cart .cart-overview .cart-item .product-line-grid-body .color-title {
@@ -524,6 +525,12 @@ body#cart .product-features .product-flag {
   min-width: auto;
   font-weight: normal !important;
   text-align: center;
+}
+body#cart .continue-shopping .btn-outline {
+  width: 100%;
+}
+body#cart .continue-shopping .btn-outline:hover {
+  color: #f9fafb !important;
 }
 
 .block-promo {
