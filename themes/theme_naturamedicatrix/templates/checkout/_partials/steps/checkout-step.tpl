@@ -1,7 +1,7 @@
 {**
  * CUSTOM CHECKOUT STEP
  *}
-{block name='step'}
+ {block name='step'}
   <section  id    = "{$identifier}"
             class = "{[
                         'checkout-step'   => true,

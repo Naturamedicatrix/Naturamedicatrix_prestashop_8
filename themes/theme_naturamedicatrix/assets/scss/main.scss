@@ -10,6 +10,7 @@
 @use './partials/block_intro';
 @use './partials/_product_list.scss';
 @use './partials/_modal.scss';
+@use './partials/_block_guarantees.scss';
 
 
 /* === STYLE GLOBAL === */
@@ -136,6 +137,7 @@ body {
     right: -5px;
   }
 }
+
 // END Badges
 
 
@@ -1205,3 +1207,5 @@ body#pagenotfound {
     }
 }
 // END PAGE NOT FOUND
+
+
