@@ -433,14 +433,103 @@ body#cart #wrapper {
   margin-left: -50vw;
   left: 50%;
   background-color: #f9fafb;
-  padding: 4rem 0;
 }
 
 .block-bestsellers {
-  width: 100%;
-  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 15px;
+}
+@media (min-width: 768px) {
+  .block-bestsellers {
+    max-width: 1000px;
+  }
+}
+@media (min-width: 1200px) {
+  .block-bestsellers {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .block-bestsellers {
+    max-width: 1350px;
+  }
+}
+@media (min-width: 1600px) {
+  .block-bestsellers {
+    max-width: 1600px;
+  }
+}
+
+.product-miniature-light {
+  background-color: white;
+}
+.product-miniature-light .container {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.product-miniature-light .container .product-image-container {
+  flex: 0 0 140px;
+  margin-right: 70px;
+}
+.product-miniature-light .container .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.product-miniature-light .container .content .product-brand {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #93A7C3;
+}
+.product-miniature-light .container .content .product-title {
+  margin: 0;
+  text-align: left;
+  margin-bottom: 5px;
+}
+.product-miniature-light .container .content .product-title a {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4B5563 !important;
+}
+.product-miniature-light .container .content .product-subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #4B5563;
+  font-weight: 100;
+}
+.product-miniature-light .container .content .product-reviews {
+  display: flex;
+  align-items: center;
+  color: #93A7C3;
+}
+.product-miniature-light .container .content .product-reviews .stars {
+  color: #FFB339;
+  font-size: 0.8rem;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+}
+.product-miniature-light .container .content .product-reviews .review-count {
+  font-size: 0.7rem;
+}
+.product-miniature-light .container .content .product-price {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  color: #4B5563;
+  font-weight: 700;
+}
+.product-miniature-light .container .content .product-price .regular-price {
+  text-decoration: line-through;
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-left: 5px;
+}
+.product-miniature-light .product-flags {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  z-index: 2;
 }
 
 /* === STYLES DES MODALS === */

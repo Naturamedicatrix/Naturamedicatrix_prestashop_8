@@ -21,6 +21,6 @@
     </svg>
   </div>
   
-  {include file="catalog/_partials/productlist.tpl" products=$products cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-3"}
+  {include file="catalog/_partials/productlist-bestseller.tpl" products=$products cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-4"}
 </section>
 </div>
