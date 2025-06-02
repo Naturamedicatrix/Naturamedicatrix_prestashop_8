@@ -643,11 +643,38 @@ body#cart {
         }       
     }
 
+    .cart-grid-body a.label {
+        display: none;
+    }
+
     .continue-shopping {
         .btn-outline {
             width: 100%;
             &:hover {
                 color: $color-custom-white !important;
+            }
+        }
+        
+        p.font-bold {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            &::before, &::after {
+                content: '';
+                height: 1px;
+                background-color: $color-custom-gray;
+                flex: 1;
+                opacity: 0.5;
+            }
+            
+            &::before {
+                margin-right: 15px;
+            }
+            
+            &::after {
+                margin-left: 15px;
             }
         }
     }

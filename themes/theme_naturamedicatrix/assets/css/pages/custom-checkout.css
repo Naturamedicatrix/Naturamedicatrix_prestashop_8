@@ -526,11 +526,33 @@ body#cart .product-features .product-flag {
   font-weight: normal !important;
   text-align: center;
 }
+body#cart .cart-grid-body a.label {
+  display: none;
+}
 body#cart .continue-shopping .btn-outline {
   width: 100%;
 }
 body#cart .continue-shopping .btn-outline:hover {
   color: #f9fafb !important;
+}
+body#cart .continue-shopping p.font-bold {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body#cart .continue-shopping p.font-bold::before, body#cart .continue-shopping p.font-bold::after {
+  content: "";
+  height: 1px;
+  background-color: #4B5563;
+  flex: 1;
+  opacity: 0.5;
+}
+body#cart .continue-shopping p.font-bold::before {
+  margin-right: 15px;
+}
+body#cart .continue-shopping p.font-bold::after {
+  margin-left: 15px;
 }
 
 .block-promo {

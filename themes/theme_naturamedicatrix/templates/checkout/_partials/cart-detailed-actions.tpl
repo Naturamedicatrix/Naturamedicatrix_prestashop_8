@@ -19,13 +19,12 @@ CUSTOM ACTIONS CART
           <a href="{$urls.pages.order}" class="btn btn-primary">{l s='Proceed to checkout' d='Shop.Theme.Actions'}</a>
           {hook h='displayExpressCheckout'}
         </div>
-      {/if}
-    </div>
 
-    <div class="continue-shopping">
-      <hr />
-      <p class="text-center py-4 font-bold">Ou</p>
-      <a href="{$urls.pages.index}" class="btn btn-outline">{l s='Continue shopping' d='Shop.Theme.Actions'}</a>
+        <div class="continue-shopping">
+          <p class="text-center py-4 font-bold">Ou</p>
+          <a href="{$urls.pages.index}" class="btn btn-outline">{l s='Continue shopping' d='Shop.Theme.Actions'}</a>
+        </div>
+      {/if}
     </div>
     
   {/block}
