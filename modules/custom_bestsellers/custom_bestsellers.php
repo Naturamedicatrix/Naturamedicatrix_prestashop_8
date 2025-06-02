@@ -10,6 +10,8 @@ if (!defined('_PS_VERSION_')) {
 
 class Custom_Bestsellers extends Module
 {
+
+    
     public function __construct()
     {
         $this->name = 'custom_bestsellers';
@@ -102,33 +104,42 @@ class Custom_Bestsellers extends Module
         
         // Page 1
         foreach ($productsPage1 as $product) {
+            // Récupère les données complètes du produit
             $productData = $presenter->present(
                 $presentationSettings,
                 $assembler->assembleProduct(['id_product' => $product->id]),
                 $this->context->language
             );
+            
+
             $productsPage1ForTemplate[] = $productData;
             $allProductsForTemplate[] = $productData; // Ajoute à la liste complète pour mobile
         }
         
         // Page 2
         foreach ($productsPage2 as $product) {
+            // Récupère les données complètes du produit
             $productData = $presenter->present(
                 $presentationSettings,
                 $assembler->assembleProduct(['id_product' => $product->id]),
                 $this->context->language
             );
+            
+
             $productsPage2ForTemplate[] = $productData;
             $allProductsForTemplate[] = $productData; // Ajoute à la liste complète pour mobile
         }
         
         // Page 3
         foreach ($productsPage3 as $product) {
+            // Récupère les données complètes du produit
             $productData = $presenter->present(
                 $presentationSettings,
                 $assembler->assembleProduct(['id_product' => $product->id]),
                 $this->context->language
             );
+            
+
             $productsPage3ForTemplate[] = $productData;
             $allProductsForTemplate[] = $productData; // Ajoute à la liste complète pour mobile
         }

@@ -59,16 +59,10 @@
             </h3>
           {/block}
           
-          {* Product subtitle - using feature id 3 (quantity) *}
-          {if isset($product.features) && $product.features}
-            <div class="product-subtitle">
-              {foreach from=$product.features item=feature}
-                {if isset($feature.value) && $feature.value|trim != '' && $feature.id_feature == 3}
-                  {$feature.value|escape:'html':'UTF-8'}
-                {/if}
-              {/foreach}
-            </div>
-          {/if}
+          <div class="product-subtitle">
+            {* Include du template des variantes *}
+            {include file='catalog/_partials/miniatures/product-variants.tpl' product=$product}
+          </div>
           
           {* Product reviews *}
           {block name='product_reviews'}
