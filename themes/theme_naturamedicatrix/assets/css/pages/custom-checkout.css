@@ -752,3 +752,10 @@ body#discount .promo-form-group, body#cart .promo-form-group {
 .cart-advantages .help-block .contact-phone {
   font-size: 0.8rem !important;
 }
+
+@media (max-width: 991px) {
+  body#checkout #content-wrapper, body#cart #content-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

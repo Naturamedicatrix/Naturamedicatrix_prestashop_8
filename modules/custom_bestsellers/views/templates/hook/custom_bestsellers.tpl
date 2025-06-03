@@ -27,17 +27,17 @@
     <div class="carousel-slides-desktop">
       {* Page 1 *}
       <div class="carousel-slide active">
-        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage1 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-4"}
+        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage1 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-3 col-xl-3"}
       </div>
       
       {* Page 2 *}
       <div class="carousel-slide">
-        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage2 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-4"}
+        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage2 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-3 col-xl-3"}
       </div>
       
       {* Page 3 *}
       <div class="carousel-slide">
-        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage3 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-4"}
+        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage3 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-3 col-xl-3"}
       </div>
     </div>
     

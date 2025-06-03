@@ -426,6 +426,13 @@ body#cart #wrapper {
   justify-content: center;
   gap: 10px;
 }
+@media (max-width: 640px) {
+  .featured-products .product-filter-buttons .btn-light, .featured-products .product-filter-buttons .btn {
+    font-size: 0.7rem !important;
+    min-width: auto !important;
+    padding: 10px 20px !important;
+  }
+}
 
 .block-bestsellers-wrapper {
   width: 100vw;
@@ -455,7 +462,7 @@ body#cart #wrapper {
 }
 @media (min-width: 1600px) {
   .block-bestsellers {
-    max-width: 1600px;
+    max-width: 1550px;
   }
 }
 
@@ -471,7 +478,7 @@ body#cart #wrapper {
   flex: 0 0 140px;
   margin-right: 70px;
 }
-@media (min-width: 992px) and (max-width: 1400px) {
+@media (min-width: 320px) and (max-width: 1400px) {
   .product-miniature-light .container .product-image-container {
     margin-right: 0px;
   }
