@@ -54,7 +54,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll(slidesSelector);
     const totalSlides = slides.length;
     
+    // Variables pour le swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+    const minSwipeDistance = 50; // Distance minimale pour détecter un swipe
+    
     if (!slides.length || !dots.length) return;
+    
+    // Récupérer le conteneur parent pour les événements tactiles
+    const carouselContainer = slides[0].parentElement;
     
     // Masque toutes les slides sauf la première
     slides.forEach((slide, index) => {
@@ -126,5 +136,50 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       showSlide(prevIndex);
     }
+    
+    // Fonctions pour la gestion des événements tactiles (swipe)
+    function handleTouchStart(event) {
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
+    }
+    
+    function handleTouchMove(event) {
+      // Empêcher le défilement vertical pendant le swipe horizontal
+      touchEndX = event.touches[0].clientX;
+      touchEndY = event.touches[0].clientY;
+      
+      // Calculer la distance horizontale et verticale
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+      
+      // Si le mouvement horizontal est plus important que le vertical, empêcher le défilement de la page
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        event.preventDefault();
+      }
+    }
+    
+    function handleTouchEnd() {
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+      
+      // Vérifier si c'est un swipe horizontal (et non vertical)
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        // Vérifier si la distance est suffisante pour être considérée comme un swipe
+        if (Math.abs(diffX) > minSwipeDistance) {
+          if (diffX > 0) {
+            // Swipe vers la gauche -> slide suivante
+            nextSlide();
+          } else {
+            // Swipe vers la droite -> slide précédente
+            prevSlide();
+          }
+        }
+      }
+    }
+    
+    // Ajouter les écouteurs d'événements tactiles
+    carouselContainer.addEventListener('touchstart', handleTouchStart, { passive: false });
+    carouselContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+    carouselContainer.addEventListener('touchend', handleTouchEnd, { passive: false });
   }
 });

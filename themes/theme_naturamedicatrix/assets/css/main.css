@@ -490,7 +490,7 @@ body#cart #wrapper {
 .product-miniature-light .container .content .product-title {
   margin: 0;
   text-align: left;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 .product-miniature-light .container .content .product-title a {
   font-size: 1.1rem;
@@ -498,7 +498,7 @@ body#cart #wrapper {
   color: #4B5563 !important;
 }
 .product-miniature-light .container .content .product-subtitle {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 .product-miniature-light .container .content .product-subtitle .variants-group {
   text-align: left;
