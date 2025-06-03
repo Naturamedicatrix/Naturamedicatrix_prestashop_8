@@ -1107,7 +1107,7 @@ blockquote p {
   text-decoration: none !important;
 }
 
-.btn-small {
+.btn-small, .btn-sm {
   font-size: 12px;
   padding: 9px 15px 7px 15px;
   font-weight: normal;
@@ -1115,7 +1115,7 @@ blockquote p {
   border: 1px solid transparent;
 }
 @media (max-width: 1024px) {
-  .btn-small {
+  .btn-small, .btn-sm {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;

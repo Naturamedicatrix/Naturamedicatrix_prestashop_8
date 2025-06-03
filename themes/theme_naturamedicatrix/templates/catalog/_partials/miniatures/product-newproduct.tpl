@@ -1,5 +1,5 @@
 {**
-* PRODUCT BESTSELLER - Template spécifique pour les produits "Deal of the day"
+* PRODUCT NEW - Template spécifique pour les produits "Nouveautés"
 *}
 
 {* VARIABLES *}
@@ -14,11 +14,11 @@
       data-id-product-attribute="{$product.id_product_attribute}">
       
       <div class="container">
-        {* Product flags - n'affiche que les réductions *}
+        {* Product flags - n'affiche que les badges "new" *}
         <div class="product-flags">
           <ul class="product-flags js-product-flags">
             {foreach from=$product.flags item=flag}
-              {if $flag.type == 'discount'}
+              {if $flag.type == 'new'}
                 <li class="product-flag {$flag.type}">{$flag.label}</li>
               {/if}
             {/foreach}
