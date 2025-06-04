@@ -518,13 +518,30 @@ body#cart {
         .icon-special::after {
             right: -5px;
         }
+        
 
         .product-line-info {
             color: $color-custom-gray;
             font-weight: 100;
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
+            padding: 1px 0;
+
+            .labelle {
+                padding-right: 4px;
+            }
+
+            .value {
+                font-weight: 700;
+            }
+        }
+
+        .products-lines-infos {
+            padding: 2px 0;
+        }
+
+        .separator-attribute {
+            padding: 0 8px;
         }
 
         .product-line-grid-body {
@@ -532,6 +549,9 @@ body#cart {
                 font-weight: 700 !important;
                 color: $color-custom-gray !important;
                 font-size: .9rem;
+                @media (max-width: $breakpoint-sm) {
+                    font-size: 1.15rem;
+                }
             }
             .label-attributes {
                 padding-top: 3px;

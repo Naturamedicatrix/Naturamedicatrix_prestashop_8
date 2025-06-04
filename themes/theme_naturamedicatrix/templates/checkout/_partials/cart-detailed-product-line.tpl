@@ -45,65 +45,94 @@ CUSTOM PRODUCTS DETAILS CART
     {* Exécute la requête avec getInstance *}
     {assign var="features_result" value=Db::getInstance()->executeS($features_query)}
     
-    {* Affichage des caractéristiques si présentes *}
-    {if $features_result && count($features_result) > 0}
-      <div class="product-features">
-        <div class="product-line-info text-gray-500 text-xs label-features">
-          {foreach from=$features_result item=feature name=features_loop}
-            {if isset($feature.value) && $feature.value|trim != ''}
-              <span class="product-feature-item product-flag">{$feature.value|escape:'html':'UTF-8'}</span>
-              {if !$smarty.foreach.features_loop.last}{/if}
-            {/if}
-          {/foreach}
-        </div>
+    <!-- Nom du produit -->
+    <div class="product-line-info pb-0.5 color-title justify-center md:justify-start">
+      <a href="{$product.url}" data-id_customization="{$product.id_customization|intval}">{$product.name}</a>
+    </div>
+    
+    <!-- Date conseillée -->
+    {if isset($product.dlu) && $product.dlu}
+      <div class="product-line-info text-sm md:text-xs justify-center md:justify-start">
+        <span class="labelle">Date conseillée :</span>
+        <span class="value">
+          {* Formate la date en DD-MM-YYYY *}
+          {assign var="dluDate" value=$product.dlu|strtotime}
+          {$dluDate|date_format:"%d-%m-%Y"}
+        </span>
       </div>
     {/if}
     
-    <div class="product-line-info pb-0.5 color-title">
-      <a href="{$product.url}" data-id_customization="{$product.id_customization|intval}">{$product.name}</a>
-    </div>
-
-    <div class="products-lines-infos">
-      {* Affichage du statut de stock *}
-      <div class="product-line-info text-xs">
-      {* Vérifier si la variable quantity_available existe, sinon utiliser stock_quantity ou available_now comme fallback *}
+    <!-- Stock, caractéristique et attribut -->
+    <div class="products-lines-infos flex flex-wrap items-center text-sm md:text-xs justify-center md:justify-start">
+      <!-- Stock (ou rupture) -->
+      <div class="product-line-info">
       {if isset($product.quantity_available)}
-        {assign var="stockQuantity" value=$product.quantity_available}
-      {elseif isset($product.stock_quantity)}
-        {assign var="stockQuantity" value=$product.stock_quantity}
-      {elseif isset($product.available_now) && $product.available_now == ''}
-        {assign var="stockQuantity" value=0}
-      {else}
-        {assign var="stockQuantity" value=1}
-      {/if}
-
-      {if $stockQuantity > 0}
-        <span class="value font-semibold text-green-600">En stock</span>
-      {else}
-        <span class="value font-semibold text-red-600">Rupture de stock</span>
-      {/if}
-      </div>
-      {* DLU - avec format de date personnalisé *}
-      {if isset($product.dlu) && $product.dlu}
-        <div class="product-line-info text-gray-500 text-xs">
-          <span class="labelle">Date limite conseillée:</span>
-          <span class="value font-semibold">
-              {* Formate la date en DD-MM-YYYY *}
-              {assign var="dluDate" value=$product.dlu|strtotime}
-              {$dluDate|date_format:"%d-%m-%Y"}
+          <span class="value {if $product.quantity_available <= 0}text-red-500{else}text-green-600{/if} font-bold">
+              {if $product.quantity_available <= 0}
+                 Rupture
+              {else}
+                 En stock
+              {/if}
           </span>
-        </div>
-      {/if} 
-    </div>
-
-    {foreach from=$product.attributes key="attribute" item="value"}
-      <div class="product-line-info text-gray-500 text-sm label-attributes {$attribute|lower}">
-        <span class="labelle">{$attribute}:</span>
-        <span class="value">{$value}</span>
+      {elseif isset($product.stock_quantity)}
+          <span class="value {if $product.stock_quantity <= 0}text-red-500{else}text-green-600{/if} font-bold">
+              {if $product.stock_quantity <= 0}
+                  Rupture
+              {else}
+                  En stock
+              {/if}
+          </span>
+      {elseif isset($product.available_now)}
+          <span class="value {if !$product.available_now}text-red-500{else}text-green-600{/if} font-bold">
+              {if !$product.available_now}
+                  Rupture
+              {else}
+                  {$product.available_now}
+              {/if}
+          </span>
+      {/if}
       </div>
-    {/foreach}
+      
+      <span class="separator-attribute">&#x2014;</span>
+      
+      <!-- Une caractéristique -->
+      {if $features_result && count($features_result) > 0 && isset($features_result[0].value) && $features_result[0].value|trim != ''}
+        <div class="product-line-info">
+          <span class="product-feature-item product-flag">{$features_result[0].value|escape:'html':'UTF-8'}</span>
+        </div>
+      {else}
+        <div class="product-line-info">
+          <span>&nbsp;</span>
+        </div>
+      {/if}
+      
+      <span class="separator-attribute">&#x2014;</span>
+      
+      <!-- Un attribut -->
+      {assign var="firstAttribute" value=false}
+      {foreach from=$product.attributes key="attribute" item="value" name="attributes_loop"}
+        {if !$firstAttribute}
+          <div class="product-line-info">
+            <span class="labelle">{$attribute}: </span>
+            <span class="value">{$value}</span>
+          </div>
+          {assign var="firstAttribute" value=true}
+        {/if}
+      {/foreach}
+      {if !$firstAttribute}
+        <div class="product-line-info">
+          <span>&nbsp;</span>
+        </div>
+      {/if}
+    </div>
     
-    {* Les caractéristiques sont maintenant affichées au-dessus du titre du produit *}
+    <!-- Autres attributs si nécessaire -->
+    {assign var="firstAttribute" value=false}
+    {foreach from=$product.attributes key="attribute" item="value"}
+      {if $firstAttribute || $smarty.foreach.attributes_loop.first}
+        {assign var="firstAttribute" value=true}
+      {/if}
+    {/foreach}
 
     {if is_array($product.customizations) && $product.customizations|count}
       <br>
