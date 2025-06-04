@@ -678,6 +678,17 @@ body#cart {
             }
         }
     }
+
+    #footer {
+        .newsletter-container {
+            .alert {
+                margin: 0 auto;
+            }
+        }
+        .btn-primary:hover, .btn-outline:hover {
+            color: $color-custom-white !important;
+        }
+    }
 }
 
 

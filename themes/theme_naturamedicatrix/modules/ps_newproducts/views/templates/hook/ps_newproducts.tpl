@@ -77,7 +77,6 @@
     width: 100%;
 }
 
-/* Conteneurs des slides */
 .newproducts-slides-desktop,
 .newproducts-slides-mobile {
     position: relative;
@@ -85,7 +84,7 @@
     overflow: hidden;
 }
 
-/* Gestion de l'affichage responsive par défaut (mobile first) */
+
 .newproducts-slides-desktop {
     display: none;
 }
@@ -105,7 +104,6 @@
     gap: 10px;
 }
 
-/* Media query pour desktop uniquement (992px et plus) */
 @media (min-width: 992px) {
     .newproducts-slides-desktop {
         display: block;
@@ -127,7 +125,6 @@
     }
 }
 
-/* Styles communs pour les slides */
 .newproducts-slide {
     width: 100%;
     position: absolute;
@@ -140,7 +137,6 @@
     z-index: 1;
 }
 
-/* Slide active (visible) */
 .newproducts-slide.active-new {
     opacity: 1;
     transform: translateX(0);
@@ -148,21 +144,18 @@
     z-index: 2;
 }
 
-/* Slide précédente (gauche) */
 .newproducts-slide.prev-new {
     transform: translateX(-100%);
     opacity: 0.5;
     z-index: 1;
 }
 
-/* Slide suivante (droite) */
 .newproducts-slide.next-new {
     transform: translateX(100%);
     opacity: 0.5;
     z-index: 1;
 }
 
-/* Styles pour les indicateurs de pagination */
 .newproducts-dot {
     width: 12px;
     height: 12px;
@@ -177,7 +170,6 @@
     background-color: #68768a;
 }
 
-/* Navigation buttons (optional) */
 .newproducts-nav {
     position: absolute;
     top: 50%;
@@ -200,19 +192,17 @@
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Nous utilisons uniquement active-new, pas besoin d'annuler les styles génériques */
 </style>
 
 <script>
 /**
  * Script pour le carousel des nouveaux produits
- * Reproduit exactement l'animation du carousel Deal of the Day
  */
 document.addEventListener('DOMContentLoaded', function() {
-  // Détection du type d'appareil (mobile et tablette vs desktop)
+  // Détection du type d'ecran (mobile et tablette vs desktop)
   const isMobileOrTablet = window.innerWidth < 992;
   
-  // Affichage/masquage des éléments selon le type d'appareil
+  // Affichage/masquage des éléments selon le type d'ecran
   const desktopCarousel = document.querySelector('.newproducts-slides-desktop');
   const mobileCarousel = document.querySelector('.newproducts-slides-mobile');
   const desktopPagination = document.querySelector('.newproducts-desktop-pagination');
@@ -242,10 +232,8 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('resize', function() {
     const newIsMobileOrTablet = window.innerWidth < 992;
     
-    // Ne rien faire si le type d'appareil n'a pas changé
     if (newIsMobileOrTablet === isMobileOrTablet) return;
     
-    // Recharge la page pour réinitialiser le carousel
     window.location.reload();
   });
   
@@ -266,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!slides.length || !dots.length) return;
     
-    // Récupérer le conteneur parent pour les événements tactiles
+    // Récupere le conteneur parent pour les événements tactiles (mobile)
     const carouselContainer = slides[0].parentElement;
     
     // Masque toutes les slides sauf la première
@@ -282,14 +270,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function showSlide(newIndex) {
       if (newIndex === currentSlide) return;
       
-      // Déterminer la direction
+      // Détermine la direction
       const direction = newIndex > currentSlide ? 'next-new' : 'prev-new';
       
-      // Mettre à jour les indicateurs
+      // Met à jour les indicateurs
       dots.forEach(dot => dot.classList.remove('active-new'));
       dots[newIndex].classList.add('active-new');
       
-      // Récupère les slides concernées
+      // Récupere les slides concernées
       const currentElement = slides[currentSlide];
       const nextElement = slides[newIndex];
       
@@ -349,15 +337,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function handleTouchMove(event) {
-      // Empêcher le défilement vertical pendant le swipe horizontal
+      // Empêche le défilement vertical pendant le swipe horizontal
       touchEndX = event.touches[0].clientX;
       touchEndY = event.touches[0].clientY;
       
-      // Calculer la distance horizontale et verticale
+      // Calcule la distance horizontale et verticale
       const diffX = touchStartX - touchEndX;
       const diffY = touchStartY - touchEndY;
       
-      // Si le mouvement horizontal est plus important que le vertical, empêcher le défilement de la page
       if (Math.abs(diffX) > Math.abs(diffY)) {
         event.preventDefault();
       }
@@ -367,9 +354,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const diffX = touchStartX - touchEndX;
       const diffY = touchStartY - touchEndY;
       
-      // Vérifier si c'est un swipe horizontal (et non vertical)
+      // Vérifie si c'est un swipe horizontal (et non vertical)
       if (Math.abs(diffX) > Math.abs(diffY)) {
-        // Vérifier si la distance est suffisante pour être considérée comme un swipe
+        // Vérifie si la distance est suffisante pour être considérée comme un swipe
         if (Math.abs(diffX) > minSwipeDistance) {
           if (diffX > 0) {
             // Swipe vers la gauche -> slide suivante
@@ -382,33 +369,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Ajouter les écouteurs d'événements tactiles
+    // Ajout les écouteurs d'événements tactiles
     carouselContainer.addEventListener('touchstart', handleTouchStart, { passive: false });
     carouselContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
     carouselContainer.addEventListener('touchend', handleTouchEnd, { passive: false });
     
-    // Création des boutons de navigation (optionnel)
-    const createNavButtons = () => {
-      // Bouton précédent
-      const prevButton = document.createElement('div');
-      prevButton.className = 'newproducts-nav prev';
-      prevButton.innerHTML = '&lt;';
-      prevButton.addEventListener('click', prevSlide);
-      
-      // Bouton suivant
-      const nextButton = document.createElement('div');
-      nextButton.className = 'newproducts-nav next';
-      nextButton.innerHTML = '&gt;';
-      nextButton.addEventListener('click', nextSlide);
-      
-      // Ajout au conteneur du carousel
-      const carousel = document.getElementById('newproducts-carousel');
-      carousel.appendChild(prevButton);
-      carousel.appendChild(nextButton);
-    };
-    
-    // Décommenter la ligne suivante pour ajouter des boutons de navigation
-    // createNavButtons();
   }
 });
 </script>

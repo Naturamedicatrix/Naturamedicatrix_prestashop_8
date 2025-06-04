@@ -10,7 +10,46 @@ if (!defined('_PS_VERSION_')) {
 
 class Custom_Bestsellers extends Module
 {
-
+    // Nom de la sous-catégorie
+    const CATEGORY_NAME = 'Best deals';
+    
+    /**
+     * Obtient le lien vers une catégorie en se basant sur son nom
+     * @param string $categoryName Nom de la catégorie
+     * @param int $idLang ID de la langue
+     * @return string URL de la catégorie ou URL par défaut si non trouvée
+     */
+    private function getCategoryLinkByName($categoryName, $idLang)
+    {
+        // URL par défaut si la catégorie n'est pas trouvée
+        $defaultUrl = $this->context->link->getPageLink('index');
+        
+        try {
+            // Recherche la catégorie par son nom
+            $categories = Category::searchByName($idLang, $categoryName, false);
+            
+            if (!empty($categories)) {
+                foreach ($categories as $cat) {
+                    if (isset($cat['id_category'])) {
+                        $tempCategory = new Category((int)$cat['id_category'], $idLang);
+                        
+                        // Vérifie si c'est une sous-catégorie et si le nom correspond
+                        if (Validate::isLoadedObject($tempCategory) && 
+                            $tempCategory->level_depth > 1 && 
+                            strtolower($tempCategory->name) == strtolower($categoryName)) {
+                            
+                            // Génère le lien vers cette catégorie
+                            return $this->context->link->getCategoryLink($tempCategory->id);
+                        }
+                    }
+                }
+            }
+        } catch (Exception $e) {
+            // En cas d'erreur, retourner l'URL par défaut
+        }
+        
+        return $defaultUrl;
+    }
     
     public function __construct()
     {
@@ -52,40 +91,89 @@ class Custom_Bestsellers extends Module
 
     public function hookDisplayHome()
     {
-        // IDs des produits spécifiques à afficher (3 par page pour le carousel)
-        // Page 1
-        $page1ProductIds = [19, 17, 16];
-        // Page 2
-        $page2ProductIds = [1, 2, 3];
-        // Page 3
-        $page3ProductIds = [4, 5, 6];
+        // Recherche de la sous-catégorie par son nom (défini dans la constante)
+        $categoryName = self::CATEGORY_NAME;
+        $idLang = $this->context->language->id;
+        $bestDealsId = null;
         
-        // Combine tous les IDs de produits
-        $allProductIds = array_merge($page1ProductIds, $page2ProductIds, $page3ProductIds);
+        try {
+            // Récupère toutes les catégories correspondant au nom
+            $categories = Category::searchByName($idLang, $categoryName, false);
+            
+            if (!empty($categories)) {
+                foreach ($categories as $cat) {
+                    if (isset($cat['id_category'])) {
+                        $tempCategory = new Category((int)$cat['id_category'], $idLang);
+                        
+                        if (Validate::isLoadedObject($tempCategory) && 
+                            $tempCategory->level_depth > 1 && 
+                            strtolower($tempCategory->name) == strtolower($categoryName)) {
+                            $bestDealsId = $tempCategory->id;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            // Si aucune sous-catégorie "Best deals" n'a été trouvée, essayer avec l'ID 23
+            if ($bestDealsId === null) {
+                $fallbackCategory = new Category(23, $idLang);
+                if (Validate::isLoadedObject($fallbackCategory)) {
+                    $bestDealsId = 23;
+                } else {
+                    return '';
+                }
+            }
+        } catch (Exception $e) {
+            return '';
+        }
         
-        // Récupère les produits spécifiques
+        // Récupère les informations sur la catégorie
+        $category = new Category((int)$bestDealsId);
+        
+        if (!Validate::isLoadedObject($category)) {
+            return '';
+        }
+        
+        // Récupère tous les produits de la catégorie (limité à 9 maximum)
+        $productIds = $category->getProducts($this->context->language->id, 0, 9, 'position', 'asc');
+        
+        if (empty($productIds)) {
+            return '';
+        }
+        
+        // Initialise les arrays pour stocker les produits
         $products = [];
         $productsPage1 = [];
         $productsPage2 = [];
         $productsPage3 = [];
         
-        foreach ($allProductIds as $index => $productId) {
+       // 3 produits par page
+        $productsPerPage = 3;
+        $filteredIndex = 0;
+        
+        foreach ($productIds as $productData) {
+            $productId = $productData['id_product'];
             $product = new Product($productId, true, $this->context->language->id);
+            
             if (Validate::isLoadedObject($product) && $product->active) {
-                // Ajoute à la liste complète
                 $products[] = $product;
                 
-                // Ajoute à la page correspondante
-                if (in_array($productId, $page1ProductIds)) {
+                $pageIndex = floor($filteredIndex / $productsPerPage);
+                
+                if ($pageIndex == 0) {
                     $productsPage1[] = $product;
-                } elseif (in_array($productId, $page2ProductIds)) {
+                } elseif ($pageIndex == 1) {
                     $productsPage2[] = $product;
-                } elseif (in_array($productId, $page3ProductIds)) {
+                } elseif ($pageIndex == 2) {
                     $productsPage3[] = $product;
                 }
+                
+                $filteredIndex++;
             }
         }
         
+        // Si après filtrage --> pas de produits
         if (empty($products)) {
             return '';
         }
@@ -144,12 +232,15 @@ class Custom_Bestsellers extends Module
             $allProductsForTemplate[] = $productData; // Ajoute à la liste complète pour mobile
         }
         
+        // Aucun code de débogage dans la version finale
+        
         $this->smarty->assign([
             'productsPage1' => $productsPage1ForTemplate,
             'productsPage2' => $productsPage2ForTemplate,
             'productsPage3' => $productsPage3ForTemplate,
-            'allProducts' => $allProductsForTemplate, // Pour l'affichage mobile
-            'allProductsLink' => $this->context->link->getCategoryLink(2),
+            'allProducts' => $allProductsForTemplate, // mobile
+            'allProductsLink' => $this->getCategoryLinkByName(self::CATEGORY_NAME, $idLang), // Lien avec le nom de la catégorie
+            'categoryName' => $category->name[$idLang],
             'homeLink' => $this->context->link->getPageLink('index'),
             'pricesDropLink' => $this->context->link->getPageLink('prices-drop'),
             'newProductsLink' => $this->context->link->getPageLink('new-products'),

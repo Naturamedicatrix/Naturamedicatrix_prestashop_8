@@ -5,7 +5,7 @@
 <div class="block-bestsellers-wrapper">
 <section class="featured-products block-bestsellers clearfix">
   <div class="all-product-link text-center">
-  <a href="{$link->getPageLink('best-sales')}">
+  <a href="{$allProductsLink}">
     » {l s='Toutes nos meilleures offres' d='Modules.Custombest.Shop'}
   </a>
   </div>

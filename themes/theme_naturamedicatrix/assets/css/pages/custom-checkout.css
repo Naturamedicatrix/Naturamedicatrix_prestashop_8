@@ -554,6 +554,12 @@ body#cart .continue-shopping p.font-bold::before {
 body#cart .continue-shopping p.font-bold::after {
   margin-left: 15px;
 }
+body#cart #footer .newsletter-container .alert {
+  margin: 0 auto;
+}
+body#cart #footer .btn-primary:hover, body#cart #footer .btn-outline:hover {
+  color: #f9fafb !important;
+}
 
 .block-promo {
   margin-bottom: 0;
