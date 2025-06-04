@@ -64,7 +64,7 @@ class Ps_NewProducts extends Module implements WidgetInterface
         $this->_clearCache('*');
 
         return parent::install()
-            && Configuration::updateValue('NEW_PRODUCTS_NBR', 8)
+            && Configuration::updateValue('NEW_PRODUCTS_NBR', 9)
             && $this->registerHook('actionProductAdd')
             && $this->registerHook('actionProductUpdate')
             && $this->registerHook('actionProductDelete')
@@ -212,9 +212,15 @@ class Ps_NewProducts extends Module implements WidgetInterface
         $products = $this->getNewProducts();
 
         if (!empty($products)) {
+            // Inclure le fichier d'utilitaires pour récupérer le lien vers la catégorie "Nouveautés"
+            require_once(dirname(__FILE__).'/ps_newproducts_category.php');
+            
+            // Récupérer le lien vers la catégorie "Nouveautés" ou utiliser le lien par défaut
+            $categoryLink = getCategoryLinkByName('Nouveautés', (int)$this->context->language->id, $this->context);
+            
             return [
                 'products' => $products,
-                'allNewProductsLink' => Context::getContext()->link->getPageLink('new-products'),
+                'allNewProductsLink' => $categoryLink,
             ];
         }
 
@@ -223,51 +229,64 @@ class Ps_NewProducts extends Module implements WidgetInterface
 
     protected function getNewProducts()
     {
-        $newProducts = false;
+        // Inclure le fichier d'utilitaires pour récupérer les produits de la catégorie "Nouveautés"
+        require_once(dirname(__FILE__).'/ps_newproducts_category.php');
+        
+        // Récupérer les produits de la catégorie "Nouveautés"
+        $products_for_template = getProductsFromCategory(
+            'Nouveautés', 
+            (int) Configuration::get('NEW_PRODUCTS_NBR'),
+            $this->context
+        );
+        
+        // Si aucun produit n'est trouvé dans la catégorie "Nouveautés", utiliser la méthode originale
+        if (empty($products_for_template)) {
+            $newProducts = false;
 
-        if (Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) {
-            $newProducts = Product::getNewProducts(
-                (int) $this->context->language->id,
-                0,
-                (int) Configuration::get('NEW_PRODUCTS_NBR')
-            );
-        }
-
-        $assembler = new ProductAssembler($this->context);
-
-        $presenterFactory = new ProductPresenterFactory($this->context);
-        $presentationSettings = $presenterFactory->getPresentationSettings();
-        if (version_compare(_PS_VERSION_, '1.7.5', '>=')) {
-            $presenter = new \PrestaShop\PrestaShop\Adapter\Presenter\Product\ProductListingPresenter(
-                new ImageRetriever(
-                    $this->context->link
-                ),
-                $this->context->link,
-                new PriceFormatter(),
-                new ProductColorsRetriever(),
-                $this->context->getTranslator()
-            );
-        } else {
-            $presenter = new \PrestaShop\PrestaShop\Core\Product\ProductListingPresenter(
-                new ImageRetriever(
-                    $this->context->link
-                ),
-                $this->context->link,
-                new PriceFormatter(),
-                new ProductColorsRetriever(),
-                $this->context->getTranslator()
-            );
-        }
-
-        $products_for_template = [];
-
-        if (is_array($newProducts)) {
-            foreach ($newProducts as $rawProduct) {
-                $products_for_template[] = $presenter->present(
-                    $presentationSettings,
-                    $assembler->assembleProduct($rawProduct),
-                    $this->context->language
+            if (Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) {
+                $newProducts = Product::getNewProducts(
+                    (int) $this->context->language->id,
+                    0,
+                    (int) Configuration::get('NEW_PRODUCTS_NBR')
                 );
+            }
+
+            $assembler = new ProductAssembler($this->context);
+
+            $presenterFactory = new ProductPresenterFactory($this->context);
+            $presentationSettings = $presenterFactory->getPresentationSettings();
+            if (version_compare(_PS_VERSION_, '1.7.5', '>=')) {
+                $presenter = new \PrestaShop\PrestaShop\Adapter\Presenter\Product\ProductListingPresenter(
+                    new ImageRetriever(
+                        $this->context->link
+                    ),
+                    $this->context->link,
+                    new PriceFormatter(),
+                    new ProductColorsRetriever(),
+                    $this->context->getTranslator()
+                );
+            } else {
+                $presenter = new \PrestaShop\PrestaShop\Core\Product\ProductListingPresenter(
+                    new ImageRetriever(
+                        $this->context->link
+                    ),
+                    $this->context->link,
+                    new PriceFormatter(),
+                    new ProductColorsRetriever(),
+                    $this->context->getTranslator()
+                );
+            }
+
+            $products_for_template = [];
+
+            if (is_array($newProducts)) {
+                foreach ($newProducts as $rawProduct) {
+                    $products_for_template[] = $presenter->present(
+                        $presentationSettings,
+                        $assembler->assembleProduct($rawProduct),
+                        $this->context->language
+                    );
+                }
             }
         }
 

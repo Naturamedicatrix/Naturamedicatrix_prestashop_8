@@ -2,9 +2,10 @@
  * Template pour le module ps_newproducts
  * Affiche des produits "nouveautés" avec un carousel
  *}
- <section class="featured-products block-newproducts clearfix">
+
+<section class="featured-products block-newproducts clearfix">
    <div class="all-product-link text-center">
-   <a href="{$link->getPageLink('new-products')}">
+   <a href="{$allNewProductsLink|default:$link->getPageLink('new-products')}">
      » {l s='Toutes nos nouveautés' d='Modules.Ps_newproducts.Shop'}
    </a>
    </div>

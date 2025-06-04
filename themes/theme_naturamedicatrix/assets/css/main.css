@@ -31,6 +31,7 @@ body#category #wrapper p {
 #subcategories ul li {
   min-width: auto;
   width: auto;
+  margin: 15px 5px !important;
 }
 
 #subcategories {
