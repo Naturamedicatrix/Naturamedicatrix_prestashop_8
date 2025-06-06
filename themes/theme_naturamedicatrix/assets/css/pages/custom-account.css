@@ -14,44 +14,7 @@ body#module-psgdpr-gdpr #main, body#module-blockwishlist-lists #main, body#view 
 }
 @media (max-width: 640px) {
   body#module-psgdpr-gdpr #main, body#module-blockwishlist-lists #main, body#view #main {
-    min-height: 750px !important;
-  }
-}
-@media (min-width: 768px) {
-  body#module-psgdpr-gdpr .gdpr-page-layout #left-column.col-md-4, body#module-psgdpr-gdpr .wishlist-page-layout #left-column.col-md-4, body#module-blockwishlist-lists .gdpr-page-layout #left-column.col-md-4, body#module-blockwishlist-lists .wishlist-page-layout #left-column.col-md-4, body#view .gdpr-page-layout #left-column.col-md-4, body#view .wishlist-page-layout #left-column.col-md-4 {
-    width: 25%;
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
-}
-@media (max-width: 640px) {
-  body#module-psgdpr-gdpr .gdpr-page-layout #left-column, body#module-psgdpr-gdpr .wishlist-page-layout #left-column, body#module-blockwishlist-lists .gdpr-page-layout #left-column, body#module-blockwishlist-lists .wishlist-page-layout #left-column, body#view .gdpr-page-layout #left-column, body#view .wishlist-page-layout #left-column {
-    padding: 0;
-    margin-bottom: 20px !important;
-    border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  }
-}
-@media (max-width: 640px) {
-  body#module-psgdpr-gdpr .gdpr-page-layout #left-column .account-list, body#module-psgdpr-gdpr .wishlist-page-layout #left-column .account-list, body#module-blockwishlist-lists .gdpr-page-layout #left-column .account-list, body#module-blockwishlist-lists .wishlist-page-layout #left-column .account-list, body#view .gdpr-page-layout #left-column .account-list, body#view .wishlist-page-layout #left-column .account-list {
-    padding: 15px 10px;
-  }
-}
-@media (max-width: 640px) {
-  body#module-psgdpr-gdpr .gdpr-page-layout #left-column .account-list .customer-info, body#module-psgdpr-gdpr .wishlist-page-layout #left-column .account-list .customer-info, body#module-blockwishlist-lists .gdpr-page-layout #left-column .account-list .customer-info, body#module-blockwishlist-lists .wishlist-page-layout #left-column .account-list .customer-info, body#view .gdpr-page-layout #left-column .account-list .customer-info, body#view .wishlist-page-layout #left-column .account-list .customer-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  body#module-psgdpr-gdpr .gdpr-page-layout #left-column .account-list .customer-info h3, body#module-psgdpr-gdpr .wishlist-page-layout #left-column .account-list .customer-info h3, body#module-blockwishlist-lists .gdpr-page-layout #left-column .account-list .customer-info h3, body#module-blockwishlist-lists .wishlist-page-layout #left-column .account-list .customer-info h3, body#view .gdpr-page-layout #left-column .account-list .customer-info h3, body#view .wishlist-page-layout #left-column .account-list .customer-info h3 {
-    margin-bottom: 5px;
-    font-size: 1.3rem;
-  }
-  body#module-psgdpr-gdpr .gdpr-page-layout #left-column .account-list .customer-info .customer-email, body#module-psgdpr-gdpr .wishlist-page-layout #left-column .account-list .customer-info .customer-email, body#module-blockwishlist-lists .gdpr-page-layout #left-column .account-list .customer-info .customer-email, body#module-blockwishlist-lists .wishlist-page-layout #left-column .account-list .customer-info .customer-email, body#view .gdpr-page-layout #left-column .account-list .customer-info .customer-email, body#view .wishlist-page-layout #left-column .account-list .customer-info .customer-email {
-    font-size: 0.9rem;
-    opacity: 0.8;
+    min-height: 300px !important;
   }
 }
 @media (min-width: 767px) {
@@ -100,9 +63,14 @@ body#module-psgdpr-gdpr #main, body#module-blockwishlist-lists #main, body#view 
     background: #f9fafb;
   }
 }
+@media (max-width: 640px) {
+  body#my-account #wrapper .row, body#identity #wrapper .row, body#addresses #wrapper .row, body#history #wrapper .row, body#order-slip #wrapper .row, body#module-blockwishlist-lists #wrapper .row, body#view #wrapper .row, body#module-blockwishlist-view #wrapper .row, body#module-psgdpr-gdpr #wrapper .row, body#address #wrapper .row {
+    background-color: #FFFFFF;
+  }
+}
 body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#view #main, body#module-blockwishlist-view #main, body#module-psgdpr-gdpr #main, body#address #main {
   padding: 50px;
-  min-height: 1100px;
+  min-height: 1200px;
 }
 @media (max-width: 767px) {
   body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#view #main, body#module-blockwishlist-view #main, body#module-psgdpr-gdpr #main, body#address #main {
@@ -121,7 +89,7 @@ body#my-account #content, body#identity #content, body#addresses #content, body#
 }
 @media (max-width: 640px) {
   body#my-account #content, body#identity #content, body#addresses #content, body#history #content, body#order-slip #content, body#module-blockwishlist-lists #content, body#view #content, body#module-blockwishlist-view #content, body#module-psgdpr-gdpr #content, body#address #content {
-    padding: 0 15px !important;
+    padding: 0 30px !important;
   }
 }
 @media (max-width: 640px) {
@@ -140,6 +108,7 @@ body#my-account .alert, body#identity .alert, body#addresses .alert, body#histor
 @media (max-width: 640px) {
   body#my-account .alert, body#identity .alert, body#addresses .alert, body#history .alert, body#order-slip .alert, body#module-blockwishlist-lists .alert, body#view .alert, body#module-blockwishlist-view .alert, body#module-psgdpr-gdpr .alert, body#address .alert {
     padding: 0.75rem 1.25rem;
+    width: 100%;
   }
 }
 body#my-account .identity-section .field-password-policy:first-of-type .password-strength-feedback, body#identity .identity-section .field-password-policy:first-of-type .password-strength-feedback, body#addresses .identity-section .field-password-policy:first-of-type .password-strength-feedback, body#history .identity-section .field-password-policy:first-of-type .password-strength-feedback, body#order-slip .identity-section .field-password-policy:first-of-type .password-strength-feedback, body#module-blockwishlist-lists .identity-section .field-password-policy:first-of-type .password-strength-feedback, body#view .identity-section .field-password-policy:first-of-type .password-strength-feedback, body#module-blockwishlist-view .identity-section .field-password-policy:first-of-type .password-strength-feedback, body#module-psgdpr-gdpr .identity-section .field-password-policy:first-of-type .password-strength-feedback, body#address .identity-section .field-password-policy:first-of-type .password-strength-feedback {
@@ -153,17 +122,20 @@ body#my-account .address-body address, body#identity .address-body address, body
 }
 body#my-account .address-footer, body#identity .address-footer, body#addresses .address-footer, body#history .address-footer, body#order-slip .address-footer, body#module-blockwishlist-lists .address-footer, body#view .address-footer, body#module-blockwishlist-view .address-footer, body#module-psgdpr-gdpr .address-footer, body#address .address-footer {
   padding: 10px 0 0 0;
+  border-top: none;
 }
 body#my-account h1, body#my-account h2, body#identity h1, body#identity h2, body#addresses h1, body#addresses h2, body#history h1, body#history h2, body#order-slip h1, body#order-slip h2, body#module-blockwishlist-lists h1, body#module-blockwishlist-lists h2, body#view h1, body#view h2, body#module-blockwishlist-view h1, body#module-blockwishlist-view h2, body#module-psgdpr-gdpr h1, body#module-psgdpr-gdpr h2, body#address h1, body#address h2 {
   text-align: left !important;
   margin: 0 !important;
   padding-bottom: 10px;
+  padding-top: 70px;
   font-size: 2rem;
 }
 @media (max-width: 640px) {
   body#my-account h1, body#my-account h2, body#identity h1, body#identity h2, body#addresses h1, body#addresses h2, body#history h1, body#history h2, body#order-slip h1, body#order-slip h2, body#module-blockwishlist-lists h1, body#module-blockwishlist-lists h2, body#view h1, body#view h2, body#module-blockwishlist-view h1, body#module-blockwishlist-view h2, body#module-psgdpr-gdpr h1, body#module-psgdpr-gdpr h2, body#address h1, body#address h2 {
+    padding-top: 15px;
+    padding-bottom: 5px !important;
     font-size: 1.5rem;
-    text-align: center !important;
   }
 }
 body#my-account .breadcrumb, body#identity .breadcrumb, body#addresses .breadcrumb, body#history .breadcrumb, body#order-slip .breadcrumb, body#module-blockwishlist-lists .breadcrumb, body#view .breadcrumb, body#module-blockwishlist-view .breadcrumb, body#module-psgdpr-gdpr .breadcrumb, body#address .breadcrumb {
@@ -528,17 +500,27 @@ body#my-account .left-column-content .account-list .help-block .title-separator,
     padding-left: 0;
   }
 }
+body#my-account .addresses-footer, body#identity .addresses-footer, body#addresses .addresses-footer, body#history .addresses-footer, body#order-slip .addresses-footer, body#module-blockwishlist-lists .addresses-footer, body#view .addresses-footer, body#module-blockwishlist-view .addresses-footer, body#module-psgdpr-gdpr .addresses-footer, body#address .addresses-footer {
+  margin: 0;
+}
 body#my-account .addresses-footer i, body#identity .addresses-footer i, body#addresses .addresses-footer i, body#history .addresses-footer i, body#order-slip .addresses-footer i, body#module-blockwishlist-lists .addresses-footer i, body#view .addresses-footer i, body#module-blockwishlist-view .addresses-footer i, body#module-psgdpr-gdpr .addresses-footer i, body#address .addresses-footer i {
   position: relative;
   top: 2px;
 }
 @media (max-width: 640px) {
   body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary, body#view .btn-primary, body#module-blockwishlist-view .btn-primary, body#module-psgdpr-gdpr .btn-primary, body#address .btn-primary {
-    padding: 10px 65px;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    width: 100%;
   }
 }
 body#my-account .block-address, body#identity .block-address, body#addresses .block-address, body#history .block-address, body#order-slip .block-address, body#module-blockwishlist-lists .block-address, body#view .block-address, body#module-blockwishlist-view .block-address, body#module-psgdpr-gdpr .block-address, body#address .block-address {
   padding: 0 15px 0 0;
+}
+@media (max-width: 640px) {
+  body#my-account .block-address, body#identity .block-address, body#addresses .block-address, body#history .block-address, body#order-slip .block-address, body#module-blockwishlist-lists .block-address, body#view .block-address, body#module-blockwishlist-view .block-address, body#module-psgdpr-gdpr .block-address, body#address .block-address {
+    padding-right: 0;
+  }
 }
 
 /* STYLE POUR LE MODULE LISTE DES ENVIES / GDPR */
@@ -553,11 +535,24 @@ body#module-blockwishlist-lists #content-wrapper, body#module-psgdpr-gdpr #conte
     width: 66.67%;
   }
 }
+body#module-blockwishlist-lists .wishlist-container, body#module-psgdpr-gdpr .wishlist-container, body#view .wishlist-container {
+  padding-top: 70px;
+}
+@media (max-width: 640px) {
+  body#module-blockwishlist-lists .wishlist-container, body#module-psgdpr-gdpr .wishlist-container, body#view .wishlist-container {
+    padding-top: 30px;
+  }
+}
 body#module-blockwishlist-lists .wishlist-list i, body#module-psgdpr-gdpr .wishlist-list i, body#view .wishlist-list i {
   color: #4B5563;
 }
 body#module-blockwishlist-lists .wishlist-list-item-default, body#module-psgdpr-gdpr .wishlist-list-item-default, body#view .wishlist-list-item-default {
   border-bottom: none;
+}
+@media (max-width: 640px) {
+  body#module-blockwishlist-lists .wishlist-add-to-new, body#module-psgdpr-gdpr .wishlist-add-to-new, body#view .wishlist-add-to-new {
+    width: 100%;
+  }
 }
 body#module-blockwishlist-lists .wishlist-list-item-link, body#module-psgdpr-gdpr .wishlist-list-item-link, body#view .wishlist-list-item-link {
   border-bottom: 1px solid #93A7C3;
@@ -665,9 +660,15 @@ body#view .wishlist-product-combinations i {
 }
 
 body#my-account h1, body#my-account h2, body#identity h1, body#identity h2, body#addresses h1, body#addresses h2, body#history h1, body#history h2, body#order-slip h1, body#order-slip h2, body#module-blockwishlist-lists h1, body#module-blockwishlist-lists h2, body#view h1, body#view h2, body#module-blockwishlist-view h1, body#module-blockwishlist-view h2, body#module-psgdpr-gdpr h1, body#module-psgdpr-gdpr h2, body#address h1, body#address h2 {
-  padding-bottom: 0;
+  padding-bottom: 10px;
 }
 
 body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#view #main, body#module-blockwishlist-view #main, body#module-psgdpr-gdpr #main, body#address #main {
   padding-top: 0;
+}
+
+@media (max-width: 640px) {
+  .page-addresses .addresses-footer a span {
+    font-size: 0.8rem;
+  }
 }

@@ -62,11 +62,11 @@ body {
   margin-left: auto;
 
   @media (min-width: 768px) {
-    max-width: 1000px;
+    max-width: 1200px;
   }
 
   @media (min-width: 1200px) {
-    max-width: 1140px;
+    max-width: 1200px;
   }
 
   @media (min-width: 1400px) {
@@ -75,6 +75,11 @@ body {
 
   @media (min-width: 1600px) {
     max-width: 1600px;
+  }
+
+  @media (max-width: 992px) {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 // End responsive container
@@ -124,6 +129,7 @@ body {
 
 .icon-special {
   position: relative;
+  z-index: 2;
   
   &:after {
     content: "";
@@ -132,7 +138,7 @@ body {
     height: 15px;
     border-radius: 50%;
     background-color: rgba($color-custom-green, 0.3);
-    z-index: 1;
+    z-index: -1;
     top: -5px;
     right: -5px;
   }
@@ -525,6 +531,10 @@ blockquote {
     font-weight: 600;
     color: $color-custom-gray;
     font-size: 1rem;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: .8rem;
+    }
   }
 
   .js-input-column {
@@ -547,6 +557,10 @@ blockquote {
       box-shadow: none !important;
       -webkit-box-shadow: none !important;
       -moz-box-shadow: none !important;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: .8rem;
     }
   }
 
@@ -810,6 +824,61 @@ table>tbody>tr:nth-of-type(even) {
   }
 }
 
+// Carousel header
+#carousel {
+  h1 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-weight: 900;
+  }
+  .carousel-item {
+    .caption {
+      bottom: 80px;
+      left: 200px;
+    }
+    
+    figure {
+      height: 400px;
+      width: 100%;
+      margin: 0;
+      
+      img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+  .carousel-inner {
+    padding-left: 0;
+    height: 400px;
+    margin-top: 0;
+  }
+
+  .direction {
+    .icon-next {
+      right: 10px;
+    }
+    .icon-prev {
+      left: -10px;
+    }
+    i {
+      color: $color-custom-gray;
+      background-color: $color-custom-bgWrapper;
+      border-radius: 50%;
+      margin-right: 0;
+
+      &:hover {
+        color: color.adjust($color-custom-gray, $lightness: -15%);
+      }
+    }
+  }
+
+  a {
+    border-bottom: none !important;
+  }
+}
+
 
 // Custom Scrollbar
 .custom-scrollbar {
@@ -892,6 +961,10 @@ table>tbody>tr:nth-of-type(even) {
 #left-column {
   margin-top: 35px;
 
+  @media (max-width: $breakpoint-sm) {
+    margin-top: 0;
+  }
+
   h6 {
     font-weight: bold;
     font-size: 1.4rem;
@@ -903,6 +976,10 @@ table>tbody>tr:nth-of-type(even) {
   .left-column {
     background : white;
     padding-left: 50px;
+
+    @media (max-width: $breakpoint-md) {
+      padding-left: 0 !important;
+    }
   }
   
 }

@@ -492,18 +492,17 @@ body#cart #wrapper {
 }
 .product-miniature-light .container .content .product-brand {
   font-size: 0.9rem;
-  margin-bottom: 5px;
   color: #93A7C3;
 }
 .product-miniature-light .container .content .product-title {
   margin: 0;
   text-align: left;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 .product-miniature-light .container .content .product-title a {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #4B5563 !important;
+  color: #111827 !important;
 }
 .product-miniature-light .container .content .product-subtitle {
   margin-bottom: 12px;
@@ -618,6 +617,13 @@ body#cart #wrapper {
 .guarantees-block {
   border-top: 1px solid rgb(196.1785714286, 207.0714285714, 222.3214285714);
 }
+@media (max-width: 768px) {
+  .guarantees-block {
+    border-top: none;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
 .guarantees-block .icon-special::after {
   height: 30px;
   width: 30px;
@@ -631,14 +637,14 @@ body#cart #wrapper {
 .guarantees-block i {
   color: #111827;
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .guarantees-block .guarantee-container {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -10px;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .guarantees-block .guarantee-item {
     display: flex;
     justify-content: center;
@@ -721,13 +727,13 @@ body #main {
 @media (min-width: 768px) {
   .container,
   #content {
-    max-width: 1000px;
+    max-width: 1200px;
   }
 }
 @media (min-width: 1200px) {
   .container,
   #content {
-    max-width: 1140px;
+    max-width: 1200px;
   }
 }
 @media (min-width: 1400px) {
@@ -740,6 +746,13 @@ body #main {
   .container,
   #content {
     max-width: 1600px;
+  }
+}
+@media (max-width: 992px) {
+  .container,
+  #content {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 
@@ -784,6 +797,7 @@ body #main {
 
 .icon-special {
   position: relative;
+  z-index: 2;
 }
 .icon-special:after {
   content: "";
@@ -792,7 +806,7 @@ body #main {
   height: 15px;
   border-radius: 50%;
   background-color: rgba(131, 181, 139, 0.3);
-  z-index: 1;
+  z-index: -1;
   top: -5px;
   right: -5px;
 }
@@ -1165,6 +1179,11 @@ blockquote p {
   color: #4B5563;
   font-size: 1rem;
 }
+@media (max-width: 640px) {
+  .form-group .form-control-label {
+    font-size: 0.8rem;
+  }
+}
 .form-group .js-input-column {
   width: 100%;
   padding: 0;
@@ -1184,6 +1203,11 @@ blockquote p {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
+}
+@media (max-width: 640px) {
+  .form-group .form-control {
+    font-size: 0.8rem;
+  }
 }
 .form-group .form-control-comment {
   display: none;
@@ -1402,6 +1426,49 @@ table > tbody > tr:nth-of-type(even) {
   margin-top: 0;
 }
 
+#carousel h1 {
+  text-align: left;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+#carousel .carousel-item .caption {
+  bottom: 80px;
+  left: 200px;
+}
+#carousel .carousel-item figure {
+  height: 400px;
+  width: 100%;
+  margin: 0;
+}
+#carousel .carousel-item figure img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+#carousel .carousel-inner {
+  padding-left: 0;
+  height: 400px;
+  margin-top: 0;
+}
+#carousel .direction .icon-next {
+  right: 10px;
+}
+#carousel .direction .icon-prev {
+  left: -10px;
+}
+#carousel .direction i {
+  color: #4B5563;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  margin-right: 0;
+}
+#carousel .direction i:hover {
+  color: rgb(42.025862069, 47.6293103448, 55.474137931);
+}
+#carousel a {
+  border-bottom: none !important;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
@@ -1463,6 +1530,11 @@ table > tbody > tr:nth-of-type(even) {
 #left-column {
   margin-top: 35px;
 }
+@media (max-width: 640px) {
+  #left-column {
+    margin-top: 0;
+  }
+}
 #left-column h6 {
   font-weight: bold;
   font-size: 1.4rem;
@@ -1472,6 +1544,11 @@ table > tbody > tr:nth-of-type(even) {
 .layout-left-column .left-column {
   background: white;
   padding-left: 50px;
+}
+@media (max-width: 768px) {
+  .layout-left-column .left-column {
+    padding-left: 0 !important;
+  }
 }
 
 #manufacturer .left-column {

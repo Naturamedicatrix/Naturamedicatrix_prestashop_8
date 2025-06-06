@@ -154,6 +154,7 @@ body#checkout {
             
             .free {
                 color: $color-custom-green;
+                text-transform: capitalize;
             }
             
         }
@@ -521,7 +522,6 @@ body#cart {
         
 
         .product-line-info {
-            color: $color-custom-gray;
             font-weight: 100;
             display: flex;
             flex-wrap: wrap;
@@ -529,10 +529,6 @@ body#cart {
 
             .labelle {
                 padding-right: 4px;
-            }
-
-            .value {
-                font-weight: 700;
             }
         }
 
@@ -547,7 +543,6 @@ body#cart {
         .product-line-grid-body {
             .color-title {
                 font-weight: 700 !important;
-                color: $color-custom-gray !important;
                 font-size: .9rem;
                 @media (max-width: $breakpoint-sm) {
                     font-size: 1.15rem;
@@ -815,6 +810,13 @@ body#discount, body#cart {
 
     .cart-summary-line:last-child {
         padding: 0 0 1rem 0;
+    }
+
+    #cart-subtotal-shipping {
+        .value {
+            color: $color-custom-green;
+            text-transform: capitalize;
+        }
     }
 
     .remove-discount-button {

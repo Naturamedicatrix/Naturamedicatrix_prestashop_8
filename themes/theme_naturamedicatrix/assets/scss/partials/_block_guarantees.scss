@@ -4,6 +4,11 @@
 /* === BLOCK GARANTIES === */
 .guarantees-block {
     border-top: 1px solid color.adjust($color-custom-grayLight, $lightness: 15%);
+    @media (max-width: $breakpoint-md) {
+        border-top: none;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 
     .icon-special::after {
        height: 30px;
@@ -19,7 +24,7 @@
     }
 
     .guarantee-container {
-        @media (max-width: $breakpoint-sm) {
+        @media (max-width: $breakpoint-md) {
             display: flex;
             flex-wrap: wrap;
             margin: 0 -10px;
@@ -27,7 +32,7 @@
     }
     
     .guarantee-item {
-        @media (max-width: $breakpoint-sm) {
+        @media (max-width: $breakpoint-md) {
             display: flex;
             justify-content: center;
             width: 50% !important;

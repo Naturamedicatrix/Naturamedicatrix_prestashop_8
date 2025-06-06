@@ -50,11 +50,11 @@ CUSTOM PRODUCTS DETAILS CART
       <a href="{$product.url}" data-id_customization="{$product.id_customization|intval}">{$product.name}</a>
     </div>
     
-    <!-- Date conseillée -->
+    <!-- Date limite conseillée -->
     {if isset($product.dlu) && $product.dlu}
       <div class="product-line-info text-sm md:text-xs justify-center md:justify-start">
-        <span class="labelle">Date conseillée :</span>
-        <span class="value">
+        <span class="labelle">Date limite conseillée :</span>
+        <span class="value font-bold">
           {* Formate la date en DD-MM-YYYY *}
           {assign var="dluDate" value=$product.dlu|strtotime}
           {$dluDate|date_format:"%d-%m-%Y"}
@@ -67,38 +67,48 @@ CUSTOM PRODUCTS DETAILS CART
       <!-- Stock (ou rupture) -->
       <div class="product-line-info">
       {if isset($product.quantity_available)}
-          <span class="value {if $product.quantity_available <= 0}text-red-500{else}text-green-600{/if} font-bold">
+          <span class="value {if $product.quantity_available <= 0}text-red-500{else}text-green-600{/if}">
               {if $product.quantity_available <= 0}
-                 Rupture
+                &#x2022; Rupture
               {else}
-                 En stock
+                &#x2022; En stock
               {/if}
           </span>
+          {if $features_result && count($features_result) > 0 && isset($features_result[0].value) && $features_result[0].value|trim != '' || $product.attributes|count > 0}
+            <span class="separator-attribute">&#x2014;</span>
+          {/if}
       {elseif isset($product.stock_quantity)}
-          <span class="value {if $product.stock_quantity <= 0}text-red-500{else}text-green-600{/if} font-bold">
+          <span class="value {if $product.stock_quantity <= 0}text-red-500{else}text-green-600{/if}">
               {if $product.stock_quantity <= 0}
-                  Rupture
+                &#x2022; Rupture
               {else}
-                  En stock
+                &#x2022; En stock
               {/if}
           </span>
+          {if $features_result && count($features_result) > 0 && isset($features_result[0].value) && $features_result[0].value|trim != '' || $product.attributes|count > 0}
+            <span class="separator-attribute">&#x2014;</span>
+          {/if}
       {elseif isset($product.available_now)}
-          <span class="value {if !$product.available_now}text-red-500{else}text-green-600{/if} font-bold">
+          <span class="value {if !$product.available_now}text-red-500{else}text-green-600{/if}">
               {if !$product.available_now}
                   Rupture
               {else}
                   {$product.available_now}
               {/if}
           </span>
+          {if $features_result && count($features_result) > 0 && isset($features_result[0].value) && $features_result[0].value|trim != '' || $product.attributes|count > 0}
+            <span class="separator-attribute">&#x2014;</span>
+          {/if}
       {/if}
       </div>
-      
-      <span class="separator-attribute">&#x2014;</span>
       
       <!-- Une caractéristique -->
       {if $features_result && count($features_result) > 0 && isset($features_result[0].value) && $features_result[0].value|trim != ''}
         <div class="product-line-info">
           <span class="product-feature-item product-flag">{$features_result[0].value|escape:'html':'UTF-8'}</span>
+          {if $product.attributes|count > 0}
+            <span class="separator-attribute">&#x2014;</span>
+          {/if}
         </div>
       {else}
         <div class="product-line-info">
@@ -106,7 +116,6 @@ CUSTOM PRODUCTS DETAILS CART
         </div>
       {/if}
       
-      <span class="separator-attribute">&#x2014;</span>
       
       <!-- Un attribut -->
       {assign var="firstAttribute" value=false}

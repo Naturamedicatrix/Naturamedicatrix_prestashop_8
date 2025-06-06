@@ -78,6 +78,13 @@
     width: 100%;
 }
 
+@media (max-width: 992px) {
+  #newproducts-carousel .js-product {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 .newproducts-slides-desktop,
 .newproducts-slides-mobile {
     position: relative;
