@@ -35,6 +35,10 @@
             border: none;
             line-height: 1;
         }
+
+        .small {
+            color: $color-custom-black;
+        }
     }
 
     .product-flags-container {
@@ -160,9 +164,7 @@
             }
             
             .regular-price {
-                font-size: 0.9rem;
-                text-decoration: line-through;
-                color: $color-custom-grayLight;
+                color: $color-custom-black;
                 margin-right: 5px;
             }
         }
@@ -171,9 +173,6 @@
     .variants-group, .product-quantity-info {
         font-size: .8rem;
         color: $color-custom-gray;
-        line-height: 1;
-        font-weight: 100;
-        padding: 5px;
     }
     
 }
@@ -283,7 +282,7 @@
         
         .product-image-container {
             flex: 0 0 140px;
-            margin-right: 70px;
+            margin-right: 20px;
             @media (min-width: 320px) and (max-width: 1400px) {
                 margin-right: 0px;
             }
@@ -296,7 +295,7 @@
             justify-content: flex-start;
             
             .product-brand {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
                 color: $color-custom-grayLight;
             }
             
@@ -343,14 +342,13 @@
             }
             
             .product-price {
-                font-size: 1.2rem;
+                font-size: 1rem;
                 margin-top: 5px;
                 color: $color-custom-gray;
                 font-weight: 700;
                 
                 .regular-price {
-                    text-decoration: line-through;
-                    font-size: 0.9rem;
+                    color: $color-custom-gray;
                     font-weight: normal;
                     margin-left: 5px;
                 }

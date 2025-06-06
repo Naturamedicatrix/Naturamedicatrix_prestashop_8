@@ -8,7 +8,6 @@
 {assign var=productName value=$productName|replace:')':')</span>'}
 {* END VARIABLES *}
 
-{* Le bloc de debug a été supprimé *}
 
 {block name='product_miniature_item'}
   <div class="js-product product col-xs-12 col-md-12 col-lg-4 col-xl-4">
@@ -76,10 +75,10 @@
             </h3>
           {/block}
           
-          <div class="product-subtitle">
-            {* Include du template des variantes *}
+          {* Include du template des variantes *}
+          {* <div class="product-subtitle">
             {include file='catalog/_partials/miniatures/product-variants.tpl' product=$product}
-          </div>
+          </div> *}
           
           {* Product reviews *}
           {block name='product_reviews'}

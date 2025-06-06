@@ -270,6 +270,9 @@ body#cart #wrapper {
   border: none;
   line-height: 1;
 }
+.product-miniature .product-title .small {
+  color: #111827;
+}
 .product-miniature .product-flags-container {
   margin-top: 0;
   margin-bottom: 0;
@@ -379,17 +382,12 @@ body#cart #wrapper {
   color: #111827;
 }
 .product-miniature .price-and-cart-container .product-price-and-shipping .regular-price {
-  font-size: 0.9rem;
-  text-decoration: line-through;
-  color: #93A7C3;
+  color: #111827;
   margin-right: 5px;
 }
 .product-miniature .variants-group, .product-miniature .product-quantity-info {
   font-size: 0.8rem;
   color: #4B5563;
-  line-height: 1;
-  font-weight: 100;
-  padding: 5px;
 }
 
 .featured-products {
@@ -485,7 +483,7 @@ body#cart #wrapper {
 }
 .product-miniature-light .container .product-image-container {
   flex: 0 0 140px;
-  margin-right: 70px;
+  margin-right: 20px;
 }
 @media (min-width: 320px) and (max-width: 1400px) {
   .product-miniature-light .container .product-image-container {
@@ -499,7 +497,7 @@ body#cart #wrapper {
   justify-content: flex-start;
 }
 .product-miniature-light .container .content .product-brand {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #93A7C3;
 }
 .product-miniature-light .container .content .product-title {
@@ -538,14 +536,13 @@ body#cart #wrapper {
   font-size: 0.7rem;
 }
 .product-miniature-light .container .content .product-price {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: 5px;
   color: #4B5563;
   font-weight: 700;
 }
 .product-miniature-light .container .content .product-price .regular-price {
-  text-decoration: line-through;
-  font-size: 0.9rem;
+  color: #4B5563;
   font-weight: normal;
   margin-left: 5px;
 }
@@ -1444,7 +1441,7 @@ table > tbody > tr:nth-of-type(even) {
   left: 200px;
 }
 #carousel .carousel-item figure {
-  height: 400px;
+  height: 500px;
   width: 100%;
   margin: 0;
 }
@@ -1455,7 +1452,7 @@ table > tbody > tr:nth-of-type(even) {
 }
 #carousel .carousel-inner {
   padding-left: 0;
-  height: 400px;
+  height: 500px;
   margin-top: 0;
 }
 #carousel .direction .icon-next {
@@ -1475,6 +1472,9 @@ table > tbody > tr:nth-of-type(even) {
 }
 #carousel a {
   border-bottom: none !important;
+}
+#carousel .caption-description p {
+  color: #111827 !important;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -1822,4 +1822,8 @@ body#pagenotfound .page-not-found {
   display: block;
   float: none;
   margin-bottom: 10px;
+}
+
+.ai5__backdrop {
+  height: auto !important;
 }

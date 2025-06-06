@@ -838,7 +838,7 @@ table>tbody>tr:nth-of-type(even) {
     }
     
     figure {
-      height: 400px;
+      height: 500px;
       width: 100%;
       margin: 0;
       
@@ -851,7 +851,7 @@ table>tbody>tr:nth-of-type(even) {
   }
   .carousel-inner {
     padding-left: 0;
-    height: 400px;
+    height: 500px;
     margin-top: 0;
   }
 
@@ -876,6 +876,10 @@ table>tbody>tr:nth-of-type(even) {
 
   a {
     border-bottom: none !important;
+  }
+
+  .caption-description p {
+    color: $color-custom-black !important;
   }
 }
 
@@ -1306,3 +1310,7 @@ body#pagenotfound {
 // END PAGE NOT FOUND
 
 
+// Chatbot
+.ai5__backdrop {
+  height: auto !important;
+}

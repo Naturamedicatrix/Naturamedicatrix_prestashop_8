@@ -67,8 +67,7 @@
                 <source srcset="{$product.cover.bySize.small_default.sources.webp}" type="image/webp">{/if}
                 <img src="{$product.cover.bySize.small_default.url}"
                   alt="{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
-                  loading="lazy" data-full-size-image-url="{$product.cover.large.url}"
-                  width="{$product.cover.bySize.small_default.width}" height="{$product.cover.bySize.small_default.height}" />
+                  loading="lazy" data-full-size-image-url="{$product.cover.large.url}" />
               </picture>
             </a>
           </div>
@@ -90,10 +89,10 @@
             </h3>
           {/block}
           
-          <div class="product-subtitle">
-            {* Include du template des variantes *}
+          {* Include du template des variantes *}
+          {* <div class="product-subtitle">
             {include file='catalog/_partials/miniatures/product-variants.tpl' product=$product}
-          </div>
+          </div> *}
           
           {* Product reviews *}
           {block name='product_reviews'}
