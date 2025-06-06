@@ -13,10 +13,10 @@
           <input name="{$field.name}" id="{$field.name}" type="checkbox" value="1">
           <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
           <label for="{$field.name}">
-            {if $field.name == 'optin'}
-              Recevoir des informations santé de nos partenaires <a href="https://www.medicatrix.be/?utm_source=NaturaMedicatrix&utm_medium=link&utm_campaign=identity%2F" target="_blank">Medicatrix</a> & <a href="https://www.editionsmarcopietteur.com/" target="_blank">Editions marco pietteur</a>
-            {elseif $field.name == 'newsletter'}
-              S'inscrire à notre newsletter
+            {if $field.name == 'newsletter'}
+              <span class="font-bold">S'inscrire à la newsletter et profitez d'offres exclusives</span>
+            {elseif $field.name == 'optin'}
+              Recevoir des informations santé de nos partenaires <a href="https://www.medicatrix.be/?utm_source=NaturaMedicatrix&utm_medium=identity&utm_campaign=medicatrix" target="_blank">Medicatrix</a> & <a href="https://www.editionsmarcopietteur.com/?utm_source=NaturaMedicatrix&utm_medium=identity&utm_campaign=edmp" target="_blank">Editions marco pietteur</a>
             {else}
               {$field.label nofilter}
             {/if}

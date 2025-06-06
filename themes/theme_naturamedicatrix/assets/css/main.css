@@ -434,6 +434,9 @@ body#cart #wrapper {
     padding: 10px 20px !important;
   }
 }
+.featured-products .product-list-pagination, .featured-products .newproducts-desktop-pagination {
+  margin-top: 0;
+}
 
 .block-bestsellers-wrapper {
   width: 100vw;
@@ -1775,6 +1778,10 @@ div#_desktop_search_filters_clear_all {
   flex-direction: column;
   gap: 0.8rem;
   padding: 20px 0;
+}
+.block-checkbox-newsletter-rgpd > div:first-child {
+  display: flex;
+  flex-direction: column-reverse;
 }
 .block-checkbox-newsletter-rgpd .custom-checkbox {
   display: flex;

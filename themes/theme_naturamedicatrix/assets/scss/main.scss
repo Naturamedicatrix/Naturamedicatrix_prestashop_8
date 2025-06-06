@@ -1250,6 +1250,11 @@ div#_desktop_search_filters_clear_all {
     gap: .8rem;
     padding: 20px 0;
     
+    > div:first-child {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
     .custom-checkbox {
       display: flex;
       align-items: flex-start;

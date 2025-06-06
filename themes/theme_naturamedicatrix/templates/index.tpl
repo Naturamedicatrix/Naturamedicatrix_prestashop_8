@@ -14,6 +14,11 @@
       {block name='hook_home'}
         {$HOOK_HOME nofilter}
       {/block}
+
+      {* SHOPIMIND INTERETS*}
+      {* {block name='hook_shopimind_interets'}
+        <div id="shopimind-interets"></div>
+      {/block} *}
       
       {* BLOCK DES BRANDS *}
       <div class="full-width-section brands-manufacturers-section">
