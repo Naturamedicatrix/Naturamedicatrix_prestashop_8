@@ -312,6 +312,11 @@ body#cart #wrapper {
   background: #d1eaf6 !important;
   border-color: #d1eaf6 !important;
 }
+.product-miniature .product-flags .short-dlu {
+  background-color: #ffffff !important;
+  color: #ff5f23 !important;
+  border-color: #ff5f23 !important;
+}
 .product-miniature .product-flags .pack {
   background-color: #fffbeb !important;
   color: #92400e !important;
@@ -546,7 +551,7 @@ body#cart #wrapper {
 }
 .product-miniature-light .product-flags {
   position: absolute;
-  top: 10px;
+  top: 5px;
   left: 15px;
   z-index: 2;
 }
@@ -1752,11 +1757,10 @@ div#_desktop_search_filters_clear_all {
   background-color: #83b58b;
 }
 
-.custom-checkbox input[type=checkbox] + span {
+.custom-checkbox input[type=checkbox] {
   border-radius: 3px;
-  width: 1rem;
-  height: 1rem;
-  color: #111827 !important;
+  width: 17px;
+  height: 18px;
 }
 
 .form-check-label {

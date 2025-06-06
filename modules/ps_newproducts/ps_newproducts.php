@@ -212,6 +212,9 @@ class Ps_NewProducts extends Module implements WidgetInterface
         $products = $this->getNewProducts();
 
         if (!empty($products)) {
+            // Ajouter les informations de toutes les catégories aux produits
+            $this->addCategoriesInfoToProducts($products);
+            
             // Inclure le fichier d'utilitaires pour récupérer le lien vers la catégorie "Nouveautés"
             require_once(dirname(__FILE__).'/ps_newproducts_category.php');
             
@@ -227,6 +230,46 @@ class Ps_NewProducts extends Module implements WidgetInterface
         return false;
     }
 
+    /**
+     * Ajoute les informations de toutes les catégories pour chaque produit
+     * 
+     * @param array &$products Liste des produits à enrichir avec les catégories
+     * @return void
+     */
+    private function addCategoriesInfoToProducts(&$products)
+    {
+        if (!is_array($products)) {
+            return;
+        }
+        
+        foreach ($products as &$productData) {
+            if (!isset($productData['id_product'])) {
+                continue;
+            }
+            
+            try {
+                // Créer un objet Product temporaire pour accéder à ses catégories
+                $product = new Product((int)$productData['id_product'], false, $this->context->language->id);
+                $categories = $product->getCategories();
+                $categoryNames = [];
+                
+                // Récupérer les noms des catégories
+                foreach ($categories as $catId) {
+                    $category = new Category((int)$catId, $this->context->language->id);
+                    if (Validate::isLoadedObject($category)) {
+                        $categoryNames[$catId] = $category->name;
+                    }
+                }
+                
+                // Ajouter les informations aux données du produit
+                $productData['all_categories'] = $categoryNames;
+            } catch (Exception $e) {
+                // En cas d'erreur, continuer avec le produit suivant
+                continue;
+            }
+        }
+    }
+    
     protected function getNewProducts()
     {
         // Inclure le fichier d'utilitaires pour récupérer les produits de la catégorie "Nouveautés"

@@ -83,6 +83,11 @@
             background: #d1eaf6 !important;
             border-color:#d1eaf6 !important;
         }
+        .short-dlu {
+            background-color: #ffffff !important;
+            color: #ff5f23 !important;
+            border-color:#ff5f23 !important;
+        }
 
         .pack {
             background-color: #fffbeb !important;
@@ -355,7 +360,7 @@
     
     .product-flags {
         position: absolute;
-        top: 10px;
+        top: 5px;
         left: 15px;
         z-index: 2;
     }

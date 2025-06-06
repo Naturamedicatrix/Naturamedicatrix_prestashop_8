@@ -8,20 +8,37 @@
 {assign var=productName value=$productName|replace:')':')</span>'}
 {* END VARIABLES *}
 
+{* Le bloc de debug a été supprimé *}
+
 {block name='product_miniature_item'}
   <div class="js-product product col-xs-12 col-md-12 col-lg-4 col-xl-4">
     <article class="product-miniature product-miniature-light js-product-miniature" data-id-product="{$product.id_product}"
       data-id-product-attribute="{$product.id_product_attribute}">
       
       <div class="container">
-        {* Product flags - n'affiche que les réductions *}
+        {* Product flags - affiche les réductions, new, et vente rapide *}
         <div class="product-flags">
           <ul class="product-flags js-product-flags">
+            {foreach from=$product.flags item=flag}
+              {if $flag.type == 'new'}
+                <li class="product-flag {$flag.type}">{$flag.label}</li>
+              {/if}
+            {/foreach}
+            
             {foreach from=$product.flags item=flag}
               {if $flag.type == 'discount'}
                 <li class="product-flag {$flag.type}">{$flag.label}</li>
               {/if}
             {/foreach}
+            
+            {* Flag Vente Rapide pour les produits de cette catégorie *}
+            {if isset($product.all_categories) && is_array($product.all_categories)}
+              {foreach from=$product.all_categories key=catId item=catName}
+                {if $catName == 'Vente rapide'}
+                  <li class="product-flag short-dlu">DLU courte</li>
+                {/if}
+              {/foreach}
+            {/if}
           </ul>
         </div>
         

@@ -10,7 +10,7 @@
     {foreach from=$formFields item="field"}
       {if $field.name == 'newsletter' || $field.name == 'optin'}
         <div class="custom-checkbox">
-          <input name="{$field.name}" id="{$field.name}" type="checkbox" value="1">
+          <input name="{$field.name}" id="{$field.name}" type="checkbox" value="1" {if ($field.name == 'newsletter' && isset($customer) && $customer.newsletter == 1) || ($field.name == 'optin' && isset($customer) && $customer.optin == 1)}checked="checked"{/if}>
           <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
           <label for="{$field.name}">
             {if $field.name == 'newsletter'}

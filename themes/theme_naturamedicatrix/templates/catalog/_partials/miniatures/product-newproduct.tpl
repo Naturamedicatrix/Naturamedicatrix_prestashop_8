@@ -14,14 +14,45 @@
       data-id-product-attribute="{$product.id_product_attribute}">
       
       <div class="container">
-        {* Product flags - n'affiche que les badges "new" *}
-        <div class="product-flags">
+        {* Product flags - affiche les badges "new" et "discount" *}
+        <div class="product-flags pb-4">
           <ul class="product-flags js-product-flags">
+            {* Affiche le badge "new" si le produit a le flag ou s'il est dans la catégorie "Nouveautés" *}
+            {assign var="showNewBadge" value=false}
+            
+            {* Vérifie si le produit a déjà un flag "new" *}
             {foreach from=$product.flags item=flag}
               {if $flag.type == 'new'}
+                {assign var="showNewBadge" value=true}
                 <li class="product-flag {$flag.type}">{$flag.label}</li>
               {/if}
             {/foreach}
+            
+            {* Si le produit n'a pas déjà un badge "new", on vérifie s'il est dans la catégorie "Nouveautés" *}
+            {if !$showNewBadge}
+              {foreach from=$product.categories item=category}
+                {if $category.name == 'Nouveautés'}
+                  <li class="product-flag new">{l s='Nouveau' d='Shop.Theme.Catalog'}</li>
+                  {break}
+                {/if}
+              {/foreach}
+            {/if}
+            
+            {* Affiche le badge "discount" *}
+            {foreach from=$product.flags item=flag}
+              {if $flag.type == 'discount'}
+                <li class="product-flag {$flag.type}">{$flag.label}</li>
+              {/if}
+            {/foreach}
+            
+            {* Badge DLU courte pour les produits de la catégorie "Vente rapide" *}
+            {if isset($product.all_categories) && is_array($product.all_categories)}
+              {foreach from=$product.all_categories key=catId item=catName}
+                {if $catName == 'Vente rapide'}
+                  <li class="product-flag short-dlu">DLU courte</li>
+                {/if}
+              {/foreach}
+            {/if}
           </ul>
         </div>
         
