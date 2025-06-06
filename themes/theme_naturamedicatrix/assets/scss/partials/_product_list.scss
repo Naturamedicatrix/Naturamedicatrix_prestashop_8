@@ -23,6 +23,17 @@
         &::after {
             border-top: none !important;
         }
+
+        h3, .h3 {
+            margin-top: 0;
+        }
+
+        .product-manufacturer {
+            text-align: center;
+            color: $color-custom-grayLight;
+            font-size: .8rem;
+            margin-top: 8px;
+        }
     }
 
     .product-title {
@@ -112,7 +123,7 @@
     
     .block-product-flags {
         position: relative;
-        margin-top: 25px;
+        margin-top: 15px;
     }
     
     .add-to-cart-or-refresh {
@@ -300,7 +311,7 @@
             }
             
             .product-title {
-                margin: 0;
+                margin-top: 0 !important;
                 text-align: left;
                 margin-bottom: 5px;
                 a {

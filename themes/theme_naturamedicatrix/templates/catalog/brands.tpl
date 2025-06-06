@@ -38,7 +38,7 @@
               <div class="col-12 col-md-6 col-lg-4 col-xl-2 col-xl-full">
                 <div class="brand-card">
                   <div class="brand-card-logo">
-                    <img src="{$brand.image}" alt="{$brand.name}">
+                  <img src="{$urls.img_manu_url}{$brand.id_manufacturer}-brand_default.jpg" alt="{$brand.name}">
                   </div>
                   <h3 class="brand-card-title">{$brand.name}</h3>
                   <div class="brand-card-description">

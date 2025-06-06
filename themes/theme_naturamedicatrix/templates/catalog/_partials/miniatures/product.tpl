@@ -16,7 +16,7 @@
       <div class="thumbnail-container">
 
         {* Caractéristiques du produit *}
-        <div class="product-features-overlay mb-4">
+        <div class="product-features-overlay">
           {if isset($product.features) && $product.features}
             <div class="product-features-list product-flags">
               {foreach from=$product.features item=feature}
@@ -59,23 +59,18 @@
               </a>
             {/if}
           {/block}
-
-          {* <div class="highlighted-informations{if !$product.main_variants} no-variants{/if}">
-           {block name='quick_view'}
-             <a class="quick-view js-quick-view" href="#" data-link-action="quickview">
-               <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}
-             </a>
-           {/block}
-
-           {block name='product_variants'}
-             {if $product.main_variants}
-               {include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}
-             {/if}
-           {/block}
-         </div> *}
         </div>
 
         <div class="product-description">
+          {* Affichage du fabricant *}
+          {block name='product_manufacturer'}
+            {if isset($product.manufacturer_name) && $product.manufacturer_name}
+              <div class="product-manufacturer">
+                <span>{$product.manufacturer_name|escape:'html':'UTF-8'}</span>
+              </div>
+            {/if}
+          {/block}
+
           {block name='product_name'}
             {if $page.page_name == 'index'}
               <h3 class="h3 product-title"><a href="{$product.url}" content="{$product.url}">{$productName nofilter}</a></h3>

@@ -260,6 +260,15 @@ body#cart #wrapper {
 .product-miniature .product-description::after {
   border-top: none !important;
 }
+.product-miniature .product-description h3, .product-miniature .product-description .h3 {
+  margin-top: 0;
+}
+.product-miniature .product-description .product-manufacturer {
+  text-align: center;
+  color: #93A7C3;
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
 .product-miniature .product-title {
   text-transform: initial;
 }
@@ -335,7 +344,7 @@ body#cart #wrapper {
 }
 .product-miniature .block-product-flags {
   position: relative;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 .product-miniature .add-to-cart-or-refresh {
   position: absolute;
@@ -501,7 +510,7 @@ body#cart #wrapper {
   color: #93A7C3;
 }
 .product-miniature-light .container .content .product-title {
-  margin: 0;
+  margin-top: 0 !important;
   text-align: left;
   margin-bottom: 5px;
 }
