@@ -12,13 +12,17 @@
   {assign var="formatted_brands" value=[]}
   {foreach from=$manufacturers item=manufacturer}
     {if $manufacturer.id_manufacturer == 3 || $manufacturer.id_manufacturer == 4 || $manufacturer.id_manufacturer == 5}
+      {* Récupération du nombre de produits *}
+      {assign var="product_count" value=Manufacturer::getProducts($manufacturer.id_manufacturer, Context::getContext()->language->id, 0, 0, null, null, true)}
+
       {* Ajout de la marque dans le array formatted_brands *}
       {assign var="formatted_brands" value=$formatted_brands|array_merge:[[
         'id_manufacturer' => $manufacturer.id_manufacturer,
         'name' => $manufacturer.name,
         'image' => "{$urls.img_manu_url}{$manufacturer.id_manufacturer}-small_default.jpg",
         'url' => {url entity='manufacturer' id=$manufacturer.id_manufacturer},
-        'short_description' => $manufacturer.short_description
+        'short_description' => $manufacturer.short_description,
+        'nb_products' => $product_count
       ]]}
     {/if}
   {/foreach}
@@ -28,7 +32,7 @@
 
 {* Bloc pour les 3 marques phares *}
 {block name='featured_brands'}
-  <div class="container featured-brands">
+  <div class="featured-brands">
     <p class="alert alert-success text-center">Nous distribuons ces produits en magasins et pharmacies.</p>
     <div class="row justify-content-center">
       {* Affichage des marques phares *}
@@ -52,9 +56,14 @@
                       <img src="{$brand.image}" alt="{$brand.name}">
                   </div>
                   <h3 class="brand-card-title featured-title">{$brand.name}</h3>
-                  <div class="total-products text-center">
-                    <p class="count-product">{$brand.nb_products}</p>
-                  </div>
+                  {if isset($brand.nb_products)}
+                    <div class="total-products text-center">
+                      <p class="count-product">
+                        {$brand.nb_products}
+                        {if isset($page) && $page.page_name == 'index'} produits{/if}
+                      </p>
+                    </div>
+                  {/if}
                   <div class="brand-card-description featured-description">
                     {$brand.short_description nofilter}
                   </div>
