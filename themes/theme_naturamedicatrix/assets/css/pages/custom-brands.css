@@ -121,7 +121,7 @@ body#manufacturer .brand-card .brand-card-logo img, .featured-brands .brand-card
 body#manufacturer .brand-card .brand-card-title, .featured-brands .brand-card .brand-card-title {
   font-size: 22px;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 0;
   text-align: left !important;
   color: #111827;
   height: 40px;

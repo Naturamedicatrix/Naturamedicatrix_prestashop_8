@@ -41,6 +41,9 @@
                   <img src="{$urls.img_manu_url}{$brand.id_manufacturer}-brand_default.jpg" alt="{$brand.name}">
                   </div>
                   <h3 class="brand-card-title">{$brand.name}</h3>
+                  <div class="total-products">
+                    <p class="count-product">{$brand.nb_products}</p>
+                  </div>
                   <div class="brand-card-description">
                   {$brand.text nofilter}
                   </div>

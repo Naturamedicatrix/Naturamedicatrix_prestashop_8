@@ -52,11 +52,14 @@
                       <img src="{$brand.image}" alt="{$brand.name}">
                   </div>
                   <h3 class="brand-card-title featured-title">{$brand.name}</h3>
+                  <div class="total-products text-center">
+                    <p class="count-product">{$brand.nb_products}</p>
+                  </div>
                   <div class="brand-card-description featured-description">
                     {$brand.short_description nofilter}
                   </div>
                   <div class="brand-card-action">
-                    <a href="{$brand.url}">En savoir plus</a>
+                    <a href="{$brand.url}">Voir tous les produits</a>
                   </div>
                 </div>
               </div>

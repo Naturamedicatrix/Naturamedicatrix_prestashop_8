@@ -246,13 +246,13 @@ class Champ_Personnalise_Produit extends Module
         
         $productId = (int) $params['id_product'];
         
-        // Récupérer les données de lot et DLU depuis la table product
+        // Récupère les données de lot et DLU depuis la table product
         $result = Db::getInstance()->getRow(
             'SELECT lot, dlu FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . $productId
         );
         
         if ($result) {
-            // Debuggons pour vérifier les données récupérées
+            // Debug pour vérifier les données récupérées
             PrestaShopLogger::addLog('Données produit ID '.$productId.': lot='.(isset($result['lot']) ? $result['lot'] : 'non défini').', dlu='.(isset($result['dlu']) ? $result['dlu'] : 'non défini'), 1);
             
             // Ajouter les champs personnalisés à l'objet produit
@@ -265,7 +265,6 @@ class Champ_Personnalise_Produit extends Module
             }
         }
         
-        // Il est important de retourner le tableau de produit modifié
         return $params['product'];
     }
     
@@ -274,20 +273,20 @@ class Champ_Personnalise_Produit extends Module
      */
     public function hookDisplayOverrideTemplate($params)
     {
-        // Vérifions si nous sommes sur la page du panier
+        // Vérifie si nous sommes sur la page du panier
         if (isset($params['template_file']) && $params['template_file'] == 'checkout/cart') {
-            // Récupérer l'objet Cart du contexte
+            // Récupère l'objet Cart du contexte
             $cart = Context::getContext()->cart;
             if (!$cart || !$cart->id) {
                 return;
             }
             
-            // Récupérer les produits du panier
+            // Récupère les produits du panier
             $products = $cart->getProducts();
             
             if (!empty($products)) {
                 foreach ($products as &$product) {
-                    // Récupérer les infos lot et DLU depuis la base
+                    // Récupère les infos lot et DLU depuis la base
                     $result = Db::getInstance()->getRow(
                         'SELECT lot, dlu FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . (int)$product['id_product']
                     );
