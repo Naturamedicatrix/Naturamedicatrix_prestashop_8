@@ -23,22 +23,29 @@
   
   <!-- Module custom_bestsellers: PHP, JS, CSS -->
   <div id="bestsellers-carousel" class="product-list-carousel">
-    {* Slides pour desktop (3 produits par slide) *}
+    {* Slides pour desktop (dynamique - 3 produits par slide) *}
     <div class="carousel-slides-desktop">
-      {* Page 1 *}
-      <div class="carousel-slide active">
-        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage1 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-3 col-xl-3"}
-      </div>
+      {* Calculer le nombre de pages nécessaires *}
+      {assign var="totalProducts" value=$allProducts|@count}
+      {assign var="productsPerPage" value=3}
+      {assign var="totalPages" value=ceil($totalProducts/$productsPerPage)}
       
-      {* Page 2 *}
-      <div class="carousel-slide">
-        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage2 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-3 col-xl-3"}
-      </div>
-      
-      {* Page 3 *}
-      <div class="carousel-slide">
-        {include file="catalog/_partials/productlist-bestseller.tpl" products=$productsPage3 cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-3 col-xl-3"}
-      </div>
+      {* Générer dynamiquement les slides *}
+      {for $pageIndex=0 to $totalPages-1}
+        {* Calculer les produits pour cette page *}
+        {assign var="startIndex" value=$pageIndex*$productsPerPage}
+        {assign var="endIndex" value=min(($pageIndex+1)*$productsPerPage-1, $totalProducts-1)}
+        {assign var="pageProducts" value=[]}
+        
+        {* Extraire les produits pour cette page *}
+        {for $i=$startIndex to $endIndex}
+          {append var="pageProducts" value=$allProducts[$i]}
+        {/for}
+        
+        <div class="carousel-slide {if $pageIndex == 0}active{/if}">
+          {include file="catalog/_partials/productlist-bestseller.tpl" products=$pageProducts cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-3 col-xl-3"}
+        </div>
+      {/for}
     </div>
     
     {* Slides pour mobile (1 produit par slide) *}
@@ -56,11 +63,13 @@
     </div>
   </div>
   
-  {* Pagination pour desktop (3 points) *}
+  {* Pagination pour desktop (dynamique en fonction du nombre de produits) *}
   <div class="product-list-pagination desktop-pagination">
-    <span class="dot active" data-slide="0"></span>
-    <span class="dot" data-slide="1"></span>
-    <span class="dot" data-slide="2"></span>
+    {* Calculer le nombre de pages nécessaires (arrondi au supérieur) *}
+    {assign var="totalPages" value=ceil($allProducts|@count/3)}
+    {for $pageIndex=0 to $totalPages-1}
+      <span class="dot {if $pageIndex == 0}active{/if}" data-slide="{$pageIndex}"></span>
+    {/for}
   </div>
   
   {* Pagination pour mobile (un point par produit) *}
