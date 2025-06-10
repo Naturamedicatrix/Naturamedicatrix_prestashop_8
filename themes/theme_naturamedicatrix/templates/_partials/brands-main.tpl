@@ -48,7 +48,7 @@
                     <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-jacob.jpg" alt="{$brand.name}" class="brand-header-img">
                   {/if}
                   </div>
-                  <div class="brand-card-logo featured-logo test">
+                  <div class="brand-card-logo featured-logo">
                       <img src="{$brand.image}" alt="{$brand.name}">
                   </div>
                   <h3 class="brand-card-title featured-title">{$brand.name}</h3>

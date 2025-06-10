@@ -540,6 +540,7 @@ body#cart #wrapper {
   margin-right: 5px;
   display: flex;
   align-items: center;
+  gap: 3px;
 }
 .product-miniature-light .container .content .product-reviews .review-count {
   font-size: 0.7rem;
@@ -768,6 +769,11 @@ body #main {
     padding-left: 8px;
     padding-right: 8px;
   }
+}
+
+body#index #content {
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .badge-pink {

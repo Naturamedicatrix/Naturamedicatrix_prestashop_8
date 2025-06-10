@@ -82,6 +82,13 @@ body {
     padding-right: 8px;
   }
 }
+
+body#index {
+  #content {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 // End responsive container
 
 // Badges
