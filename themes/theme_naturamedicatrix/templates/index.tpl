@@ -10,17 +10,27 @@
   <section id="content" class="page-home">
     {block name='page_content_top'}{/block}
     
-    
-    
     {block name='page_content'}
+      
+      
+      {hook h='displayTopColumn'}
+      
+      
+      
+      {include file='_partials/home-banners.tpl'}
+      
+      {* BLOCK DES GARANTIES *}
+      {include file='_partials/guarantees-block.tpl'}
+      {* END BLOCK DES GARANTIES *}
+      
       {block name='hook_home'}
         {$HOOK_HOME nofilter}
       {/block}
       
       
-      {include file='_partials/home-banners.tpl'}
-      
       {include file='_partials/home-categories.tpl'}
+      
+      
 
       {* SHOPIMIND INTERETS*}
       {* {block name='hook_shopimind_interets'}

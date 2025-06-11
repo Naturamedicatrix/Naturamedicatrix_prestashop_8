@@ -40,16 +40,16 @@
         {foreach from=$formatted_brands item=brand}
           {* Vérifier si la propriété id_manufacturer existe *}
           {if isset($brand.id_manufacturer)}
-            {if $brand.id_manufacturer == 3 || $brand.id_manufacturer == 4 || $brand.id_manufacturer == 5}
+            {if $brand.id_manufacturer == 4 || $brand.id_manufacturer == 3 || $brand.id_manufacturer == 5}
               <div class="col-12 col-md-12 col-xl-4">
                 <div class="brand-card featured-brand-card">
                   <div class="brand-card-header">
                   {if $brand.id_manufacturer == 4}
                     <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-naturamedicatrix.jpg" alt="{$brand.name}" class="brand-header-img">
-                  {elseif $brand.id_manufacturer == 5}
-                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-olivie.jpg" alt="{$brand.name}" class="brand-header-img">
                   {elseif $brand.id_manufacturer == 3}
                     <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-jacob.jpg" alt="{$brand.name}" class="brand-header-img">
+                  {elseif $brand.id_manufacturer == 5}
+                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-olivie.jpg" alt="{$brand.name}" class="brand-header-img">
                   {/if}
                   </div>
                   <div class="brand-card-logo featured-logo">
@@ -58,7 +58,7 @@
                   <h3 class="brand-card-title featured-title">{$brand.name}</h3>
                   {if isset($brand.nb_products)}
                     <div class="total-products text-center">
-                      <p class="count-product">
+                      <p class="count-product text-sm">
                         {$brand.nb_products}
                         {if isset($page) && $page.page_name == 'index'} produits{/if}
                       </p>

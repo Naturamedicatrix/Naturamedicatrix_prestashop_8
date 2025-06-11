@@ -42,7 +42,7 @@
                   </div>
                   <h3 class="brand-card-title">{$brand.name}</h3>
                   <div class="total-products">
-                    <p class="count-product">{$brand.nb_products}</p>
+                    <p class="count-product text-xs">{$brand.nb_products}</p>
                   </div>
                   <div class="brand-card-description">
                   {$brand.text nofilter}

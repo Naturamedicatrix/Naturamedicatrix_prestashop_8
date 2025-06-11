@@ -4,6 +4,20 @@
     padding: 4rem 0; 
   }
   
+  #home-categories ul {
+    margin-top: 0;
+  }
+  
+  #home-categories .btn-link {
+    margin-bottom: 10px;
+  }
+  
+  #home-categories svg {
+    display: inline-block;
+  }
+  
+  #home-categories .btn-link {}
+  
   .btn-label {
     padding: 1rem;
     border-radius: 10px;
@@ -12,14 +26,22 @@
     color: #4B5563 !important;
     display: block;
     margin-bottom: 30px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     position: relative;
   }
   
-  .btn-label i {
+  .btn-label i.bi-arrow-right {
     position: absolute;
     right: 20px;
-  }  
+  }
+  
+  .btn-label i.bi-star-fill {
+    color: #f97316;
+    font-size: 0.6rem;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
   
   .btn-label:hover,
   .btn-label:hover i {
@@ -32,7 +54,7 @@
 <div id="home-categories">
 
   <header class="page-header">
-      <h2 class="text-center text-lg md:text-2xl font-bold mb-0">Vos recherches</h2>
+      <h2 class="text-center text-lg md:text-2xl font-bold mb-0">Vos besoins</h2>
       <div class="title-separator">
         <svg id="logoTitle" class="logo-h3" data-name="Logo Title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504.59 360.15">
           <path class="logo-title" d="m10.98,360.15S-67.72,47.82,196.27,21.22c76.88-7.74,212.55,15.2,308.32-21.22,0,0-44.43,238.67-232.96,262.91-157.14,20.21-208.67-28.88-208.67-28.88,0,0,81.7-121.23,304.77-145.6,0,0-368.26-32.3-356.77,271.72Z"></path>
@@ -51,11 +73,29 @@
   {foreach from=$categories item=cat}
     {if in_array($cat.id_category, $allowed_ids) && $count < $max_display}
       <li class="col-lg-3 col-md-6 col-xs-6">
-        <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label">{$cat.name} <span><i class="bi bi-arrow-right"></i></span></a>
+        <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label">{$cat.name} <i class="bi bi-star-fill"></i>   <span><i class="bi bi-arrow-right"></i></span></a>
       </li>
       {assign var='count' value=$count+1}
     {/if}
   {/foreach}
+  
+</ul>
+<p class="text-center">
+  <a class="btn-link" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseCategories">Voir toutes les catégories
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</p>
+									
+<ul class="row collapse" id="collapseCategories" aria-labelledby="headingCategories">
+  {foreach from=$categories item=cat}
+    {if !in_array($cat.id_category, $allowed_ids)}
+       <li class="col-lg-3 col-md-6 col-xs-6">
+        <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label">{$cat.name} <span><i class="bi bi-arrow-right"></i></span></a>
+      </li>
+    {/if}
+  {/foreach}  
 </ul>
 
 

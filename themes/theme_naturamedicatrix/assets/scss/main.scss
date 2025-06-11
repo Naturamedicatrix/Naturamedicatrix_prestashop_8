@@ -209,7 +209,7 @@ body#index {
   }
 
   .logo-h3 {
-    width: 40px !important;
+    width: 30px !important;
   }
 
   @media (max-width: $breakpoint-md) {
@@ -463,6 +463,24 @@ blockquote {
     background-color: transparent !important;
     color: $color-custom-black !important;
     border: 1px solid $color-custom-black !important;
+  }
+}
+
+.btn-link {
+  color: $color-custom-blue !important;
+  transition: color .2s ease-in-out !important;
+  text-decoration: none !important;
+  cursor: pointer;
+
+  svg {
+    transition: transform .2s ease-in-out !important;
+  }
+
+  &:hover {
+    color: color.adjust($color-custom-blue, $lightness: -15%) !important;
+    svg {
+      transform: rotate(90deg) !important;
+    }
   }
 }
 
@@ -833,16 +851,30 @@ table>tbody>tr:nth-of-type(even) {
 
 // Carousel header
 #carousel {
-  h1 {
-    text-align: left;
-    margin-bottom: 20px;
-    font-weight: 900;
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 0;
   }
   .carousel-item {
     .caption {
-      bottom: 80px;
-      left: 200px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 10%;
+
+      @media (max-width: $breakpoint-lg) {
+        left: 5%;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        left: 0;
+        bottom: 0;
+        top: 0%;
+        transform: translateY(-175%);
+        background-color: rgba($color-custom-white, 0.9);
+        padding: 10px 15px;
+        text-align:center;
+      }
     }
+    
     
     figure {
       height: 500px;
@@ -864,16 +896,29 @@ table>tbody>tr:nth-of-type(even) {
 
   .direction {
     .icon-next {
-      right: 10px;
+      right: 22px;
+      @media (max-width: $breakpoint-md) {
+        right: 0px;
+      }
     }
     .icon-prev {
-      left: -10px;
+      left: -15px;
+      @media (max-width: $breakpoint-md) {
+        left: 0px;
+      }
     }
     i {
-      color: $color-custom-gray;
+      color: $color-custom-black;
       background-color: $color-custom-bgWrapper;
       border-radius: 50%;
       margin-right: 0;
+      font-size: 1.5rem;
+      padding: 20px 22px;
+      @media (max-width: $breakpoint-md) {
+        font-size: 1.1rem;
+        background-color: rgba($color-custom-bgWrapper, .7);
+        padding: 5px;
+      }
 
       &:hover {
         color: color.adjust($color-custom-gray, $lightness: -15%);
@@ -885,8 +930,61 @@ table>tbody>tr:nth-of-type(even) {
     border-bottom: none !important;
   }
 
+  .caption-description {
+    h1, h2, h3 {
+      margin-top: 10px;
+
+      @media (max-width: $breakpoint-md) {
+       text-align: center;
+      }
+    }
+  }
+
+  h5, h6 {
+    background-color: rgba($color-custom-bgWrapper, .5);
+    color: $color-custom-blackHover !important;
+    border-color: $color-custom-blackHover !important;
+    font-weight: 900;
+    font-size: 0.8rem;
+    display: inline-block;
+    padding: 4px 10px 2px;
+    border-radius: 15px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    line-height: 1.2;
+  }
+
   .caption-description p {
     color: $color-custom-black !important;
+  }
+
+  .caption-description {
+    p {
+      a:not(:first-child) {
+        background-color: $color-custom-black !important;
+        color: $color-custom-white !important;
+        border-color: $color-custom-black !important;
+        border: 1px solid transparent !important;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        font-weight: bold;
+        font-size: 15px;
+        text-transform: none;
+        padding: 13px 25px;
+        min-width: 225px;
+        line-height: 1;
+        transition: all .2s ease-in-out !important;
+        border: 1px solid transparent;
+
+        &:hover {
+          background-color: $color-custom-blackHover !important;
+          color: $color-custom-white !important;
+          border-color: $color-custom-blackHover !important;
+        }
+      }
+    }
   }
 }
 
@@ -1216,7 +1314,6 @@ div#_desktop_search_filters_clear_all {
 }
 
 .count-product {
-  font-size: .9rem;
   background-color: $color-custom-whiteDarker !important;
   color: $color-custom-gray;
   padding: 3px 15px;

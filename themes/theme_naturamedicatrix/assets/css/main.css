@@ -875,7 +875,7 @@ body#index #content {
   stroke-width: 0px;
 }
 .title-separator .logo-h3 {
-  width: 40px !important;
+  width: 30px !important;
 }
 @media (max-width: 768px) {
   .title-separator {
@@ -1132,6 +1132,22 @@ blockquote p {
   background-color: transparent !important;
   color: #111827 !important;
   border: 1px solid #111827 !important;
+}
+
+.btn-link {
+  color: #1F80C7 !important;
+  transition: color 0.2s ease-in-out !important;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+.btn-link svg {
+  transition: transform 0.2s ease-in-out !important;
+}
+.btn-link:hover {
+  color: rgb(20.6891304348, 85.4260869565, 132.8108695652) !important;
+}
+.btn-link:hover svg {
+  transform: rotate(90deg) !important;
 }
 
 .btn-disabled, .disabled {
@@ -1446,14 +1462,31 @@ table > tbody > tr:nth-of-type(even) {
   margin-top: 0;
 }
 
-#carousel h1 {
-  text-align: left;
-  margin-bottom: 20px;
-  font-weight: 900;
+@media (max-width: 768px) {
+  #carousel {
+    margin-bottom: 0;
+  }
 }
 #carousel .carousel-item .caption {
-  bottom: 80px;
-  left: 200px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10%;
+}
+@media (max-width: 1024px) {
+  #carousel .carousel-item .caption {
+    left: 5%;
+  }
+}
+@media (max-width: 768px) {
+  #carousel .carousel-item .caption {
+    left: 0;
+    bottom: 0;
+    top: 0%;
+    transform: translateY(-175%);
+    background-color: rgba(249, 250, 251, 0.9);
+    padding: 10px 15px;
+    text-align: center;
+  }
 }
 #carousel .carousel-item figure {
   height: 500px;
@@ -1471,16 +1504,35 @@ table > tbody > tr:nth-of-type(even) {
   margin-top: 0;
 }
 #carousel .direction .icon-next {
-  right: 10px;
+  right: 22px;
+}
+@media (max-width: 768px) {
+  #carousel .direction .icon-next {
+    right: 0px;
+  }
 }
 #carousel .direction .icon-prev {
-  left: -10px;
+  left: -15px;
+}
+@media (max-width: 768px) {
+  #carousel .direction .icon-prev {
+    left: 0px;
+  }
 }
 #carousel .direction i {
-  color: #4B5563;
+  color: #111827;
   background-color: #FFFFFF;
   border-radius: 50%;
   margin-right: 0;
+  font-size: 1.5rem;
+  padding: 20px 22px;
+}
+@media (max-width: 768px) {
+  #carousel .direction i {
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+  }
 }
 #carousel .direction i:hover {
   color: rgb(42.025862069, 47.6293103448, 55.474137931);
@@ -1488,8 +1540,52 @@ table > tbody > tr:nth-of-type(even) {
 #carousel a {
   border-bottom: none !important;
 }
+#carousel .caption-description h1, #carousel .caption-description h2, #carousel .caption-description h3 {
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+  #carousel .caption-description h1, #carousel .caption-description h2, #carousel .caption-description h3 {
+    text-align: center;
+  }
+}
+#carousel h5, #carousel h6 {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #374151 !important;
+  border-color: #374151 !important;
+  font-weight: 900;
+  font-size: 0.8rem;
+  display: inline-block;
+  padding: 4px 10px 2px;
+  border-radius: 15px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  line-height: 1.2;
+}
 #carousel .caption-description p {
   color: #111827 !important;
+}
+#carousel .caption-description p a:not(:first-child) {
+  background-color: #111827 !important;
+  color: #f9fafb !important;
+  border-color: #111827 !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: none;
+  padding: 13px 25px;
+  min-width: 225px;
+  line-height: 1;
+  transition: all 0.2s ease-in-out !important;
+  border: 1px solid transparent;
+}
+#carousel .caption-description p a:not(:first-child):hover {
+  background-color: #374151 !important;
+  color: #f9fafb !important;
+  border-color: #374151 !important;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -1759,7 +1855,6 @@ div#_desktop_search_filters_clear_all {
 }
 
 .count-product {
-  font-size: 0.9rem;
   background-color: #EDEFF1 !important;
   color: #4B5563;
   padding: 3px 15px;

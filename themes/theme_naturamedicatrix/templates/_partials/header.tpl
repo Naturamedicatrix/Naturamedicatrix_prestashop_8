@@ -5,6 +5,9 @@
 {block name='header_banner'}
   <div class="header-banner text-carousel-banner">
     <div class="container">
+      
+      
+      
       <div class="banner-wrapper">
         <!-- CAROUSEL TEXT -->
         <div class="text-carousel-container">
@@ -32,6 +35,9 @@
             &gt;
           </button>
         </div>
+        
+        
+        {hook h='displayNavFullWidth'}
 
         <!-- Language selector -->
         {hook h='displayLanguageSelector'}
@@ -40,6 +46,7 @@
     </div>
   </div>
 {/block}
+
 
 {block name='header_nav'}
   <nav class="header-nav">
@@ -53,7 +60,14 @@
               <i class="bi bi-telephone"></i>
               <div>
                 <p class="font-bold">Contactez-nous</p>
-                <p>+33 (0)9 77 42 37 04</p>
+                
+                {assign var='country_id' value=Tools::getCountry()}
+                
+                {if $country_id == 3}                
+                  <p>+32&nbsp;42&nbsp;90&nbsp;00&nbsp;79</p>
+                {else}
+                  <p>+33&nbsp;(0)9&nbsp;77&nbsp;42&nbsp;37&nbsp;04</p>
+                {/if}
               </div>
             </a>
           </div>
@@ -123,5 +137,5 @@
       </div>
     </div>
   </div>
-  {hook h='displayNavFullWidth'}
+  
 {/block}
