@@ -74,7 +74,7 @@ body {
   }
 
   @media (min-width: 1600px) {
-    max-width: 1600px;
+    max-width: 1400px;
   }
 
   @media (max-width: 992px) {
@@ -1417,4 +1417,18 @@ body#pagenotfound {
 // Chatbot
 .ai5__backdrop {
   height: auto !important;
+}
+
+
+
+
+//REVIEWS
+.review-score {
+  color: $color-custom-stars;
+  padding-top: 5px;
+
+  .review-stats {
+      color: $color-custom-grayLight;
+      padding-left: 3px;
+  }
 }

@@ -3,6 +3,12 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use PrestaShopBundle\Form\Admin\Type\DatePickerType;
+use PrestaShop\PrestaShop\Core\Form\FormBuilderModifier;
+
 class Champ_Personnalise_Produit extends Module
 {
     public function __construct()
@@ -57,6 +63,19 @@ class Champ_Personnalise_Produit extends Module
             $result = $result && Db::getInstance()->execute($sql2);
         }
         
+        // Ajoute la colonne dlu_checkbox à la table product
+        $sql3 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product` ADD COLUMN `dlu_checkbox` TINYINT(1) NOT NULL DEFAULT 0 AFTER `dlu`;';
+        
+        // Vérifie si la colonne dlu_checkbox existe déjà
+        $columnDluCheckboxExists = Db::getInstance()->executeS(
+            'SHOW COLUMNS FROM `' . _DB_PREFIX_ . 'product` LIKE "dlu_checkbox"'
+        );
+        
+        // Exécute la requête SQL seulement si la colonne n'existe pas
+        if (empty($columnDluCheckboxExists)) {
+            $result = $result && Db::getInstance()->execute($sql3);
+        }
+        
         return $result && 
                parent::install() && 
                $this->registerHook([
@@ -77,6 +96,7 @@ class Champ_Personnalise_Produit extends Module
         // Décommenter les lignes suivantes si on veut supprimer les colonnes entièrement (data comprise)
         // Db::getInstance()->execute('ALTER TABLE `' . _DB_PREFIX_ . 'product` DROP COLUMN `lot`');
         // Db::getInstance()->execute('ALTER TABLE `' . _DB_PREFIX_ . 'product` DROP COLUMN `dlu`');
+        // Db::getInstance()->execute('ALTER TABLE `' . _DB_PREFIX_ . 'product` DROP COLUMN `dlu_checkbox`');
         
         return parent::uninstall();
     }
@@ -93,8 +113,9 @@ class Champ_Personnalise_Produit extends Module
         // Récupère les valeurs actuelles des champs personnalisés
         $lot = '';
         $dlu = '';
+        $dluCheckbox = false;
         $result = Db::getInstance()->getRow(
-            'SELECT lot, dlu FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . (int) $productId
+            'SELECT lot, dlu, dlu_checkbox FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . (int) $productId
         );
         
         if ($result) {
@@ -103,6 +124,9 @@ class Champ_Personnalise_Produit extends Module
             }
             if (isset($result['dlu'])) {
                 $dlu = $result['dlu'];
+            }
+            if (isset($result['dlu_checkbox'])) {
+                $dluCheckbox = (bool)$result['dlu_checkbox'];
             }
         }
         
@@ -129,37 +153,68 @@ class Champ_Personnalise_Produit extends Module
             ]);
             
             // Ajoute le champ "DLU" dans le block "group-form" references
-            $referencesGroup->add('dlu', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType', [
+            $referencesGroup->add('dlu', DatePickerType::class, [
                 'label' => 'DLU',
                 'required' => false,
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-                'html5' => true,
-                'attr' => [
-                    'placeholder' => 'AAAA-MM-JJ',
-                    'class' => 'form-control',
-                ],
-                'data' => !empty($dlu) ? new \DateTime($dlu) : null,
+            ]);
+            
+            // Ajout du champ personnalisé DLU courte (checkbox)
+            $referencesGroup->add('dlu_checkbox', CheckboxType::class, [
+                'label' => $this->l('DLU courte'),
+                'required' => false,
+                'data' => $dluCheckbox,
             ]);
         } else {
             // Fallback si le groupe de références n'existe pas
-            $formBuilderModifier = $this->get('form.form_builder_modifier');
+            // Utilise le service FormBuilderModifier
+            $formBuilderModifier = $this->get('prestashop.core.form.identifiable_object.builder.form_builder_modifier');
             
             // Ajoute le champ Numéro de lot en cours
             $formBuilderModifier->addAfter(
                 $detailsTabFormBuilder,
                 'ean13',
                 'lot',
-                'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType',
+                TextType::class, [
+                'label' => 'Numéro de lot en cours',
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Saisissez le numéro de lot en cours',
+                    'class' => 'form-control',
+                ],
+                'data' => $lot,
+                'empty_data' => '',
+            ]);
+            
+            // Ajoute le champ DLU juste après le champ lot
+            $formBuilderModifier->addAfter(
+                $detailsTabFormBuilder,
+                'lot',
+                'dlu',
+                DateType::class,
                 [
-                    'label' => 'Numéro de lot en cours',
+                    'label' => 'DLU',
                     'required' => false,
+                    'widget' => 'single_text',
+                    'format' => 'yyyy-MM-dd',
+                    'html5' => true,
                     'attr' => [
-                        'placeholder' => 'Saisissez le numéro de lot en cours',
+                        'placeholder' => 'AAAA-MM-JJ',
                         'class' => 'form-control',
                     ],
-                    'data' => $lot,
-                    'empty_data' => '',
+                    'data' => !empty($dlu) ? new \DateTime($dlu) : null,
+                ]
+            );
+            
+            // Ajoute le champ DLU checkbox juste après le champ DLU
+            $formBuilderModifier->addAfter(
+                $detailsTabFormBuilder,
+                'dlu',
+                'dlu_checkbox',
+                CheckboxType::class,
+                [
+                    'label' => $this->l('DLU courte'),
+                    'required' => false,
+                    'data' => $dluCheckbox,
                 ]
             );
             
@@ -220,6 +275,18 @@ class Champ_Personnalise_Produit extends Module
             $dlu = $_POST['dlu'];
         }
         
+        // Vérifie les différents endroits possibles pour la DLU checkbox
+        $dluCheckbox = 0;
+        if (isset($_POST['product']['details']['references']['dlu_checkbox'])) {
+            $dluCheckbox = (int)!empty($_POST['product']['details']['references']['dlu_checkbox']);
+        } elseif (isset($_POST['product']['details']['dlu_checkbox'])) {
+            $dluCheckbox = (int)!empty($_POST['product']['details']['dlu_checkbox']);
+        } elseif (isset($_POST['details']['references']['dlu_checkbox'])) {
+            $dluCheckbox = (int)!empty($_POST['details']['references']['dlu_checkbox']);
+        } elseif (isset($_POST['dlu_checkbox'])) {
+            $dluCheckbox = (int)!empty($_POST['dlu_checkbox']);
+        }
+        
         // Formate la date si elle existe
         $dluFormatted = 'NULL';
         if (!empty($dlu)) {
@@ -230,7 +297,8 @@ class Champ_Personnalise_Produit extends Module
         Db::getInstance()->execute(
             'UPDATE `' . _DB_PREFIX_ . 'product` 
             SET lot = "' . $lot . '", 
-                dlu = ' . $dluFormatted . ' 
+                dlu = ' . $dluFormatted . ',
+                dlu_checkbox = ' . $dluCheckbox . ' 
             WHERE id_product = ' . $productId
         );
     }
@@ -248,12 +316,12 @@ class Champ_Personnalise_Produit extends Module
         
         // Récupère les données de lot et DLU depuis la table product
         $result = Db::getInstance()->getRow(
-            'SELECT lot, dlu FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . $productId
+            'SELECT lot, dlu, dlu_checkbox FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . $productId
         );
         
         if ($result) {
             // Debug pour vérifier les données récupérées
-            PrestaShopLogger::addLog('Données produit ID '.$productId.': lot='.(isset($result['lot']) ? $result['lot'] : 'non défini').', dlu='.(isset($result['dlu']) ? $result['dlu'] : 'non défini'), 1);
+            PrestaShopLogger::addLog('Données produit ID '.$productId.': lot='.(isset($result['lot']) ? $result['lot'] : 'non défini').', dlu='.(isset($result['dlu']) ? $result['dlu'] : 'non défini').', dlu_checkbox='.(isset($result['dlu_checkbox']) ? $result['dlu_checkbox'] : 'non défini'), 1);
             
             // Ajouter les champs personnalisés à l'objet produit
             if (isset($result['lot'])) {
@@ -262,6 +330,10 @@ class Champ_Personnalise_Produit extends Module
             
             if (isset($result['dlu'])) {
                 $params['product']['dlu'] = $result['dlu'];
+            }
+            
+            if (isset($result['dlu_checkbox'])) {
+                $params['product']['dlu_checkbox'] = $result['dlu_checkbox'];
             }
         }
         
@@ -288,7 +360,7 @@ class Champ_Personnalise_Produit extends Module
                 foreach ($products as &$product) {
                     // Récupère les infos lot et DLU depuis la base
                     $result = Db::getInstance()->getRow(
-                        'SELECT lot, dlu FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . (int)$product['id_product']
+                        'SELECT lot, dlu, dlu_checkbox FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . (int)$product['id_product']
                     );
                     
                     if ($result) {
@@ -299,6 +371,10 @@ class Champ_Personnalise_Produit extends Module
                         
                         if (isset($result['dlu'])) {
                             $product['dlu'] = $result['dlu'];
+                        }
+                        
+                        if (isset($result['dlu_checkbox'])) {
+                            $product['dlu_checkbox'] = $result['dlu_checkbox'];
                         }
                     }
                 }

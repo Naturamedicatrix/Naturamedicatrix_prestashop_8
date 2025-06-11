@@ -185,7 +185,7 @@
   color: #f9fafb;
   padding: 8px 15px;
   font-weight: bold;
-  background-color: #83b58b;
+  background-color: rgba(131, 181, 139, 0.9);
   border: 1px solid rgb(68.9545454545, 115.5454545455, 76.4090909091);
 }
 #_desktop_language_selector .dropdown-menu .dropdown-item:hover, #_desktop_language_selector .dropdown-menu .dropdown-item:focus {
@@ -281,7 +281,6 @@
   background-color: #83b58b;
   padding-top: 0.5rem;
   padding-bottom: 1rem;
-  overflow: hidden;
   position: relative;
 }
 @media (max-width: 640px) {

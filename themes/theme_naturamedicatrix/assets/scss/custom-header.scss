@@ -208,7 +208,7 @@
       color: $color-custom-white;
       padding: 8px 15px;
       font-weight: bold;
-      background-color: $color-custom-green;
+      background-color: rgba($color-custom-green, .9);
       border: 1px solid color.adjust($color-custom-green, $lightness: -25%);
       
       &:hover, &:focus {
@@ -310,7 +310,6 @@
   background-color: $color-custom-green;
   padding-top: 0.5rem;
   padding-bottom: 1rem;
-  overflow: hidden;
   position: relative;
   @media (max-width: $breakpoint-sm) {
     padding-bottom: 0rem;

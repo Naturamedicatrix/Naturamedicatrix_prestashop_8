@@ -760,7 +760,7 @@ body #main {
 @media (min-width: 1600px) {
   .container,
   #content {
-    max-width: 1600px;
+    max-width: 1400px;
   }
 }
 @media (max-width: 992px) {
@@ -1936,4 +1936,13 @@ body#pagenotfound .page-not-found {
 
 .ai5__backdrop {
   height: auto !important;
+}
+
+.review-score {
+  color: #FFB339;
+  padding-top: 5px;
+}
+.review-score .review-stats {
+  color: #93A7C3;
+  padding-left: 3px;
 }

@@ -30,13 +30,9 @@
               {/if}
             {/foreach}
             
-            {* Flag Vente Rapide pour les produits de cette catégorie *}
-            {if isset($product.all_categories) && is_array($product.all_categories)}
-              {foreach from=$product.all_categories key=catId item=catName}
-                {if $catName == 'Vente rapide'}
-                  <li class="product-flag short-dlu">DLU courte</li>
-                {/if}
-              {/foreach}
+            {* Badge DLU courte pour les produits qui ont la case dlu_checkbox cochée *}
+            {if isset($product.dlu_checkbox) && $product.dlu_checkbox == 1}
+              <li class="product-flag short-dlu">DLU courte</li>
             {/if}
           </ul>
         </div>
