@@ -119,7 +119,8 @@ class Champ_Personnalise_Produit extends Module
                    'actionProductFormBuilderModifier', 
                    'actionObjectProductUpdateAfter', 
                    'actionGetProductPropertiesAfter',
-                   'displayOverrideTemplate'
+                   'displayOverrideTemplate',
+                   'displayHeader'
                ]);
     }
     
@@ -235,6 +236,18 @@ class Champ_Personnalise_Produit extends Module
         if ($detailsTabFormBuilder->has('references')) {
             $referencesGroup = $detailsTabFormBuilder->get('references');
             
+            // Ajout du champ jours de prise du produit - maintenant en premier
+            $referencesGroup->add('nm_days', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType', [
+                'label' => $this->l('Jours de prise du produit (en jours)'),
+                'required' => false,
+                'attr' => [
+                    'placeholder' => '',
+                    'class' => 'form-control',
+                    'min' => 0
+                ],
+                'data' => $nmDays,
+            ]);
+            
             // Ajoute le champ "Numéro de lot en cours" dans le block "group-form" references
             $referencesGroup->add('lot', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType', [
                 'label' => 'Numéro de lot en cours',
@@ -266,34 +279,50 @@ class Champ_Personnalise_Produit extends Module
                 'label' => $this->l('DLU courte'),
                 'required' => false,
                 'data' => $dluCheckbox,
-            ]);
-            
-            // Ajout du champ jours de prise du produit
-            $referencesGroup->add('nm_days', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType', [
-                'label' => $this->l('Jours de prise du produit (en jours)'),
-                'required' => false,
                 'attr' => [
-                    'placeholder' => '',
-                    'class' => 'form-control',
-                    'min' => 0
+                    'id' => 'checkbox_dlu'
                 ],
-                'data' => $nmDays,
+                'row_attr' => [
+                    'class' => 'checkbox-align-input',
+                    'style' => 'margin-top: -30px; margin-bottom: 20px;',
+                ],
+                'label_attr' => [
+                    'style' => 'padding-top: 0;'
+                ]
             ]);
         } else {
             // Fallback si le groupe de références n'existe pas
             // Utilise le service FormBuilderModifier
             $formBuilderModifier = $this->get('prestashop.core.form.identifiable_object.builder.form_builder_modifier');
             
-            // Ajoute le champ Numéro de lot en cours
+            // Ajoute d'abord le champ jours de prise (nm_days)
             $formBuilderModifier->addAfter(
                 $detailsTabFormBuilder,
                 'ean13',
+                'nm_days',
+                'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType',
+                [
+                    'label' => $this->l('Jours de prise du produit (en jours)'),
+                    'required' => false,
+                    'attr' => [
+                        'placeholder' => '',
+                        'class' => 'form-control',
+                        'min' => 0,
+                    ],
+                    'data' => $nmDays,
+                ]
+            );
+            
+            // Ajoute le champ Numéro de lot en cours après nm_days
+            $formBuilderModifier->addAfter(
+                $detailsTabFormBuilder,
+                'nm_days',
                 'lot',
                 TextType::class, [
                 'label' => 'Numéro de lot en cours',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Saisissez le numéro de lot en cours',
+                    'placeholder' => '',
                     'class' => 'form-control',
                 ],
                 'data' => $lot,
@@ -330,24 +359,15 @@ class Champ_Personnalise_Produit extends Module
                     'label' => $this->l('DLU courte'),
                     'required' => false,
                     'data' => $dluCheckbox,
-                ]
-            );
-            
-            // Ajoute le champ nm_days juste après dlu_checkbox
-            $formBuilderModifier->addAfter(
-                $detailsTabFormBuilder,
-                'dlu_checkbox',
-                'nm_days',
-                'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType',
-                [
-                    'label' => $this->l('Jours de prise du produit (en jours)'),
-                    'required' => false,
                     'attr' => [
-                        'placeholder' => 'Nombre de jours',
-                        'class' => 'form-control',
-                        'min' => 0
+                        'id' => 'checkbox_dlu'
                     ],
-                    'data' => $nmDays,
+                    'row_attr' => [
+                        'class' => 'checkbox-align-input'
+                    ],
+                    'label_attr' => [
+                        'style' => 'padding-top: 0;'
+                    ]
                 ]
             );
         }
@@ -560,5 +580,4 @@ class Champ_Personnalise_Produit extends Module
             }
         }
     }
-    
 }
