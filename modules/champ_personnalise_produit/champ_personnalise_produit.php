@@ -6,8 +6,6 @@ if (!defined('_PS_VERSION_')) {
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use PrestaShopBundle\Form\Admin\Type\DatePickerType;
-use PrestaShop\PrestaShop\Core\Form\FormBuilderModifier;
 
 class Champ_Personnalise_Produit extends Module
 {
@@ -153,9 +151,17 @@ class Champ_Personnalise_Produit extends Module
             ]);
             
             // Ajoute le champ "DLU" dans le block "group-form" references
-            $referencesGroup->add('dlu', DatePickerType::class, [
+            $referencesGroup->add('dlu', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType', [
                 'label' => 'DLU',
                 'required' => false,
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'html5' => true,
+                'attr' => [
+                    'placeholder' => 'AAAA-MM-JJ',
+                    'class' => 'form-control',
+                ],
+                'data' => !empty($dlu) ? new \DateTime($dlu) : null,
             ]);
             
             // Ajout du champ personnalisé DLU courte (checkbox)
@@ -190,7 +196,7 @@ class Champ_Personnalise_Produit extends Module
                 $detailsTabFormBuilder,
                 'lot',
                 'dlu',
-                DateType::class,
+                'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType',
                 [
                     'label' => 'DLU',
                     'required' => false,
