@@ -155,6 +155,28 @@ class Champ_Personnalise_Produit extends Module
             $result = $result && Db::getInstance()->execute($sql11);
         }
         
+        // Vérifie si la colonne popup_info existe déjà dans la table product_lang
+        $columnPopupInfoExists = Db::getInstance()->executeS(
+            'SHOW COLUMNS FROM `' . _DB_PREFIX_ . 'product_lang` LIKE "popup_info"'
+        );
+        
+        // Exécute la requête SQL seulement si la colonne n'existe pas
+        if (empty($columnPopupInfoExists)) {
+            $sql12 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product_lang` ADD COLUMN `popup_info` TEXT NULL AFTER `thera_sup`;';
+            $result = $result && Db::getInstance()->execute($sql12);
+        }
+        
+        // Vérifie si la colonne product_popup_redirection existe déjà dans la table product
+        $columnProductPopupRedirectionExists = Db::getInstance()->executeS(
+            'SHOW COLUMNS FROM `' . _DB_PREFIX_ . 'product` LIKE "product_popup_redirection"'
+        );
+        
+        // Exécute la requête SQL seulement si la colonne n'existe pas
+        if (empty($columnProductPopupRedirectionExists)) {
+            $sql13 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product` ADD COLUMN `product_popup_redirection` TEXT NULL AFTER `amazon_be`;';
+            $result = $result && Db::getInstance()->execute($sql13);
+        }
+        
         // Ajoute la colonne amazon_be à la table product
         $sql6 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product` ADD COLUMN `amazon_be` TEXT NULL AFTER `amazon`;';
         
@@ -212,11 +234,12 @@ class Champ_Personnalise_Produit extends Module
             $ingredients = [];
             $tabNutri = [];
             $theraSup = [];
+            $popupInfo = [];
             
             foreach ($languages as $language) {
                 $idLang = (int) $language['id_lang'];
                 $result = Db::getInstance()->getRow(
-                    'SELECT mode_emploi, contre_indications, ingredients, tab_nutri, thera_sup FROM `' . _DB_PREFIX_ . 'product_lang` 
+                    'SELECT mode_emploi, contre_indications, ingredients, tab_nutri, thera_sup, popup_info FROM `' . _DB_PREFIX_ . 'product_lang` 
                     WHERE id_product = ' . $productId . ' AND id_lang = ' . $idLang
                 );
                 
@@ -225,6 +248,7 @@ class Champ_Personnalise_Produit extends Module
                 $ingredients[$idLang] = isset($result['ingredients']) ? $result['ingredients'] : '';
                 $tabNutri[$idLang] = isset($result['tab_nutri']) ? $result['tab_nutri'] : '';
                 $theraSup[$idLang] = isset($result['thera_sup']) ? $result['thera_sup'] : '';
+                $popupInfo[$idLang] = isset($result['popup_info']) ? $result['popup_info'] : '';
             }
             
             // Ajoute le champ mode_emploi après description
@@ -321,6 +345,42 @@ class Champ_Personnalise_Produit extends Module
                     'required' => false,
                 ],
                 'data' => $theraSup,
+                'label_attr' => [
+                    'class' => 'form-control-label h3',
+                ],
+                'label_tag_name' => 'h3',
+            ]);
+            
+            // Ajoute le champ popup_info
+            $descriptionTabFormBuilder->add('popup_info', 'PrestaShopBundle\\Form\\Admin\\Type\\TranslatableType', [
+                'label' => 'Information popup',
+                'required' => false,
+                'type' => 'PrestaShopBundle\\Form\\Admin\\Type\\FormattedTextareaType',
+                'options' => [
+                    'limit' => 21844,
+                    'attr' => [
+                        'class' => 'autoload_rte',
+                        'rows' => 5,
+                    ],
+                    'required' => false,
+                ],
+                'data' => $popupInfo,
+                'label_attr' => [
+                    'class' => 'form-control-label h3',
+                ],
+                'label_tag_name' => 'h3',
+            ]);
+            
+            // Récupère la valeur du champ product_popup_redirection
+            $productPopupRedirection = Db::getInstance()->getValue(
+                'SELECT product_popup_redirection FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . $productId
+            );
+            
+            // Ajoute le champ product_popup_redirection (non multilingue)
+            $descriptionTabFormBuilder->add('product_popup_redirection', TextType::class, [
+                'label' => 'Popup de redirection',
+                'required' => false,
+                'data' => $productPopupRedirection,
                 'label_attr' => [
                     'class' => 'form-control-label h3',
                 ],
@@ -639,6 +699,16 @@ class Champ_Personnalise_Produit extends Module
             $amazonBe = pSQL($_POST['amazon_be']);
         }
         
+        // Vérifie les différents endroits possibles pour product_popup_redirection
+        $productPopupRedirection = '';
+        if (isset($_POST['product']['description']['product_popup_redirection'])) {
+            $productPopupRedirection = pSQL($_POST['product']['description']['product_popup_redirection']);
+        } elseif (isset($_POST['description']['product_popup_redirection'])) {
+            $productPopupRedirection = pSQL($_POST['description']['product_popup_redirection']);
+        } elseif (isset($_POST['product_popup_redirection'])) {
+            $productPopupRedirection = pSQL($_POST['product_popup_redirection']);
+        }
+        
         // Formate la date si elle existe
         $dluFormatted = 'NULL';
         if (!empty($dlu)) {
@@ -653,7 +723,8 @@ class Champ_Personnalise_Produit extends Module
                 dlu_checkbox = ' . $dluCheckbox . ',
                 nm_days = ' . $nmDays . ',
                 amazon = "' . $amazon . '",
-                amazon_be = "' . $amazonBe . '" 
+                amazon_be = "' . $amazonBe . '",
+                product_popup_redirection = "' . $productPopupRedirection . '" 
             WHERE id_product = ' . $productId
         );
         
@@ -731,6 +802,20 @@ class Champ_Personnalise_Produit extends Module
             
             if (!empty($theraSup)) {
                 $updates[] = "thera_sup = \"$theraSup\"";
+            }
+            
+            // Récupère la valeur de Information popup pour cette langue
+            $popupInfo = '';
+            if (isset($_POST['product']['description']['popup_info'][$idLang])) {
+                $popupInfo = pSQL($_POST['product']['description']['popup_info'][$idLang], true);
+            } elseif (isset($_POST['description']['popup_info'][$idLang])) {
+                $popupInfo = pSQL($_POST['description']['popup_info'][$idLang], true);
+            } elseif (isset($_POST['popup_info'][$idLang])) {
+                $popupInfo = pSQL($_POST['popup_info'][$idLang], true);
+            }
+            
+            if (!empty($popupInfo)) {
+                $updates[] = "popup_info = \"$popupInfo\"";
             }
             
             // Mise à jour des champs multilingues dans la table product_lang si au moins un champ est rempli
