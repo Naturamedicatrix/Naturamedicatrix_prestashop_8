@@ -145,6 +145,46 @@ class Champ_Personnalise_Produit extends Module
             return;
         }
         
+        // Vérifie si nous sommes sur l'onglet "description"
+        if ($params['form_builder']->has('description')) {
+            $productId = (int) $params['id'];
+            $descriptionTabFormBuilder = $params['form_builder']->get('description');
+            
+            // Récupère les valeurs du mode d'emploi depuis la base de données
+            $modeEmploi = [];
+            $languages = Language::getLanguages();
+            
+            foreach ($languages as $language) {
+                $idLang = (int) $language['id_lang'];
+                $result = Db::getInstance()->getValue(
+                    'SELECT mode_emploi FROM `' . _DB_PREFIX_ . 'product_lang` 
+                    WHERE id_product = ' . $productId . ' AND id_lang = ' . $idLang
+                );
+                
+                $modeEmploi[$idLang] = $result ?: '';
+            }
+            
+            // Ajoute le champ mode_emploi après description
+            $descriptionTabFormBuilder->add('mode_emploi', 'PrestaShopBundle\\Form\\Admin\\Type\\TranslatableType', [
+                'label' => 'Mode d\'emploi',
+                'required' => false,
+                'type' => 'PrestaShopBundle\\Form\\Admin\\Type\\FormattedTextareaType',
+                'options' => [
+                    'limit' => 21844, // Valeur standard pour les descriptions longues
+                    'attr' => [
+                        'class' => 'autoload_rte',
+                        'rows' => 5,
+                    ],
+                    'required' => false,
+                ],
+                'data' => $modeEmploi,
+                'label_attr' => [
+                    'class' => 'form-control-label h3',
+                ],
+                'label_tag_name' => 'h3',
+            ]);
+        }
+        
         $productId = (int) $params['id'];
         $formBuilder = $params['form_builder'];
         
@@ -473,6 +513,32 @@ class Champ_Personnalise_Produit extends Module
                 amazon_be = "' . $amazonBe . '" 
             WHERE id_product = ' . $productId
         );
+        
+        // Gestion du mode d'emploi (multilingue)
+        $languages = Language::getLanguages(false);
+        foreach ($languages as $language) {
+            $idLang = (int) $language['id_lang'];
+            
+            // Récupère la valeur du mode d'emploi pour cette langue
+            $modeEmploi = '';
+            if (isset($_POST['product']['description']['mode_emploi'][$idLang])) {
+                $modeEmploi = pSQL($_POST['product']['description']['mode_emploi'][$idLang], true); // true pour conserver le HTML
+            } elseif (isset($_POST['description']['mode_emploi'][$idLang])) {
+                $modeEmploi = pSQL($_POST['description']['mode_emploi'][$idLang], true);
+            } elseif (isset($_POST['mode_emploi'][$idLang])) {
+                $modeEmploi = pSQL($_POST['mode_emploi'][$idLang], true);
+            }
+            
+            // Mise à jour du mode d'emploi dans la table product_lang seulement si on a une valeur
+            if (!empty($modeEmploi)) {
+                Db::getInstance()->execute(
+                    'UPDATE `' . _DB_PREFIX_ . 'product_lang` 
+                    SET mode_emploi = "' . $modeEmploi . '" 
+                    WHERE id_product = ' . $productId . ' 
+                    AND id_lang = ' . $idLang
+                );
+            }
+        }
     }
     
     /**

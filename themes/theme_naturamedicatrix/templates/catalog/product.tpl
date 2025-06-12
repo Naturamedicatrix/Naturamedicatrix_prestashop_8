@@ -22,6 +22,14 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
+ 
+
+{* VARIABLES *}
+{assign var=productName value=$product.name|escape:'html':'UTF-8'}
+{assign var=productName value=$productName|replace:'(':'<span class="small"> - '}
+{assign var=productName value=$productName|replace:')':'</span>'}
+{* END VARIABLES *}
+ 
 {extends file=$layout}
 
 {block name='head' append}
@@ -48,15 +56,284 @@
 
 {block name='content'}
 
+  <style>
+      
+      #header .top-menu a[data-depth="0"]:hover, a:hover {
+        color : #155585;
+      }
+      
+      .product-container {
+        padding-top: 3rem;
+      }
+      
+      #product-block-infos {
+        padding-right: 150px;
+      }
+      
+      .product-manufacturer,
+      .product-reference {
+        color: #93A7C3;
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+      
+      .product-reference {
+        float: right;
+      }
+    
+      #product-block-infos h1 {
+        text-align: left;
+        font-size: 2rem;
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+      }
+      
+      #product-block-infos h1 .small {
+        font-size: 1.2rem;
+      }      
+      
+      .product-flags {
+        padding-left: 0px;
+        margin-top: 0px;
+        gap: 5px;
+        position: relative;
+        flex-direction: row;
+        display: inline-flex;
+      }
+      
+      .product-flags li.product-flag,
+      .has-discount .discount {
+        font-size: 0.8rem;
+        text-transform: inherit;
+        background: none;
+        color: #68768a;
+        border: 1px solid #93A7C3;
+        padding: 4px 10px 2px;
+        border-radius: 15px;
+        border-top-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        line-height: 1.2;
+        min-height: auto !important;
+        min-width: auto;
+        font-weight: normal !important;
+        text-align: center;
+        margin-top: 0;
+      }
+      
+      .product-flags .new {
+        color: #136f9b !important;
+        background: #d1eaf6 !important;
+        border-color: #d1eaf6 !important;
+      }
+      
+      .product-flags .discount,
+      .has-discount .discount {
+        background-color: #e45b7f !important;
+        color: #f9fafb !important;
+        border-color: #e45b7f !important;
+        font-weight: 900 !important;
+      }
+      
+      .has-discount .discount {
+        font-size: 0.9rem;
+        margin-left: 0;
+      }
+      
+      
+      .product-description {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      
+      .seemore a {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        text-decoration: underline;
+        display: inline-block;
+        font-weight: 600;
+      }
+      
+      .product-description p,
+      .product-description li  {
+        color: #4B5563 !important;
+        padding-bottom: 0;
+      }
+      
+      .product-variants ul {
+        padding: 0;
+      }
+      
+      .product-variants-item label {
+        margin-bottom: 0;
+      }
+      
+      
+      .product-variants .input-color:checked+span,
+      .product-variants .input-radio:checked+span, 
+      
+      .product-variants .input-color:hover:checked+span,
+      .product-variants .input-radio:hover:checked+span
+       {
+        border: 2px solid #4B5563;
+      }
+      
+      .product-variants .input-color:hover+span,
+      .product-variants .input-radio:hover+span {
+        border: 1px solid #e5e8ea; 
+      }
+      
+      .product-variants .radio-label {
+        border: 1px solid #e5e8ea;
+        font-weight: normal;
+        color: #4B5563 !important;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        font-size: 1rem;
+      }
+      
+      .bi-circle-fill {
+        font-size: 0.4rem;
+        position: relative;
+        top: -2px;
+      }
+      
+      #product-availability {
+        font-size: 0.8rem;
+        font-weight: normal;
+        color : #ee5c58;
+      }
+      
+      #product-availability .product-last-items, 
+      #product-availability .product-unavailable {
+        color : #ee5c58;
+      }
+      
+      #dlu {
+        font-size: 0.9rem;
+        color :#4B5563;
+      }
+      
+      .product-prices {
+        text-align: right;
+        margin-top: 0;
+      }
+      
+      .current-price-value {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #111827;
+      }
+      
+      .current-price,
+      .product-price.h5 {
+        margin: 0 !important;
+      }
+      
+      .product-discount {
+        display: inline-block;
+        margin: 0 !important;
+      }
+      
+      .product-discount .regular-price {
+        font-size: .875rem;
+        color: #4B5563;
+      }
+      
+      .infoandprice {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+      }
+      
+      .tax-shipping-delivery-label {
+        display: none;
+      }
+      
+      .bootstrap-touchspin .input-group-btn-vertical>.btn {
+       min-width: inherit;
+      }
+      
+      .product-actions .add-to-cart {
+        width: 100%;
+      }
+      
+      .product-actions .add-to-cart:disabled {
+        background: rgba(0,0,0,.25) !important;
+        border-color : #c6c6c6 !important;
+        opacity: 1;
+      }
+      
+      .product-quantity .add {
+        flex-grow: 2;
+      }
+      
+      .noadd {
+        display: none;
+      }
+      
+      .wishlist-button-product {
+        border : 1px solid rgba(0,0,0,.25);
+        border-radius: 4px;
+        width: 3rem;
+        height: 2.75rem;
+        padding: .175rem .5rem;
+        color: #232323;
+        background-color: #fff;
+        margin-left: .4rem;
+      }
+      .wishlist-button-product i {
+        color : #232323 !important; 
+      }
+      .wishlist-button-add:hover {
+        opacity: 1;
+      }
+      
+      .product-images {
+        padding: 0;
+        margin: 0;
+      }
+      
+      .product-images li.thumb-container .thumb {
+        border: 1px solid #e5e8ea;
+        border-radius: 4px;
+        margin-right: 0 !important;
+      }
+      
+      .product-images>li.thumb-container .thumb.selected, 
+      .product-images>li.thumb-container .thumb:hover {
+        border: 1px solid #4B5563;
+      }
+      
+      .images-container {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        margin-right: 15px;
+      }
+      
+      .product-cover {
+        margin-left: 15px;
+        margin-bottom: 0;
+      }
+      
+      #product #content {
+        max-width: 600px;
+      }
+      
+      
+       
+  </style>
+
+
   <section id="main">
     <meta content="{$product.url}">
 
     <div class="row product-container js-product-container">
-      <div class="col-md-6">
+      <div class="col-md-6 col-xs-12" id="product-block-image">
         {block name='page_content_container'}
           <section class="page-content" id="content">
             {block name='page_content'}
-              {include file='catalog/_partials/product-flags.tpl'}
+              
 
               {block name='product_cover_thumbnails'}
                 {include file='catalog/_partials/product-cover-thumbnails.tpl'}
@@ -70,20 +347,46 @@
           </section>
         {/block}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-xs-12" id="product-block-infos">
           {block name='page_header_container'}
+            
+            {include file='catalog/_partials/product-flags.tpl'}
+            
+            <span class="product-reference">Réf. {$product.reference}</span>
+            
+            <div class="product-manufacturer">
+              <span><a href="#manufacturer_block" title="En savoir plus sur {$product.manufacturer_name}">{$product.manufacturer_name}</a></span>
+            </div>
+            
             {block name='page_header'}
-              <h1 class="h1">{block name='page_title'}{$product.name}{/block}</h1>
+              <h1 class="h1">{block name='page_title'}{$productName nofilter}{/block}</h1>
             {/block}
+            
+             <div class="review-product">
+              <div class="review-score text-left text-xs">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <span class="review-stats">238 avis</span>
+              </div>
+            </div>
           {/block}
-          {block name='product_prices'}
-            {include file='catalog/_partials/product-prices.tpl'}
-          {/block}
+          
+          
+          
 
           <div class="product-information">
             {block name='product_description_short'}
-              <div id="product-description-short-{$product.id}" class="product-description">{$product.description_short nofilter}</div>
+              <div id="product-description-short-{$product.id}" class="product-description">
+                {$product.description_short nofilter}
+                <p class="seemore">» <a href="#">Lire la suite</a></p>
+              
+              </div>
             {/block}
+            
+            
 
             {if $product.is_customizable && count($product.customizations.fields)}
               {block name='product_customization'}
@@ -114,6 +417,36 @@
                     </section>
                     {/if}
                   {/block}
+                  
+                  
+                  <div class="infoandprice">
+              
+                    <div class="availabledlu">
+                    
+                    {block name='product_availability'}
+                      <span id="product-availability" class="js-product-availability">
+                        {if $product.show_availability && $product.availability_message}
+                          {if $product.availability == 'available'}
+                            <i class="bi bi-circle-fill rtl-no-flip product-available"></i>
+                          {elseif $product.availability == 'last_remaining_items'}
+                            <i class="bi bi-circle-fill product-last-items"></i>
+                          {else}
+                            <i class="bi bi-circle-fill product-unavailable"></i>
+                          {/if}
+                          {$product.availability_message}
+                        {/if}
+                      </span>
+                    {/block}
+                    
+                    <div id="dlu"><small>Date limite conseillée&nbsp;:</small> <strong>30-03-2027</strong> <i class="bi bi-info-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Jusqu'à l'expiration de la date d’utilisation conseillée, nous vous garantissons un produit irréprochable. Cependant, l’expiration de la date d’utilisation conseillée ne signifie pas nécessairement qu'un produit n'est plus utilisable ou consommable ou présente un danger pour la santé. Si le produit vous semble correct en termes d'apparence et/ou d'odeur, vous pouvez l'utiliser sans problème."></i></div>
+                    
+                    </div> <!-- .availabledlu -->       
+                              
+                    {block name='product_prices'}
+                      {include file='catalog/_partials/product-prices.tpl'}
+                    {/block}
+                  
+                  </div> <!-- .infoandprice -->
 
                   {block name='product_discounts'}
                     {include file='catalog/_partials/product-discounts.tpl'}
@@ -122,6 +455,8 @@
                   {block name='product_add_to_cart'}
                     {include file='catalog/_partials/product-add-to-cart.tpl'}
                   {/block}
+                  
+                  
 
                   {block name='product_additional_info'}
                     {include file='catalog/_partials/product-additional-info.tpl'}
@@ -133,13 +468,26 @@
               {/block}
 
             </div>
+            
+            
 
+{*
             {block name='hook_display_reassurance'}
               {hook h='displayReassurance'}
             {/block}
+*}
 
-            {block name='product_tabs'}
-              <div class="tabs">
+            
+        </div>
+      </div>
+      
+      
+      <ul id="product-intolerances" class="row owl-theme-item owl-carousel owl-banners owl-theme owl-loaded owl-drag">
+	<div class="owl-stage-outer"><div class="owl-stage" style="width: 863px; transform: translate3d(0px, 0px, 0px); transition: all;"><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Vegan.svg" width="45" height="45" alt="Vegan"><small>Vegan</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Sans%20lactose.svg" width="45" height="45" alt="Sans lactose"><small>Sans lactose</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Sans%20gluten.svg" width="45" height="45" alt="Sans gluten"><small>Sans gluten</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Pour%20hommes.svg" width="45" height="45" alt="Pour hommes"><small>Pour hommes</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Pour%20femmes.svg" width="45" height="45" alt="Pour femmes"><small>Pour femmes</small></li></div></div></div><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div><div class="owl-dots disabled"><div class="owl-dot active"><span></span></div></div></ul>
+      
+      
+    {block name='product_tabs'}
+              <div class="tabs clear">
                 <ul class="nav nav-tabs" role="tablist">
                   {if $product.description}
                     <li class="nav-item">
@@ -223,9 +571,9 @@
                  {/foreach}
               </div>
             </div>
-          {/block}
-        </div>
-      </div>
+          {/block}  
+      
+      
     </div>
 
     {block name='product_accessories'}
