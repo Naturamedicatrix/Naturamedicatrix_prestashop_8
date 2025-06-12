@@ -100,6 +100,50 @@ class Champ_Personnalise_Produit extends Module
             $result = $result && Db::getInstance()->execute($sql5);
         }
         
+        // Vérifie si la colonne mode_emploi existe déjà dans la table product_lang
+        $columnModeEmploiExists = Db::getInstance()->executeS(
+            'SHOW COLUMNS FROM `' . _DB_PREFIX_ . 'product_lang` LIKE "mode_emploi"'
+        );
+        
+        // Exécute la requête SQL seulement si la colonne n'existe pas
+        if (empty($columnModeEmploiExists)) {
+            $sql7 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product_lang` ADD COLUMN `mode_emploi` TEXT NULL;';
+            $result = $result && Db::getInstance()->execute($sql7);
+        }
+        
+        // Vérifie si la colonne contre_indications existe déjà dans la table product_lang
+        $columnContreIndicationsExists = Db::getInstance()->executeS(
+            'SHOW COLUMNS FROM `' . _DB_PREFIX_ . 'product_lang` LIKE "contre_indications"'
+        );
+        
+        // Exécute la requête SQL seulement si la colonne n'existe pas
+        if (empty($columnContreIndicationsExists)) {
+            $sql8 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product_lang` ADD COLUMN `contre_indications` TEXT NULL AFTER `mode_emploi`;';
+            $result = $result && Db::getInstance()->execute($sql8);
+        }
+        
+        // Vérifie si la colonne ingredients existe déjà dans la table product_lang
+        $columnIngredientsExists = Db::getInstance()->executeS(
+            'SHOW COLUMNS FROM `' . _DB_PREFIX_ . 'product_lang` LIKE "ingredients"'
+        );
+        
+        // Exécute la requête SQL seulement si la colonne n'existe pas
+        if (empty($columnIngredientsExists)) {
+            $sql9 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product_lang` ADD COLUMN `ingredients` TEXT NULL AFTER `contre_indications`;';
+            $result = $result && Db::getInstance()->execute($sql9);
+        }
+        
+        // Vérifie si la colonne tab_nutri existe déjà dans la table product_lang
+        $columnTabNutriExists = Db::getInstance()->executeS(
+            'SHOW COLUMNS FROM `' . _DB_PREFIX_ . 'product_lang` LIKE "tab_nutri"'
+        );
+        
+        // Exécute la requête SQL seulement si la colonne n'existe pas
+        if (empty($columnTabNutriExists)) {
+            $sql10 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product_lang` ADD COLUMN `tab_nutri` TEXT NULL AFTER `ingredients`;';
+            $result = $result && Db::getInstance()->execute($sql10);
+        }
+        
         // Ajoute la colonne amazon_be à la table product
         $sql6 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product` ADD COLUMN `amazon_be` TEXT NULL AFTER `amazon`;';
         
@@ -164,6 +208,25 @@ class Champ_Personnalise_Produit extends Module
                 $modeEmploi[$idLang] = $result ?: '';
             }
             
+            // Récupère les valeurs pour tous les champs personnalisés
+            $modeEmploi = [];
+            $contreIndications = [];
+            $ingredients = [];
+            $tabNutri = [];
+            
+            foreach ($languages as $language) {
+                $idLang = (int) $language['id_lang'];
+                $result = Db::getInstance()->getRow(
+                    'SELECT mode_emploi, contre_indications, ingredients, tab_nutri FROM `' . _DB_PREFIX_ . 'product_lang` 
+                    WHERE id_product = ' . $productId . ' AND id_lang = ' . $idLang
+                );
+                
+                $modeEmploi[$idLang] = isset($result['mode_emploi']) ? $result['mode_emploi'] : '';
+                $contreIndications[$idLang] = isset($result['contre_indications']) ? $result['contre_indications'] : '';
+                $ingredients[$idLang] = isset($result['ingredients']) ? $result['ingredients'] : '';
+                $tabNutri[$idLang] = isset($result['tab_nutri']) ? $result['tab_nutri'] : '';
+            }
+            
             // Ajoute le champ mode_emploi après description
             $descriptionTabFormBuilder->add('mode_emploi', 'PrestaShopBundle\\Form\\Admin\\Type\\TranslatableType', [
                 'label' => 'Mode d\'emploi',
@@ -178,6 +241,66 @@ class Champ_Personnalise_Produit extends Module
                     'required' => false,
                 ],
                 'data' => $modeEmploi,
+                'label_attr' => [
+                    'class' => 'form-control-label h3',
+                ],
+                'label_tag_name' => 'h3',
+            ]);
+            
+            // Ajoute le champ contre_indications
+            $descriptionTabFormBuilder->add('contre_indications', 'PrestaShopBundle\\Form\\Admin\\Type\\TranslatableType', [
+                'label' => 'Contre-indications',
+                'required' => false,
+                'type' => 'PrestaShopBundle\\Form\\Admin\\Type\\FormattedTextareaType',
+                'options' => [
+                    'limit' => 21844,
+                    'attr' => [
+                        'class' => 'autoload_rte',
+                        'rows' => 5,
+                    ],
+                    'required' => false,
+                ],
+                'data' => $contreIndications,
+                'label_attr' => [
+                    'class' => 'form-control-label h3',
+                ],
+                'label_tag_name' => 'h3',
+            ]);
+            
+            // Ajoute le champ ingredients
+            $descriptionTabFormBuilder->add('ingredients', 'PrestaShopBundle\\Form\\Admin\\Type\\TranslatableType', [
+                'label' => 'Ingrédients',
+                'required' => false,
+                'type' => 'PrestaShopBundle\\Form\\Admin\\Type\\FormattedTextareaType',
+                'options' => [
+                    'limit' => 21844,
+                    'attr' => [
+                        'class' => 'autoload_rte',
+                        'rows' => 5,
+                    ],
+                    'required' => false,
+                ],
+                'data' => $ingredients,
+                'label_attr' => [
+                    'class' => 'form-control-label h3',
+                ],
+                'label_tag_name' => 'h3',
+            ]);
+            
+            // Ajoute le champ tab_nutri
+            $descriptionTabFormBuilder->add('tab_nutri', 'PrestaShopBundle\\Form\\Admin\\Type\\TranslatableType', [
+                'label' => 'Tableau nutritionnel',
+                'required' => false,
+                'type' => 'PrestaShopBundle\\Form\\Admin\\Type\\FormattedTextareaType',
+                'options' => [
+                    'limit' => 21844,
+                    'attr' => [
+                        'class' => 'autoload_rte',
+                        'rows' => 5,
+                    ],
+                    'required' => false,
+                ],
+                'data' => $tabNutri,
                 'label_attr' => [
                     'class' => 'form-control-label h3',
                 ],
@@ -514,10 +637,11 @@ class Champ_Personnalise_Produit extends Module
             WHERE id_product = ' . $productId
         );
         
-        // Gestion du mode d'emploi (multilingue)
+        // Gestion des champs multilingues
         $languages = Language::getLanguages(false);
         foreach ($languages as $language) {
             $idLang = (int) $language['id_lang'];
+            $updates = [];
             
             // Récupère la valeur du mode d'emploi pour cette langue
             $modeEmploi = '';
@@ -529,11 +653,57 @@ class Champ_Personnalise_Produit extends Module
                 $modeEmploi = pSQL($_POST['mode_emploi'][$idLang], true);
             }
             
-            // Mise à jour du mode d'emploi dans la table product_lang seulement si on a une valeur
             if (!empty($modeEmploi)) {
+                $updates[] = "mode_emploi = \"$modeEmploi\"";
+            }
+            
+            // Récupère la valeur des contre-indications pour cette langue
+            $contreIndications = '';
+            if (isset($_POST['product']['description']['contre_indications'][$idLang])) {
+                $contreIndications = pSQL($_POST['product']['description']['contre_indications'][$idLang], true);
+            } elseif (isset($_POST['description']['contre_indications'][$idLang])) {
+                $contreIndications = pSQL($_POST['description']['contre_indications'][$idLang], true);
+            } elseif (isset($_POST['contre_indications'][$idLang])) {
+                $contreIndications = pSQL($_POST['contre_indications'][$idLang], true);
+            }
+            
+            if (!empty($contreIndications)) {
+                $updates[] = "contre_indications = \"$contreIndications\"";
+            }
+            
+            // Récupère la valeur des ingrédients pour cette langue
+            $ingredients = '';
+            if (isset($_POST['product']['description']['ingredients'][$idLang])) {
+                $ingredients = pSQL($_POST['product']['description']['ingredients'][$idLang], true);
+            } elseif (isset($_POST['description']['ingredients'][$idLang])) {
+                $ingredients = pSQL($_POST['description']['ingredients'][$idLang], true);
+            } elseif (isset($_POST['ingredients'][$idLang])) {
+                $ingredients = pSQL($_POST['ingredients'][$idLang], true);
+            }
+            
+            if (!empty($ingredients)) {
+                $updates[] = "ingredients = \"$ingredients\"";
+            }
+            
+            // Récupère la valeur du tableau nutritionnel pour cette langue
+            $tabNutri = '';
+            if (isset($_POST['product']['description']['tab_nutri'][$idLang])) {
+                $tabNutri = pSQL($_POST['product']['description']['tab_nutri'][$idLang], true);
+            } elseif (isset($_POST['description']['tab_nutri'][$idLang])) {
+                $tabNutri = pSQL($_POST['description']['tab_nutri'][$idLang], true);
+            } elseif (isset($_POST['tab_nutri'][$idLang])) {
+                $tabNutri = pSQL($_POST['tab_nutri'][$idLang], true);
+            }
+            
+            if (!empty($tabNutri)) {
+                $updates[] = "tab_nutri = \"$tabNutri\"";
+            }
+            
+            // Mise à jour des champs multilingues dans la table product_lang si au moins un champ est rempli
+            if (!empty($updates)) {
                 Db::getInstance()->execute(
                     'UPDATE `' . _DB_PREFIX_ . 'product_lang` 
-                    SET mode_emploi = "' . $modeEmploi . '" 
+                    SET ' . implode(', ', $updates) . ' 
                     WHERE id_product = ' . $productId . ' 
                     AND id_lang = ' . $idLang
                 );
