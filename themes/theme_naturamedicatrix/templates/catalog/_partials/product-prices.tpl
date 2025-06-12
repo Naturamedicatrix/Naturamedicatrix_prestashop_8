@@ -28,6 +28,7 @@
     
 
     {block name='product_price'}
+
       
       
     

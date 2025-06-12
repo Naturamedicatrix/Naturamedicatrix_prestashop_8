@@ -304,11 +304,36 @@
         border: 1px solid #4B5563;
       }
       
+      #product-modal .modal-content .modal-body .product-images img:hover {
+        border: 1px solid #4B5563;
+      }
+      
+      #product-modal .thumb-video .thumb {
+        height: 108px;
+      }
+      
+      .thumb-video .thumb {
+        display: flex;
+        height: 73px;
+        align-items: center;
+        justify-content: center;
+        background: white;
+      }
+      
+      #modal-video-container {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+      }
+      
+      #main .images-container .js-qv-mask.scroll {
+        width: auto;
+      }
+      
       .images-container {
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
-        margin-right: 15px;
       }
       
       .product-cover {
@@ -320,7 +345,68 @@
         max-width: 600px;
       }
       
+      #manufacturer_block {
+        display: flex;
+        margin: 2rem 0;
+        background: #f9fafb;
+      }
       
+      #manufacturer_block .block {
+        padding: 1rem 3rem;
+        border: 1px solid #e5e8ea;
+        border-radius: 10px;
+      }
+
+      
+      #manufacturer_block .product-manufacturer-img img {
+        max-width: 165px;
+      }
+      
+      #manufacturer_block .product-manufacturer-infos {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+      }
+      
+      #manufacturer_block .product-manufacturer-infos p {
+        font-size: 0.9rem;
+      }
+      
+      #manufacturer_block .seemore a {
+        margin-top: 0;
+      }
+      
+      #manufacturer_block .product-manufacturer-imgplus {
+        padding: 0;
+        width: 100%;
+        overflow: hidden;
+        margin-left: 2rem;
+      }
+      
+      #manufacturer_block .product-manufacturer-imgplus img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      #manufacturer_block.brand-5 .product-manufacturer-infos {
+        /* Olivie Pharma */
+        background: #efece6;
+      }
+      
+      #manufacturer_block.brand-4 .product-manufacturer-infos {
+        /* NATURAMedicatrix */
+        background: #f1f7f1;
+      }
+      
+      #manufacturer_block.brand-3 .product-manufacturer-infos {
+        /* Dr Jacob */
+        background: #f8faff;
+      }
+      
+    
+      
+
        
   </style>
 
@@ -338,10 +424,12 @@
               {block name='product_cover_thumbnails'}
                 {include file='catalog/_partials/product-cover-thumbnails.tpl'}
               {/block}
+{*
               <div class="scroll-box-arrows">
                 <i class="material-icons left">&#xE314;</i>
                 <i class="material-icons right">&#xE315;</i>
               </div>
+*}
 
             {/block}
           </section>
@@ -438,7 +526,7 @@
                       </span>
                     {/block}
                     
-                    <div id="dlu"><small>Date limite conseillée&nbsp;:</small> <strong>30-03-2027</strong> <i class="bi bi-info-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Jusqu'à l'expiration de la date d’utilisation conseillée, nous vous garantissons un produit irréprochable. Cependant, l’expiration de la date d’utilisation conseillée ne signifie pas nécessairement qu'un produit n'est plus utilisable ou consommable ou présente un danger pour la santé. Si le produit vous semble correct en termes d'apparence et/ou d'odeur, vous pouvez l'utiliser sans problème."></i></div>
+                    {if isset($product.dlu)}<div id="dlu"><small>Date limite conseillée&nbsp;:</small> <strong>{$product.dlu|date_format:"%d-%m-%Y"}</strong> <i class="bi bi-info-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Jusqu'à l'expiration de la date d’utilisation conseillée, nous vous garantissons un produit irréprochable. Cependant, l’expiration de la date d’utilisation conseillée ne signifie pas nécessairement qu'un produit n'est plus utilisable ou consommable ou présente un danger pour la santé. Si le produit vous semble correct en termes d'apparence et/ou d'odeur, vous pouvez l'utiliser sans problème."></i></div>{/if}
                     
                     </div> <!-- .availabledlu -->       
                               
@@ -468,25 +556,24 @@
               {/block}
 
             </div>
-            
-            
 
 {*
             {block name='hook_display_reassurance'}
               {hook h='displayReassurance'}
             {/block}
 *}
-
-            
+     
         </div>
       </div>
       
       
+{*
       <ul id="product-intolerances" class="row owl-theme-item owl-carousel owl-banners owl-theme owl-loaded owl-drag">
 	<div class="owl-stage-outer"><div class="owl-stage" style="width: 863px; transform: translate3d(0px, 0px, 0px); transition: all;"><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Vegan.svg" width="45" height="45" alt="Vegan"><small>Vegan</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Sans%20lactose.svg" width="45" height="45" alt="Sans lactose"><small>Sans lactose</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Sans%20gluten.svg" width="45" height="45" alt="Sans gluten"><small>Sans gluten</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Pour%20hommes.svg" width="45" height="45" alt="Pour hommes"><small>Pour hommes</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Pour%20femmes.svg" width="45" height="45" alt="Pour femmes"><small>Pour femmes</small></li></div></div></div><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div><div class="owl-dots disabled"><div class="owl-dot active"><span></span></div></div></ul>
+*}
       
       
-    {block name='product_tabs'}
+            {block name='product_tabs'}
               <div class="tabs clear">
                 <ul class="nav nav-tabs" role="tablist">
                   {if $product.description}
@@ -572,9 +659,42 @@
               </div>
             </div>
           {/block}  
-      
-      
     </div>
+    
+    
+    {if isset($product_manufacturer->id)}
+      <div id="manufacturer_block" class="product-manufacturer brand-{$product_manufacturer->id}" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+        <div class="block product-manufacturer-infos">
+        {if isset($manufacturer_image_url)}
+          <a href="{$product_brand_url}" class="product-manufacturer-img">
+            <figure>
+              <img src="{$manufacturer_image_url}" class="img img-fluid manufacturer-logo" alt="{$product_manufacturer->name}" loading="lazy">
+              <meta itemprop="logo" content="{$manufacturer_image_url}" />
+            </figure>
+          </a>
+        {/if}
+          <div class="product-manufacturer-name">
+            <h3 itemprop="name"><a href="{$product_brand_url}">{$product_manufacturer->name}</a></h3>
+            {$product_manufacturer->short_description nofilter}
+            <p class="seemore">» <a href="">Les produits {$product_manufacturer->name}</a></p>
+          </div>
+        </div>
+          
+        {if $product_manufacturer->id == 5}
+          <div class="block product-manufacturer-imgplus">
+            <img src="https://new.naturamedicatrix.fr/themes/theme_naturamedicatrix/assets/img/brands/brand-olivie.jpg" />
+          </div>
+        {elseif $product_manufacturer->id == 4}
+          <div class="block product-manufacturer-imgplus">
+            <img src="https://new.naturamedicatrix.fr/themes/theme_naturamedicatrix/assets/img/brands/brand-naturamedicatrix.jpg" />
+          </div>
+        {elseif $product_manufacturer->id == 3}
+          <div class="block product-manufacturer-imgplus">
+            <img src="https://new.naturamedicatrix.fr/themes/theme_naturamedicatrix/assets/img/brands/brand-jacob.jpg" />
+          </div>
+        {/if}
+      </div>
+    {/if}
 
     {block name='product_accessories'}
       {if $accessories}

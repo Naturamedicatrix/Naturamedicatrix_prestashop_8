@@ -831,7 +831,7 @@ class Champ_Personnalise_Produit extends Module
     }
     
     /**
-     * Hook pour ajouter les champs personnalisés à l'objet produit dans le panier
+     * Hook pour ajouter les champs personnalisés à l'objet produit dans le panier et frontend
      */
     public function hookActionGetProductPropertiesAfter($params)
     {
@@ -841,40 +841,54 @@ class Champ_Personnalise_Produit extends Module
         
         $productId = (int) $params['id_product'];
         
+        // Ajout d'un marqueur pour vérifier si ce hook est exécuté
+        $params['product']['champ_personnalise_loaded'] = true;
+        
         // Récupère les données de lot, DLU et autres champs depuis la table product
         $result = Db::getInstance()->getRow(
-            'SELECT lot, dlu, dlu_checkbox, nm_days, amazon, amazon_be FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . $productId
+            'SELECT lot, dlu, dlu_checkbox, nm_days, amazon, amazon_be, product_popup_redirection FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . $productId
         );
         
         if ($result) {
-            // Debug pour vérifier les données récupérées
-            PrestaShopLogger::addLog('Données produit ID '.$productId.': lot='.(isset($result['lot']) ? $result['lot'] : 'non défini').', dlu='.(isset($result['dlu']) ? $result['dlu'] : 'non défini').', dlu_checkbox='.(isset($result['dlu_checkbox']) ? $result['dlu_checkbox'] : 'non défini').', nm_days='.(isset($result['nm_days']) ? $result['nm_days'] : 'non défini').', amazon='.(isset($result['amazon']) ? 'présent' : 'non défini').', amazon_be='.(isset($result['amazon_be']) ? 'présent' : 'non défini'), 1);
-            
             // Ajouter les champs personnalisés à l'objet produit
-            if (isset($result['lot'])) {
-                $params['product']['lot'] = $result['lot'];
+            foreach ($result as $key => $value) {
+                if (isset($value) && $value !== '') {
+                    $params['product'][$key] = $value;
+                }
             }
             
-            if (isset($result['dlu'])) {
-                $params['product']['dlu'] = $result['dlu'];
-            }
-            
-            if (isset($result['dlu_checkbox'])) {
-                $params['product']['dlu_checkbox'] = $result['dlu_checkbox'];
-            }
-            
-            if (isset($result['nm_days'])) {
-                $params['product']['nm_days'] = $result['nm_days'];
-            }
-            
-            if (isset($result['amazon'])) {
-                $params['product']['amazon'] = $result['amazon'];
-            }
-            
-            if (isset($result['amazon_be'])) {
-                $params['product']['amazon_be'] = $result['amazon_be'];
-            }
+            // Ajout d'un flag pour vérifier si des données ont été trouvées
+            $params['product']['has_custom_fields'] = true;
+            $params['product']['custom_fields_debug'] = json_encode($result);
+        } else {
+            $params['product']['has_custom_fields'] = false;
         }
+        
+        // Récupérer les champs multilingues depuis la table product_lang
+        $idLang = Context::getContext()->language->id;
+        $resultLang = Db::getInstance()->getRow(
+            'SELECT mode_emploi, contre_indications, ingredients, tab_nutri, thera_sup, popup_info 
+             FROM `' . _DB_PREFIX_ . 'product_lang` 
+             WHERE id_product = ' . $productId . ' AND id_lang = ' . $idLang
+        );
+        
+        if ($resultLang) {
+            // Ajouter les champs multilingues à l'objet produit
+            foreach ($resultLang as $key => $value) {
+                if (isset($value) && $value !== '') {
+                    $params['product'][$key] = $value;
+                }
+            }
+            
+            // Ajout d'un flag pour vérifier si des données multilingues ont été trouvées
+            $params['product']['has_multilang_fields'] = true;
+            $params['product']['multilang_fields_debug'] = json_encode($resultLang);
+        } else {
+            $params['product']['has_multilang_fields'] = false;
+        }
+        
+        // Force la mise à jour du produit dans le contexte
+        Context::getContext()->smarty->assign('product', $params['product']);
         
         return $params['product'];
     }
