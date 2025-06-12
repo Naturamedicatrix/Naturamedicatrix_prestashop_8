@@ -144,6 +144,17 @@ class Champ_Personnalise_Produit extends Module
             $result = $result && Db::getInstance()->execute($sql10);
         }
         
+        // Vérifie si la colonne thera_sup existe déjà dans la table product_lang
+        $columnTheraSupExists = Db::getInstance()->executeS(
+            'SHOW COLUMNS FROM `' . _DB_PREFIX_ . 'product_lang` LIKE "thera_sup"'
+        );
+        
+        // Exécute la requête SQL seulement si la colonne n'existe pas
+        if (empty($columnTheraSupExists)) {
+            $sql11 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product_lang` ADD COLUMN `thera_sup` TEXT NULL AFTER `tab_nutri`;';
+            $result = $result && Db::getInstance()->execute($sql11);
+        }
+        
         // Ajoute la colonne amazon_be à la table product
         $sql6 = 'ALTER TABLE `' . _DB_PREFIX_ . 'product` ADD COLUMN `amazon_be` TEXT NULL AFTER `amazon`;';
         
@@ -194,30 +205,18 @@ class Champ_Personnalise_Produit extends Module
             $productId = (int) $params['id'];
             $descriptionTabFormBuilder = $params['form_builder']->get('description');
             
-            // Récupère les valeurs du mode d'emploi depuis la base de données
-            $modeEmploi = [];
-            $languages = Language::getLanguages();
-            
-            foreach ($languages as $language) {
-                $idLang = (int) $language['id_lang'];
-                $result = Db::getInstance()->getValue(
-                    'SELECT mode_emploi FROM `' . _DB_PREFIX_ . 'product_lang` 
-                    WHERE id_product = ' . $productId . ' AND id_lang = ' . $idLang
-                );
-                
-                $modeEmploi[$idLang] = $result ?: '';
-            }
-            
             // Récupère les valeurs pour tous les champs personnalisés
+            $languages = Language::getLanguages();
             $modeEmploi = [];
             $contreIndications = [];
             $ingredients = [];
             $tabNutri = [];
+            $theraSup = [];
             
             foreach ($languages as $language) {
                 $idLang = (int) $language['id_lang'];
                 $result = Db::getInstance()->getRow(
-                    'SELECT mode_emploi, contre_indications, ingredients, tab_nutri FROM `' . _DB_PREFIX_ . 'product_lang` 
+                    'SELECT mode_emploi, contre_indications, ingredients, tab_nutri, thera_sup FROM `' . _DB_PREFIX_ . 'product_lang` 
                     WHERE id_product = ' . $productId . ' AND id_lang = ' . $idLang
                 );
                 
@@ -225,6 +224,7 @@ class Champ_Personnalise_Produit extends Module
                 $contreIndications[$idLang] = isset($result['contre_indications']) ? $result['contre_indications'] : '';
                 $ingredients[$idLang] = isset($result['ingredients']) ? $result['ingredients'] : '';
                 $tabNutri[$idLang] = isset($result['tab_nutri']) ? $result['tab_nutri'] : '';
+                $theraSup[$idLang] = isset($result['thera_sup']) ? $result['thera_sup'] : '';
             }
             
             // Ajoute le champ mode_emploi après description
@@ -301,6 +301,26 @@ class Champ_Personnalise_Produit extends Module
                     'required' => false,
                 ],
                 'data' => $tabNutri,
+                'label_attr' => [
+                    'class' => 'form-control-label h3',
+                ],
+                'label_tag_name' => 'h3',
+            ]);
+            
+            // Ajoute le champ thera_sup
+            $descriptionTabFormBuilder->add('thera_sup', 'PrestaShopBundle\\Form\\Admin\\Type\\TranslatableType', [
+                'label' => 'Professionals description',
+                'required' => false,
+                'type' => 'PrestaShopBundle\\Form\\Admin\\Type\\FormattedTextareaType',
+                'options' => [
+                    'limit' => 21844,
+                    'attr' => [
+                        'class' => 'autoload_rte',
+                        'rows' => 5,
+                    ],
+                    'required' => false,
+                ],
+                'data' => $theraSup,
                 'label_attr' => [
                     'class' => 'form-control-label h3',
                 ],
@@ -697,6 +717,20 @@ class Champ_Personnalise_Produit extends Module
             
             if (!empty($tabNutri)) {
                 $updates[] = "tab_nutri = \"$tabNutri\"";
+            }
+            
+            // Récupère la valeur de Professionals description pour cette langue
+            $theraSup = '';
+            if (isset($_POST['product']['description']['thera_sup'][$idLang])) {
+                $theraSup = pSQL($_POST['product']['description']['thera_sup'][$idLang], true);
+            } elseif (isset($_POST['description']['thera_sup'][$idLang])) {
+                $theraSup = pSQL($_POST['description']['thera_sup'][$idLang], true);
+            } elseif (isset($_POST['thera_sup'][$idLang])) {
+                $theraSup = pSQL($_POST['thera_sup'][$idLang], true);
+            }
+            
+            if (!empty($theraSup)) {
+                $updates[] = "thera_sup = \"$theraSup\"";
             }
             
             // Mise à jour des champs multilingues dans la table product_lang si au moins un champ est rempli
