@@ -134,46 +134,93 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var videoIframe = {if isset($product.video_iframe)}true{else}false{/if};
-    var videoContainer = document.getElementById('modal-video-container');
-    
-    if (videoIframe) {
-      // Extrait l'ID YouTube de l'iframe
-      var iframeContent = videoContainer.innerHTML;
-      var videoId = null;
+    // Fonction pour initialiser la vidéo et les miniatures dans le modal
+    function initializeModalVideo() {
+      var videoContainer = document.getElementById('modal-video-container');
+      if (!videoContainer) return;
       
-      // Essaye de trouver l'ID YouTube dans l'URL de l'iframe
-      var match = iframeContent.match(/youtube\.com\/embed\/([^\/?&"']+)/i);
-      if (match && match[1]) {
-        videoId = match[1];
+      var videoIframe = {if isset($product.video_iframe)}true{else}false{/if};
+      
+      if (videoIframe) {
+        // Extrait l'ID YouTube de l'iframe
+        var iframeContent = videoContainer.innerHTML;
+        var videoId = null;
+        
+        // Essaye de trouver l'ID YouTube dans l'URL de l'iframe
+        var match = iframeContent.match(/youtube\.com\/embed\/([^\/?&"']+)/i);
+        if (match && match[1]) {
+          videoId = match[1];
+        }
+        
+        if (videoId) {
+          // Charge la miniature YouTube
+          var thumbnailUrl = 'https://img.youtube.com/vi/' + videoId + '/mqdefault.jpg';
+          var thumbnailElement = document.getElementById('youtube-thumbnail');
+          if (thumbnailElement) {
+            thumbnailElement.style.backgroundImage = 'url(' + thumbnailUrl + ')';
+          }
+          
+          // Remplace l'icône par le logo YouTube
+          var videoPlayIcon = document.getElementById('video-play-icon');
+          if (videoPlayIcon) {
+            videoPlayIcon.innerHTML = '\
+              <svg viewBox="0 0 68 48" width="36" height="25" xmlns="http://www.w3.org/2000/svg" style="background: transparent !important; background-color: transparent !important;" fill="none">\
+                <rect width="68" height="48" fill="transparent" />\
+                <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>\
+                <path d="M 45,24 27,14 27,34" fill="#fff"></path>\
+              </svg>';
+          }
+        }
       }
       
-      if (videoId) {
-        // Charge la miniature YouTube
-        var thumbnailUrl = 'https://img.youtube.com/vi/' + videoId + '/mqdefault.jpg';
-        var thumbnailElement = document.getElementById('youtube-thumbnail');
-        thumbnailElement.style.backgroundImage = 'url(' + thumbnailUrl + ')';
-        
-        // Remplace l'icône par le logo YouTube
-        document.getElementById('video-play-icon').innerHTML = '\
-          <svg viewBox="0 0 68 48" width="36" height="25" xmlns="http://www.w3.org/2000/svg">\
-            <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>\
-            <path d="M 45,24 27,14 27,34" fill="#fff"></path>\
-          </svg>';
+      // Réinitialiser les écouteurs d'événements
+      // Affiche la vidéo quand on clique sur la miniature
+      var modalVideoThumbnail = document.getElementById('modal-video-thumbnail');
+      if (modalVideoThumbnail) {
+        // Supprimer les écouteurs existants pour éviter les doublons
+        modalVideoThumbnail.removeEventListener('click', showVideo);
+        modalVideoThumbnail.addEventListener('click', showVideo);
+      }
+      
+      // Cache la vidéo quand on clique sur une image
+      var imageElements = document.querySelectorAll('.js-modal-thumb');
+      imageElements.forEach(function(image) {
+        // Supprimer les écouteurs existants pour éviter les doublons
+        image.removeEventListener('click', hideVideo);
+        image.addEventListener('click', hideVideo);
+      });
+    }
+    
+    // Fonction pour afficher la vidéo
+    function showVideo() {
+      var videoContainer = document.getElementById('modal-video-container');
+      if (videoContainer) {
+        videoContainer.style.display = 'block';
       }
     }
     
-    // Affiche la vidéo quand on clique sur la miniature
-    document.getElementById('modal-video-thumbnail').addEventListener('click', function () {
-      videoContainer.style.display = 'block';
+    // Fonction pour cacher la vidéo
+    function hideVideo() {
+      var videoContainer = document.getElementById('modal-video-container');
+      if (videoContainer) {
+        videoContainer.style.display = 'none';
+      }
+    }
+    
+    // Initialisation au chargement de la page
+    initializeModalVideo();
+    
+    // Réinitialisation lors du changement de déclinaison (événement PrestaShop)
+    prestashop.on('updatedProduct', function(event) {
+      // On laisse un peu de temps au DOM pour se mettre à jour
+      setTimeout(function() {
+        initializeModalVideo();
+      }, 100);
     });
     
-    // Cache la vidéo quand on clique sur une image
-    var imageElements = document.querySelectorAll('.js-modal-thumb');
-    imageElements.forEach(function(image) {
-      image.addEventListener('click', function() {
-        videoContainer.style.display = 'none';
-      });
+    // Réinitialisation lorsque le modal est ouvert
+    $('#product-modal').on('shown.bs.modal', function () {
+      initializeModalVideo();
     });
   });
 </script>

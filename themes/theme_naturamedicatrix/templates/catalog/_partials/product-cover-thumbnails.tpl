@@ -92,9 +92,19 @@
         {/foreach}
         
                 
+        {if isset($product.video_iframe) && $product.video_iframe}
+        <li id="video-thumbnail" class="thumb-container js-thumb-container thumb-video" data-toggle="modal" data-target="#product-modal">
+          <div id="product-youtube-thumbnail" class="thumb js-thumb" style="position: relative; background-size: cover; background-position: center;">
+            <div id="product-video-play-icon" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+              <i class="text-xl bi bi-play-circle"></i>
+            </div>
+          </div>
+        </li>
+        {else}
         <li id="video-thumbnail" class="thumb-container js-thumb-container thumb-video" data-toggle="modal" data-target="#product-modal" data-image-large-src="https://img.youtube.com/vi/clsiWh54FR0/sddefault.jpg" data-image-large-sources="https://img.youtube.com/vi/clsiWh54FR0/sddefault.jpg">
           <span class="thumb js-thumb"><i class="text-4xl bi bi-play-circle"></i></span>
         </li>
+        {/if}
         
         
       </ul>
@@ -102,3 +112,55 @@
   {/block}
 {hook h='displayAfterProductThumbs' product=$product}
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Fonction pour initialiser la miniature YouTube
+    function initializeYouTubeThumbnail() {
+      {if isset($product.video_iframe) && $product.video_iframe}
+      // Extrait l'ID YouTube de l'iframe
+      var iframeContent = `{$product.video_iframe|escape:'javascript'}`;
+      var videoId = null;
+      
+      // Essaye de trouver l'ID YouTube dans l'URL de l'iframe
+      var match = iframeContent.match(/youtube\.com\/embed\/([^\/?&"']+)/i);
+      if (match && match[1]) {
+        videoId = match[1];
+        
+        // Charge la miniature YouTube
+        var thumbnailUrl = 'https://img.youtube.com/vi/' + videoId + '/mqdefault.jpg';
+        var thumbnailElement = document.getElementById('product-youtube-thumbnail');
+        if (thumbnailElement) {
+          thumbnailElement.style.backgroundImage = 'url(' + thumbnailUrl + ')';
+        }
+        
+        // Remplace l'icône par le logo YouTube
+        var playIcon = document.getElementById('product-video-play-icon');
+        if (playIcon) {
+          playIcon.innerHTML = '\
+            <svg viewBox="0 0 68 48" width="36" height="25" xmlns="http://www.w3.org/2000/svg" style="background: transparent !important; background-color: transparent !important;" fill="none">\
+              <rect width="68" height="48" fill="transparent" />\
+              <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>\
+              <path d="M 45,24 27,14 27,34" fill="#fff"></path>\
+            </svg>';
+        }
+      }
+      {/if}
+    }
+    
+    // Initialisation au chargement de la page
+    initializeYouTubeThumbnail();
+    
+    // Réinitialisation lors du changement de déclinaison (événement PrestaShop)
+    prestashop.on('updatedProduct', function(event) {
+      setTimeout(function() {
+        initializeYouTubeThumbnail();
+        var videoThumbnail = document.getElementById('video-thumbnail');
+        if (videoThumbnail) {
+          videoThumbnail.setAttribute('data-toggle', 'modal');
+          videoThumbnail.setAttribute('data-target', '#product-modal');
+        }
+      }, 100);
+    });
+  });
+</script>
