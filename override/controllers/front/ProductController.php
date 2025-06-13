@@ -32,7 +32,7 @@ class ProductController extends ProductControllerCore
         
         // Récupère les champs personnalisés de base
         $result = Db::getInstance()->getRow(
-            'SELECT lot, dlu, dlu_checkbox, nm_days, amazon, amazon_be, product_popup_redirection 
+            'SELECT lot, dlu, dlu_checkbox, nm_days, amazon, amazon_be, product_popup_redirection, video_iframe 
             FROM `' . _DB_PREFIX_ . 'product` 
             WHERE id_product = ' . $productId
         );

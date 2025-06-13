@@ -227,6 +227,15 @@ class Champ_Personnalise_Produit extends Module
             $productId = (int) $params['id'];
             $descriptionTabFormBuilder = $params['form_builder']->get('description');
             
+            // Récupère la valeur du champ video_iframe
+            $videoIframe = '';
+            $result = Db::getInstance()->getValue(
+                'SELECT video_iframe FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . $productId
+            );
+            if ($result) {
+                $videoIframe = $result;
+            }
+            
             // Récupère les valeurs pour tous les champs personnalisés
             $languages = Language::getLanguages();
             $modeEmploi = [];
@@ -250,6 +259,23 @@ class Champ_Personnalise_Produit extends Module
                 $theraSup[$idLang] = isset($result['thera_sup']) ? $result['thera_sup'] : '';
                 $popupInfo[$idLang] = isset($result['popup_info']) ? $result['popup_info'] : '';
             }
+            
+            // Ajoute le champ video_iframe avant le mode d'emploi
+            $descriptionTabFormBuilder->add('video_iframe', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType', [
+                'label' => 'Code iframe vidéo',
+                'required' => false,
+                'attr' => [
+                    'class' => 'form-control',
+                    'rows' => 3,
+                    'placeholder' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/XXXX" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                ],
+                'data' => $videoIframe,
+                'label_attr' => [
+                    'class' => 'form-control-label h3',
+                ],
+                'label_tag_name' => 'h3',
+                'help' => 'Copiez ici le code iframe de la vidéo YouTube ou autre que vous souhaitez afficher dans le modal des images du produit.',
+            ]);
             
             // Ajoute le champ mode_emploi après description
             $descriptionTabFormBuilder->add('mode_emploi', 'PrestaShopBundle\\Form\\Admin\\Type\\TranslatableType', [
@@ -709,6 +735,16 @@ class Champ_Personnalise_Produit extends Module
             $productPopupRedirection = pSQL($_POST['product_popup_redirection']);
         }
         
+        // Vérifie les différents endroits possibles pour video_iframe
+        $videoIframe = '';
+        if (isset($_POST['product']['description']['video_iframe'])) {
+            $videoIframe = $_POST['product']['description']['video_iframe'];
+        } elseif (isset($_POST['description']['video_iframe'])) {
+            $videoIframe = $_POST['description']['video_iframe'];
+        } elseif (isset($_POST['video_iframe'])) {
+            $videoIframe = $_POST['video_iframe'];
+        }
+        
         // Formate la date si elle existe
         $dluFormatted = 'NULL';
         if (!empty($dlu)) {
@@ -724,7 +760,8 @@ class Champ_Personnalise_Produit extends Module
                 nm_days = ' . $nmDays . ',
                 amazon = "' . $amazon . '",
                 amazon_be = "' . $amazonBe . '",
-                product_popup_redirection = "' . $productPopupRedirection . '" 
+                product_popup_redirection = "' . $productPopupRedirection . '",
+                video_iframe = "' . pSQL($videoIframe, true) . '" 
             WHERE id_product = ' . $productId
         );
         
@@ -846,7 +883,7 @@ class Champ_Personnalise_Produit extends Module
         
         // Récupère les données de lot, DLU et autres champs depuis la table product
         $result = Db::getInstance()->getRow(
-            'SELECT lot, dlu, dlu_checkbox, nm_days, amazon, amazon_be, product_popup_redirection FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . $productId
+            'SELECT lot, dlu, dlu_checkbox, nm_days, amazon, amazon_be, product_popup_redirection, video_iframe FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . $productId
         );
         
         if ($result) {

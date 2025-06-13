@@ -54,10 +54,17 @@
           {/if}
           
           <div id="modal-video-container" style="display: none;">
-            <iframe src="https://www.youtube.com/embed/clsiWh54FR0" id="product-video-iframe" width="631" height="631" frameborder="0"
-              allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {if isset($product.video_iframe) && $product.video_iframe}
+              {$product.video_iframe nofilter}
+            {/if}
           </div>
           
+          <style>
+            #modal-video-container iframe {
+              width: 631px;
+              height: 631px;
+            }
+          </style>
           
           
 {*
@@ -95,9 +102,19 @@
                   </li>
                 {/foreach}
                 
+                {if isset($product.video_iframe) && $product.video_iframe}
+                <li id="modal-video-thumbnail" class="thumb-container js-thumb-container thumb-video">
+                  <div id="youtube-thumbnail" class="thumb js-thumb" style="position: relative; background-position: center; height: 100px;">
+                    <div id="video-play-icon" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                      <i class="text-xl bi bi-play-circle"></i>
+                    </div>
+                  </div>
+                </li>
+                {else}
                 <li id="modal-video-thumbnail" class="thumb-container js-thumb-container thumb-video">
                   <span class="thumb js-thumb"><i class="text-4xl bi bi-play-circle"></i></span>
                 </li>
+                {/if}
                 
               </ul>
             </div>
@@ -116,7 +133,47 @@
 
 
 <script>
-  document.getElementById('modal-video-thumbnail').addEventListener('click', function () {
-    document.getElementById('modal-video-container').style.display = 'block';
+  document.addEventListener('DOMContentLoaded', function() {
+    var videoIframe = {if isset($product.video_iframe)}true{else}false{/if};
+    var videoContainer = document.getElementById('modal-video-container');
+    
+    if (videoIframe) {
+      // Extrait l'ID YouTube de l'iframe
+      var iframeContent = videoContainer.innerHTML;
+      var videoId = null;
+      
+      // Essaye de trouver l'ID YouTube dans l'URL de l'iframe
+      var match = iframeContent.match(/youtube\.com\/embed\/([^\/?&"']+)/i);
+      if (match && match[1]) {
+        videoId = match[1];
+      }
+      
+      if (videoId) {
+        // Charge la miniature YouTube
+        var thumbnailUrl = 'https://img.youtube.com/vi/' + videoId + '/mqdefault.jpg';
+        var thumbnailElement = document.getElementById('youtube-thumbnail');
+        thumbnailElement.style.backgroundImage = 'url(' + thumbnailUrl + ')';
+        
+        // Remplace l'icône par le logo YouTube
+        document.getElementById('video-play-icon').innerHTML = '\
+          <svg viewBox="0 0 68 48" width="36" height="25" xmlns="http://www.w3.org/2000/svg">\
+            <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>\
+            <path d="M 45,24 27,14 27,34" fill="#fff"></path>\
+          </svg>';
+      }
+    }
+    
+    // Affiche la vidéo quand on clique sur la miniature
+    document.getElementById('modal-video-thumbnail').addEventListener('click', function () {
+      videoContainer.style.display = 'block';
+    });
+    
+    // Cache la vidéo quand on clique sur une image
+    var imageElements = document.querySelectorAll('.js-modal-thumb');
+    imageElements.forEach(function(image) {
+      image.addEventListener('click', function() {
+        videoContainer.style.display = 'none';
+      });
+    });
   });
 </script>

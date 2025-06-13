@@ -84,7 +84,7 @@
                   
                   {* Affiche l'image cover de toutes les déclinaisons (attributs) *}
                   {if isset($all_attribute_images[$id_attribute])}
-                    {* Si l'attribut a une image associée, on l'affiche directement via getImageLink *}
+                    {* Si l'attribut a une image associée, on l'affiche directement via getImageLink --> override de la classe Product *}
                     <img src="{$link->getImageLink($product.link_rewrite, $all_attribute_images[$id_attribute], 'declinaison_default')}" width="50" height="50" alt="{$group_attribute.name}" />
                   {elseif isset($product.cover)}
                     {* Image par défaut si aucune image n'est associée à l'attribut *}
@@ -99,8 +99,6 @@
       {/if}
     </div>
     {/if}
-    
-    {* Le bloc de débogage a été supprimé pour la version finale *}
     
   {/foreach}
 </div>
