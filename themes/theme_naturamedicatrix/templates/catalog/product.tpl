@@ -80,6 +80,58 @@
       .product-reference {
         float: right;
       }
+      
+      /* Styles pour les onglets verticaux */
+      .vertical-tabs {
+        border-right: 1px solid #dee2e6;
+        margin-right: 0;
+        border-bottom: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .vertical-tabs .nav-item {
+        margin-bottom: 0.5rem;
+        width: 100%;
+        display: block;
+      }
+      
+      .vertical-tabs .nav-link {
+        border: none;
+        border-left: 3px solid transparent;
+        border-radius: 0;
+        padding: 0.75rem 1rem;
+        display: block;
+        text-align: left;
+        width: 100%;
+      }
+      
+      .vertical-tabs .nav-link.active {
+        border-left: 3px solid #155585;
+        background-color: #f8f9fa;
+        color: #155585;
+      }
+      
+      /* Désactiver les styles Bootstrap qui pourraient interférer */
+      .nav-tabs {
+        flex-wrap: wrap;
+      }
+      
+      /* Force l'affichage vertical des tabs peu importe la taille d'écran */
+      @media (max-width: 767px) {
+        .vertical-tabs {
+          flex-direction: column !important;
+        }
+        .vertical-tabs .nav-item {
+          width: 100% !important;
+        }
+      }
+      
+      .product-tabs-container {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
     
       #product-block-infos h1 {
         text-align: left;
@@ -404,9 +456,88 @@
         background: #f8faff;
       }
       
-    
+      /* ONGLETS */
+      .vertical-tabs {
+        border-right: 1px solid #e9e9e9 !important;
+        margin-right: -1px !important;
+      }
       
+      .vertical-tabs .nav-item {
+        margin-bottom: 0 !important;
+        width: 100% !important;
+      }
+      
+      .vertical-tabs .nav-link,
+      .vertical-tabs .nav-link.js-product-nav-active,
+      .vertical-tabs .nav-link.active {
+        border-radius: 0 !important;
+        border: none !important;
+        border-right: 3px solid transparent !important;
+        padding: 12px 15px !important;
+        transition: all 0.3s ease !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        color: #777 !important;
+        font-weight: 500 !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        line-height: normal !important;
+        height: auto !important;
+        width: 100% !important;
+      }
+      
+      .vertical-tabs .nav-link:after {
+        content: '\2192' !important; /* Flèche droite */
+        opacity: 0 !important;
+        margin-left: 8px !important;
+        transition: opacity 0.2s ease, transform 0.2s ease !important;
+      }
+      
+      .vertical-tabs .nav-link:hover {
+        background-color: #f9f9f9 !important;
+        color: #45A446 !important;
+        border-right-color: #45A446 !important;
+      }
+      
+      .vertical-tabs .nav-link:hover:after {
+        opacity: 1 !important;
+        transform: translateX(3px) !important;
+      }
+      
+      .vertical-tabs .nav-link.active,
+      .vertical-tabs .nav-link.js-product-nav-active {
+        background-color: #f1f7f1 !important;
+        border-right-color: #45A446 !important;
+        color: #45A446 !important;
+        font-weight: 600 !important;
+      }
+      
+      .vertical-tabs .nav-link.active:after,
+      .vertical-tabs .nav-link.js-product-nav-active:after {
+        opacity: 1 !important;
+      }
+      
+      .tab-content {
+        border-left: 1px solid #e9e9e9 !important;
+        padding: 20px 0 20px 25px !important;
+      }
+      
+      .product-custom-content {
+        padding: 5px 0 !important;
+      }
 
+      .tab-pane {
+        transition: opacity 0.2s ease !important;
+      }
+      
+      .tab-pane.fade {
+        opacity: 0 !important;
+      }
+      
+      .tab-pane.fade.in.active {
+        opacity: 1 !important;
+      }
        
   </style>
 
@@ -574,51 +705,104 @@
       
       
             {block name='product_tabs'}
-              <div class="tabs clear">
-                <ul class="nav nav-tabs" role="tablist">
-                  {if $product.description}
-                    <li class="nav-item">
-                       <a
-                         class="nav-link{if $product.description} active js-product-nav-active{/if}"
-                         data-toggle="tab"
-                         href="#description"
-                         role="tab"
-                         aria-controls="description"
-                         {if $product.description} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
-                    </li>
-                  {/if}
-                  <li class="nav-item">
-                    <a
-                      class="nav-link{if !$product.description} active js-product-nav-active{/if}"
-                      data-toggle="tab"
-                      href="#product-details"
-                      role="tab"
-                      aria-controls="product-details"
-                      {if !$product.description} aria-selected="true"{/if}>{l s='Product Details' d='Shop.Theme.Catalog'}</a>
-                  </li>
-                  {if $product.attachments}
-                    <li class="nav-item">
-                      <a
-                        class="nav-link"
-                        data-toggle="tab"
-                        href="#attachments"
-                        role="tab"
-                        aria-controls="attachments">{l s='Attachments' d='Shop.Theme.Catalog'}</a>
-                    </li>
-                  {/if}
-                  {foreach from=$product.extraContent item=extra key=extraKey}
-                    <li class="nav-item">
-                      <a
-                        class="nav-link"
-                        data-toggle="tab"
-                        href="#extra-{$extraKey}"
-                        role="tab"
-                        aria-controls="extra-{$extraKey}">{$extra.title}</a>
-                    </li>
-                  {/foreach}
-                </ul>
-
-                <div class="tab-content" id="tab-content">
+              <div class="tabs clear product-tabs-container">
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <ul class="nav nav-tabs vertical-tabs" role="tablist" style="display: block; width: 100%;">
+                      {if $product.description}
+                        <li class="nav-item">
+                          <a
+                            class="nav-link{if $product.description} active js-product-nav-active{/if}"
+                            data-toggle="tab"
+                            href="#description"
+                            role="tab"
+                            aria-controls="description"
+                            {if $product.description} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
+                        </li>
+                      {/if}
+                      <li class="nav-item">
+                        <a
+                          class="nav-link{if !$product.description} active js-product-nav-active{/if}"
+                          data-toggle="tab"
+                          href="#product-details"
+                          role="tab"
+                          aria-controls="product-details"
+                          {if !$product.description} aria-selected="true"{/if}>{l s='Détails du produit' d='Shop.Theme.Catalog'}</a>
+                      </li>
+                      {if isset($product.mode_emploi) && $product.mode_emploi}
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            data-toggle="tab"
+                            href="#mode-emploi"
+                            role="tab"
+                            aria-controls="mode-emploi">Conseils d'utilisation</a>
+                        </li>
+                      {/if}
+                      {if isset($product.contre_indications) && $product.contre_indications}
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            data-toggle="tab"
+                            href="#contre-indications"
+                            role="tab"
+                            aria-controls="contre-indications">Contre-indications</a>
+                        </li>
+                      {/if}
+                      {if isset($product.ingredients) && $product.ingredients}
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            data-toggle="tab"
+                            href="#ingredients"
+                            role="tab"
+                            aria-controls="ingredients">Composition</a>
+                        </li>
+                      {/if}
+                      {if isset($product.tab_nutri) && $product.tab_nutri}
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            data-toggle="tab"
+                            href="#tab-nutri"
+                            role="tab"
+                            aria-controls="tab-nutri">Tableau nutritionnel</a>
+                        </li>
+                      {/if}
+                      {if isset($product.thera_sup) && $product.thera_sup}
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            data-toggle="tab"
+                            href="#thera-sup"
+                            role="tab"
+                            aria-controls="thera-sup">Informations professionnelles</a>
+                        </li>
+                      {/if}
+                      {if $product.attachments}
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            data-toggle="tab"
+                            href="#attachments"
+                            role="tab"
+                            aria-controls="attachments">{l s='Attachments' d='Shop.Theme.Catalog'}</a>
+                        </li>
+                      {/if}
+                      {foreach from=$product.extraContent item=extra key=extraKey}
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            data-toggle="tab"
+                            href="#extra-{$extraKey}"
+                            role="tab"
+                            aria-controls="extra-{$extraKey}">{$extra.title}</a>
+                        </li>
+                      {/foreach}
+                    </ul>
+                  </div>
+                  <div class="col-md-9 col-sm-12">
+                    <div class="tab-content" id="tab-content">
                  <div class="tab-pane fade in{if $product.description} active js-product-tab-active{/if}" id="description" role="tabpanel">
                    {block name='product_description'}
                      <div class="product-description">{$product.description nofilter}</div>
@@ -656,8 +840,51 @@
                    {$extra.content nofilter}
                  </div>
                  {/foreach}
+                 
+                 {* Onglets pour les champs personnalisés *}
+                 {if isset($product.mode_emploi) && $product.mode_emploi}
+                 <div class="tab-pane fade in" id="mode-emploi" role="tabpanel">
+                   <div class="product-custom-content">
+                     {$product.mode_emploi nofilter}
+                   </div>
+                 </div>
+                 {/if}
+                 
+                 {if isset($product.contre_indications) && $product.contre_indications}
+                 <div class="tab-pane fade in" id="contre-indications" role="tabpanel">
+                   <div class="product-custom-content">
+                     {$product.contre_indications nofilter}
+                   </div>
+                 </div>
+                 {/if}
+                 
+                 {if isset($product.ingredients) && $product.ingredients}
+                 <div class="tab-pane fade in" id="ingredients" role="tabpanel">
+                   <div class="product-custom-content">
+                     {$product.ingredients nofilter}
+                   </div>
+                 </div>
+                 {/if}
+                 
+                 {if isset($product.tab_nutri) && $product.tab_nutri}
+                 <div class="tab-pane fade in" id="tab-nutri" role="tabpanel">
+                   <div class="product-custom-content">
+                     {$product.tab_nutri nofilter}
+                   </div>
+                 </div>
+                 {/if}
+                 
+                 {if isset($product.thera_sup) && $product.thera_sup}
+                 <div class="tab-pane fade in" id="thera-sup" role="tabpanel">
+                   <div class="product-custom-content">
+                     {$product.thera_sup nofilter}
+                   </div>
+                 </div>
+                 {/if}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
           {/block}  
     </div>
     
