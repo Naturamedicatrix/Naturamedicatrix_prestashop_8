@@ -478,7 +478,7 @@ body#cart #wrapper {
 }
 @media (min-width: 1600px) {
   .block-bestsellers {
-    max-width: 1550px;
+    max-width: 1400px;
   }
 }
 

@@ -22,6 +22,16 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
+ <style>
+ .radio-label-variant{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+ }
+ </style>
+
+
 <div class="product-variants js-product-variants">
   {foreach from=$groups key=id_attribute_group item=group}
     {if !empty($group.attributes)}
@@ -62,12 +72,26 @@
           {/foreach}
         </ul>
       {elseif $group.group_type == 'radio'}
+        {* Récupérons toutes les images des attributs du produit en une seule requête *}
+        {assign var="all_attribute_images" value=Product::getAllAttributeImagesStatic($product.id_product)}
+        
         <ul id="group_{$id_attribute_group}">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
             <li class="input-container float-xs-left">
               <label>
                 <input class="input-radio" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}" title="{$group_attribute.name}"{if $group_attribute.selected} checked="checked"{/if}>
-                <span class="radio-label">{* <img src="{$product.default_image.bySize.declinaison_default.url}" width="50" height="50" />  *}{$group_attribute.name}</span>
+                <span class="radio-label radio-label-variant">
+                  
+                  {* Affiche l'image cover de toutes les déclinaisons (attributs) *}
+                  {if isset($all_attribute_images[$id_attribute])}
+                    {* Si l'attribut a une image associée, on l'affiche directement via getImageLink *}
+                    <img src="{$link->getImageLink($product.link_rewrite, $all_attribute_images[$id_attribute], 'declinaison_default')}" width="50" height="50" alt="{$group_attribute.name}" />
+                  {elseif isset($product.cover)}
+                    {* Image par défaut si aucune image n'est associée à l'attribut *}
+                    <img src="{$product.cover.bySize.declinaison_default.url}" width="50" height="50" alt="{$group_attribute.name}" />
+                  {/if}
+                  {$group_attribute.name}
+                </span>
               </label>
             </li>
           {/foreach}
@@ -76,6 +100,7 @@
     </div>
     {/if}
     
+    {* Le bloc de débogage a été supprimé pour la version finale *}
     
   {/foreach}
 </div>
