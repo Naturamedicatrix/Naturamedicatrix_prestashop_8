@@ -27,7 +27,7 @@
   }
   
   #home-banners p {
-    max-width: 310px;
+    max-width: 350px;
     margin: 0 auto;
   } 
   
@@ -42,10 +42,7 @@
     border-radius: 15px;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 2px;
-    line-height: 1.2;
   }
-  
-  
   
   #home-banners #banner-choc .banner {
     background: #ECF7ED;
@@ -90,10 +87,11 @@
   <div class="col-lg-4" id="banner-choc">
     <div class="banner">
       <i class="bi bi-bookmark-star"></i>
-      <p>Chaque semaine - Un prix <strong>CHOC</strong></p>
+      <p class="pb-0">Chaque semaine - Un prix <strong>CHOC</strong></p>
       <span class="label">Jusqu'à 20% de remise totale</span>
-      <p>Aujourd'hui&nbsp;: <strong class="product-name">Omega-11</strong></p>
-      <p><img src="https://new.naturamedicatrix.fr/34-home_default/affiche-encadree-today-is-a-good-day.jpg" alt="Nuit Sereine" loading="lazy" data-full-size-image-url="https://new.naturamedicatrix.fr/34-large_default/affiche-encadree-today-is-a-good-day.jpg" width="125" height="125"></p>
+      <p class="pb-0">Aujourd'hui&nbsp;: <strong class="product-name">Omega-11</strong></p>
+      
+      <img src="https://new.naturamedicatrix.fr/41-home_default/coussin-ours-brun.jpg" alt="Nuit Sereine" loading="lazy" class="img-responsive" height="200">
       <a href="#" class="btn btn-primary">J'en profite</a>
     </div>
   </div>
@@ -101,9 +99,9 @@
   <div class="col-lg-4" id="banner-consult">
     <div class="banner">
       <i class="bi bi-calendar-heart"></i>
-      <p>Réservez une <strong>consultation</strong> de nutrition fonctionnelle avec nos professionnels de la santé</p>
+      <p class="pb-0">Réservez une <strong>consultation</strong> de nutrition fonctionnelle avec nos professionnels de la santé<br/><br/></p>
       
-      <p><img src="https://new.naturamedicatrix.fr/themes/theme_naturamedicatrix/assets/img/therapeutes/Antho.jpg" alt="Anthony-Damien Désirée - Naturamedicatrix" class="therapeute-img" width="80"></p>
+      <img src="https://new.naturamedicatrix.fr/themes/theme_naturamedicatrix/assets/img/home-banners/banner_consultation.png" alt="Anthony-Damien Désirée - Fabien Piasco" class="therapeute-img img-responsive" width="200">
       <a href="#" class="btn btn-primary">Prendre rendez-vous</a>
     </div>
   </div>
@@ -111,11 +109,10 @@
   <div class="col-lg-4" id="banner-dlu">
     <div class="banner">
       <i class="bi bi-clock"></i>
-      <p><strong>Vente rapide</strong></p>
-      <p>Date limite d’utilisation conseillée et fin de stock</p>
-      <span class="label">Jusqu'à -50%</span>
-      <br />
-      <img src="https://new.naturamedicatrix.fr/36-home_default/mug-today-is-a-good-day.jpg" alt="Jus Aloe vera bio (avec pulpe)" loading="lazy" data-full-size-image-url="https://new.naturamedicatrix.fr/36-large_default/mug-today-is-a-good-day.jpg" width="125" height="125">
+      <p class="pb-0"><strong>Vente rapide</strong></p>
+      <p class="pb-0">Date limite d’utilisation conseillée et fin de stock</p>
+      <span class="label mb-0">Jusqu'à -50%</span>
+      <img src="https://new.naturamedicatrix.fr/themes/theme_naturamedicatrix/assets/img/home-banners/banner_dlu.png" alt="Jus Aloe vera bio (avec pulpe)" loading="lazy" height="200" class="img-responsive">
       <a href="#" class="btn btn-primary">J'en profite</a>
     </div>
     

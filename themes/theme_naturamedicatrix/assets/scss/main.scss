@@ -851,6 +851,7 @@ table>tbody>tr:nth-of-type(even) {
 
 // Carousel header
 #carousel {
+  margin-bottom: 0 !important;
   @media (max-width: $breakpoint-md) {
     margin-bottom: 0;
   }
@@ -890,7 +891,7 @@ table>tbody>tr:nth-of-type(even) {
   }
   .carousel-inner {
     padding-left: 0;
-    height: 500px;
+    height: 497px;
     margin-top: 0;
   }
 

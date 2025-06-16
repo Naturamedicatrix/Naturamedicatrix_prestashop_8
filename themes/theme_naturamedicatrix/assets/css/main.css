@@ -208,7 +208,7 @@ body#cart #wrapper {
   display: flex;
   margin: 2rem 0;
   background-color: #FFFFFF;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   border: 1px solid #93A7C3;
 }
@@ -1462,6 +1462,9 @@ table > tbody > tr:nth-of-type(even) {
   margin-top: 0;
 }
 
+#carousel {
+  margin-bottom: 0 !important;
+}
 @media (max-width: 768px) {
   #carousel {
     margin-bottom: 0;
@@ -1500,7 +1503,7 @@ table > tbody > tr:nth-of-type(even) {
 }
 #carousel .carousel-inner {
   padding-left: 0;
-  height: 500px;
+  height: 497px;
   margin-top: 0;
 }
 #carousel .direction .icon-next {

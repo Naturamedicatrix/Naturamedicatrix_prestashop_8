@@ -1,11 +1,23 @@
 @charset "UTF-8";
 /* === CUSTOM HEADER STYLE === */
 /* Header global */
+.header-top-right {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .header-top-right {
+    flex-direction: column;
+  }
+}
+
+/* End Header top right */
 .header-nav {
   background-color: #83b58b;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0;
   height: 80px;
   max-height: 80px !important;
+  border-bottom: none !important;
 }
 .header-nav .container {
   height: 100%;
@@ -41,9 +53,6 @@
 }
 #header a:hover {
   color: rgb(218.4, 224.5, 230.6);
-}
-#header .header-nav {
-  margin-bottom: 0;
 }
 #header .header-nav .blockcart {
   background-color: #83b58b;
@@ -562,6 +571,10 @@
 
 /* END PANIER */
 /* MENU */
+#_desktop_top_menu {
+  padding-left: 0;
+  padding-right: 0;
+}
 #_desktop_top_menu .menuHaveNoMobileSubMenu a span {
   border-bottom: 3px solid transparent;
   transition: all 0.2s ease;
@@ -577,4 +590,58 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+#search_widget {
+  min-width: 25rem;
+}
+@media (max-width: 1024px) {
+  #search_widget {
+    min-width: 15rem;
+  }
+}
+@media (max-width: 768px) {
+  #search_widget {
+    min-width: 100%;
+  }
+}
+@media (max-width: 640px) {
+  #search_widget {
+    margin-top: 8px;
+  }
+}
+
+#search_widget {
+  display: none;
+}
+
+#adtm_menu .searchboxATM .search_query_atm {
+  width: 300px !important;
+  border-radius: 4px;
+}
+
+#adtm_menu .adtm_search_submit_button {
+  right: 3% !important;
+}
+
+#adtm_menu .li-niveau1.advtm_menu_9,
+#adtm_menu .li-niveau1.advtm_search {
+  margin-left: auto;
+}
+@media (max-width: 768px) {
+  #adtm_menu .li-niveau1.advtm_menu_9,
+  #adtm_menu .li-niveau1.advtm_search {
+    width: 100%;
+  }
+}
+
+.advtm_search i.search:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(131, 181, 139, 0.3);
+  top: 14px;
+  right: 3px;
 }

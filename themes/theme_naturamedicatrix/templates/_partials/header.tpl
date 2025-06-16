@@ -2,6 +2,9 @@
 ** CUSTOM HEADER 
  *}
 {hook h='displayHeader'}
+<!-- Styles et scripts pour l'effet de flou des sous-menus -->
+<link rel="stylesheet" href="{$urls.base_url}modules/pm_advancedtopmenu/views/css/submenu-blur-effect.css">
+<script type="text/javascript" src="{$urls.base_url}modules/pm_advancedtopmenu/views/js/submenu-blur-effect.js" defer></script>
 {block name='header_banner'}
   <div class="header-banner text-carousel-banner">
     <div class="container">
@@ -123,7 +126,7 @@
   <div class="header-top">
     <div class="container">
       <div class="row">
-        <div class="header-top-right col-md-12 col-sm-12 position-static">
+        <div class="header-top-right col-md-12 col-sm-12 flex">
           {hook h='displayTop'}
         </div>
       </div>
