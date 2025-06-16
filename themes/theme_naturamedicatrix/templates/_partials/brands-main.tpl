@@ -19,7 +19,7 @@
       {assign var="formatted_brands" value=$formatted_brands|array_merge:[[
         'id_manufacturer' => $manufacturer.id_manufacturer,
         'name' => $manufacturer.name,
-        'image' => "{$urls.img_manu_url}{$manufacturer.id_manufacturer}-small_default.jpg",
+        'image' => "{$urls.img_manu_url}{$manufacturer.id_manufacturer}-brand_default.jpg",
         'url' => {url entity='manufacturer' id=$manufacturer.id_manufacturer},
         'short_description' => $manufacturer.short_description,
         'nb_products' => $product_count
@@ -37,38 +37,39 @@
     <div class="row justify-content-center">
       {* Affichage des marques phares *}
       {if $formatted_brands|count > 0}
-        {foreach from=$formatted_brands item=brand}
+        {foreach from=$formatted_brands item=branding}
           {* Vérifier si la propriété id_manufacturer existe *}
-          {if isset($brand.id_manufacturer)}
-            {if $brand.id_manufacturer == 4 || $brand.id_manufacturer == 3 || $brand.id_manufacturer == 5}
+          {if isset($branding.id_manufacturer)}
+            {if $branding.id_manufacturer == 4 || $branding.id_manufacturer == 3 || $branding.id_manufacturer == 5}
               <div class="col-12 col-md-12 col-xl-4">
                 <div class="brand-card featured-brand-card">
                   <div class="brand-card-header">
-                  {if $brand.id_manufacturer == 4}
-                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-naturamedicatrix.jpg" alt="{$brand.name}" class="brand-header-img">
-                  {elseif $brand.id_manufacturer == 3}
-                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-jacob.jpg" alt="{$brand.name}" class="brand-header-img">
-                  {elseif $brand.id_manufacturer == 5}
-                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-olivie.jpg" alt="{$brand.name}" class="brand-header-img">
+                  {if $branding.id_manufacturer == 4}
+                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-naturamedicatrix.jpg" alt="{$branding.name}" class="brand-header-img">
+                  {elseif $branding.id_manufacturer == 3}
+                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-jacob.jpg" alt="{$branding.name}" class="brand-header-img">
+                  {elseif $branding.id_manufacturer == 5}
+                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-olivie.jpg" alt="{$branding.name}" class="brand-header-img">
                   {/if}
                   </div>
+                  
                   <div class="brand-card-logo featured-logo">
-                      <img src="{$brand.image}" alt="{$brand.name}">
+                      <img src="{$urls.img_manu_url}{$branding.id_manufacturer}-brand_default.jpg" alt="{$branding.name}">
                   </div>
-                  <h3 class="brand-card-title featured-title">{$brand.name}</h3>
-                  {if isset($brand.nb_products)}
+                  <h3 class="brand-card-title featured-title">{$branding.name}</h3>
+                  {if isset($branding.nb_products)}
                     <div class="total-products text-center">
                       <p class="count-product text-sm">
-                        {$brand.nb_products}
+                        {$branding.nb_products}
                         {if isset($page) && $page.page_name == 'index'} produits{/if}
                       </p>
                     </div>
                   {/if}
                   <div class="brand-card-description featured-description">
-                    {$brand.short_description nofilter}
+                    {$branding.short_description nofilter}
                   </div>
                   <div class="brand-card-action">
-                    <a href="{$brand.url}">Voir tous les produits</a>
+                    <a href="{$branding.url}">Voir tous les produits</a>
                   </div>
                 </div>
               </div>
