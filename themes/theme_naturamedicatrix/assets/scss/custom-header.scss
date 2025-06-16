@@ -28,6 +28,10 @@
     height: 65px;
     max-height: 65px !important;
   }
+
+  .right-nav {
+    padding-right: 0 !important;
+  }
 }
 
 #header {
@@ -153,7 +157,6 @@
   display: flex;
   align-items: center;
   z-index: 30;
-  padding-right: 20px;
   
   .language-selector-wrapper {
     .language-selector {
