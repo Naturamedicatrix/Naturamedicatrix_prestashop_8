@@ -74,7 +74,7 @@ body {
   }
 
   @media (min-width: 1600px) {
-    max-width: 1400px;
+    max-width: 1500px;
   }
 
   @media (max-width: 992px) {
@@ -124,9 +124,9 @@ body#index {
   box-shadow: none !important;
   cursor: pointer !important;
 
-  // Style pour tous les icônes material-icons
+  // favoris
   i.material-icons {
-    color: $color-custom-grayLight !important;
+    color: $color-custom-gray;
     
     &:hover {
       color: $color-custom-red !important;

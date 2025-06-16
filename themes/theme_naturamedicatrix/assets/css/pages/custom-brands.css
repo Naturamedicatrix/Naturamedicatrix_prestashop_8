@@ -29,7 +29,6 @@ body#manufacturer .brand-card, .featured-brands .brand-card {
   border-radius: 12px;
   padding: 20px;
   height: 100%;
-  min-height: 440px;
   background-color: #fff;
   transition: transform 0.2s ease;
   margin-bottom: 30px;
@@ -96,6 +95,7 @@ body#manufacturer .brand-card.featured-brand-card .featured-description, .featur
 body#manufacturer .brand-card.featured-brand-card .brand-card-action, .featured-brands .brand-card.featured-brand-card .brand-card-action {
   text-align: left;
   padding: 0 40px;
+  font-size: 15px !important;
 }
 @media (max-width: 640px) {
   body#manufacturer .brand-card, .featured-brands .brand-card {
@@ -119,9 +119,9 @@ body#manufacturer .brand-card .brand-card-logo img, .featured-brands .brand-card
   max-width: none;
 }
 body#manufacturer .brand-card .brand-card-title, .featured-brands .brand-card .brand-card-title {
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 600;
-  margin-bottom: 0;
+  margin: 0;
   text-align: left !important;
   color: #111827;
   height: 40px;
@@ -143,6 +143,7 @@ body#manufacturer .brand-card .brand-card-action, .featured-brands .brand-card .
 body#manufacturer .brand-card .brand-card-action a, .featured-brands .brand-card .brand-card-action a {
   color: #1F80C7;
   border-bottom: 1px solid #1F80C7;
+  font-size: 13px;
 }
 
 body#index .brands-title {

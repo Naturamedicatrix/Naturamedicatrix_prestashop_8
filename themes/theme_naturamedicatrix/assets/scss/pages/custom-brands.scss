@@ -37,7 +37,6 @@ body#manufacturer, .featured-brands {
         border-radius: 12px;
         padding: 20px;
         height: 100%;
-        min-height: 440px;
         background-color: #fff;
         transition: transform 0.2s ease;
         margin-bottom: 30px;
@@ -107,6 +106,7 @@ body#manufacturer, .featured-brands {
             .brand-card-action {
                 text-align: left;
                 padding: 0 40px;
+                font-size: 15px !important;
             }
         }
 
@@ -134,9 +134,9 @@ body#manufacturer, .featured-brands {
         }
         
         .brand-card-title {
-            font-size: 22px;
+            font-size: 19px;
             font-weight: 600;
-            margin-bottom: 0;
+            margin: 0;
             text-align: left !important;
             color: $color-custom-black;
             height: 40px; 
@@ -160,6 +160,7 @@ body#manufacturer, .featured-brands {
             a {
                 color: $color-custom-blue;
                 border-bottom: 1px solid $color-custom-blue;
+                font-size: 13px;
             }
           
         }

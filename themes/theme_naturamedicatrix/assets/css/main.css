@@ -760,7 +760,7 @@ body #main {
 @media (min-width: 1600px) {
   .container,
   #content {
-    max-width: 1400px;
+    max-width: 1500px;
   }
 }
 @media (max-width: 992px) {
@@ -809,7 +809,7 @@ body#index #content {
   cursor: pointer !important;
 }
 .wishlist-button-add i.material-icons {
-  color: #93A7C3 !important;
+  color: #4B5563;
 }
 .wishlist-button-add i.material-icons:hover {
   color: #ee5c58 !important;

@@ -44,9 +44,9 @@
                   <div class="total-products">
                     <p class="count-product text-xs">{$brand.nb_products}</p>
                   </div>
-                  <div class="brand-card-description">
+                  {* <div class="brand-card-description">
                   {$brand.text nofilter}
-                  </div>
+                  </div> *}
                   <div class="brand-card-action">
                     <a href="{$brand.url}">Voir tous les produits</a>
                   </div>

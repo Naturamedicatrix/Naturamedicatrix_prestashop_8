@@ -113,7 +113,6 @@
         color: #155585;
       }
       
-      /* Désactiver les styles Bootstrap qui pourraient interférer */
       .nav-tabs {
         flex-wrap: wrap;
       }
@@ -458,8 +457,9 @@
       
       /* ONGLETS */
       .vertical-tabs {
-        border-right: 1px solid #e9e9e9 !important;
+        border-right: 1px solid #f6f6f6!important;
         margin-right: -1px !important;
+        margin-top: 0 !important;
       }
       
       .vertical-tabs .nav-item {
@@ -474,30 +474,26 @@
         border: none !important;
         border-right: 3px solid transparent !important;
         padding: 12px 15px !important;
-        transition: all 0.3s ease !important;
+        transition: all 0.2s ease !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        color: #777 !important;
-        font-weight: 500 !important;
-        box-sizing: border-box !important;
+        font-weight: 500;
+        color: #4B5563 !important;
         margin: 0 !important;
         line-height: normal !important;
-        height: auto !important;
-        width: 100% !important;
       }
       
       .vertical-tabs .nav-link:after {
         content: '\2192' !important; /* Flèche droite */
         opacity: 0 !important;
-        margin-left: 8px !important;
         transition: opacity 0.2s ease, transform 0.2s ease !important;
       }
       
       .vertical-tabs .nav-link:hover {
         background-color: #f9f9f9 !important;
-        color: #45A446 !important;
-        border-right-color: #45A446 !important;
+        color: #83b58b !important;
+        border-right-color: #83b58b !important;
       }
       
       .vertical-tabs .nav-link:hover:after {
@@ -508,8 +504,8 @@
       .vertical-tabs .nav-link.active,
       .vertical-tabs .nav-link.js-product-nav-active {
         background-color: #f1f7f1 !important;
-        border-right-color: #45A446 !important;
-        color: #45A446 !important;
+        border-right-color: #83b58b !important;
+        color: #83b58b !important;
         font-weight: 600 !important;
       }
       
