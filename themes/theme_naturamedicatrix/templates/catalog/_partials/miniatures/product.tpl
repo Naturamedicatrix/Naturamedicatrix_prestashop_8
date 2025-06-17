@@ -11,8 +11,11 @@
 
 {block name='product_miniature_item'}
   <div class="js-product product{if !empty($productClasses)} {$productClasses}{/if}">
-    <article class="product-miniature js-product-miniature" data-id-product="{$product.id_product}"
+    <article class="product-miniature js-product-miniature {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
       data-id-product-attribute="{$product.id_product_attribute}">
+      {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}
+        <span class="out-of-stock-label">{l s='Rupture de stock' d='Shop.Theme.Catalog'}</span>
+      {/if}
       <div class="thumbnail-container">
 
         {* Caractéristiques du produit *}

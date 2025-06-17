@@ -87,6 +87,13 @@
           </a>
         </li>
 
+        <li>
+          <a class="account-link {if $page.page_name == 'module-ps_emailalerts-account'}active{/if}" id="alerts-link-side" href="{$link->getModuleLink('ps_emailalerts', 'account')}">
+            <i class="bi bi-bell"></i>
+            <span>{l s='Mes alertes' d='Shop.Theme.Customeraccount'}</span>
+          </a>
+        </li>
+
         <hr />
         
         <li>

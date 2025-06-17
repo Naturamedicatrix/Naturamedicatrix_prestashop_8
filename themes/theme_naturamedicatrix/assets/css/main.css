@@ -173,15 +173,15 @@ body.cms-id-7 #main .subcategory-list h3 a:hover {
   max-width: 960px !important;
 }
 
-body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper {
+body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper, body#module-ps_emailalerts-account #wrapper {
   background: linear-gradient(to right, #EDEFF1 50%, #FFFFFF 50%);
 }
-body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufacturer-id-] #wrapper #search_filters, body.layout-left-column #wrapper .block-categories, body.layout-left-column #wrapper #search_filters, body#module-blockwishlist-lists #wrapper .block-categories, body#module-blockwishlist-lists #wrapper #search_filters, body#module-psgdpr-gdpr #wrapper .block-categories, body#module-psgdpr-gdpr #wrapper #search_filters, body#view #wrapper .block-categories, body#view #wrapper #search_filters {
+body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufacturer-id-] #wrapper #search_filters, body.layout-left-column #wrapper .block-categories, body.layout-left-column #wrapper #search_filters, body#module-blockwishlist-lists #wrapper .block-categories, body#module-blockwishlist-lists #wrapper #search_filters, body#module-psgdpr-gdpr #wrapper .block-categories, body#module-psgdpr-gdpr #wrapper #search_filters, body#view #wrapper .block-categories, body#view #wrapper #search_filters, body#module-ps_emailalerts-account #wrapper .block-categories, body#module-ps_emailalerts-account #wrapper #search_filters {
   padding: 50px 70px 50px 0;
   background-color: #EDEFF1;
 }
 @media (max-width: 640px) {
-  body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper {
+  body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper, body#module-ps_emailalerts-account #wrapper {
     background: #f9fafb;
   }
 }
@@ -248,6 +248,26 @@ body#cart #wrapper {
   display: block;
   padding: 20px;
 }
+.product-miniature.out_stock {
+  position: relative;
+}
+.product-miniature.out_stock *:not(.out-of-stock-label) {
+  opacity: 0.9;
+}
+.product-miniature .out-of-stock-label {
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: red;
+  background-color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  z-index: 100;
+  pointer-events: none;
+}
 .product-miniature a {
   border: none !important;
 }
@@ -275,7 +295,7 @@ body#cart #wrapper {
 .product-miniature .product-title a {
   color: #111827 !important;
   font-size: 1rem;
-  font-weight: 100;
+  font-weight: 500;
   border: none;
   line-height: 1;
 }
@@ -391,7 +411,7 @@ body#cart #wrapper {
 }
 .product-miniature .price-and-cart-container .product-price-and-shipping .price {
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #111827;
 }
 .product-miniature .price-and-cart-container .product-price-and-shipping .regular-price {
@@ -522,7 +542,7 @@ body#cart #wrapper {
   display: inline-block;
   text-align: left;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #111827 !important;
 }
 .product-miniature-light .container .content .product-subtitle {
@@ -553,13 +573,13 @@ body#cart #wrapper {
   font-size: 0.7rem;
 }
 .product-miniature-light .container .content .product-price {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-top: 5px;
-  color: #4B5563;
+  color: #111827;
   font-weight: 700;
 }
 .product-miniature-light .container .content .product-price .regular-price {
-  color: #4B5563;
+  color: #111827;
   font-weight: normal;
   margin-left: 5px;
 }
@@ -1063,7 +1083,7 @@ blockquote p {
 .small {
   color: #4B5563;
   font-size: 0.8rem;
-  font-weight: 100;
+  font-weight: 300;
   line-height: 1.5;
 }
 

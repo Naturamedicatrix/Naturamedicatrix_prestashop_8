@@ -9,7 +9,7 @@ body#my-account {
 }
 
 /* Styles spécifiques pour la page RGPD et la page des listes d'envies */
-body#module-psgdpr-gdpr, body#module-blockwishlist-lists, body#view {
+body#module-psgdpr-gdpr, body#module-blockwishlist-lists, body#view, body#module-ps_emailalerts-account {
     #main {
         min-height: 1100px !important;
 
@@ -69,7 +69,7 @@ body#module-psgdpr-gdpr, body#module-blockwishlist-lists, body#view {
     }
 }
 
-body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#view, body#module-blockwishlist-view, body#module-psgdpr-gdpr, body#address {
+body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#view, body#module-blockwishlist-view, body#module-psgdpr-gdpr, body#address, body#module-ps_emailalerts-account {
     #wrapper {
 
             @media (max-width: 767px) {
@@ -402,6 +402,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 text-decoration: none;
                 background-color: $color-custom-bgLight;
                 border-radius: 6px;
+                font-weight: 300;
                 border: 1px solid rgba(0,0,0,0.05);
                 box-shadow: 0 1px 2px rgba(0,0,0,0.02);
                 
@@ -571,7 +572,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
 
 
 /* STYLE POUR LE MODULE LISTE DES ENVIES / GDPR */
-body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view {
+body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view, body#module-ps_emailalerts-account {
     
     #content-wrapper {
         float: left;

@@ -3,6 +3,29 @@
 /* === PRODUCT LIST === */
 
 .product-miniature{
+    &.out_stock {
+        position: relative;
+        
+        *:not(.out-of-stock-label) {
+            opacity: 0.9;
+        }
+    }
+    
+    // Style pour le texte de rupture de stock
+    .out-of-stock-label {
+        position: absolute;
+        top: 50%;
+        left: 3%;
+        transform: translateY(-50%);
+        font-size: .9rem;
+        font-weight: 500;
+        color: red;
+        background-color: white;
+        padding: 2px 5px;
+        border-radius: 5px;
+        z-index: 100;
+        pointer-events: none;
+    }
     border: 1px solid #e5e8ea;
         border-radius: 10px;
         margin-bottom: 30px;
@@ -42,7 +65,7 @@
         a {
             color: $color-custom-black !important;
             font-size: 1rem;
-            font-weight: 100;
+            font-weight: 500;
             border: none;
             line-height: 1;
         }
@@ -175,7 +198,7 @@
             
             .price {
                 font-size: 1.2rem;
-                font-weight: 600;
+                font-weight: 700;
                 color: $color-custom-black;
             }
             
@@ -323,7 +346,7 @@
                     display: inline-block;
                     text-align: left;
                     font-size: 1.1rem;
-                    font-weight: 700;
+                    font-weight: 500;
                     color: $color-custom-black !important;
                 }
             }
@@ -362,13 +385,13 @@
             }
             
             .product-price {
-                font-size: 1rem;
+                font-size: 1.1rem;
                 margin-top: 5px;
-                color: $color-custom-gray;
+                color: $color-custom-black;
                 font-weight: 700;
                 
                 .regular-price {
-                    color: $color-custom-gray;
+                    color: $color-custom-black;
                     font-weight: normal;
                     margin-left: 5px;
                 }
