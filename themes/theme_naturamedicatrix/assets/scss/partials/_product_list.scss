@@ -93,15 +93,20 @@
             font-weight: 900 !important;
         }
 
+        .dlc-text {
+            font-weight: normal !important;
+        }
+
         .new {
             color: #136f9b !important;
             background: #d1eaf6 !important;
             border-color:#d1eaf6 !important;
         }
         .short-dlu {
-            background-color: #ffffff !important;
-            color: #ff5f23 !important;
-            border-color:#ff5f23 !important;
+            background-color: $color-custom-highlight !important;
+            color: $color-custom-white !important;
+            border-color:$color-custom-highlight !important;
+            font-weight: 900 !important;
         }
 
         .pack {
@@ -315,6 +320,8 @@
                 text-align: left;
                 margin-bottom: 5px;
                 a {
+                    display: inline-block;
+                    text-align: left;
                     font-size: 1.1rem;
                     font-weight: 700;
                     color: $color-custom-black !important;
@@ -338,6 +345,7 @@
                 display: flex;
                 align-items: center;
                 color: $color-custom-grayLight;
+                line-height: 1;
                 
                 .stars {
                     color: $color-custom-stars;

@@ -26,14 +26,10 @@
             
             {foreach from=$product.flags item=flag}
               {if $flag.type == 'discount'}
-                <li class="product-flag {$flag.type}">{$flag.label}</li>
+                <li class="product-flag {$flag.type}">{$flag.label} {if isset($product.dlu_checkbox) && $product.dlu_checkbox == 1}<span class="dlc-text">DLC courte</span>{/if}</li>
               {/if}
             {/foreach}
-            
-            {* Badge DLU courte pour les produits qui ont la case dlu_checkbox cochée *}
-            {if isset($product.dlu_checkbox) && $product.dlu_checkbox == 1}
-              <li class="product-flag short-dlu">DLU courte</li>
-            {/if}
+          
           </ul>
         </div>
         
