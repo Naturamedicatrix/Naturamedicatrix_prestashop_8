@@ -2,10 +2,11 @@
  * Submenu blur effect styles for Advanced Top Menu
  */
 
-/* Pas d'overlay, simplement appliquer le flou sur #wrapper */
-body.submenu-open #wrapper {
+/* Appliquer le flou sur #wrapper et #footer */
+body.submenu-open #wrapper,
+body.submenu-open #footer {
   filter: blur(10px);
-  transition: filter 0.3s ease;
+  transition: filter 0.2s ease;
 }
 
 /* Style appliqué lorsqu'un sous-menu est ouvert */
@@ -19,8 +20,7 @@ body.submenu-open #wrapper {
 #adtm_menu ul#menu .li-niveau1 div.adtm_sub {
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-70px); /* Démarrer légèrement au-dessus */
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s linear 0.2s;
+  transform: translateY(-70px); /* Animation pour tous les éléments du sous-menu */
 }
 
 #adtm_menu ul#menu .li-niveau1:hover div.adtm_sub {
@@ -30,17 +30,53 @@ body.submenu-open #wrapper {
   transition: opacity 0.2s ease-out, transform 0.2s ease-out;
 }
 
+#adtm_menu .adtm_column_wrap {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+#adtm_menu ul#menu .li-niveau1:hover .adtm_column_wrap {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation pour le titre des colonnes */
+#adtm_menu .adtm_column span.column_wrap_title {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+  transition-delay: 0.1s;
+}
+
+#adtm_menu ul#menu .li-niveau1:hover .adtm_column span.column_wrap_title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Animation pour les éléments individuels du sous-menu */
 #adtm_menu .adtm_column ul.adtm_elements li {
   opacity: 0;
   transform: translateY(-10px);
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 #adtm_menu ul#menu .li-niveau1:hover .adtm_column ul.adtm_elements li {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Délai progressif pour créer un effet de cascade */
+#adtm_menu .adtm_column ul.adtm_elements li:nth-child(1) { transition-delay: 0.15s; }
+#adtm_menu .adtm_column ul.adtm_elements li:nth-child(2) { transition-delay: 0.2s; }
+#adtm_menu .adtm_column ul.adtm_elements li:nth-child(3) { transition-delay: 0.25s; }
+#adtm_menu .adtm_column ul.adtm_elements li:nth-child(4) { transition-delay: 0.3s; }
+#adtm_menu .adtm_column ul.adtm_elements li:nth-child(5) { transition-delay: 0.35s; }
+#adtm_menu .adtm_column ul.adtm_elements li:nth-child(6) { transition-delay: 0.4s; }
+#adtm_menu .adtm_column ul.adtm_elements li:nth-child(7) { transition-delay: 0.45s; }
+#adtm_menu .adtm_column ul.adtm_elements li:nth-child(8) { transition-delay: 0.5s; }
+#adtm_menu .adtm_column ul.adtm_elements li:nth-child(9) { transition-delay: 0.55s; }
+#adtm_menu .adtm_column ul.adtm_elements li:nth-child(10) { transition-delay: 0.6s; }
 
 #adtm_menu {
   position: relative;

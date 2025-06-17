@@ -433,6 +433,14 @@ body#cart .cart-overview .cart-item .product-line-info {
 body#cart .cart-overview .cart-item .product-line-info .labelle {
   padding-right: 4px;
 }
+body#cart .cart-overview .cart-item .product-line-info .product-quantity {
+  display: flex;
+  gap: 3px;
+}
+body#cart .cart-overview .cart-item .product-line-info .product-quantity i {
+  font-size: 0.3rem;
+  padding-top: 1px;
+}
 body#cart .cart-overview .cart-item .products-lines-infos {
   padding: 2px 0;
 }

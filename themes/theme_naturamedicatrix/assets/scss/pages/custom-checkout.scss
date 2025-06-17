@@ -530,6 +530,15 @@ body#cart {
             .labelle {
                 padding-right: 4px;
             }
+
+            .product-quantity {
+                display: flex;
+                gap: 3px;
+                i {
+                    font-size: .3rem;
+                    padding-top: 1px;
+                }
+            }
         }
 
         .products-lines-infos {

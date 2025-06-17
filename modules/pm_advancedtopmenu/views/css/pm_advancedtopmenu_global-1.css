@@ -20,7 +20,7 @@
 .li-niveau1 a .advtm_menu_span, .li-niveau1 .advtm_menu_span {background-color:;}
 .li-niveau1 a.advtm_menu_actif .advtm_menu_span {background-color:;}
 .li-niveau1 a.a-niveau1 {border-color:;border-width:0px 0px 0px 0px;}
-.li-niveau1 .adtm_sub {border-color:#e5e5e5; border-width:0px 1px 1px 1px; box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.2);}
+.li-niveau1 .adtm_sub {border-color:#e5e5e5; border-width:0px 1px 1px 1px;}
 .li-niveau1 .adtm_sub {background-color: rgba(255, 255, 255, 1); background: linear-gradient(rgba(255, 255, 255, 1), rgba(252, 252, 252, 1));}
 #adtm_menu ul#menu .li-niveau1 div.adtm_sub {opacity: 0; visibility: hidden;}
 #adtm_menu ul#menu .li-niveau1:hover div.adtm_sub { opacity: 1;visibility: visible; transition:visibility 0s linear 0.3s, opacity 0.3s linear 0.3s;}
@@ -36,7 +36,32 @@
 #adtm_menu .adtm_column span.column_wrap_title:hover, #adtm_menu .adtm_column span.column_wrap_title a:hover, #adtm_menu .adtm_column span.column_wrap_title span[data-href]:hover {color:#111827; text-decoration:none;}
 #adtm_menu .adtm_column ul.adtm_elements li, #adtm_menu .adtm_column ul.adtm_elements li a, #adtm_menu .adtm_column ul.adtm_elements li span[data-href] {font-size:13px; font-weight:normal; text-decoration:none; text-transform:none;}
 #adtm_menu .adtm_column ul.adtm_elements li:hover, #adtm_menu .adtm_column ul.adtm_elements li a:hover, #adtm_menu .adtm_column ul.adtm_elements li span[data-href]:hover {color:#111827; text-decoration:none;}
-.li-niveau1 .adtm_sub {width: 100%}
+.li-niveau1 .adtm_sub {
+  /* Le sous-menu prend 100% de la largeur de la page */
+  width: 100vw;
+  left: 0;
+  right: 0;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* Le contenu du sous-menu s'aligne avec le menu principal */
+.li-niveau1 .adtm_sub_container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* CONTAINER DU SUB MENU */
+#adtm_menu .adtm_column_wrap {
+  max-width: 1500px;
+  min-height: 400px;
+  margin: 0 auto;
+  border-bottom: none;
+
+}
+
+
+
 #adtm_menu table.columnWrapTable {table-layout:fixed;}
 #adtm_menu {z-index:9;}
 .li-niveau1 .adtm_sub {z-index:1000;}

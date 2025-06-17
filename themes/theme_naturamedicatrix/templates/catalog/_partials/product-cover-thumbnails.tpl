@@ -100,10 +100,6 @@
             </div>
           </div>
         </li>
-        {else}
-        <li id="video-thumbnail" class="thumb-container js-thumb-container thumb-video" data-toggle="modal" data-target="#product-modal" data-image-large-src="https://img.youtube.com/vi/clsiWh54FR0/sddefault.jpg" data-image-large-sources="https://img.youtube.com/vi/clsiWh54FR0/sddefault.jpg">
-          <span class="thumb js-thumb"><i class="text-4xl bi bi-play-circle"></i></span>
-        </li>
         {/if}
         
         

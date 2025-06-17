@@ -110,10 +110,6 @@
                     </div>
                   </div>
                 </li>
-                {else}
-                <li id="modal-video-thumbnail" class="thumb-container js-thumb-container thumb-video">
-                  <span class="thumb js-thumb"><i class="text-4xl bi bi-play-circle"></i></span>
-                </li>
                 {/if}
                 
               </ul>

@@ -67,29 +67,29 @@ CUSTOM PRODUCTS DETAILS CART
       <!-- Stock (ou rupture) -->
       <div class="product-line-info">
       {if isset($product.quantity_available)}
-          <span class="value {if $product.quantity_available <= 0}text-red-500{else}text-green-600{/if}">
+          <span class="value product-quantity {if $product.quantity_available <= 0}text-red-500{else}text-green-600{/if}">
               {if $product.quantity_available <= 0}
-                &#x2022; Rupture
+                <i class="bi bi-circle-fill"></i> Rupture
               {else}
-                &#x2022; En stock
+                <i class="bi bi-circle-fill"></i> En stock
               {/if}
           </span>
           {if $features_result && count($features_result) > 0 && isset($features_result[0].value) && $features_result[0].value|trim != '' || $product.attributes|count > 0}
             <span class="separator-attribute">&#x2014;</span>
           {/if}
       {elseif isset($product.stock_quantity)}
-          <span class="value {if $product.stock_quantity <= 0}text-red-500{else}text-green-600{/if}">
+          <span class="value product-quantity {if $product.stock_quantity <= 0}text-red-500{else}text-green-600{/if}">
               {if $product.stock_quantity <= 0}
-                &#x2022; Rupture
+                <i class="bi bi-circle-fill"></i> Rupture
               {else}
-                &#x2022; En stock
+                <i class="bi bi-circle-fill"></i> En stock
               {/if}
           </span>
           {if $features_result && count($features_result) > 0 && isset($features_result[0].value) && $features_result[0].value|trim != '' || $product.attributes|count > 0}
             <span class="separator-attribute">&#x2014;</span>
           {/if}
       {elseif isset($product.available_now)}
-          <span class="value {if !$product.available_now}text-red-500{else}text-green-600{/if}">
+          <span class="value product-quantity {if !$product.available_now}text-red-500{else}text-green-600{/if}">
               {if !$product.available_now}
                   Rupture
               {else}
