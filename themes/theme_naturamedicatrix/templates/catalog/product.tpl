@@ -58,6 +58,10 @@
 
   <style>
       
+      hr {
+        margin: 1rem 0;
+      }
+      
       #header .top-menu a[data-depth="0"]:hover, a:hover {
         color : #155585;
       }
@@ -79,57 +83,6 @@
       
       .product-reference {
         float: right;
-      }
-      
-      /* Styles pour les onglets verticaux */
-      .vertical-tabs {
-        border-right: 1px solid #dee2e6;
-        margin-right: 0;
-        border-bottom: none;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-      
-      .vertical-tabs .nav-item {
-        margin-bottom: 0.5rem;
-        width: 100%;
-        display: block;
-      }
-      
-      .vertical-tabs .nav-link {
-        border: none;
-        border-left: 3px solid transparent;
-        border-radius: 0;
-        padding: 0.75rem 1rem;
-        display: block;
-        text-align: left;
-        width: 100%;
-      }
-      
-      .vertical-tabs .nav-link.active {
-        border-left: 3px solid #155585;
-        background-color: #f8f9fa;
-        color: #155585;
-      }
-      
-      .nav-tabs {
-        flex-wrap: wrap;
-      }
-      
-      /* Force l'affichage vertical des tabs peu importe la taille d'écran */
-      @media (max-width: 767px) {
-        .vertical-tabs {
-          flex-direction: column !important;
-        }
-        .vertical-tabs .nav-item {
-          width: 100% !important;
-        }
-      }
-      
-      .product-tabs-container {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
       }
     
       #product-block-infos h1 {
@@ -190,10 +143,8 @@
         margin-left: 0;
       }
       
-      
-      .product-description {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+      .tabs .tab-pane {
+        padding-top: 0;
       }
       
       .seemore a {
@@ -204,8 +155,8 @@
         font-weight: 600;
       }
       
-      .product-description p,
-      .product-description li  {
+      .product-information .product-description p,
+      .product-information .product-description li  {
         color: #4B5563 !important;
         padding-bottom: 0;
       }
@@ -237,7 +188,7 @@
         border: 1px solid #e5e8ea;
         font-weight: normal;
         color: #4B5563 !important;
-        padding: 1rem 2rem;
+        padding: 0.5rem 1rem;
         border-radius: 10px;
         font-size: 1rem;
       }
@@ -328,12 +279,12 @@
         width: 3rem;
         height: 2.75rem;
         padding: .175rem .5rem;
-        color: #232323;
+        color: #4B5563;
         background-color: #fff;
         margin-left: .4rem;
       }
       .wishlist-button-product i {
-        color : #232323 !important; 
+        color : #4B5563 !important; 
       }
       .wishlist-button-add:hover {
         opacity: 1;
@@ -398,7 +349,7 @@
       
       #manufacturer_block {
         display: flex;
-        margin: 2rem 0;
+        margin: 5rem 0;
         background: #f9fafb;
       }
       
@@ -455,11 +406,91 @@
         background: #f8faff;
       }
       
+    
+      .product-container .tab-pane ul {
+        list-style: disc;
+      }
+      
+      #composition table {
+        max-width: 860px;
+        font-size: 0.9rem;
+      }
+      
+      .table-striped tbody tr:nth-of-type(odd) {
+        background: white;
+      }
+      
+      .table-striped > tbody > tr:nth-of-type(even), 
+      table > tbody > tr:nth-of-type(even) {
+        background: #f9fafb;
+      }
+      .table thead th {
+        background: #edeff1;
+      }
+      
+      .table-small td {
+        padding: 0.3rem .5rem;
+      }
+      
+      .table-compare {
+        border-radius: 10px;
+        margin: 0;
+      }
+      .table-compare td,
+      .table-compare th {
+        border: 1px solid #ced2d9 !important;
+        font-size: 0.85rem;
+        vertical-align: middle !important;
+      }
+      
+      .table-compare td:last-child,
+      .table-compare th:last-child {
+        border-right: none !important;
+      }
+      
+      .table-compare tr:last-child td {
+        border-bottom: none !important;
+      }
+      
+      .table-compare td:first-child,
+      .table-compare th:first-child {
+        border-left: none !important;
+      }
+      
+      .table-compare th {
+        background: white !important;
+        text-align: center;
+        border-top: none !important;
+      }
+      .table-compare tbody tr:nth-child(odd) td {
+        background: #f9fafb;
+      }
+      .table-compare tbody tr:nth-child(even) td {
+        background: white;
+      }
+      .table-compare img {
+        margin: 0 auto 1rem;
+        max-width: 150px;
+      }
+      .table-responsive {
+        border: 1px solid #ced2d9 !important;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+      }
+      
       /* ONGLETS */
       .vertical-tabs {
-        border-right: 1px solid #f6f6f6!important;
-        margin-right: -1px !important;
         margin-top: 0 !important;
+        border-bottom: none !important;
+        padding-right: 50px;
+      }
+      
+      .nav-tabs .nav-item+.nav-item {
+        margin-left: 0 !important;
+      }
+      
+      .tabs {
+        padding-top: 50px;
       }
       
       .vertical-tabs .nav-item {
@@ -472,8 +503,7 @@
       .vertical-tabs .nav-link.active {
         border-radius: 0 !important;
         border: none !important;
-        border-right: 3px solid transparent !important;
-        padding: 12px 15px !important;
+        padding: 17px 0 !important;
         transition: all 0.2s ease !important;
         display: flex !important;
         align-items: center !important;
@@ -482,6 +512,8 @@
         color: #4B5563 !important;
         margin: 0 !important;
         line-height: normal !important;
+        border-bottom: 1px solid #e5e8ea !important;
+        font-size: 0.9rem;
       }
       
       .vertical-tabs .nav-link:after {
@@ -491,9 +523,7 @@
       }
       
       .vertical-tabs .nav-link:hover {
-        background-color: #f9f9f9 !important;
         color: #83b58b !important;
-        border-right-color: #83b58b !important;
       }
       
       .vertical-tabs .nav-link:hover:after {
@@ -503,8 +533,6 @@
       
       .vertical-tabs .nav-link.active,
       .vertical-tabs .nav-link.js-product-nav-active {
-        background-color: #f1f7f1 !important;
-        border-right-color: #83b58b !important;
         color: #83b58b !important;
         font-weight: 600 !important;
       }
@@ -515,8 +543,8 @@
       }
       
       .tab-content {
-        border-left: 1px solid #e9e9e9 !important;
-        padding: 20px 0 20px 25px !important;
+        border-left: 1px solid #e5e8ea !important;
+        padding: 0px 0 20px 50px !important;
       }
       
       .product-custom-content {
@@ -534,6 +562,7 @@
       .tab-pane.fade.in.active {
         opacity: 1 !important;
       }
+      
        
   </style>
 
@@ -695,118 +724,141 @@
       
       
 {*
-      <ul id="product-intolerances" class="row owl-theme-item owl-carousel owl-banners owl-theme owl-loaded owl-drag">
-	<div class="owl-stage-outer"><div class="owl-stage" style="width: 863px; transform: translate3d(0px, 0px, 0px); transition: all;"><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Vegan.svg" width="45" height="45" alt="Vegan"><small>Vegan</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Sans%20lactose.svg" width="45" height="45" alt="Sans lactose"><small>Sans lactose</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Sans%20gluten.svg" width="45" height="45" alt="Sans gluten"><small>Sans gluten</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Pour%20hommes.svg" width="45" height="45" alt="Pour hommes"><small>Pour hommes</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Pour%20femmes.svg" width="45" height="45" alt="Pour femmes"><small>Pour femmes</small></li></div></div></div><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div><div class="owl-dots disabled"><div class="owl-dot active"><span></span></div></div></ul>
+      {block name='product_slider_items'}
+        {include file='catalog/_partials/product-slider-items.tpl'}
+      {/block}
 *}
+      
+
       
       
             {block name='product_tabs'}
-              <div class="tabs clear product-tabs-container">
-                <div class="row">
-                  <div class="col-md-3 col-sm-12">
-                    <ul class="nav nav-tabs vertical-tabs" role="tablist" style="display: block; width: 100%;">
-                      {if $product.description}
-                        <li class="nav-item">
-                          <a
-                            class="nav-link{if $product.description} active js-product-nav-active{/if}"
-                            data-toggle="tab"
-                            href="#description"
-                            role="tab"
-                            aria-controls="description"
-                            {if $product.description} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
-                        </li>
-                      {/if}
-                      <li class="nav-item">
-                        <a
-                          class="nav-link{if !$product.description} active js-product-nav-active{/if}"
-                          data-toggle="tab"
-                          href="#product-details"
-                          role="tab"
-                          aria-controls="product-details"
-                          {if !$product.description} aria-selected="true"{/if}>{l s='Détails du produit' d='Shop.Theme.Catalog'}</a>
-                      </li>
-                      {if isset($product.mode_emploi) && $product.mode_emploi}
-                        <li class="nav-item">
-                          <a
-                            class="nav-link"
-                            data-toggle="tab"
-                            href="#mode-emploi"
-                            role="tab"
-                            aria-controls="mode-emploi">Conseils d'utilisation</a>
-                        </li>
-                      {/if}
-                      {if isset($product.contre_indications) && $product.contre_indications}
-                        <li class="nav-item">
-                          <a
-                            class="nav-link"
-                            data-toggle="tab"
-                            href="#contre-indications"
-                            role="tab"
-                            aria-controls="contre-indications">Contre-indications</a>
-                        </li>
-                      {/if}
-                      {if isset($product.ingredients) && $product.ingredients}
-                        <li class="nav-item">
-                          <a
-                            class="nav-link"
-                            data-toggle="tab"
-                            href="#ingredients"
-                            role="tab"
-                            aria-controls="ingredients">Composition</a>
-                        </li>
-                      {/if}
-                      {if isset($product.tab_nutri) && $product.tab_nutri}
-                        <li class="nav-item">
-                          <a
-                            class="nav-link"
-                            data-toggle="tab"
-                            href="#tab-nutri"
-                            role="tab"
-                            aria-controls="tab-nutri">Tableau nutritionnel</a>
-                        </li>
-                      {/if}
-                      {if isset($product.thera_sup) && $product.thera_sup}
-                        <li class="nav-item">
-                          <a
-                            class="nav-link"
-                            data-toggle="tab"
-                            href="#thera-sup"
-                            role="tab"
-                            aria-controls="thera-sup">Informations professionnelles</a>
-                        </li>
-                      {/if}
-                      {if $product.attachments}
-                        <li class="nav-item">
-                          <a
-                            class="nav-link"
-                            data-toggle="tab"
-                            href="#attachments"
-                            role="tab"
-                            aria-controls="attachments">{l s='Attachments' d='Shop.Theme.Catalog'}</a>
-                        </li>
-                      {/if}
-                      {foreach from=$product.extraContent item=extra key=extraKey}
-                        <li class="nav-item">
-                          <a
-                            class="nav-link"
-                            data-toggle="tab"
-                            href="#extra-{$extraKey}"
-                            role="tab"
-                            aria-controls="extra-{$extraKey}">{$extra.title}</a>
-                        </li>
-                      {/foreach}
-                    </ul>
-                  </div>
-                  <div class="col-md-9 col-sm-12">
-                    <div class="tab-content" id="tab-content">
+              <div class="tabs clear row">
+                
+                <ul class="nav nav-tabs col-md-3 col-sm-12 vertical-tabs" role="tablist">
+                  <p class="h4">{$product.name}</p>
+                  {if $product.description}
+                    <li class="nav-item">
+                       <a
+                         class="nav-link{if $product.description} active js-product-nav-active{/if}"
+                         data-toggle="tab"
+                         href="#description"
+                         role="tab"
+                         aria-controls="description"
+                         {if $product.description} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
+                    </li>
+                  {/if}
+                  <li class="nav-item">
+                    <a
+                      class="nav-link{if !$product.description} active js-product-nav-active{/if}"
+                      data-toggle="tab"
+                      href="#product-details"
+                      role="tab"
+                      aria-controls="product-details"
+                      {if !$product.description} aria-selected="true"{/if}>{l s='Product Details' d='Shop.Theme.Catalog'}</a>
+                  </li>
+                  {if isset($product.mode_emploi) && $product.mode_emploi}
+                    <li class="nav-item">
+                      <a class="nav-link"
+                         data-toggle="tab"
+                         href="#mode-emploi"
+                         role="tab"
+                         aria-controls="mode-emploi">{l s='Mode d\'emploi' d='Shop.Theme.Catalog'}</a>
+                    </li>
+                  {/if}
+                  {if isset($product.ingredients) && $product.ingredients}
+                    <li class="nav-item">
+                      <a class="nav-link"
+                         data-toggle="tab"
+                         href="#composition"
+                         role="tab"
+                         aria-controls="composition">{l s='Composition' d='Shop.Theme.Catalog'}</a>
+                    </li>
+                  {/if}
+                  {if $product.attachments}
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        data-toggle="tab"
+                        href="#attachments"
+                        role="tab"
+                        aria-controls="attachments">{l s='Attachments' d='Shop.Theme.Catalog'}</a>
+                    </li>
+                  {/if}
+                  {foreach from=$product.extraContent item=extra key=extraKey}
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        data-toggle="tab"
+                        href="#extra-{$extraKey}"
+                        role="tab"
+                        aria-controls="extra-{$extraKey}">{$extra.title}</a>
+                    </li>
+                  {/foreach}
+                  
+                  {if $product_manufacturer->id == 5}
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        data-toggle="tab"
+                        href="#comparer"
+                        role="tab"
+                        aria-controls="comparer">{l s='Comparer et bien choisir' d='Shop.Theme.Catalog'}</a>
+                    </li>
+                  {/if}
+                  
+                </ul>
+
+                <div class="tab-content col-md-8 col-sm-12" id="tab-content">
                  <div class="tab-pane fade in{if $product.description} active js-product-tab-active{/if}" id="description" role="tabpanel">
                    {block name='product_description'}
                      <div class="product-description">{$product.description nofilter}</div>
                    {/block}
-                   
-                   {* SHOPIMIND INTERETS PRODUCTS *}
-                   <div id="shopimind-interets-products"></div>
                  </div>
+                 
+                 {if (isset($product.ingredients) && $product.ingredients) || (isset($product.tab_nutri) && $product.tab_nutri)}
+                    <div class="tab-pane fade in" id="composition" role="tabpanel">
+                      {if isset($product.ingredients) && $product.ingredients}
+                        <p class="h4">Ingrédients</p>
+                        {$product.ingredients nofilter}
+                        <hr />
+                      {/if}
+                      
+                      {if isset($product.tab_nutri) && $product.tab_nutri}
+                        <p class="h4">Tableau nutritionnel</p>
+                        {$product.tab_nutri nofilter}
+                      {/if}
+                    </div>
+                 {/if}
+
+                 
+                 {if (isset($product.mode_emploi) && $product.mode_emploi) || (isset($product.contre_indications) && $product.contre_indications)}
+                  <div class="tab-pane fade in" id="mode-emploi" role="tabpanel">
+                    
+                      <p class="h4">Conseils d'utilisation</p>
+                      {$product.mode_emploi nofilter}
+                      
+                      <hr />
+                                                         
+                      <p class="h4">Contre-indications</p>
+                      {if isset($product.contre_indications) && $product.contre_indications} 
+                        {$product.contre_indications nofilter}
+                      {/if}
+                      <ul class="legal-information text-sm">
+              			     <li>Ne pas dépasser la dose quotidienne recommandée.</li>
+              			     <li>Tenir hors de portée des enfants.</li>
+              			     <li>Les compléments alimentaires ne doivent pas être utilisés comme substituts à une alimentation variée et équilibrée ni à un mode de vie sain.</li>
+            			    </ul>
+                  </div>
+                {/if}
+                
+                {if $product_manufacturer->id == 5}
+                  {block name='comparer'}
+                  <div class="tab-pane fade in" id="comparer" role="tabpanel">
+                    {include file='../_partials/tab/tab-olivie.tpl'}
+                  </div>
+                  {/block}
+                {/if}
 
                  {block name='product_details'}
                    {include file='catalog/_partials/product-details.tpl'}
@@ -836,55 +888,11 @@
                    {$extra.content nofilter}
                  </div>
                  {/foreach}
-                 
-                 {* Onglets pour les champs personnalisés *}
-                 {if isset($product.mode_emploi) && $product.mode_emploi}
-                 <div class="tab-pane fade in" id="mode-emploi" role="tabpanel">
-                   <div class="product-custom-content">
-                     {$product.mode_emploi nofilter}
-                   </div>
-                 </div>
-                 {/if}
-                 
-                 {if isset($product.contre_indications) && $product.contre_indications}
-                 <div class="tab-pane fade in" id="contre-indications" role="tabpanel">
-                   <div class="product-custom-content">
-                     {$product.contre_indications nofilter}
-                   </div>
-                 </div>
-                 {/if}
-                 
-                 {if isset($product.ingredients) && $product.ingredients}
-                 <div class="tab-pane fade in" id="ingredients" role="tabpanel">
-                   <div class="product-custom-content">
-                     {$product.ingredients nofilter}
-                   </div>
-                 </div>
-                 {/if}
-                 
-                 {if isset($product.tab_nutri) && $product.tab_nutri}
-                 <div class="tab-pane fade in" id="tab-nutri" role="tabpanel">
-                   <div class="product-custom-content">
-                     {$product.tab_nutri nofilter}
-                   </div>
-                 </div>
-                 {/if}
-                 
-                 {if isset($product.thera_sup) && $product.thera_sup}
-                 <div class="tab-pane fade in" id="thera-sup" role="tabpanel">
-                   <div class="product-custom-content">
-                     {$product.thera_sup nofilter}
-                   </div>
-                 </div>
-                 {/if}
-                    </div>
-                  </div>
-                </div>
               </div>
+            </div>
           {/block}  
     </div>
-    
-    
+
     {if isset($product_manufacturer->id)}
       <div id="manufacturer_block" class="product-manufacturer brand-{$product_manufacturer->id}" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
         <div class="block product-manufacturer-infos">
@@ -897,9 +905,9 @@
           </a>
         {/if}
           <div class="product-manufacturer-name">
-            <h3 itemprop="name"><a href="{$product_brand_url}">{$product_manufacturer->name}</a></h3>
+            <h4 itemprop="name"><a href="{$product_brand_url}">{$product_manufacturer->name}</a></h4>
             {$product_manufacturer->short_description nofilter}
-            <p class="seemore">» <a href="">Les produits {$product_manufacturer->name}</a></p>
+            <p class="seemore">» <a href="{$product_brand_url}">Les produits {$product_manufacturer->name}</a></p>
           </div>
         </div>
           
@@ -918,7 +926,7 @@
         {/if}
       </div>
     {/if}
-
+    
     {block name='product_accessories'}
       {if $accessories}
         <section class="product-accessories clearfix">
@@ -933,6 +941,13 @@
         </section>
       {/if}
     {/block}
+    
+    
+    
+    
+    
+    {* SHOPIMIND INTERETS PRODUCTS *}
+    <div id="shopimind-interets-products"></div>
 
     {block name='product_footer'}
       {hook h='displayFooterProduct' product=$product category=$category}

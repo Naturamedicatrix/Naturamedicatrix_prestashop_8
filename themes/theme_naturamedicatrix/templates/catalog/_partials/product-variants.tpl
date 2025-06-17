@@ -26,7 +26,6 @@
  .radio-label-variant{
     display: flex;
     align-items: center;
-    flex-direction: column;
     cursor: pointer;
  }
  </style>
@@ -85,10 +84,10 @@
                   {* Affiche l'image cover de toutes les déclinaisons (attributs) *}
                   {if isset($all_attribute_images[$id_attribute])}
                     {* Si l'attribut a une image associée, on l'affiche directement via getImageLink --> override de la classe Product *}
-                    <img src="{$link->getImageLink($product.link_rewrite, $all_attribute_images[$id_attribute], 'declinaison_default')}" width="50" height="50" alt="{$group_attribute.name}" />
+                    <img src="{$link->getImageLink($product.link_rewrite, $all_attribute_images[$id_attribute], 'declinaison_default')}" width="40" height="40" alt="{$group_attribute.name}" />
                   {elseif isset($product.cover)}
                     {* Image par défaut si aucune image n'est associée à l'attribut *}
-                    <img src="{$product.cover.bySize.declinaison_default.url}" width="50" height="50" alt="{$group_attribute.name}" />
+                    <img src="{$product.cover.bySize.declinaison_default.url}" width="40" height="40" alt="{$group_attribute.name}" />
                   {/if}
                   {$group_attribute.name}
                 </span>
