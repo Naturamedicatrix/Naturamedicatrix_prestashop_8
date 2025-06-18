@@ -29,7 +29,11 @@
 {assign var=productName value=$productName|replace:'(':'<span class="small"> - '}
 {assign var=productName value=$productName|replace:')':'</span>'}
 
-{math equation="x / y" x=$product.rounded_display_price y=$product.nm_days format="%.2f" assign=prix_journalier}
+{if isset($product.rounded_display_price) && isset($product.nm_days) && $product.nm_days != 0 && !is_array($product.rounded_display_price) && !is_array($product.nm_days)}
+  {math equation="x / y" x=$product.rounded_display_price y=$product.nm_days format="%.2f" assign=prix_journalier}
+{else}
+  {assign var=prix_journalier value=""}
+{/if}
 {* END VARIABLES *}
  
 {extends file=$layout}
@@ -883,8 +887,8 @@
               {if isset($product.features) && $product.features}
                 <div class="col">
                   {foreach from=$product.features item=feature}
-                  <i class="bi bi-capsule"></i>
                     {if isset($feature.value) && $feature.value|trim != '' && $feature.id_feature == 3}
+                      <i class="bi bi-capsule"></i>
                       <p>{$feature.value|escape:'html':'UTF-8'}</p>
                     {/if}
                   {/foreach}
@@ -898,11 +902,12 @@
               </div>
               {/if}
               
+              {if isset($prix_journalier) && $prix_journalier != ""} 
               <div class="col">
                 <i class="bi bi-tag"></i>
                 <p>{$prix_journalier|replace:'.':','}&nbsp;€<br /><small>/ jour</small></p>
               </div>
-              
+              {/if}              
             </div>
             
         </div>
