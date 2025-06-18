@@ -66,7 +66,7 @@
   <style>
       /* Menu sticky */
       #sticky-product-bar {
-        display: block; /* Menu toujours visible */
+        display: none; /* Menu caché par défaut */
         position: fixed;
         top: 0;
         left: 0;
@@ -75,6 +75,7 @@
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         z-index: 99;
         padding: 15px 0;
+        transition: transform 0.3s ease;
       }
       
       #sticky-product-bar .sticky-container {
@@ -1250,7 +1251,7 @@
 
   
   <script>
-    // Fonctions pour incrémenter et décrémenter la quantité
+    // Fonctions pour le menu sticky (incrément/décrément quantité)
     function incrementQuantity(event) {
       event.preventDefault();
       const qtyInput = document.querySelector('.sticky-qty');
@@ -1259,7 +1260,6 @@
       value = isNaN(value) ? 1 : value + 1;
       qtyInput.value = value;
       
-      // Synchroniser avec le champ de quantité original
       if (originalQtyInput) {
         originalQtyInput.value = value;
       }
@@ -1273,62 +1273,125 @@
       value = isNaN(value) || value <= 1 ? 1 : value - 1;
       qtyInput.value = value;
       
-      // Synchroniser avec le champ de quantité original
       if (originalQtyInput) {
         originalQtyInput.value = value;
       }
     }
     
-    document.addEventListener('DOMContentLoaded', function() {
-      const stickyBar = document.getElementById('sticky-product-bar');
-      const productForm = document.getElementById('add-to-cart-or-refresh');
-      const stickyQtyInput = document.querySelector('.sticky-qty');
-      const originalQtyInput = document.querySelector('input[name="qty"]');
+    // Gestion du menu sticky - version production
+    (function() {
+      var stickyBar = null;
+      var productAddToCart = null;
+      var observer = null;
       
-      // Synchroniser les champs de quantité lors de la modification manuelle
-      if (stickyQtyInput && originalQtyInput) {
-        stickyQtyInput.addEventListener('change', function() {
-          let value = parseInt(this.value, 10);
-          value = isNaN(value) || value < 1 ? 1 : value;
-          this.value = value;
-          originalQtyInput.value = value;
-        });
+      // Initialisation du menu sticky
+      function initStickyBar() {
+        stickyBar = document.getElementById('sticky-product-bar');
+        productAddToCart = document.querySelector('.product-add-to-cart');
         
-        // Initialiser avec la valeur du champ original
-        stickyQtyInput.value = originalQtyInput.value;
+        if (stickyBar && productAddToCart) {
+          // Configuration visuelle du menu et animations
+          stickyBar.style.opacity = '0';
+          stickyBar.style.transform = 'translateY(20px)';
+          stickyBar.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          stickyBar.style.display = 'none';
+          
+          // Initialiser l'observer pour surveiller la visibilité du bouton d'ajout au panier
+          setupIntersectionObserver();
+          return true;
+        } else {
+          // Réessayer si les éléments ne sont pas encore disponibles
+          setTimeout(initStickyBar, 500);
+          return false;
+        }
+      }
+
+      // Configuration de l'Intersection Observer
+      function setupIntersectionObserver() {
+        // Options de l'observer
+        var options = {
+          root: null, // viewport
+          rootMargin: '0px',
+          threshold: 0.1 // déclencher quand au moins 10% de l'élément est visible
+        };
+        
+        // Callback appelé quand l'élément entre ou sort du viewport
+        var callback = function(entries) {
+          entries.forEach(function(entry) {
+            if (!stickyBar) return;
+            
+            // Si le bouton d'ajout au panier n'est plus visible (ou moins de 10%),
+            // afficher le menu sticky avec animation
+            if (!entry.isIntersecting) {
+              showStickyBar();
+            } else {
+              // Sinon, cacher le menu sticky avec animation
+              hideStickyBar();
+            }
+          });
+        };
+        
+        // Créer l'observer
+        observer = new IntersectionObserver(callback, options);
+        
+        // Observer le bouton d'ajout au panier
+        observer.observe(productAddToCart);
       }
       
-      // Ajout d'un gestionnaire d'événements pour les clics sur le bouton du menu sticky
-      if (stickyBar) {
-        const stickyButton = stickyBar.querySelector('.add-to-cart');
-        if (stickyButton && productForm) {
-          stickyButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            // Déclencher le clic sur le bouton d'ajout au panier d'origine
-            const originalButton = productForm.querySelector('.add-to-cart');
-            if (originalButton) {
-              originalButton.click();
-            }
+      // Fonction pour afficher le menu avec animation
+      function showStickyBar() {
+        if (!stickyBar) return;
+        
+        stickyBar.style.display = 'block';
+        // Délai court pour permettre au navigateur d'appliquer le display avant l'animation
+        setTimeout(function() {
+          stickyBar.style.opacity = '1';
+          stickyBar.style.transform = 'translateY(0)';
+        }, 10);
+      }
+      
+      // Fonction pour cacher le menu avec animation
+      function hideStickyBar() {
+        if (!stickyBar) return;
+        
+        stickyBar.style.opacity = '0';
+        stickyBar.style.transform = 'translateY(20px)';
+        
+        // Attendre que l'animation soit terminée avant de cacher complètement
+        setTimeout(function() {
+          stickyBar.style.display = 'none';
+        }, 400); // Durée identique à la transition CSS
+      }
+      
+      // Vérification de secours périodique pour assurer le bon fonctionnement
+      var checkTimer = setInterval(function() {
+        if (!stickyBar || !productAddToCart) {
+          initStickyBar();
+        }
+      }, 1500);
+
+      // Initialisation et configuration
+      if (initStickyBar()) {
+        // Synchronisation quantité sticky -> original
+        var stickyQty = document.querySelector('.sticky-qty');
+        if (stickyQty) {
+          stickyQty.addEventListener('input', function() {
+            var originalQty = document.querySelector('input[name="qty"]');
+            if (originalQty) { originalQty.value = this.value; }
+          });
+        }
+
+        // Synchronisation du bouton d'ajout au panier
+        var stickyAddBtn = stickyBar.querySelector('.add-to-cart');
+        if (stickyAddBtn) {
+          stickyAddBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var mainAddBtn = document.querySelector('#add-to-cart-or-refresh .add-to-cart');
+            if (mainAddBtn) { mainAddBtn.click(); }
           });
         }
       }
-      
-      // Code pour le comportement scroll désactivé pendant le développement
-      /*
-      const triggerHeight = 200;
-      function handleScroll() {
-        if (window.pageYOffset > triggerHeight) {
-          stickyBar.style.display = 'block';
-        } else {
-          stickyBar.style.display = 'none';
-        }
-      }
-      window.addEventListener('scroll', handleScroll);
-      handleScroll();
-      setTimeout(handleScroll, 100);
-      window.addEventListener('resize', handleScroll);
-      */
-    });
+    })();
   </script>
 
 {/block}
