@@ -252,7 +252,7 @@ body#cart #wrapper {
   position: relative;
 }
 .product-miniature.out_stock *:not(.out-of-stock-label) {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .product-miniature .out-of-stock-label {
   position: absolute;
