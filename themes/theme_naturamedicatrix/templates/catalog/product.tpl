@@ -62,7 +62,73 @@
 
 {block name='content'}
 
+
   <style>
+      /* Menu sticky */
+      #sticky-product-bar {
+        display: block; /* Menu toujours visible */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 99;
+        padding: 15px 0;
+      }
+      
+      #sticky-product-bar .sticky-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+      }
+      
+      #sticky-product-bar .sticky-product-name {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      
+      #sticky-product-bar .sticky-actions {
+        display: flex;
+      }
+      
+      #sticky-product-bar .btn-quantity {
+        width: 40px;
+        height: 40px;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      #sticky-product-bar .sticky-qty {
+        width: 30px;
+        height: 40px;
+        text-align: center;
+        border: 1px solid #ddd;
+        font-size: .8rem;
+        padding: 0;
+        margin: 0;
+      }
+      
+      #sticky-product-bar .quantity-group {
+        display: flex;
+        align-items: center;
+      }
+      
+      #sticky-product-bar .add-to-cart {
+        height: 40px;
+        font-size: .8rem;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      /* END Menu Sticky */
       
       hr {
         margin: 1rem 0;
@@ -730,6 +796,29 @@
 
   <section id="main">
     <meta content="{$product.url}">
+
+    <!-- Menu sticky qui apparaît lors du défilement -->
+    <div id="sticky-product-bar">
+    <div class="sticky-container">
+      {if $product.availability == 'available'}
+      <div class="sticky-product-name">{$productName nofilter}</div>
+      <div class="quantity-group">
+        <button class="btn-quantity" onclick="decrementQuantity(event)">−</button>
+        <input
+          type="number"
+          name="sticky-qty"
+          class="sticky-qty"
+          value="1"
+          min="1"
+        />
+        <button class="btn-quantity" onclick="incrementQuantity(event)">+</button>
+      </div>
+      <button class="btn btn-primary add-to-cart" data-button-action="add-to-cart" type="submit" {if !$product.add_to_cart_url}disabled{/if}>
+        <i class="bi bi-handbag"></i> {l s='Add to cart' d='Shop.Theme.Actions'} &#x2012; {$product.price}
+      </button>
+      {/if}
+    </div>
+    </div>
     
     {block name='breadcrumb'}
      {include file='_partials/breadcrumb.tpl'}
@@ -841,7 +930,7 @@
                         {/if}
                     {/block}
                     
-                    {if isset($product.dlu)}<div id="dlu"{if $product.dlu_checkbox} class="badge-dlu"{/if}><small>Date limite conseillée&nbsp;:</small> <strong>{$product.dlu|date_format:"%d-%m-%Y"}</strong> <i class="bi bi-info-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Jusqu'à l'expiration de la date d’utilisation conseillée, nous vous garantissons un produit irréprochable. Cependant, l’expiration de la date d’utilisation conseillée ne signifie pas nécessairement qu'un produit n'est plus utilisable ou consommable ou présente un danger pour la santé. Si le produit vous semble correct en termes d'apparence et/ou d'odeur, vous pouvez l'utiliser sans problème."></i></div>{/if}
+                    {if isset($product.dlu)}<div id="dlu"{if $product.dlu_checkbox} class="badge-dlu"{/if}><small>Date limite conseillée&nbsp;:</small> <strong>{$product.dlu|date_format:"%d-%m-%Y"}</strong> <i class="bi bi-info-circle info-tooltip" data-toggle="tooltip" data-bs-toggle="tooltip" data-placement="bottom" data-bs-placement="bottom" title="Jusqu'à l'expiration de la date d'utilisation conseillée, nous vous garantissons un produit irréprochable. Cependant, l'expiration de la date d'utilisation conseillée ne signifie pas nécessairement qu'un produit n'est plus utilisable ou consommable ou présente un danger pour la santé. Si le produit vous semble correct en termes d'apparence et/ou d'odeur, vous pouvez l'utiliser sans problème."></i></div>{/if}
                     
                     </div> <!-- .availabledlu -->       
                               
@@ -1157,5 +1246,89 @@
       </footer>
     {/block}
   </section>
+  
+
+  
+  <script>
+    // Fonctions pour incrémenter et décrémenter la quantité
+    function incrementQuantity(event) {
+      event.preventDefault();
+      const qtyInput = document.querySelector('.sticky-qty');
+      const originalQtyInput = document.querySelector('input[name="qty"]');
+      let value = parseInt(qtyInput.value, 10);
+      value = isNaN(value) ? 1 : value + 1;
+      qtyInput.value = value;
+      
+      // Synchroniser avec le champ de quantité original
+      if (originalQtyInput) {
+        originalQtyInput.value = value;
+      }
+    }
+    
+    function decrementQuantity(event) {
+      event.preventDefault();
+      const qtyInput = document.querySelector('.sticky-qty');
+      const originalQtyInput = document.querySelector('input[name="qty"]');
+      let value = parseInt(qtyInput.value, 10);
+      value = isNaN(value) || value <= 1 ? 1 : value - 1;
+      qtyInput.value = value;
+      
+      // Synchroniser avec le champ de quantité original
+      if (originalQtyInput) {
+        originalQtyInput.value = value;
+      }
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const stickyBar = document.getElementById('sticky-product-bar');
+      const productForm = document.getElementById('add-to-cart-or-refresh');
+      const stickyQtyInput = document.querySelector('.sticky-qty');
+      const originalQtyInput = document.querySelector('input[name="qty"]');
+      
+      // Synchroniser les champs de quantité lors de la modification manuelle
+      if (stickyQtyInput && originalQtyInput) {
+        stickyQtyInput.addEventListener('change', function() {
+          let value = parseInt(this.value, 10);
+          value = isNaN(value) || value < 1 ? 1 : value;
+          this.value = value;
+          originalQtyInput.value = value;
+        });
+        
+        // Initialiser avec la valeur du champ original
+        stickyQtyInput.value = originalQtyInput.value;
+      }
+      
+      // Ajout d'un gestionnaire d'événements pour les clics sur le bouton du menu sticky
+      if (stickyBar) {
+        const stickyButton = stickyBar.querySelector('.add-to-cart');
+        if (stickyButton && productForm) {
+          stickyButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Déclencher le clic sur le bouton d'ajout au panier d'origine
+            const originalButton = productForm.querySelector('.add-to-cart');
+            if (originalButton) {
+              originalButton.click();
+            }
+          });
+        }
+      }
+      
+      // Code pour le comportement scroll désactivé pendant le développement
+      /*
+      const triggerHeight = 200;
+      function handleScroll() {
+        if (window.pageYOffset > triggerHeight) {
+          stickyBar.style.display = 'block';
+        } else {
+          stickyBar.style.display = 'none';
+        }
+      }
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+      setTimeout(handleScroll, 100);
+      window.addEventListener('resize', handleScroll);
+      */
+    });
+  </script>
 
 {/block}
