@@ -1,2 +1,35 @@
-<ul id="product-intolerances" class="row owl-theme-item owl-carousel owl-banners owl-theme owl-loaded owl-drag">
-	<div class="owl-stage-outer"><div class="owl-stage" style="width: 863px; transform: translate3d(0px, 0px, 0px); transition: all;"><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Vegan.svg" width="45" height="45" alt="Vegan"><small>Vegan</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Sans%20lactose.svg" width="45" height="45" alt="Sans lactose"><small>Sans lactose</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Sans%20gluten.svg" width="45" height="45" alt="Sans gluten"><small>Sans gluten</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Pour%20hommes.svg" width="45" height="45" alt="Pour hommes"><small>Pour hommes</small></li></div><div class="owl-item active" style="width: 162.5px; margin-right: 10px;"><li class="sans"><img src="https://www.naturamedicatrix.fr/themes/new-natura/img/picto/Pour%20femmes.svg" width="45" height="45" alt="Pour femmes"><small>Pour femmes</small></li></div></div></div><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div><div class="owl-dots disabled"><div class="owl-dot active"><span></span></div></div></ul>
+{if isset($product.features) && $product.features}
+  <ul id="product-slider-items" class="row owl-theme-item owl-carousel owl-banners owl-theme owl-loaded owl-drag clear">
+    
+    {foreach from=$product.features item=feature}
+      <li class="item">{$feature.id_feature|escape:'html':'UTF-8'} : {$feature.value|escape:'html':'UTF-8'}</li>
+    {/foreach}
+    
+  </ul>
+{/if}
+
+
+
+  
+
+
+<script>
+  {literal}
+$('.owl-theme-item').owlCarousel({
+    loop:false,
+    margin:10,
+    rtl: false,
+    responsive:{
+        0:{
+            items:2
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:8
+        }
+    }
+	});
+	{/literal}
+	</script>

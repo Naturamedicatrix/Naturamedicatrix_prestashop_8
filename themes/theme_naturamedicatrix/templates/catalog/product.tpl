@@ -28,6 +28,8 @@
 {assign var=productName value=$product.name|escape:'html':'UTF-8'}
 {assign var=productName value=$productName|replace:'(':'<span class="small"> - '}
 {assign var=productName value=$productName|replace:')':'</span>'}
+
+{math equation="x / y" x=$product.rounded_display_price y=$product.nm_days format="%.2f" assign=prix_journalier}
 {* END VARIABLES *}
  
 {extends file=$layout}
@@ -62,12 +64,16 @@
         margin: 1rem 0;
       }
       
+      .breadcrumb {
+        padding-top: 20px !important;
+      }
+      
       #header .top-menu a[data-depth="0"]:hover, a:hover {
         color : #155585;
       }
       
       .product-container {
-        padding-top: 3rem;
+        padding-top: 1rem;
       }
       
       #product-block-infos {
@@ -78,7 +84,7 @@
       .product-reference {
         color: #93A7C3;
         font-size: 0.9rem;
-        margin-top: 10px;
+        margin-top: 5px;
       }
       
       .product-reference {
@@ -105,6 +111,13 @@
         display: inline-flex;
       }
       
+      .product-flags li.product-flag.online-only {
+        position: initial;
+        color: #626265;
+        background: #ececec;
+        border-color: #ececec;
+      }
+      
       .product-flags li.product-flag,
       .has-discount .discount {
         font-size: 0.8rem;
@@ -112,7 +125,7 @@
         background: none;
         color: #68768a;
         border: 1px solid #93A7C3;
-        padding: 4px 10px 2px;
+        padding: 2px 10px;
         border-radius: 15px;
         border-top-right-radius: 2px;
         border-bottom-left-radius: 2px;
@@ -122,6 +135,11 @@
         font-weight: normal !important;
         text-align: center;
         margin-top: 0;
+      }
+      
+      .product-flags .out_of_stock,
+      .product-flags .discount {
+        display: none;
       }
       
       .product-flags .new {
@@ -141,24 +159,46 @@
       .has-discount .discount {
         font-size: 0.9rem;
         margin-left: 0;
-      }
-      
-      .tabs .tab-pane {
-        padding-top: 0;
-      }
+      }      
       
       .seemore a {
-        margin-top: 10px;
+        margin-top: 5px;
         font-size: 0.9rem;
         text-decoration: underline;
         display: inline-block;
         font-weight: 600;
       }
       
+      #product-block-infos .product-description {
+        margin-top: 10px;
+        margin-bottom: 2rem;
+      }
+      
+      #product-block-infos .lead {
+        line-height: 1.2;
+      }
+      
+      #product-block-infos .review-score {
+        padding-top: 0;
+      }
+      
+      .product-information p {
+        padding-bottom: 0;
+      }
+      
       .product-information .product-description p,
       .product-information .product-description li  {
         color: #4B5563 !important;
-        padding-bottom: 0;
+        padding-bottom: 3px;
+      }
+      
+      .product-information .product-description ul {
+        margin-top: 5px;
+      }
+      
+      .product-information .alert {
+        margin: 0;
+        max-width: 100%;
       }
       
       .product-variants ul {
@@ -184,6 +224,10 @@
         border: 1px solid #e5e8ea; 
       }
       
+      .product-variants .input-radio {
+        right: 0;
+      }
+      
       .product-variants .radio-label {
         border: 1px solid #e5e8ea;
         font-weight: normal;
@@ -194,7 +238,7 @@
       }
       
       .bi-circle-fill {
-        font-size: 0.4rem;
+        font-size: 0.35rem;
         position: relative;
         top: -2px;
       }
@@ -203,6 +247,17 @@
         font-size: 0.8rem;
         font-weight: normal;
         color : #ee5c58;
+      }
+      
+      #product-instock {
+        font-size: 0.8rem;
+        font-weight: normal;
+      }
+      
+      #product-availability,
+      #product-instock {
+        display: block;
+        margin-bottom: 3px;
       }
       
       #product-availability .product-last-items, 
@@ -215,6 +270,23 @@
         color :#4B5563;
       }
       
+      #dlu.badge-dlu {
+        font-size: 1.2rem;
+        background: #e45b7f;
+        color: white;
+        padding: 0 0.5rem;
+        border-radius: 4px;
+        display: inline;
+      }
+      
+      #dlu.badge-dlu strong {
+        text-wrap: nowrap;
+      }
+      
+      #dlu.badge-dlu i {
+        font-size: 80%;
+      }
+      
       .product-prices {
         text-align: right;
         margin-top: 0;
@@ -222,7 +294,7 @@
       
       .current-price-value {
         font-size: 1.2rem;
-        font-weight: 600;
+        font-weight: 700;
         color: #111827;
       }
       
@@ -255,8 +327,13 @@
        min-width: inherit;
       }
       
-      .product-actions .add-to-cart {
+      .product-actions .btn-primary {
         width: 100%;
+        padding-top: 12px;
+        line-height: 1;
+      }
+      .product-actions .btn-primary i {
+        margin-right: 5px;
       }
       
       .product-actions .add-to-cart:disabled {
@@ -269,8 +346,20 @@
         flex-grow: 2;
       }
       
-      .noadd {
-        display: none;
+
+      .product-additional-info {
+        display: flex;
+      }
+      
+      .js-mailalert {
+        width: 100%;
+      }
+      
+      .js-mailalert .form-control {
+        margin-bottom: 5px;
+            padding: .65rem 1rem;
+            background: white;
+            border-radius: 4px;
       }
       
       .wishlist-button-product {
@@ -288,6 +377,33 @@
       }
       .wishlist-button-add:hover {
         opacity: 1;
+      }
+      
+      #prix_journalier {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        line-height: 1;
+        align-items: normal;
+        gap: 0.5rem;
+      }
+      
+      #prix_journalier .col {
+        align-content: center;
+        width: calc(100%/3);
+        color: #111927;
+      }
+      
+      #prix_journalier .col-middle {
+        border-right: 1px solid #c6c6c6;
+        border-left: 1px solid #c6c6c6;
+      }
+      
+      #prix_journalier .col p {
+        font-weight: 600;
+        font-size: 90%;
+        margin-top: 0.3rem;
+        color: #111927;
       }
       
       .product-images {
@@ -346,6 +462,32 @@
       #product #content {
         max-width: 600px;
       }
+      
+      
+      #product-slider-items {
+        padding: 2rem 0;
+        display: flex;
+        position: relative;
+        justify-content: center;
+      }
+      
+      #product-slider-items:before {
+        content: '';
+        border-top: 1px solid #c6c6c6;
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 60px;
+      }
+      
+      #product-slider-items .item {
+        background: white;
+        z-index: 1;
+        padding: 1rem;
+        margin: 0 1rem;
+      }
+      
       
       #manufacturer_block {
         display: flex;
@@ -409,6 +551,15 @@
     
       .product-container .tab-pane ul {
         list-style: disc;
+      }
+      
+      .product-discounts {
+        margin-bottom: 0.5rem;
+      }
+      
+      #description .product-description > h2,
+      #description .product-description > .h2 {
+        margin-top : 10px;
       }
       
       #composition table {
@@ -490,7 +641,13 @@
       }
       
       .tabs {
-        padding-top: 50px;
+        padding-top: 100px;
+      }
+      
+
+      
+      .tabs .tab-pane {
+        padding-top: 0;
       }
       
       .vertical-tabs .nav-item {
@@ -569,13 +726,16 @@
 
   <section id="main">
     <meta content="{$product.url}">
+    
+    {block name='breadcrumb'}
+     {include file='_partials/breadcrumb.tpl'}
+   {/block}
 
     <div class="row product-container js-product-container">
       <div class="col-md-6 col-xs-12" id="product-block-image">
         {block name='page_content_container'}
           <section class="page-content" id="content">
             {block name='page_content'}
-              
 
               {block name='product_cover_thumbnails'}
                 {include file='catalog/_partials/product-cover-thumbnails.tpl'}
@@ -586,7 +746,6 @@
                 <i class="material-icons right">&#xE315;</i>
               </div>
 *}
-
             {/block}
           </section>
         {/block}
@@ -617,19 +776,15 @@
               </div>
             </div>
           {/block}
-          
-          
-          
 
           <div class="product-information">
             {block name='product_description_short'}
               <div id="product-description-short-{$product.id}" class="product-description">
                 {$product.description_short nofilter}
-                <p class="seemore">» <a href="#">Lire la suite</a></p>
+                <p class="seemore">» <a href="#description">Lire la suite</a></p>
               
               </div>
             {/block}
-            
             
 
             {if $product.is_customizable && count($product.customizations.fields)}
@@ -666,10 +821,10 @@
                   <div class="infoandprice">
               
                     <div class="availabledlu">
-                    
                     {block name='product_availability'}
-                      <span id="product-availability" class="js-product-availability">
+                      {if $product.quantity > 0}<span id="product-instock" class="text-green-600"><i class="bi bi-circle-fill"></i> En stock</span>{/if}
                         {if $product.show_availability && $product.availability_message}
+                        <span id="product-availability" class="js-product-availability">
                           {if $product.availability == 'available'}
                             <i class="bi bi-circle-fill rtl-no-flip product-available"></i>
                           {elseif $product.availability == 'last_remaining_items'}
@@ -678,11 +833,11 @@
                             <i class="bi bi-circle-fill product-unavailable"></i>
                           {/if}
                           {$product.availability_message}
+                          </span>
                         {/if}
-                      </span>
                     {/block}
                     
-                    {if isset($product.dlu)}<div id="dlu"><small>Date limite conseillée&nbsp;:</small> <strong>{$product.dlu|date_format:"%d-%m-%Y"}</strong> <i class="bi bi-info-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Jusqu'à l'expiration de la date d’utilisation conseillée, nous vous garantissons un produit irréprochable. Cependant, l’expiration de la date d’utilisation conseillée ne signifie pas nécessairement qu'un produit n'est plus utilisable ou consommable ou présente un danger pour la santé. Si le produit vous semble correct en termes d'apparence et/ou d'odeur, vous pouvez l'utiliser sans problème."></i></div>{/if}
+                    {if isset($product.dlu)}<div id="dlu"{if $product.dlu_checkbox} class="badge-dlu"{/if}><small>Date limite conseillée&nbsp;:</small> <strong>{$product.dlu|date_format:"%d-%m-%Y"}</strong> <i class="bi bi-info-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Jusqu'à l'expiration de la date d’utilisation conseillée, nous vous garantissons un produit irréprochable. Cependant, l’expiration de la date d’utilisation conseillée ne signifie pas nécessairement qu'un produit n'est plus utilisable ou consommable ou présente un danger pour la santé. Si le produit vous semble correct en termes d'apparence et/ou d'odeur, vous pouvez l'utiliser sans problème."></i></div>{/if}
                     
                     </div> <!-- .availabledlu -->       
                               
@@ -695,13 +850,14 @@
                   {block name='product_discounts'}
                     {include file='catalog/_partials/product-discounts.tpl'}
                   {/block}
-
-                  {block name='product_add_to_cart'}
-                    {include file='catalog/_partials/product-add-to-cart.tpl'}
-                  {/block}
                   
                   
-
+                  {if $product.availability == 'available'}
+                    {block name='product_add_to_cart'}
+                      {include file='catalog/_partials/product-add-to-cart.tpl'}
+                    {/block}
+                  {/if}
+                
                   {block name='product_additional_info'}
                     {include file='catalog/_partials/product-additional-info.tpl'}
                   {/block}
@@ -718,19 +874,48 @@
               {hook h='displayReassurance'}
             {/block}
 *}
-     
+
+
+
+            
+            <div id="prix_journalier" class="text-center">
+              
+              {if isset($product.features) && $product.features}
+                <div class="col">
+                  {foreach from=$product.features item=feature}
+                  <i class="bi bi-capsule"></i>
+                    {if isset($feature.value) && $feature.value|trim != '' && $feature.id_feature == 3}
+                      <p>{$feature.value|escape:'html':'UTF-8'}</p>
+                    {/if}
+                  {/foreach}
+                </div>
+              {/if}
+              
+              {if isset($product.nm_days)}
+              <div class="col col-middle">
+                <i class="bi bi-calendar-week"></i>
+                <p>± {$product.nm_days} jours<br/><small>de consommation</small></p>
+              </div>
+              {/if}
+              
+              <div class="col">
+                <i class="bi bi-tag"></i>
+                <p>{$prix_journalier|replace:'.':','}&nbsp;€<br /><small>/ jour</small></p>
+              </div>
+              
+            </div>
+            
         </div>
       </div>
       
       
-{*
+
       {block name='product_slider_items'}
         {include file='catalog/_partials/product-slider-items.tpl'}
       {/block}
-*}
-      
 
       
+
       
             {block name='product_tabs'}
               <div class="tabs clear row">
@@ -748,15 +933,6 @@
                          {if $product.description} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
                     </li>
                   {/if}
-                  <li class="nav-item">
-                    <a
-                      class="nav-link{if !$product.description} active js-product-nav-active{/if}"
-                      data-toggle="tab"
-                      href="#product-details"
-                      role="tab"
-                      aria-controls="product-details"
-                      {if !$product.description} aria-selected="true"{/if}>{l s='Product Details' d='Shop.Theme.Catalog'}</a>
-                  </li>
                   {if isset($product.mode_emploi) && $product.mode_emploi}
                     <li class="nav-item">
                       <a class="nav-link"
@@ -775,6 +951,17 @@
                          aria-controls="composition">{l s='Composition' d='Shop.Theme.Catalog'}</a>
                     </li>
                   {/if}
+                  <li class="nav-item">
+                    <a
+                      class="nav-link{if !$product.description} active js-product-nav-active{/if}"
+                      data-toggle="tab"
+                      href="#product-details"
+                      role="tab"
+                      aria-controls="product-details"
+                      {if !$product.description} aria-selected="true"{/if}>{l s='Product Details' d='Shop.Theme.Catalog'}</a>
+                  </li>
+                  
+                  
                   {if $product.attachments}
                     <li class="nav-item">
                       <a
