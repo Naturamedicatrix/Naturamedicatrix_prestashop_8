@@ -36,10 +36,10 @@
         
         {if $product.has_discount}
             {if $product.discount_type === 'percentage'}
-              <span class="discount discount-percentage">-{$product.discount_percentage_absolute}{* {l s='Save %percentage%' d='Shop.Theme.Catalog' sprintf=['%percentage%' => $product.discount_percentage_absolute]} *}</span>
+              <span class="discount discount-percentage">{if $product.dlu_checkbox}Offre spéciale {/if}-{$product.discount_percentage_absolute}{* {l s='Save %percentage%' d='Shop.Theme.Catalog' sprintf=['%percentage%' => $product.discount_percentage_absolute]} *}</span>
             {else}
               <span class="discount discount-amount">
-                -{$product.discount_to_display}
+                {if $product.dlu_checkbox}Offre spéciale {/if}-{$product.discount_to_display}
 {*                   {l s='Save %amount%' d='Shop.Theme.Catalog' sprintf=['%amount%' => $product.discount_to_display]} *}
               </span>
             {/if}
