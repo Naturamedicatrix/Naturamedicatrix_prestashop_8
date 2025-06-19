@@ -35,6 +35,10 @@ body#checkout {
         }
     }
 
+    #_desktop_language_selector {
+        display: none;
+    }
+
     .checkout-footer {
         border-top: 1px solid $color-custom-gray;
         background-color: #ffff;
@@ -167,7 +171,7 @@ body#checkout {
         }
         
         &-subtotals span {
-            font-size: 0.9rem !important;
+            font-size: 16px !important;
         }
     }
     
@@ -261,7 +265,7 @@ body#checkout {
     
     // Cart Grid Subtotals
     .cart-grid-right .card .cart-summary-subtotals-container .cart-summary-line:not(:last-child) {
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
     
     // Delivery Options
@@ -426,6 +430,22 @@ body#checkout {
         .alert, .alert-info {
             max-width: 100% !important;
         }
+    }
+
+    .cart-summary-line.cart-total {
+        padding-bottom: 0 !important;
+    }
+
+    .js-cart-summary-totals {
+        padding-top: 1rem !important;
+    }
+
+    .cart-summary-totals .cart-summary-line {
+        padding: 0;
+    }
+
+    .cart-summary-line .sub {
+        color: $color-custom-black;
     }
 }
 
@@ -841,6 +861,7 @@ body#discount, body#cart {
     .promo-form-group {
         padding: 1.25rem 0;
     }
+    
 }
 
 .cart-summary-line .remove-discount-text, .cart-summary-line a {

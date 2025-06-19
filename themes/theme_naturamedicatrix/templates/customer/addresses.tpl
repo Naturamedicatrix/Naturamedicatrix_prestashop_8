@@ -18,7 +18,7 @@
 
 
 {block name='page_content'}
-  <h1>Mes adresses</h1>
+  <h1>{l s='Mes adresses' d='Shop.Theme.Customeraccount'}</h1>
   {if $customer.addresses}
     {foreach $customer.addresses as $address}
       <div class="col-lg-6 col-md-12 col-sm-12 block-address">

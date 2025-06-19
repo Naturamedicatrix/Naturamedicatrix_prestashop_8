@@ -69,7 +69,7 @@ body#module-psgdpr-gdpr, body#module-blockwishlist-lists, body#view, body#module
     }
 }
 
-body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#view, body#module-blockwishlist-view, body#module-psgdpr-gdpr, body#address, body#module-ps_emailalerts-account {
+body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#view, body#module-blockwishlist-view, body#module-psgdpr-gdpr, body#address, body#module-ps_emailalerts-account, body#discount {
     #wrapper {
 
             @media (max-width: 767px) {
@@ -80,6 +80,9 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     background-color: $color-custom-bgWrapper;
                 }
             }
+    }
+    #left-column {
+        margin-top: 0;
     }
     #main {
         padding: 50px;
@@ -337,7 +340,6 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     display: block;
                     width: 85px;
                     height: 85px;
-                    margin-bottom: 15px;
                     background-color: rgba($color-custom-green, 0.1);
                     border-radius: 50%;
                     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' fill='%23388E3C' viewBox='0 0 16 16'%3E%3Cpath d='M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z'/%3E%3C/svg%3E");
@@ -449,7 +451,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 }
                 
                 &:hover, &.active {
-                    color: $color-custom-white;
+                    color: $color-custom-white !important;
                     background-color: $color-custom-green;
                     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
                     
@@ -573,25 +575,31 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
 
 /* STYLE POUR LE MODULE LISTE DES ENVIES / GDPR */
 body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view, body#module-ps_emailalerts-account {
+
+    #main {
+        padding: 70px 100px;
+    }
     
     #content-wrapper {
-        float: left;
-        width: 75%;
-        padding-left: 15px;
-        display: block !important;
+       padding-left: 0;
         
         @media (max-width: 767px) {
             width: 66.67%;
         }
-        
-    }
+            
+        }
     .wishlist-container {
         padding-top: 70px;
         @media (max-width: $breakpoint-sm) {
             padding-top: 30px;
         }
+
+        .card.page-content {
+            border: none;
+        }
     }
     .wishlist-list {
+        padding-left: 0;
         i {
             color: $color-custom-gray;
         }
@@ -611,6 +619,10 @@ body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view, body#module
         
         &:hover {
             border-bottom: 1px solid $color-custom-black !important;
+        }
+
+        .wishlist-list-item-title {
+            color: $color-custom-gray !important;
         }
     }
 
@@ -638,7 +650,7 @@ body#view {
         border: none;
 
         .wishlist-products-item {
-            border: 1px solid $color-custom-grayLight;
+            border: 1px solid #e5e8ea;
             border-radius: 10px;
             padding: 20px;
 
@@ -647,6 +659,32 @@ body#view {
                     border-bottom: none;
                 }
             }
+        }
+    }
+
+    .wishlist-products-container-header {
+        justify-content: space-around;
+        margin-bottom: 0;
+    }
+
+    .wishlist-products-container .sort-by-row {
+        padding-top: 70px;
+        
+    }
+
+    .products-sort-order .select-title {
+        color: $color-custom-black;
+        
+    }
+
+    .dropdown-menu {
+        background-color: $color-custom-white;
+    }
+
+    .dropdown-menu a {
+        &:hover {
+            background-color: $color-custom-green !important;
+            color: white;
         }
     }
 }
@@ -745,11 +783,11 @@ body#view {
 }
 
 
-body#my-account h1, body#my-account h2, body#identity h1, body#identity h2, body#addresses h1, body#addresses h2, body#history h1, body#history h2, body#order-slip h1, body#order-slip h2, body#module-blockwishlist-lists h1, body#module-blockwishlist-lists h2, body#view h1, body#view h2, body#module-blockwishlist-view h1, body#module-blockwishlist-view h2, body#module-psgdpr-gdpr h1, body#module-psgdpr-gdpr h2, body#address h1, body#address h2 {
+body#my-account h1, body#my-account h2, body#identity h1, body#identity h2, body#addresses h1, body#addresses h2, body#history h1, body#history h2, body#order-slip h1, body#order-slip h2, body#module-blockwishlist-lists h1, body#module-blockwishlist-lists h2, body#view h1, body#view h2, body#module-blockwishlist-view h1, body#module-blockwishlist-view h2, body#module-psgdpr-gdpr h1, body#module-psgdpr-gdpr h2, body#address h1, body#address h2, body#discount h1, body#discount h2 {
     padding-bottom: 10px;
 }
 
-body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#view #main, body#module-blockwishlist-view #main, body#module-psgdpr-gdpr #main, body#address #main {
+body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#view #main, body#module-blockwishlist-view #main, body#module-psgdpr-gdpr #main, body#address #main, body#discount #main {
     padding-top: 0;
 }
 
@@ -759,3 +797,12 @@ body#my-account #main, body#identity #main, body#addresses #main, body#history #
     }
 }
     
+
+
+// MES ALERTES
+body#module-ps_emailalerts-account {
+
+    h1 {
+        padding-top: 0;
+    }
+}

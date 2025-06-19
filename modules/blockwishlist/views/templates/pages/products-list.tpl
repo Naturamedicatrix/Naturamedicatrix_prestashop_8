@@ -29,7 +29,7 @@
 
 {block name='page_content_container'}
   <div
-    class="wishlist-products-container"
+    class="wishlist-products-container ttt"
     data-url="{$url}"
     data-list-id="{$id}"
     data-default-sort="{l s='Last added' d='Modules.Blockwishlist.Shop'}"
@@ -39,7 +39,6 @@
     data-quantity-text="{l s='Quantity' d='Shop.Theme.Catalog'}"
     data-title="{$wishlistName}"
     data-no-products-message="{l s='No products found' d='Modules.Blockwishlist.Shop'}"
-    data-filter="{l s='Sort by:' d='Shop.Theme.Global'}"
   >
   </div>
 

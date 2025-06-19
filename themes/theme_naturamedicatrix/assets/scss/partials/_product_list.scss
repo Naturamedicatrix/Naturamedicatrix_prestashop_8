@@ -9,6 +9,7 @@
         *:not(.out-of-stock-label) {
             opacity: 0.8;
         }
+       
     }
     
     // Style pour le texte de rupture de stock
@@ -19,11 +20,11 @@
         transform: translateY(-50%);
         font-size: .9rem;
         font-weight: 500;
-        color: red;
+        color: rgb(177, 1, 1);
         background-color: white;
         padding: 2px 5px;
         border-radius: 5px;
-        z-index: 100;
+        z-index: 10;
         pointer-events: none;
     }
     border: 1px solid #e5e8ea;
@@ -220,7 +221,7 @@
 
 // Catégories des listes
 .featured-products {
-    padding: 4rem 0;
+    // padding: 4rem 0;
 
     .all-product-link {
         margin: 0 auto;

@@ -93,6 +93,9 @@
             <span>{l s='Mes alertes' d='Shop.Theme.Customeraccount'}</span>
           </a>
         </li>
+        
+        {* Hook *}
+        {* {hook h='displayCustomerAccount'} *}
 
         <hr />
         

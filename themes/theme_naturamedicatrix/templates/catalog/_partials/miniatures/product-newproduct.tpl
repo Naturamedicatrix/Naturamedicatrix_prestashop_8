@@ -13,7 +13,7 @@
     <article class="product-miniature product-miniature-light js-product-miniature {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
       data-id-product-attribute="{$product.id_product_attribute}">
       {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}
-        <span class="out-of-stock-label">{l s='Rupture de stock' d='Shop.Theme.Catalog'}</span>
+        <span class="out-of-stock-label">{l s='Épuisé' d='Shop.Theme.Catalog'}</span>
       {/if}
       
       <div class="container">

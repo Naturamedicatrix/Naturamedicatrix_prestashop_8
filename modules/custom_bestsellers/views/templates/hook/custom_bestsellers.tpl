@@ -2,8 +2,8 @@
  * Template pour le module custom_bestsellers
  * Affiche des produits spécifiques comme "meilleures ventes"
  *}
-<div class="block-bestsellers-wrapper">
-<section class="featured-products block-bestsellers clearfix">
+<div class="bg-wrapper mb-20">
+<section class="featured-products block-bestsellers clearfix container">
   <div class="all-product-link text-center">
   <a href="{$allProductsLink}">
     » {l s='Toutes nos meilleures offres' d='Modules.Custombest.Shop'}

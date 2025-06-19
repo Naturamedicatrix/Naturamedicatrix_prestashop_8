@@ -91,6 +91,15 @@ body#index {
 }
 // End responsive container
 
+
+.bg-wrapper {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+  background-color: $color-custom-white;
+}
+
 // Badges
 .badge-pink {
   border: none;
@@ -1069,7 +1078,7 @@ table>tbody>tr:nth-of-type(even) {
 
 //LEFT COLUMN
 #left-column {
-  margin-top: 35px;
+  margin: 35px 0;
 
   @media (max-width: $breakpoint-sm) {
     margin-top: 0;
