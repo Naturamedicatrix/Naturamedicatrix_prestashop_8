@@ -178,7 +178,7 @@ body#my-account .content-account i, body#identity .content-account i, body#addre
 body#my-account .left-column-content .account-list, body#identity .left-column-content .account-list, body#addresses .left-column-content .account-list, body#history .left-column-content .account-list, body#order-slip .left-column-content .account-list, body#module-blockwishlist-lists .left-column-content .account-list, body#view .left-column-content .account-list, body#module-blockwishlist-view .left-column-content .account-list, body#module-psgdpr-gdpr .left-column-content .account-list, body#address .left-column-content .account-list, body#module-ps_emailalerts-account .left-column-content .account-list, body#discount .left-column-content .account-list {
   border-radius: 4px;
   padding-top: 45px;
-  font-weight: 100;
+  font-weight: 300;
   /* Wrapper pour la liste déroulante mobile */
 }
 @media (max-width: 767px) {
@@ -354,7 +354,7 @@ body#my-account .left-column-content .account-list .customer-info h3, body#ident
 body#my-account .left-column-content .account-list .customer-info .customer-email, body#identity .left-column-content .account-list .customer-info .customer-email, body#addresses .left-column-content .account-list .customer-info .customer-email, body#history .left-column-content .account-list .customer-info .customer-email, body#order-slip .left-column-content .account-list .customer-info .customer-email, body#module-blockwishlist-lists .left-column-content .account-list .customer-info .customer-email, body#view .left-column-content .account-list .customer-info .customer-email, body#module-blockwishlist-view .left-column-content .account-list .customer-info .customer-email, body#module-psgdpr-gdpr .left-column-content .account-list .customer-info .customer-email, body#address .left-column-content .account-list .customer-info .customer-email, body#module-ps_emailalerts-account .left-column-content .account-list .customer-info .customer-email, body#discount .left-column-content .account-list .customer-info .customer-email {
   font-size: 1rem;
   color: #4B5563;
-  font-weight: 100;
+  font-weight: 300;
   padding-bottom: 0;
   text-align: left;
 }
@@ -674,7 +674,7 @@ body#view .wishlist-button-add i {
 body#view .wishlist-product-title {
   color: #111827;
   font-size: 1rem;
-  font-weight: 100;
+  font-weight: 300;
   border: none;
   line-height: 1;
   text-align: center;
@@ -704,4 +704,38 @@ body#my-account #main, body#identity #main, body#addresses #main, body#history #
 
 body#module-ps_emailalerts-account h1 {
   padding-top: 0;
+}
+body#module-ps_emailalerts-account .alerts-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding-left: 0;
+  margin-top: 0;
+  padding-top: 2rem;
+}
+body#module-ps_emailalerts-account .alerts-list li {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e8ea;
+  padding: 20px;
+  border-radius: 10px;
+  align-items: center;
+  position: relative;
+}
+body#module-ps_emailalerts-account .alerts-list li a {
+  border-bottom: none;
+  color: #4B5563 !important;
+  font-weight: 300;
+}
+body#module-ps_emailalerts-account .alerts-list li a:hover {
+  color: rgb(107.974137931, 122.3706896552, 142.525862069) !important;
+}
+body#module-ps_emailalerts-account .alerts-list li .js-remove-email-alert {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+body#module-ps_emailalerts-account .alerts-list li .js-remove-email-alert:hover {
+  color: rgb(107.974137931, 122.3706896552, 142.525862069) !important;
 }

@@ -205,7 +205,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         .account-list {
             border-radius: 4px;
             padding-top: 45px;
-            font-weight: 100;
+            font-weight: 300;
             
             @media (max-width: 767px) {
                 padding-top: 20px;
@@ -380,7 +380,7 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 .customer-email {
                     font-size: 1rem;
                     color: $color-custom-gray;
-                    font-weight: 100;
+                    font-weight: 300;
                     padding-bottom: 0;
                     text-align: left;
                     
@@ -765,7 +765,7 @@ body#view {
     .wishlist-product-title {
         color: $color-custom-black;
         font-size: 1rem;
-        font-weight: 100;
+        font-weight: 300;
         border: none;
         line-height: 1;
         text-align: center;
@@ -805,4 +805,47 @@ body#module-ps_emailalerts-account {
     h1 {
         padding-top: 0;
     }
+
+    .alerts-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        padding-left: 0;
+        margin-top: 0;
+        padding-top: 2rem;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e5e8ea;
+            padding: 20px;
+            border-radius: 10px;
+            align-items: center;
+            position: relative;
+
+
+            a {
+                border-bottom: none;
+                color: $color-custom-gray !important;
+                font-weight: 300;
+
+                &:hover {
+                    color: color.adjust($color-custom-gray, $lightness: 15%) !important;
+                }
+                
+            }
+
+            .js-remove-email-alert {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 2;
+
+                &:hover {
+                    color: color.adjust($color-custom-gray, $lightness: 15%) !important;
+                }
+            }
+        }
+    }
 }
+

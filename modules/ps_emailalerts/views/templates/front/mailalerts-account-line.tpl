@@ -16,19 +16,19 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
  *}
-
-<a href="{$mailAlert.link}" class="col-md-2 col-xs-4" style="text-align:center;">
-  <img src="{$mailAlert.cover_url}" alt="" style="max-width: 100%;"/>
+ <a href="#"
+ title="{l s='Delete email alert' d='Modules.Emailalerts.Shop'}"
+ class="js-remove-email-alert"
+ rel="js-id-emailalerts-{$mailAlert.id_product|intval}-{$mailAlert.id_product_attribute|intval}"
+ data-url="{url entity='module' name='ps_emailalerts' controller='actions' params=['process' => 'remove']}">
+<i class="material-icons">delete</i>
 </a>
-<a href="{$mailAlert.link}" class="col-md-8 col-xs-6">
+
+<a href="{$mailAlert.link}" style="text-align:center;">
+  <img src="{$mailAlert.cover_url|replace:'small_default':'large_default'}" width="250" height="250" alt="" style=""/>
+</a>
+<a href="{$mailAlert.link}">
   <div>{$mailAlert.name}
     <span>{$mailAlert.attributes_small}</span>
   </div>
-</a>
-<a href="#"
-   title="{l s='Delete email alert' d='Modules.Emailalerts.Shop'}"
-   class="js-remove-email-alert btn btn-link col-xs-2"
-   rel="js-id-emailalerts-{$mailAlert.id_product|intval}-{$mailAlert.id_product_attribute|intval}"
-   data-url="{url entity='module' name='ps_emailalerts' controller='actions' params=['process' => 'remove']}">
-  <i class="material-icons">delete</i>
 </a>
