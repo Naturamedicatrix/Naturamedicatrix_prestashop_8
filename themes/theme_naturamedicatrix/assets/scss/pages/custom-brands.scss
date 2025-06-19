@@ -36,7 +36,7 @@ body#manufacturer, .featured-brands {
         border: 1px solid $color-custom-grayLight;
         border-radius: 10px;
         padding: 20px;
-        height: 100%;
+        min-height: 680px;
         background-color: #fff;
         transition: transform 0.2s ease;
         margin-bottom: 30px;
@@ -165,6 +165,10 @@ body#manufacturer, .featured-brands {
           
         }
     }
+
+    .brand-miniature .brand-card {
+        min-height: auto !important;
+    }
 }
 
 body#index {
@@ -174,7 +178,7 @@ body#index {
 
     .featured-brand-card {
         padding: 0 0 20px 0;
-        min-height: 650px;
+        min-height: 680px;
     }
 
     .brand-card-action {

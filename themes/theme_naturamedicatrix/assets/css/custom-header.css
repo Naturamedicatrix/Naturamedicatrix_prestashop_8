@@ -95,7 +95,6 @@
   }
 }
 #contact-link a.contact-button:hover {
-  background-color: rgb(99.0606060606, 161.9393939394, 109.1212121212);
   margin-left: 10px;
 }
 #contact-link a.contact-button .contact-icon {
@@ -181,7 +180,7 @@
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: none; /* Masque le menu déroulant par défaut */
-  z-index: 50;
+  z-index: 100;
 }
 #_desktop_language_selector .dropdown-menu li {
   border-bottom: 1px solid rgb(78.4848484848, 131.5151515152, 86.9696969697);
@@ -219,7 +218,6 @@
 }
 .nav-contact .contact-link:hover {
   padding-left: 10px;
-  background-color: rgb(99.0606060606, 161.9393939394, 109.1212121212);
 }
 .nav-contact i {
   color: #f9fafb;
@@ -465,7 +463,6 @@
   transition: all 0.3s ease;
 }
 .user-info .login:hover, .user-info .account:hover {
-  background-color: rgb(99.0606060606, 161.9393939394, 109.1212121212);
   padding: 5px 10px;
 }
 .user-info .login .account-icon, .user-info .account .account-icon {
@@ -538,8 +535,7 @@
   height: 40px;
 }
 .blockcart .shopping-cart-container .cart-icon-container:hover {
-  background-color: rgb(99.0606060606, 161.9393939394, 109.1212121212);
-  padding: 0 20px !important;
+  padding-right: 20px !important;
 }
 .blockcart .shopping-cart-container .cart-icon-container .shopping-cart-icon,
 .blockcart .shopping-cart-container .cart-icon-container .cart-icon-transparent {
@@ -572,6 +568,7 @@
 /* END PANIER */
 /* MENU */
 #_desktop_top_menu {
+  z-index: 1;
   padding-left: 0;
   padding-right: 0;
 }

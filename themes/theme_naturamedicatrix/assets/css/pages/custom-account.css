@@ -607,9 +607,15 @@ body#view .wishlist-products-container .sort-by-row {
 }
 body#view .products-sort-order .select-title {
   color: #111827;
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  border-bottom: none;
 }
 body#view .dropdown-menu {
   background-color: #f9fafb;
+}
+body#view .dropdown-menu a {
+  font-size: 0.9rem;
 }
 body#view .dropdown-menu a:hover {
   background-color: #83b58b !important;

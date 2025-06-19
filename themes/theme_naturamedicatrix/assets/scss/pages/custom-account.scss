@@ -674,7 +674,9 @@ body#view {
 
     .products-sort-order .select-title {
         color: $color-custom-black;
-        
+        font-size: .9rem;
+        padding: .3rem;
+        border-bottom: none;
     }
 
     .dropdown-menu {
@@ -682,6 +684,7 @@ body#view {
     }
 
     .dropdown-menu a {
+        font-size: .9rem;
         &:hover {
             background-color: $color-custom-green !important;
             color: white;
