@@ -32,19 +32,19 @@
         <p>{l s='Du lundi au vendredi de 9h à 16h' d='Shop.Theme.Global'}</p>
         <div class="contact-info">
           <div class="country-block">
-            <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/fr.png" alt="Naturamedicatrix France" class="flag-icon" />
+          🇫🇷
             <p class="country-name">{l s='France & reste du monde' d='Shop.Theme.Global'}</p>
             <p class="phone-number">09 77 42 37 04</p>
           </div>
           
           <div class="country-block">
-            <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/be.png" alt="Naturamedicatrix Belgique" class="flag-icon" />
+          🇧🇪
             <p class="country-name">{l s='Belgique' d='Shop.Theme.Global'}</p>
             <p class="phone-number">+32 42 90 00 79</p>
           </div>
           
           <div class="country-block">
-            <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/lu.png" alt="Naturamedicatrix Luxembourg" class="flag-icon" />
+            🇱🇺
             <p class="country-name">{l s='Luxembourg' d='Shop.Theme.Global'}</p>
             <p class="phone-number">+352 27 86 11 39</p>
           </div>

@@ -469,27 +469,42 @@
       
       
       #product-slider-items {
-        padding: 2rem 0;
         display: flex;
         position: relative;
-        justify-content: center;
+        justify-content: space-around;
       }
       
       #product-slider-items:before {
         content: '';
-        border-top: 1px solid #c6c6c6;
+        border-top: 1px dashed #c6c6c6;
         display: block;
         position: absolute;
         left: 0;
         right: 0;
-        top: 60px;
+        top: 100px;
       }
       
       #product-slider-items .item {
         background: white;
         z-index: 1;
-        padding: 1rem;
+        padding: 0 1rem;
         margin: 0 1rem;
+        text-align: center;
+      }
+      
+      #product-slider-items span {
+        display: inline-block;
+      }
+      
+      #product-slider-items .icon-special:after {
+        width: 45px;
+        height: 45px;
+      }
+      
+      #product-slider-items img {
+        width: 60px;
+        border-radius: 50%;
+        margin: 0 auto;
       }
       
       
@@ -567,7 +582,7 @@
       }
       
       #composition table {
-        max-width: 860px;
+        max-width: 700px;
         font-size: 0.9rem;
       }
       
@@ -640,12 +655,17 @@
         padding-right: 50px;
       }
       
+      .tabs .nav-tabs .nav-link.color-pro,
+      .color-pro {
+        color : #60ada7 !important;
+      }
+      
       .nav-tabs .nav-item+.nav-item {
         margin-left: 0 !important;
       }
       
       .tabs {
-        padding-top: 100px;
+        padding-top: 3rem;
       }
       
 
@@ -724,7 +744,37 @@
         opacity: 1 !important;
       }
       
-       
+      #product-details #block_wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      
+      #product-details .block {
+        border-radius: 10px;
+        border: 1px solid #e5e8ea;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        flex: 0 0 calc(100%/3 - 1rem);
+      }
+      
+      #product-details .block .icon-special {
+        display: inline-block;
+      }
+      
+      #product-details .block .icon-special:after {
+        width: 35px;
+        height: 35px;
+      }
+
+
+      .sticky-tabs-nav {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 100px;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
   </style>
 
 
@@ -930,19 +980,35 @@
 
       
             {block name='product_tabs'}
+
               <div class="tabs clear row">
                 
-                <ul class="nav nav-tabs col-md-3 col-sm-12 vertical-tabs" role="tablist">
+                <ul class="nav nav-tabs col-md-3 col-sm-12 vertical-tabs sticky-tabs-nav" role="tablist">
                   <p class="h4">{$product.name}</p>
+                 
+                  {* Groupes Thérapeute BE (ID 4) et Thérapeute FR (ID 5) *}
+                  {if $product.thera_sup && isset($customer) && $customer.is_logged && ($customer.id_default_group == 4 || $customer.id_default_group == 5)}
+                    <li class="nav-item">
+                       <a
+                         class="nav-link color-pro active js-product-nav-active"
+                         data-toggle="tab"
+                         href="#thera_sup"
+                         role="tab"
+                         aria-controls="thera_sup"
+                         aria-selected="true">
+                         <i class="bi bi-lock-fill"></i> {l s='Professional information' d='Shop.Theme.Catalog'}</a>
+                    </li>
+                  {/if}
+                  
                   {if $product.description}
                     <li class="nav-item">
                        <a
-                         class="nav-link{if $product.description} active js-product-nav-active{/if}"
+                         class="nav-link{if $product.description && !(isset($customer) && $customer.is_logged && ($customer.id_default_group == 4 || $customer.id_default_group == 5) && $product.thera_sup)} active js-product-nav-active{/if}"
                          data-toggle="tab"
                          href="#description"
                          role="tab"
                          aria-controls="description"
-                         {if $product.description} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
+                         {if $product.description && !(isset($customer) && $customer.is_logged && ($customer.id_default_group == 4 || $customer.id_default_group == 5) && $product.thera_sup)} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
                     </li>
                   {/if}
                   {if isset($product.mode_emploi) && $product.mode_emploi}
@@ -963,6 +1029,7 @@
                          aria-controls="composition">{l s='Composition' d='Shop.Theme.Catalog'}</a>
                     </li>
                   {/if}
+
                   <li class="nav-item">
                     <a
                       class="nav-link{if !$product.description} active js-product-nav-active{/if}"
@@ -970,7 +1037,7 @@
                       href="#product-details"
                       role="tab"
                       aria-controls="product-details"
-                      {if !$product.description} aria-selected="true"{/if}>{l s='Product Details' d='Shop.Theme.Catalog'}</a>
+                      {if !$product.description} aria-selected="true"{/if}>{l s='Certifications' d='Shop.Theme.Catalog'}</a>
                   </li>
                   
                   
@@ -1007,9 +1074,23 @@
                   {/if}
                   
                 </ul>
+                
 
+                
                 <div class="tab-content col-md-8 col-sm-12" id="tab-content">
-                 <div class="tab-pane fade in{if $product.description} active js-product-tab-active{/if}" id="description" role="tabpanel">
+                 
+                {* Groupes Thérapeute BE (ID 4) et Thérapeute FR (ID 5) *}
+                {if $product.thera_sup && isset($customer) && $customer.is_logged && ($customer.id_default_group == 4 || $customer.id_default_group == 5)}
+                 <div class="tab-pane fade in active js-product-tab-active" id="thera_sup" role="tabpanel">
+
+                     <p class="h4 color-pro"><i class="bi bi-unlock-fill"></i> {l s='Professional-use information' d='Shop.Theme.Catalog'}</p>
+                     {$product.thera_sup nofilter}
+
+                 </div>
+                 {/if}
+                 
+                 
+                 <div class="tab-pane fade in{if $product.description && !(isset($customer) && $customer.is_logged && ($customer.id_default_group == 4 || $customer.id_default_group == 5) && $product.thera_sup)} active js-product-tab-active{/if}" id="description" role="tabpanel">
                    {block name='product_description'}
                      <div class="product-description">{$product.description nofilter}</div>
                    {/block}
@@ -1020,10 +1101,10 @@
                       {if isset($product.ingredients) && $product.ingredients}
                         <p class="h4">Ingrédients</p>
                         {$product.ingredients nofilter}
-                        <hr />
                       {/if}
                       
                       {if isset($product.tab_nutri) && $product.tab_nutri}
+                        <hr />
                         <p class="h4">Tableau nutritionnel</p>
                         {$product.tab_nutri nofilter}
                       {/if}
@@ -1089,8 +1170,47 @@
                  {/foreach}
               </div>
             </div>
+            
+            <script type="text/javascript">
+              document.addEventListener('DOMContentLoaded', function() {
+                // Variables pour le scroll avec limite
+                var tabContent = document.getElementById('tab-content');
+                var tabNav = document.querySelector('.sticky-tabs-nav');
+                
+                if (tabContent && tabNav) {
+                  // Gestion du scroll limite
+                  window.addEventListener('scroll', function() {
+                    var tabContentBottom = tabContent.getBoundingClientRect().bottom;
+                    var navHeight = tabNav.offsetHeight;
+                    var windowHeight = window.innerHeight;
+                    
+                    if (tabContentBottom < windowHeight && window.innerWidth > 767) {
+                      var topPosition = Math.max(0, windowHeight - tabContentBottom - navHeight);
+                      tabNav.style.top = (100 - topPosition) + 'px';
+                    } else {
+                      tabNav.style.top = '100px';
+                    }
+                  });
+                  
+                  var tabLinks = tabNav.querySelectorAll('li.nav-item a.nav-link');
+                  tabLinks.forEach(function(link) {
+                    link.addEventListener('click', function(e) {
+                      setTimeout(function() {
+                        // Cible directement #product-slider-items
+                        var targetElement = document.getElementById('product-slider-items');
+                        if (targetElement) {
+                          targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }, 50);
+                    });
+                  });
+                }
+              });
+            </script>
           {/block}  
     </div>
+    
+    
 
     {if isset($product_manufacturer->id)}
       <div id="manufacturer_block" class="product-manufacturer brand-{$product_manufacturer->id}" itemprop="brand" itemscope itemtype="https://schema.org/Brand">

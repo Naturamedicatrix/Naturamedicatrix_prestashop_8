@@ -76,7 +76,7 @@
 .side-column .country-name {
   font-size: 0.9rem;
   color: #4B5563;
-  margin: 0.25rem 0;
+  margin: 0 0 0.25rem 0;
 }
 .side-column .phone-number {
   font-weight: 600;

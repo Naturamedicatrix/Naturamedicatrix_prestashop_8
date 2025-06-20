@@ -93,7 +93,7 @@ body.cms-id-7 #main .subcategory-list {
 body.cms-id-7 #main .subcategory-list h3 {
   display: inline-block;
   font-size: 0.9rem;
-  font-weight: lighter;
+  font-weight: normal;
 }
 body.cms-id-7 #main .subcategory-list h3 a {
   color: #4B5563;

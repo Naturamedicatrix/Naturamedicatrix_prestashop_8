@@ -20,7 +20,7 @@
         transform: translateY(-50%);
         font-size: .9rem;
         font-weight: 500;
-        color: rgb(177, 1, 1);
+        color: $color-custom-red;
         background-color: white;
         padding: 2px 5px;
         border-radius: 5px;
@@ -221,7 +221,6 @@
 
 // Catégories des listes
 .featured-products {
-    // padding: 4rem 0;
 
     .all-product-link {
         margin: 0 auto;
@@ -229,7 +228,7 @@
         a {
             color: $color-custom-gray !important;
             border-bottom: none !important;
-            font-weight: 100 !important;
+            font-weight: 300 !important;
             transition: all .2s ease;
             font-size: .9rem;
 
