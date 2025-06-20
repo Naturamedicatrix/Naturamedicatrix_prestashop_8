@@ -1102,14 +1102,57 @@
                         <p class="h4">Ingrédients</p>
                         {$product.ingredients nofilter}
                       {/if}
+
+                      {* Principes actifs (cat id = 25) - Utilisation de notre méthode enrichie *}
+                      {$product_cats = Product::getProductCategories($product.id_product)}
+                      {$principes_actifs = []}
                       
+                      {* Récupérer les sous-catégories avec toutes leurs données *}
+                      {foreach from=CategoryController::getChildrenCategory(25, $language.id, true, $shop.id) item=pa}
+                        {if in_array($pa.id_category, $product_cats)}
+                          {$principes_actifs[] = $pa}
+                        {/if}
+                      {/foreach}
+                      
+                      {* Affichage si principes actifs sur le produit *}
+                      {if !empty($principes_actifs)}
+                        <hr />
+                        <p class="h4">Principes actifs</p>
+                        
+                        <ul class="principes-list">
+                          {foreach from=$principes_actifs item=pa}
+                            <li>
+                              <div class="principe-item">
+                                {* Affichage de l'image de catégorie si disponible *}
+                                {if isset($pa.image.small) && $pa.image.small}
+                                  <div class="principe-image">
+                                    <img src="{$pa.image.small}" alt="{$pa.name}" class="img-responsive" />
+                                  </div>
+                                {/if}
+                                <div class="principe-content">
+                                  <a href="{$link->getCategoryLink($pa.id_category, $pa.link_rewrite)}">{$pa.name}</a>
+                                  
+                                  {* Récupère additional_description depuis l'override de CategoryController (getChildrenCategory) *}
+                                  {if isset($pa.additional_description) && $pa.additional_description}
+                                    <p class="principe-description">{$pa.additional_description nofilter}</p>
+                                  {/if}
+                                </div>
+                              </div>
+                            </li>
+                          {/foreach}
+                        </ul>
+                      {/if}
+
                       {if isset($product.tab_nutri) && $product.tab_nutri}
                         <hr />
                         <p class="h4">Tableau nutritionnel</p>
                         {$product.tab_nutri nofilter}
                       {/if}
+                      
+                      
                     </div>
                  {/if}
+                      
 
                  
                  {if (isset($product.mode_emploi) && $product.mode_emploi) || (isset($product.contre_indications) && $product.contre_indications)}
