@@ -472,6 +472,8 @@
         display: flex;
         position: relative;
         justify-content: space-around;
+        max-width: 1400px;
+        padding-left: 0;
       }
       
       #product-slider-items:before {
@@ -779,9 +781,6 @@
       /* Principes actifs */
       .principes-list {
         list-style: none !important;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5rem;
       }
 
       .principe-item {

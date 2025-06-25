@@ -2,7 +2,7 @@
  * CUSTOM SUBCATEGORIES
  *}
  
-{if $category.id == 25}
+ {if $category.id == 25}
 
   <style>
     .category-principes-actifs .total-products,
@@ -35,16 +35,27 @@
   </style>
   
   
-  {assign var='last_letter' value=''}
+  {* Alphabet pour garantir le tri alphabétique (méthode @sort) *}
+  {assign var='alphabet_complet' value=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']}
+  {assign var='lettres_presentes' value=[]}
   
+  {* Parcours tous les principes actifs pour extraire la première lettre *}
+  {foreach from=$subcategories item=subcategory}
+    {assign var='letter' value=$subcategory.name|substr:0:1|upper}
+    {* Ne conserve que les caractères alphabétiques, pas les chiffres *}
+    {if (string)$letter != (string)((int)$letter)}
+      {* Ajoute la lettre à notre tableau si elle n'y est pas déjà *}
+      {if !in_array($letter, $lettres_presentes)}
+        {append var='lettres_presentes' value=$letter index=$letter}
+      {/if}
+    {/if}
+  {/foreach}
+  
+  {* Affiche le menu avec les lettres de l'alphabet qui sont présentes *}
   <ul id="alphabet" class="-mx-4 gap-4 sm:-mx-11 xl:mx-0 z-5 flex overflow-x-scroll sticky top-0 justify-start items-baseline bg-white shadow-md sm:py-0 sm:pt-2 sm:pb-2 sm:pl-7 sm:shadow-none xl:px-14 xl:justify-center xl:overflow-x-hidden scrollbar-hidden">        
-    {foreach from=$subcategories item=subcategory name=actifnaturel}
-      {if !isset($currentLetter)}
-        {$currentLetter = $subcategory.name|substr:0:1}
-        <li class="flex flex-shrink-0 justify-center items-center w-10 h-10 text-xl cursor-pointer rounded-full"><a href="#{$subcategory.name|substr:0:1}"><span>{$subcategory.name|substr:0:1}</span></a></li>
-      {else if isset($currentLetter) && $currentLetter != $subcategory.name|substr:0:1 && (string)($subcategory.name|substr:0:1) != (string)((int)($subcategory.name|substr:0:1))}	
-        {$currentLetter = $subcategory.name|substr:0:1}  
-        <li class="flex flex-shrink-0 justify-center items-center w-10 h-10 text-xl cursor-pointer rounded-full"><a href="#{$subcategory.name|substr:0:1}"><span>{$subcategory.name|substr:0:1}</span></a></li>
+    {foreach from=$alphabet_complet item=letter}
+      {if isset($lettres_presentes[$letter])}
+        <li class="flex flex-shrink-0 justify-center items-center w-10 h-10 text-xl cursor-pointer rounded-full"><a href="#{$letter}"><span>{$letter}</span></a></li>
       {/if}
     {/foreach}
   </ul>
@@ -54,55 +65,56 @@
 {if !empty($subcategories)}
   {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories)}
     <div id="category-principesactifs" class="mb-3">
-    
-      {foreach from=$subcategories item=subcategory name=subcat_loop}
-        {assign var='first_letter' value=$subcategory.name|truncate:1:""|upper}
-
-        {if $first_letter ne $last_letter}
-          {if $last_letter != ''}
-              </ul>
-            </div>
-          {/if}
-
+      
+      {* Parcours l'alphabet ordonné pour afficher les principes actifs *}
+      {foreach from=$alphabet_complet item=current_letter}
+        {if isset($lettres_presentes[$current_letter])}
+          {* Section pour la lettre actuelle *}
           <div class="relative flex flex-grow flex-col md:flex-row justify-start">
             <div class="letter mb-2 md:mb-0 bg-white text-gray-800 text-lg md:text-3xl md:flex md:justify-center pt-5">
-              <h2 class="self-start md:sticky md:top-16 text-xl">{$first_letter}</h2>
+              <h2 class="self-start md:sticky md:top-16 text-xl">{$current_letter}</h2>
             </div>
-            <ul id="{$first_letter}" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
-        {/if}
+            <ul id="{$current_letter}" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
+              
+              {* Filtre les principes actifs commençant par la lettre actuelle *}
+              {foreach from=$subcategories item=subcategory}
+                {assign var='first_letter' value=$subcategory.name|truncate:1:""|upper}
+                {if $first_letter == $current_letter}
 
-        <li class="w-full">
-          <div class="subcategory-image">
-            <a href="{$subcategory.url}" title="{$subcategory.name|escape:'html':'UTF-8'}"
-               class="border-r border-l border-gray-100 md:p-4 rounded-xl md:rounded-2xl flex flex-col justify-start items-start shadow-lg h-full relative">
+                  <li class="w-full">
+                    <div class="subcategory-image">
+                      <a href="{$subcategory.url}" title="{$subcategory.name|escape:'html':'UTF-8'}"
+                         class="border-r border-l border-gray-100 md:p-4 rounded-xl md:rounded-2xl flex flex-col justify-start items-start shadow-lg h-full relative">
 
-              {if !empty($subcategory.image.small.url)}
-                <picture class="flex overflow-hidden flex-col justify-center h-16 w-16">
-                  {if !empty($subcategory.image.small.sources.avif)}<source srcset="{$subcategory.image.small.sources.avif}" type="image/avif"/>{/if}
-                  {if !empty($subcategory.image.small.sources.webp)}<source srcset="{$subcategory.image.small.sources.webp}" type="image/webp"/>{/if}
-                  <img class="img-fluid"
-                       src="{$subcategory.image.small.url}"
-                       alt="{$subcategory.name|escape:'html':'UTF-8'}"
-                       loading="lazy"
-                       width="{$subcategory.image.small.width}"
-                       height="{$subcategory.image.small.height}"/>
-                </picture>
-              {else}
-                <picture class="flex overflow-hidden flex-col justify-center h-16 w-16 text-center">
-                  <span class="text-3xl text-gray-300">{$first_letter}</span>
-                </picture>
-              {/if}
+                        {if !empty($subcategory.image.small.url)}
+                          <picture class="flex overflow-hidden flex-col justify-center h-16 w-16">
+                            {if !empty($subcategory.image.small.sources.avif)}<source srcset="{$subcategory.image.small.sources.avif}" type="image/avif"/>{/if}
+                            {if !empty($subcategory.image.small.sources.webp)}<source srcset="{$subcategory.image.small.sources.webp}" type="image/webp"/>{/if}
+                            <img class="img-fluid"
+                                 src="{$subcategory.image.small.url}"
+                                 alt="{$subcategory.name|escape:'html':'UTF-8'}"
+                                 loading="lazy"
+                                 width="{$subcategory.image.small.width}"
+                                 height="{$subcategory.image.small.height}"/>
+                          </picture>
+                        {else}
+                          <picture class="flex overflow-hidden flex-col justify-center h-16 w-16 text-center">
+                            <span class="text-3xl text-gray-300">{$first_letter}</span>
+                          </picture>
+                        {/if}
 
-              <p class="pb-0 color-title"><strong>{$subcategory.name|truncate:50:'...'|escape:'html':'UTF-8'}</strong><small class="color-text block">{$subcategory.nb_products} produit{if $subcategory.nb_products > 1}s{/if}</small></p>
-            </a>
+                        <p class="pb-0 color-title"><strong>{$subcategory.name|truncate:50:'...'|escape:'html':'UTF-8'}</strong><small class="color-text block">{$subcategory.nb_products} produit{if $subcategory.nb_products > 1}s{/if}</small></p>
+                      </a>
+                    </div>
+                  </li>
+                {/if}
+              {/foreach}
+              
+            </ul>
           </div>
-        </li>
-
-        {assign var='last_letter' value=$first_letter}
+        {/if}
       {/foreach}
-
-      {* fermeture finale du dernier bloc *}
-      </ul>
+      
     </div>
   {/if}
 {/if}
