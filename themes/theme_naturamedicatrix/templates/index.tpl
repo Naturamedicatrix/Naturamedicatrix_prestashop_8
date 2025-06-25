@@ -15,20 +15,20 @@
       
       {hook h='displayTopColumn'}
       
-      
-      
-      {include file='_partials/home-banners.tpl'}
-      
       {* BLOCK DES GARANTIES *}
       {include file='_partials/guarantees-block.tpl'}
       {* END BLOCK DES GARANTIES *}
+      
+      {include file='_partials/home-banners.tpl'}
+      
+      
       
       {block name='hook_home'}
         {$HOOK_HOME nofilter}
       {/block}
       
       
-      {include file='_partials/home-categories.tpl'}
+      
       
       
 
@@ -38,12 +38,12 @@
       {/block} *}
       
       {* BLOCK DES BRANDS *}
-      <div class="full-width-section brands-manufacturers-section">
+      <div class="bg-wrapper mt-20 mb-20 brands-manufacturers-section">
         {block name='featured_brands_home'}
           <section class="container mx-auto">
             {block name='brand_header'}
-              <header class="page-header">
-                <h2 class="text-center text-lg md:text-2xl font-bold mb-0">Nos marques et distributions</h2>
+              <header class="page-header mt-2">
+                <h2 class="text-center text-lg md:text-2xl font-bold mb-0 mt-0">Nos marques et distributions</h2>
                 <div class="title-separator">
                   <svg id="logoTitle" class="logo-h3" data-name="Logo Title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504.59 360.15">
                     <path class="logo-title"

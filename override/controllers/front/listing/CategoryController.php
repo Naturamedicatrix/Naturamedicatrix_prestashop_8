@@ -27,6 +27,9 @@ class CategoryController extends CategoryControllerCore
         return parent::getLayout();
     }
     
+
+
+
     /**
      * Méthode qui récupère les sous-catégories avec toutes leurs données complètes
      * Peut être appelée depuis le template : {CategoryController::getChildrenCategory(25, $language.id)}
@@ -36,7 +39,7 @@ class CategoryController extends CategoryControllerCore
      * @param bool $active Récupérer seulement les catégories actives
      * @param int $id_shop ID du magasin
      * 
-     * @return array Array of categories with all their data enriched
+     * @return array Tableau avec les données enrichies
      */
     public static function getChildrenCategory($id_parent, $id_lang, $active = true, $id_shop = null)
     {
@@ -44,12 +47,12 @@ class CategoryController extends CategoryControllerCore
             $id_shop = Context::getContext()->shop->id;
         }
         
-        // Récupérer les sous-catégories standard
+        // Récupère les sous-catégories
         $categories = Category::getChildren($id_parent, $id_lang, $active, $id_shop);
         
-        // Enrichir avec additional_description, description standard, images et nombre de produits
+        // Enrichit les sous-catégories avec additional_description, description standard, images et nombre de produits
         foreach ($categories as &$category) {
-            // Récupérer les descriptions
+            // Récupère les descriptions
             $sql = 'SELECT cl.`additional_description`, cl.`description` 
                    FROM `'._DB_PREFIX_.'category_lang` cl 
                    WHERE cl.`id_category` = '.(int)$category['id_category'].' 

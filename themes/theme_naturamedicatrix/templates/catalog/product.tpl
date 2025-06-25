@@ -775,6 +775,20 @@
         max-height: 80vh;
         overflow-y: auto;
       }
+
+      /* Principes actifs */
+      .principes-list {
+        list-style: none !important;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5rem;
+      }
+
+      .principe-item {
+        gap: .5rem;
+      }
+      
+      
   </style>
 
 
@@ -1123,7 +1137,7 @@
                           {foreach from=$principes_actifs item=pa}
                             <li>
                               <div class="principe-item">
-                                {* Affichage de l'image de catégorie si disponible *}
+                                {* image de catégorie *}
                                 {if isset($pa.image.small) && $pa.image.small}
                                   <div class="principe-image">
                                     <img src="{$pa.image.small}" alt="{$pa.name}" class="img-responsive" />
@@ -1134,7 +1148,7 @@
                                   
                                   {* Récupère additional_description depuis l'override de CategoryController (getChildrenCategory) *}
                                   {if isset($pa.additional_description) && $pa.additional_description}
-                                    <p class="principe-description">{$pa.additional_description nofilter}</p>
+                                    <div class="principe-description">{$pa.additional_description nofilter}</div>
                                   {/if}
                                 </div>
                               </div>
