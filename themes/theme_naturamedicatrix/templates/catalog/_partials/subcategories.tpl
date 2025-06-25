@@ -31,6 +31,17 @@
       align-items: center;
       gap: 1rem;
     }
+
+    #alphabet li a:hover {
+      color: #83b58b;
+    }
+    
+    /* Style pour la lettre active */
+    #alphabet li a.active {
+      color: #83b58b;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
     
   </style>
   
@@ -50,6 +61,23 @@
       {/if}
     {/if}
   {/foreach}
+
+    {* Barre de recherche des principes actifs *}
+    <div class="mb-4 mt-4 flex justify-center">
+      <div class="relative w-full max-w-md">
+        <input type="text" id="search-principes-actifs" class="block w-full py-4 px-3 text-sm text-gray-900 border border-gray-200 rounded-lg bg-white focus:border-gray-500 focus:ring-1 focus:ring-gray-500" placeholder="Aloé-vera, curcuma, magnésium, ...">
+        <div id="search-principes-actifs-icon" class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
+        </div>
+        <button type="button" id="search-principes-actifs-clear" class="absolute inset-y-0 right-0 flex items-center pr-3 hidden">
+          <svg class="w-4 h-4 text-gray-500 hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+          </svg>
+        </button>
+      </div>
+  </div>
   
   {* Affiche le menu avec les lettres de l'alphabet qui sont présentes *}
   <ul id="alphabet" class="-mx-4 gap-4 sm:-mx-11 xl:mx-0 z-5 flex overflow-x-scroll sticky top-0 justify-start items-baseline bg-white shadow-md sm:py-0 sm:pt-2 sm:pb-2 sm:pl-7 sm:shadow-none xl:px-14 xl:justify-center xl:overflow-x-hidden scrollbar-hidden">        
@@ -61,6 +89,22 @@
   </ul>
     
 {assign var='last_letter' value=''}
+
+{* Conteneur des résultats de recherche *}
+<div id="search-results-container" class="hidden mb-3" style="display: none;">
+  <div class="relative flex flex-grow flex-col md:flex-row justify-start">
+    <div class="letter mb-2 md:mb-0 bg-white text-gray-800 text-lg md:text-3xl md:flex md:justify-center pt-5">
+      <h2 class="self-start md:sticky md:top-16 text-xl flex items-center">
+        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+        </svg>
+      </h2>
+    </div>
+    <ul id="search-results" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
+      {* Résultats de la recherche sont affichés ici *}
+    </ul>
+  </div>
+</div>
 
 {if !empty($subcategories)}
   {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories)}
@@ -167,3 +211,111 @@
     {/if}
   
 {/if} {* end if $category principes actifs *}
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('search-principes-actifs');
+      const clearButton = document.getElementById('search-principes-actifs-clear');
+      const searchIcon = document.getElementById('search-principes-actifs-icon');
+      const letterSections = document.querySelectorAll('#category-principesactifs .relative');
+      const resultsContainer = document.getElementById('search-results-container');
+      const searchResults = document.getElementById('search-results');
+      
+      // Gestion de l'état actif pour les lettres de l'alphabet
+      const alphabetLinks = document.querySelectorAll('#alphabet li a');
+      
+      // Ajout des gestionnaires d'événements pour les lettres de l'alphabet
+      alphabetLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // Retirer la classe active de tous les liens
+          alphabetLinks.forEach(l => l.classList.remove('active'));
+          
+          // Ajouter la classe active au lien cliqué
+          this.classList.add('active');
+          
+          // Déclencher le défilement vers la section
+          const targetLetter = this.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetLetter);
+        });
+      });
+      
+      
+      // Fonction de recherche
+      function filterPrincipesActifs() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        searchResults.innerHTML = '';
+        
+        if (searchTerm === '') {
+          // Affichage normal
+          letterSections.forEach(section => section.style.display = '');
+          resultsContainer.classList.add('hidden');
+          resultsContainer.style.display = 'none';
+          clearButton.classList.add('hidden');
+          searchIcon.classList.remove('hidden');
+          return;
+        }
+        
+        // Mode recherche
+        letterSections.forEach(section => section.style.display = 'none');
+        clearButton.classList.remove('hidden');
+        searchIcon.classList.add('hidden');
+        
+        // Réinitialiser la lettre active lorsqu'on fait une recherche
+        alphabetLinks.forEach(link => link.classList.remove('active'));
+        
+        // Recherche les correspondances
+        const items = document.querySelectorAll('#category-principesactifs .subcategory-image');
+        let resultsCount = 0;
+        
+        items.forEach(item => {
+          const nameElement = item.querySelector('p strong');
+          if (!nameElement) return;
+          
+          const name = nameElement.textContent.trim();
+          if (name.toLowerCase().includes(searchTerm)) {
+            resultsCount++;
+            
+            // Clone et ajoute aux résultats
+            const parentLi = item.closest('li.w-full');
+            if (parentLi) {
+              const clone = parentLi.cloneNode(true);
+              
+              // Affichage tous les éléments
+              clone.querySelectorAll('*').forEach(el => {
+                if(el.style && el.style.display === 'none') el.style.display = '';
+              });
+              
+              clone.querySelectorAll('a[style*="display: none"]').forEach(link => {
+                link.style.display = 'flex';
+              });
+              
+              searchResults.appendChild(clone);
+            }
+          }
+        });
+        
+        // Affiche les résultats
+        resultsContainer.classList.remove('hidden');
+        resultsContainer.style.display = 'block';
+        
+        if (resultsCount === 0) {
+          searchResults.innerHTML = '<p class="col-span-full text-center py-8">Aucun principe actif ne correspond à votre recherche.</p>';
+        } else {
+          window.scrollTo({
+            top: resultsContainer.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      }
+      
+      // Événements
+      searchInput.addEventListener('input', filterPrincipesActifs);
+      clearButton.addEventListener('click', function() {
+        searchInput.value = '';
+        filterPrincipesActifs();
+        searchInput.focus();
+      });
+    });
+  </script>
