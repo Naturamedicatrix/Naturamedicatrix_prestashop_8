@@ -278,7 +278,7 @@
             }
           }
         });
-      }, { threshold: 0.1, rootMargin: '-100px 0px -90% 0px' });
+      }, { threshold: 0.1, rootMargin: '-20px 0px -90% 0px' });
       
       // Observer toutes les sections alphabétiques
       document.querySelectorAll('#category-principesactifs [id]').forEach(section => {
