@@ -46,9 +46,13 @@
     
     /* Style pour les lettres non actives quand une est active */
     #alphabet.has-active li a:not(.active) {
-      opacity: 0.3;
-      transition: opacity 0.2s ease;
       font-weight: light;
+    }
+
+    @media (max-width: 460px) {
+      #category-principesactifs ul, #search-results {
+        padding-left: 0;
+      }
     }
     
   </style>
@@ -102,13 +106,13 @@
 <div id="search-results-container" class="hidden mb-3" style="display: none;">
   <div class="relative flex flex-grow flex-col md:flex-row justify-start">
     <div class="letter mb-2 md:mb-0 bg-white text-gray-800 text-lg md:text-3xl md:flex md:justify-center pt-5">
-      <h2 class="self-start md:sticky md:top-16 text-xl flex items-center">
+      <h2 class="xs:self-center md:self-start md:sticky md:top-16 text-xl flex items-center">
         <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
         </svg>
       </h2>
     </div>
-    <ul id="search-results" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
+    <ul id="search-results" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
       {* Résultats de la recherche sont affichés ici *}
     </ul>
   </div>
@@ -123,10 +127,10 @@
         {if isset($lettres_presentes[$current_letter])}
           {* Section pour la lettre actuelle *}
           <div class="relative flex flex-grow flex-col md:flex-row justify-start">
-            <div class="letter mb-2 md:mb-0 bg-white text-gray-800 text-lg md:text-3xl md:flex md:justify-center pt-5">
-              <h2 class="self-start md:sticky md:top-16 text-xl">{$current_letter}</h2>
+            <div class="letter mb-2 md:mb-0 bg-white text-gray-800 text-lg md:text-3xl md:flex md:justify-center pt-5 text-center">
+              <h2 class="xs:self-center md:self-start md:sticky md:top-16 text-xl text-center">{$current_letter}</h2>
             </div>
-            <ul id="{$current_letter}" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
+            <ul id="{$current_letter}" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
               
               {* Filtre les principes actifs commençant par la lettre actuelle *}
               {foreach from=$subcategories item=subcategory}
