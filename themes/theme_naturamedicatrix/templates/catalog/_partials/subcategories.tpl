@@ -41,6 +41,14 @@
       color: #83b58b;
       font-weight: bold;
       transition: all 0.2s ease;
+      opacity: 1;
+    }
+    
+    /* Style pour les lettres non actives quand une est active */
+    #alphabet.has-active li a:not(.active) {
+      opacity: 0.3;
+      transition: opacity 0.2s ease;
+      font-weight: light;
     }
     
   </style>
@@ -226,6 +234,9 @@
       // Gestion de l'état actif pour les lettres de l'alphabet
       const alphabetLinks = document.querySelectorAll('#alphabet li a');
       
+      // Référence au conteneur de l'alphabet
+      const alphabetContainer = document.getElementById('alphabet');
+      
       // Ajout des gestionnaires d'événements pour les lettres de l'alphabet
       alphabetLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -235,12 +246,44 @@
           // Ajouter la classe active au lien cliqué
           this.classList.add('active');
           
+          // Ajouter la classe has-active au conteneur
+          alphabetContainer.classList.add('has-active');
+          
           // Déclencher le défilement vers la section
           const targetLetter = this.getAttribute('href').substring(1);
           const targetSection = document.getElementById(targetLetter);
         });
       });
       
+      // Configuration de l'Intersection Observer pour détecter quelle section est visible
+      // et mettre à jour le menu alphabétique en conséquence
+      const letterSectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // Vérifions si la section est visible
+          if (entry.isIntersecting && entry.intersectionRatio > 0) {
+            const sectionId = entry.target.getAttribute('id');
+            if (sectionId) {
+              // Mettre à jour le menu alphabétique
+              alphabetLinks.forEach(link => {
+                const linkLetter = link.getAttribute('href').substring(1);
+                if (linkLetter === sectionId) {
+                  // Ajoute la classe active au lien correspondant
+                  alphabetLinks.forEach(l => l.classList.remove('active'));
+                  link.classList.add('active');
+                  
+                  // Ajouter la classe has-active au conteneur d'alphabet
+                  alphabetContainer.classList.add('has-active');
+                }
+              });
+            }
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '-100px 0px -90% 0px' });
+      
+      // Observer toutes les sections alphabétiques
+      document.querySelectorAll('#category-principesactifs [id]').forEach(section => {
+        letterSectionObserver.observe(section);
+      });
       
       // Fonction de recherche
       function filterPrincipesActifs() {
@@ -264,6 +307,7 @@
         
         // Réinitialiser la lettre active lorsqu'on fait une recherche
         alphabetLinks.forEach(link => link.classList.remove('active'));
+        alphabetContainer.classList.remove('has-active');
         
         // Recherche les correspondances
         const items = document.querySelectorAll('#category-principesactifs .subcategory-image');
