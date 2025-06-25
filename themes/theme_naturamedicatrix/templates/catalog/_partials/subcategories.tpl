@@ -43,11 +43,8 @@
       transition: all 0.2s ease;
       opacity: 1;
     }
-    
-    /* Style pour les lettres non actives quand une est active */
-    #alphabet.has-active li a:not(.active) {
-      font-weight: light;
-    }
+  
+   
 
     @media (max-width: 460px) {
       #category-principesactifs ul, #search-results {

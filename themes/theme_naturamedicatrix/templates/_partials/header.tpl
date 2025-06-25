@@ -5,15 +5,45 @@
 <!-- Styles et scripts pour l'effet de flou des sous-menus -->
 <link rel="stylesheet" href="{$urls.base_url}modules/pm_advancedtopmenu/views/css/submenu-blur-effect.css">
 <script type="text/javascript" src="{$urls.base_url}modules/pm_advancedtopmenu/views/js/submenu-blur-effect.js" defer></script>
+
+<!-- Script pour le panneau d'actualités -->
+<script type="text/javascript" src="{$urls.base_url}themes/theme_naturamedicatrix/assets/js/actus-panel.js" defer></script>
 {block name='header_banner'}
   <div class="header-banner text-carousel-banner">
+    <!-- PANNEAU D'ACTUALITÉS -->
+    <div id="actus-panel" class="actus-panel">
+      <div class="container">
+        <div class="actus-header">
+          <h3>{l s='Les actus du moment' d='Shop.Theme.Global'}</h3>
+          <button id="close-actus" class="close-actus">&times;</button>
+        </div>
+        <div class="actus-grid">
+          
+          <!-- Actu 1 - Naturamedicatrix -->
+          <div class="actu-card naturamedicatrix-card">
+            <h4>{l s='Les jours Naturamedicatrix' d='Shop.Theme.Global'}</h4>
+            <p>{l s='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' d='Shop.Theme.Global'}</p>
+          </div>
+          
+          <!-- Actu 2 - Alma-->
+          <div class="actu-card promo-card">
+            <h4>{l s='Payez en 2x 3x avec Alma' d='Shop.Theme.Global'}</h4>
+            <p>{l s='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' d='Shop.Theme.Global'}</p>
+          </div>
+          
+          <!-- Actu 3 - Livraison offerte -->
+          <div class="actu-card delivery-card">
+            <h4>{l s='Livraison offerte à partir de 35€ en point relais & 50€ à domicile' d='Shop.Theme.Global'}</h4>
+            <p>{l s='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' d='Shop.Theme.Global'}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div class="container">
-      
-      
-      
       <div class="banner-wrapper">
-        <!-- CAROUSEL TEXT -->
-        <div class="text-carousel-container">
+        <!-- CAROUSEL TEXT CLIQUABLE-->
+        <div class="text-carousel-container" id="carousel-trigger">
           <!-- Flèche gauche -->
           <button id="carousel-prev" class="carousel-nav-button">
             &lt;
@@ -38,7 +68,6 @@
             &gt;
           </button>
         </div>
-        
         
         {hook h='displayNavFullWidth'}
 
