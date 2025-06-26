@@ -9,6 +9,9 @@ body#module-psgdpr-gdpr, body#module-blockwishlist-lists, body#view, body#module
   /* Ajustement de la largeur du contenu principal pour compenser */
   /* Styles spécifiques pour la page de contenu RGPD */
 }
+body#module-psgdpr-gdpr #content-wrapper, body#module-blockwishlist-lists #content-wrapper, body#view #content-wrapper, body#module-ps_emailalerts-account #content-wrapper {
+  min-height: auto !important;
+}
 body#module-psgdpr-gdpr #main, body#module-blockwishlist-lists #main, body#view #main, body#module-ps_emailalerts-account #main {
   min-height: 1100px !important;
 }

@@ -41,6 +41,11 @@ body {
       margin-bottom: .5rem !important;
     }
   }
+
+}
+
+body:not(#checkout):not(#cart) #content-wrapper {
+  min-height: 100vh;
 }
 
 #main .page-content, #main .page-footer, #main .page-header {
@@ -397,6 +402,10 @@ blockquote {
   font-size: .8rem;
   font-weight: 300;
   line-height: 1.5;
+}
+
+.text-primary {
+  color: $color-custom-green !important;
 }
 
 // End Typography

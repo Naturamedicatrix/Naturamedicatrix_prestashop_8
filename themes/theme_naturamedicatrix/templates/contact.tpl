@@ -86,5 +86,5 @@
 
 {block name='page_content'}
   {hook h='displayContactContent'}
-  {include file='_partials/block_therapeute.tpl'}
+  {include file='_partials/therap.tpl'}
 {/block}

@@ -454,7 +454,6 @@ body#checkout {
 body#cart {
     .alert {
         margin: 0;
-        max-width: 58.5%;
         @media (max-width: 1200px) {
             max-width: 100%;
         }
@@ -542,7 +541,7 @@ body#cart {
         
 
         .product-line-info {
-            font-weight: 100;
+            font-weight: 300;
             display: flex;
             flex-wrap: wrap;
             padding: 1px 0;
@@ -858,6 +857,14 @@ body#discount, body#cart {
         }
     }
 
+    .promo-code-button {
+        display: none !important;
+    }
+
+    #promo-code {
+        display: block !important;
+    }
+
     .promo-form-group {
         padding: 1.25rem 0;
     }
@@ -1011,5 +1018,16 @@ body#checkout, body#cart {
             padding-right: 0;
         }
         
+    }
+}
+
+
+body#checkout {
+    .promo-code-button {
+        display: none !important;
+    }
+
+    #promo-code {
+        display: block !important;
     }
 }

@@ -10,6 +10,9 @@ body#my-account {
 
 /* Styles spécifiques pour la page RGPD et la page des listes d'envies */
 body#module-psgdpr-gdpr, body#module-blockwishlist-lists, body#view, body#module-ps_emailalerts-account {
+    #content-wrapper {
+        min-height: auto !important;
+    }
     #main {
         min-height: 1100px !important;
 
