@@ -20,10 +20,12 @@ CUSTOM FORM FIELDS
       {if $field.type === 'select'}
 
         {block name='form_field_item_select'}
-          <select id="field-{$field.name}" class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" name="{$field.name}" {if $field.required}required{/if}>
-            <option value disabled selected>{l s='Please choose' d='Shop.Forms.Labels'}</option>
+          <select id="field-{$field.name}" class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-white" name="{$field.name}" {if $field.required}required{/if}>
+            {if !$field.value}
+              <option value disabled selected class="text-gray-500">{l s='Please choose' d='Shop.Forms.Labels'}</option>
+            {/if}
             {foreach from=$field.availableValues item="label" key="value"}
-              <option value="{$value}" {if $value eq $field.value} selected {/if}>{$label}</option>
+              <option value="{$value}" class="text-black" {if $value eq $field.value} selected {/if}>{$label}</option>
             {/foreach}
           </select>
         {/block}
@@ -33,13 +35,15 @@ CUSTOM FORM FIELDS
         {block name='form_field_item_country'}
           <select
             id="field-{$field.name}"
-            class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary js-country"
+            class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-white js-country"
             name="{$field.name}"
             {if $field.required}required{/if}
           >
-            <option value disabled selected>{l s='Please choose' d='Shop.Forms.Labels'}</option>
+            {if !$field.value}
+              <option value disabled selected class="text-gray-500">{l s='Please choose' d='Shop.Forms.Labels'}</option>
+            {/if}
             {foreach from=$field.availableValues item="label" key="value"}
-              <option value="{$value}" {if $value eq $field.value} selected {/if}>{$label}</option>
+              <option value="{$value}" class="text-black" {if $value eq $field.value} selected {/if}>{$label}</option>
             {/foreach}
           </select>
         {/block}

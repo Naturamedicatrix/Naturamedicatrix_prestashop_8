@@ -571,6 +571,12 @@ select:focus {
   border-radius: .375rem;
 }
 
+select {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+
 .progress {
   width: 96%;
 }
