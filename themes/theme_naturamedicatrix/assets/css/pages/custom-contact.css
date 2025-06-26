@@ -275,77 +275,22 @@ body#contact #wrapper .contact-form {
   border-bottom: 1px solid #4B5563;
   margin-bottom: 4rem;
 }
-body#contact #wrapper .contact-form form {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 @media (max-width: 640px) {
-  body#contact #wrapper .contact-form form {
-    padding: 0 15px;
+  body#contact #wrapper .contact-form {
+    padding: 0;
   }
 }
-body#contact #wrapper .contact-form form .form-group, body#contact #wrapper .contact-form form .form-control {
-  max-width: none;
-  width: 100%;
-}
-@media (max-width: 640px) {
-  body#contact #wrapper .contact-form form .form-group, body#contact #wrapper .contact-form form .form-control {
-    margin-bottom: 15px;
-  }
-}
-body#contact #wrapper .contact-form form .form-group label, body#contact #wrapper .contact-form form .form-control label {
-  color: #4B5563;
-  font-size: 20px;
-}
-@media (max-width: 768px) {
-  body#contact #wrapper .contact-form form .form-group label, body#contact #wrapper .contact-form form .form-control label {
-    font-size: 18px;
-  }
-}
-@media (max-width: 640px) {
-  body#contact #wrapper .contact-form form .form-group label, body#contact #wrapper .contact-form form .form-control label {
-    font-size: 16px;
-  }
-}
-body#contact #wrapper .contact-form form .form-group select, body#contact #wrapper .contact-form form .form-group textarea, body#contact #wrapper .contact-form form .form-group input, body#contact #wrapper .contact-form form .form-control select, body#contact #wrapper .contact-form form .form-control textarea, body#contact #wrapper .contact-form form .form-control input {
-  width: 800px;
-  border: 1px solid #4B5563;
-  height: 50px;
-}
-@media (max-width: 1280px) {
-  body#contact #wrapper .contact-form form .form-group select, body#contact #wrapper .contact-form form .form-group textarea, body#contact #wrapper .contact-form form .form-group input, body#contact #wrapper .contact-form form .form-control select, body#contact #wrapper .contact-form form .form-control textarea, body#contact #wrapper .contact-form form .form-control input {
-    width: 400px;
-  }
-}
-@media (max-width: 768px) {
-  body#contact #wrapper .contact-form form .form-group select, body#contact #wrapper .contact-form form .form-group textarea, body#contact #wrapper .contact-form form .form-group input, body#contact #wrapper .contact-form form .form-control select, body#contact #wrapper .contact-form form .form-control textarea, body#contact #wrapper .contact-form form .form-control input {
-    width: 400px;
-  }
-}
-@media (max-width: 640px) {
-  body#contact #wrapper .contact-form form .form-group select, body#contact #wrapper .contact-form form .form-group textarea, body#contact #wrapper .contact-form form .form-group input, body#contact #wrapper .contact-form form .form-control select, body#contact #wrapper .contact-form form .form-control textarea, body#contact #wrapper .contact-form form .form-control input {
-    width: 300px;
-    margin: 0 auto;
-  }
-}
-body#contact #wrapper .contact-form form .form-group textarea, body#contact #wrapper .contact-form form .form-control textarea {
-  height: 150px;
-}
-body#contact #wrapper .contact-form form .form-footer {
-  width: 800px;
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 3rem;
-}
-@media (max-width: 1280px) {
-  body#contact #wrapper .contact-form form .form-footer {
-    justify-content: center;
-  }
-}
-body#contact #wrapper .contact-form form .form-footer .primary-btn {
+body#contact #wrapper .contact-form form .form-footer .btn {
   width: 300px;
   font-size: 18px;
+  margin-bottom: 50px;
+}
+@media (max-width: 640px) {
+  body#contact #wrapper .contact-form form .form-footer .btn {
+    width: 100% !important;
+  }
+}
+body#contact #wrapper .contact-form form #id_contact {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
 }
