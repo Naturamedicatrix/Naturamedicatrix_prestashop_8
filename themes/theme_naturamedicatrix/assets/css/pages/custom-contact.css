@@ -252,9 +252,6 @@ body#contact #wrapper {
 body#contact #wrapper .card {
   border: none;
 }
-body#contact #wrapper p {
-  padding: 0;
-}
 body#contact #wrapper::before {
   content: "";
   position: absolute;

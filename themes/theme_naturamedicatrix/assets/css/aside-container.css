@@ -17,15 +17,6 @@
   padding: 2rem 1.5rem;
   text-align: center;
 }
-.side-column h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 0.5rem;
-  position: relative;
-  display: inline-block;
-  margin-top: 0;
-}
 .side-column .icon-container {
   position: relative;
   display: flex;
@@ -51,11 +42,6 @@
   color: #111827;
   z-index: 2;
 }
-.side-column .support-client > p {
-  color: #4B5563;
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-}
 .side-column .contact-info {
   display: flex;
   flex-direction: column;
@@ -73,38 +59,6 @@
   display: inline-block;
   object-fit: cover;
 }
-.side-column .country-name {
-  font-size: 0.9rem;
-  color: #4B5563;
-  margin: 0 0 0.25rem 0;
-}
-.side-column .phone-number {
-  font-weight: 600;
-  color: #4B5563;
-  font-size: 1.1rem;
-  margin: 0.25rem 0;
-}
 .side-column .address-section {
   margin-top: 1rem;
-}
-.side-column .address-block {
-  margin-top: 0.75rem;
-  margin-bottom: 2rem;
-}
-.side-column .address-block h4 {
-  font-weight: 600;
-  color: #4B5563;
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-  text-decoration: underline;
-  text-align: center;
-}
-.side-column .address-block p {
-  font-size: 0.9rem;
-  color: #4B5563;
-  margin: 0.1rem 0;
-  line-height: 1.2;
-}
-.side-column :last-child {
-  margin-bottom: 0;
 }

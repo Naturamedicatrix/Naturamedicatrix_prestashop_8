@@ -573,6 +573,12 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
             padding-right: 0;
         }
     }
+
+    .flex-col input, .flex-col select, .password-field-container {
+        @media (max-width: $breakpoint-sm) {
+            width: 100% !important;
+        }
+    }
 }
 
 
@@ -711,18 +717,7 @@ body#identity {
     padding-bottom: 0;
   }
 
-.password-toggle-btn {
-    left: 310px;
 
-    @media (max-width: 800px) {
-       left: 280px;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-        left: auto;
-        right: 10px;
-    }
-}
 
   .password-strength-feedback {
     width: 400px;

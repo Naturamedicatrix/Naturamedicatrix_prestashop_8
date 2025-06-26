@@ -80,8 +80,34 @@ body#authentication #login-page .login-columns .left-column .login-form form {
     align-items: center;
   }
 }
+@media (max-width: 640px) {
+  body#authentication #login-page .login-columns .left-column .login-form form #field-email, body#authentication #login-page .login-columns .left-column .login-form form #field-password {
+    width: 100%;
+  }
+}
+@media (max-width: 640px) {
+  body#authentication #login-page .login-columns .left-column .login-form form #submit-login {
+    width: 100%;
+  }
+}
+body#authentication #login-page .login-columns .left-column .login-form .flex-col {
+  margin-bottom: 0;
+}
+body#authentication #login-page .login-columns .left-column .login-form .forgot-password {
+  margin-top: 5px;
+  text-align: right;
+}
 body#authentication #login-page .login-columns .left-column .login-form .forgot-password a {
   border: none;
+  color: #4B5563 !important;
+}
+body#authentication #login-page .login-columns .left-column .login-form .forgot-password a:hover {
+  color: #111827 !important;
+}
+@media (max-width: 640px) {
+  body#authentication #login-page .login-columns .left-column .login-form .forgot-password a {
+    font-size: 0.8rem;
+  }
 }
 body#authentication #login-page .login-columns .left-column .login-form .form-footer {
   width: 100%;
@@ -157,4 +183,7 @@ body#authentication #login-page .login-columns .right-column .register-info .cre
     width: auto;
     max-width: none;
   }
+}
+body#authentication .password-field-container {
+  width: 100%;
 }

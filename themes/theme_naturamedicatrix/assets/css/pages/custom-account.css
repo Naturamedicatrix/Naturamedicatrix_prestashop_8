@@ -528,6 +528,11 @@ body#my-account .block-address, body#identity .block-address, body#addresses .bl
     padding-right: 0;
   }
 }
+@media (max-width: 640px) {
+  body#my-account .flex-col input, body#my-account .flex-col select, body#my-account .password-field-container, body#identity .flex-col input, body#identity .flex-col select, body#identity .password-field-container, body#addresses .flex-col input, body#addresses .flex-col select, body#addresses .password-field-container, body#history .flex-col input, body#history .flex-col select, body#history .password-field-container, body#order-slip .flex-col input, body#order-slip .flex-col select, body#order-slip .password-field-container, body#module-blockwishlist-lists .flex-col input, body#module-blockwishlist-lists .flex-col select, body#module-blockwishlist-lists .password-field-container, body#view .flex-col input, body#view .flex-col select, body#view .password-field-container, body#module-blockwishlist-view .flex-col input, body#module-blockwishlist-view .flex-col select, body#module-blockwishlist-view .password-field-container, body#module-psgdpr-gdpr .flex-col input, body#module-psgdpr-gdpr .flex-col select, body#module-psgdpr-gdpr .password-field-container, body#address .flex-col input, body#address .flex-col select, body#address .password-field-container, body#module-ps_emailalerts-account .flex-col input, body#module-ps_emailalerts-account .flex-col select, body#module-ps_emailalerts-account .password-field-container, body#discount .flex-col input, body#discount .flex-col select, body#discount .password-field-container {
+    width: 100% !important;
+  }
+}
 
 /* STYLE POUR LE MODULE LISTE DES ENVIES / GDPR */
 body#module-blockwishlist-lists #main, body#module-psgdpr-gdpr #main, body#view #main, body#module-ps_emailalerts-account #main {
@@ -634,20 +639,6 @@ body#identity .instructions-account, body#identity .delete-account-section p {
   line-height: 1;
   margin-bottom: 25px;
   padding-bottom: 0;
-}
-body#identity .password-toggle-btn {
-  left: 310px;
-}
-@media (max-width: 800px) {
-  body#identity .password-toggle-btn {
-    left: 280px;
-  }
-}
-@media (max-width: 640px) {
-  body#identity .password-toggle-btn {
-    left: auto;
-    right: 10px;
-  }
 }
 body#identity .password-strength-feedback {
   width: 400px;

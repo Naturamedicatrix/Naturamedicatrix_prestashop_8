@@ -93,11 +93,40 @@ body#authentication {
             @media (min-width: $breakpoint-md) {
               align-items: center;
             }
+
+
+            #field-email, #field-password {
+              @media (max-width: $breakpoint-sm) {
+                width: 100%;
+              }
+            }
+
+
+            @media (max-width: $breakpoint-sm) {
+              #submit-login {
+                width: 100%;
+              }
+            }
+          }
+
+          .flex-col{
+            margin-bottom: 0;
           }
 
           .forgot-password {
+            margin-top: 5px;
+            text-align: right;
             a {
               border: none;
+              color: $color-custom-gray !important;
+
+              &:hover {
+                color: $color-custom-black !important;
+              }
+
+              @media (max-width: $breakpoint-sm) {
+                font-size: .8rem;
+              }
             }
           }
           
@@ -191,5 +220,9 @@ body#authentication {
         }
       }
     }
+  }
+
+  .password-field-container {
+    width: 100%;
   }
 }

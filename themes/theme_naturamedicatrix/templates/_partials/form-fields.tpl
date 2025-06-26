@@ -1,26 +1,5 @@
 {**
- * Copyright since 2007 PrestaShop SA and Contributors
- * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.md.
- * It is also available through the world-wide-web at this URL:
- * https://opensource.org/licenses/AFL-3.0
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
- * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to https://devdocs.prestashop.com/ for more information.
- *
- * @author    PrestaShop SA and Contributors <contact@prestashop.com>
- * @copyright Since 2007 PrestaShop SA and Contributors
- * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+CUSTOM FORM FIELDS
  *}
 {if $field.type == 'hidden'}
 
@@ -30,18 +9,18 @@
 
 {else}
 
-  <div class="form-group row {if !empty($field.errors)}has-error{/if}">
-    <label class="col-md-3 form-control-label{if $field.required} required{/if}" for="field-{$field.name}">
+  <div class="flex flex-col mb-6 mt-4 {if !empty($field.errors)}has-error{/if}">
+    <label class="text-left font-bold {if $field.required} required after:content-['*'] after:ml-0.5 after:text-red-500{/if}" for="field-{$field.name}">
       {if $field.type !== 'checkbox'}
         {$field.label}
       {/if}
     </label>
-    <div class="col-md-6 js-input-column{if ($field.type === 'radio-buttons')} form-control-valign{/if}">
+    <div class="js-input-column{if ($field.type === 'radio-buttons')} form-control-valign{/if}">
 
       {if $field.type === 'select'}
 
         {block name='form_field_item_select'}
-          <select id="field-{$field.name}" class="form-control form-control-select" name="{$field.name}" {if $field.required}required{/if}>
+          <select id="field-{$field.name}" class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" name="{$field.name}" {if $field.required}required{/if}>
             <option value disabled selected>{l s='Please choose' d='Shop.Forms.Labels'}</option>
             {foreach from=$field.availableValues item="label" key="value"}
               <option value="{$value}" {if $value eq $field.value} selected {/if}>{$label}</option>
@@ -54,7 +33,7 @@
         {block name='form_field_item_country'}
           <select
             id="field-{$field.name}"
-            class="form-control form-control-select js-country"
+            class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary js-country"
             name="{$field.name}"
             {if $field.required}required{/if}
           >
@@ -69,7 +48,7 @@
 
         {block name='form_field_item_radio'}
           {foreach from=$field.availableValues item="label" key="value"}
-            <label class="radio-inline" for="field-{$field.name}-{$value}">
+            <label class="inline-flex items-center mr-4 mb-2" for="field-{$field.name}-{$value}">
               <span class="custom-radio">
                 <input
                   name="{$field.name}"
@@ -89,9 +68,9 @@
       {elseif $field.type === 'checkbox'}
 
         {block name='form_field_item_checkbox'}
-          <span class="custom-checkbox">
+          <span class="inline-flex items-center">
             <label>
-              <input name="{$field.name}" type="checkbox" value="1" {if $field.value}checked="checked"{/if} {if $field.required}required{/if}>
+              <input name="{$field.name}" type="checkbox" class="w-4 h-4 mr-2" value="1" {if $field.value}checked="checked"{/if} {if $field.required}required{/if}>
               <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
               {$field.label nofilter}
             </label>
@@ -101,9 +80,9 @@
       {elseif $field.type === 'date'}
 
         {block name='form_field_item_date'}
-          <input id="field-{$field.name}" name="{$field.name}" class="form-control" type="date" value="{$field.value|default}"{if isset($field.availableValues.placeholder)} placeholder="{$field.availableValues.placeholder}"{/if}>
+          <input id="field-{$field.name}" name="{$field.name}" class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" type="date" value="{$field.value|default}"{if isset($field.availableValues.placeholder)} placeholder="{$field.availableValues.placeholder}"{/if}>
           {if isset($field.availableValues.comment)}
-            <span class="form-control-comment">
+            <span class="text-xs text-gray-500 mt-1 block">
               {$field.availableValues.comment}
             </span>
           {/if}
@@ -120,9 +99,9 @@
             prefix=false
             reverse_years=true
             field_separator='<br>'
-            day_extra='class="form-control form-control-select"'
-            month_extra='class="form-control form-control-select"'
-            year_extra='class="form-control form-control-select"'
+            day_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-9 mr-2 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"'
+            month_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-9 mr-2 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"'
+            year_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"'
             day_empty={l s='-- day --' d='Shop.Forms.Labels'}
             month_empty={l s='-- month --' d='Shop.Forms.Labels'}
             year_empty={l s='-- year --' d='Shop.Forms.Labels'}
@@ -137,7 +116,7 @@
           <div class="password-field-container">
             <input
               id="field-{$field.name}"
-              class="form-control password-input"
+              class="w-72 sm:w-96 border border-gray-300 rounded-md pl-4 pr-10 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
               name="{$field.name}"
               aria-label="{l s='Password input' d='Shop.Forms.Help'}"
               type="password"
@@ -167,7 +146,7 @@
         {block name='form_field_item_other'}
           <input
             id="field-{$field.name}"
-            class="form-control"
+            class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
             name="{$field.name}"
             type="{$field.type}"
             value="{$field.value|default}"
@@ -177,7 +156,7 @@
             {if $field.required}required{/if}
           >
           {if isset($field.availableValues.comment)}
-            <span class="form-control-comment">
+            <span class="text-xs text-gray-500 mt-0.5 block">
               {$field.availableValues.comment}
             </span>
           {/if}
@@ -191,13 +170,13 @@
 
     </div>
 
-    <div class="col-md-3 form-control-comment">
+    {* <div class="text-xs text-gray-500 mt-0">
       {block name='form_field_comment'}
         {if (!$field.required && !in_array($field.type, ['radio-buttons', 'checkbox']))}
          {l s='Optional' d='Shop.Forms.Labels'}
         {/if}
       {/block}
-    </div>
+    </div> *}
   </div>
 
 {/if}

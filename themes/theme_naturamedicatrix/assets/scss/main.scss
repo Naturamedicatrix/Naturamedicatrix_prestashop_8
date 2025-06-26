@@ -46,6 +46,9 @@ body {
 
 body:not(#checkout):not(#cart) #content-wrapper {
   min-height: 100vh;
+  @media (max-width: $breakpoint-sm) {
+    min-height: auto;
+  }
 }
 
 #main .page-content, #main .page-footer, #main .page-header {
@@ -404,7 +407,7 @@ blockquote {
   line-height: 1.5;
 }
 
-.text-primary {
+.text-primary, .primary {
   color: $color-custom-green !important;
 }
 
@@ -549,139 +552,73 @@ blockquote {
 // END LINK
 
 
-
 // FORMS
-*:focus {
+.form-control:focus, 
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="password"]:focus, 
+input[type="tel"]:focus, 
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
   outline: none !important;
-  box-shadow: none !important;
+  box-shadow: 0 0 0 1px $color-custom-green !important;
+  border-color: $color-custom-green !important;
 }
 
-.form-group {
-  margin-bottom: 1.25rem;
+.form-control {
+  width: 24rem !important;
+  border-radius: .375rem;
+}
 
-  @media (max-width: $breakpoint-sm) {
-    margin-bottom: .6rem !important;
-  }
+.progress {
+  width: 96%;
+}
 
-  &.row {
-    display: block;
-    margin: 0 0 25px 0;
-  }
-
-  .form-control-label {
-    display: block;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 0.2rem;
-    padding: 0;
-    font-weight: 600;
-    color: $color-custom-gray;
-    font-size: 1rem;
-
-    @media (max-width: $breakpoint-sm) {
-      font-size: .8rem;
-    }
-  }
-
-  .js-input-column {
-    width: 100%;
-    padding: 0;
-  }
-
-  .form-control {
-    width: 100%;
-    max-width: 400px;
-    height: 40px;
-    padding: 0.5rem 0.75rem;
-    background-color: white;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-
-    &:focus {
-      border-color: $color-custom-gray;
-      outline: none !important;
-      box-shadow: none !important;
-      -webkit-box-shadow: none !important;
-      -moz-box-shadow: none !important;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      font-size: .8rem;
-    }
-  }
-
-  .form-control-comment {
-    display: none;
+.password-requirements {
+  .password-requirements-length, .password-requirements-score, .material-icons {
+    font-size: .9rem;
   }
 }
 
-.forgot-password {
-  text-align: right !important;
-  margin: 0 !important;
-  position: relative;
-  top: -15px;
-  ;
-
-  a {
-    color: $color-custom-gray !important;
-    font-size: 0.875rem;
-    text-decoration: underline;
-
-    &:hover {
-      color: $color-custom-black !important
-    }
-  }
-}
-
-// Supprimer spécifiquement le contour bleu des champs de mot de passe
-.input-group.focus {
-  outline: 0 !important;
-  outline-offset: 0 !important;
-}
-
-// Champ de mot de passe personnalisé
 .password-field-container {
+
   position: relative;
-  width: 100%;
-
-  .form-control {
-    width: 100%;
-    padding-right: 40px;
-  }
-
+  display: inline-block;
+  width: auto;
+  
   .password-toggle-btn {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    padding: 8px;
+    height: 20px;
+    width: 20px;
+    line-height: 1;
+    color: $color-custom-gray;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    z-index: 2;
-
-    &:focus {
-      outline: none;
+    z-index: 10;
+    outline: none !important;
+    border: none !important;
+    background: transparent !important;
+    
+    &:focus, &:active {
+      outline: none !important;
+      box-shadow: none !important;
+      border: none !important;
     }
-  }
-
-  .password-toggle-icon {
-    color: $color-custom-gray;
-    font-size: 1.2rem;
-  }
-
-  .password-toggle-text {
-    color: $color-custom-gray;
-    font-size: 0.85rem;
-    font-weight: 400;
-  }
+    
+    .password-toggle-text {
+      display: none;
+    }
+    
+    i.bi-eye, i.bi-eye-slash {
+      font-size: 1.2rem;
+    }
+  } 
+ 
 }
-
 // END FORMS
-
 
 
 // TABLE
