@@ -1,16 +1,26 @@
 /** === ASIDE CONTAINER === */
 .side-column {
-  height: 130vh;
   background-color: #EDEFF1;
+  height: 170vh;
 }
-@media (max-width: 1580px) {
+@media (max-width: 640px) {
   .side-column {
-    height: 190vh;
+    height: 100vh;
   }
 }
-@media (max-width: 480px) {
+@media (min-width: 640px) and (max-width: 769px) {
+  .side-column {
+    height: 175vh;
+  }
+}
+@media (min-width: 770px) and (max-width: 1024px) {
   .side-column {
     height: 150vh;
+  }
+}
+@media (min-width: 2000px) {
+  .side-column {
+    height: 130vh;
   }
 }
 .side-column .side-block {

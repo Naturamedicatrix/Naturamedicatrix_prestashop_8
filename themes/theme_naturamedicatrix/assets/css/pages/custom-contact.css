@@ -258,7 +258,8 @@ body#contact #wrapper::before {
   top: 0;
   right: 0;
   width: 33.33%;
-  height: 100%;
+  height: 100vh; /* Étendre à toute la hauteur de la fenêtre visible */
+  min-height: 100%; /* Au minimum la hauteur du contenu */
   background-color: #EDEFF1;
   z-index: 0;
 }
@@ -293,4 +294,14 @@ body#contact #wrapper .contact-form form .form-footer .btn {
 body#contact #wrapper .contact-form form #id_contact {
   padding-top: 12px !important;
   padding-bottom: 12px !important;
+}
+body#contact .section-therap a {
+  border-bottom: none !important;
+  color: #4B5563;
+}
+body#contact .section-therap a:hover {
+  color: #111827 !important;
+}
+body#contact .section-therap hr {
+  margin-bottom: 16px;
 }

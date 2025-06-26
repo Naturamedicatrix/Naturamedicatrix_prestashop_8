@@ -3,14 +3,28 @@
 
 // Styles généraux pour le conteneur latéral
 .side-column {
-  height: 130vh;
   background-color: $color-custom-whiteDarker;
-  @media (max-width: 1580px) {
-    height: 190vh;
+  height: 170vh;
+  
+  @media (max-width: $breakpoint-sm) {
+    height: 100vh;
   }
-  @media (max-width: $breakpoint-xs) {
+
+  @media (min-width: $breakpoint-sm) and (max-width: 769px) {
+    height: 175vh;
+  }
+
+  @media (min-width: 770px) and (max-width: 1024px) {
     height: 150vh;
   }
+
+  @media (min-width: 2000px) {
+    height: 130vh;
+  }
+  
+  
+  
+
   // Style commun pour tous les blocs
   .side-block {
     padding: 2rem 1.5rem;
@@ -75,45 +89,10 @@
     object-fit: cover;
   }
 
-  // .country-name {
-  //   font-size: 0.9rem;
-  //   color: $color-custom-gray;
-  //   margin: 0 0 .25rem 0;
-  // }
 
-  // .phone-number {
-  //   font-weight: 600;
-  //   color: $color-custom-gray;
-  //   font-size: 1.1rem;
-  //   margin: 0.25rem 0;
-  // }
 
   // Styles pour les adresses
   .address-section {
     margin-top: 1rem;
   }
-
-  // .address-block {
-  //   margin-top: 0.75rem;
-  //   margin-bottom: 2rem;
-
-  //   h4 {
-  //     font-weight: 600;
-  //     color: $color-custom-gray;
-  //     font-size: 1rem;
-  //     margin-bottom: 0.25rem;
-  //     text-decoration: underline;
-  //     text-align: center;
-  //   }
-
-  //   p {
-  //     font-size: 0.9rem;
-  //     color: $color-custom-gray;
-  //     margin: 0.1rem 0;
-  //     line-height: 1.2;
-  //   }
-  // }
-  // :last-child {
-  //   margin-bottom: 0;
-  // }
 }

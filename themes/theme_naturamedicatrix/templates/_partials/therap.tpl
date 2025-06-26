@@ -1,5 +1,5 @@
 <div class="{if $page.page_name != 'contact'}bg-wrapper py-24 sm:py-32{/if}">
-  <div class="mx-auto{if $page.page_name != 'contact'} grid gap-20 xl:grid-cols-3 items-center container{/if}">
+  <div class="mx-auto section-therap{if $page.page_name != 'contact'} grid gap-20 xl:grid-cols-3 items-center container{/if}">
     <!-- Intro -->
     <div class="max-w-xl{if $page.page_name == 'contact'} mx-auto w-full text-center mb-8{/if}">
       <h3 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl{if $page.page_name == 'contact'} text-center{/if}">Nos scientifiques</h3>
@@ -12,7 +12,7 @@
     </div>
 
     <!-- Liste des scientifiques -->
-    <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2 pl-0">
+    <ul role="list" class="grid gap-x-8 gap-y-12 sm:gap-y-16 xl:col-span-2 pl-0{if $page.page_name != 'contact'} sm:grid-cols-2{else} grid-cols-1 lg:grid-cols-2{/if}">
       <!-- Anthony -->
       <li class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
         <div class="flex items-center gap-x-6 mb-4">
