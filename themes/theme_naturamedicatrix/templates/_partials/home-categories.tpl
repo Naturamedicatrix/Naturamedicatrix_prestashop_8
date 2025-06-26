@@ -39,7 +39,7 @@
   									
   <ul class="row collapse pl-0 mt-1" id="collapseCategories" aria-labelledby="headingCategories">
     {foreach from=$categories item=cat}
-      {if !in_array($cat.id_category, $allowed_ids)}
+      {if !in_array($cat.id_category, $allowed_ids) && $cat.id_parent == 2}
          <li class="col-lg-3 col-md-6 col-xs-6">
           <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label">{$cat.name} <span><i class="bi bi-arrow-right"></i></span></a>
         </li>

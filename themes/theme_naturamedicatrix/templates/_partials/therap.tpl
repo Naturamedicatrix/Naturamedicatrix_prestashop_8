@@ -1,10 +1,8 @@
-{$page_name}
-
-<div class="{if $page_name != 'contact'} {/if}bg-wrapper py-24 sm:py-32">
-  <div class="mx-auto grid gap-20 xl:grid-cols-3 items-center container">
+<div class="{if $page.page_name != 'contact'}bg-wrapper py-24 sm:py-32{/if}">
+  <div class="mx-auto{if $page.page_name != 'contact'} grid gap-20 xl:grid-cols-3 items-center container{/if}">
     <!-- Intro -->
-    <div class="max-w-xl">
-      <h3 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">Nos scientifiques</h3>
+    <div class="max-w-xl{if $page.page_name == 'contact'} mx-auto w-full text-center mb-8{/if}">
+      <h3 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl{if $page.page_name == 'contact'} text-center{/if}">Nos scientifiques</h3>
       <p class="mt-6 text-lg/8 text-gray-600">
         Nos conseillers sont à votre disposition pour vous offrir, avec plaisir, un accompagnement de 10 minutes afin de vous informer sur la posologie, l’usage et les indications de nos produits.
       </p>
@@ -18,7 +16,7 @@
       <!-- Anthony -->
       <li class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
         <div class="flex items-center gap-x-6 mb-4">
-          <img class="size-16 w-24 rounded-full object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Anthony-Damien Désirée" />
+          <img class="size-16 w-24 rounded-full object-cover" src="{$urls.child_img_url}therapeutes/anthony_96.jpg" alt="Anthony-Damien Désirée" />
           <div>
             <h4 class="text-base font-semibold text-gray-900">Anthony-Damien Désirée<small>, PhD</small></h4>
             <p class="text-xs text-gray-600">
@@ -48,7 +46,7 @@
       <!-- Fabien -->
       <li class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
         <div class="flex items-center gap-x-6 mb-4">
-          <img class="size-16 w-24 rounded-full object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Fabien Piasco" />
+          <img class="size-16 w-24 rounded-full object-cover" src="{$urls.child_img_url}therapeutes/fabien_96.jpg" alt="Fabien Piasco" />
           <div>
             <h4 class="text-base font-semibold text-gray-900">Fabien Piasco</h4>
             <p class="text-xs text-gray-600">
