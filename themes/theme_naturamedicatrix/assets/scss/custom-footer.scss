@@ -8,6 +8,7 @@
   .alert {
     margin: 0 auto;
     width: 100%;
+    padding: 0.625rem;
 
     @media (max-width: $breakpoint-md) {
       width: 100%;
@@ -653,6 +654,7 @@
     
     .footer-stores-intro {
       font-size: 14px;
+      line-height: 1.4;
       color: $color-custom-gray;
       margin-bottom: 10px;
     }
@@ -663,9 +665,11 @@
       
       .store-name {
         font-size: 13px;
+        line-height: 1.4;
         font-weight: 600;
         color: $color-custom-gray;
         padding-bottom: 0;
+        margin-bottom: 0;
       }
       
       .store-address {

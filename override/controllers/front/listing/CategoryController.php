@@ -19,7 +19,7 @@ class CategoryController extends CategoryControllerCore
         }
         
         // Si c'est la catégorie "Principes actifs" (ID 25), utilise le layout sans colonne
-        if ($this->category->id == 25) {
+        if ($this->category->id == 25 || $this->category->id == 2) {
             return 'layouts/layout-full-width.tpl';
         }
         

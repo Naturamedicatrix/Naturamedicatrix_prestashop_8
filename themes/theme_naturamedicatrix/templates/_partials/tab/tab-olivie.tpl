@@ -1,4 +1,4 @@
-<p class="h4">Nos produits Olivie Pharma®</p>
+<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Nos produits Olivie Pharma®</h2>
 <div class="table-responsive">
   <table class="table table-bordered table-striped table-compare">
     <thead>

@@ -10,14 +10,14 @@
       Charte qualité <span class="font-bold">NATURA</span><span class="italic text-primary">Medicatrix</span>
     </h2>
 
-    <p class="text-center text-sm sm:text-base text-gray-900 font-semibold">
+    <p class="text-center text-gray-900 font-semibold">
       Tous nos produits sont totalement en règle avec la législation européenne sur les compléments alimentaires.
     </p>
-    <p class="text-center text-sm sm:text-base text-gray-600 mt-0">
+    <p class="text-center text-gray-600 mt-0">
       Ils ont fait l’objet de dépôts de dossiers auprès des autorités françaises. Ils répondent à un cahier des charges très précis
       et subissent de nombreux contrôles de qualité à chaque étape de fabrication.
     </p>
-    <p class="text-center text-sm sm:text-base text-gray-600 mt-0">
+    <p class="text-center text-gray-600 mt-0">
       <a href="#" class="text-primary underline">Étiquetage et information affaires réglementaires</a> :
       nos étiquetages sont en conformité avec la législation européenne sur les compléments alimentaires et ses évolutions.
       Il se peut qu’il existe un décalage entre les descriptifs des catalogues, du site Internet et du produit que vous recevez.

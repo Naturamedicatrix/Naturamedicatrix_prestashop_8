@@ -33,7 +33,7 @@
 {* Bloc pour les 3 marques phares *}
 {block name='featured_brands'}
   <div class="featured-brands">
-    <p class="alert alert-success text-center">Nous distribuons ces produits en magasins et pharmacies.</p>
+    <p class="mx-auto alert alert-success text-center">Nous distribuons ces produits en magasins et pharmacies.</p>
     <div class="row justify-content-center">
       {* Affichage des marques phares *}
       {if $formatted_brands|count > 0}

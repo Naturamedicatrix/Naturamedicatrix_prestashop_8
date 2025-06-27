@@ -130,6 +130,9 @@ body#my-account .address-footer, body#identity .address-footer, body#addresses .
   padding: 10px 0 0 0;
   border-top: none;
 }
+body#my-account .address-footer a, body#identity .address-footer a, body#addresses .address-footer a, body#history .address-footer a, body#order-slip .address-footer a, body#module-blockwishlist-lists .address-footer a, body#view .address-footer a, body#module-blockwishlist-view .address-footer a, body#module-psgdpr-gdpr .address-footer a, body#address .address-footer a, body#module-ps_emailalerts-account .address-footer a, body#discount .address-footer a {
+  text-decoration: none;
+}
 body#my-account h1, body#my-account h2, body#identity h1, body#identity h2, body#addresses h1, body#addresses h2, body#history h1, body#history h2, body#order-slip h1, body#order-slip h2, body#module-blockwishlist-lists h1, body#module-blockwishlist-lists h2, body#view h1, body#view h2, body#module-blockwishlist-view h1, body#module-blockwishlist-view h2, body#module-psgdpr-gdpr h1, body#module-psgdpr-gdpr h2, body#address h1, body#address h2, body#module-ps_emailalerts-account h1, body#module-ps_emailalerts-account h2, body#discount h1, body#discount h2 {
   text-align: left !important;
   margin: 0 !important;
@@ -512,6 +515,10 @@ body#my-account .addresses-footer, body#identity .addresses-footer, body#address
 body#my-account .addresses-footer i, body#identity .addresses-footer i, body#addresses .addresses-footer i, body#history .addresses-footer i, body#order-slip .addresses-footer i, body#module-blockwishlist-lists .addresses-footer i, body#view .addresses-footer i, body#module-blockwishlist-view .addresses-footer i, body#module-psgdpr-gdpr .addresses-footer i, body#address .addresses-footer i, body#module-ps_emailalerts-account .addresses-footer i, body#discount .addresses-footer i {
   position: relative;
   top: 2px;
+  font-size: 0.8rem;
+}
+body#my-account .addresses-footer a, body#identity .addresses-footer a, body#addresses .addresses-footer a, body#history .addresses-footer a, body#order-slip .addresses-footer a, body#module-blockwishlist-lists .addresses-footer a, body#view .addresses-footer a, body#module-blockwishlist-view .addresses-footer a, body#module-psgdpr-gdpr .addresses-footer a, body#address .addresses-footer a, body#module-ps_emailalerts-account .addresses-footer a, body#discount .addresses-footer a {
+  text-decoration: none;
 }
 @media (max-width: 640px) {
   body#my-account .btn-primary, body#identity .btn-primary, body#addresses .btn-primary, body#history .btn-primary, body#order-slip .btn-primary, body#module-blockwishlist-lists .btn-primary, body#view .btn-primary, body#module-blockwishlist-view .btn-primary, body#module-psgdpr-gdpr .btn-primary, body#address .btn-primary, body#module-ps_emailalerts-account .btn-primary, body#discount .btn-primary {

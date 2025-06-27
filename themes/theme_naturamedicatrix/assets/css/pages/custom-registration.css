@@ -141,20 +141,6 @@ body#registration #registration-page .registration-columns .left-column .registe
   display: flex;
   align-items: center;
 }
-body#registration #registration-page .registration-columns .left-column .register-form form .password-toggle-btn {
-  left: 300px;
-}
-@media (max-width: 640px) {
-  body#registration #registration-page .registration-columns .left-column .register-form form .password-toggle-btn {
-    left: auto;
-    right: 10px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  body#registration #registration-page .registration-columns .left-column .register-form form .password-toggle-btn {
-    right: 10px;
-  }
-}
 body#registration #registration-page .registration-columns .left-column .register-form .form-footer {
   text-align: left;
 }

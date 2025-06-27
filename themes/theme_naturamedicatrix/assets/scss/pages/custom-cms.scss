@@ -59,9 +59,11 @@ body.cms-id-7 {
 
            h2 {
             font-size: 1.2rem;
+            line-height: 1.4;
             a {
                 color:$color-custom-black;
                 border-bottom: none;
+                text-decoration: none;
                 &:hover {
                     text-decoration: underline;
                  }
@@ -124,12 +126,12 @@ body.cms-id-7 {
             h3 {
              display: inline-block;
              font-size: .9rem;
-             font-weight: normal;
-
+             font-weight: normal;    
              
              a {
                 color: $color-custom-gray;
                 border-bottom: none;
+                text-decoration: none;
                 &:hover {
                     color: $color-custom-black;
                     text-decoration: underline;

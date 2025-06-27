@@ -6,6 +6,7 @@
 #footer .alert {
   margin: 0 auto;
   width: 100%;
+  padding: 0.625rem;
 }
 @media (max-width: 768px) {
   #footer .alert {
@@ -573,6 +574,7 @@
 }
 .footer-column .footer-column-content .footer-stores-intro {
   font-size: 14px;
+  line-height: 1.4;
   color: #4B5563;
   margin-bottom: 10px;
 }
@@ -582,9 +584,11 @@
 }
 .footer-column .footer-column-content .footer-store .store-name {
   font-size: 13px;
+  line-height: 1.4;
   font-weight: 600;
   color: #4B5563;
   padding-bottom: 0;
+  margin-bottom: 0;
 }
 .footer-column .footer-column-content .footer-store .store-address {
   font-size: 12px;

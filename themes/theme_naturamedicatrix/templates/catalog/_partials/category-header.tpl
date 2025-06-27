@@ -5,7 +5,7 @@
  {if $listing.pagination.items_shown_from == 1}
      <div class="block-category">
      <header class="page-header">
-     <h1 class="page-title">{$category.name}</h1>
+     <h1 class="page-title text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{$category.name}</h1>
      <div class="title-separator">
        <svg id="logoTitle" data-name="Logo Title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504.59 360.15">
          <path class="logo-title"

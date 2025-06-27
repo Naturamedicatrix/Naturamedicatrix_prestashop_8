@@ -91,6 +91,13 @@
         margin-top: 5px;
       }
       
+      .product-manufacturer .no-underline {
+        text-decoration: none;
+      }
+      .product-manufacturer .no-underline:hover {
+        text-decoration: underline;
+      }
+      
       .product-reference {
         float: right;
       }
@@ -113,6 +120,8 @@
         position: relative;
         flex-direction: row;
         display: inline-flex;
+        list-style: none;
+        margin-bottom: 0;
       }
       
       .product-flags li.product-flag.online-only {
@@ -186,14 +195,15 @@
         padding-top: 0;
       }
       
-      .product-information p {
+      .product-information p,
+      .product-information li {
         padding-bottom: 0;
+        margin-bottom: 0;
       }
       
       .product-information .product-description p,
       .product-information .product-description li  {
         color: #4B5563 !important;
-        padding-bottom: 3px;
       }
       
       .product-information .product-description ul {
@@ -203,6 +213,9 @@
       .product-information .alert {
         margin: 0;
         max-width: 100%;
+        padding: .75rem 1.25rem;
+        border-radius: 4px;
+        line-height: inherit;
       }
       
       .product-variants ul {
@@ -408,6 +421,7 @@
         font-size: 90%;
         margin-top: 0.3rem;
         color: #111927;
+        line-height: 1.2;
       }
       
       .product-images {
@@ -466,15 +480,8 @@
       #product #content {
         max-width: 600px;
       }
+
       
-      
-      #product-slider-items {
-        display: flex;
-        position: relative;
-        justify-content: space-around;
-        max-width: 1400px;
-        padding-left: 0;
-      }
       
       #product-slider-items:before {
         content: '';
@@ -483,32 +490,29 @@
         position: absolute;
         left: 0;
         right: 0;
-        top: 100px;
+        top: 93px;
+        z-index: 0;
       }
       
-      #product-slider-items .item {
-        background: white;
-        z-index: 1;
-        padding: 0 1rem;
-        margin: 0 1rem;
-        text-align: center;
-      }
+
       
-      #product-slider-items span {
-        display: inline-block;
-      }
-      
-      #product-slider-items .icon-special:after {
+{*
+      #product-slider-items span.flex:after {
         width: 45px;
         height: 45px;
+        content: '';
+        display: block;
+        background-color: rgba(131, 181, 139, 0.3);
+        border-radius: 100%;
+        top: 0;
+        position: absolute;
+        right: 0;
+        z-index: 0;
       }
+*}
+
       
-      #product-slider-items img {
-        width: 60px;
-        border-radius: 50%;
-        margin: 0 auto;
-      }
-      
+
       
       #manufacturer_block {
         display: flex;
@@ -535,6 +539,7 @@
       
       #manufacturer_block .product-manufacturer-infos p {
         font-size: 0.9rem;
+        line-height: 1.4;
       }
       
       #manufacturer_block .seemore a {
@@ -569,19 +574,10 @@
         background: #f8faff;
       }
       
-    
-      .product-container .tab-pane ul {
-        list-style: disc;
-      }
-      
       .product-discounts {
         margin-bottom: 0.5rem;
       }
       
-      #description .product-description > h2,
-      #description .product-description > .h2 {
-        margin-top : 10px;
-      }
       
       #composition table {
         max-width: 700px;
@@ -657,6 +653,10 @@
         padding-right: 50px;
       }
       
+      .tabs {
+        padding-top: 4rem;
+      }
+      
       .tabs .nav-tabs .nav-link.color-pro,
       .color-pro {
         color : #60ada7 !important;
@@ -665,11 +665,6 @@
       .nav-tabs .nav-item+.nav-item {
         margin-left: 0 !important;
       }
-      
-      .tabs {
-        padding-top: 3rem;
-      }
-      
 
       
       .tabs .tab-pane {
@@ -697,6 +692,7 @@
         line-height: normal !important;
         border-bottom: 1px solid #e5e8ea !important;
         font-size: 0.9rem;
+        text-decoration: none;
       }
       
       .vertical-tabs .nav-link:after {
@@ -753,22 +749,9 @@
       }
       
       #product-details .block {
-        border-radius: 10px;
-        border: 1px solid #e5e8ea;
         padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        flex: 0 0 calc(100%/3 - 1rem);
       }
       
-      #product-details .block .icon-special {
-        display: inline-block;
-      }
-      
-      #product-details .block .icon-special:after {
-        width: 35px;
-        height: 35px;
-      }
-
 
       .sticky-tabs-nav {
         position: -webkit-sticky;
@@ -786,7 +769,6 @@
       .principe-item {
         gap: .5rem;
       }
-      
       
   </style>
 
@@ -832,7 +814,7 @@
             <span class="product-reference">Réf. {$product.reference}</span>
             
             <div class="product-manufacturer">
-              <span><a href="#manufacturer_block" title="En savoir plus sur {$product.manufacturer_name}">{$product.manufacturer_name}</a></span>
+              <span><a href="#manufacturer_block" title="En savoir plus sur {$product.manufacturer_name}" class="color-text no-underline hover:underline">{$product.manufacturer_name}</a></span>
             </div>
             
             {block name='page_header'}
@@ -994,7 +976,7 @@
       
             {block name='product_tabs'}
 
-              <div class="tabs clear row">
+              <div class="tabs clear row pt-16 mt-0">
                 
                 <ul class="nav nav-tabs col-md-3 col-sm-12 vertical-tabs sticky-tabs-nav" role="tablist">
                   <p class="h4">{$product.name}</p>
@@ -1050,7 +1032,7 @@
                       href="#product-details"
                       role="tab"
                       aria-controls="product-details"
-                      {if !$product.description} aria-selected="true"{/if}>{l s='Certifications' d='Shop.Theme.Catalog'}</a>
+                      {if !$product.description} aria-selected="true"{/if}>{l s='Spécificités technique' d='Shop.Theme.Catalog'}</a>
                   </li>
                   
                   
@@ -1112,7 +1094,7 @@
                  {if (isset($product.ingredients) && $product.ingredients) || (isset($product.tab_nutri) && $product.tab_nutri)}
                     <div class="tab-pane fade in" id="composition" role="tabpanel">
                       {if isset($product.ingredients) && $product.ingredients}
-                        <p class="h4">Ingrédients</p>
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Ingrédients</h2>
                         {$product.ingredients nofilter}
                       {/if}
 
@@ -1129,36 +1111,38 @@
                       
                       {* Affichage si principes actifs sur le produit *}
                       {if !empty($principes_actifs)}
-                        <hr />
-                        <p class="h4">Principes actifs</p>
-                        
-                        <ul class="principes-list">
+                        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10 mt-8">
                           {foreach from=$principes_actifs item=pa}
-                            <li>
-                              <div class="principe-item">
-                                {* image de catégorie *}
-                                {if isset($pa.image.small) && $pa.image.small}
-                                  <div class="principe-image">
-                                    <img src="{$pa.image.small}" alt="{$pa.name}" class="img-responsive" />
-                                  </div>
+                            <div class="border-t border-gray-200 pt-4 flex items-start gap-4">
+                              {if isset($pa.image.small) && $pa.image.small}
+                                <img src="{$pa.image.small}" alt="{$pa.name}" class="w-24 h-24 object-contain" />
+                              {/if}
+                      
+                              <div>
+                                <dt class="font-medium text-gray-900">
+                                  <a href="{$link->getCategoryLink($pa.id_category, $pa.link_rewrite)}" title="Voir tous nos produits {$pa.name}">{$pa.name}</a>
+                                </dt>
+                                {if isset($pa.additional_description) && $pa.additional_description}
+                                  <dd class="mt-1.5 mb-1.5 text-sm text-gray-500">
+                                    {$pa.additional_description|strip_tags}
+                                  </dd>
+                                {elseif isset($pa.description) && $pa.description}
+                                  <dd class="mt-1.5 mb-1.5 text-sm text-gray-500">
+                                    {$pa.description|strip_tags|truncate:300:'...'}
+                                  </dd>
                                 {/if}
-                                <div class="principe-content">
-                                  <a href="{$link->getCategoryLink($pa.id_category, $pa.link_rewrite)}">{$pa.name}</a>
-                                  
-                                  {* Récupère additional_description depuis l'override de CategoryController (getChildrenCategory) *}
-                                  {if isset($pa.additional_description) && $pa.additional_description}
-                                    <div class="principe-description">{$pa.additional_description nofilter}</div>
-                                  {/if}
-                                </div>
+                                <p class="text-xs lowercase">» <a href="{$link->getCategoryLink($pa.id_category, $pa.link_rewrite)}" title="Voir tous nos produits {$pa.name}" class="underline">Voir tous nos produits {$pa.name}</a></p>
                               </div>
-                            </li>
+                            </div>
                           {/foreach}
-                        </ul>
+                        </dl>
                       {/if}
 
+                      
+                      
                       {if isset($product.tab_nutri) && $product.tab_nutri}
                         <hr />
-                        <p class="h4">Tableau nutritionnel</p>
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Tableau nutritionnel</h2>
                         {$product.tab_nutri nofilter}
                       {/if}
                       
@@ -1169,14 +1153,13 @@
 
                  
                  {if (isset($product.mode_emploi) && $product.mode_emploi) || (isset($product.contre_indications) && $product.contre_indications)}
-                  <div class="tab-pane fade in" id="mode-emploi" role="tabpanel">
-                    
-                      <p class="h4">Conseils d'utilisation</p>
+                  <div class="tab-pane fade in" id="mode-emploi" role="tabpanel">                    
+                      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Conseils d'utilisation</h2>
                       {$product.mode_emploi nofilter}
                       
                       <hr />
                                                          
-                      <p class="h4">Contre-indications</p>
+                      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Contre-indications</h2>
                       {if isset($product.contre_indications) && $product.contre_indications} 
                         {$product.contre_indications nofilter}
                       {/if}
@@ -1272,7 +1255,7 @@
       <div id="manufacturer_block" class="product-manufacturer brand-{$product_manufacturer->id}" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
         <div class="block product-manufacturer-infos">
         {if isset($manufacturer_image_url)}
-          <a href="{$product_brand_url}" class="product-manufacturer-img">
+          <a href="{$product_brand_url}" class="product-manufacturer-img" title="{$product_manufacturer->name}">
             <figure>
               <img src="{$manufacturer_image_url}" class="img img-fluid manufacturer-logo" alt="{$product_manufacturer->name}" loading="lazy">
               <meta itemprop="logo" content="{$manufacturer_image_url}" />
@@ -1280,9 +1263,9 @@
           </a>
         {/if}
           <div class="product-manufacturer-name">
-            <h4 itemprop="name"><a href="{$product_brand_url}">{$product_manufacturer->name}</a></h4>
+            <h4 itemprop="name"><a href="{$product_brand_url}" title="{$product_manufacturer->name}">{$product_manufacturer->name}</a></h4>
             {$product_manufacturer->short_description nofilter}
-            <p class="seemore">» <a href="{$product_brand_url}">Les produits {$product_manufacturer->name}</a></p>
+            <p class="seemore">» <a href="{$product_brand_url}" title="{$product_manufacturer->name}">Les produits {$product_manufacturer->name}</a></p>
           </div>
         </div>
           
@@ -1320,6 +1303,13 @@
     
     
     
+    {block name='therap'}
+      {include file='../_partials/therap.tpl'}
+    {/block}
+    
+    
+    
+    
     
     {* SHOPIMIND INTERETS PRODUCTS *}
     <div id="shopimind-interets-products"></div>
@@ -1331,7 +1321,17 @@
     {block name='product_images_modal'}
       {include file='catalog/_partials/product-images-modal.tpl'}
     {/block}
-
+    
+    
+    {block name='fondation-jacobs'}
+      {include file='../_partials/fondation-jacobs.tpl'}
+    {/block}
+    
+    {block name='charte-qualite'}
+      {include file='../_partials/charte-qualite.tpl'}
+    {/block}
+    
+    
     {block name='page_footer_container'}
       <footer class="page-footer">
         {block name='page_footer'}
@@ -1341,5 +1341,5 @@
     {/block}
   </section>
   
-
+  
 {/block}

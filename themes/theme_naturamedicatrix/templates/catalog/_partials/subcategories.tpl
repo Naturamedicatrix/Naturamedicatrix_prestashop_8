@@ -89,7 +89,7 @@
   </div>
   
   {* Affiche le menu avec les lettres de l'alphabet qui sont présentes *}
-  <ul id="alphabet" class="-mx-4 gap-4 sm:-mx-11 xl:mx-0 z-5 flex overflow-x-scroll sticky top-0 justify-start items-baseline bg-white shadow-md sm:py-0 sm:pt-2 sm:pb-2 sm:pl-7 sm:shadow-none xl:px-14 xl:justify-center xl:overflow-x-hidden scrollbar-hidden">        
+  <ul id="alphabet" class="list-none -mx-4 gap-4 sm:-mx-11 xl:mx-0 z-5 flex overflow-x-scroll sticky top-0 justify-start items-baseline bg-white shadow-md sm:py-0 sm:pt-2 sm:pb-2 sm:pl-7 sm:shadow-none xl:px-14 xl:justify-center xl:overflow-x-hidden scrollbar-hidden">        
     {foreach from=$alphabet_complet item=letter}
       {if isset($lettres_presentes[$letter])}
         <li class="flex flex-shrink-0 justify-center items-center w-10 h-10 text-xl cursor-pointer rounded-full"><a href="#{$letter}"><span>{$letter}</span></a></li>
@@ -109,7 +109,7 @@
         </svg>
       </h2>
     </div>
-    <ul id="search-results" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
+    <ul id="search-results" class="list-none grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
       {* Résultats de la recherche sont affichés ici *}
     </ul>
   </div>
@@ -127,7 +127,7 @@
             <div class="letter mb-2 md:mb-0 bg-white text-gray-800 text-lg md:text-3xl md:flex md:justify-center pt-5 text-center">
               <h2 class="xs:self-center md:self-start md:sticky md:top-16 text-xl text-center">{$current_letter}</h2>
             </div>
-            <ul id="{$current_letter}" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
+            <ul id="{$current_letter}" class="list-none grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4 gap-y-5 justify-items-center w-full py-2 md:pl-12 md:pr-0 md:py-12">
               
               {* Filtre les principes actifs commençant par la lettre actuelle *}
               {foreach from=$subcategories item=subcategory}
@@ -183,7 +183,7 @@
       {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
         <div id="subcategories">
           
-          <ul class="subcategories-list">
+          <ul class="list-none subcategories-list">
             {foreach from=$subcategories item=subcategory}
               <li>
                 {* <div class="subcategory-image">

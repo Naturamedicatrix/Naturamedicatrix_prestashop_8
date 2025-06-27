@@ -149,6 +149,10 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         padding: 10px 0 0 0;
         border-top: none;
 
+        a {
+            text-decoration: none;
+        }
+
     }
 
     h1, h2 {
@@ -555,6 +559,11 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
         i {
             position: relative;
             top: 2px;
+            font-size: .8rem;
+        }
+
+        a {
+            text-decoration: none;
         }
     }
 

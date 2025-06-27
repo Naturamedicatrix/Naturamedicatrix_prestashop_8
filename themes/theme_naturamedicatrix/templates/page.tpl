@@ -10,7 +10,7 @@
     {block name='page_header_container'}
       {block name='page_title' hide}
         <header class="page-header">
-          <h1 class="page-title">{$smarty.block.child}</h1>
+          <h1 class="page-title text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{$smarty.block.child}</h1>
           <div class="title-separator">
             <svg id="logoTitle" data-name="Logo Title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504.59 360.15">
               <path class="logo-title"

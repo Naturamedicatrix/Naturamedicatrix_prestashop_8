@@ -12,7 +12,7 @@
 
     {block name='brand_header'}
       <header class="page-header">
-        <h1 class="page-title">{l s='Brands' d='Shop.Theme.Catalog'}</h1>
+        <h1 class="page-title text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{l s='Brands' d='Shop.Theme.Catalog'}</h1>
         <div class="title-separator">
           <svg id="logoTitle" data-name="Logo Title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504.59 360.15">
             <path class="logo-title"
@@ -30,7 +30,7 @@
     {* Liste complète des marques (excluant les marques stars) *}
     {block name='brand_miniature'}
       <div class="container brand-miniature">
-        <div class="alert alert-info text-center">Nous ne distribuons pas ces produits en magasins ou pharmacies.</div>
+        <div class="mx-auto alert alert-info text-center">Nous ne distribuons pas ces produits en magasins ou pharmacies.</div>
         <div class="row">
           {foreach from=$brands item=brand}
             {* Exclure les marques stars *}

@@ -158,21 +158,6 @@ body#registration {
                 }
               }
             }
-            
-            .password-toggle-btn {
-              left: 300px;
-              
-              // Mobile spécifique
-              @media (max-width: $breakpoint-sm) {
-                left: auto;
-                right: 10px;
-              }
-              
-              // Tablette
-              @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg)) {
-                right: 10px;
-              }
-            }
           }
           
           // Style du footer du formulaire
