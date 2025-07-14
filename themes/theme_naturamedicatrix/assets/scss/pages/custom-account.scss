@@ -507,16 +507,34 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
             .help-block {
                 margin-top: 60px !important;
                 border-top: 4px solid white;
+
+                @media (max-width: $breakpoint-sm) {
+                    background-color: $color-custom-bgLight;
+                    padding: 0 20px 0 20px;
+                    border-top: none !important;
+                }
             
                 h5 {
                     text-align: left;
                     padding: 30px 0 10px 0;
+                    margin-top: 50px !important;
+
+                    @media (max-width: $breakpoint-lg) {
+                        margin-top: 20px !important;
+                    }
+                    @media (max-width: $breakpoint-sm) {
+                        text-align: center;
+                    }
                 }
                 
                 p {
                     text-align: left;
                     padding-bottom: 0;
                     margin-bottom: 0;
+
+                    @media (max-width: $breakpoint-sm) {
+                        text-align: center;
+                    }
                 }
                 
                 .title-separator {

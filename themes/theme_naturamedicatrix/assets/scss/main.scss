@@ -559,7 +559,7 @@ table.table-light {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  padding: 3rem 0 4rem 0;
+  padding: 0 0 4rem 0;
 }
 
 // END FULL WIDTH SECTION
@@ -836,13 +836,6 @@ table.table-light {
 
 /* === BLOC BESOIN D'AIDE === */
 .help-block {
-    h5 {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 0;
-        color: $color-custom-black
-    }
-
     .title-separator {
       margin-bottom: 1rem;
       &:before {
@@ -1131,7 +1124,6 @@ div#_desktop_search_filters_clear_all {
   background-color: $color-custom-whiteDarker !important;
   color: $color-custom-gray;
   padding: 3px 15px;
-  margin-bottom: 1rem !important;
   border-radius: 25px;
   display: inline-block;
 }
@@ -1209,6 +1201,12 @@ body#pagenotfound {
 
   .page-not-found {
     margin-bottom: 80px !important;
+  }
+
+  .page-not-found #search_widget {
+    position: initial;
+    margin-top: 15px;
+    margin-bottom: 30px;
   }
 }
 // END PAGE 404

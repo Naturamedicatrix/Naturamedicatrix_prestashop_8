@@ -601,6 +601,8 @@
 #search_widget {
   min-width: 25rem;
   z-index: 10;
+  position: absolute;
+  right: 0;
 
   @media (max-width: $breakpoint-lg) {
     min-width: 15rem;
@@ -776,4 +778,28 @@
 .carousel-nav-button {
   position: relative;
   z-index: 20;
+}
+
+
+#_desktop_language_selector {
+  .dropdown-menu {
+    a {
+      transition: all 0.2s ease;
+      &:hover {
+        color: white !important;
+        padding-right: 8px !important; 
+        background: $color-custom-green !important;
+      }
+    }
+    a.bg-primary {
+      color: $color-custom-green !important;
+      font-weight: bold !important;
+      background-color: $color-custom-whiteDarker !important;
+      transition: all 0.2s ease;
+      &:hover {
+        background-color: $color-custom-green !important;
+        color: white !important;
+      }
+    }
+  }
 }

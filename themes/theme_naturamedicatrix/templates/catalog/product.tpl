@@ -1,27 +1,6 @@
 {**
- * Copyright since 2007 PrestaShop SA and Contributors
- * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.md.
- * It is also available through the world-wide-web at this URL:
- * https://opensource.org/licenses/AFL-3.0
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
- * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to https://devdocs.prestashop.com/ for more information.
- *
- * @author    PrestaShop SA and Contributors <contact@prestashop.com>
- * @copyright Since 2007 PrestaShop SA and Contributors
- * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- *}
+ FICHE PRODUIT
+*}
  
 
 {* VARIABLES *}
@@ -79,9 +58,182 @@
       .product-container {
         padding-top: 1rem;
       }
+      @media (max-width: 767px) {
+        .product-container {
+          padding-top: 0;
+        }
+        
+        #product-block-infos {
+          padding-right: 15px !important;
+          padding-left: 15px !important;
+          text-align: left;
+        }
+        
+        #product-block-infos h1 {
+          text-align: left;
+        }
+        
+        .product-flags {
+          justify-content: flex-start;
+          margin-left: 0;
+        }
+        
+        .product-manufacturer {
+          text-align: left;
+        }
+        
+        .product-reference {
+          float: none;
+          display: block;
+          text-align: left;
+          margin-bottom: 10px;
+          color: #93A7C3;
+        }
+
+        #product-block-infos h1 {
+          font-size: 1.7rem !important;
+          margin-top: 0;
+          margin-bottom: 15px;
+          line-height: 1.2;
+        }
+
+        .yotpo.bottomLine {
+          justify-content: flex-start;
+          margin-bottom: 18px;
+        }
+        
+        .product-description {
+          text-align: left;
+          margin-bottom: 20px;
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
+        
+        .product-description .lead {
+          font-size: 0.95rem;
+          font-weight: 500;
+          margin-bottom: 12px;
+        }
+        
+        .product-description p {
+          margin-bottom: 10px;
+        }
+        
+        .product-description ul li {
+          font-size: 0.9rem;
+          line-height: 1.4;
+          margin-bottom: 6px;
+        }
+        
+        .availabledlu {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-bottom: 15px;
+        }
+        
+        #product-instock {
+          text-align: left;
+          margin-bottom: 8px;
+          font-weight: 500;
+          color: #28a745;
+        }
+        
+        .product-dlc {
+          font-size: 0.85rem;
+          margin-bottom: 18px;
+          color: #6c757d;
+        }
+        
+        #dlu.badge-dlu {
+          font-size: 0.8rem !important;
+        }
+
+        .current-price-value {
+          font-size: 1.5rem !important;
+        }
+        
+        
+        /* Amélioration de l'affichage des prix */
+        .product-prices {
+          margin-top: 5px;
+          margin-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        
+        .product-discount {
+          margin-right: 10px;
+          text-align: left;
+        }
+        
+        .product-discount .regular-price {
+          font-size: 0.95rem;
+          color: #7a7a7a;
+        }
+        
+        .product-price {
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: #000;
+          margin-top: 5px;
+        }
+        
+        .product-discount .discount {
+          display: inline-block;
+          padding: 3px 6px;
+          background-color: #f6546a;
+          color: white;
+          font-size: 0.75rem;
+          font-weight: 600;
+          border-radius: 3px;
+          margin-left: 5px;
+          vertical-align: middle;
+        }
+        
+        .product-information {
+          text-align: left;
+        }
+        
+        .product-actions .control-label {
+          text-align: left;
+          display: block;
+          margin-bottom: 10px;
+          font-weight: 500;
+        }
+        
+        .product-variants-item {
+          justify-content: flex-start;
+          margin-bottom: 15px;
+        }
+        
+        .product-quantity {
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          margin-top: 20px;
+          margin-bottom: 15px;
+        }
+        
+        .product-quantity .qty {
+          margin: 0 15px 0 0;
+        }
+        
+        .add-to-cart {
+          margin: 0;
+        }
+      }
       
       #product-block-infos {
         padding-right: 150px;
+      }
+      
+      @media (max-width: 991px) {
+        #product-block-infos {
+          padding-right: 15px;
+          padding-left: 15px;
+        }
       }
       
       .product-manufacturer,
@@ -89,6 +241,13 @@
         color: #93A7C3;
         font-size: 0.9rem;
         margin-top: 5px;
+      }
+      
+      @media (max-width: 767px) {
+        .product-manufacturer {
+          margin-top: 8px;
+          margin-bottom: 8px;
+        }
       }
       
       .product-manufacturer .no-underline {
@@ -1123,7 +1282,7 @@
                 {if $product.thera_sup && isset($customer) && $customer.is_logged && ($customer.id_default_group == 4 || $customer.id_default_group == 5)}
                  <div class="tab-pane fade in active js-product-tab-active" id="thera_sup" role="tabpanel">
 
-                     <p class="h4 color-pro"><i class="bi bi-unlock-fill"></i> {l s='Professional-use information' d='Shop.Theme.Catalog'}</p>
+                     <p class="h4 color-pro"><i class="bi bi-unlock-fill"></i> {l s='Informations pour les professionnels' d='Shop.Theme.Catalog'}</p>
                      {$product.thera_sup nofilter}
 
                  </div>
@@ -1375,13 +1534,19 @@
       {include file='catalog/_partials/product-images-modal.tpl'}
     {/block}
     
-    
+
+
+    {* FONDATION JACOBS & CHARTES NATURAMEDICATRIX *}
     {block name='fondation-jacobs'}
-      {include file='../_partials/fondation-jacobs.tpl'}
+      {if isset($product_manufacturer) && $product_manufacturer->id == 3}
+        {include file='../_partials/fondation-jacobs.tpl'}
+      {/if}
     {/block}
     
     {block name='charte-qualite'}
-      {include file='../_partials/charte-qualite.tpl'}
+      {if isset($product_manufacturer) && $product_manufacturer->id == 4}
+        {include file='../_partials/charte-qualite.tpl'}
+      {/if}
     {/block}
     
     

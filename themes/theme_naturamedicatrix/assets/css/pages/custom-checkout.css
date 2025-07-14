@@ -132,7 +132,7 @@ body#checkout .cart-summary-line.cart-total span {
   color: #111827;
 }
 body#checkout .cart-summary-line .free {
-  color: #83b58b;
+  color: #589875;
   text-transform: capitalize;
 }
 body#checkout .cart-summary-products .js-show-details {
@@ -199,7 +199,7 @@ body#checkout section.checkout-step .address-item {
   border: 1px solid transparent;
 }
 body#checkout section.checkout-step .address-item.selected {
-  border: 2px solid #83b58b;
+  border: 2px solid #589875;
 }
 body#checkout section.checkout-step .delivery-options .delivery-option:not(:last-child) {
   background: transparent;
@@ -270,7 +270,7 @@ body#checkout .additional-information p {
   font-size: 0.85rem;
 }
 body#checkout address, body#checkout .address {
-  border-left: 1px solid #83b58b;
+  border-left: 1px solid #589875;
   padding-left: 15px;
   color: #4B5563;
   line-height: 1.5;
@@ -701,7 +701,7 @@ body#discount .cart-summary-line:last-child, body#cart .cart-summary-line:last-c
   padding: 0 0 1rem 0;
 }
 body#discount #cart-subtotal-shipping .value, body#cart #cart-subtotal-shipping .value {
-  color: #83b58b;
+  color: #589875;
   text-transform: capitalize;
 }
 body#discount .remove-discount-button, body#cart .remove-discount-button {

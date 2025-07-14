@@ -23,6 +23,7 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 <div class="images-container js-images-container">
+  <!-- L'ordre sera contrôlé via CSS en version mobile -->
   {block name='product_cover'}
     <div class="product-cover">
       {if $product.default_image}
@@ -123,8 +124,152 @@
 {hook h='displayAfterProductThumbs' product=$product}
 </div>
 
+<style>
+  /* Styles spécifiques pour version mobile */
+  @media (max-width: 767px) {
+    .images-container {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .images-container .product-cover {
+      order: 1;
+    }
+    
+    .images-container .js-qv-mask {
+      order: 2;
+    }
+    
+    #product-block-image {
+      background: #ffffff;
+      margin-bottom: 1rem;
+    }
+    
+    .product-cover {
+      margin-left: 0;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .product-cover img {
+      width: 80%;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
+      display: block;
+    }
+    
+    .js-qv-mask.mask {
+      margin: 0.5rem auto 0;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .js-qv-mask.mask::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .product-images {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      gap: 12px;
+      padding: 5px 0;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      width: max-content;
+      margin: 0 auto;
+    }
+    
+    .thumb-container {
+      margin: 0;
+    }
+    
+    .product-images > li.thumb-container {
+      scroll-snap-align: start;
+    }
+    
+    .product-images > li.thumb-container .thumb {
+      margin: 0;
+      border-radius: 4px;
+      border: 1px solid #e5e8ea;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #fff;
+      transition: border-color 0.2s ease;
+    }
+
+    .product-images > li.thumb-container .thumb.selected {
+      border: 1px solid #83b58b;
+    }
+    
+    .product-cover .flex.justify-center {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // gestion des miniatures et sélections
+    function handleThumbnailSelection() {
+      var thumbnails = document.querySelectorAll('.product-images > li.thumb-container .thumb');
+      var productCover = document.querySelector('.product-cover img');
+      var videoThumbnail = document.getElementById('video-thumbnail');
+      
+      // Désélectionne toutes les miniatures
+      function resetSelection() {
+        thumbnails.forEach(function(thumb) {
+          thumb.classList.remove('selected');
+        });
+      }
+      
+      // Gère les clics sur les miniatures
+      thumbnails.forEach(function(thumb) {
+        thumb.addEventListener('click', function() {
+          resetSelection();
+          this.classList.add('selected');
+          
+          // Défile jusqu'à la miniature sélectionnée
+          var container = document.querySelector('.js-qv-mask.mask');
+          if(container) {
+            var thumbLeft = this.parentNode.offsetLeft;
+            var containerWidth = container.offsetWidth;
+            container.scrollTo({
+              left: thumbLeft - containerWidth / 2 + 30,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Rétablit la sélection après chargement de page
+      setTimeout(function() {
+        var firstThumb = document.querySelector('.product-images > li.thumb-container:first-child .thumb');
+        if(firstThumb) {
+          resetSelection();
+          firstThumb.classList.add('selected');
+        }
+      }, 100);
+    }
+    
+    // Initialisation de la gestion des miniatures
+    handleThumbnailSelection();
+    
+    // Réinitialisation lors du changement de déclinaison
+    prestashop.on('updatedProduct', function() {
+      setTimeout(handleThumbnailSelection, 200);
+    });
+    
     // Fonction pour initialiser la miniature YouTube
     function initializeYouTubeThumbnail() {
       {if isset($product.video_iframe) && $product.video_iframe}
@@ -161,16 +306,30 @@
     // Initialisation au chargement de la page
     initializeYouTubeThumbnail();
     
-    // Réinitialisation lors du changement de déclinaison (événement PrestaShop)
+    // Réinitialisation complète lors du changement de déclinaison
     prestashop.on('updatedProduct', function(event) {
       setTimeout(function() {
+        // Réinitialiser la miniature YouTube
         initializeYouTubeThumbnail();
+        
+        // Rétablir les attributs pour le modal
         var videoThumbnail = document.getElementById('video-thumbnail');
         if (videoThumbnail) {
           videoThumbnail.setAttribute('data-toggle', 'modal');
           videoThumbnail.setAttribute('data-target', '#product-modal');
+          
+          // Ajoute un écouteur d'événement spécifique pour la vidéo
+          videoThumbnail.addEventListener('click', function() {
+            // Désélectionne toutes les miniatures et sélectionne celle-ci
+            var thumbnails = document.querySelectorAll('.product-images > li.thumb-container .thumb');
+            thumbnails.forEach(function(thumb) { thumb.classList.remove('selected'); });
+            this.classList.add('selected');
+          });
         }
-      }, 100);
+        
+        // Réinitialiser la sélection des miniatures
+        handleThumbnailSelection();
+      }, 200);
     });
   });
 </script>

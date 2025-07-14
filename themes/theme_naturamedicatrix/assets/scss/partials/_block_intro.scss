@@ -3,11 +3,11 @@
 // Styles pour le bloc d'introduction Naturamedicatrix
 .intro-naturamedicatrix-container {
   display: flex;
-  margin: 2rem 0;
+  margin: 0;
   background-color: $color-custom-bgWrapper;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid $color-custom-grayLight;
+  border: 1px solid #e5e8ea;
 }
 
 .intro-naturamedicatrix-image {
