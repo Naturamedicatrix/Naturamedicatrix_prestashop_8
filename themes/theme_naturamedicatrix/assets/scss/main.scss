@@ -272,10 +272,14 @@ body#index {
 // End Typography
 
 // Boutons d'actions
+button:focus {
+  outline: none !important;
+}
+
 .btn, .wishlist-add-to-new {
   border-radius: 4px;
   cursor: pointer;
-  text-align: center;
+    text-align: center;
   display: inline-block;
   font-weight: bold;
   font-size: 15px;
@@ -291,7 +295,6 @@ body#index {
     padding: 10px 80px;
     margin: 0 auto;
   }
-
   a {
     text-decoration: none;
   }
@@ -315,6 +318,7 @@ body#index {
   background-color: transparent !important;
   color: $color-custom-green !important;
   border: 1px solid $color-custom-green !important;
+  text-decoration: none !important;
 
   &:hover {
     background-color: $color-custom-green !important;
@@ -331,6 +335,7 @@ body#index {
   background-color: transparent !important;
   color: $color-custom-black !important;
   border: 1px solid $color-custom-black !important;
+  text-decoration: none !important;
 
   &:hover {
     background-color: $color-custom-black !important;
@@ -372,7 +377,6 @@ body#index {
     }
   }
 }
-
 
 .btn-disabled, .disabled {
   background-color: #e1e1e1 !important;
@@ -710,6 +714,7 @@ table.table-light {
     padding-left: 0;
     height: 497px;
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   .direction {

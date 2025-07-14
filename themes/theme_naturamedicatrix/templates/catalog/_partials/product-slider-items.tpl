@@ -1,5 +1,5 @@
 {if isset($product.features) && $product.features}
-  <div id="product-slider-items" class="flex flex-wrap justify-around gap-6 pt-16 w-full relative">
+  <div id="product-slider-items" class="flex flex-wrap justify-center gap-24 pt-16 w-full relative">
 
     {foreach from=$product.features item=feature}
 

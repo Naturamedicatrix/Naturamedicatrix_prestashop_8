@@ -283,6 +283,8 @@
   justify-content: center;
   width: 100%;
   max-width: 700px;
+  position: relative;
+  padding: 0 50px; /* Espace pour les flèches */
 }
 
 /* CAROUSEL TEXT */
@@ -300,56 +302,73 @@
 }
 
 .carousel-nav-button {
-  height: 2rem;
-  width: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #f9fafb;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f9fafb;
-  z-index: 20;
-  transition: all 0.2s ease;
-  font-size: 13px;
+  z-index: 30; /* S'assurer que les boutons sont au-dessus du contenu */
 }
 .carousel-nav-button:hover {
-  opacity: 0.8;
+  color: rgb(218.4, 224.5, 230.6);
 }
-.carousel-nav-button:focus {
-  outline: none;
+.carousel-nav-button:hover svg {
+  stroke-width: 1.5;
+}
+.carousel-nav-button svg {
+  stroke: currentColor;
+  transition: all 0.3s ease;
+}
+.carousel-nav-button .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.carousel-nav-button#carousel-prev {
+  left: -20px;
+  top: 20px;
+}
+.carousel-nav-button#carousel-next {
+  right: -20px;
+  top: 20px;
 }
 
 #text-carousel {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  color: #f9fafb;
-  position: relative;
   overflow: hidden;
-  max-width: 36rem;
-  margin-left: 0;
-  margin-right: 0;
-  font-size: 14px;
-  font-weight: bolder;
-}
-@media (max-width: 768px) {
-  #text-carousel {
-    font-size: 12px;
-  }
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #f9fafb;
+  position: relative; /* Assure que les positionnements absolus fonctionnent correctement */
 }
 @media (max-width: 640px) {
   #text-carousel {
-    font-size: 9px;
+    font-size: 14px;
   }
 }
-
-.carousel-item {
-  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+#text-carousel .carousel-item {
+  display: inline-block;
+  width: 100%;
+  transition: all 0.5s ease;
+  padding: 0 10px; /* Espace intérieur supplémentaire */
 }
-.carousel-item.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-.carousel-item.inactive {
-  opacity: 0;
+#text-carousel .carousel-item.inactive {
   position: absolute;
   inset: 0;
   transform: translateX(100%);
@@ -592,6 +611,9 @@
 
 #search_widget {
   min-width: 25rem;
+  position: absolute;
+  right: 0;
+  z-index: 10;
 }
 @media (max-width: 1024px) {
   #search_widget {
@@ -607,10 +629,6 @@
   #search_widget {
     margin-top: 8px;
   }
-}
-
-#search_widget {
-  display: none;
 }
 
 #adtm_menu .searchboxATM .search_query_atm {

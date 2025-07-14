@@ -595,6 +595,9 @@ body#cart #footer .newsletter-container .alert {
 body#cart #footer .btn-primary:hover, body#cart #footer .btn-outline:hover {
   color: #f9fafb !important;
 }
+body#cart input.js-cart-line-product-quantity.w-full.border.text-center.rounded.form-control {
+  max-width: 40px;
+}
 
 .block-promo {
   margin-bottom: 0;

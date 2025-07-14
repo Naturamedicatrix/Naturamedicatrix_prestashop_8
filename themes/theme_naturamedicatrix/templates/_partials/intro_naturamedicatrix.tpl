@@ -5,10 +5,10 @@
  *}
 
 {block name='intro_naturamedicatrix_content'}
-  <div class="intro-naturamedicatrix-container">
+  <div class="intro-naturamedicatrix-container mt-0 mb-0">
     <div class="intro-naturamedicatrix-image"></div>
     <div class="intro-naturamedicatrix-content">
-      <h3 class="logo-description mb-6">NATURA<em>Medicatrix</em>, votre expert en compléments alimentaires, produits bio et vitamines</h3>
+      <h3 class="logo-description mb-6">NATURA<em>Medicatrix</em>, {l s='votre expert en compléments alimentaires, produits bio et vitamines' d='Shop.Theme.Global'}</h3>
       <div class="p1">
     <p>Bienvenue chez NATURA<strong><em>Medicatrix</em></strong> votre destination privilégiée pour des compléments alimentaires bio de haute qualité, des vitamines essentielles, et une gamme sélectionnée de produits bio pour soutenir votre bien-être quotidien. Spécialistes reconnus dans le domaine des suppléments naturels, nous vous offrons une collection rigoureusement choisie pour sa biodisponibilité optimale et son efficacité prouvée.</p>
   

@@ -1,3 +1,12 @@
+<style>
+  .container-iqit-menu {
+    padding: 0;
+  }
+  #header {
+    z-index: 20;
+  }  
+</style>
+
 {**
 ** CUSTOM HEADER 
  *}
@@ -11,34 +20,7 @@
 {block name='header_banner'}
   <div class="header-banner text-carousel-banner">
     <!-- PANNEAU D'ACTUALITÉS -->
-    <div id="actus-panel" class="actus-panel">
-      <div class="container">
-        <div class="actus-header">
-          <h3>{l s='Les actus du moment' d='Shop.Theme.Global'}</h3>
-          <button id="close-actus" class="close-actus">&times;</button>
-        </div>
-        <div class="actus-grid">
-          
-          <!-- Actu 1 - Naturamedicatrix -->
-          <div class="actu-card naturamedicatrix-card">
-            <h4>{l s='Les jours Naturamedicatrix' d='Shop.Theme.Global'}</h4>
-            <p>{l s='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' d='Shop.Theme.Global'}</p>
-          </div>
-          
-          <!-- Actu 2 - Alma-->
-          <div class="actu-card promo-card">
-            <h4>{l s='Payez en 2x 3x avec Alma' d='Shop.Theme.Global'}</h4>
-            <p>{l s='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' d='Shop.Theme.Global'}</p>
-          </div>
-          
-          <!-- Actu 3 - Livraison offerte -->
-          <div class="actu-card delivery-card">
-            <h4>{l s='Livraison offerte à partir de 35€ en point relais & 50€ à domicile' d='Shop.Theme.Global'}</h4>
-            <p>{l s='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' d='Shop.Theme.Global'}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    {include file='_partials/header-actu.tpl'}
     
     <div class="container">
       <div class="banner-wrapper">
@@ -46,14 +28,14 @@
         <div class="text-carousel-container" id="carousel-trigger">
           <!-- Flèche gauche -->
           <button id="carousel-prev" class="carousel-nav-button">
-            &lt;
+          <i class="bi bi-arrow-left"></i>
           </button>
 
           <!-- CONTENU DU TEXT CAROUSEL -->
           <div id="text-carousel">
             <div class="carousel-item active">
               <span class="highlight-text">{l s='Livraison offerte' d='Shop.Theme.Global'}</span>
-              {l s='apd 35€ en Point Relais & 50€ à domicile' d='Shop.Theme.Global'}
+              {l s='àpd 35€ en Point Relais & 50€ à domicile' d='Shop.Theme.Global'}
             </div>
             <div class="carousel-item inactive">
               {l s='Remise sur le total de la commande : <span class="highlight-text">-10% àpd 150€</span> | -5% àpd 75€' d='Shop.Theme.Global'}
@@ -65,7 +47,7 @@
 
           <!-- Flèche droite -->
           <button id="carousel-next" class="carousel-nav-button">
-            &gt;
+          <i class="bi bi-arrow-right"></i>
           </button>
         </div>
         
@@ -80,10 +62,75 @@
 {/block}
 
 
+  </div> <!-- end header-banner text-carousel-banner -->
+
+
+
+{*
+{block name='header_nav'}
+<div class="header-nav">
+  <div class="container">
+    <div class="row">
+      <div class="flex items-center justify-between bg-green-400 px-4 py-2">
+        <!-- Contact -->
+        <div class="flex items-center space-x-2">
+          <i class="bi bi-telephone text-lg text-white"></i>
+          <div class="flex flex-col leading-tight">
+            <span class="text-white text-sm font-semibold">Contactez-nous</span>
+            {assign var='country_id' value=Tools::getCountry()}
+            {if $country_id == 3}
+              <span class="text-white text-xs opacity-80">+32&nbsp;42&nbsp;90&nbsp;00&nbsp;79</span>
+            {else}
+              <span class="text-white text-xs opacity-80">+33&nbsp;(0)9&nbsp;77&nbsp;42&nbsp;37&nbsp;04</span>
+            {/if}
+          </div>
+        </div>
+      
+        <!-- Logo centré -->
+        <div id="_desktop_logo">
+          {if $shop.logo_details}
+            {if $page.page_name == 'index'}
+              <h1>
+                {renderLogo}
+              </h1>
+            {else}
+              {renderLogo}
+            {/if}
+          {/if}
+        </div>
+        
+      
+        <!-- Mon compte + Panier -->
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-2">
+            <i class="bi bi-person text-lg text-white"></i>
+            <div class="flex flex-col leading-tight">
+              <span class="text-white text-sm font-semibold">Mon compte</span>
+              <span class="text-white text-xs opacity-80">Se connecter</span>
+            </div>
+          </div>
+      
+          <div class="relative">
+            <i class="bi bi-bag text-lg text-white"></i>
+            <span class="absolute -top-1 -right-2 bg-pink-500 text-xs text-white rounded-full px-1">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{/block}
+*}
+
+
+
+
+
 {block name='header_nav'}
   <nav class="header-nav">
     <div class="container">
       <div class="row">
+
         <div class="hidden-sm-down">
           <!-- Contact à gauche -->
           <div class="col-md-3 col-xs-12 nav-contact">
@@ -91,14 +138,14 @@
             <a href="{$urls.pages.contact}" class="contact-link">
               <i class="bi bi-telephone"></i>
               <div>
-                <p class="font-bold">Contactez-nous</p>
+                <div class="font-bold">Contactez-nous</div>
                 
                 {assign var='country_id' value=Tools::getCountry()}
                 
                 {if $country_id == 3}                
-                  <p>+32&nbsp;42&nbsp;90&nbsp;00&nbsp;79</p>
+                  <div>+32&nbsp;42&nbsp;90&nbsp;00&nbsp;79</div>
                 {else}
-                  <p>+33&nbsp;(0)9&nbsp;77&nbsp;42&nbsp;37&nbsp;04</p>
+                  <div>+33&nbsp;(0)9&nbsp;77&nbsp;42&nbsp;37&nbsp;04</div>
                 {/if}
               </div>
             </a>

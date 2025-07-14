@@ -732,6 +732,10 @@ body#cart {
             color: $color-custom-white !important;
         }
     }
+
+    input.js-cart-line-product-quantity.w-full.border.text-center.rounded.form-control {
+        max-width: 40px;
+    }
 }
 
 

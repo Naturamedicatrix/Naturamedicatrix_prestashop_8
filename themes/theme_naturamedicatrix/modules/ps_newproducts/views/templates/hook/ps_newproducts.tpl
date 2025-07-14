@@ -69,6 +69,10 @@
      {/foreach}
    </div>
  </section>
+ 
+ 
+ {include file='_partials/home-categories.tpl'}
+ 
 
 <style>
 /* Styles spécifiques pour le carousel des nouveaux produits */

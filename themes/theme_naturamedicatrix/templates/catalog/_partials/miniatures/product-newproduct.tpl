@@ -80,7 +80,7 @@
           {* Product name *}
           {block name='product_name'}
             <h3 class="h3 product-title">
-              <a href="{$product.url}" content="{$product.url}">{$productName nofilter}</a>
+              <a class="no-underline" href="{$product.url}" content="{$product.url}">{$productName nofilter}</a>
             </h3>
           {/block}
           
@@ -91,26 +91,13 @@
           
           {* Product reviews *}
           {block name='product_reviews'}
-            <div class="product-reviews">
-              <div class="stars">
-                {for $i=1 to 5}
-                  {if $i <= 4}
-                    <i class="bi bi-star-fill"></i>
-                  {elseif $i == 5}
-                    <i class="bi bi-star-half"></i>
-                  {else}
-                    <i class="bi bi-star"></i>
-                  {/if}
-                {/for}
-              </div>
-              <span class="review-count">585 avis</span>
-            </div>
+            <div class="yotpo bottomLine review-score text-left text-xs pt-0" data-yotpo-product-id="{$product.id_product}"></div>
           {/block}
           
           {* Product price *}
           {block name='product_price_and_shipping'}
             {if $product.show_price}
-              <div class="product-price">
+              <div class="product-price mt-0">
                 <span class="price">{$product.price}</span>
                 
                 {if $product.has_discount}

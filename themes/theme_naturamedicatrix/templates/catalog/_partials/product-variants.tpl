@@ -54,7 +54,7 @@
           {/foreach}
         </select>
       {elseif $group.group_type == 'color'}
-        <ul id="group_{$id_attribute_group}">
+        <ul id="group_{$id_attribute_group}" class="list-none">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
             <li class="float-xs-left input-container">
               <label aria-label="{$group_attribute.name}">
@@ -74,7 +74,7 @@
         {* Récupérons toutes les images des attributs du produit en une seule requête *}
         {assign var="all_attribute_images" value=Product::getAllAttributeImagesStatic($product.id_product)}
         
-        <ul id="group_{$id_attribute_group}">
+        <ul id="group_{$id_attribute_group}" class="list-none">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
             <li class="input-container float-xs-left">
               <label>

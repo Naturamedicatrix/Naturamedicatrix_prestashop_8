@@ -43,7 +43,7 @@
       }
       
       #sticky-product-bar .sticky-qty {
-        width: 30px;
+        width: 50px;
         height: 40px;
         text-align: center;
         border: 1px solid #ddd;

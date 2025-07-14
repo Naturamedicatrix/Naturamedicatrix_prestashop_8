@@ -8,6 +8,25 @@
 {assign var=productName value=$productName|replace:')':')</span>'}
 {* END VARIABLES *}
 
+<style>
+  .product-miniature .yotpo-reviews-star-ratings-widget {
+    justify-content: center !important;
+  }
+  
+  .product-miniature .yotpo-sr-bottom-line-text {
+    font-size: .75rem !important;
+    font-weight: 500 !important;
+  }
+  
+  .product-miniature .yotpo-sr-bottom-line-summary.yotpo-sr-bottom-line-button {
+    align-items: center !important;
+  }
+  
+  .product-miniature .yotpo-reviews-star-ratings-widget .star-container {
+    width: 12px;
+    height: 12px;
+  }  
+</style>
 
 {block name='product_miniature_item'}
   <div class="js-product product{if !empty($productClasses)} {$productClasses}{/if}">
@@ -76,9 +95,9 @@
 
           {block name='product_name'}
             {if $page.page_name == 'index'}
-              <h3 class="h3 product-title"><a href="{$product.url}" content="{$product.url}">{$productName nofilter}</a></h3>
+              <h3 class="h3 product-title mb-0"><a href="{$product.url}" content="{$product.url}" title="{$product.name}" class="no-underline">{$productName nofilter}</a></h3>
             {else}
-              <h2 class="h3 product-title"><a href="{$product.url}" content="{$product.url}"> {$productName nofilter}</a></h2>
+              <h2 class="h3 product-title mb-0"><a href="{$product.url}" content="{$product.url}" title="{$product.name}" class="no-underline">{$productName nofilter}</a></h2>
             {/if}
           {/block}
 
@@ -115,16 +134,9 @@
 
           {block name='product_reviews'}
             {* {hook h='displayProductListReviews' product=$product} *}
-            <div class="review-product">
-              <div class="review-score text-center text-xs">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
-                <span class="review-stats">238 avis</span>
-              </div>
-            </div>
+            
+            <div class="yotpo bottomLine review-score text-left text-xs text-center pt-0 mt-1.5" data-yotpo-product-id="{$product.id_product}"></div>
+
           {/block}
 
 

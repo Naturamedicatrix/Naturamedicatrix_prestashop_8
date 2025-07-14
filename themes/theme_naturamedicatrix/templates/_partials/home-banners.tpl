@@ -47,19 +47,19 @@
 
 
 <style>
-  #home-banners .banner {
+  .banner {
     text-align: center;
     padding: 20px;
     color: #111827;
     position: relative;
     overflow: hidden;
     z-index: 1;
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
     border-radius: 10px;
     min-height: 398px;
   }
   
-  #home-banners .banner:after {
+  .banner:after {
     position: absolute;
     display: block;
     content: '';
@@ -67,36 +67,36 @@
     border-radius: 50%;
   }
   
-  #home-banners a {
+  #home-banners  .banner a {
     border-bottom: none;
     color: #111827;
   }
   
-  #home-banners i {
+  .banner i {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     display: block;
   }
   
-  #home-banners .btn {
+  .banner .btn {
     width: 100%;
     min-width: inherit;
     max-width: 225px;
   }
   
-  #home-banners img {
+  .banner img {
     margin: 0 auto;
     max-height: 200px;
     width: auto;
   }
   
-  #home-banners p {
+  .banner p {
     max-width: 350px;
     margin: 0 auto;
     line-height: 1.3;
   } 
   
-  #home-banners .label {
+  .banner .label {
     background-color: #e45b7f !important;
     color: #f9fafb !important;
     border-color: #e45b7f !important;
@@ -109,11 +109,11 @@
     border-bottom-left-radius: 2px;
   }
   
-  #home-banners #banner-choc .banner {
+  #banner-choc .banner {
     background: #ECF7ED;
   }
   
-  #home-banners #banner-choc .banner:after {
+  #banner-choc .banner:after {
     width: 150px;
     height: 150px;
     right: -50px;
@@ -121,11 +121,11 @@
     background: #C8E0CA;
   }
   
-  #home-banners #banner-consult .banner {
+  #banner-consult .banner {
     background: #ECF0F7;
   }
   
-  #home-banners #banner-consult .banner:after {
+  #banner-consult .banner:after {
     width: 150px;
     height: 150px;
     right: 20px;
@@ -133,11 +133,11 @@
     background: #D2DAE8;
   }
   
-  #home-banners #banner-dlu .banner {
+  #banner-dlu .banner {
     background: #F7ECEC;
   }
   
-  #home-banners #banner-dlu .banner:after {
+  #banner-dlu .banner:after {
     width: 150px;
     height: 150px;
     left: -50px;

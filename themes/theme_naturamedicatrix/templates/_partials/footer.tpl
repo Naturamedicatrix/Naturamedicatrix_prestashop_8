@@ -1,3 +1,5 @@
+ {include file='_partials/home-dons.tpl'}
+
 {**
 ** CUSTOM FOOTER
  *}
@@ -38,7 +40,7 @@
         <i class="bi bi-trophy icon-special"></i>
       </div>
       <div class="advantage-content">
-        <a href="#">
+        <a href="{$link->getCMSLink(2)}">
           <div class="advantage-title">Produits certifiés</div>
           <div class="advantage-text">Naturels et de qualité</div>
         </a>
@@ -276,7 +278,7 @@
 
       {* COPYRIGHT *}
       <div class="col-md-12 text-center footer-copyright">
-        <p class="text-sm-center pb-0">
+        <p class="text-sm-center pb-0 mb-0">
           {block name='copyright_link'}
             <span>
               {l s='%copyright% 2009 - %year% NATURA%italictext%. %rights%' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©', '%italictext%' => '<i><strong>Medicatrix</strong></i>', '%rights%' => 'Tous droits réservés.'] d='Shop.Theme.Global'}
@@ -290,4 +292,17 @@
 {hook h='displayFooter'}
 
 <!-- Bing -->
-<script>{literal}(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"20123475", enableAutoSpaTracking: true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");{/literal}</script>
+{* <script>{literal}(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"20123475", enableAutoSpaTracking: true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");{/literal}</script> *}
+
+
+
+
+<script type="text/javascript">{literal}
+(function e(){
+ var e=document.createElement("script");
+ e.type="text/javascript"; e.async=true;
+ e.src="//staticw2.yotpo.com/bi1x4vQQAknrP6NxMquARJEYBXOvbMVjCYU62o2i/widget.js";
+ var t=document.getElementsByTagName("script")[0];
+ t.parentNode.insertBefore(e,t);
+})();
+{/literal}</script>

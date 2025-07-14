@@ -16,7 +16,7 @@
     <div id="registration-page">
       <div class="registration-columns">
         <div class="registration-column left-column">
-          <h2 class="text-center font-light">{l s='Créer votre compte' d='Shop.Theme.Customeraccount'}</h2>
+          <h2 class="text-center font-light text-3xl">{l s='Créer votre compte' d='Shop.Theme.Customeraccount'}</h2>
           <section class="register-form">
             {$hook_create_account_top nofilter}
             {render file='customer/_partials/customer-form.tpl' ui=$register_form}
@@ -24,10 +24,10 @@
         </div>
         
         <div class="registration-column right-column">
-          <h2 class="text-center font-light">{l s='Already have an account?' d='Shop.Theme.Customeraccount'}</h2>
+          <h2 class="text-center font-light text-3xl">{l s='Already have an account?' d='Shop.Theme.Customeraccount'}</h2>
           <div class="login-info">
             <p>Vous avez déjà un compte client chez nous ? Connectez-vous pour accéder à tous les services de notre boutique en ligne :</p>
-            <ul>
+            <ul class="text-gray-600">
               <li>Achat rapide et simplifié</li>
               <li>Suivi de ma commande</li>
               <li>Historique de mes achats</li>

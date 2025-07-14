@@ -33,7 +33,7 @@
 {* Bloc pour les 3 marques phares *}
 {block name='featured_brands'}
   <div class="featured-brands">
-    <p class="mx-auto alert alert-success text-center">Nous distribuons ces produits en magasins et pharmacies.</p>
+    <p class="mx-auto alert alert-success text-center">{l s='We distribute these products in stores and pharmacies.' d='Shop.Theme.Global'}</p>
     <div class="row justify-content-center">
       {* Affichage des marques phares *}
       {if $formatted_brands|count > 0}
@@ -45,31 +45,31 @@
                 <div class="brand-card featured-brand-card">
                   <div class="brand-card-header">
                   {if $branding.id_manufacturer == 4}
-                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-naturamedicatrix.jpg" alt="{$branding.name}" class="brand-header-img">
+                    <a href="{$branding.url}" title="{$branding.name}"><img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-naturamedicatrix.jpg" alt="{$branding.name}" class="brand-header-img"></a>
                   {elseif $branding.id_manufacturer == 3}
-                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-jacob.jpg" alt="{$branding.name}" class="brand-header-img">
+                    <a href="{$branding.url}" title="{$branding.name}"><img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-jacob.jpg" alt="{$branding.name}" class="brand-header-img"></a>
                   {elseif $branding.id_manufacturer == 5}
-                    <img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-olivie.jpg" alt="{$branding.name}" class="brand-header-img">
+                    <a href="{$branding.url}" title="{$branding.name}"><img src="{$urls.base_url}themes/theme_naturamedicatrix/assets/img/brands/brand-olivie.jpg" alt="{$branding.name}" class="brand-header-img"></a>
                   {/if}
                   </div>
                   
                   <div class="brand-card-logo featured-logo">
-                      <img src="{$urls.img_manu_url}{$branding.id_manufacturer}-brand_default.jpg" alt="{$branding.name}">
+                    <a href="{$branding.url}" title="{$branding.name}"><img src="{$urls.img_manu_url}{$branding.id_manufacturer}-brand_default.jpg" alt="{$branding.name}"></a>
                   </div>
-                  <h3 class="brand-card-title featured-title">{$branding.name}</h3>
+                  <h3 class="brand-card-title featured-title"><a href="{$branding.url}" title="{$branding.name}" class="color-title no-underline">{$branding.name}</a></h3>
                   {if isset($branding.nb_products)}
                     <div class="total-products text-center">
-                      <p class="count-product text-sm">
+                      <p class="count-product text-sm mb-0">
                         {$branding.nb_products}
-                        {if isset($page) && $page.page_name == 'index'} produits{/if}
+                        {if isset($page) && $page.page_name == 'index'} {l s='products' d='Shop.Theme.Global'}{/if}
                       </p>
                     </div>
                   {/if}
-                  <div class="brand-card-description featured-description">
+                  <div class="brand-card-description featured-description mt-2">
                     {$branding.short_description nofilter}
                   </div>
                   <div class="brand-card-action">
-                    <a href="{$branding.url}">Voir tous les produits</a>
+                    » <a href="{$branding.url}" title="{$branding.name}" class="underline">{l s='See all products' d='Shop.Theme.Global'}</a>
                   </div>
                 </div>
               </div>

@@ -18,8 +18,8 @@
       <i class="bi bi-truck icon-special"></i>
     </div>
     <div class="advantage-content text-center">
-      <h5>Livraison offerte</h5>
-      <div class="advantage-texte">
+      <h5 class="mb-0 pt-0 mt-0">Livraison offerte</h5>
+      <div class="advantage-texte pt-0">
         <p>35€ en Point Relais</p>
         <p>50€ à domicile</p>
       </div>
@@ -31,14 +31,14 @@
   {* Remises *}
   <div class="advantage-block mt-2 mb-2">
     <div class="advantage-content text-center">
-      <h5>Remise sur le total de la commande</h5>
+      <h5 class="mb-0 pt-0 mt-0">Remise sur le total de la commande</h5>
       <div class="discount-blocks">
         <div class="discount-row">
-          <div class="discount-block">
+          <div class="discount-block pt-0">
             <div class="discount-amount">-10%</div>
             <div class="discount-condition">àpd 150€</div>
           </div>
-          <div class="discount-block">
+          <div class="discount-block pt-0">
             <div class="discount-amount">-5%</div>
             <div class="discount-condition">àpd 75€</div>
           </div>

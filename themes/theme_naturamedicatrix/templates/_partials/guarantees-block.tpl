@@ -13,7 +13,7 @@
             <i class="bi bi-globe-europe-africa text-3xl icon-special"></i>
           </div>
           <div class="guarantee-text ml-1">
-            <p class="text-sm pb-0">Fabrication<br/> européenne</p>
+            <p class="text-sm pb-0 mb-0">Fabrication<br/> européenne</p>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
             <i class="bi bi-emoji-wink text-3xl icon-special"></i>
           </div>
           <div class="guarantee-text ml-1">
-            <p class="text-sm pb-0">Respect de<br/> l'environnement</p>
+            <p class="text-sm pb-0 mb-0">Respect de<br/> l'environnement</p>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
             <i class="bi bi-stars text-3xl icon-special"></i>
           </div>
           <div class="guarantee-text ml-1">
-            <p class="text-sm pb-0">Satisfaction de<br/> notre clientèle</p>
+            <p class="text-sm pb-0 mb-0">Satisfaction de<br/> notre clientèle</p>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
             <i class="bi bi-chat-heart text-3xl icon-special"></i>
           </div>
           <div class="guarantee-text ml-1">
-            <p class="text-sm pb-0">Conseils spécialisés<br/> et personnalisés</p>
+            <p class="text-sm pb-0 mb-0">Conseils spécialisés<br/> et personnalisés</p>
           </div>
         </div>
       </div>

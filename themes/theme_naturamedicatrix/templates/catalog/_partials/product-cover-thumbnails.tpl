@@ -27,11 +27,11 @@
     <div class="product-cover">
       {if $product.default_image}
         <picture>
-          {if !empty($product.default_image.bySize.large_default.sources.avif)}<source srcset="{$product.default_image.bySize.large_default.sources.avif}" type="image/avif">{/if}
-          {if !empty($product.default_image.bySize.large_default.sources.webp)}<source srcset="{$product.default_image.bySize.large_default.sources.webp}" type="image/webp">{/if}
+          {if !empty($product.default_image.bySize.medium_default.sources.avif)}<source srcset="{$product.default_image.bySize.medium_default.sources.avif}" type="image/avif">{/if}
+          {if !empty($product.default_image.bySize.medium_default.sources.webp)}<source srcset="{$product.default_image.bySize.medium_default.sources.webp}" type="image/webp">{/if}
           <img
             class="js-qv-product-cover img-fluid"
-            src="{$product.default_image.bySize.large_default.url}"
+            src="{$product.default_image.bySize.medium_default.url}"
             {if !empty($product.default_image.legend)}
               alt="{$product.default_image.legend}"
               title="{$product.default_image.legend}"
@@ -39,8 +39,8 @@
               alt="{$product.name}"
             {/if}
             loading="lazy"
-            width="{$product.default_image.bySize.large_default.width}"
-            height="{$product.default_image.bySize.large_default.height}"
+            width="{$product.default_image.bySize.medium_default.width}"
+            height="{$product.default_image.bySize.medium_default.height}"
           >
         </picture>
         <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
@@ -58,10 +58,23 @@
             height="{$urls.no_picture_image.bySize.large_default.height}"
           >
         </picture>
-      {/if}      
+      {/if}
+      
+      <div class="flex justify-center font-semibold text-gray-600">
+         <p class="flex cursor-pointer items-center mb-0">
+            <svg class="w-4 h-4 mr-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+            </svg>
+            <span class="mx-auto underline">Voir en plein écran</span>
+         </p>
+      </div>
+
+            
     </div>
   {/block}
 
+
+  {if count($product.images) > 1 || isset($product.video_iframe) && $product.video_iframe}
   {block name='product_images'}
     <div class="js-qv-mask mask">
       <ul class="product-images js-qv-product-images">
@@ -106,6 +119,7 @@
       </ul>
     </div>
   {/block}
+  {/if}
 {hook h='displayAfterProductThumbs' product=$product}
 </div>
 

@@ -30,7 +30,7 @@
     {* Liste complète des marques (excluant les marques stars) *}
     {block name='brand_miniature'}
       <div class="container brand-miniature">
-        <div class="mx-auto alert alert-info text-center">Nous ne distribuons pas ces produits en magasins ou pharmacies.</div>
+        <div class="mx-auto alert alert-info text-center">{l s='Nous ne distribuons pas ces produits en magasins ou pharmacies.' d='Shop.Theme.Global'}</div>
         <div class="row">
           {foreach from=$brands item=brand}
             {* Exclure les marques stars *}
@@ -38,17 +38,17 @@
               <div class="col-12 col-md-6 col-lg-4 col-xl-2 col-xl-full">
                 <div class="brand-card">
                   <div class="brand-card-logo">
-                  <img src="{$urls.img_manu_url}{$brand.id_manufacturer}-brand_default.jpg" alt="{$brand.name}">
+                    <a href="{$brand.url}" title="{$brand.name}"><img src="{$urls.img_manu_url}{$brand.id_manufacturer}-brand_default.jpg" alt="{$brand.name}"></a>
                   </div>
-                  <h3 class="brand-card-title">{$brand.name}</h3>
+                  <h3 class="brand-card-title"><a href="{$brand.url}" title="{$brand.name}" class="color-title">{$brand.name}</a></h3>
                   <div class="total-products">
-                    <p class="count-product text-xs">{$brand.nb_products}</p>
+                    <p class="count-product text-xs mb-0">{$brand.nb_products}</p>
                   </div>
                   {* <div class="brand-card-description">
                   {$brand.text nofilter}
                   </div> *}
                   <div class="brand-card-action">
-                    <a href="{$brand.url}">Voir tous les produits</a>
+                    » <a href="{$brand.url}" title="{$brand.name}" class="underline">{l s='See all products' d='Shop.Theme.Global'}</a>
                   </div>
                 </div>
               </div>

@@ -22,9 +22,8 @@
           {l s='Forgot your password?' d='Shop.Theme.Customeraccount'}
         </a>
       </div>
-    </div>
-
-    {block name='login_form_footer'}
+      
+      {block name='login_form_footer'}
       <footer class="form-footer text-sm-center clearfix">
         <input type="hidden" name="submitLogin" value="1">
         {block name='form_buttons'}
@@ -34,6 +33,7 @@
         {/block}
       </footer>
     {/block}
-
+      
+    </div>
   </form>
 {/block}

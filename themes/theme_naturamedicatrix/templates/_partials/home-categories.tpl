@@ -17,7 +17,7 @@
   {assign var='count' value=0}
   {assign var='max_display' value=8}
   
-  <ul class="row pl-0">
+  <ul class="row pl-0 list-none">
       
     {foreach from=$categories item=cat}
       {if in_array($cat.id_category, $allowed_ids) && $count < $max_display}
@@ -30,14 +30,13 @@
     
   </ul>
   <p class="text-center pb-0">
-    <a class="btn-link" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseCategories">Voir toutes les catégories
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a href="#" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseCategories">Voir toutes les catégories <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
   </p>
   									
-  <ul class="row collapse pl-0 mt-1" id="collapseCategories" aria-labelledby="headingCategories">
+  <ul class="row collapse pl-0 mt-1 list-none" id="collapseCategories" aria-labelledby="headingCategories">
     {foreach from=$categories item=cat}
       {if !in_array($cat.id_category, $allowed_ids) && $cat.id_parent == 2}
          <li class="col-lg-3 col-md-6 col-xs-6">
@@ -86,6 +85,7 @@
     margin-bottom: 30px;
     font-size: 1.1rem;
     position: relative;
+    text-decoration: none !important;
   }
   
   .btn-label i.bi-arrow-right {

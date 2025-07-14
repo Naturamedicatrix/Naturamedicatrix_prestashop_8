@@ -622,8 +622,9 @@ body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view, body#module
             color: $color-custom-gray;
         }
     }
-    .wishlist-list-item-default {
+    .wishlist-list-item-default, .wishlist-list-item {
         border-bottom: none;
+        list-style: none;
     }
 
     .wishlist-add-to-new {
@@ -634,6 +635,7 @@ body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view, body#module
 
     .wishlist-list-item-link {
         border-bottom: 1px solid $color-custom-grayLight;
+        text-decoration: none !important;
         
         &:hover {
             border-bottom: 1px solid $color-custom-black !important;
@@ -671,10 +673,12 @@ body#view {
             border: 1px solid #e5e8ea;
             border-radius: 10px;
             padding: 20px;
+            list-style: none;
 
             .wishlist-product {
                 a {
                     border-bottom: none;
+                    text-decoration: none !important;
                 }
             }
         }
@@ -838,6 +842,7 @@ body#module-ps_emailalerts-account {
                 border-bottom: none;
                 color: $color-custom-gray !important;
                 font-weight: 300;
+                text-decoration: none !important;
 
                 &:hover {
                     color: color.adjust($color-custom-gray, $lightness: 15%) !important;

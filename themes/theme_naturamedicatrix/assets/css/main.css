@@ -49,7 +49,7 @@ body#category #wrapper p {
   margin-bottom: 0;
 }
 .block-category h1 {
-  margin-bottom: 0;
+  margin-bottom: 1rem;
   font-size: 2.5rem;
 }
 
@@ -952,6 +952,10 @@ body#index #content {
   color: #83b58b !important;
 }
 
+button:focus {
+  outline: none !important;
+}
+
 .btn, .wishlist-add-to-new {
   border-radius: 4px;
   cursor: pointer;
@@ -994,6 +998,7 @@ body#index #content {
   background-color: transparent !important;
   color: #83b58b !important;
   border: 1px solid #83b58b !important;
+  text-decoration: none !important;
 }
 .btn-secondary:hover {
   background-color: #83b58b !important;
@@ -1010,6 +1015,7 @@ body#index #content {
   background-color: transparent !important;
   color: #111827 !important;
   border: 1px solid #111827 !important;
+  text-decoration: none !important;
 }
 .btn-outline:hover {
   background-color: #111827 !important;
@@ -1344,6 +1350,7 @@ table.table-light.text-center td, table.table-light.text-center th {
   padding-left: 0;
   height: 497px;
   margin-top: 0;
+  margin-bottom: 0;
 }
 #carousel .direction .icon-next {
   right: 22px;

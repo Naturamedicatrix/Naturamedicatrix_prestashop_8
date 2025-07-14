@@ -10,6 +10,10 @@ assets:
   use_parent_assets: true
   css:
     all:
+      - id: newproducts-carousel-styles
+        path: assets/css/newproducts-carousel.css
+        media: all
+        priority: 70
       - id: css-variables
         path: assets/css/variables.css
         media: all
@@ -71,6 +75,9 @@ assets:
         priority: 100
   js:
     all:
+      - id: newproducts-carousel
+        path: assets/js/newproducts-carousel.js
+        priority: 70
       - id: text-carousel
         path: assets/js/text-carousel.js
         priority: 70

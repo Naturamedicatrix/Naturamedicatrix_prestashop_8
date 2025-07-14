@@ -321,7 +321,7 @@ extrait de thé maté (2%)</td>
 </tr>
 <tr>
 <td>Caféine par portion</td>
-<td style="background:#d1efc3;">0</td>
+<td>75mg</td>
 <td style="background:#d1efc3;">0</td>
 <td>75mg</td>
 <td>50mg</td>

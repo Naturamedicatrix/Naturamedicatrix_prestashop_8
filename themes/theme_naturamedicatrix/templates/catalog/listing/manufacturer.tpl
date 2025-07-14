@@ -34,7 +34,17 @@
       <div id="manufacturer-short_description" class="text-left">{$manufacturer.short_description nofilter}</div>
   
     </div>
+    
+    
+{*     {assign var='bestselles' value=Product::getProducts($language.id, 0, 3, 'date_add', 'desc', null, true, Context::getContext(), false, $manufacturer.id)} *}
+    
+    
+    {if $bestselles|count > 0}
+        {include file='../_partials/productlist-best.tpl' products=$bestselles}
+    {/if}
 
+    
+    
     {* Liste des produits *}
     <section id="products">
       {if $listing.products|count}
@@ -58,4 +68,5 @@
     </section>
     <div id="manufacturer-description" class="text-left">{$manufacturer.description nofilter}</div>
   </section>
+
 {/block}

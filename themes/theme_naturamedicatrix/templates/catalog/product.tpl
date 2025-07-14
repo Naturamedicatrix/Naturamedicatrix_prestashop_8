@@ -124,6 +124,12 @@
         margin-bottom: 0;
       }
       
+      .product-flags .pack {
+          background-color: #fffbeb !important;
+          color: #92400e !important;
+          border-color: #fffbeb !important;
+      }
+      
       .product-flags li.product-flag.online-only {
         position: initial;
         color: #626265;
@@ -293,7 +299,8 @@
         color: white;
         padding: 0 0.5rem;
         border-radius: 4px;
-        display: inline;
+        display: flex;
+        align-items: center;
       }
       
       #dlu.badge-dlu strong {
@@ -343,6 +350,10 @@
       .bootstrap-touchspin .input-group-btn-vertical>.btn {
        min-width: inherit;
       }
+
+      .product-quantity #quantity_wanted {
+        max-width: 40px;
+      }
       
       .product-actions .btn-primary {
         width: 100%;
@@ -377,6 +388,7 @@
             padding: .65rem 1rem;
             background: white;
             border-radius: 4px;
+            width: 100% !important;
       }
       
       .wishlist-button-product {
@@ -418,10 +430,9 @@
       
       #prix_journalier .col p {
         font-weight: 600;
-        font-size: 90%;
         margin-top: 0.3rem;
         color: #111927;
-        line-height: 1.2;
+        line-height: 1;
       }
       
       .product-images {
@@ -477,8 +488,16 @@
         margin-bottom: 0;
       }
       
+      .product-cover .layer {
+        background: transparent;
+      }
+      
+      .product-cover .layer .zoom-in {
+        display: none;
+      }
+      
       #product #content {
-        max-width: 600px;
+        max-width: 610px;
       }
 
       
@@ -517,7 +536,6 @@
       #manufacturer_block {
         display: flex;
         margin: 5rem 0;
-        background: #f9fafb;
       }
       
       #manufacturer_block .block {
@@ -770,6 +788,29 @@
         gap: .5rem;
       }
       
+      
+      .yotpo-sr-bottom-line-text {
+        font-size: .75rem !important;
+        font-weight: 600 !important;
+      }
+      
+      .yotpo-sr-bottom-line-summary.yotpo-sr-bottom-line-button {
+        align-items: center !important;
+      }
+      
+      .yotpo-reviews-star-ratings-widget .star-container {
+        width: 12px;
+        height: 12px;
+      }
+      
+      .yotpo-empty-state svg {
+        margin: 0 auto !important;
+      }
+      
+      .yotpo-review-rating-title {
+        align-items: center !important;
+      }
+      
   </style>
 
 
@@ -818,19 +859,13 @@
             </div>
             
             {block name='page_header'}
-              <h1 class="h1">{block name='page_title'}{$productName nofilter}{/block}</h1>
+              <h1 class="h1 mb-0">{block name='page_title'}{$productName nofilter}{/block}</h1>
             {/block}
             
-             <div class="review-product">
-              <div class="review-score text-left text-xs">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
-                <span class="review-stats">238 avis</span>
-              </div>
-            </div>
+            
+            <div class="yotpo bottomLine review-score text-left text-xs" data-yotpo-product-id="{$product.id_product}"></div>
+    
+             
           {/block}
 
           <div class="product-information">
@@ -862,7 +897,7 @@
 
                   {block name='product_pack'}
                     {if $packItems}
-                      <section class="product-pack">
+                      <section class="product-pack mt-2 mb-2">
                         <p class="h4">{l s='This pack contains' d='Shop.Theme.Catalog'}</p>
                         {foreach from=$packItems item="product_pack"}
                           {block name='product_miniature'}
@@ -878,7 +913,7 @@
               
                     <div class="availabledlu">
                     {block name='product_availability'}
-                      {if $product.quantity > 0}<span id="product-instock" class="text-green-600"><i class="bi bi-circle-fill"></i> En stock</span>{/if}
+                      {if $product.quantity > 0}<span id="product-instock" class="text-green-600"><i class="bi bi-circle-fill"></i> {l s='In stock' d='Shop.Theme.Catalog'}</span>{/if}
                         {if $product.show_availability && $product.availability_message}
                         <span id="product-availability" class="js-product-availability">
                           {if $product.availability == 'available'}
@@ -893,7 +928,17 @@
                         {/if}
                     {/block}
                     
-                    {if isset($product.dlu)}<div id="dlu"{if $product.dlu_checkbox} class="badge-dlu"{/if}><small>Date limite conseillée&nbsp;:</small> <strong>{$product.dlu|date_format:"%d-%m-%Y"}</strong> <i class="bi bi-info-circle info-tooltip" data-toggle="tooltip" data-bs-toggle="tooltip" data-placement="bottom" data-bs-placement="bottom" title="Jusqu'à l'expiration de la date d'utilisation conseillée, nous vous garantissons un produit irréprochable. Cependant, l'expiration de la date d'utilisation conseillée ne signifie pas nécessairement qu'un produit n'est plus utilisable ou consommable ou présente un danger pour la santé. Si le produit vous semble correct en termes d'apparence et/ou d'odeur, vous pouvez l'utiliser sans problème."></i></div>{/if}
+
+                  {if isset($product.dlu)}
+                  <div id="dlu"{if $product.dlu_checkbox} class="badge-dlu"{/if}>
+                      <div class="flex items-center flex-wrap gap-1">
+                          <small>Date limite conseillée&nbsp;:</small>
+                          <strong>{$product.dlu|date_format:"%d-%m-%Y"}</strong>
+                      </div>
+                  </div>
+                  {/if}
+
+
                     
                     </div> <!-- .availabledlu -->       
                               
@@ -1012,7 +1057,7 @@
                          data-toggle="tab"
                          href="#mode-emploi"
                          role="tab"
-                         aria-controls="mode-emploi">{l s='Mode d\'emploi' d='Shop.Theme.Catalog'}</a>
+                         aria-controls="mode-emploi">{l s='Instructions for use' d='Shop.Theme.Catalog'}</a>
                     </li>
                   {/if}
                   {if isset($product.ingredients) && $product.ingredients}
@@ -1032,7 +1077,7 @@
                       href="#product-details"
                       role="tab"
                       aria-controls="product-details"
-                      {if !$product.description} aria-selected="true"{/if}>{l s='Spécificités technique' d='Shop.Theme.Catalog'}</a>
+                      {if !$product.description} aria-selected="true"{/if}>{l s='Technical specifications' d='Shop.Theme.Catalog'}</a>
                   </li>
                   
                   
@@ -1094,7 +1139,7 @@
                  {if (isset($product.ingredients) && $product.ingredients) || (isset($product.tab_nutri) && $product.tab_nutri)}
                     <div class="tab-pane fade in" id="composition" role="tabpanel">
                       {if isset($product.ingredients) && $product.ingredients}
-                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Ingrédients</h2>
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{l s='Ingredients' d='Shop.Theme.Catalog'}</h2>
                         {$product.ingredients nofilter}
                       {/if}
 
@@ -1120,7 +1165,7 @@
                       
                               <div>
                                 <dt class="font-medium text-gray-900">
-                                  <a href="{$link->getCategoryLink($pa.id_category, $pa.link_rewrite)}" title="Voir tous nos produits {$pa.name}">{$pa.name}</a>
+                                  <a href="{$link->getCategoryLink($pa.id_category, $pa.link_rewrite)}" class="no-underline text-gray-800 color-title hover:text-blue-600" title="Voir tous nos produits {$pa.name}">{$pa.name}</a>
                                 </dt>
                                 {if isset($pa.additional_description) && $pa.additional_description}
                                   <dd class="mt-1.5 mb-1.5 text-sm text-gray-500">
@@ -1131,7 +1176,7 @@
                                     {$pa.description|strip_tags|truncate:300:'...'}
                                   </dd>
                                 {/if}
-                                <p class="text-xs lowercase">» <a href="{$link->getCategoryLink($pa.id_category, $pa.link_rewrite)}" title="Voir tous nos produits {$pa.name}" class="underline">Voir tous nos produits {$pa.name}</a></p>
+                                <p class="text-xs lowercase">» <a href="{$link->getCategoryLink($pa.id_category, $pa.link_rewrite)}" title="Voir tous nos produits {$pa.name}" class="underline">{l s='See all products' d='Shop.Theme.Catalog'} {$pa.name}</a></p>
                               </div>
                             </div>
                           {/foreach}
@@ -1142,7 +1187,7 @@
                       
                       {if isset($product.tab_nutri) && $product.tab_nutri}
                         <hr />
-                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Tableau nutritionnel</h2>
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{l s='Nutritional table' d='Shop.Theme.Catalog'}</h2>
                         {$product.tab_nutri nofilter}
                       {/if}
                       
@@ -1154,12 +1199,12 @@
                  
                  {if (isset($product.mode_emploi) && $product.mode_emploi) || (isset($product.contre_indications) && $product.contre_indications)}
                   <div class="tab-pane fade in" id="mode-emploi" role="tabpanel">                    
-                      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Conseils d'utilisation</h2>
+                      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{l s='Directions for use' d='Shop.Theme.Catalog'}</h2>
                       {$product.mode_emploi nofilter}
                       
                       <hr />
                                                          
-                      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Contre-indications</h2>
+                      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{l s='Contraindications' d='Shop.Theme.Catalog'}</h2>
                       {if isset($product.contre_indications) && $product.contre_indications} 
                         {$product.contre_indications nofilter}
                       {/if}
@@ -1307,8 +1352,16 @@
       {include file='../_partials/therap.tpl'}
     {/block}
     
-    
-    
+
+    <div class="yotpo yotpo-main-widget"
+         data-product-id="{$product.id_product}"
+         data-price="{$product.regular_price}"
+         data-currency="EUR"
+         data-name="{$product.name}"
+         data-url="{$product.url}"
+         data-image-url="{$product.default_image.bySize.medium_default.url}">
+    </div>
+
     
     
     {* SHOPIMIND INTERETS PRODUCTS *}
@@ -1341,5 +1394,14 @@
     {/block}
   </section>
   
+
+
+
+{assign var='productPopupQuantity' value=Product::getQuantity({$product->product_popup_redirection})}
+{if isset($product->product_popup_redirection) && $product->product_popup_redirection && isset($productPopupQuantity) && $productPopupQuantity > 0 && isset($product->quantity) && $product->quantity == 0}
+  {include file="catalog/_partials/product-popup-redirection.tpl"}
+{/if}
+
+
   
 {/block}

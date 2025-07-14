@@ -570,8 +570,9 @@ body#module-blockwishlist-lists .wishlist-list, body#module-psgdpr-gdpr .wishlis
 body#module-blockwishlist-lists .wishlist-list i, body#module-psgdpr-gdpr .wishlist-list i, body#view .wishlist-list i, body#module-ps_emailalerts-account .wishlist-list i {
   color: #4B5563;
 }
-body#module-blockwishlist-lists .wishlist-list-item-default, body#module-psgdpr-gdpr .wishlist-list-item-default, body#view .wishlist-list-item-default, body#module-ps_emailalerts-account .wishlist-list-item-default {
+body#module-blockwishlist-lists .wishlist-list-item-default, body#module-blockwishlist-lists .wishlist-list-item, body#module-psgdpr-gdpr .wishlist-list-item-default, body#module-psgdpr-gdpr .wishlist-list-item, body#view .wishlist-list-item-default, body#view .wishlist-list-item, body#module-ps_emailalerts-account .wishlist-list-item-default, body#module-ps_emailalerts-account .wishlist-list-item {
   border-bottom: none;
+  list-style: none;
 }
 @media (max-width: 640px) {
   body#module-blockwishlist-lists .wishlist-add-to-new, body#module-psgdpr-gdpr .wishlist-add-to-new, body#view .wishlist-add-to-new, body#module-ps_emailalerts-account .wishlist-add-to-new {
@@ -580,6 +581,7 @@ body#module-blockwishlist-lists .wishlist-list-item-default, body#module-psgdpr-
 }
 body#module-blockwishlist-lists .wishlist-list-item-link, body#module-psgdpr-gdpr .wishlist-list-item-link, body#view .wishlist-list-item-link, body#module-ps_emailalerts-account .wishlist-list-item-link {
   border-bottom: 1px solid #93A7C3;
+  text-decoration: none !important;
 }
 body#module-blockwishlist-lists .wishlist-list-item-link:hover, body#module-psgdpr-gdpr .wishlist-list-item-link:hover, body#view .wishlist-list-item-link:hover, body#module-ps_emailalerts-account .wishlist-list-item-link:hover {
   border-bottom: 1px solid #111827 !important;
@@ -609,9 +611,11 @@ body#view #content .wishlist-products-item {
   border: 1px solid #e5e8ea;
   border-radius: 10px;
   padding: 20px;
+  list-style: none;
 }
 body#view #content .wishlist-products-item .wishlist-product a {
   border-bottom: none;
+  text-decoration: none !important;
 }
 body#view .wishlist-products-container-header {
   justify-content: space-around;
@@ -733,6 +737,7 @@ body#module-ps_emailalerts-account .alerts-list li a {
   border-bottom: none;
   color: #4B5563 !important;
   font-weight: 300;
+  text-decoration: none !important;
 }
 body#module-ps_emailalerts-account .alerts-list li a:hover {
   color: rgb(107.974137931, 122.3706896552, 142.525862069) !important;

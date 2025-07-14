@@ -9,7 +9,26 @@
 {* END VARIABLES *}
 
 
+<style>
+  .product-miniature-light.product-miniature .yotpo-reviews-star-ratings-widget {
+    justify-content: left !important;
+  }
+  .product-miniature-light .yotpo-sr-bottom-line-text {
+    font-size: .75rem !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+  }
+
+  .product-miniature-light .yotpo-sr-bottom-line-button span {
+    height: 16px !important;
+  }
+</style>
+
+
 {block name='product_miniature_item'}
+
+
+
   <div class="js-product product col-xs-12 col-md-12 col-lg-4 col-xl-4">
     <article class="product-miniature product-miniature-light js-product-miniature {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
       data-id-product-attribute="{$product.id_product_attribute}">
@@ -36,6 +55,7 @@
           
           </ul>
         </div>
+        
         
         {* Product thumbnail *}
         {block name='product_thumbnail'}
@@ -67,7 +87,7 @@
           {* Product name *}
           {block name='product_name'}
             <h3 class="h3 product-title">
-              <a href="{$product.url}" content="{$product.url}">{$productName nofilter}</a>
+              <a class="no-underline" href="{$product.url}" content="{$product.url}">{$productName nofilter}</a>
             </h3>
           {/block}
           
@@ -78,26 +98,13 @@
           
           {* Product reviews *}
           {block name='product_reviews'}
-            <div class="product-reviews">
-              <div class="stars">
-                {for $i=1 to 5}
-                  {if $i <= 4}
-                    <i class="bi bi-star-fill"></i>
-                  {elseif $i == 5}
-                    <i class="bi bi-star-half"></i>
-                  {else}
-                    <i class="bi bi-star"></i>
-                  {/if}
-                {/for}
-              </div>
-              <span class="review-count">585 avis</span>
-            </div>
+            <div class="yotpo bottomLine review-score text-left text-xs pt-0" data-yotpo-product-id="{$product.id_product}"></div>
           {/block}
           
           {* Product price *}
           {block name='product_price_and_shipping'}
             {if $product.show_price}
-              <div class="product-price">
+              <div class="product-price mt-0">
                 <span class="price">{$product.price}</span>
                 
                 {if $product.has_discount}
