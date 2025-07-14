@@ -147,63 +147,6 @@
 }
 
 /* End Contact button */
-/* Language selector */
-#_desktop_language_selector {
-  display: flex;
-  align-items: center;
-  z-index: 30;
-}
-#_desktop_language_selector .language-selector-wrapper .language-selector button {
-  display: flex;
-  align-items: center;
-}
-#_desktop_language_selector .language-selector-wrapper .language-selector button .planet-icon {
-  color: #f9fafb;
-  stroke-width: 1.5;
-  margin-right: 3px;
-}
-#_desktop_language_selector .language-selector-wrapper .language-selector button .planet-icon:hover {
-  color: rgb(218.4, 224.5, 230.6);
-}
-#_desktop_language_selector .language-selector-wrapper .language-selector button .expand-more {
-  margin: 0;
-  font-weight: bold;
-  color: #f9fafb;
-  font-size: 14px;
-}
-#_desktop_language_selector .language-selector-wrapper .language-selector button .expand-more:hover {
-  color: rgb(218.4, 224.5, 230.6);
-}
-#_desktop_language_selector .dropdown-menu {
-  background-color: rgb(88.0151515152, 147.4848484848, 97.5303030303);
-  border: 1px solid rgb(68.9545454545, 115.5454545455, 76.4090909091);
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: none; /* Masque le menu déroulant par défaut */
-  z-index: 100;
-}
-#_desktop_language_selector .dropdown-menu li {
-  border-bottom: 1px solid rgb(78.4848484848, 131.5151515152, 86.9696969697);
-}
-#_desktop_language_selector .dropdown-menu li:last-child {
-  border-bottom: none;
-}
-#_desktop_language_selector .dropdown-menu li.current {
-  background-color: rgb(99.0606060606, 161.9393939394, 109.1212121212);
-}
-#_desktop_language_selector .dropdown-menu .dropdown-item {
-  color: #f9fafb;
-  padding: 8px 15px;
-  font-weight: bold;
-  background-color: rgba(131, 181, 139, 0.9);
-  border: 1px solid rgb(68.9545454545, 115.5454545455, 76.4090909091);
-}
-#_desktop_language_selector .dropdown-menu .dropdown-item:hover, #_desktop_language_selector .dropdown-menu .dropdown-item:focus {
-  background-color: rgb(78.4848484848, 131.5151515152, 86.9696969697);
-  color: #f9fafb;
-}
-
-/* End Language selector */
 .nav-contact {
   display: flex;
   align-items: center;
@@ -611,8 +554,6 @@
 
 #search_widget {
   min-width: 25rem;
-  position: absolute;
-  right: 0;
   z-index: 10;
 }
 @media (max-width: 1024px) {

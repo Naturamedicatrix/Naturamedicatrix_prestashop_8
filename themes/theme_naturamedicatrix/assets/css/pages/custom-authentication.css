@@ -1,4 +1,7 @@
 /** === PAGE AUTHENTICATION === */
+body#authentication #content-wrapper {
+  min-height: auto !important;
+}
 body#authentication #wrapper {
   background: linear-gradient(to right, white 50%, #F9FAFB 50%);
   padding: 3rem 0;

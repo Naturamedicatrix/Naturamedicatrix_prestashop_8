@@ -2,6 +2,10 @@
 /** === PAGE AUTHENTICATION === */
 
 body#authentication {
+  #content-wrapper {
+    min-height: auto !important;
+  }
+  
   #wrapper {
     // Desktop: BACKGROUND GRADIENT
     background: linear-gradient(to right, white 50%, $color-custom-bgLight 50%);
