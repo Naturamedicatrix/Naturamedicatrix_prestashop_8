@@ -25,6 +25,9 @@
 <div class="modal fade js-product-images-modal" id="product-modal" data-backdrop="true" data-keyboard="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <button type="button" class="close mobile-modal-close" data-dismiss="modal" aria-label="Fermer">
+        <span aria-hidden="true">&times;</span>
+      </button>
       <div class="modal-body">
         {assign var=imagesCount value=$product.images|count}
         <figure>
@@ -60,6 +63,11 @@
           </div>
           
           <style>
+          /* Cacher la croix par défaut (desktop) */
+          .mobile-modal-close {
+            display: none;
+          }
+            
           #modal-video-container {
             top: 36px !important;
           }
@@ -147,6 +155,34 @@
 
               #youtube-thumbnail {
                 height: 60px !important;
+              }
+              
+              /* Style du bouton fermer */
+              .close {
+                opacity: 1;
+              }
+              button.close {
+                background: #ffffff;
+              }
+              .mobile-modal-close {
+                position: absolute;
+                top: -6px;
+                right: 0px;
+                z-index: 1050;
+                background-color: rgba(255, 255, 255, 0.95);
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 30px;
+                line-height: 1;
+                padding: 0;
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+                color: #333;
+                font-weight: bold;
+                border: 1px solid #ddd;
               }
             }
           </style>
