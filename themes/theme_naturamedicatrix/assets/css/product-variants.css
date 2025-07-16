@@ -1,0 +1,47 @@
+.product-variants .input-container {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+/* Style pour les images de variantes */
+.variant-image {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  object-fit: contain;
+  background-color: #fff;
+}
+
+/* Style pour les boutons radio avec image */
+.radio-label {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.input-radio:checked + .radio-label {
+  background-color: #f5f5f5;
+  border-color: #007bff;
+}
+
+/* Style pour les sélecteurs de couleur */
+.color.texture {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Amélioration de la présentation des groupes d'attributs */
+.product-variants-item {
+  margin-bottom: 1.5rem;
+}
+
+/* Style pour l'étiquette du groupe (si vous décidez de la réactiver) */
+.control-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}

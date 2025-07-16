@@ -2,12 +2,11 @@
      id="product-details"
      data-product="{$product.embedded_attributes|json_encode}"
      role="tabpanel">
-
   
 <div class="bg-white">
   <div class="mx-auto grid max-w-2xl grid-cols-1 items-top gap-x-8 gap-y-16 lg:max-w-7xl lg:grid-cols-2">
     <div>
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Spécificités technique</h2>
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{l s='Technical specifications' d='Shop.Theme.Catalog'}</h2>
       <p class="mt-4 text-gray-500">Formulé avec rigueur, ce produit allie qualité, efficacité et naturalité. Chaque ingrédient est sélectionné avec soin et transformé dans le respect des actifs.</p>
       
       

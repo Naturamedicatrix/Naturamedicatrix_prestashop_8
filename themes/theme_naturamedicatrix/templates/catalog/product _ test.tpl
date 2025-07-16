@@ -58,21 +58,9 @@
       .product-container {
         padding-top: 1rem;
       }
-      
-      .mobile-accordion {
-        display: none;
-      }
       @media (max-width: 767px) {
         .product-container {
           padding-top: 0;
-        }
-        
-        .nav.nav-tabs.col-md-3.col-sm-12.vertical-tabs.sticky-tabs-nav {
-          display: none;
-        }
-        
-        .tab-content.col-md-8.col-sm-12 {
-          display: none;
         }
         
         #product-block-infos {
@@ -112,57 +100,6 @@
         .yotpo.bottomLine {
           justify-content: flex-start;
           margin-bottom: 18px;
-        }
-        
-        /* Styles pour l'accordéon mobile */
-        .mobile-accordion {
-          margin-bottom: 0;
-          margin-top: 1rem;
-          width: 100%;
-          display: block;
-        }
-        
-        .accordion-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-        
-        .accordion-item {
-          border-bottom: 1px solid #e5e5e5;
-        }
-        
-        .accordion-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 1rem 0.5rem;
-          cursor: pointer;
-          background-color: #fff;
-        }
-        
-        .accordion-header h2 {
-          margin: 0;
-          font-size: 1rem;
-          font-weight: 600;
-          color: #333;
-        }
-        
-        .accordion-icon {
-          font-size: 1.5rem;
-          font-weight: 300;
-          transition: all 0.3s ease;
-          display: inline-block;
-        }
-        
-        .accordion-item.active .accordion-icon {
-          transform: rotate(45deg);
-        }
-        
-        .accordion-content {
-          padding: 0;
-          border-top: 1px solid #f0f0f0;
-          overflow: hidden;
         }
         
         .product-description {
@@ -221,7 +158,7 @@
         }
         
         
-        /* Affichage des prix */
+        /* Amélioration de l'affichage des prix */
         .product-prices {
           margin-top: 5px;
           margin-bottom: 20px;
@@ -457,6 +394,13 @@
         margin-left: 0;
       }      
       
+      .seemore a {
+        margin-top: 5px;
+        font-size: 0.9rem;
+        text-decoration: underline;
+        display: inline-block;
+        font-weight: 600;
+      }
       
       #product-block-infos .product-description {
         margin-top: 10px;
@@ -802,12 +746,50 @@
 
       
 
-    
+      
+      #manufacturer_block {
+        display: flex;
+        margin: 5rem 0;
+      }
+      
+      #manufacturer_block .block {
+        padding: 1rem 3rem;
+        border: 1px solid #e5e8ea;
+        border-radius: 10px;
+      }
+
       
       #manufacturer_block .product-manufacturer-img img {
         max-width: 165px;
       }
       
+      #manufacturer_block .product-manufacturer-infos {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+      }
+      
+      #manufacturer_block .product-manufacturer-infos p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      
+      #manufacturer_block .seemore a {
+        margin-top: 0;
+      }
+      
+      #manufacturer_block .product-manufacturer-imgplus {
+        padding: 0;
+        width: 100%;
+        overflow: hidden;
+        margin-left: 2rem;
+      }
+      
+      #manufacturer_block .product-manufacturer-imgplus img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
       
       #manufacturer_block.brand-5 .product-manufacturer-infos {
         /* Olivie Pharma */
@@ -823,9 +805,6 @@
         /* Dr Jacob */
         background: #f8faff;
       }
-      
-      
-      
       
       .product-discounts {
         margin-bottom: 0.5rem;
@@ -920,7 +899,7 @@
       }
 
       
-      .tabs .tab-pane {
+      .tabs .tab-section {
         padding-top: 0;
       }
       
@@ -983,15 +962,15 @@
         padding: 5px 0 !important;
       }
 
-      .tab-pane {
+      .tab-section {
         transition: opacity 0.2s ease !important;
       }
       
-      .tab-pane.fade {
+      .tab-section.fade {
         opacity: 0 !important;
       }
       
-      .tab-pane.fade.in.active {
+      .tab-section.fade.in.active {
         opacity: 1 !important;
       }
       
@@ -1256,9 +1235,10 @@
       
             {block name='product_tabs'}
 
-              <div class="tabs clear row pt-16 mt-0">
+              <div class="tabs clear flex flex-col lg:flex-row pt-16 mt-0">
+        
                 
-                <ul class="nav nav-tabs col-md-3 col-sm-12 vertical-tabs sticky-tabs-nav" role="tablist">
+                <ul class="hidden lg:flex flex-col w-1/4 nav nav-tabs vertical-tabs sticky-tabs-nav" role="tablist">
                   <p class="h4">{$product.name}</p>
                  
                   {* Groupes Thérapeute BE (ID 4) et Thérapeute FR (ID 5) *}
@@ -1350,111 +1330,35 @@
                   
                 </ul>
                 
-                <!-- Accordéon mobile pour les onglets -->
-                <div class="mobile-accordion">
-                  <ul class="accordion-list">
-                    {* Groupes Thérapeute BE (ID 4) et Thérapeute FR (ID 5) *}
-                    {if $product.thera_sup && isset($customer) && $customer.is_logged && ($customer.id_default_group == 4 || $customer.id_default_group == 5)}
-                      <li class="accordion-item">
-                        <div class="accordion-header">
-                          <h2><i class="bi bi-unlock-fill"></i> {l s='Informations pour les professionnels' d='Shop.Theme.Catalog'}</h2>
-                          <span class="accordion-icon">+</span>
-                        </div>
-                        <div class="accordion-content" data-target="thera_sup"></div>
-                      </li>
-                    {/if}
-                    
-                    {if $product.description}
-                      <li class="accordion-item">
-                        <div class="accordion-header">
-                          <h2>{l s='Description' d='Shop.Theme.Catalog'}</h2>
-                          <span class="accordion-icon">+</span>
-                        </div>
-                        <div class="accordion-content" data-target="description"></div>
-                      </li>
-                    {/if}
-                    
-                    {if isset($product.mode_emploi) && $product.mode_emploi}
-                      <li class="accordion-item">
-                        <div class="accordion-header">
-                          <h2>{l s='Instructions for use' d='Shop.Theme.Catalog'}</h2>
-                          <span class="accordion-icon">+</span>
-                        </div>
-                        <div class="accordion-content" data-target="mode-emploi"></div>
-                      </li>
-                    {/if}
-                    
-                    {if isset($product.ingredients) && $product.ingredients}
-                      <li class="accordion-item">
-                        <div class="accordion-header">
-                          <h2>{l s='Composition' d='Shop.Theme.Catalog'}</h2>
-                          <span class="accordion-icon">+</span>
-                        </div>
-                        <div class="accordion-content" data-target="composition"></div>
-                      </li>
-                    {/if}
-                    
-                    <li class="accordion-item">
-                      <div class="accordion-header">
-                        <h2>{l s='Technical specifications' d='Shop.Theme.Catalog'}</h2>
-                        <span class="accordion-icon">+</span>
-                      </div>
-                      <div class="accordion-content" data-target="product-details"></div>
-                    </li>
-                    
-                    {if $product.attachments}
-                      <li class="accordion-item">
-                        <div class="accordion-header">
-                          <h2>{l s='Attachments' d='Shop.Theme.Catalog'}</h2>
-                          <span class="accordion-icon">+</span>
-                        </div>
-                        <div class="accordion-content" data-target="attachments"></div>
-                      </li>
-                    {/if}
-                    
-                    {foreach from=$product.extraContent item=extra key=extraKey}
-                      <li class="accordion-item">
-                        <div class="accordion-header">
-                          <h2>{$extra.title}</h2>
-                          <span class="accordion-icon">+</span>
-                        </div>
-                        <div class="accordion-content" data-target="extra-{$extraKey}"></div>
-                      </li>
-                    {/foreach}
-                    
-                    {if $product_manufacturer->id == 5}
-                      <li class="accordion-item">
-                        <div class="accordion-header">
-                          <h2>{l s='Comparer et bien choisir' d='Shop.Theme.Catalog'}</h2>
-                          <span class="accordion-icon">+</span>
-                        </div>
-                        <div class="accordion-content" data-target="comparer"></div>
-                      </li>
-                    {/if}
-                  </ul>
-                </div>
+
                 
-                <div class="tab-content col-md-8 col-sm-12" id="tab-content">
+                <div class="w-full lg:w-3/4" id="tab-content">
                  
                 {* Groupes Thérapeute BE (ID 4) et Thérapeute FR (ID 5) *}
                 {if $product.thera_sup && isset($customer) && $customer.is_logged && ($customer.id_default_group == 4 || $customer.id_default_group == 5)}
-                 <div class="tab-pane fade in active js-product-tab-active" id="thera_sup" role="tabpanel">
-
-                     <p class="h4 color-pro"><i class="bi bi-unlock-fill"></i> {l s='Informations pour les professionnels' d='Shop.Theme.Catalog'}</p>
-                     {$product.thera_sup nofilter}
-
-                 </div>
+                 <section class="tab-section active js-product-tab-active" data-id="thera_sup" id="thera_sup" role="tabpanel">
+                   <button class="lg:hidden tab-toggle text-left font-bold text-lg w-full"><i class="bi bi-lock-fill"></i> {l s='Professional information' d='Shop.Theme.Catalog'}</button>
+                    <div class="tab-content">
+                      <p class="h4 color-pro"><i class="bi bi-unlock-fill"></i> {l s='Informations pour les professionnels' d='Shop.Theme.Catalog'}</p>
+                      {$product.thera_sup nofilter}
+                    </div>
+                 </section>
                  {/if}
                  
                  
-                 <div class="tab-pane fade in{if $product.description && !(isset($customer) && $customer.is_logged && ($customer.id_default_group == 4 || $customer.id_default_group == 5) && $product.thera_sup)} active js-product-tab-active{/if}" id="description" role="tabpanel">
+                 <section class="tab-section{if $product.description && !(isset($customer) && $customer.is_logged && ($customer.id_default_group == 4 || $customer.id_default_group == 5) && $product.thera_sup)} active js-product-tab-active{/if}" data-id="description" id="description" role="tabpanel">
+                   <button class="lg:hidden tab-toggle text-left font-bold text-lg w-full">{l s='Description' d='Shop.Theme.Catalog'}</button>
                    {block name='product_description'}
-                     <div class="product-description">{$product.description nofilter}</div>
+                     <div class="tab-content">
+                      <div class="product-description">{$product.description nofilter}</div>
+                     </div>
                    {/block}
-                 </div>
+                 </section>
                  
                  {if (isset($product.ingredients) && $product.ingredients) || (isset($product.tab_nutri) && $product.tab_nutri)}
-                    <div class="tab-pane fade in" id="composition" role="tabpanel">
+                    <section class="tab-section" data-id="composition" id="composition" role="tabpanel">
+                       <button class="lg:hidden tab-toggle text-left font-bold text-lg w-full">{l s='Instructions for use' d='Shop.Theme.Catalog'}</button>
+                      <div class="tab-content">
                       {if isset($product.ingredients) && $product.ingredients}
                         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{l s='Ingredients' d='Shop.Theme.Catalog'}</h2>
                         {$product.ingredients nofilter}
@@ -1508,14 +1412,16 @@
                         {$product.tab_nutri nofilter}
                       {/if}
                       
-                      
-                    </div>
+                      </div>
+                    </section>
                  {/if}
                       
 
                  
                  {if (isset($product.mode_emploi) && $product.mode_emploi) || (isset($product.contre_indications) && $product.contre_indications)}
-                  <div class="tab-pane fade in" id="mode-emploi" role="tabpanel">                    
+                  <section class="tab-section" data-id="mode-emploi" id="mode-emploi" role="tabpanel">
+                    <button class="lg:hidden tab-toggle text-left font-bold text-lg w-full">{l s='Instructions for use' d='Shop.Theme.Catalog'}</button>                    
+                    <div class="tab-content">
                       <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{l s='Directions for use' d='Shop.Theme.Catalog'}</h2>
                       {$product.mode_emploi nofilter}
                       
@@ -1530,14 +1436,18 @@
               			     <li>Tenir hors de portée des enfants.</li>
               			     <li>Les compléments alimentaires ne doivent pas être utilisés comme substituts à une alimentation variée et équilibrée ni à un mode de vie sain.</li>
             			    </ul>
-                  </div>
+                    </div>
+                  </section>
                 {/if}
                 
                 {if $product_manufacturer->id == 5}
                   {block name='comparer'}
-                  <div class="tab-pane fade in" id="comparer" role="tabpanel">
+                  <section class="tab-section" data-id="comparer" id="comparer" role="tabpanel">
+                    <button class="lg:hidden tab-toggle text-left font-bold text-lg w-full">{l s='Comparer et bien choisir' d='Shop.Theme.Catalog'}</button>
+                    <div class="tab-content">
                     {include file='../_partials/tab/tab-olivie.tpl'}
-                  </div>
+                    </div>
+                  </section>
                   {/block}
                 {/if}
 
@@ -1547,8 +1457,10 @@
 
                  {block name='product_attachments'}
                    {if $product.attachments}
-                    <div class="tab-pane fade in" id="attachments" role="tabpanel">
-                       <section class="product-attachments">
+                   
+                    <section class="tab-section" data-id="attachments" id="attachments" role="tabpanel">
+                      <button class="lg:hidden tab-toggle text-left font-bold text-lg w-full">{l s='Attachments' d='Shop.Theme.Catalog'}</button>
+                       <section class="tab-content product-attachments">
                          <p class="h5 text-uppercase">{l s='Download' d='Shop.Theme.Actions'}</p>
                          {foreach from=$product.attachments item=attachment}
                            <div class="attachment">
@@ -1560,12 +1472,12 @@
                            </div>
                          {/foreach}
                        </section>
-                     </div>
+                     </section>
                    {/if}
                  {/block}
 
                  {foreach from=$product.extraContent item=extra key=extraKey}
-                 <div class="tab-pane fade in {$extra.attr.class}" id="extra-{$extraKey}" role="tabpanel" {foreach $extra.attr as $key => $val} {$key}="{$val}"{/foreach}>
+                 <div class="tab-section {$extra.attr.class}" id="extra-{$extraKey}" role="tabpanel" {foreach $extra.attr as $key => $val} {$key}="{$val}"{/foreach}>
                    {$extra.content nofilter}
                  </div>
                  {/foreach}
@@ -1607,6 +1519,49 @@
                   });
                 }
               });
+              
+              
+              const tabButtons = document.querySelectorAll('.nav-link');
+              const tabSections = document.querySelectorAll('.tab-section');
+            
+              const tabContentSelector = (section) => section.querySelector('.tab-content');
+            
+              tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                  const targetId = button.dataset.tab;
+                  tabSections.forEach(section => {
+                    const content = tabContentSelector(section);
+                    if (section.dataset.id === targetId) {
+                      content.classList.remove('hidden');
+                    } else {
+                      content.classList.add('hidden');
+                    }
+                  });
+                });
+              });
+            
+              // Accordéon mobile
+              const toggles = document.querySelectorAll('.tab-toggle');
+              toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                  const content = toggle.nextElementSibling;
+                  content.classList.toggle('hidden');
+                });
+              });
+            
+              // Initialisation : cacher tous sauf premier en desktop
+              if (window.innerWidth >= 1024) {
+                tabSections.forEach((section, index) => {
+                  const content = tabContentSelector(section);
+                  if (index === 0) {
+                    content.classList.remove('hidden');
+                  } else {
+                    content.classList.add('hidden');
+                  }
+                });
+              }
+              
+              
             </script>
           {/block}  
     </div>
@@ -1614,40 +1569,38 @@
     
 
     {if isset($product_manufacturer->id)}
-      <div id="manufacturer_block" class="my-20 flex flex-col md:flex-row brand-{$product_manufacturer->id}" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
-        <div class="block product-manufacturer-infos flex flex-col lg:flex-row items-center lg:gap-12 gap-4 rounded-xl py-4 lg:py-8 px-8 lg:px-12  border border-gray-200">
+      <div id="manufacturer_block" class="product-manufacturer brand-{$product_manufacturer->id}" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+        <div class="block product-manufacturer-infos">
         {if isset($manufacturer_image_url)}
           <a href="{$product_brand_url}" class="product-manufacturer-img" title="{$product_manufacturer->name}">
-            <figure class="m-0">
+            <figure>
               <img src="{$manufacturer_image_url}" class="img img-fluid manufacturer-logo" alt="{$product_manufacturer->name}" loading="lazy">
               <meta itemprop="logo" content="{$manufacturer_image_url}" />
             </figure>
           </a>
         {/if}
-          <div class="product-manufacturer-name text-sm space-y-2">
-            <h4 class="text-xl font-bold mt-0" itemprop="name"><a href="{$product_brand_url}" title="{$product_manufacturer->name}">{$product_manufacturer->name}</a></h4>
+          <div class="product-manufacturer-name">
+            <h4 itemprop="name"><a href="{$product_brand_url}" title="{$product_manufacturer->name}">{$product_manufacturer->name}</a></h4>
             {$product_manufacturer->short_description nofilter}
-            <p class="seemore text-sm">» <a href="{$product_brand_url}" title="{$product_manufacturer->name}" class="link-blue">{l s='See all products' d='Shop.Theme.Catalog'} {$product_manufacturer->name}</a></p>
+            <p class="seemore">» <a href="{$product_brand_url}" title="{$product_manufacturer->name}">Les produits {$product_manufacturer->name}</a></p>
           </div>
         </div>
           
         {if $product_manufacturer->id == 5}
-          <div class="block product-manufacturer-imgplus rounded-xl border border-gray-200 p-0 sm:ml-0 lg:ml-8 w-full overflow-hidden">
-            <img src="{$urls.child_img_url}brands/brand-olivie.jpg" class="w-full h-full object-cover" />
+          <div class="block product-manufacturer-imgplus">
+            <img src="https://new.naturamedicatrix.fr/themes/theme_naturamedicatrix/assets/img/brands/brand-olivie.jpg" />
           </div>
         {elseif $product_manufacturer->id == 4}
-          <div class="block product-manufacturer-imgplus rounded-xl border border-gray-200 p-0 sm:ml-0 lg:ml-8 w-full overflow-hidden">
-            <img src="{$urls.child_img_url}brands/brand-naturamedicatrix.jpg" class="w-full h-full object-cover" />
+          <div class="block product-manufacturer-imgplus">
+            <img src="https://new.naturamedicatrix.fr/themes/theme_naturamedicatrix/assets/img/brands/brand-naturamedicatrix.jpg" />
           </div>
         {elseif $product_manufacturer->id == 3}
-          <div class="block product-manufacturer-imgplus rounded-xl border border-gray-200 p-0 sm:ml-0 lg:ml-8 w-full overflow-hidden">
-            <img src="{$urls.child_img_url}brands/brand-jacob.jpg" class="w-full h-full object-cover" />
+          <div class="block product-manufacturer-imgplus">
+            <img src="https://new.naturamedicatrix.fr/themes/theme_naturamedicatrix/assets/img/brands/brand-jacob.jpg" />
           </div>
         {/if}
       </div>
     {/if}
-    
-    
     
     {block name='product_accessories'}
       {if $accessories}
@@ -1727,86 +1680,6 @@
   {include file="catalog/_partials/product-popup-redirection.tpl"}
 {/if}
 
-<script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialise l'accordéon mobile
-    initMobileAccordion();
-  });
 
-  function initMobileAccordion() {
-    // Sélectionne tous les éléments d'accordéon
-    const accordionItems = document.querySelectorAll('.accordion-item');
-    
-    // Pour chaque élément d'accordéon
-    accordionItems.forEach(function(item) {
-      const header = item.querySelector('.accordion-header');
-      const content = item.querySelector('.accordion-content');
-      const targetId = content.getAttribute('data-target');
-      const tabContent = document.getElementById(targetId);
-      
-      // Prépare le style initial
-      content.style.overflow = 'hidden';
-      content.style.transition = 'max-height 0.4s ease-in-out, padding 0.3s ease-in-out';
-      content.style.maxHeight = '0';
-      content.style.padding = '0';
-      content.style.opacity = '0';
-      content.style.transition = 'all 0.4s ease-in-out';
-      
-      // Si on trouve le contenu correspondant dans les onglets
-      if (tabContent && tabContent.innerHTML) {
-        // Copie le contenu de l'onglet dans l'accordéon
-        content.innerHTML = tabContent.innerHTML;
-        
-        // Ajoute une div wrapper pour l'espacement
-        const wrapper = document.createElement('div');
-        wrapper.className = 'accordion-content-wrapper';
-        wrapper.style.padding = '0.75rem 0.5rem';
-        
-        // Déplace le contenu dans le wrapper
-        const contentHtml = content.innerHTML;
-        content.innerHTML = '';
-        wrapper.innerHTML = contentHtml;
-        content.appendChild(wrapper);
-      } else {
-        console.log('Aucun contenu trouvé pour', targetId);
-      }
-      
-      // Ajoute un écouteur d'événement pour le clic sur l'en-tête
-      header.addEventListener('click', function() {
-        // Vérifie si cet élément est actuellement actif
-        const isActive = item.classList.contains('active');
-        
-        // Ferme tous les éléments ouverts avec animation
-        accordionItems.forEach(function(otherItem) {
-          if (otherItem !== item && otherItem.classList.contains('active')) {
-            const otherContent = otherItem.querySelector('.accordion-content');
-            otherItem.classList.remove('active');
-            otherContent.style.maxHeight = '0';
-            otherContent.style.opacity = '0';
-          }
-        });
-        
-        // Basculer l'état actif de l'élément cliqué
-        if (isActive) {
-          // Ferme le contenu actif
-          item.classList.remove('active');
-          content.style.maxHeight = '0';
-          content.style.opacity = '0';
-        } else {
-          // Ouvre le contenu
-          item.classList.add('active');
-          // Calcul la hauteur nécessaire pour le contenu
-          content.style.maxHeight = content.scrollHeight + 'px';
-          content.style.opacity = '1';
-          
-          // Recalcul la hauteur après un court délai pour s'assurer que tout est rendu
-          setTimeout(function() {
-            content.style.maxHeight = content.scrollHeight + 'px';
-          }, 50);
-        }
-      });
-    });
-  }
-</script>
-
+  
 {/block}

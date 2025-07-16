@@ -1,0 +1,44 @@
+/* Styles pour les principes actifs dans la fiche produit */
+.principes-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.principes-list li {
+  margin-bottom: 1.5rem;
+}
+
+.principe-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.principe-image {
+  flex: 0 0 80px;
+}
+
+.principe-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.principe-content {
+  flex: 1;
+}
+
+.principe-content a {
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.principe-description {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
