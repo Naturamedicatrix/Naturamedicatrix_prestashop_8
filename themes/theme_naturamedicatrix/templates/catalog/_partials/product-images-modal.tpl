@@ -22,7 +22,7 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<div class="modal fade js-product-images-modal" id="product-modal">
+<div class="modal fade js-product-images-modal" id="product-modal" data-backdrop="true" data-keyboard="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -60,9 +60,94 @@
           </div>
           
           <style>
+          #modal-video-container {
+            top: 36px !important;
+          }
             #modal-video-container iframe {
-              width: 631px;
-              height: 631px;
+              width: 635px;
+              height: 635px;
+            }
+            
+            @media (max-width: 767px) {
+              /* Ajustement du modal lui-même */
+              .modal-dialog {
+                margin: 10px;
+                width: auto;
+                max-width: 95%;
+              }
+              
+              .modal-content {
+                border-radius: 8px;
+              }
+              
+              .modal-body {
+                padding: 15px 10px;
+              }
+              
+              /* Ajustement de l'image principale */
+              #modal-video-container {
+                position: absolute;
+                left: 0px;
+                top: 30px;
+                width: 100%;
+              }
+              
+              #modal-video-container iframe {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1/1;
+                margin: 0 auto;
+              }
+              
+              .js-modal-product-cover {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+              }
+              
+              /* Optimisation des miniatures */
+              .thumbnails {
+                margin-top: 15px;
+              }
+              
+              .product-images.js-modal-product-images {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding: 5px 0 10px;
+                margin: 0 -5px;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+                justify-content: center;
+              }
+              
+              .js-modal-product-images .thumb-container {
+                flex: 0 0 auto;
+                width: 70px;
+                margin: 0 5px;
+                scroll-snap-align: start;
+              }
+              
+              .js-modal-product-images .thumb {
+                margin: 0;
+                height: 70px;
+                object-fit: cover;
+                border: 2px solid transparent;
+              }
+              
+              .js-modal-product-images .thumb.selected {
+                border-color: #83b58b;
+              }
+              
+              /* Masquer les flèches en mobile car on utilise le scroll */
+              .arrows.js-modal-arrows {
+                display: none;
+              }
+
+              #youtube-thumbnail {
+                height: 60px !important;
+              }
             }
           </style>
           
@@ -217,6 +302,64 @@
     // Réinitialisation lorsque le modal est ouvert
     $('#product-modal').on('shown.bs.modal', function () {
       initializeModalVideo();
+      
+      // Marquer l'image principale comme sélectionnée par défaut
+      highlightSelectedThumbnail(document.querySelector('.js-modal-thumb'));
     });
+    
+    // Fonction pour mettre en évidence la miniature sélectionnée
+    function highlightSelectedThumbnail(selectedThumb) {
+      // Enlever la classe 'selected' de toutes les miniatures
+      document.querySelectorAll('.js-modal-thumb').forEach(function(thumb) {
+        thumb.classList.remove('selected');
+      });
+      
+      // Ajouter la classe 'selected' à la miniature sélectionnée
+      if (selectedThumb) {
+        selectedThumb.classList.add('selected');
+      }
+    }
+    
+    // Ajouter des écouteurs d'événements sur les miniatures pour les mettre en évidence au clic
+    document.querySelectorAll('.js-modal-thumb').forEach(function(thumb) {
+      thumb.removeEventListener('click', handleThumbnailClick);
+      thumb.addEventListener('click', handleThumbnailClick);
+    });
+    
+    function handleThumbnailClick(event) {
+      highlightSelectedThumbnail(event.currentTarget);
+    }
+    
+    // Gestionnaire spécifique pour fermer le modal sur mobile en cliquant à l'extérieur
+    function setupModalCloseOnOutsideClick() {
+      var modal = document.getElementById('product-modal');
+      var modalDialog = modal.querySelector('.modal-dialog');
+      
+      // Détecter si c'est un appareil mobile
+      var isMobileDevice = window.matchMedia('(max-width: 767px)').matches;
+      
+      if (isMobileDevice) {
+        // Supprime l'ancien gestionnaire d'événement s'il existe
+        modal.removeEventListener('click', handleModalOutsideClick);
+        
+        // Ajoute le gestionnaire d'événement
+        modal.addEventListener('click', handleModalOutsideClick);
+        
+        // Ajouter une classe pour vérifier que le script est bien appliqué
+        modal.classList.add('mobile-touch-enabled');
+      }
+      
+      function handleModalOutsideClick(event) {
+        // Si le clic est sur le fond du modal (pas sur son contenu)
+        if (event.target === modal && !modalDialog.contains(event.target)) {
+          // Fermer le modal via l'API Bootstrap
+          $('#product-modal').modal('hide');
+        }
+      }
+    }
+    
+    // Exécuter la configuration au chargement et lorsque le modal est ouvert
+    setupModalCloseOnOutsideClick();
+    $('#product-modal').on('shown.bs.modal', setupModalCloseOnOutsideClick);
   });
 </script>
