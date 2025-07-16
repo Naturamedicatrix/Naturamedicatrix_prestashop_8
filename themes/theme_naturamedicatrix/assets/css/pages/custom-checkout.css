@@ -91,6 +91,7 @@ body#checkout .cart-grid-body {
   padding-right: 6rem;
   margin-bottom: 0;
   background: white;
+  min-height: 800px;
 }
 @media (max-width: 768px) {
   body#checkout .cart-grid-body {
@@ -184,6 +185,48 @@ body#checkout #cart-summary-product-list picture {
 body#checkout #cart-summary-product-list img {
   border: none !important;
 }
+@media (max-width: 640px) {
+  body#checkout section.checkout-step .add-address {
+    margin-top: 0;
+  }
+}
+body#checkout section.checkout-step .add-address a {
+  align-items: center;
+}
+@media (max-width: 640px) {
+  body#checkout section.checkout-step .add-address a {
+    font-size: 0.8rem;
+  }
+}
+body#checkout section.checkout-step .add-address a i {
+  font-size: 0.8rem;
+  margin-right: 0.3rem;
+}
+body#checkout section.checkout-step .step-title {
+  font-size: 1.5rem !important;
+}
+@media (max-width: 640px) {
+  body#checkout section.checkout-step .step-title {
+    font-size: 1.2rem !important;
+    padding-left: 1rem;
+  }
+}
+@media (max-width: 640px) {
+  body#checkout section.checkout-step #delivery-addresses, body#checkout section.checkout-step #invoice-addresses {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 640px) {
+  body#checkout section.checkout-step .address-footer {
+    text-align: left;
+  }
+}
+@media (max-width: 640px) {
+  body#checkout section.checkout-step .address-footer a {
+    font-size: 0.8rem;
+  }
+}
 body#checkout section.checkout-step .delete-address .delete, body#checkout section.checkout-step .delete-address .edit, body#checkout section.checkout-step .edit-address .delete, body#checkout section.checkout-step .edit-address .edit {
   font-size: 0.8rem;
 }
@@ -200,6 +243,7 @@ body#checkout section.checkout-step .address-item {
 }
 body#checkout section.checkout-step .address-item.selected {
   border: 2px solid #589875;
+  width: 100%;
 }
 body#checkout section.checkout-step .delivery-options .delivery-option:not(:last-child) {
   background: transparent;
@@ -236,12 +280,18 @@ body#checkout #conditions-to-approve {
   margin: 1rem 0;
   max-width: 100%;
 }
+@media (max-width: 640px) {
+  body#checkout #conditions-to-approve {
+    padding: 0.5rem 1rem;
+  }
+}
 body#checkout #conditions-to-approve .condition-label {
   margin-top: 0 !important;
 }
 body#checkout #conditions-to-approve ul {
   padding-left: 0;
   margin: 0;
+  list-style: none;
 }
 body#checkout .payment-options .payment-option {
   padding: 1.5rem 0;

@@ -26,7 +26,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <button type="button" class="close mobile-modal-close" data-dismiss="modal" aria-label="Fermer">
-        <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true" style="font-size: 1.5rem;">&times;</span>
       </button>
       <div class="modal-body">
         {assign var=imagesCount value=$product.images|count}
@@ -166,7 +166,7 @@
               }
               .mobile-modal-close {
                 position: absolute;
-                top: -6px;
+                top: 0px;
                 right: 0px;
                 z-index: 1050;
                 background-color: rgba(255, 255, 255, 0.95);

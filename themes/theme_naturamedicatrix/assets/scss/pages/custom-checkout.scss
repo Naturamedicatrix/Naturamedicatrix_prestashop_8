@@ -113,6 +113,7 @@ body#checkout {
         padding-right: 6rem;
         margin-bottom: 0;
         background: white;
+        min-height: 800px;
         @media (max-width: $breakpoint-md) {
             padding-left: 0;
             padding-right: 0;
@@ -227,6 +228,45 @@ body#checkout {
     
     // Checkout Step Styles
     section.checkout-step {
+        .add-address {
+            @media (max-width: $breakpoint-sm) {
+                margin-top: 0;
+            }
+           a {
+            align-items: center;
+            @media (max-width: $breakpoint-sm) {
+                font-size: .8rem;
+            }
+
+            i {
+                font-size: .8rem;
+                margin-right: .3rem;
+            }
+           }
+        }
+        .step-title {
+            font-size: 1.5rem !important;
+            @media (max-width: $breakpoint-sm) {
+                font-size: 1.2rem !important;
+                padding-left: 1rem;
+            }
+        }
+        #delivery-addresses, #invoice-addresses {
+            @media (max-width: $breakpoint-sm) {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        .address-footer {
+            @media (max-width: $breakpoint-sm) {
+                text-align: left;
+            }
+             a {
+                @media (max-width: $breakpoint-sm) {
+                    font-size: 0.8rem;
+                }
+             }
+        }
         .delete-address, .edit-address {
             .delete, .edit {
                 font-size: 0.8rem;
@@ -246,6 +286,7 @@ body#checkout {
             
             &.selected {
                 border: 2px solid $color-custom-green;
+                width: 100%;
             }
         }
         
@@ -297,6 +338,9 @@ body#checkout {
         padding: 0.5rem 2rem;
         margin: 1rem 0;
         max-width: 100%;
+        @media (max-width: $breakpoint-sm) {
+            padding: 0.5rem 1rem;
+        }
         
         .condition-label {
             margin-top: 0 !important;
@@ -305,6 +349,7 @@ body#checkout {
         ul {
             padding-left: 0;
             margin: 0;
+            list-style: none;
         }
     }
     

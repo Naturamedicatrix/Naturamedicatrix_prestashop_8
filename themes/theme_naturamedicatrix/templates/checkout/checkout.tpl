@@ -13,9 +13,10 @@
     <div class="row">
       <div class="cart-grid-body section-step-checkout col-xs-12 col-xl-7">
         
-        {block name='steps'}
+        {* CUSTOM STEP *}
+        {* {block name='steps'}
           {include file='checkout/_partials/steps.tpl'}
-        {/block}
+        {/block} *}
         
         
         {block name='checkout_process'}
