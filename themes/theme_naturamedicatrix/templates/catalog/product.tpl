@@ -117,7 +117,7 @@
         /* Styles pour l'accordéon mobile */
         .mobile-accordion {
           margin-bottom: 0;
-          margin-top: 1rem;
+          margin-top: 0;
           width: 100%;
           display: block;
         }
@@ -161,7 +161,6 @@
         
         .accordion-content {
           padding: 0;
-          border-top: 1px solid #f0f0f0;
           overflow: hidden;
         }
         
@@ -1760,7 +1759,7 @@
         // Ajoute une div wrapper pour l'espacement
         const wrapper = document.createElement('div');
         wrapper.className = 'accordion-content-wrapper';
-        wrapper.style.padding = '0.75rem 0.5rem';
+        wrapper.style.padding = '0rem 0.5rem';
         
         // Déplace le contenu dans le wrapper
         const contentHtml = content.innerHTML;

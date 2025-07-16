@@ -63,6 +63,95 @@
         align-items: center;
         justify-content: center;
       }
+      
+      /* Styles responsives pour mobile */
+      @media (max-width: 767px) {
+        #sticky-product-bar {
+          padding: 8px 0;
+          top: auto;
+          bottom: 0;
+        }
+        
+        #sticky-product-bar .sticky-container {
+          gap: 8px;
+          padding: 0 8px;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        
+        #sticky-product-bar .sticky-product-name {
+          font-size: 0.75rem;
+          width: 100%;
+          order: -1;
+          margin-bottom: 6px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-align: center;
+          padding: 0 5px;
+        }
+        
+        #sticky-product-bar .quantity-group {
+          flex: 0 0 auto;
+        }
+        
+        #sticky-product-bar .btn-quantity {
+          width: 32px;
+          height: 32px;
+        }
+        
+        #sticky-product-bar .sticky-qty {
+          width: 40px;
+          height: 32px;
+        }
+        
+        #sticky-product-bar .add-to-cart {
+          height: 32px;
+          padding: 5px 10px;
+          flex: 1;
+          font-size: 0.7rem;
+        }
+        
+        #sticky-product-bar .add-to-cart i {
+          margin-right: 4px;
+        }
+        
+        #sticky-product-bar .button-text,
+        #sticky-product-bar .button-price {
+          display: inline-block;
+        }
+        
+        @media (max-width: 575px) {
+          #sticky-product-bar .sticky-product-name {
+            font-size: 0.7rem;
+            margin-bottom: 4px;
+          }
+          
+          #sticky-product-bar .btn-quantity {
+            width: 28px;
+            height: 28px;
+            font-size: 14px;
+          }
+          
+          #sticky-product-bar .sticky-qty {
+            width: 30px;
+            height: 28px;
+          }
+          
+          #sticky-product-bar .add-to-cart {
+            font-size: 0.65rem;
+            padding: 2px 8px;
+          }
+          
+          #sticky-product-bar .button-text {
+            display: none;
+          }
+          
+          #sticky-product-bar .button-price {
+            margin-left: 0;
+          }
+        }
+      }
 </style>
 
 
@@ -83,7 +172,7 @@
             <button class="btn-quantity" onclick="incrementQuantity(event)">+</button>
         </div>
         <button class="btn btn-primary add-to-cart" data-button-action="add-to-cart" type="submit" {if !$product.add_to_cart_url}disabled{/if}>
-            <i class="bi bi-handbag"></i> {l s='Add to cart' d='Shop.Theme.Actions'} &#x2012; {$product.price}
+            <i class="bi bi-handbag"></i> <span class="button-text">{l s='Add to cart' d='Shop.Theme.Actions'}</span> <span class="button-price">&#x2012; {$product.price}</span>
         </button>
         {/if}
     </div>
@@ -123,9 +212,28 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Configuration visuelle initiale
   stickyBar.style.opacity = '0';
-  stickyBar.style.transform = 'translateY(20px)';
-  stickyBar.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
   stickyBar.style.display = 'none';
+  
+  // Détermine si on est en version mobile
+  function isMobile() {
+    return window.innerWidth <= 767;
+  }
+  
+  // Définir la transformation initiale selon le dispositif
+  function setInitialTransform() {
+    if (isMobile()) {
+      stickyBar.style.transform = 'translateY(20px)';
+    } else {
+      stickyBar.style.transform = 'translateY(-20px)';
+    }
+    stickyBar.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+  }
+  
+  // Appliquer la transformation initiale
+  setInitialTransform();
+  
+  // Mettre à jour la transformation lors du redimensionnement
+  window.addEventListener('resize', setInitialTransform);
   
   // Synchronisation quantité sticky -> original
   var stickyQty = document.querySelector('.sticky-qty');
@@ -166,7 +274,14 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function hideStickyBar() {
     stickyBar.style.opacity = '0';
-    stickyBar.style.transform = 'translateY(20px)';
+    
+    // Animation dans le sens opposé selon qu'on est en mobile ou desktop
+    if (isMobile()) {
+      stickyBar.style.transform = 'translateY(20px)'; // Vers le bas en mobile
+    } else {
+      stickyBar.style.transform = 'translateY(-20px)'; // Vers le haut en desktop
+    }
+    
     setTimeout(function() {
       stickyBar.style.display = 'none';
     }, 400);
