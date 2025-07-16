@@ -210,6 +210,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (!stickyBar || !productAddToCart) return;
   
+  // Variable pour savoir si le bouton d'ajout au panier a déjà été visible
+  var hasSeenAddToCartButton = false;
+  
   // Configuration visuelle initiale
   stickyBar.style.opacity = '0';
   stickyBar.style.display = 'none';
@@ -290,10 +293,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // Configuration de l'Intersection Observer
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
-      if (!entry.isIntersecting) {
-        showStickyBar();
-      } else {
+      if (entry.isIntersecting) {
+        // Le bouton est visible, on le marque comme vu et on cache la barre
+        hasSeenAddToCartButton = true;
         hideStickyBar();
+      } else {
+        // Le bouton n'est pas visible
+        if (hasSeenAddToCartButton) {
+          // Seulement si on l'a déjà vu au moins une fois
+          showStickyBar();
+        }
       }
     });
   }, { threshold: 0.1 });
