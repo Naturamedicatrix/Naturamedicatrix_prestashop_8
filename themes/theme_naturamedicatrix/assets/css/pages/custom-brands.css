@@ -10,6 +10,11 @@ body#manufacturer #main .row, .featured-brands #main .row {
   flex-wrap: wrap;
   align-items: flex-start;
 }
+@media (max-width: 640px) {
+  body#manufacturer #main .row, .featured-brands #main .row {
+    display: block;
+  }
+}
 @media (min-width: 1200px) and (max-width: 1700px) {
   body#manufacturer #main .col-xl-full, .featured-brands #main .col-xl-full {
     flex: 0 0 25%;

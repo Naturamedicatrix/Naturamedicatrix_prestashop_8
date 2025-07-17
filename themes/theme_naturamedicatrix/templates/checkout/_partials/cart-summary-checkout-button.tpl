@@ -37,7 +37,7 @@
   <div id="cart-summary-checkout-confirmation" class="js-cart-summary-checkout-confirmation">
     <button type="submit" 
             class="btn btn-primary center-block js-cart-checkout-btn disabled w-100"
-            disabled>
+    >
       {l s='Commander' d='Shop.Theme.Checkout'}
     </button>
   </div>

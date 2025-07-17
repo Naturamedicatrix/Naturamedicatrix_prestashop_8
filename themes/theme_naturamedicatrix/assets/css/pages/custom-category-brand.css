@@ -13,7 +13,13 @@ body#category #wrapper p {
 
 #manufacturer-short_description p,
 #category-description p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+  #manufacturer-short_description p,
+  #category-description p {
+    font-size: 1rem;
+  }
 }
 
 #manufacturer-description {

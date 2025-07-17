@@ -13,7 +13,7 @@ body#module-psgdpr-gdpr #content-wrapper, body#module-blockwishlist-lists #conte
   min-height: auto !important;
 }
 body#module-psgdpr-gdpr #main, body#module-blockwishlist-lists #main, body#view #main, body#module-ps_emailalerts-account #main {
-  min-height: 1100px !important;
+  min-height: 100vh !important;
 }
 @media (max-width: 640px) {
   body#module-psgdpr-gdpr #main, body#module-blockwishlist-lists #main, body#view #main, body#module-ps_emailalerts-account #main {
@@ -96,6 +96,14 @@ body#my-account #content, body#identity #content, body#addresses #content, body#
 @media (max-width: 640px) {
   body#my-account #content, body#identity #content, body#addresses #content, body#history #content, body#order-slip #content, body#module-blockwishlist-lists #content, body#view #content, body#module-blockwishlist-view #content, body#module-psgdpr-gdpr #content, body#address #content, body#module-ps_emailalerts-account #content, body#discount #content {
     padding: 0 30px !important;
+  }
+}
+body#my-account #content-wrapper, body#identity #content-wrapper, body#addresses #content-wrapper, body#history #content-wrapper, body#order-slip #content-wrapper, body#module-blockwishlist-lists #content-wrapper, body#view #content-wrapper, body#module-blockwishlist-view #content-wrapper, body#module-psgdpr-gdpr #content-wrapper, body#address #content-wrapper, body#module-ps_emailalerts-account #content-wrapper, body#discount #content-wrapper {
+  min-height: 113vh !important;
+}
+@media (max-width: 1250px) {
+  body#my-account #content-wrapper, body#identity #content-wrapper, body#addresses #content-wrapper, body#history #content-wrapper, body#order-slip #content-wrapper, body#module-blockwishlist-lists #content-wrapper, body#view #content-wrapper, body#module-blockwishlist-view #content-wrapper, body#module-psgdpr-gdpr #content-wrapper, body#address #content-wrapper, body#module-ps_emailalerts-account #content-wrapper, body#discount #content-wrapper {
+    padding-left: 0 !important;
   }
 }
 @media (max-width: 640px) {
@@ -568,6 +576,11 @@ body#my-account .block-address, body#identity .block-address, body#addresses .bl
 body#module-blockwishlist-lists #main, body#module-psgdpr-gdpr #main, body#view #main, body#module-ps_emailalerts-account #main {
   padding: 70px 100px;
 }
+@media (max-width: 640px) {
+  body#module-blockwishlist-lists #main, body#module-psgdpr-gdpr #main, body#view #main, body#module-ps_emailalerts-account #main {
+    padding: 0;
+  }
+}
 body#module-blockwishlist-lists #content-wrapper, body#module-psgdpr-gdpr #content-wrapper, body#view #content-wrapper, body#module-ps_emailalerts-account #content-wrapper {
   padding-left: 0;
 }
@@ -582,10 +595,14 @@ body#module-blockwishlist-lists .wishlist-container, body#module-psgdpr-gdpr .wi
 @media (max-width: 640px) {
   body#module-blockwishlist-lists .wishlist-container, body#module-psgdpr-gdpr .wishlist-container, body#view .wishlist-container, body#module-ps_emailalerts-account .wishlist-container {
     padding-top: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-47%);
   }
 }
 body#module-blockwishlist-lists .wishlist-container .card.page-content, body#module-psgdpr-gdpr .wishlist-container .card.page-content, body#view .wishlist-container .card.page-content, body#module-ps_emailalerts-account .wishlist-container .card.page-content {
   border: none;
+  box-shadow: none;
 }
 body#module-blockwishlist-lists .wishlist-list, body#module-psgdpr-gdpr .wishlist-list, body#view .wishlist-list, body#module-ps_emailalerts-account .wishlist-list {
   padding-left: 0;
@@ -629,6 +646,13 @@ body#module-blockwishlist-lists a.text-primary:hover, body#module-psgdpr-gdpr a.
 
 body#view #content {
   border: none;
+  box-shadow: none;
+}
+@media (max-width: 640px) {
+  body#view #content {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
 }
 body#view #content .wishlist-products-item {
   border: 1px solid #e5e8ea;
@@ -646,6 +670,16 @@ body#view .wishlist-products-container-header {
 }
 body#view .wishlist-products-container .sort-by-row {
   padding-top: 70px;
+}
+@media (max-width: 640px) {
+  body#view .wishlist-products-container .sort-by-row {
+    padding-top: 25px;
+  }
+}
+@media (max-width: 640px) {
+  body#view .products-sort-order {
+    margin-left: 35px;
+  }
 }
 body#view .products-sort-order .select-title {
   color: #111827;
@@ -695,6 +729,12 @@ body#address .form-footer {
 
 body#view #content-wrapper {
   width: 65%;
+}
+@media (max-width: 640px) {
+  body#view #content-wrapper {
+    width: 100%;
+    margin-top: 30px;
+  }
 }
 body#view .wishlist-button-add i {
   color: #4B5563 !important;
@@ -747,6 +787,11 @@ body#module-ps_emailalerts-account .alerts-list {
   margin-top: 0;
   padding-top: 2rem;
 }
+@media (max-width: 640px) {
+  body#module-ps_emailalerts-account .alerts-list {
+    justify-content: center;
+  }
+}
 body#module-ps_emailalerts-account .alerts-list li {
   display: flex;
   flex-direction: column;
@@ -773,4 +818,29 @@ body#module-ps_emailalerts-account .alerts-list li .js-remove-email-alert {
 }
 body#module-ps_emailalerts-account .alerts-list li .js-remove-email-alert:hover {
   color: rgb(107.974137931, 122.3706896552, 142.525862069) !important;
+}
+
+@media (max-width: 640px) {
+  #module-psgdpr-gdpr #main {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 640px) {
+  #module-psgdpr-gdpr #main #content-wrapper {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+@media (max-width: 640px) {
+  #module-psgdpr-gdpr #main .page_content .psgdprinfo17 {
+    padding: 15px 25px !important;
+  }
+}
+@media (max-width: 640px) {
+  #module-psgdpr-gdpr #main .psgdprgetdatabtn17 {
+    width: 100% !important;
+    margin: 0 !important;
+  }
 }

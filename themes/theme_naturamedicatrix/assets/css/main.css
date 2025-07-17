@@ -17,7 +17,13 @@ body#category #wrapper p {
 
 #manufacturer-short_description p,
 #category-description p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+  #manufacturer-short_description p,
+  #category-description p {
+    font-size: 1rem;
+  }
 }
 
 #manufacturer-description {
@@ -1513,7 +1519,7 @@ table.table-light.text-center td, table.table-light.text-center th {
 }
 @media (max-width: 768px) {
   .layout-left-column .left-column {
-    padding-left: 0 !important;
+    padding-left: 15px !important;
   }
 }
 
@@ -1521,6 +1527,11 @@ table.table-light.text-center td, table.table-light.text-center th {
   background: white;
   padding-left: 50px;
   padding-bottom: 50px;
+}
+@media (max-width: 640px) {
+  #manufacturer .left-column {
+    padding-left: 15px !important;
+  }
 }
 
 .products-sort-order {

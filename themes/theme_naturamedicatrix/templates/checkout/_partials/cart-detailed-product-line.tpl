@@ -275,6 +275,7 @@ CUSTOM PRODUCTS DETAILS CART
       {block name='hook_cart_extra_product_actions'}
         {hook h='displayCartExtraProductActions' product=$product}
       {/block}
+      
   
     </div> <!-- end .cart-line-product-actions -->
   </div>

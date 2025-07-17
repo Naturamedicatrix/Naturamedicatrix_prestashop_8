@@ -448,7 +448,7 @@ body#cart .cart-grid-body {
   padding-bottom: 3rem;
   padding-top: 3rem;
   padding-right: 6rem;
-  min-height: 48vh;
+  min-height: 95vh;
 }
 @media (max-width: 1024px) {
   body#cart .cart-grid-body {
@@ -475,12 +475,6 @@ body#cart .cart-grid-right {
   body#cart .cart-grid-right {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-}
-@media (max-width: 640px) {
-  body#cart .cart-grid-right {
-    padding-left: 16px;
-    padding-right: 16px;
   }
 }
 body#cart .cart-grid-right h3 {
@@ -581,7 +575,7 @@ body#cart .product-line-grid .mobile-cart-actions {
 body#cart .charity-block {
   border: 1px solid #e5e7eb;
   border-radius: 10px;
-  padding: 2rem 3rem;
+  padding: 2rem;
 }
 body#cart .charity-block .donation-block {
   padding-top: 0;
@@ -593,6 +587,14 @@ body#cart .charity-block .donation-block {
   body#cart .charity-block .donation-block {
     flex-direction: column;
   }
+}
+body#cart .charity-block .donation-group {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+body#cart .charity-block .donation-group .donation-price {
+  width: 70px !important;
 }
 body#cart .charity-block .donation-title {
   color: #111827;
@@ -606,6 +608,7 @@ body#cart .charity-block .donation-description, body#cart .charity-block .donati
 }
 body#cart .charity-block .donation-btn-text {
   min-width: auto;
+  font-size: 0.8rem !important;
 }
 body#cart .charity-block .donation-price-div {
   width: 80px;

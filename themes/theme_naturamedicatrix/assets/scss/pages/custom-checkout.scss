@@ -548,7 +548,7 @@ body#cart {
         padding-bottom: 3rem;
         padding-top: 3rem;
         padding-right: 6rem;
-        min-height: 48vh;
+        min-height: 95vh;
 
         @media (max-width: 1024px) {
             padding-right: 2rem;
@@ -572,11 +572,6 @@ body#cart {
        @media (max-width: 1600px) {
             padding-left: 2rem;
             padding-right: 2rem;
-       }
-
-       @media (max-width: $breakpoint-sm) {
-            padding-left: 16px;
-            padding-right: 16px;
        }
 
        h3 {
@@ -701,7 +696,7 @@ body#cart {
     .charity-block {
         border : 1px solid #e5e7eb;
         border-radius: 10px;
-        padding: 2rem 3rem;
+        padding: 2rem;
       
         .donation-block {
           padding-top: 0;
@@ -712,6 +707,16 @@ body#cart {
           @media (max-width: $breakpoint-sm) {
             flex-direction: column;
           }
+        }
+
+        .donation-group {
+            display:flex;
+            flex-direction: row;
+            gap: 25px;
+    
+            .donation-price {
+                width: 70px !important;
+            }
         }
       
         .donation-title {
@@ -728,6 +733,7 @@ body#cart {
       
         .donation-btn-text {
           min-width: auto;
+          font-size: .8rem !important;
         }
       
         .donation-price-div {
@@ -1109,3 +1115,6 @@ body#checkout {
         display: block !important;
     }
 }
+
+
+

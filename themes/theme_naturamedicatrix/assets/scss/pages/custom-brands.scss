@@ -10,6 +10,9 @@ body#manufacturer, .featured-brands {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
+        @media (max-width: $breakpoint-sm) {
+            display: block;
+        }
     }
     
     /* Classe personnalisée pour avoir 5 colonnes en desktop */

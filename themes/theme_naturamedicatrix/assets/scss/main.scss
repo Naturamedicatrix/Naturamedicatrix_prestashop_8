@@ -907,7 +907,7 @@ table.table-light {
     padding-left: 50px;
 
     @media (max-width: $breakpoint-md) {
-      padding-left: 0 !important;
+      padding-left: 15px !important;
     }
   }
   
@@ -917,6 +917,9 @@ table.table-light {
   background: white; 
   padding-left : 50px ; 
   padding-bottom: 50px;
+  @media (max-width: $breakpoint-sm) {
+    padding-left: 15px !important;
+  }
 }
 //END LEFT COLUMN
 
