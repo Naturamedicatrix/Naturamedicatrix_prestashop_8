@@ -2156,3 +2156,20 @@ kbd {
   height: 100%;
   border: 0;
 }
+
+.dfd-fullscreen .dfd-searchbox {
+  border-bottom: 1px solid #d2dae7 !important;
+}
+
+.dfd-carousel-arrow svg {
+  fill: #4B5563 !important;
+}
+
+.dfd-card-price {
+  color: #4B5563 !important;
+}
+
+.dfd-card:hover {
+  border: 1px solid #4B5563 !important;
+  box-shadow: none !important;
+}

@@ -41,7 +41,7 @@
 				{block name="charity_and_donation"}
 					<div class="card">
 						<div class="card-block">
-							<h4>{l s='DONATIONS AND CHARITY' mod='wkcharitydonation'}</h4>
+							{* <h1 class="h1">{l s='DONATIONS AND CHARITY' mod='wkcharitydonation'}</h1> *}
 						</div>
 						<hr class="separator">
 						<div class="charity-block">
@@ -134,8 +134,9 @@
 				{block name='hook_reassurance'}
 					{hook h='displayReassurance'}
 				{/block}
+				
 
-				{* BLOC ADVANTAGES *}
+				{* BLOC ADVANTAGES - Ajout de la section qui manquait *}
 				{include file='checkout/_partials/cart-advantages-block.tpl'}
 
 			</div>

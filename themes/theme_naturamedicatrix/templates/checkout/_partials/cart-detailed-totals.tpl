@@ -3,10 +3,13 @@ CUSTOM DETAILS PANIER
 *}
  {block name='cart_detailed_totals'}
     <div class="cart-detailed-totals js-cart-detailed-totals">
+      
+      {block name='cart_voucher'}
+        {include file='checkout/_partials/cart-voucher.tpl'}
+      {/block}
+      
+      
     <h3>Récapitulatif</h3>
-    {block name='cart_voucher'}
-      {include file='checkout/_partials/cart-voucher.tpl'}
-    {/block}
        <div class="card-block cart-detailed-subtotals js-cart-detailed-subtotals">
         {* Liste des articles et sous-totaux *}
         {foreach from=$cart.subtotals item="subtotal"}
@@ -52,6 +55,7 @@ CUSTOM DETAILS PANIER
           {/if}
         {/foreach}
       </div>
+      
     
       {block name='cart_summary_totals'}
         {include file='checkout/_partials/cart-summary-totals.tpl' cart=$cart}

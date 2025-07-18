@@ -556,6 +556,10 @@ body#cart {
             min-height: auto;
         }
 
+        @media (min-width: 1700px) and (max-width: 1920px) {
+            min-height: 127vh;
+        }
+
         @media (max-width: $breakpoint-sm) {
             padding-right: 16px;
             padding-left: 16px;
@@ -581,6 +585,10 @@ body#cart {
 
        .cart-summary {
            background-color: $color-custom-whiteDarker;
+       }
+
+       .btn-primary:hover {
+        color: white !important;
        }
     }
     .product-line-grid-right .cart-line-product-actions, .product-line-grid-right .product-price {
@@ -770,38 +778,6 @@ body#cart {
         display: none;
     }
 
-    .continue-shopping {
-        .btn-outline {
-            width: 100%;
-            &:hover {
-                color: $color-custom-white !important;
-            }
-        }
-        
-        p.font-bold {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            &::before, &::after {
-                content: '';
-                height: 1px;
-                background-color: $color-custom-gray;
-                flex: 1;
-                opacity: 0.5;
-            }
-            
-            &::before {
-                margin-right: 15px;
-            }
-            
-            &::after {
-                margin-left: 15px;
-            }
-        }
-    }
-
     #footer {
         .newsletter-container {
             .alert {
@@ -815,6 +791,12 @@ body#cart {
 
     input.js-cart-line-product-quantity.w-full.border.text-center.rounded.form-control {
         max-width: 40px;
+    }
+
+    .card h4  {
+        @media (max-width: $breakpoint-sm) {
+            padding-left: 2rem;
+        }
     }
 }
 
@@ -880,12 +862,6 @@ body#cart {
   
     .card-block {
       padding: 0;
-
-      a {
-        &:hover {
-            color: $color-custom-white !important;
-        }
-      }
     }
   
     .separator {

@@ -1,5 +1,5 @@
 {* Bloc des avantages clients *}
-<div class="cart-advantages lg:mt-24 mt-16">
+<div class="cart-advantages mt-12">
   <div class="cart-advantage-title text-center mb-2">
     <h4 class="text-center">Vos avantages</h4>
     <div class="title-separator">
@@ -13,15 +13,15 @@
   <hr />
   
   {* Livraison offerte *}
-  <div class="advantage-block mt-2 mb-2">
+  <div class="advantage-block mt-0 mb-0">
     <div class="advantage-icon text-center">
       <i class="bi bi-truck icon-special"></i>
     </div>
     <div class="advantage-content text-center">
       <h5 class="mb-0 pt-0 mt-0">Livraison offerte</h5>
       <div class="advantage-texte pt-0">
-        <p>35€ en Point Relais</p>
-        <p>50€ à domicile</p>
+        <p class="mb-0">35€ en Point Relais</p>
+        <p class="mb-0">50€ à domicile</p>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
   <hr/>
 
   {* Remises *}
-  <div class="advantage-block mt-2 mb-2">
+  <div class="advantage-block mt-0 mb-0">
     <div class="advantage-content text-center">
       <h5 class="mb-0 pt-0 mt-0">Remise sur le total de la commande</h5>
       <div class="discount-blocks">
