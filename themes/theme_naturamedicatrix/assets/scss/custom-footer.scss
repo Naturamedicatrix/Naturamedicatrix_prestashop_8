@@ -877,37 +877,46 @@
       }
     }
   }
+}
+
+.footer-payment-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0;
   
-  .footer-payment-logos {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    gap: 10px;
-    
-    @media (max-width: 1100px) {
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+  @media (max-width: 1100px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2px;
+  }
+  
+  .payment-logo {
+    height: 30px;
+    width: auto;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #fff;
     
     @media (max-width: $breakpoint-md) {
-      justify-content: center;
-      flex-wrap: wrap;
-      width: 100%;
-      gap: 2px;
+      height: 28px;
     }
-    
-    .payment-logo {
-      height: 30px;
-      width: auto;
-      border: 1px solid $color-custom-gray;
-      border-radius: 8px;
-      background-color: #fff;
-      
-      @media (max-width: $breakpoint-md) {
-        height: 28px;
-        border: 2px solid $color-custom-whiteDarker;
-      }
-    }
+  }
+}
+
+#footer .footer-payment-logos {
+  justify-content: end;
+  gap: 10px;
+
+  @media (max-width: $breakpoint-md) {
+    justify-content: center;
   }
 }
 /* END TERMS & PAYMENTS */

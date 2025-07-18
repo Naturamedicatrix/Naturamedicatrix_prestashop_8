@@ -743,3 +743,12 @@
   background-color: #589875 !important;
   color: white !important;
 }
+
+#iqitmegamenu-mobile-content {
+  display: none;
+}
+@media (max-width: 768px) {
+  #iqitmegamenu-mobile-content {
+    display: block;
+  }
+}

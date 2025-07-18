@@ -1,5 +1,6 @@
 {* Bloc des avantages clients *}
-<div class="cart-advantages mt-12">
+<div class="cart-advantages mt-8">
+{*
   <div class="cart-advantage-title text-center mb-2">
     <h4 class="text-center">Vos avantages</h4>
     <div class="title-separator">
@@ -11,6 +12,9 @@
   </div>
 
   <hr />
+*}
+
+<hr />
   
   {* Livraison offerte *}
   <div class="advantage-block mt-0 mb-0">

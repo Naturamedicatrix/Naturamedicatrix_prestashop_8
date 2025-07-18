@@ -40,9 +40,11 @@
 
 				{block name="charity_and_donation"}
 					<div class="card">
+{*
 						<div class="card-block">
 							<h4>{l s='DONATIONS AND CHARITY' mod='wkcharitydonation'}</h4>
 						</div>
+*}
 						<hr class="separator">
 						<div class="charity-block">
 							{foreach $checkoutDonations as $checkoutDonation}
@@ -108,7 +110,12 @@
 				{block name='hook_shopping_cart_footer'}
 					{hook h='displayShoppingCartFooter'}
 				{/block}
+				
+				
+				{include file='checkout/_partials/cart-products-suggestions.tpl'}
 			</div>
+
+			
 
 			<!-- Right Block: cart subtotal & cart total -->
 			<div class="cart-grid-right col-xs-12 col-xl-5">
@@ -130,13 +137,20 @@
 
 					</div>
 				{/block}
+				
 
 				{block name='hook_reassurance'}
 					{hook h='displayReassurance'}
 				{/block}
 
+				{* BLOC PAYMENT LOGOS *}
+				<h5 class="text-center text-sm text-gray-600 font-semibold"><i class="bi bi-lock"></i> {l s='Paiements sécurisés' mod='wkcharitydonation'}</h5>
+				{include file='_partials/payment-logos.tpl'}
+
 				{* BLOC ADVANTAGES *}
 				{include file='checkout/_partials/cart-advantages-block.tpl'}
+				
+				
 
 			</div>
 

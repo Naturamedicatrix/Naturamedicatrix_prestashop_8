@@ -1113,8 +1113,8 @@ input[type=number]:focus,
 textarea:focus,
 select:focus {
   outline: none !important;
-  box-shadow: 0 0 0 1px #589875 !important;
-  border-color: #589875 !important;
+  box-shadow: 0 0 0 1px #111827 !important;
+  border-color: #111827 !important;
 }
 
 .form-control {
@@ -2172,4 +2172,12 @@ kbd {
 .dfd-card:hover {
   border: 1px solid #4B5563 !important;
   box-shadow: none !important;
+}
+
+.dfd-slider-tooltip {
+  background-color: #4B5563 !important;
+}
+
+.dfd-slider-connect {
+  background-color: #4B5563 !important;
 }

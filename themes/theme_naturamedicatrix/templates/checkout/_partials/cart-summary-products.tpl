@@ -29,13 +29,12 @@
       {l s='show details' d='Shop.Theme.Actions'} <i class="material-icons">expand_more</i>
     </a>
   </p>
-  <hr/>
 
   {block name='cart_summary_product_list'}
     <div class="collapse" id="cart-summary-product-list">
-      <ul class="media-list">
+      <ul class="media-list mb-0">
         {foreach from=$cart.products item=product}
-          <li class="media">{include file='checkout/_partials/cart-summary-product-line.tpl' product=$product}</li>
+          <li class="media mb-0">{include file='checkout/_partials/cart-summary-product-line.tpl' product=$product}</li>
         {/foreach}
       </ul>
     </div>

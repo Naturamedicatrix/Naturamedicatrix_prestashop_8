@@ -29,10 +29,10 @@
   {foreach from=$cart.subtotals item="subtotal"}
     {if $subtotal && $subtotal.value|count_characters > 0 && $subtotal.type == 'products'}
       <div class="cart-summary-line cart-summary-subtotals" id="cart-subtotal-{$subtotal.type}">
-        <span class="label">
+        <span class="label text-gray-600 font-normal text-base">
           {$subtotal.label}
         </span>
-        <span class="value{if 'gratuit' == $subtotal.value} free{/if}">
+        <span class="text-gray-600 font-semibold text-base value{if 'gratuit' == $subtotal.value} free{/if}">
           {$subtotal.value}
         </span>
       </div>
@@ -43,10 +43,10 @@
   {if isset($cart.vouchers.added) && $cart.vouchers.added|count > 0}
     {foreach from=$cart.vouchers.added item=voucher}
       <div class="cart-summary-line cart-summary-subtotals">
-        <span class="label">
+        <span class="label text-gray-600 font-normal text-base">
           <span class="promo-code">"{$voucher.code}"</span>
         </span>
-        <span class="value">
+        <span class="value text-gray-600 font-semibold text-base">
           {$voucher.reduction_formatted}
         </span>
         <a href="#" data-voucher-url="{$voucher.delete_url}" class="remove-discount-text js-remove-voucher-checkout">(Supprimer)</a>
@@ -58,10 +58,10 @@
   {foreach from=$cart.subtotals item="subtotal"}
     {if $subtotal && $subtotal.value|count_characters > 0 && $subtotal.type !== 'tax' && $subtotal.type !== 'discount' && $subtotal.type !== 'products'}
       <div class="cart-summary-line cart-summary-subtotals" id="cart-subtotal-{$subtotal.type}">
-        <span class="label">
+        <span class="label text-gray-600 font-normal text-base">
           {$subtotal.label}
         </span>
-        <span class="value{if 'gratuit' == $subtotal.value} free{/if}">
+        <span class="text-gray-600 font-semibold text-base value{if 'gratuit' == $subtotal.value} free{/if}">
           {$subtotal.value}
         </span>
       </div>
