@@ -25,7 +25,7 @@
 <section class="featured-products clearfix">
 
   <div class="all-product-link text-center">
-    <a href="{$allProductsLink2}">
+    <a href="{$allProductsLink}">
     » {l s='Tous nos produits' d='Shop.Theme.Catalog'}
     </a>
   </div>

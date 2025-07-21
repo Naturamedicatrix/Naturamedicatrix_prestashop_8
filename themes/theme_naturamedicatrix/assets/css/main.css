@@ -2181,3 +2181,9 @@ kbd {
 .dfd-slider-connect {
   background-color: #4B5563 !important;
 }
+
+@media (max-width: 640px) {
+  #home-banners .banner a {
+    max-width: 100%;
+  }
+}

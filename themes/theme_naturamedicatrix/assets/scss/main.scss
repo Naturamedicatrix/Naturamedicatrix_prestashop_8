@@ -1516,3 +1516,10 @@ kbd {
 .dfd-slider-connect {
   background-color: $color-custom-gray !important;
 }
+
+
+#home-banners .banner a {
+  @media (max-width: $breakpoint-sm) {
+    max-width: 100%;
+  }
+}

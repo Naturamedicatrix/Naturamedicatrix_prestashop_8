@@ -37,20 +37,20 @@
       {/if}
       <div class="thumbnail-container">
 
-        {* Caractéristiques du produit *}
+        {* Caractéristiques du produit - Certificats uniquement *}
         <div class="product-features-overlay">
           {if isset($product.features) && $product.features}
             <div class="product-features-list product-flags">
               {foreach from=$product.features item=feature}
-                {* N'affiche pas la caractéristique "quantité" id=3 *}
-                {if isset($feature.value) && $feature.value|trim != '' && $feature.id_feature != 3}
+                {* N'affiche que les caractéristiques "Certificat" *}
+                {if isset($feature.name) && $feature.name == 'Certificat' && isset($feature.value) && $feature.value|trim != ''}
                   <span class="product-feature-item product-flag">{$feature.value|escape:'html':'UTF-8'}</span>
                 {/if}
               {/foreach}
             </div>
           {/if}
         </div>
-        {*END Caractéristiques du produit *}
+        {*END Caractéristiques du produit - Certificats *}
 
         <div class="thumbnail-top">
           {block name='product_thumbnail'}

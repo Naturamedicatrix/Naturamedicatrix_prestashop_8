@@ -258,7 +258,7 @@ class Ps_FeaturedProducts extends Module implements WidgetInterface
             return [
                 'products' => $products,
                 'allProductsLink' => Context::getContext()->link->getCategoryLink(Context::getContext()->shop->getCategory()),
-                'allProductsLink2' => Context::getContext()->link->getPageLink('products'),
+                // 'allProductsLink2' => Context::getContext()->link->getPageLink('products'),
             ];
         }
 
