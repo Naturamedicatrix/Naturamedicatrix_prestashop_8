@@ -4,7 +4,7 @@
  * Description : Bloc des garanties/avantages affiché sur la page d'accueil
  *}
 
-<div class="guarantees-block py-8">
+<div class="guarantees-block py-8 mt-6 lg:mt-0">
   <div class="container mx-auto">
     <div class="row flex flex-wrap items-center justify-center guarantee-container">
       <div class="col-lg-3 col-md-6 col-sm-6 col-6 guarantee-item">
