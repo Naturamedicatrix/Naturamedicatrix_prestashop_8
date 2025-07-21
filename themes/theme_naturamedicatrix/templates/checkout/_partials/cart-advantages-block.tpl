@@ -22,8 +22,21 @@
   {assign var="totalTextClean" value=$cartTotalValue|replace:' ':''}
   {assign var="totalTextDot" value=$totalTextClean|replace:',':'.'}
   {assign var="totalText" value=$totalTextDot|floatval}
+  
   {assign var="relayThreshold" value=35}
   {assign var="homeThreshold" value=50}
+  
+  {* Récupération du code pays du client *}
+  {assign var="customerCountry" value=""}
+  {if $cart.address_delivery}
+    {assign var="customerCountry" value=$cart.address_delivery.country_iso}
+  {elseif $customer.addresses}
+    {* Si pas d'adresse de livraison mais client connecté avec adresse *}
+    {assign var="defaultAddress" value=$customer.addresses|reset}
+    {if $defaultAddress.country_iso}
+      {assign var="customerCountry" value=$defaultAddress.country_iso}
+    {/if}
+  {/if}
   
   <div id="shipping-progress-container">
     {* CONTENU DYNAMIQUE EN JS *}
@@ -35,6 +48,9 @@
     const relayThreshold = {$relayThreshold};
     const homeThreshold = {$homeThreshold};
     const minThreshold = 20;
+    const customerCountry = "{$customerCountry|escape:'javascript'}";
+    const relayEligibleCountries = ['FR', 'BE'];
+    const homeEligibleCountries = ['FR', 'BE', 'LU'];
     
     // Traductions
     const translations = {
@@ -43,12 +59,31 @@
       relayRemaining: '{l s='Il vous reste %amount%\u20ac pour avoir la livraison offerte en Point Relais' d='Shop.Theme.Checkout' js=1}',
       homeRemaining: '{l s='Il vous reste %amount%\u20ac pour avoir la livraison offerte à domicile' d='Shop.Theme.Checkout' js=1}',
       relaySuccess: '{l s='Bravo, livraison offerte en Point Relais !' d='Shop.Theme.Checkout' js=1}',
+      homeSuccess: '{l s='Bravo, livraison offerte à domicile !' d='Shop.Theme.Checkout' js=1}',
       bothSuccess: '{l s='Bravo, livraison offerte à domicile ou en Point Relais !' d='Shop.Theme.Checkout' js=1}',
       freeShipping: '{l s='Livraison offerte' d='Shop.Theme.Checkout' js=1}',
       relayPrice: '{l s='35\u20ac en Point Relais' d='Shop.Theme.Checkout' js=1}',
-      homePrice: '{l s='50\u20ac \u00e0 domicile' d='Shop.Theme.Checkout' js=1}'     
+      homePrice: '{l s='50\u20ac à domicile' d='Shop.Theme.Checkout' js=1}'     
     };
     
+    // Crée le bloc de livraison offerte statique
+    function createStaticShippingBlock() {
+{literal}
+      return `
+        <div class="advantage-block mt-0 mb-0">
+          <div class="advantage-icon text-center"><i class="bi bi-truck icon-special"></i></div>
+          <div class="advantage-content text-center">
+            <h5 class="mb-0 pt-0 mt-0">${translations.freeShipping}</h5>
+            <div class="advantage-texte pt-0">
+              <p class="mb-0">${translations.relayPrice}</p>
+              <p class="mb-0">${translations.homePrice}</p>
+            </div>
+          </div>
+        </div>
+        <hr />`;
+{/literal}
+    }
+
     // Met à jour l'affichage du bloc livraison
     function updateShippingProgress() {
       const container = document.getElementById('shipping-progress-dynamic');
@@ -68,9 +103,13 @@
       } catch (e) {}
       
       let html = '';
-
-      // Génère le contenu approprié
-      if (cartTotal < minThreshold) {
+      
+      // Détermine si le client est éligible pour les différents types de livraison
+      const isRelayEligible = relayEligibleCountries.includes(customerCountry);
+      const isHomeEligible = homeEligibleCountries.includes(customerCountry);
+      
+      // Si le panier est petit ou le pays non éligible à aucun des deux
+      if (cartTotal < minThreshold || (!isRelayEligible && !isHomeEligible)) {
 {literal}
         html = `
           <div class="advantage-block mt-0 mb-0">
@@ -88,8 +127,9 @@
       } else {
         html = '<div class="shipping-progress-block mt-2 mb-2">';
         
-        if (cartTotal < relayThreshold) {
-          // Progression vers Point Relais
+        // Gestion des seuils selon le pays et le montant
+        if (isRelayEligible && cartTotal < relayThreshold) {
+          // Pour FR, BE: Progression vers Point Relais
           const remaining = relayThreshold - cartTotal;
           const percent = Math.min(100, Math.floor(cartTotal / relayThreshold * 100));
           
@@ -105,13 +145,21 @@
             <p class="text-sm mt-1 font-medium">${translations.relayRemaining.replace('%amount%', remaining.toFixed(2))}</p>`;
 {/literal}
         } 
-        else if (cartTotal < homeThreshold) {
-          // Point Relais atteint, progression vers livraison domicile
+        else if (isHomeEligible && cartTotal < homeThreshold) {
+          // Pour FR, BE, LU: Progression vers livraison à domicile
+          
+          // Affiche message de succès Point Relais uniquement pour FR et BE
+          if (isRelayEligible && cartTotal >= relayThreshold) {
+{literal}
+            html += `<p class="text-normal font-bold mb-4">${translations.relaySuccess}</p>`;
+{/literal}
+          }
+          
           const remaining = homeThreshold - cartTotal;
           const percent = Math.min(100, Math.floor(cartTotal / homeThreshold * 100));
+          
 {literal}
           html += `
-            <p class="text-normal font-bold mb-4">${translations.relaySuccess}</p>
             <div class="shipping-progress-title flex justify-between mb-1">
               <span class="text-sm font-medium">${translations.homeTitle}</span>
               <span class="text-sm font-medium">${cartTotal.toFixed(2)}€ / ${homeThreshold}€</span>
@@ -121,10 +169,11 @@
             </div>
             <p class="text-sm mt-1 font-medium">${translations.homeRemaining.replace('%amount%', remaining.toFixed(2))}</p>`;
 {/literal}
-        } else {
-          // Les deux seuils atteints
+        } else if (isHomeEligible && cartTotal >= homeThreshold) {
+          // Les deux seuils atteints pour FR et BE, ou seuil domicile atteint pour LU
+          // Message adapté selon que le client est éligible ou non au Point Relais
 {literal}
-          html += `<p class="text-normal font-bold mb-0">${translations.bothSuccess}</p>`;
+          html += `<p class="text-normal font-bold mb-0">${isRelayEligible ? translations.bothSuccess : translations.homeSuccess}</p>`;
 {/literal}
         }
         html += '</div><hr />';
@@ -138,7 +187,7 @@
     // Détection des changements
     const updateHandler = () => setTimeout(updateShippingProgress, 300);
     
-    // 1. Écouter les événements PrestaShop
+    // 1. Écouter les événements
     ['prestashop.cart.updated', 'updateCart', 'cart.updated'].forEach(evt => 
       document.addEventListener(evt, updateHandler));
     
