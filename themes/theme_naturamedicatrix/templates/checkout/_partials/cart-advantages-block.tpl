@@ -34,219 +34,138 @@
   document.addEventListener('DOMContentLoaded', function() {
     const relayThreshold = {$relayThreshold};
     const homeThreshold = {$homeThreshold};
-    const minThreshold = 20; // Montant minimum pour afficher la barre de progression
+    const minThreshold = 20;
     
     // Traductions
     const translations = {
       relayTitle: '{l s='Livraison en Point Relais' d='Shop.Theme.Checkout' js=1}',
-      homeTitle: '{l s='Livraison \u00e0 domicile' d='Shop.Theme.Checkout' js=1}',
+      homeTitle: '{l s='Livraison à domicile' d='Shop.Theme.Checkout' js=1}',
       relayRemaining: '{l s='Il vous reste %amount%\u20ac pour avoir la livraison offerte en Point Relais' d='Shop.Theme.Checkout' js=1}',
-      homeRemaining: '{l s='Il vous reste %amount%\u20ac pour avoir la livraison offerte \u00e0 domicile' d='Shop.Theme.Checkout' js=1}',
+      homeRemaining: '{l s='Il vous reste %amount%\u20ac pour avoir la livraison offerte à domicile' d='Shop.Theme.Checkout' js=1}',
       relaySuccess: '{l s='Bravo, livraison offerte en Point Relais !' d='Shop.Theme.Checkout' js=1}',
-      bothSuccess: '{l s='Bravo, livraison offerte en Point Relais ou \u00e0 domicile' d='Shop.Theme.Checkout' js=1}',
+      bothSuccess: '{l s='Bravo, livraison offerte à domicile ou en Point Relais !' d='Shop.Theme.Checkout' js=1}',
       freeShipping: '{l s='Livraison offerte' d='Shop.Theme.Checkout' js=1}',
       relayPrice: '{l s='35\u20ac en Point Relais' d='Shop.Theme.Checkout' js=1}',
       homePrice: '{l s='50\u20ac \u00e0 domicile' d='Shop.Theme.Checkout' js=1}'     
     };
     
-    // Récupère le montant actuel des produits du panier
-    function getCartProductsTotal() {
-      try {
-        // On essaie d'abord de prendre le total des produits dans la variable prestashop
-        if (typeof prestashop !== 'undefined' && 
-            prestashop.cart && 
-            prestashop.cart.subtotals && 
-            prestashop.cart.subtotals.products) {
-          let value = prestashop.cart.subtotals.products.value;
-          if (typeof value === 'string') {
-            // Nettoie la valeur
-            value = value.replace(/\s+/g, '').replace(',', '.');
-            return parseFloat(value);
-          } else if (typeof value === 'number') {
-            return value;
-          }
-        }
-        // Fallback au total initial chargé avec la page
-        return {$totalText};
-      } catch (e) {
-        return {$totalText};
-      }
-    }
-    
-    // HTLM PROGRESS BAR
-    function createProgressBar(currentValue, threshold, percent) {
-{literal}
-      return `
-        <div class="shipping-progress-title flex justify-between mb-1">
-          <span class="text-sm font-medium">${currentValue < threshold ? translations.relayTitle : translations.homeTitle}</span>
-          <span class="text-sm font-medium">${currentValue.toFixed(2)}€ / ${threshold}€</span>
-        </div>
-        <div class="shipping-progress-bar w-full h-2.5 bg-gray-200 rounded-full">
-          <div class="h-2.5 bg-green-500 rounded-full" style="width: ${percent}%"></div>
-        </div>
-      `;
-{/literal}
-    }
-    
-    // Crée le bloc de livraison offerte statique pour les paniers < 20€
-    function createStaticShippingBlock() {
-{literal}
-      return `
-        <div class="advantage-block mt-0 mb-0">
-          <div class="advantage-icon text-center">
-            <i class="bi bi-truck icon-special"></i>
-          </div>
-          <div class="advantage-content text-center">
-            <h5 class="mb-0 pt-0 mt-0">${translations.freeShipping}</h5>
-            <div class="advantage-texte pt-0">
-              <p class="mb-0">${translations.relayPrice}</p>
-              <p class="mb-0">${translations.homePrice}</p>
-            </div>
-          </div>
-        </div>
-        <hr />
-      `;
-{/literal}
-    }
-    
-    // Met à jour l'affichage de la progression de livraison
+    // Met à jour l'affichage du bloc livraison
     function updateShippingProgress() {
-      const cartTotal = getCartProductsTotal();
       const container = document.getElementById('shipping-progress-dynamic');
-      
       if (!container) return;
       
-      let html = '';
+      // Récupère le total produits
+      let cartTotal = {$totalText};
+      try {
+        if (typeof prestashop !== 'undefined' && prestashop.cart?.subtotals?.products) {
+          let value = prestashop.cart.subtotals.products.value;
+          if (typeof value === 'string') {
+            cartTotal = parseFloat(value.replace(/\s+/g, '').replace(',', '.'));
+          } else if (typeof value === 'number') {
+            cartTotal = value;
+          }
+        }
+      } catch (e) {}
       
-      // Affichage différent selon le montant du panier
+      let html = '';
+
+      // Génère le contenu approprié
       if (cartTotal < minThreshold) {
-        // Panier < 20€ : afficher le bloc statique
-        html = createStaticShippingBlock();
+{literal}
+        html = `
+          <div class="advantage-block mt-0 mb-0">
+            <div class="advantage-icon text-center"><i class="bi bi-truck icon-special"></i></div>
+            <div class="advantage-content text-center">
+              <h5 class="mb-0 pt-0 mt-0">${translations.freeShipping}</h5>
+              <div class="advantage-texte pt-0">
+                <p class="mb-0">${translations.relayPrice}</p>
+                <p class="mb-0">${translations.homePrice}</p>
+              </div>
+            </div>
+          </div>
+          <hr />`;
+{/literal}
       } else {
-        // Panier >= 20€ : afficher la barre de progression
         html = '<div class="shipping-progress-block mt-2 mb-2">';
         
         if (cartTotal < relayThreshold) {
-          // Progression vers le seuil Point Relais
+          // Progression vers Point Relais
           const remaining = relayThreshold - cartTotal;
           const percent = Math.min(100, Math.floor(cartTotal / relayThreshold * 100));
           
-          html += createProgressBar(cartTotal, relayThreshold, percent);
 {literal}
-          html += `<p class="text-sm mt-1 font-medium">${translations.relayRemaining.replace('%amount%', remaining.toFixed(2))}</p>`;
+          html += `
+            <div class="shipping-progress-title flex justify-between mb-1">
+              <span class="text-sm font-medium">${translations.relayTitle}</span>
+              <span class="text-sm font-medium">${cartTotal.toFixed(2)}€ / ${relayThreshold}€</span>
+            </div>
+            <div class="shipping-progress-bar w-full h-2.5 bg-gray-200 rounded-full">
+              <div class="h-2.5 bg-green-500 rounded-full" style="width: ${percent}%"></div>
+            </div>
+            <p class="text-sm mt-1 font-medium">${translations.relayRemaining.replace('%amount%', remaining.toFixed(2))}</p>`;
 {/literal}
         } 
         else if (cartTotal < homeThreshold) {
-          // Seuil Point Relais atteint, progression vers livraison à domicile
-{literal}
-          html += `<p class="text-normal font-bold mb-4">${translations.relaySuccess}</p>`;
-{/literal}
-          
+          // Point Relais atteint, progression vers livraison domicile
           const remaining = homeThreshold - cartTotal;
           const percent = Math.min(100, Math.floor(cartTotal / homeThreshold * 100));
-          
-          html += createProgressBar(cartTotal, homeThreshold, percent);
 {literal}
-          html += `<p class="text-sm mt-1 font-medium">${translations.homeRemaining.replace('%amount%', remaining.toFixed(2))}</p>`;
+          html += `
+            <p class="text-normal font-bold mb-4">${translations.relaySuccess}</p>
+            <div class="shipping-progress-title flex justify-between mb-1">
+              <span class="text-sm font-medium">${translations.homeTitle}</span>
+              <span class="text-sm font-medium">${cartTotal.toFixed(2)}€ / ${homeThreshold}€</span>
+            </div>
+            <div class="shipping-progress-bar w-full h-2.5 bg-gray-200 rounded-full">
+              <div class="h-2.5 bg-green-500 rounded-full" style="width: ${percent}%"></div>
+            </div>
+            <p class="text-sm mt-1 font-medium">${translations.homeRemaining.replace('%amount%', remaining.toFixed(2))}</p>`;
 {/literal}
-        } 
-        else {
-          // Les deux seuils sont atteints
+        } else {
+          // Les deux seuils atteints
 {literal}
           html += `<p class="text-normal font-bold mb-0">${translations.bothSuccess}</p>`;
 {/literal}
         }
-        
         html += '</div><hr />';
       }
-      
       container.innerHTML = html;
     }
     
-    // Initialise l'affichage au chargement
+    // Initialisation
     updateShippingProgress();
     
-    // Écoute TOUS les événements possibles liés au panier
-    const cartEvents = [
-      'prestashop.cart.updated',
-      'updateCart',
-      'updateCartQty',
-      'updatedCart',
-      'updateProduct',
-      'updatedProduct',
-      'cartUpdated',
-      'cart.updated'
-    ];
+    // Détection des changements
+    const updateHandler = () => setTimeout(updateShippingProgress, 300);
     
-    cartEvents.forEach(eventName => {
-      document.addEventListener(eventName, function(event) {
-        setTimeout(updateShippingProgress, 300);
-      });
-    });
+    // 1. Écouter les événements PrestaShop
+    ['prestashop.cart.updated', 'updateCart', 'cart.updated'].forEach(evt => 
+      document.addEventListener(evt, updateHandler));
     
-    // Écoute l'événement jQuery spécifique de PrestaShop (s'il est disponible)
-    if (typeof $ !== 'undefined') {
-      $(document).on('updateCart', function() {
-        setTimeout(updateShippingProgress, 300);
-      });
-    }
+    // 2. Support jQuery (versions plus anciennes)
+    if (typeof $ !== 'undefined') $(document).on('updateCart', updateHandler);
     
-    // Observer les changements DOM dans le panier
-    const cartObserverConfig = { childList: true, subtree: true, attributes: true };
-    const cartObserver = new MutationObserver(function(mutations) {
-      // Vérifier si les mutations concernent le panier
-      let shouldUpdate = false;
-      for (const mutation of mutations) {
-        if (mutation.target.closest('.cart-items') || 
-            mutation.target.closest('.cart-summary') ||
-            mutation.target.closest('.cart-detailed-totals')) {
-          shouldUpdate = true;
-          break;
-        }
-      };
-      
-      if (shouldUpdate) {
-        setTimeout(updateShippingProgress, 300);
-      }
-    });
-    
-    // Démarrer l'observation du DOM du panier
-    const cartContainer = document.querySelector('.cart-container');
-    if (cartContainer) {
-      cartObserver.observe(cartContainer, cartObserverConfig);
-    }
-    
-    // Écouter les changements de quantité sur tous les inputs possibles
-    const quantitySelectors = [
-      '.cart-items input.js-cart-line-product-quantity',
-      '.cart-items input.quantity_wanted',
-      '.cart-items .js-increase-product-quantity',
-      '.cart-items .js-decrease-product-quantity',
-      '.cart-summary input[type="number"]',
-      '.product-quantity input'
-    ];
-    
-    quantitySelectors.forEach(selector => {
-      const inputs = document.querySelectorAll(selector);
-      if (inputs.length > 0) {
-        inputs.forEach(input => {
-          ['change', 'input', 'click'].forEach(eventType => {
-            input.addEventListener(eventType, function() {
-              setTimeout(updateShippingProgress, 300);
-            });
-          });
-        });
-      }
-    });
-    
-    // S'assurer que les boutons +/- sont aussi écoutés
-    document.addEventListener('click', function(event) {
-      if (event.target.closest('.js-increase-product-quantity') ||
-          event.target.closest('.js-decrease-product-quantity') ||
-          event.target.closest('.cart-items button')) {
+    // 3. Écouter les clics sur les boutons de quantité
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.js-increase-product-quantity') ||
+          e.target.closest('.js-decrease-product-quantity') ||
+          e.target.closest('.cart-items button')) {
         setTimeout(updateShippingProgress, 500);
       }
     });
+    
+    // 4. Observer les modifications du DOM du panier
+    const cartContainer = document.querySelector('.cart-container');
+    if (cartContainer) {
+      new MutationObserver(mutations => {
+        for (const m of mutations) {
+          if (m.target.closest('.cart-items, .cart-summary, .cart-detailed-totals')) {
+            updateHandler();
+            break;
+          }
+        }
+      }).observe(cartContainer, { childList: true, subtree: true, attributes: true });
+    }
   });
   </script>
 
