@@ -709,7 +709,7 @@ body#discount .discount, body#cart .discount {
   color: #f9fafb !important;
   border-color: #e45b7f !important;
   font-weight: 900;
-  padding: 4px 10px 2px;
+  padding: 2px 10px 2px;
 }
 body#discount a:hover, body#cart a:hover {
   color: #4B5563 !important;

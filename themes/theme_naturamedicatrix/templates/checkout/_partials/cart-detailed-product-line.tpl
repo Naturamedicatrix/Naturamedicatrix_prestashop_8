@@ -53,7 +53,7 @@ CUSTOM PRODUCTS DETAILS CART
     <!-- Date limite conseillée -->
     {if isset($product.dlu) && $product.dlu}
       <div class="product-line-info text-sm md:text-xs justify-center md:justify-start">
-        <span class="labelle">Date limite conseillée :</span>
+        <span class="labelle font-normal">Date limite conseillée :</span>
         <span class="value font-bold">
           {* Formate la date en DD-MM-YYYY *}
           {assign var="dluDate" value=$product.dlu|strtotime}
@@ -105,7 +105,7 @@ CUSTOM PRODUCTS DETAILS CART
       <!-- Une caractéristique -->
       {if $features_result && count($features_result) > 0 && isset($features_result[0].value) && $features_result[0].value|trim != ''}
         <div class="product-line-info">
-          <span class="product-feature-item product-flag">{$features_result[0].value|escape:'html':'UTF-8'}</span>
+          <span class="product-feature-item product-flag font-normal">{$features_result[0].value|escape:'html':'UTF-8'}</span>
           {if $product.attributes|count > 0}
             <span class="separator-attribute">&#x2014;</span>
           {/if}
@@ -122,7 +122,7 @@ CUSTOM PRODUCTS DETAILS CART
       {foreach from=$product.attributes key="attribute" item="value" name="attributes_loop"}
         {if !$firstAttribute}
           <div class="product-line-info">
-            <span class="labelle">{$attribute}: </span>
+            <span class="labelle font-normal">{$attribute}: </span>
             <span class="value">{$value}</span>
           </div>
           {assign var="firstAttribute" value=true}

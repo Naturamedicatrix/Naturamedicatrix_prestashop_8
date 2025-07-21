@@ -1,8 +1,15 @@
- {include file='_partials/home-dons.tpl'}
-
 {**
 ** CUSTOM FOOTER
- *}
+*}
+
+{* BLOCK DONATIONS *}
+{if $page.page_name != 'cart' && $page.page_name != 'checkout' && $page.page_name != 'order-confirmation' 
+  && $page.page_name != 'contact' && $page.page_name != 'authentication' && $page.page_name != 'password' && $page.page_name != 'registration' 
+  && $page.page_name != 'identity' && $page.page_name != 'addresses' && $page.page_name != 'address' && $page.page_name != 'history' 
+  && $page.page_name != 'order-slip' && $page.page_name != 'discount' && $page.page_name != 'module-blockwishlist-lists' 
+  && $page.page_name != 'module-psgdpr-gdpr' && $page.page_name != 'module-ps_emailalerts-account' && $page.page_name != 'my-account'}
+  {include file='_partials/home-dons.tpl'}
+{/if}
 
 {* SECTION AVANTAGES *}
 <div class="advantages-container">
