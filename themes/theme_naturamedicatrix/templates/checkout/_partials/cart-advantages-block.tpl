@@ -38,6 +38,9 @@
     {/if}
   {/if}
   
+  {* URL vers la page des conditions de livraison *}
+  {assign var="deliveryTermsUrl" value=$link->getCMSLink(3)|cat:"#livraison"}
+  
   <div id="shipping-progress-container">
     {* CONTENU DYNAMIQUE EN JS *}
     <div id="shipping-progress-dynamic"></div>
@@ -47,10 +50,11 @@
   document.addEventListener('DOMContentLoaded', function() {
     const relayThreshold = {$relayThreshold};
     const homeThreshold = {$homeThreshold};
-    const minThreshold = 20;
+    const minThreshold = 15;
     const customerCountry = "{$customerCountry|escape:'javascript'}";
     const relayEligibleCountries = ['FR', 'BE'];
     const homeEligibleCountries = ['FR', 'BE', 'LU'];
+    const deliveryTermsUrl = "{$deliveryTermsUrl|escape:'javascript'}";
     
     // Traductions
     const translations = {
@@ -63,7 +67,8 @@
       bothSuccess: '{l s='Bravo, livraison offerte à domicile ou en Point Relais !' d='Shop.Theme.Checkout' js=1}',
       freeShipping: '{l s='Livraison offerte' d='Shop.Theme.Checkout' js=1}',
       relayPrice: '{l s='35\u20ac en Point Relais' d='Shop.Theme.Checkout' js=1}',
-      homePrice: '{l s='50\u20ac à domicile' d='Shop.Theme.Checkout' js=1}'     
+      homePrice: '{l s='50\u20ac à domicile' d='Shop.Theme.Checkout' js=1}',
+      seeTerms: '{l s='Se référer aux conditions de livraison' d='Shop.Theme.Checkout' js=1}'
     };
     
     // Crée le bloc de livraison offerte statique
@@ -105,8 +110,10 @@
       let html = '';
       
       // Détermine si le client est éligible pour les différents types de livraison
-      const isRelayEligible = relayEligibleCountries.includes(customerCountry);
-      const isHomeEligible = homeEligibleCountries.includes(customerCountry);
+      // Si pas de pays ou client non connecté, on considère comme FR/BE
+      const hasNoCountry = !customerCountry || customerCountry === "";
+      const isRelayEligible = hasNoCountry || relayEligibleCountries.includes(customerCountry);
+      const isHomeEligible = hasNoCountry || homeEligibleCountries.includes(customerCountry);
       
       // Si le panier est petit ou le pays non éligible à aucun des deux
       if (cartTotal < minThreshold || (!isRelayEligible && !isHomeEligible)) {
@@ -119,6 +126,7 @@
               <div class="advantage-texte pt-0">
                 <p class="mb-0">${translations.relayPrice}</p>
                 <p class="mb-0">${translations.homePrice}</p>
+                <p class="text-xs mt-4 text-gray-500 text-right"><a href="${deliveryTermsUrl}">${translations.seeTerms}*</a></p>
               </div>
             </div>
           </div>
@@ -142,7 +150,8 @@
             <div class="shipping-progress-bar w-full h-2.5 bg-gray-200 rounded-full">
               <div class="h-2.5 bg-green-500 rounded-full" style="width: ${percent}%"></div>
             </div>
-            <p class="text-sm mt-1 font-medium">${translations.relayRemaining.replace('%amount%', remaining.toFixed(2))}</p>`;
+            <p class="text-sm mt-1 font-medium">${translations.relayRemaining.replace('%amount%', remaining.toFixed(2))}*</p>
+            <p class="text-xs mt-4 text-gray-500 text-right"><a href="${deliveryTermsUrl}">${translations.seeTerms}</a></p>`;
 {/literal}
         } 
         else if (isHomeEligible && cartTotal < homeThreshold) {
@@ -167,13 +176,16 @@
             <div class="shipping-progress-bar w-full h-2.5 bg-gray-200 rounded-full">
               <div class="h-2.5 bg-green-500 rounded-full" style="width: ${percent}%"></div>
             </div>
-            <p class="text-sm mt-1 font-medium">${translations.homeRemaining.replace('%amount%', remaining.toFixed(2))}</p>`;
+            <p class="text-sm mt-1 font-medium">${translations.homeRemaining.replace('%amount%', remaining.toFixed(2))}*</p>
+            <p class="text-xs mt-4 text-gray-500 text-right"><a href="${deliveryTermsUrl}">${translations.seeTerms}*</a></p>`;
 {/literal}
         } else if (isHomeEligible && cartTotal >= homeThreshold) {
           // Les deux seuils atteints pour FR et BE, ou seuil domicile atteint pour LU
           // Message adapté selon que le client est éligible ou non au Point Relais
 {literal}
-          html += `<p class="text-normal font-bold mb-0">${isRelayEligible ? translations.bothSuccess : translations.homeSuccess}</p>`;
+          html += `
+            <p class="text-normal font-bold mb-0">${isRelayEligible ? translations.bothSuccess : translations.homeSuccess}</p>
+            <p class="text-xs mt-4 text-gray-500 text-right"><a href="${deliveryTermsUrl}">${translations.seeTerms}*</a></p>`;
 {/literal}
         }
         html += '</div><hr />';
