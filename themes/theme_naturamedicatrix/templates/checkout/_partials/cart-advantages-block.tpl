@@ -17,7 +17,8 @@
 <hr />
 
   {* Bloc dynamique de progression pour la livraison offerte *}
-  {assign var="cartTotalValue" value=$cart.totals.total.value}
+  {* On utilise subtotals.products.value qui contient uniquement la valeur des produits sans la livraison *}
+  {assign var="cartTotalValue" value=$cart.subtotals.products.value}
   {assign var="totalTextClean" value=$cartTotalValue|replace:' ':''}
   {assign var="totalTextDot" value=$totalTextClean|replace:',':'.'}
   {assign var="totalText" value=$totalTextDot|floatval}
@@ -42,7 +43,7 @@
       <div class="shipping-progress-bar w-full h-2.5 bg-gray-200 rounded-full">
         <div class="h-2.5 bg-green-500 rounded-full" style="width: {$relayPercent}%"></div>
       </div>
-      <p class="text-sm mt-1 font-medium text-gray-700">Il vous reste {$remainingRelay|string_format:"%.2f"}€ pour avoir la livraison offerte en Point Relais</p>
+      <p class="text-sm mt-1 font-medium">Il vous reste {$remainingRelay|string_format:"%.2f"}€ pour avoir la livraison offerte en Point Relais</p>
     
     {* Atteint le seuil de Point Relais mais pas encore celui de livraison à domicile *}
     {elseif $totalText < $homeThreshold}
@@ -60,7 +61,7 @@
       <div class="shipping-progress-bar w-full h-2.5 bg-gray-200 rounded-full">
         <div class="h-2.5 bg-green-500 rounded-full" style="width: {$homePercent}%"></div>
       </div>
-      <p class="text-sm mt-1 font-medium text-gray-700">Il vous reste {$remainingHome|string_format:"%.2f"}€ pour avoir la livraison offerte à domicile</p>
+      <p class="text-sm mt-1 font-medium">Il vous reste {$remainingHome|string_format:"%.2f"}€ pour avoir la livraison offerte à domicile</p>
     
     {* Les deux seuils sont atteints *}
     {else}
@@ -71,8 +72,9 @@
   <hr />
   {/if}
   
-  {* Livraison offerte *}
-  {* <div class="advantage-block mt-0 mb-0">
+  {* Livraison offerte - afficher uniquement si le panier est inférieur à 20€ *}
+  {if $totalText < 20}
+  <div class="advantage-block mt-0 mb-0">
     <div class="advantage-icon text-center">
       <i class="bi bi-truck icon-special"></i>
     </div>
@@ -83,7 +85,10 @@
         <p class="mb-0">50€ à domicile</p>
       </div>
     </div>
-  </div> *}
+  </div>
+
+  <hr />
+  {/if}
 
   {* Remises *}
   <div class="advantage-block mt-0 mb-0">
