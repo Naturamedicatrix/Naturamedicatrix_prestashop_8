@@ -954,8 +954,12 @@ body#index #content {
   }
 }
 
-.text-primary, .primary {
+.text-primary, .primary, .text-brand {
   color: #589875 !important;
+}
+
+.bg-brand {
+  background-color: #589875;
 }
 
 button:focus {

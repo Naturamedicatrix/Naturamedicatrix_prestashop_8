@@ -265,8 +265,12 @@ body#index {
 
 
 
-.text-primary, .primary {
+.text-primary, .primary, .text-brand {
   color: $color-custom-green !important;
+}
+
+.bg-brand {
+  background-color: $color-custom-green;
 }
 
 // End Typography

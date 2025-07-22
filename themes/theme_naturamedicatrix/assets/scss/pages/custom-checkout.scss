@@ -6,35 +6,6 @@
 body#checkout { 
     background-color: #ffff;
 
-    .header-nav {
-        min-height: 130px;
-
-        .logo {
-            @media (max-width: $breakpoint-sm) {
-                max-width: 230px !important;
-            }
-        }
-
-        #_desktop_logo {
-            align-items: baseline;
-            height: auto;
-        }
-        
-        .secure-block {
-            justify-content: center;
-            height: auto;
-        }
-        .secure-checkout-text {
-            color: $color-custom-white;
-            font-weight: bold;
-            position: relative;
-    
-            i {
-                font-size: 1.3rem;
-            }
-        }
-    }
-
     #_desktop_language_selector {
         display: none;
     }
@@ -551,7 +522,7 @@ body#cart {
        background-color: $color-custom-whiteDarker;
        padding-left: 6rem;
        padding-right: 10rem;
-       padding-top: 3rem;
+       padding-top: 4rem;
        padding-bottom: 3rem;
 
        @media (max-width: 1600px) {
@@ -770,7 +741,7 @@ body#cart {
     }
 
     input.js-cart-line-product-quantity.w-full.border.text-center.rounded.form-control {
-        max-width: 50px;
+        max-width: 60px;
     }
 
     .card h4  {

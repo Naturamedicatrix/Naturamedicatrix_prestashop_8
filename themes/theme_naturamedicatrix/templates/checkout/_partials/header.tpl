@@ -2,37 +2,37 @@
 * HEADER DE LA PAGE CHECKOUT
 *}
 {block name='header_nav'}
-  <nav class="header-nav">
+  <nav class="header-nav bg-brand pt-0">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center hidden-sm-down mt-4" id="_desktop_logo">
             <a href="{$urls.pages.cart}?action=show">
               <img
-                class="logo img-fluid"
+                class="logo img-fluid mx-auto" 
                 src="{$shop.logo_details.src}"
                 alt="{$shop.name}"
                 width="{$shop.logo_details.width}"
                 height="{$shop.logo_details.height}">
             </a>
         </div>
-        <div class="secure-block col-md-12 text-center hidden-sm-down md:mt-4 xl:mt-0">
+        <div class="secure-block col-md-12 text-center hidden-sm-down md:mt-4 text-white">
             <div class="secure-checkout-text">
               <i class="bi bi-lock"></i> 100% sécurisé
             </div>
         </div>
-        <div class="hidden-md-up text-sm-center mobile">
-        <div class="col-md-12 text-center mt-4" id="_desktop_logo">
+        <div class="hidden-md-up text-sm-center mobile mx-8 md:mx-0">
+        <div class="col-md-12 text-center mt-0 pt-4 md:pt-0 md:mt-4" id="_desktop_logo">
             <a href="{$urls.pages.cart}?action=show">
               <img
-                class="logo img-fluid"
+                class="logo img-fluid mx-auto"
                 src="{$shop.logo_details.src}"
                 alt="{$shop.name}"
                 width="{$shop.logo_details.width}"
                 height="{$shop.logo_details.height}">
             </a>
         </div>
-        <div class="col-md-12 text-center mt-4">
-            <div class="secure-checkout-text">
+        <div class="col-md-12 text-center mt-4 mb-4 md:mb-0">
+            <div class="secure-checkout-text text-white">
               <i class="bi bi-lock"></i> 100% sécurisé
             </div>
         </div>
