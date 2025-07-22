@@ -260,4 +260,14 @@
   }
   
   
+  #header .header-nav .blockcart {
+    height: inherit;
+    text-align: inherit;
+    white-space: inherit;
+    background: inherit;
+    padding: inherit;
+    margin-left: inherit;
+  }
+  
+  
 </style>
