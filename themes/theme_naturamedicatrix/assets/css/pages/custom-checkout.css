@@ -206,7 +206,7 @@ body#checkout section.checkout-step .address-item {
   border: 1px solid transparent;
 }
 body#checkout section.checkout-step .address-item.selected {
-  border: 2px solid #589875;
+  border: 2px solid #487595;
   width: 100%;
 }
 body#checkout section.checkout-step .delivery-options .delivery-option:not(:last-child) {
@@ -284,7 +284,7 @@ body#checkout .additional-information p {
   font-size: 0.85rem;
 }
 body#checkout address, body#checkout .address {
-  border-left: 1px solid #589875;
+  border-left: 1px solid #487595;
   padding-left: 15px;
   color: #4B5563;
   line-height: 1.5;
@@ -687,7 +687,7 @@ body#discount .discount, body#cart .discount {
   font-weight: 900;
   padding: 2px 10px 2px;
 }
-body#discount a:hover, body#cart a:hover {
+body#discount #content-wrapper a:hover, body#cart #content-wrapper a:hover {
   color: #4B5563 !important;
 }
 body#discount .cart-summary-line .value, body#cart .cart-summary-line .value {

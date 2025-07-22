@@ -17,52 +17,68 @@
 
 <!-- Script pour le panneau d'actualités -->
 <script type="text/javascript" src="{$urls.base_url}themes/theme_naturamedicatrix/assets/js/actus-panel.js" defer></script>
+
+
 {block name='header_banner'}
-  <div class="header-banner text-carousel-banner">
+  <div class="header-banner text-carousel-banner bg-brand text-white text-sm">
+
     <!-- PANNEAU D'ACTUALITÉS -->
     {include file='_partials/header-actu.tpl'}
-    
-    <div class="container">
-      <div class="banner-wrapper">
-        <!-- CAROUSEL TEXT CLIQUABLE-->
-        <div class="text-carousel-container" id="carousel-trigger">
-          <!-- Flèche gauche -->
-          <button id="carousel-prev" class="carousel-nav-button">
-          <i class="bi bi-arrow-left"></i>
-          </button>
 
-          <!-- CONTENU DU TEXT CAROUSEL -->
-          <div id="text-carousel">
-            <div class="carousel-item active">
-              <span class="highlight-text">{l s='Livraison offerte' d='Shop.Theme.Global'}</span>
-              {l s='àpd 35€ en Point Relais & 50€ à domicile' d='Shop.Theme.Global'}
+    <div class="container mx-auto">
+      <div class="banner-wrapper flex items-center justify-between py-2.5 gap-4">
+        
+        <!-- colonne de gauche vide -->
+        <div class="flex items-center w-160 justify-start"></div>
+
+        <!-- CAROUSEL TEXT CLIQUABLE -->
+        <div class="text-carousel-container w-full flex items-center justify-center" id="carousel-trigger">
+
+          <!-- Texte défilant centré -->
+          <div id="text-carousel" class="max-w-2xl w-full overflow-hidden whitespace-nowrap text-center relative">
+            
+            <!-- Flèche gauche -->
+            <button id="carousel-prev" class="absolute left-0 -top-0.5 -translate-y-0.5 z-10 px-4 text-white hover:text-gray-200 transition">
+              <i class="bi bi-arrow-left text-lg"></i>
+            </button>
+            
+            <div class="carousel-item active inline-block animate-fade-in">
+              <span class="highlight-text bg-pink-600 text-white font-semibold px-1.5 py-0.5 rounded-md mr-0.5">{l s='Livraison offerte' d='Shop.Theme.Global'}</span> {l s='àpd 35€ en Point Relais & 50€ à domicile' d='Shop.Theme.Global'}
             </div>
-            <div class="carousel-item inactive">
-              {l s='Remise sur le total de la commande : <span class="highlight-text">-10% àpd 150€</span> | -5% àpd 75€' d='Shop.Theme.Global'}
+            <div class="carousel-item inactive hidden inline-block animate-fade-in">
+              {l s='Remise sur le total de la commande : <span class="highlight-text bg-pink-600 text-white font-semibold px-1.5 py-0.5 rounded-md mr-0.5">-10% àpd 150€</span> | -5% àpd 75€' d='Shop.Theme.Global'}
             </div>
-            <div class="carousel-item inactive">
-              {l s='Payez en <span class="highlight-text">2x 3x avec alma</span>' d='Shop.Theme.Global'}
+            <div class="carousel-item inactive hidden inline-block animate-fade-in">
+              {l s='Payez en <span class="highlight-text bg-pink-600 text-white font-semibold px-1.5 py-0.5 rounded-md mr-0.5">2x 3x avec alma</span>' d='Shop.Theme.Global'}
             </div>
+            
+            
+             <!-- Flèche droite -->
+            <button id="carousel-next" class="absolute right-0 -top-0.5 -translate-y-0.5 z-10 px-4 text-white hover:text-gray-200 transition">
+              <i class="bi bi-arrow-right text-lg"></i>
+            </button>
+            
           </div>
 
-          <!-- Flèche droite -->
-          <button id="carousel-next" class="carousel-nav-button">
-          <i class="bi bi-arrow-right"></i>
-          </button>
-        </div>
-        
-        {hook h='displayNavFullWidth'}
+          
 
-        <!-- Language selector -->
-        {hook h='displayLanguageSelector'}
+        </div>
+
+        <!-- Langues / autres hooks à droite -->
+         <div class="flex items-center w-160 justify-end">
+          {hook h='displayNavFullWidth'}
+          {hook h='displayLanguageSelector'}
+        </div>
       </div>
+
       {hook h='displayBanner'}
     </div>
   </div>
 {/block}
 
 
-  </div> <!-- end header-banner text-carousel-banner -->
+
+
 
 
 
@@ -127,79 +143,55 @@
 
 
 {block name='header_nav'}
-  <nav class="header-nav">
-    <div class="container">
-      <div class="row">
-
-        <div class="hidden-sm-down">
-          <!-- Contact à gauche -->
-          <div class="col-md-3 col-xs-12 nav-contact">
-            {* {hook h='displayNav1'} *}
-            <a href="{$urls.pages.contact}" class="contact-link">
-              <i class="bi bi-telephone"></i>
-              <div>
-                <div class="font-bold">Contactez-nous</div>
-                
-                {assign var='country_id' value=Tools::getCountry()}
-                
-                {if $country_id == 3}                
-                  <div>+32&nbsp;42&nbsp;90&nbsp;00&nbsp;79</div>
-                {else}
-                  <div>+33&nbsp;(0)9&nbsp;77&nbsp;42&nbsp;37&nbsp;04</div>
-                {/if}
-              </div>
-            </a>
-          </div>
-
-          <!-- Logo -->
-          <div class="col-md-6" id="_desktop_logo">
-            {if $shop.logo_details}
-              {if $page.page_name == 'index'}
-                <h1>
-                  {renderLogo}
-                </h1>
+<nav class="header-nav bg-brand">
+  <div class="container mx-auto">
+    
+    <!-- Desktop -->
+    <div class="hidden-sm-down grid grid-cols-3 items-end pt-1 pb-2">
+      <!-- Colonne gauche -->
+      <div class="flex items-center gap-3 justify-start">
+        <a href="{$urls.pages.contact}" class="flex items-center gap-2 text-white hover:text-gray-200 transition-colors duration-200 ease-in-out">
+          <i class="bi bi-telephone text-2xl leading-none"></i>
+          <div class="leading-tight">
+            <div class="text-sm leading-tight opacity-90">Contactez-nous</div>
+            {assign var='country_id' value=Tools::getCountry()}
+            <div class="text-base leading-none font-semibold">
+              {if $country_id == 3}
+                +32&nbsp;42&nbsp;90&nbsp;00&nbsp;79
               {else}
-                {renderLogo}
+                +33&nbsp;(0)9&nbsp;77&nbsp;42&nbsp;37&nbsp;04
               {/if}
-            {/if}
-          </div>
-
-          <!-- Mon compte -->
-          <div class="col-md-3 right-nav">
-            {hook h='displayNav2'}
-          </div>
-        </div>
-        <div class="hidden-md-up text-sm-center mobile">
-          <div class="mobile-header-container">
-            <div class="mobile-logo" id="_mobile_logo"></div>
-            <div class="mobile-nav-icons">
-              <div class="mobile-user-icon">
-                <a href="{$urls.pages.my_account}">
-                  <i class="material-icons account-icon">person_outline</i>
-                </a>
-              </div>
-              <div class="mobile-cart-icon">
-                <a href="{$link->getPageLink('cart', true, null, ['action' => 'show'])}">
-                  <i class="material-icons shopping-cart-icon">shopping_cart</i>
-                  {if $cart.products_count > 0}
-                    <span class="cart-products-count">{$cart.products_count}</span>
-                  {/if}
-                </a>
-              </div>
-              <div id="menu-icon">
-                <i class="material-icons d-inline">menu</i>
-              </div>
             </div>
           </div>
-          <div class="clearfix"></div>
-        </div>
+        </a>
+      </div>
+    
+      <!-- Colonne centre : logo -->
+      <div class="flex justify-center items-center mx-auto" id="_desktop_logo">
+        {if $shop.logo_details}
+          {if $page.page_name == 'index'}
+            <h1 class="m-0 w-[220px]">{renderLogo}</h1>
+          {else}
+            <div class="w-[220px]">{renderLogo}</div>
+          {/if}
+        {/if}
+      </div>
+    
+      <!-- Colonne droite -->
+      <div class="flex items-center justify-end gap-6">
+        {hook h='displayNav2'}
       </div>
     </div>
-  </nav>
+
+    
+    
+  </div>
+</nav>
 {/block}
 
+
 {block name='header_top'}
-  <div class="header-top">
+  <div class="header-top p-0">
     <div class="container">
       <div class="row">
         <div class="header-top-right col-md-12 col-sm-12 flex">
@@ -216,5 +208,56 @@
       </div>
     </div>
   </div>
-  
 {/block}
+
+
+
+
+<style>
+  
+  .header-banner .w-160 {
+    width: 160px;
+  }
+  
+  .header-banner .bg-pink-600 {
+    background-color: #e45b7f;
+  }
+  #header .header-nav {
+    max-height: inherit;
+    border-bottom: none;
+  }
+  
+  .header-nav .desktop-align {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-nav #_desktop_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+  }
+  .header-nav #_desktop_logo img,
+  .header-nav #_desktop_logo svg {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .header-nav .hover\:text-gray-200:hover {
+    color: #e5e7eb !important;
+  }
+  
+  .cart-count {
+    min-width: 20px;
+    min-height: 20px;
+    background-color: #e45b7f;
+  }
+  
+  #header .header-nav .user-info {
+    text-align: left;
+  }
+  
+  
+</style>

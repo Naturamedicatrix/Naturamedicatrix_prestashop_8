@@ -88,7 +88,9 @@
           {block name='product_manufacturer'}
             {if isset($product.manufacturer_name) && $product.manufacturer_name}
               <div class="product-manufacturer">
-                <span>{$product.manufacturer_name|escape:'html':'UTF-8'}</span>
+                <a href="{$link->getManufacturerLink($product.id_manufacturer)}" title="{$product.manufacturer_name|escape:'html':'UTF-8'}">
+                  {$product.manufacturer_name}
+                </a>
               </div>
             {/if}
           {/block}

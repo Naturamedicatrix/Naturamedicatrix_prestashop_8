@@ -14,7 +14,7 @@
             <div class="flex-grow">
               <p class="text-sm text-gray-600 font-medium">À partir de 35€ en point relais ou 50€ en livraison à domicile (France métropolitaine, Belgique ou Luxembourg).</p>
             </div>
-            <div class="mt-1.5">
+            <div class="mt-1.5 color-text">
               » <a href="#" class="text-sm color-text underline font-semibold hover:underline underline-offset-2">Profiter de la livraison offerte</a>
             </div>
           </div>
@@ -26,7 +26,7 @@
             <div class="flex-grow">
               <p class="text-sm text-gray-600 font-medium">-10% dès 150€ et -5% dès 75€ d’achat, automatiquement appliqués sur votre panier, sans code.</p>
             </div>
-            <div class="mt-1.5">
+            <div class="mt-1.5 color-text">
              » <a href="#" class="text-sm color-text underline font-semibold hover:underline underline-offset-2">Bénéficier des remises</a>
             </div>
           </div>
@@ -39,7 +39,7 @@
             <div class="flex-grow">
               <p class="text-sm text-gray-600 font-medium">Payez en 2 ou 3 fois sans frais avec Alma pour étaler vos paiements en toute simplicité.</p>
             </div>
-            <div class="mt-1.5">
+            <div class="mt-1.5 color-text">
              » <a href="#" class="text-sm color-text underline font-semibold hover:underline underline-offset-2">En savoir plus</a>
             </div>
           </div>

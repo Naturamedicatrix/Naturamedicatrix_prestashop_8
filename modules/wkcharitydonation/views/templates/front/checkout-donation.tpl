@@ -147,16 +147,22 @@
 				{block name='hook_reassurance'}
 					{hook h='displayReassurance'}
 				{/block}
+				
 
 				{* BLOC PAYMENT LOGOS *}
 				<h5 class="text-center text-sm text-gray-600 font-semibold"><i class="bi bi-lock"></i> {l s='Paiements sécurisés' mod='wkcharitydonation'}</h5>
+			
 				{include file='_partials/payment-logos.tpl'}
+
+				<div class="payment-alma mb-0 mt-2.5 text-center">
+					<p class="text-sm text-gray-600 mb-0">
+						{l s='Payer en 2x ou 3x avec' mod='wkcharitydonation'} <a href="{$link->getCMSLink(3)}#alma" class="font-semibold underline">Alma</a>
+					</p>
+				</div>
 
 				{* BLOC ADVANTAGES *}
 				{include file='checkout/_partials/cart-advantages-block.tpl'}
 				
-				
-
 			</div>
 
 		</div>

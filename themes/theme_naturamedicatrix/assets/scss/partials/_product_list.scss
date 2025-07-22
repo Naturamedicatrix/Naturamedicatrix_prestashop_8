@@ -52,11 +52,16 @@
             margin-top: 0;
         }
 
-        .product-manufacturer {
+        .product-manufacturer, .product-manufacturer a {
             text-align: center;
-            color: $color-custom-grayLight;
+            color: $color-custom-grayLight !important;
+            text-decoration: none !important;
             font-size: .8rem;
             margin-top: 8px;
+
+            &:hover {
+                color: $color-custom-gray !important;
+            }
         }
     }
 
@@ -334,9 +339,13 @@
             flex-direction: column;
             justify-content: flex-start;
             
-            .product-brand {
+            .product-brand, .product-brand a {
                 font-size: 0.8rem;
-                color: $color-custom-grayLight;
+                color: $color-custom-grayLight !important;
+                text-decoration: none !important;
+                &:hover {
+                    color: $color-custom-gray !important;
+                }
             }
             
             .product-title {

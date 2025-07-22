@@ -292,11 +292,15 @@ body#cart #wrapper {
 .product-miniature .product-description h3, .product-miniature .product-description .h3 {
   margin-top: 0;
 }
-.product-miniature .product-description .product-manufacturer {
+.product-miniature .product-description .product-manufacturer, .product-miniature .product-description .product-manufacturer a {
   text-align: center;
-  color: #93A7C3;
+  color: #93A7C3 !important;
+  text-decoration: none !important;
   font-size: 0.8rem;
   margin-top: 8px;
+}
+.product-miniature .product-description .product-manufacturer:hover, .product-miniature .product-description .product-manufacturer a:hover {
+  color: #4B5563 !important;
 }
 .product-miniature .product-title {
   text-transform: initial;
@@ -536,9 +540,13 @@ body#cart #wrapper {
   flex-direction: column;
   justify-content: flex-start;
 }
-.product-miniature-light .container .content .product-brand {
+.product-miniature-light .container .content .product-brand, .product-miniature-light .container .content .product-brand a {
   font-size: 0.8rem;
-  color: #93A7C3;
+  color: #93A7C3 !important;
+  text-decoration: none !important;
+}
+.product-miniature-light .container .content .product-brand:hover, .product-miniature-light .container .content .product-brand a:hover {
+  color: #4B5563 !important;
 }
 .product-miniature-light .container .content .product-title {
   margin-top: 0 !important;
@@ -841,7 +849,7 @@ body#index #content {
 
 .badge-rounded {
   text-transform: initial !important;
-  background: #589875;
+  background: #487595;
   padding: 10px 25px;
   border-radius: 25px;
   color: #f9fafb;
@@ -851,7 +859,7 @@ body#index #content {
 }
 .badge-rounded:hover {
   color: #f9fafb !important;
-  background-color: rgb(59.95, 103.55, 79.70625);
+  background-color: rgb(47.0769230769, 76.5, 97.4230769231);
 }
 
 .wishlist-button-add {
@@ -877,7 +885,7 @@ body#index #content {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: rgba(88, 152, 117, 0.3);
+  background-color: rgba(72, 117, 149, 0.3);
   z-index: -1;
   top: -5px;
   right: -5px;
@@ -923,7 +931,7 @@ body#index #content {
   z-index: 1;
 }
 .title-separator #logoTitle .logo-title {
-  fill: #589875;
+  fill: #487595;
   stroke-width: 0px;
 }
 .title-separator .logo-h3 {
@@ -955,11 +963,11 @@ body#index #content {
 }
 
 .text-primary, .primary, .text-brand {
-  color: #589875 !important;
+  color: #487595 !important;
 }
 
 .bg-brand {
-  background-color: #589875;
+  background-color: #487595;
 }
 
 button:focus {
@@ -1006,12 +1014,12 @@ button:focus {
 
 .btn-secondary {
   background-color: transparent !important;
-  color: #589875 !important;
-  border: 1px solid #589875 !important;
+  color: #487595 !important;
+  border: 1px solid #487595 !important;
   text-decoration: none !important;
 }
 .btn-secondary:hover {
-  background-color: #589875 !important;
+  background-color: #487595 !important;
   color: #f9fafb !important;
 }
 @media (max-width: 640px) {
@@ -1631,7 +1639,7 @@ div#_desktop_search_filters_clear_all {
 }
 .PM_ASBlockOutput .card .card-header .PM_ASBlockNbProductValue {
   opacity: 0.6;
-  background: #589875;
+  background: #487595;
   color: white;
   opacity: 1;
   border-radius: 25px;
@@ -1713,7 +1721,7 @@ div#_desktop_search_filters_clear_all {
 }
 
 .custom-radio input[type=radio]:checked + span {
-  background-color: #589875;
+  background-color: #487595;
 }
 
 .custom-checkbox input[type=checkbox] {
