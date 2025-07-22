@@ -145,12 +145,12 @@
           html += `
             <div class="shipping-progress-title flex justify-between mb-1">
               <span class="text-sm font-medium">${translations.relayTitle}</span>
-              <span class="text-sm font-medium">${cartTotal.toFixed(2)}€ / ${relayThreshold}€</span>
+              <span class="text-sm font-medium">${cartTotal.toFixed(2).replace('.', ',')}€ / ${relayThreshold}€</span>
             </div>
             <div class="shipping-progress-bar w-full h-2.5 bg-gray-300 rounded-full">
               <div class="h-2.5 bg-green-500 rounded-full" style="width: ${percent}%"></div>
             </div>
-            <p class="text-sm mt-1 font-medium">${translations.relayRemaining.replace('%amount%', `<strong>${remaining.toFixed(2)}</strong>`)}*</p>
+            <p class="text-sm mt-1 font-medium">${translations.relayRemaining.replace('%amount%', `<strong>${remaining.toFixed(2).replace('.', ',')}</strong>`)}*</p>
             <p class="text-xs mt-4 text-gray-500 text-right"><a href="${deliveryTermsUrl}">* <u>${translations.seeTerms}</u></a></p>`;
 {/literal}
         } 
@@ -171,12 +171,12 @@
           html += `
             <div class="shipping-progress-title flex justify-between mb-1">
               <span class="text-sm font-medium">${translations.homeTitle}</span>
-              <span class="text-sm font-medium">${cartTotal.toFixed(2)}€ / ${homeThreshold}€</span>
+              <span class="text-sm font-medium">${cartTotal.toFixed(2).replace('.', ',')}€ / ${homeThreshold}€</span>
             </div>
             <div class="shipping-progress-bar w-full h-2.5 bg-gray-300 rounded-full">
               <div class="h-2.5 bg-green-500 rounded-full" style="width: ${percent}%"></div>
             </div>
-            <p class="text-sm mt-1 font-medium">${translations.homeRemaining.replace('%amount%', `<strong>${remaining.toFixed(2)}</strong>`)}*</p>
+            <p class="text-sm mt-1 font-medium">${translations.homeRemaining.replace('%amount%', `<strong>${remaining.toFixed(2).replace('.', ',')}</strong>`)}*</p>
             <p class="text-xs mt-4 text-gray-500 text-right"><a href="${deliveryTermsUrl}">* <u>${translations.seeTerms}</u></a></p>`;
 {/literal}
         } else if (isHomeEligible && cartTotal >= homeThreshold) {
