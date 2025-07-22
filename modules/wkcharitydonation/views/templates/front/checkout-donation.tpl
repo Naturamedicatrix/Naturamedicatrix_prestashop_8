@@ -27,6 +27,11 @@
 		<!-- Left Block: cart product informations & shpping -->
 			<div class="cart-grid-body col-xs-12 col-xl-7">
 
+			{block name='notifications'}
+				{include file='_partials/notifications.tpl'}
+			{/block}
+			  
+
 				<!-- cart products detailed -->
 				<div class="card cart-container">
 					<div class="card-block">

@@ -32,6 +32,10 @@
       <!-- Left Block: cart product informations & shipping -->
       <div class="cart-grid-body col-xs-12 col-xl-7">
 
+        {block name='notifications'}
+          {include file='_partials/notifications.tpl'}
+        {/block}
+
         <!-- cart products detailed -->
         <div class="card cart-container">
           <div class="card-block">
@@ -85,6 +89,9 @@
         {include file='checkout/_partials/cart-advantages-block.tpl'}
 
 
+        {* Shopimind *}
+        <div id="shopimind-interets-products"></div>
+
 
       </div>
 
@@ -94,5 +101,5 @@
     
   </section>
 
-  <div id="shopimind-interets-products"></div>
+  
 {/block}

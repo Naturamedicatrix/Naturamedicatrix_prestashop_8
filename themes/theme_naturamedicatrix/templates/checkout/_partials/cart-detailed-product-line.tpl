@@ -1,6 +1,8 @@
 {**
 CUSTOM PRODUCTS DETAILS CART
 *}
+
+
  
 <div class="product-line-grid flex items-center justify-between w-full gap-4 md:gap-6 py-4 border-b">
   <!--  product line left content: image-->
@@ -281,3 +283,5 @@ CUSTOM PRODUCTS DETAILS CART
   </div>
 
 </div> <!-- end .product-line-grid -->
+
+

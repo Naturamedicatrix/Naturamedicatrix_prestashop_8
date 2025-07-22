@@ -770,7 +770,7 @@ body#cart {
     }
 
     input.js-cart-line-product-quantity.w-full.border.text-center.rounded.form-control {
-        max-width: 40px;
+        max-width: 50px;
     }
 
     .card h4  {
@@ -1144,6 +1144,29 @@ body#cart .card-block, .card-block.cart-summary-totals .cart-summary-line {
 body#cart .max-w-7xl {
     @media (max-width: $breakpoint-sm) {
         padding: 0 2rem;
+    }
+}
+
+//NOTIFICATIONS (alertes)
+body#cart {
+    .notifications-container {
+        display: none;
+    }
+
+    #content-wrapper .notifications-container {
+        display: block !important;
+        padding: 0;
+        margin-bottom: 20px;
+
+        .alert-danger {
+            padding: 10px 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: .8rem;
+        }
     }
 }
 

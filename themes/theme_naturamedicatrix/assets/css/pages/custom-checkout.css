@@ -637,7 +637,7 @@ body#cart #footer .btn-primary:hover, body#cart #footer .btn-outline:hover {
   color: #f9fafb !important;
 }
 body#cart input.js-cart-line-product-quantity.w-full.border.text-center.rounded.form-control {
-  max-width: 40px;
+  max-width: 50px;
 }
 @media (max-width: 640px) {
   body#cart .card h4 {
@@ -935,4 +935,21 @@ body#cart .card-block, .card-block.cart-summary-totals .cart-summary-line {
   body#cart .max-w-7xl {
     padding: 0 2rem;
   }
+}
+
+body#cart .notifications-container {
+  display: none;
+}
+body#cart #content-wrapper .notifications-container {
+  display: block !important;
+  padding: 0;
+  margin-bottom: 20px;
+}
+body#cart #content-wrapper .notifications-container .alert-danger {
+  padding: 10px 20px;
+}
+body#cart #content-wrapper .notifications-container ul {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 0.8rem;
 }
