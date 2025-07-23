@@ -450,6 +450,11 @@ body#cart .bootstrap-touchspin .input-group-btn-vertical > .btn {
 body#cart .bootstrap-touchspin {
   display: flex;
 }
+@media (max-width: 768px) {
+  body#cart .bootstrap-touchspin {
+    margin-left: 185px;
+  }
+}
 body#cart .cart-overview, body#cart .cart-items {
   padding: 0 !important;
   margin: 0 !important;
@@ -502,6 +507,11 @@ body#cart .product-line-grid .mobile-cart-actions {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+}
+@media (max-width: 640px) {
+  body#cart .product-line-grid .mobile-cart-actions {
+    justify-content: inherit;
+  }
 }
 body#cart .charity-block {
   border: 1px solid #e5e7eb;

@@ -4,10 +4,10 @@ CUSTOM PRODUCTS DETAILS CART
 
 
  
-<div class="product-line-grid md:flex items-center justify-between w-full gap-4 md:gap-6 py-4 border-b">
+<div class="product-line-grid md:flex items-center justify-between w-full gap-4 md:gap-6 py-4 border-b pr-4 md:pr-0">
   
   <!-- Wrapper mobile pour image + corps du produit -->
-  <div class="flex md:contents gap-3 mb-3 md:mb-0">
+  <div class="flex md:contents gap-3 mb-0 items-start justify-between w-full">
     <!--  product line left content: image-->
     <div class="product-line-grid-left w-20 h-20 flex-shrink-0">
       <span class="product-image media-middle">
@@ -28,7 +28,7 @@ CUSTOM PRODUCTS DETAILS CART
     </div>
 
     <!--  product line body: label, discounts, price, attributes, customizations -->
-    <div class="product-line-grid-body flex flex-col justify-center flex-1 min-w-[200px]">
+    <div class="product-line-grid-body flex flex-col justify-center mb-0 flex-1 min-w-[200px]">
     {* Affichage des caractéristiques du produit (SQL) *}
     {assign var="id_product" value=$product.id_product}
     {assign var="id_lang" value=Context::getContext()->language->id}
@@ -59,8 +59,7 @@ CUSTOM PRODUCTS DETAILS CART
     {if isset($product.dlu) && $product.dlu}
       <div class="product-line-info text-xs md:text-xs justify-start">
         <span class="labelle font-normal">
-          <span class="md:hidden">DLC :</span>
-          <span class="hidden md:inline">Date limite conseillée :</span>
+          <span class="inline">Date limite conseillée :</span>
         </span>
         <span class="value font-bold">
           {* Formate la date en DD-MM-YYYY *}
@@ -192,6 +191,22 @@ CUSTOM PRODUCTS DETAILS CART
       {/block}
     {/if}
   </div>
+    <!-- Bouton suppression mobile -->
+    <div class="md:hidden flex-shrink-0 ml-2">
+      <a
+          class="remove-from-cart text-gray-500"
+          rel="nofollow"
+          href="{$product.remove_from_cart_url}"
+          data-link-action="delete-from-cart"
+          data-id-product="{$product.id_product|escape:'javascript'}"
+          data-id-product-attribute="{$product.id_product_attribute|escape:'javascript'}"
+          data-id-customization="{$product.id_customization|default|escape:'javascript'}"
+      >
+        {if empty($product.is_gift)}
+          <i class="bi bi-trash3 icon-special text-lg"></i>
+        {/if}
+      </a>
+    </div>
   </div> <!-- end wrapper mobile -->
   
   <div class="mobile-cart-actions">
@@ -218,7 +233,7 @@ CUSTOM PRODUCTS DETAILS CART
  
 
   <!--  product line right content: actions (quantity, delete), price -->
-  <div class="product-line-grid-right product-line-actions price flex flex-col items-start md:items-end text-right leading-tight w-36">
+  <div class="product-line-grid-right product-line-actions price flex flex-col items-start items-end text-right leading-tight w-36">
       
       {if $product.has_discount}
         <div class="product-discount">
@@ -235,7 +250,7 @@ CUSTOM PRODUCTS DETAILS CART
       {/if}
       
       <span class="product-price font-semibold text-base color-title">
-        <span class="text-2xl md:text-base">
+        <span class="text-lg md:2xl">
           {if !empty($product.is_gift)}
             <span class="gift">{l s='Gift' d='Shop.Theme.Checkout'}</span>
           {else}
@@ -244,10 +259,10 @@ CUSTOM PRODUCTS DETAILS CART
         </span>
       </span>
             
-      <div class="product-line-info product-price text-center {if $product.has_discount}has-discount{/if}">
+      <div class="product-line-info product-price md:text-center {if $product.has_discount}has-discount{/if}">
         
         <div class="current-price text-xs text-gray-500">
-          <span class="text-sm md:text-xs">A l'unité&nbsp;:</span>
+          <span class="text-xs">A l'unité&nbsp;:</span>
           {if $product.has_discount}
             <span class="regular-price line-through">{$product.regular_price}</span>
           {/if}
@@ -263,7 +278,7 @@ CUSTOM PRODUCTS DETAILS CART
   </div> <!-- end .product-line-grid-right -->
   
   
-    <div class="cart-line-product-actions pl-0 md:pl-0 text-gray-500 w-11 text-right">
+    <div class="cart-line-product-actions pl-0 md:pl-0 text-gray-500 w-11 text-right hidden md:block">
       <a
           class                       = "remove-from-cart"
           rel                         = "nofollow"

@@ -546,6 +546,10 @@ body#cart {
 
     .bootstrap-touchspin {
         display: flex;
+
+        @media (max-width: $breakpoint-md) {
+            margin-left: 185px;
+        }
     }
 
     .cart-overview, .cart-items {
@@ -615,6 +619,10 @@ body#cart {
             align-items: center;
             justify-content: space-between;
             gap: 2rem;
+
+            @media (max-width: $breakpoint-sm) {
+                justify-content: inherit;
+            }
         }
     }
 
