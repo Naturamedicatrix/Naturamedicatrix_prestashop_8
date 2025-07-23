@@ -47,7 +47,7 @@
           <div class="flex flex-col mb-6 mt-4">
             <label class="text-left font-bold text-base required after:content-['*'] after:ml-0.5 after:text-red-500" for="id_order">{l s='Référence commande' d='Modules.Contactform.Shop'}</label>
             <div class="js-input-column">
-              <select name="id_order" id="id_order" class="w-100 sm:w-full border border-gray-300 rounded-md px-4 py-2 text-base h-12 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-white" required>
+              <select name="id_order" id="id_order" class="w-100 sm:w-full border border-gray-300 rounded-md px-4 py-4 text-base h-12 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-white" required>
                 <option value="" disabled selected class="text-gray-500">{l s='Sélectionnez une référence' d='Modules.Contactform.Shop'}</option>
                 {foreach from=$contact.orders item=order}
                   <option value="{$order.id_order|escape:'htmlall':'UTF-8'}" class="text-black">{$order.reference|escape:'htmlall':'UTF-8'}</option>

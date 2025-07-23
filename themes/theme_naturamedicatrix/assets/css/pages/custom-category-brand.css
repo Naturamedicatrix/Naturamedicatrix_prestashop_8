@@ -3,17 +3,19 @@
 body#category #wrapper p {
   margin-bottom: 0;
 }
-
-#manufacturer-short_description,
-.alert,
-#category-description {
-  max-width: 980px;
-  margin: 0 auto;
+body#category #js-product-list .page-not-found {
+  position: relative;
+}
+body#category #js-product-list #search_widget {
+  position: relative;
+  margin-bottom: 30px;
 }
 
 #manufacturer-short_description p,
 #category-description p {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: #4B5563 !important;
 }
 @media (max-width: 768px) {
   #manufacturer-short_description p,

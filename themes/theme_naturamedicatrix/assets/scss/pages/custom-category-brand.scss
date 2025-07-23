@@ -7,21 +7,26 @@ body#category {
             margin-bottom: 0;
         }
     }
+
+    #js-product-list {
+        .page-not-found {
+            position: relative;
+        }
+        #search_widget {
+            position: relative;
+            margin-bottom: 30px;
+        }
+    }
 }
 
 // Styles pour l'en-tête de la page marque
 #manufacturer-short_description,
-.alert,
-#category-description {
-    max-width: 980px;
-    margin: 0 auto;
-}
-
-#manufacturer-short_description,
 #category-description {
 
     p {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        color: #4B5563 !important;
         @media (max-width: $breakpoint-md) {
             font-size: 1rem;
         }

@@ -7,17 +7,19 @@
 body#category #wrapper p {
   margin-bottom: 0;
 }
-
-#manufacturer-short_description,
-.alert,
-#category-description {
-  max-width: 980px;
-  margin: 0 auto;
+body#category #js-product-list .page-not-found {
+  position: relative;
+}
+body#category #js-product-list #search_widget {
+  position: relative;
+  margin-bottom: 30px;
 }
 
 #manufacturer-short_description p,
 #category-description p {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: #4B5563 !important;
 }
 @media (max-width: 768px) {
   #manufacturer-short_description p,
@@ -1325,51 +1327,6 @@ table.table-light.text-center td, table.table-light.text-center th {
   margin-top: 0;
 }
 
-#carousel {
-  margin-bottom: 0 !important;
-}
-@media (max-width: 768px) {
-  #carousel {
-    margin-bottom: 0;
-  }
-}
-#carousel .carousel-item .caption {
-  top: 50%;
-  transform: translateY(-50%);
-  left: 10%;
-}
-@media (max-width: 1024px) {
-  #carousel .carousel-item .caption {
-    left: 5%;
-  }
-}
-@media (max-width: 768px) {
-  #carousel .carousel-item .caption {
-    left: 0;
-    bottom: 0;
-    top: 0%;
-    transform: translateY(-175%);
-    background-color: rgba(249, 250, 251, 0.9);
-    padding: 10px 15px;
-    text-align: center;
-  }
-}
-#carousel .carousel-item figure {
-  height: 500px;
-  width: 100%;
-  margin: 0;
-}
-#carousel .carousel-item figure img {
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-#carousel .carousel-inner {
-  padding-left: 0;
-  height: 497px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
 #carousel .direction .icon-next {
   right: 22px;
 }
@@ -1403,60 +1360,6 @@ table.table-light.text-center td, table.table-light.text-center th {
 }
 #carousel .direction i:hover {
   color: rgb(42.025862069, 47.6293103448, 55.474137931);
-}
-#carousel a {
-  border-bottom: none !important;
-}
-#carousel .caption-description h1, #carousel .caption-description h2, #carousel .caption-description h3 {
-  margin-top: 10px;
-}
-@media (max-width: 768px) {
-  #carousel .caption-description h1, #carousel .caption-description h2, #carousel .caption-description h3 {
-    text-align: center;
-  }
-}
-#carousel .caption-description a {
-  text-decoration: none !important;
-}
-#carousel h5, #carousel h6 {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #374151 !important;
-  border-color: #374151 !important;
-  font-weight: 900;
-  font-size: 0.8rem;
-  display: inline-block;
-  padding: 4px 10px 2px;
-  border-radius: 15px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  line-height: 1.2;
-}
-#carousel .caption-description p {
-  color: #111827 !important;
-}
-#carousel .caption-description p a:not(:first-child) {
-  background-color: #111827 !important;
-  color: #f9fafb !important;
-  border-color: #111827 !important;
-  border: 1px solid transparent !important;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-  display: inline-block;
-  font-weight: bold;
-  font-size: 15px;
-  text-transform: none;
-  padding: 13px 25px;
-  min-width: 225px;
-  line-height: 1;
-  transition: all 0.2s ease-in-out !important;
-  border: 1px solid transparent;
-  text-decoration: none !important;
-}
-#carousel .caption-description p a:not(:first-child):hover {
-  background-color: #374151 !important;
-  color: #f9fafb !important;
-  border-color: #374151 !important;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
