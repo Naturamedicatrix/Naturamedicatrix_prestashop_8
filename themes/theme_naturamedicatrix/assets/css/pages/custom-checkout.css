@@ -897,3 +897,9 @@ body#cart #content-wrapper .notifications-container ul {
   padding-left: 0;
   font-size: 0.8rem;
 }
+
+@media (max-width: 640px) {
+  .product-suggestions img {
+    max-width: 130px;
+  }
+}

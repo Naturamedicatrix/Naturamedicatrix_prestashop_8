@@ -1111,4 +1111,8 @@ body#cart {
     }
 }
 
-    
+.product-suggestions img {
+    @media (max-width: $breakpoint-sm) {
+        max-width: 130px;
+    }
+}
