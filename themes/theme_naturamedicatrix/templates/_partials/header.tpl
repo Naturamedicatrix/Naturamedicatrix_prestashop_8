@@ -194,8 +194,11 @@
   <div class="header-top p-0">
     <div class="container">
       <div class="row">
-        <div class="header-top-right col-md-12 col-sm-12 flex">
-          {hook h='displayTop'}
+        <div class="header-top-right col-md-12 col-sm-12 flex">          
+          
+          {hook h='displayIqitMenu'}
+          
+{*           {hook h='displayTop'} *}
         </div>
       </div>
       <div id="mobile_top_menu_wrapper" class="row hidden-md-up" style="display:none;">
