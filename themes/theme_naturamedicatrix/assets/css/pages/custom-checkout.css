@@ -393,12 +393,6 @@ body#cart .alert {
     max-width: 100%;
   }
 }
-@media (max-width: 640px) {
-  body#cart h1 {
-    text-align: center !important;
-    margin-bottom: 20px !important;
-  }
-}
 body#cart .cart-grid {
   margin-bottom: 0;
   background-color: #EDEFF1;
@@ -415,19 +409,13 @@ body#cart .cart-grid-body {
   body#cart .cart-grid-body {
     padding-right: 2rem;
     padding-left: 2rem;
+    padding-top: 1rem;
     min-height: auto;
   }
 }
 @media (min-width: 1700px) and (max-width: 1920px) {
   body#cart .cart-grid-body {
     min-height: 127vh;
-  }
-}
-@media (max-width: 640px) {
-  body#cart .cart-grid-body {
-    padding-right: 16px;
-    padding-left: 16px;
-    padding-top: 20px;
   }
 }
 body#cart .cart-grid-right {
@@ -498,11 +486,6 @@ body#cart .cart-overview .cart-item .product-line-grid-body .color-title {
   font-weight: 700 !important;
   font-size: 0.9rem;
 }
-@media (max-width: 640px) {
-  body#cart .cart-overview .cart-item .product-line-grid-body .color-title {
-    font-size: 1.15rem;
-  }
-}
 body#cart .cart-overview .cart-item .product-line-grid-body .label-attributes {
   padding-top: 3px;
   color: #4B5563;
@@ -519,26 +502,6 @@ body#cart .product-line-grid .mobile-cart-actions {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-}
-@media (max-width: 640px) {
-  body#cart .product-line-grid {
-    flex-direction: column;
-    text-align: center;
-  }
-  body#cart .product-line-grid .mobile-cart-actions .product-line-grid-right {
-    align-items: center;
-  }
-  body#cart .product-line-grid .mobile-cart-actions .cart-line-product-actions {
-    text-align: center;
-  }
-  body#cart .product-line-grid .mobile-cart-actions .cart-line-product-actions i {
-    font-size: 1.5rem;
-  }
-  body#cart .product-line-grid .mobile-cart-actions .cart-line-product-actions .icon-special::after {
-    right: -3px;
-    height: 18px;
-    width: 18px;
-  }
 }
 body#cart .charity-block {
   border: 1px solid #e5e7eb;
@@ -614,11 +577,6 @@ body#cart #footer .btn-primary:hover, body#cart #footer .btn-outline:hover {
 }
 body#cart input.js-cart-line-product-quantity.w-full.border.text-center.rounded.form-control {
   max-width: 60px;
-}
-@media (max-width: 640px) {
-  body#cart .card h4 {
-    padding-left: 2rem;
-  }
 }
 
 .block-promo {

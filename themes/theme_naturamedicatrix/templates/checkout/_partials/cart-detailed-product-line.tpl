@@ -4,28 +4,31 @@ CUSTOM PRODUCTS DETAILS CART
 
 
  
-<div class="product-line-grid flex items-center justify-between w-full gap-4 md:gap-6 py-4 border-b">
-  <!--  product line left content: image-->
-  <div class="product-line-grid-left w-20 h-20 flex-shrink-0">
-    <span class="product-image media-middle">
-      {if $product.default_image}
-        <picture>
-          {if !empty($product.default_image.bySize.cart_default.sources.avif)}<source srcset="{$product.default_image.bySize.cart_default.sources.avif}" type="image/avif">{/if}
-          {if !empty($product.default_image.bySize.cart_default.sources.webp)}<source srcset="{$product.default_image.bySize.cart_default.sources.webp}" type="image/webp">{/if}
-          <img src="{$product.default_image.bySize.cart_default.url}" alt="{$product.name|escape:'quotes'}" loading="lazy">
-        </picture>
-      {else}
-        <picture>
-          {if !empty($urls.no_picture_image.bySize.cart_default.sources.avif)}<source srcset="{$urls.no_picture_image.bySize.cart_default.sources.avif}" type="image/avif">{/if}
-          {if !empty($urls.no_picture_image.bySize.cart_default.sources.webp)}<source srcset="{$urls.no_picture_image.bySize.cart_default.sources.webp}" type="image/webp">{/if}
-          <img src="{$urls.no_picture_image.bySize.cart_default.url}" loading="lazy" />
-        </picture>
-      {/if}
-    </span>
-  </div>
+<div class="product-line-grid md:flex items-center justify-between w-full gap-4 md:gap-6 py-4 border-b">
+  
+  <!-- Wrapper mobile pour image + corps du produit -->
+  <div class="flex md:contents gap-3 mb-3 md:mb-0">
+    <!--  product line left content: image-->
+    <div class="product-line-grid-left w-20 h-20 flex-shrink-0">
+      <span class="product-image media-middle">
+        {if $product.default_image}
+          <picture>
+            {if !empty($product.default_image.bySize.cart_default.sources.avif)}<source srcset="{$product.default_image.bySize.cart_default.sources.avif}" type="image/avif">{/if}
+            {if !empty($product.default_image.bySize.cart_default.sources.webp)}<source srcset="{$product.default_image.bySize.cart_default.sources.webp}" type="image/webp">{/if}
+            <img src="{$product.default_image.bySize.cart_default.url}" alt="{$product.name|escape:'quotes'}" loading="lazy">
+          </picture>
+        {else}
+          <picture>
+            {if !empty($urls.no_picture_image.bySize.cart_default.sources.avif)}<source srcset="{$urls.no_picture_image.bySize.cart_default.sources.avif}" type="image/avif">{/if}
+            {if !empty($urls.no_picture_image.bySize.cart_default.sources.webp)}<source srcset="{$urls.no_picture_image.bySize.cart_default.sources.webp}" type="image/webp">{/if}
+            <img src="{$urls.no_picture_image.bySize.cart_default.url}" loading="lazy" />
+          </picture>
+        {/if}
+      </span>
+    </div>
 
-  <!--  product line body: label, discounts, price, attributes, customizations -->
-  <div class="product-line-grid-body flex flex-col justify-center flex-1 min-w-[200px]">
+    <!--  product line body: label, discounts, price, attributes, customizations -->
+    <div class="product-line-grid-body flex flex-col justify-center flex-1 min-w-[200px]">
     {* Affichage des caractéristiques du produit (SQL) *}
     {assign var="id_product" value=$product.id_product}
     {assign var="id_lang" value=Context::getContext()->language->id}
@@ -48,14 +51,17 @@ CUSTOM PRODUCTS DETAILS CART
     {assign var="features_result" value=Db::getInstance()->executeS($features_query)}
     
     <!-- Nom du produit -->
-    <div class="product-line-info pb-0.5 color-title justify-center md:justify-start">
+    <div class="product-line-info pb-0.5 color-title justify-start">
       <a href="{$product.url}" data-id_customization="{$product.id_customization|intval}">{$product.name}</a>
     </div>
     
     <!-- Date limite conseillée -->
     {if isset($product.dlu) && $product.dlu}
-      <div class="product-line-info text-sm md:text-xs justify-center md:justify-start">
-        <span class="labelle font-normal">Date limite conseillée :</span>
+      <div class="product-line-info text-xs md:text-xs justify-start">
+        <span class="labelle font-normal">
+          <span class="md:hidden">DLC :</span>
+          <span class="hidden md:inline">Date limite conseillée :</span>
+        </span>
         <span class="value font-bold">
           {* Formate la date en DD-MM-YYYY *}
           {assign var="dluDate" value=$product.dlu|strtotime}
@@ -65,7 +71,7 @@ CUSTOM PRODUCTS DETAILS CART
     {/if}
     
     <!-- Stock, caractéristique et attribut -->
-    <div class="products-lines-infos flex flex-wrap items-center text-sm md:text-xs justify-center md:justify-start">
+    <div class="products-lines-infos flex flex-wrap items-center text-xs md:text-xs justify-start">
       <!-- Stock (ou rupture) -->
       <div class="product-line-info">
       {if isset($product.quantity_available)}
@@ -186,6 +192,7 @@ CUSTOM PRODUCTS DETAILS CART
       {/block}
     {/if}
   </div>
+  </div> <!-- end wrapper mobile -->
   
   <div class="mobile-cart-actions">
   <div class="qty w-20 flex items-center justify-center">

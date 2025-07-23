@@ -484,12 +484,7 @@ body#cart {
             max-width: 100%;
         }
     }
-    h1 {
-        @media (max-width: $breakpoint-sm) {
-            text-align: center !important;
-            margin-bottom: 20px !important;
-        }
-    }
+
     .cart-grid {
         margin-bottom: 0;
         background-color: $color-custom-whiteDarker;
@@ -505,6 +500,7 @@ body#cart {
         @media (max-width: 1024px) {
             padding-right: 2rem;
             padding-left: 2rem;
+            padding-top: 1rem;
             min-height: auto;
         }
 
@@ -512,11 +508,7 @@ body#cart {
             min-height: 127vh;
         }
 
-        @media (max-width: $breakpoint-sm) {
-            padding-right: 16px;
-            padding-left: 16px;
-            padding-top: 20px;
-        }
+
     }
     .cart-grid-right {
        background-color: $color-custom-whiteDarker;
@@ -600,9 +592,6 @@ body#cart {
             .color-title {
                 font-weight: 700 !important;
                 font-size: .9rem;
-                @media (max-width: $breakpoint-sm) {
-                    font-size: 1.15rem;
-                }
             }
             .label-attributes {
                 padding-top: 3px;
@@ -626,29 +615,6 @@ body#cart {
             align-items: center;
             justify-content: space-between;
             gap: 2rem;
-        }
-        @media (max-width: $breakpoint-sm) {
-            flex-direction: column;
-            text-align: center;
-
-            .mobile-cart-actions {
-                .product-line-grid-right {
-                    align-items: center;
-                }
-
-                .cart-line-product-actions {
-                    text-align: center;
-
-                    i {
-                        font-size: 1.5rem;
-                    }
-                    .icon-special::after {
-                        right: -3px;
-                        height: 18px;
-                        width: 18px;
-                    }
-                }
-            }
         }
     }
 
@@ -744,11 +710,7 @@ body#cart {
         max-width: 60px;
     }
 
-    .card h4  {
-        @media (max-width: $breakpoint-sm) {
-            padding-left: 2rem;
-        }
-    }
+
 }
 
 
