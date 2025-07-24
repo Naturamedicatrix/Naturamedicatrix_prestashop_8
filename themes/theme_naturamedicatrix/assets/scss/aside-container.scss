@@ -4,18 +4,18 @@
 // Styles généraux pour le conteneur latéral
 .side-column {
   background-color: $color-custom-whiteDarker;
-  height: 170vh;
+  height: 182vh;
   
   @media (max-width: $breakpoint-sm) {
-    height: 100vh;
+    height: 110vh;
   }
 
   @media (min-width: $breakpoint-sm) and (max-width: 769px) {
-    height: 175vh;
+    height: 115vh;
   }
 
   @media (min-width: 770px) and (max-width: 1024px) {
-    height: 150vh;
+    height: 227vh;
   }
 
   @media (min-width: 2000px) {
