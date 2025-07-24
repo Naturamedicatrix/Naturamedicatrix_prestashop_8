@@ -14,7 +14,7 @@
         <li class="carousel-item mb-0 {if $smarty.foreach.homeslider.first}active{/if}" role="option" aria-hidden="{if $smarty.foreach.homeslider.first}false{else}true{/if}">
           {if !empty($slide.url)}<a href="{$slide.url}">{/if}
             <figure class="relative w-full h-full">
-              <img src="{$slide.image_url}" alt="{$slide.legend|escape}" loading="lazy" width="1470" height="477" class="w-full h-full object-cover">
+              <img src="{$slide.image_url}" alt="{$slide.legend|escape}" loading="lazy" class="h-full object-cover">
               {if $slide.title || $slide.description}
                 <figcaption class="absolute inset-0 flex items-center justify-start px-14">
                   <div class="text-center max-w-md">
@@ -81,8 +81,15 @@
   }
   
   .carousel .carousel-inner {
-    height: 100%;
-    width: max-content;
+    height: auto;
+    width: 100%;
+  }
+
+  @media (max-width: 991px) {
+    .carousel .carousel-inner {
+      width: max-content;
+      height: 100%;
+    }
   }
   
   #carousel h6 {

@@ -36,12 +36,6 @@ body {
     background-color: $color-custom-bgWrapper;
   }
 
-  header {
-    @media (max-width: $breakpoint-sm) {
-      margin-bottom: .5rem !important;
-    }
-  }
-
 }
 
 body:not(#checkout):not(#cart) #content-wrapper {
@@ -679,13 +673,13 @@ table.table-light {
   .direction {
     .icon-next {
       right: 22px;
-      @media (max-width: $breakpoint-md) {
+      @media (max-width: 991px) {
         right: 0px;
       }
     }
     .icon-prev {
       left: -15px;
-      @media (max-width: $breakpoint-md) {
+      @media (max-width: 991px) {
         left: 0px;
       }
     }
@@ -696,7 +690,7 @@ table.table-light {
       margin-right: 0;
       font-size: 1.5rem;
       padding: 20px 22px;
-      @media (max-width: $breakpoint-md) {
+      @media (max-width: 991px) {
         font-size: 1.1rem;
         background-color: rgba($color-custom-bgWrapper, .7);
         padding: 5px;
