@@ -1627,7 +1627,7 @@ div#_desktop_search_filters_clear_all {
   background-color: #487595;
 }
 
-.custom-checkbox input[type=checkbox] {
+input[type=checkbox] {
   border-radius: 3px;
   width: 17px;
   height: 18px;

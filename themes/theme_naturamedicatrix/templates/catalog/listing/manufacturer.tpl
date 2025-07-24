@@ -12,26 +12,31 @@
   </div>
 {/block} *}
 
+
+
+
+
+
 {* Bloc pour le contenu principal *}
 {block name='content'}
   <section id="main">
     {* En-tête avec logo et descriptions *}
     <div class="header-category-manufacturer">
-      <div class="logo-manufacturer mb-12">
+      <div class="logo-manufacturer mb-8">
         <img src="{$urls.img_manu_url}/{$manufacturer.id}-brand_simple.jpg" alt="{$manufacturer.name}" class="mx-auto" loading="lazy">
       </div>
-      <h1 class="text-center pb-4">{$manufacturer.name}</h1>
+      <h1 class="text-center pb-4 mb-0">{$manufacturer.name}</h1>
 
       {* NB DE PRODUITS *}
-    <div class="total-products text-center">
-      {if $listing.pagination.total_items > 1}
-          <p class="count-product">{l s='%product_count% produits' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</p>
-      {elseif $listing.pagination.total_items > 0}
-          <p class="count-product">{l s='%product_count% produit' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</p>
-      {/if}
-    </div>
+      <div class="total-products text-center mb-1">
+        {if $listing.pagination.total_items > 1}
+            <span class="inline-flex items-center rounded-lg bg-gray-50 px-2.5 py-0.5 text-sm font-medium text-gray-500 border border-gray-200">{l s='%product_count% produits' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</span>
+        {elseif $listing.pagination.total_items > 0}
+            <span class="inline-flex items-center rounded-lg bg-gray-50 px-2.5 py-0.5 text-sm font-medium text-gray-500 border border-gray-200">{l s='%product_count% produit' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</span>
+        {/if}
+      </div>
       
-      <div id="manufacturer-short_description" class="text-left">{$manufacturer.short_description nofilter}</div>
+      <div id="manufacturer-short_description" class="max-w-4xl mx-auto text-center px-4 text-lg">{$manufacturer.short_description nofilter}</div>
   
     </div>
     
@@ -70,3 +75,17 @@
   </section>
 
 {/block}
+
+
+
+
+<style>
+
+  .count-product {
+    border: 1px solid #6a72821a;
+    color: #4a5565;
+    background: #fbf9fa;
+    display: inline-block;
+  }
+  
+</style>

@@ -153,22 +153,23 @@
       </div>
     </div>
 
-    
-    
   </div>
 </nav>
 {/block}
 
 
+{*
 {block name='header_top'}
-  <div class="header-top p-0">
+  <div class="header-top p-0 header-mobile">
     <div class="container">
       <div class="row">
-        <div class="header-top-right col-md-12 col-sm-12 flex">          
+        <div class="header-top-right flex">          
           
           {hook h='displayIqitMenu'}
+*}
           
 {*           {hook h='displayTop'} *}
+{*
         </div>
       </div>
       <div id="mobile_top_menu_wrapper" class="row hidden-md-up" style="display:none;">
@@ -181,6 +182,22 @@
       </div>
     </div>
   </div>
+{/block}
+*}
+
+
+{block name='header_top'}
+<div class="sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-0 flex items-end justify-between lg:hidden">
+
+  {hook h='displayIqitMenu'}
+
+  <div class="p-1" >
+    <img src="{$urls.child_img_url}logo-naturamedicatrix.svg" alt="NATURAMedicatrix" class="h-12" />
+  </div>
+
+  <div class="w-6"></div>
+  
+</div>
 {/block}
 
 

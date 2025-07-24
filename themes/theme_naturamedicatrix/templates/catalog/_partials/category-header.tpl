@@ -15,17 +15,17 @@
    </header>
 
    {* NB DE PRODUITS *}
-    <div class="total-products text-center">
+    <div class="total-products text-center mb-1">
         {if $listing.pagination.total_items > 1}
-            <p class="count-product">{l s='%product_count% produits' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</p>
+            <span class="inline-flex items-center rounded-lg bg-gray-50 px-2.5 py-0.5 text-sm font-medium text-gray-500 border border-gray-200">{l s='%product_count% produits' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</span>
         {elseif $listing.pagination.total_items > 0}
-            <p class="count-product">{l s='%product_count% produit' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</p>
+            <span class="inline-flex items-center rounded-lg bg-gray-50 px-2.5 py-0.5 text-sm font-medium text-gray-500 border border-gray-200">{l s='%product_count% produit' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</span>
         {/if}
     </div>
 
     <div class="block-category-inner">
         {if $category.description}
-            <div id="category-description" class="mx-auto">{$category.description nofilter}</div>
+            <div id="category-description" class="max-w-4xl mx-auto text-center px-4 text-lg">{$category.description nofilter}</div>
         {/if}
         {* {if !empty($category.image.large.url)}
             <div class="category-cover">

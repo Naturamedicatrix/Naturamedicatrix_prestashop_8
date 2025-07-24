@@ -29,8 +29,11 @@
       
       
      
-      
-      
+     {* SLIDER DE BLOCK DES BRANDS *}
+     {block name='brands-slider'}
+      {include file='_partials/brands-slider.tpl'}
+     {/block} 
+     {* //END SLIDER DE BLOCK DES BRANDS *}
 
       {* SHOPIMIND INTERETS*}
       {* {block name='hook_shopimind_interets'}
@@ -38,6 +41,7 @@
       {/block} *}
       
       {* BLOCK DES BRANDS *}
+{*
       <div class="bg-wrapper mt-20 mb-20 brands-manufacturers-section">
         {block name='featured_brands_home'}
           <section class="container mx-auto">
@@ -56,6 +60,7 @@
           </section>
         {/block}
       </div>
+*}
       {* END BLOCK DES BRANDS *}
       
       

@@ -15,7 +15,7 @@
  
    {if !empty($subcategories)}
       {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
-        <div id="subcategories">
+        <div id="subcategories" class="my-1">
           
           <ul class="list-none subcategories-list">
             {foreach from=$subcategories item=subcategory}
@@ -38,7 +38,7 @@
                   </a>
                 </div> *}
     
-                <h5>
+                <h5 class="m-0 p-0">
                   <a class="subcategory-name badge-rounded" href="{$subcategory.url}">
                     {$subcategory.name|truncate:25:'...'|escape:'html':'UTF-8'}
                   </a>
