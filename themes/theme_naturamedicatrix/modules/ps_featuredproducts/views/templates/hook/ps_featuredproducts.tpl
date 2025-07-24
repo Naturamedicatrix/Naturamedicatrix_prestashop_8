@@ -46,5 +46,5 @@
     <a href="{$urls.pages.prices_drop}" class="btn btn-light" data-filter="promotions">Promotions</a>
     <a href="{$urls.pages.new_products}" class="btn btn-light" data-filter="nouveautes">Nouveautés</a>
   </div>
-  {include file="catalog/_partials/productlist.tpl" products=$products cssClass="row" productClass="col-xs-12 col-sm-6 col-lg-4 col-xl-3"}
+  {include file="catalog/_partials/productlist.tpl" products=$products cssClass="row" productClass="col-xs-6 col-sm-6 col-lg-4 col-xl-3"}
 </section>

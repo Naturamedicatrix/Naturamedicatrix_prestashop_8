@@ -21,24 +21,31 @@
 
 
 
-/* === SEARCH === */
+/* === SEARCH AND MENU === */
 #search_widget {
   min-width: 25rem;
-  z-index: 10;
+  width: 100%;
   position: absolute;
   right: 15px;
   top: 9px;
 
   @media (max-width: $breakpoint-lg) {
-    min-width: 15rem;
-  }
-
-  @media (max-width: $breakpoint-md) {
+    position: relative;
+    right: 0;
+    top: 0;
     min-width: 100%;
   }
+}
 
-  @media (max-width: $breakpoint-sm) {
-    margin-top: 8px;
+.header-top-right {
+  display: none;
+  @media (max-width: $breakpoint-lg) and (min-width: $breakpoint-md) {
+    display: block !important;
+    margin: 0 auto;
+    width: 100%;
+  }
+  @media (min-width: $breakpoint-lg) {
+    display: block;
   }
 }
 
@@ -73,7 +80,7 @@
     right: 3px;
   }
 }
-/* === END SEARCH === */
+/* === END SEARCH AND MENU === */
 
 /* === PANNEAU D'ACTUALITÉS === */
 .actus-panel {
