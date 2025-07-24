@@ -23,10 +23,10 @@
   <div class="header-banner text-carousel-banner bg-brand text-white text-sm">
 
     <!-- PANNEAU D'ACTUALITÉS -->
-    {include file='_partials/header-actu.tpl'}
+{*     {include file='_partials/header-actu.tpl'} *}
 
     <div class="container mx-auto px-1.5 md:px-4">
-      <div class="banner-wrapper flex items-center justify-center md:justify-between py-4 md:py-2.5 gap-1 md:gap-4">
+      <div class="banner-wrapper flex items-center justify-center md:justify-between py-2.5 md:py-2.5 gap-1 md:gap-4">
         
         <!-- colonne de gauche vide -->
         <div class="hidden md:flex items-center w-8 md:w-160 justify-start"></div>
@@ -119,11 +119,11 @@
     <!-- Desktop -->
     <div class="hidden-sm-down grid grid-cols-3 items-end pt-1 pb-2">
       <!-- Colonne gauche -->
-      <div class="flex items-center gap-3 justify-start">
-        <a href="{$urls.pages.contact}" class="flex items-center gap-2 text-white hover:text-gray-200 transition-colors duration-200 ease-in-out">
-          <i class="bi bi-telephone text-2xl leading-none"></i>
+      <div class="flex items-end gap-3 justify-start">
+        <a href="{$urls.pages.contact}" class="flex items-end gap-2 text-white hover:text-gray-200 transition-colors duration-200 ease-in-out">
+          <i class="bi bi-telephone text-2xl leading-0"></i>
           <div class="leading-tight">
-            <div class="text-sm leading-tight opacity-90">Contactez-nous</div>
+            <div class="text-xs leading-tight opacity-90">Contactez-nous</div>
             {assign var='country_id' value=Tools::getCountry()}
             <div class="text-base leading-none font-semibold">
               {if $country_id == 3}
@@ -137,7 +137,7 @@
       </div>
     
       <!-- Colonne centre : logo -->
-      <div class="flex justify-center items-center mx-auto" id="_desktop_logo">
+      <div class="flex justify-end items-center mx-auto" id="_desktop_logo">
         {if $shop.logo_details}
           {if $page.page_name == 'index'}
             <h1 class="m-0 w-[220px]">{renderLogo}</h1>
@@ -148,7 +148,7 @@
       </div>
     
       <!-- Colonne droite -->
-      <div class="flex items-center justify-end gap-6">
+      <div class="flex items-end justify-end gap-6">
         {hook h='displayNav2'}
       </div>
     </div>
@@ -158,20 +158,19 @@
 {/block}
 
 
-{*
+
+
 {block name='header_top'}
-  <div class="header-top p-0 header-mobile">
+  <div class="header-top p-0">
     <div class="container">
       <div class="row">
         <div class="header-top-right flex">          
-          
-          {hook h='displayIqitMenu'}
-*}
-          
-{*           {hook h='displayTop'} *}
-{*
+
+           {hook h='displayTop'} 
+
         </div>
       </div>
+{*
       <div id="mobile_top_menu_wrapper" class="row hidden-md-up" style="display:none;">
         <div class="js-top-menu mobile" id="_mobile_top_menu"></div>
         <div class="js-top-menu-bottom">
@@ -180,30 +179,71 @@
           <div id="_mobile_contact_link"></div>
         </div>
       </div>
+*}
     </div>
   </div>
 {/block}
-*}
+
 
 
 {block name='header_top'}
-<div class="sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-0 flex items-end justify-between lg:hidden">
+<div class="header-mobile sticky top-0 z-50 bg-white border-b border-gray-200 md:hidden">
+  <div class="flex items-center justify-between h-14 px-4">
 
-  {hook h='displayIqitMenu'}
+    <div class="flex items-center gap-0">
+      {hook h='displayIqitMenu'}
+      <div id="search_query_top" class="search-block px-2.5 py-1.5">
+        <i class="bi bi-search text-2xl leading-none"></i>
+      </div>    
+    </div>
 
-  <div class="p-1" >
-    <img src="{$urls.child_img_url}logo-naturamedicatrix.svg" alt="NATURAMedicatrix" class="h-12" />
+    <div class="flex items-center">
+      <a href="{$urls.base_url}">
+        <div class="flex-1 text-gray-900 text-center text-2xl">NATURA<strong><em>Medicatrix</em></strong></div>
+{*          <img src="{$urls.child_img_url}logo-naturamedicatrix.svg" alt="NATURAMedicatrix" class="h-8" /> *}
+      </a>
+    </div>
+
+    <div class="flex items-center gap-0">
+      {hook h='displayNav2'}
+    </div>
+
   </div>
-
-  <div class="w-6"></div>
-  
 </div>
 {/block}
 
 
 
 
+
 <style>
+  
+  .leading-0 {
+    line-height: 0 !important;
+  }
+  
+  .header-mobile i {
+    color: #111827 !important;
+    font-size: 1.5rem;
+  }
+  
+  .header-mobile .bi-search {
+    font-size: 1.15rem;
+  }
+  
+
+  .header-mobile .user-info a,
+  .header-mobile .blockcart-wrapper a,
+  .header-mobile #search-block,
+  .header-mobile #iqitmegamenu-mobile #iqitmegamenu-shower {
+    padding: .275rem;
+  }
+
+  
+  .header-mobile .user-info .infos {
+    display: none;
+  }
+  
   
   .header-banner .w-160 {
     width: 160px;

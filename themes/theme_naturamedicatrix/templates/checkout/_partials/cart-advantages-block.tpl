@@ -120,7 +120,7 @@
           <hr />`;
 {/literal}
       } else {
-        html = '<div class="shipping-progress-block mt-2 mb-2">';
+        html = '<div class="shipping-progress-block mt-2 mb-2 max-w-md mx-auto">';
         
         // Gestion des seuils selon le pays et le montant
         if (isRelayEligible && cartTotal < relayThreshold) {

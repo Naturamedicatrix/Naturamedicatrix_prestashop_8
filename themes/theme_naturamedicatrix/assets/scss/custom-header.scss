@@ -80,7 +80,7 @@
     right: 3px;
   }
 }
-/* === END SEARCH AND MENU === */
+/* === END SEARCH === */
 
 /* === PANNEAU D'ACTUALITÉS === */
 .actus-panel {
@@ -96,7 +96,7 @@
     animation: slideDown 0.3s ease-in-out;
     position: absolute;
     top: 0;
-    
+    padding-top: 0;
   }
 }
 

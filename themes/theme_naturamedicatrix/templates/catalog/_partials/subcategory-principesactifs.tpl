@@ -15,7 +15,7 @@
       min-width: 8%;
     } 
     
-    .grid {
+    #category-principesactifs .grid {
       border-left: 1px solid #e5e8ea;
     }
     
