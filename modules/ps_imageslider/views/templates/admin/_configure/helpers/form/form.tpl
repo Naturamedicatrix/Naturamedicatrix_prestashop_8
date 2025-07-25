@@ -27,8 +27,10 @@
 						<div class="translatable-field lang-{$language.id_lang}" {if $language.id_lang != $defaultFormLanguage}style="display:none"{/if}>
 					{/if}
 						<div class="col-lg-{if $languages|count > 1}10{else}12{/if}">
-							{if isset($fields[0]['form']['images'])}
-							<img src="{$image_baseurl}{$fields[0]['form']['images'][$language.id_lang]}" class="img-thumbnail" />
+							{if $input.name == 'image' && isset($fields[0]['form']['images'][$language.id_lang])}
+								<img src="{$image_baseurl}{$fields[0]['form']['images'][$language.id_lang]}" class="img-thumbnail" />
+							{elseif $input.name == 'image_mobile' && isset($fields[0]['form']['images_mobile'][$language.id_lang])}
+								<img src="{$image_baseurl}{$fields[0]['form']['images_mobile'][$language.id_lang]}" class="img-thumbnail" />
 							{/if}
 							<div class="dummyfile input-group">
 								<input id="{$input.name}_{$language.id_lang}" type="file" name="{$input.name}_{$language.id_lang}" class="hide-file-upload" />

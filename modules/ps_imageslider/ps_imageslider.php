@@ -497,6 +497,42 @@ class Ps_ImageSlider extends Module implements WidgetInterface
                 } elseif (Tools::getValue('image_old_' . $language['id_lang']) != '') {
                     $slide->image[$language['id_lang']] = Tools::getValue('image_old_' . $language['id_lang']);
                 }
+
+                /* Uploads image mobile and sets slide */
+                if (isset($_FILES['image_mobile_' . $language['id_lang']]) &&
+                    isset($_FILES['image_mobile_' . $language['id_lang']]['tmp_name']) &&
+                    !empty($_FILES['image_mobile_' . $language['id_lang']]['tmp_name']) &&
+                    isset($_FILES['image_mobile_' . $language['id_lang']]['name']) &&
+                    !empty($_FILES['image_mobile_' . $language['id_lang']]['name'])
+                ) {
+                    $type_mobile = Tools::strtolower(Tools::substr(strrchr($_FILES['image_mobile_' . $language['id_lang']]['name'], '.'), 1));
+                    $imagesize_mobile = @getimagesize($_FILES['image_mobile_' . $language['id_lang']]['tmp_name']);
+                    
+                    if (!empty($imagesize_mobile) &&
+                        in_array(
+                            Tools::strtolower(Tools::substr(strrchr($imagesize_mobile['mime'], '/'), 1)),
+                            ['jpg', 'gif', 'jpeg', 'png']
+                        ) &&
+                        in_array($type_mobile, ['jpg', 'gif', 'jpeg', 'png'])
+                    ) {
+                        $temp_name_mobile = tempnam(_PS_TMP_IMG_DIR_, 'PS');
+                        $salt_mobile = sha1(microtime());
+                        if ($error = ImageManager::validateUpload($_FILES['image_mobile_' . $language['id_lang']], 4000000)) {
+                            $errors[] = $error;
+                        } elseif (!$temp_name_mobile || !move_uploaded_file($_FILES['image_mobile_' . $language['id_lang']]['tmp_name'], $temp_name_mobile)) {
+                            return false;
+                        } elseif (!ImageManager::resize($temp_name_mobile, __DIR__ . '/images/' . $salt_mobile . '_' . $_FILES['image_mobile_' . $language['id_lang']]['name'], null, null, $type_mobile)) {
+                            $errors[] = $this->displayError($this->trans('An error occurred during the image upload process.', [], 'Admin.Notifications.Error'));
+                        }
+
+                        if (isset($temp_name_mobile)) {
+                            @unlink($temp_name_mobile);
+                        }
+                        $slide->image_mobile[$language['id_lang']] = $salt_mobile . '_' . $_FILES['image_mobile_' . $language['id_lang']]['name'];
+                    }
+                } elseif (Tools::getValue('image_mobile_old_' . $language['id_lang']) != '') {
+                    $slide->image_mobile[$language['id_lang']] = Tools::getValue('image_mobile_old_' . $language['id_lang']);
+                }
             }
 
             /* Processes if no errors  */
@@ -662,7 +698,7 @@ class Ps_ImageSlider extends Module implements WidgetInterface
 
         $slides = Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS(
             'SELECT hs.`id_homeslider_slides` as id_slide, hss.`position`, hss.`active`, hssl.`title`,
-            hssl.`url`, hssl.`legend`, hssl.`description`, hssl.`image`
+            hssl.`url`, hssl.`legend`, hssl.`description`, hssl.`image`, hssl.`image_mobile`
             FROM ' . _DB_PREFIX_ . 'homeslider hs
             LEFT JOIN ' . _DB_PREFIX_ . 'homeslider_slides hss ON (hs.id_homeslider_slides = hss.id_homeslider_slides)
             LEFT JOIN ' . _DB_PREFIX_ . 'homeslider_slides_lang hssl ON (hss.id_homeslider_slides = hssl.id_homeslider_slides)
@@ -675,6 +711,9 @@ class Ps_ImageSlider extends Module implements WidgetInterface
 
         foreach ($slides as &$slide) {
             $slide['image_url'] = $this->context->link->getMediaLink(_MODULE_DIR_ . 'ps_imageslider/images/' . $slide['image']);
+            if (!empty($slide['image_mobile'])) {
+                $slide['image_mobile_url'] = $this->context->link->getMediaLink(_MODULE_DIR_ . 'ps_imageslider/images/' . $slide['image_mobile']);
+            }
             $slide['url'] = $this->validateUrl($slide['url']);
         }
 
@@ -771,6 +810,14 @@ class Ps_ImageSlider extends Module implements WidgetInterface
                         'desc' => $this->trans('Maximum image size: %s.', [ini_get('upload_max_filesize')], 'Admin.Global'),
                     ],
                     [
+                        'type' => 'file_lang',
+                        'label' => $this->trans('Image mobile', [], 'Modules.Imageslider.Admin'),
+                        'name' => 'image_mobile',
+                        'required' => false,
+                        'lang' => true,
+                        'desc' => $this->trans('Maximum image size: %s.', [ini_get('upload_max_filesize')], 'Admin.Global'),
+                    ],
+                    [
                         'type' => 'text',
                         'label' => $this->trans('Title', [], 'Admin.Global'),
                         'name' => 'title',
@@ -823,7 +870,26 @@ class Ps_ImageSlider extends Module implements WidgetInterface
         if (Tools::isSubmit('id_slide') && $this->slideExists((int) Tools::getValue('id_slide'))) {
             $slide = new Ps_HomeSlide((int) Tools::getValue('id_slide'));
             $fields_form['form']['input'][] = ['type' => 'hidden', 'name' => 'id_slide'];
-            $fields_form['form']['images'] = $slide->image;
+            
+            // Assignation des images - PrestaShop utilise une convention spécifique
+            $fields_form['form']['images'] = [];
+            $fields_form['form']['images_mobile'] = [];
+            
+            if (isset($slide->image) && is_array($slide->image)) {
+                foreach ($slide->image as $id_lang => $image) {
+                    if (!empty($image)) {
+                        $fields_form['form']['images'][$id_lang] = $image;
+                    }
+                }
+            }
+            
+            if (isset($slide->image_mobile) && is_array($slide->image_mobile)) {
+                foreach ($slide->image_mobile as $id_lang => $image_mobile) {
+                    if (!empty($image_mobile)) {
+                        $fields_form['form']['images_mobile'][$id_lang] = $image_mobile;
+                    }
+                }
+            }
 
             $has_picture = true;
 
@@ -835,6 +901,23 @@ class Ps_ImageSlider extends Module implements WidgetInterface
 
             if ($has_picture) {
                 $fields_form['form']['input'][] = ['type' => 'hidden', 'name' => 'has_picture'];
+            }
+
+            foreach (Language::getLanguages(false) as $lang) {
+                if (isset($slide->image[$lang['id_lang']]) && !empty($slide->image[$lang['id_lang']])) {
+                    $fields_form['form']['input'][] = [
+                        'type' => 'hidden',
+                        'name' => 'image_old_' . $lang['id_lang'],
+                        'value' => $slide->image[$lang['id_lang']]
+                    ];
+                }
+                if (isset($slide->image_mobile[$lang['id_lang']]) && !empty($slide->image_mobile[$lang['id_lang']])) {
+                    $fields_form['form']['input'][] = [
+                        'type' => 'hidden',
+                        'name' => 'image_mobile_old_' . $lang['id_lang'],
+                        'value' => $slide->image_mobile[$lang['id_lang']]
+                    ];
+                }
             }
         }
 
@@ -981,7 +1064,8 @@ class Ps_ImageSlider extends Module implements WidgetInterface
         $languages = Language::getLanguages(false);
 
         foreach ($languages as $lang) {
-            $fields['image'][$lang['id_lang']] = Tools::getValue('image_' . (int) $lang['id_lang']);
+            $fields['image'][$lang['id_lang']] = Tools::getValue('image_' . (int) $lang['id_lang'], isset($slide->image[$lang['id_lang']]) ? $slide->image[$lang['id_lang']] : '');
+            $fields['image_mobile'][$lang['id_lang']] = Tools::getValue('image_mobile_' . (int) $lang['id_lang'], isset($slide->image_mobile[$lang['id_lang']]) ? $slide->image_mobile[$lang['id_lang']] : '');
             $fields['title'][$lang['id_lang']] = Tools::getValue(
                 'title_' . (int) $lang['id_lang'],
                 isset($slide->title[$lang['id_lang']]) ? $slide->title[$lang['id_lang']] : ''

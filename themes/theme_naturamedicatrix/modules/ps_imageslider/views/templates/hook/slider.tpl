@@ -14,7 +14,16 @@
         <li class="carousel-item mb-0 {if $smarty.foreach.homeslider.first}active{/if}" role="option" aria-hidden="{if $smarty.foreach.homeslider.first}false{else}true{/if}">
           {if !empty($slide.url)}<a href="{$slide.url}">{/if}
             <figure class="relative w-full h-full">
-              <img src="{$slide.image_url}" alt="{$slide.legend|escape}" loading="lazy" class="h-full object-cover">
+              {* Image principale - Desktop *}
+              <img src="{$slide.image_url}" alt="{$slide.legend|escape}" loading="lazy" class="h-full object-cover hidden md:block">
+              
+              {* Image mobile *}
+              {if isset($slide.image_mobile_url) && $slide.image_mobile_url}
+                <img src="{$slide.image_mobile_url}" alt="{$slide.legend|escape}" loading="lazy" class="h-full object-cover block md:hidden">
+              {else}
+                {* Fallback: afficher l'image principale si pas d'image mobile *}
+                <img src="{$slide.image_url}" alt="{$slide.legend|escape}" loading="lazy" class="h-full object-cover block md:hidden">
+              {/if}
               {if $slide.title || $slide.description}
                 <figcaption class="absolute inset-0 flex items-center justify-start px-14">
                   <div class="text-center max-w-md">
