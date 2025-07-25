@@ -358,7 +358,7 @@ button:focus {
   }
 }
 
-.btn-link, #home-categories p {
+.btn-link {
   color: $color-custom-blue !important;
   transition: color .2s ease-in-out !important;
   text-decoration: none !important;

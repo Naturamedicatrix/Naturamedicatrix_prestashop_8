@@ -4,49 +4,42 @@
  * Description : Bloc des garanties/avantages affiché sur la page d'accueil
  *}
 
-<div class="guarantees-block py-8 mt-6 lg:mt-0">
-  <div class="container mx-auto">
-    <div class="row flex flex-wrap items-center justify-center guarantee-container">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-6 guarantee-item">
-        <div class="flex items-center justify-center mobile-flex">
-          <div class="guarantee-icon flex-shrink-0">
-            <i class="bi bi-globe-europe-africa text-3xl icon-special"></i>
-          </div>
-          <div class="guarantee-text ml-1">
-            <p class="text-sm pb-0 mb-0">Fabrication<br/> européenne</p>
-          </div>
-        </div>
+<div class="py-8 mt-6 lg:mt-0 bg-white guarantees-block">
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-left text-gray-600 text-sm">
+
+      <!-- Fabrication européenne -->
+      <div class="flex items-center justify-center gap-4">
+        <i class="bi bi-globe-europe-africa text-3xl icon-special leading-none"></i>
+        <p class="leading-tight mb-0 text-sm">Fabrication<br>européenne</p>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 col-6 guarantee-item">
-        <div class="flex items-center justify-center mobile-flex">
-          <div class="guarantee-icon flex-shrink-0">
-            <i class="bi bi-emoji-wink text-3xl icon-special"></i>
-          </div>
-          <div class="guarantee-text ml-1">
-            <p class="text-sm pb-0 mb-0">Respect de<br/> l'environnement</p>
-          </div>
-        </div>
+
+      <!-- Respect environnement -->
+      <div class="flex items-center justify-center gap-4">
+        <i class="bi bi-emoji-wink text-3xl icon-special leading-none"></i>
+        <p class="leading-tight mb-0 text-sm">Respect de<br>l'environnement</p>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 col-6 guarantee-item">
-        <div class="flex items-center justify-center mobile-flex">
-          <div class="guarantee-icon flex-shrink-0">
-            <i class="bi bi-stars text-3xl icon-special"></i>
-          </div>
-          <div class="guarantee-text ml-1">
-            <p class="text-sm pb-0 mb-0">Satisfaction de<br/> notre clientèle</p>
-          </div>
-        </div>
+
+      <!-- Satisfaction clientèle -->
+      <div class="flex items-center justify-center gap-4">
+        <i class="bi bi-stars text-3xl icon-special leading-none"></i>
+        <p class="leading-tight mb-0 text-sm">Satisfaction de<br>notre clientèle</p>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 col-6 guarantee-item">
-        <div class="flex items-center justify-center mobile-flex">
-          <div class="guarantee-icon flex-shrink-0">
-            <i class="bi bi-chat-heart text-3xl icon-special"></i>
-          </div>
-          <div class="guarantee-text ml-1">
-            <p class="text-sm pb-0 mb-0">Conseils spécialisés<br/> et personnalisés</p>
-          </div>
-        </div>
+
+      <!-- Conseils personnalisés -->
+      <div class="flex items-center justify-center gap-4">
+        <i class="bi bi-chat-heart text-3xl icon-special leading-none"></i>
+        <p class="leading-tight mb-0 text-sm">Conseils spécialisés<br>et personnalisés</p>
       </div>
+
     </div>
-  </div>
+
 </div>
+
+
+<style>
+  .guarantees-block i:after {
+    width: 25px;
+    height: 25px;
+  }
+</style>

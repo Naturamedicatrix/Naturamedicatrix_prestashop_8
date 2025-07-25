@@ -207,7 +207,7 @@ body#checkout #wrapper {
 }
 
 body#cart #wrapper {
-  background: linear-gradient(to right, #FFFFFF 70%, #EDEFF1 50%);
+  background: linear-gradient(to right, #FFFFFF 50%, #EDEFF1 50%);
 }
 @media (max-width: 1399px) {
   body#cart #wrapper {
@@ -259,6 +259,12 @@ body#cart #wrapper {
   display: block;
   padding: 20px;
 }
+@media (max-width: 640px) {
+  .product-miniature {
+    margin-bottom: 15px;
+    padding: 10px 5px;
+  }
+}
 .product-miniature.out_stock {
   position: relative;
 }
@@ -279,11 +285,21 @@ body#cart #wrapper {
   z-index: 10;
   pointer-events: none;
 }
+@media (max-width: 640px) {
+  .product-miniature .out-of-stock-label {
+    top: 10%;
+  }
+}
 .product-miniature a {
   border: none !important;
 }
 .product-miniature .thumbnail-container {
   margin-bottom: 0;
+}
+@media (max-width: 640px) {
+  .product-miniature .thumbnail-container .product-thumbnail img {
+    max-width: 70%;
+  }
 }
 .product-miniature .product-description {
   padding: 0;
@@ -304,6 +320,11 @@ body#cart #wrapper {
 .product-miniature .product-description .product-manufacturer:hover, .product-miniature .product-description .product-manufacturer a:hover {
   color: #4B5563 !important;
 }
+@media (max-width: 640px) {
+  .product-miniature .product-description .product-manufacturer, .product-miniature .product-description .product-manufacturer a {
+    font-size: 0.8rem !important;
+  }
+}
 .product-miniature .product-title {
   text-transform: initial;
 }
@@ -322,6 +343,11 @@ body#cart #wrapper {
   margin-top: 0;
   margin-bottom: 0;
 }
+@media (max-width: 640px) {
+  .product-miniature .product-flags-container {
+    display: none;
+  }
+}
 .product-miniature .product-flags {
   padding-left: 0px;
   margin-top: 0px;
@@ -329,6 +355,11 @@ body#cart #wrapper {
   position: relative;
   flex-direction: row;
   display: inline-flex;
+}
+@media (max-width: 640px) {
+  .product-miniature .product-flags {
+    display: none;
+  }
 }
 .product-miniature .product-flags .product-flag {
   font-size: 0.8rem;
@@ -405,12 +436,29 @@ body#cart #wrapper {
   justify-content: center;
   transition: all 0.3s ease;
 }
+@media (max-width: 640px) {
+  .product-miniature .add-to-cart {
+    background-color: transparent;
+  }
+  .product-miniature .add-to-cart:hover {
+    background-color: white !important;
+  }
+}
 .product-miniature .add-to-cart:hover {
   background-color: #374151;
 }
 .product-miniature .add-to-cart i {
   font-size: 0.8rem;
   color: #f9fafb;
+}
+@media (max-width: 640px) {
+  .product-miniature .add-to-cart i {
+    color: #111827;
+    font-size: 1.3rem;
+  }
+  .product-miniature .add-to-cart i:hover {
+    color: #374151;
+  }
 }
 .product-miniature .price-and-cart-container {
   display: flex;
@@ -425,10 +473,21 @@ body#cart #wrapper {
   gap: 10px;
   font-weight: normal;
 }
+@media (max-width: 640px) {
+  .product-miniature .price-and-cart-container .product-price-and-shipping {
+    gap: 5px;
+  }
+}
 .product-miniature .price-and-cart-container .product-price-and-shipping .price {
   font-size: 1.2rem;
   font-weight: 700;
   color: #111827;
+}
+@media (max-width: 640px) {
+  .product-miniature .price-and-cart-container .product-price-and-shipping .price {
+    font-size: 1rem;
+    padding-left: 5px;
+  }
 }
 .product-miniature .price-and-cart-container .product-price-and-shipping .regular-price {
   color: #111827;
@@ -439,6 +498,20 @@ body#cart #wrapper {
   color: #4B5563;
 }
 
+@media (max-width: 640px) {
+  .product.col-xs-6 {
+    padding: 0 10px;
+  }
+  .product.col-xs-6 .out-of-stock-label {
+    top: 5%;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-products .product.col-xs-6 {
+    min-height: auto;
+  }
+}
 .featured-products .all-product-link {
   margin: 0 auto;
 }
@@ -475,6 +548,11 @@ body#cart #wrapper {
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+@media (max-width: 640px) {
+  .featured-products .product-filter-buttons {
+    gap: 0;
+  }
 }
 @media (max-width: 640px) {
   .featured-products .product-filter-buttons .btn-light, .featured-products .product-filter-buttons .btn {
@@ -607,6 +685,12 @@ body#cart #wrapper {
   z-index: 2;
 }
 
+@media (max-width: 640px) {
+  body#manufacturer .js-product-miniature {
+    min-height: 280px;
+  }
+}
+
 /* === STYLES DES MODALS === */
 .modal-content .wishlist-add-to-new:hover {
   color: #f9fafb !important;
@@ -672,71 +756,6 @@ body#cart #wrapper {
 }
 
 /* END MODAL AJOUT PANIER */
-/* === BLOCK GARANTIES === */
-.guarantees-block {
-  border-top: 1px solid rgb(196.1785714286, 207.0714285714, 222.3214285714);
-}
-@media (max-width: 768px) {
-  .guarantees-block {
-    border-top: none;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-}
-.guarantees-block .icon-special::after {
-  height: 30px;
-  width: 30px;
-}
-@media (max-width: 640px) {
-  .guarantees-block .icon-special::after {
-    height: 20px;
-    width: 20px;
-  }
-}
-.guarantees-block i {
-  color: #111827;
-}
-@media (max-width: 768px) {
-  .guarantees-block .guarantee-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -10px;
-  }
-}
-@media (max-width: 768px) {
-  .guarantees-block .guarantee-item {
-    display: flex;
-    justify-content: center;
-    width: 50% !important;
-    padding: 0 10px !important;
-    margin-bottom: 1.5rem;
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-  .guarantees-block .guarantee-item .flex {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .guarantees-block .guarantee-item .guarantee-icon {
-    margin-bottom: 0.5rem;
-  }
-  .guarantees-block .guarantee-item .guarantee-icon i {
-    font-size: 1.5rem !important;
-  }
-  .guarantees-block .guarantee-item .guarantee-text {
-    margin-left: 0 !important;
-  }
-  .guarantees-block .guarantee-item .guarantee-text p {
-    font-size: 0.75rem !important;
-    line-height: 1.2;
-    text-align: center;
-  }
-}
-
 /* === STYLE GLOBAL === */
 html,
 body {
@@ -1052,19 +1071,19 @@ button:focus {
   border: 1px solid #111827 !important;
 }
 
-.btn-link, #home-categories p {
+.btn-link {
   color: #1F80C7 !important;
   transition: color 0.2s ease-in-out !important;
   text-decoration: none !important;
   cursor: pointer;
 }
-.btn-link svg, #home-categories p svg {
+.btn-link svg {
   transition: transform 0.2s ease-in-out !important;
 }
-.btn-link:hover, #home-categories p:hover {
+.btn-link:hover {
   color: rgb(20.6891304348, 85.4260869565, 132.8108695652) !important;
 }
-.btn-link:hover svg, #home-categories p:hover svg {
+.btn-link:hover svg {
   transform: rotate(90deg) !important;
 }
 

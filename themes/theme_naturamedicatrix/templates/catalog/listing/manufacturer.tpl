@@ -55,7 +55,7 @@
       {if $listing.products|count}
         <div class="products row">
           {foreach from=$listing.products item="product"}
-            <div class="{if isset($productClass)}{$productClass}{else}col-xs-12 col-sm-6 col-md-6 col-xl-4 col-xxl-4{/if}">
+            <div class="{if isset($productClass)}{$productClass}{else}col-xs-6 col-sm-6 col-md-6 col-xl-4 col-xxl-4{/if}">
               {include file="catalog/_partials/miniatures/product.tpl" product=$product}
             </div>
           {/foreach}

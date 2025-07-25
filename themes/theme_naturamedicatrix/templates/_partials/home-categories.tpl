@@ -1,4 +1,4 @@
-<div class="bg-wrapper mt-20 mb-20">
+<div class="bg-wrapper mt-20 mb-20 py-16">
   
   <div id="home-categories" class="container">
   
@@ -17,12 +17,12 @@
   {assign var='count' value=0}
   {assign var='max_display' value=8}
   
-  <ul class="row pl-0 list-none">
+  <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 list-none p-0">
       
     {foreach from=$categories item=cat}
       {if in_array($cat.id_category, $allowed_ids) && $count < $max_display}
-        <li class="col-lg-3 col-md-6 col-xs-6">
-          <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label">{$cat.name} <i class="bi bi-star-fill"></i>   <span><i class="bi bi-arrow-right"></i></span></a>
+        <li class="mb-0">
+          <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label mb-0 relative block bg-white rounded-xl p-4 text-sm font-medium text-gray-600 hover:text-primary transition border border-white text-base no-underline">{$cat.name} <i class="bi bi-star-fill"></i>   <span><i class="bi bi-arrow-right"></i></span></a>
         </li>
         {assign var='count' value=$count+1}
       {/if}
@@ -30,17 +30,15 @@
     
   </ul>
   <p class="text-center pb-0">
-    <a href="#" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseCategories">Voir toutes les catégories <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+    <a href="#" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="false" aria-controls="collapseCategories">Voir toutes les catégories<svg class="ml-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </p>
   									
-  <ul class="row collapse pl-0 mt-1 list-none" id="collapseCategories" aria-labelledby="headingCategories">
+  <ul class="collapse grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 list-none p-0 mt-1" id="collapseCategories" aria-labelledby="headingCategories">
     {foreach from=$categories item=cat}
       {if !in_array($cat.id_category, $allowed_ids) && $cat.id_parent == 2}
-         <li class="col-lg-3 col-md-6 col-xs-6">
-          <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label">{$cat.name} <span><i class="bi bi-arrow-right"></i></span></a>
+         <li class="mb-0">
+          <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label mb-0 relative block bg-white rounded-xl p-4 text-sm font-medium text-gray-600 hover:text-primary transition border border-white text-base no-underline">{$cat.name} <span><i class="bi bi-arrow-right"></i></span></a>
         </li>
       {/if}
     {/foreach}  
@@ -52,41 +50,17 @@
 
 <style>
   
-  .bg-wrapper {
-    width: 100vw;
-    position: relative;
-    margin-left: -50vw;
-    left: 50%;
-    background-color: #f9fafb;
-    padding: 4rem 0;
-  }
-  
-  #home-categories ul {
-    margin-top: 0;
-  }
-  
-  #home-categories .btn-link {
-    margin-bottom: 10px;
-  }
   
   #home-categories svg {
     display: inline-block;
   }
   
-  #home-categories a {
-    color: #4B5563;
+  #home-categories .collapse.in {
+    display: grid;
   }
   
   .btn-label {
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid white !important;
-    background: white;
     color: #4B5563 !important;
-    display: block;
-    margin-bottom: 30px;
-    font-size: 1.1rem;
-    position: relative;
     text-decoration: none !important;
   }
   
@@ -107,41 +81,11 @@
   .btn-label:hover i {
     color: #1F80C7 !important;
   }
-
-  #home-categories ul {
-  margin-top: 0;
-}
-
-@media (max-width: 576px) {
-  #home-categories ul {
-    display: flex;
-    flex-wrap: wrap;
-  }
   
-  #home-categories ul a {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-  
-  #home-categories #collapseCategories {
-    display: none;
+  a[aria-expanded="true"] svg {
+    transform: rotate(90deg);
+    transition: transform 0.2s ease-in-out;
   }
 
-  #home-categories #collapseCategories.in {
-  display: block;
-}
-
-.btn-label i.bi-star-fill {
-    font-size: .4rem;
-  }
-
-#home-categories .bi-arrow-right {
-  display: none;
-}
-
-#home-categories a {
-    font-size: .8rem;
-  }
-}
   
 </style>

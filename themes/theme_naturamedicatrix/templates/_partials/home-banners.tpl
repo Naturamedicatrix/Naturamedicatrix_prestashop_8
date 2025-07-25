@@ -5,58 +5,63 @@
 
 
 
-<div id="home-banners" class="row">
-  
-  <div class="col-lg-4 col-md-4 col-xs-12" id="banner-choc">
-    <div class="banner">
-      <i class="bi bi-bookmark-star"></i>
-      <p class="pb-0">Chaque semaine - Un prix <strong>CHOC</strong></p>
-      <p><span class="label">Jusqu'à 20% de remise totale</span></p>
-      <p class="pb-0">Aujourd'hui&nbsp;: <a href="{$link->getProductLink({$productchocId})}?utm_source=naturamedicatrix&utm_medium=choc&utm_campaign=product-{$productchocId}" title="Je profite de {$productchocName}"><strong class="product-name">{$productchocName}</strong></a></p>
-      
-      <img src="{$link->getImageLink($productchocRewrite[0].link_rewrite, $productchocCover.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$productchocName}" loading="lazy" class="img-responsive" height="200">
-      <a href="{$link->getProductLink({$productchocId})}?utm_source=naturamedicatrix&utm_medium=choc&utm_campaign=product-{$productchocId}" title="Je profite de {$productchocName}" class="btn btn-primary">J'en profite</a>
+<div id="home-banners" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
+
+  <!-- Bloc CHOC -->
+  <div id="banner-choc" class="w-full">
+    <div class="banner relative bg-[#ECF7ED] rounded-xl p-6 min-h-[398px] text-center overflow-hidden text-gray-900 mb-0">
+      <i class="bi bi-bookmark-star text-2xl mb-1.5 block"></i>
+      <p class="text-base mb-0">Chaque semaine – Un prix <strong>CHOC</strong></p>
+      <p class="text-sm mb-0"><span class="label">Jusqu'à 20% de remise totale</span></p>
+      <p class="text-base mb-0">Aujourd'hui :
+        <a href="{$link->getProductLink({$productchocId})}?utm_source=naturamedicatrix&utm_medium=choc&utm_campaign=product-{$productchocId}"
+           class="font-semibold underline product-name">{$productchocName}</a>
+      </p>
+      <img src="{$link->getImageLink($productchocRewrite[0].link_rewrite, $productchocCover.id_image, 'home_default')|escape:'html':'UTF-8'}"
+           alt="{$productchocName}" loading="lazy" class="mx-auto max-h-[200px]">
+      <a href="{$link->getProductLink({$productchocId})}?utm_source=naturamedicatrix&utm_medium=choc&utm_campaign=product-{$productchocId}"
+         class="btn btn-primary max-w-xs mx-auto">J'en profite</a>
+      <div class="absolute w-[150px] h-[150px] rounded-full bg-[#C8E0CA] right-[-50px] bottom-[50px] -z-10"></div>
     </div>
   </div>
-  
-  <div class="col-lg-4 col-md-4 col-xs-12" id="banner-consult">
-    <div class="banner">
-      <i class="bi bi-calendar-heart"></i>
-      <p class="pb-0">Réservez une <strong>consultation</strong> de nutrition fonctionnelle avec nos professionnels de la santé</p>
-      <p><small>Fabien Piasco | Anthony-Damien Désirée</small></p>
-      
-      <img src="{$urls.child_img_url}home-banners/banner_consultation.png" alt="Anthony-Damien Désirée - Fabien Piasco" class="therapeute-img img-responsive" width="200">
-      <a href="{$link->getPageLink('contact', true)}" title="Je prends un rendez-vous" class="btn btn-primary">Prendre rendez-vous</a>
+
+  <!-- Bloc Consultation -->
+  <div id="banner-consult" class="w-full">
+    <div class="banner relative bg-[#ECF0F7] rounded-xl p-6 min-h-[398px] text-center overflow-hidden text-gray-900 mb-0">
+      <i class="bi bi-calendar-heart text-2xl mb-1.5 block"></i>
+      <p class="text-base mb-1.5">Réservez une <strong>consultation</strong> de nutrition fonctionnelle avec nos professionnels de la santé</p>
+      <p class="text-sm mb-0">Fabien Piasco | Anthony-Damien Désirée</p>
+      <img src="{$urls.child_img_url}home-banners/banner_consultation.png"
+           alt="Anthony-Damien Désirée - Fabien Piasco" class="mx-auto max-h-[200px]">
+      <a href="{$link->getPageLink('contact', true)}" class="btn btn-primary max-w-xs mx-auto">Prendre rendez-vous</a>
+      <div class="absolute w-[150px] h-[150px] rounded-full bg-[#D2DAE8] right-[20px] bottom-[-80px] -z-10"></div>
     </div>
   </div>
-  
-  <div class="col-lg-4 col-md-4 col-xs-12" id="banner-dlu">
-    <div class="banner">
-      <i class="bi bi-clock"></i>
-      <p class="pb-0"><strong>Vente rapide</strong></p>
-      <p>Date limite d’utilisation conseillée et fin de stock</p>
-      <p class="pb-0"><span class="label">Jusqu'à -50%</span></p>
-      <img src="{$urls.child_img_url}home-banners/banner_dlu.png" alt="Profitez de nos ventes rapides à prix économiques" loading="lazy" height="200" class="img-responsive">
-      <a href="{$link->getCategoryLink(24)}" title="Profitez de nos ventes rapides à prix économiques" class="btn btn-primary">J'en profite</a>
+
+  <!-- Bloc DLU -->
+  <div id="banner-dlu" class="w-full">
+    <div class="banner relative bg-[#F7ECEC] rounded-xl p-6 min-h-[398px] text-center overflow-hidden text-gray-900 mb-0">
+      <i class="bi bi-clock text-2xl mb-1.5 block"></i>
+      <p class="text-base mb-0"><strong>Vente rapide</strong></p>
+      <p class="text-base mb-0">Date limite d’utilisation conseillée et fin de stock</p>
+      <p class="text-sm mb-0"><span class="label">Jusqu'à -50%</span></p>
+      <img src="{$urls.child_img_url}home-banners/banner_dlu.png"
+           alt="Profitez de nos ventes rapides à prix économiques" loading="lazy" class="mx-auto max-h-[200px]">
+      <a href="{$link->getCategoryLink(24)}" class="btn btn-primary max-w-xs mx-auto">J'en profite</a>
+      <div class="absolute w-[150px] h-[150px] rounded-full bg-[#E6D3D3] left-[-50px] top-[50px] -z-10"></div>
     </div>
-    
-    
-  </div> 
+  </div>
+
 </div>
+
 
 
 
 <style>
   .banner {
-    text-align: center;
-    padding: 20px;
-    color: #111827;
     position: relative;
-    overflow: hidden;
     z-index: 1;
-    margin-bottom: 30px !important;
-    border-radius: 10px;
-    min-height: 398px;
+    min-height: 404px;
   }
   
   .banner:after {
@@ -72,38 +77,14 @@
     color: #111827;
   }
   
-  .banner i {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-  
-  .banner .btn {
-    width: 100%;
-    min-width: inherit;
-    max-width: 225px;
-  }
-  
-  .banner img {
-    margin: 0 auto;
-    max-height: 200px;
-    width: auto;
-  }
-  
-  .banner p {
-    max-width: 350px;
-    margin: 0 auto;
-    line-height: 1.3;
-  } 
   
   .banner .label {
     background-color: #e45b7f !important;
     color: #f9fafb !important;
     border-color: #e45b7f !important;
     font-weight: 900 !important;
-    font-size: 0.8rem;
     display: inline-block;
-    padding: 4px 10px 2px;
+    padding: 2px 10px;
     border-radius: 15px;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 2px;
