@@ -67,14 +67,14 @@
             <i class="bi bi-arrow-left text-lg"></i>
         </button>
             
-        <div class="carousel-item active block md:inline-block animate-fade-in text-center text-sm md:text-base">
-            <span class="highlight-text bg-pink-600 text-white font-semibold px-1.5 py-0.5 rounded-md mr-0.5 text-sm md:text-base">{l s='Livraison offerte' d='Shop.Theme.Global'}</span> {l s='àpd 35€ en Point Relais & 50€ à domicile' d='Shop.Theme.Global'}
+        <div class="carousel-item active block md:inline-block animate-fade-in text-center text-xs md:text-base">
+            <span class="highlight-text bg-pink-600 text-white font-semibold px-1.5 py-0.5 rounded-md mr-0.5 text-xs md:text-base">{l s='Livraison offerte' d='Shop.Theme.Global'}</span> {l s='àpd 35€ en Point Relais & 50€ à domicile' d='Shop.Theme.Global'}
         </div>
-        <div class="carousel-item inactive hidden block md:inline-block animate-fade-in text-center text-sm md:text-base">
-            {l s='Remise sur le total de la commande : <span class="highlight-text bg-pink-600 text-white font-semibold px-1.5 py-0.5 rounded-md mr-0.5 text-sm md:text-base">-10% àpd 150€</span> | -5% àpd 75€' d='Shop.Theme.Global'}
+        <div class="carousel-item inactive hidden block md:inline-block animate-fade-in text-center text-xs md:text-base hidden md:block">
+            {l s='Remise sur la commande' d='Shop.Theme.Global'} : <span class="highlight-text bg-pink-600 text-white font-semibold px-1.5 py-0.5 rounded-md mr-0.5 text-xs md:text-base">{l s='-10% àpd 150€' d='Shop.Theme.Global'}</span> | <span class="highlight-text bg-pink-600 text-white font-semibold px-1.5 py-0.5 rounded-md mr-0.5 text-xs md:text-base">{l s='-5% àpd 75€' d='Shop.Theme.Global'}</span>
         </div>
-        <div class="carousel-item inactive hidden block md:inline-block animate-fade-in text-center text-sm md:text-base">
-            {l s='Payez en <span class="highlight-text bg-pink-600 text-white font-semibold px-1.5 py-0.5 rounded-md mr-0.5 text-sm md:text-base">2x 3x avec alma</span>' d='Shop.Theme.Global'}
+        <div class="carousel-item inactive hidden block md:inline-block animate-fade-in text-center text-xs md:text-base">
+            {l s='Payez en' d='Shop.Theme.Global'} <span class="highlight-text bg-pink-600 text-white font-semibold px-1.5 py-0.5 rounded-md mr-0.5 text-xs md:text-base">{l s='2x 3x avec alma' d='Shop.Theme.Global'}</span>
         </div>
             
             
