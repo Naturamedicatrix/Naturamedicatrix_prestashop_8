@@ -149,9 +149,57 @@
     text-transform: none;
     padding: 13px 25px;
   }
+
+  #carousel .carousel-item img {
+    max-height: 480px;
+  }
   
   #carousel .btn:hover {
     background-color: #374151 !important;
+  }
+
+  /** MOBILE **/
+  @media (max-width: 640px) {
+
+    #carousel .carousel-indicators {
+      top: 10px;
+    }
+
+    #carousel .direction {
+      display: none;
+    }
+
+    #carousel .carousel-item img {
+      min-height: 100vh !important;
+    }
+
+    #carousel h2 {
+      font-size: 1.2rem;
+      line-height: 1;
+      color: rgb(235, 233, 233);
+    }
+
+    #carousel .carousel-item figcaption {
+      padding-left: 0;
+      padding-right: 0;
+      top: 50%;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 100%);
+    }
+
+    #carousel .caption-description {
+      text-align: left;
+      padding: 0 85px 0 20px;
+    }
+
+    #carousel .caption-description p {
+      font-size: .9rem;
+      line-height: 1;
+      color: rgb(235, 233, 233);
+    }
+
+    #carousel .btn {
+      font-size: .9rem;
+    }
   }
 
   
