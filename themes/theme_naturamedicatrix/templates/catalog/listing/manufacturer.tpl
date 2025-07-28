@@ -21,7 +21,7 @@
 {block name='content'}
   <section id="main">
     {* En-tête avec logo et descriptions *}
-    <div class="header-category-manufacturer">
+    <div class="header-category-manufacturer mt-8">
       <div class="logo-manufacturer mb-8">
         <img src="{$urls.img_manu_url}/{$manufacturer.id}-brand_simple.jpg" alt="{$manufacturer.name}" class="mx-auto" loading="lazy">
       </div>
@@ -50,8 +50,38 @@
 
     
     
+    {block name='product_list_active_filters'}
+      <div class="hidden-sm-down">
+        {$listing.rendered_active_filters nofilter}
+      </div>
+    {/block}
+
     {* Liste des produits *}
     <section id="products">
+
+         {* FILTRE ET TRI *}
+         <div class="top-products-filter md:hidden flex justify-between pt-1.5 pb-4">
+         {block name="filter_products"}
+           {** FILTRE **}
+           <div class="filter-product flex gap-1">
+            <svg id="Icon_Outline_adjustments" fill="none" data-name="Icon/Outline/adjustments" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="color: #111827;">
+                <path id="fond" style="fill:none" d="M0 0h24v24H0z"></path>
+                <path id="Icon" class=" stroke-current" style="fill:none;stroke-linecap:round;stroke-linejoin:round" d="M4 12a2 2 0 1 1-2-2 2 2 0 0 1 2 2z" transform="translate(4 4)"></path>
+                <path id="Icon-2" data-name="Icon" class=" stroke-current" d="M10 4a2 2 0 1 1-2-2 2 2 0 0 1 2 2z" transform="translate(4 4)"></path>
+                <path id="Icon-3" data-name="Icon" class=" stroke-current" d="M16 12a2 2 0 1 1-2-2 2 2 0 0 1 2 2z" transform="translate(4 4)"></path>
+                <path id="Icon-4" data-name="Icon" class=" stroke-current" d="M8 2V0M2 14v2m0-6V0m6 6v10m6-2v2m0-6V0" transform="translate(4 4)"></path></svg>
+                {hook h="displayLeftColumn"}
+           </div>
+           
+           {** TRI **}
+           <div class="sort-product flex gap-1" style="color: #111827;">
+             <i class="bi bi-sort-down text-lg"></i>
+             {include file="catalog/_partials/sort-orders.tpl"}
+           </div>
+         {/block}
+       </div>
+       {* END FILTRE ET TRI *}
+
       {if $listing.products|count}
         <div class="products row">
           {foreach from=$listing.products item="product"}

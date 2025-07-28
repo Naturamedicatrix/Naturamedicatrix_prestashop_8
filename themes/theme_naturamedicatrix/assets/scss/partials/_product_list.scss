@@ -277,9 +277,10 @@
     
 }
 
-.product.col-xs-6 {
+.product.col-xs-6, .products .col-xs-6 {
     @media (max-width: $breakpoint-sm) {
         padding: 0 10px;
+        min-height: 330px;
 
         .out-of-stock-label {
             top: 5%;
@@ -505,3 +506,42 @@ body#manufacturer {
 }
 
 //End Catégories des listes
+
+
+
+// FILTRE ET TRI
+@media (max-width: $breakpoint-md) {
+    #products {
+        .products-sort-order {
+            margin: 0;
+            padding: 0;
+            border-bottom: none;
+            h6 {
+               margin: 0;
+            }
+        }
+
+        #PM_ASBlock_1 {
+            padding-right: 0;
+            .card-header {
+                margin-bottom: 0;
+            }
+        }
+
+        .PM_ASMobileMode {
+            .PM_ASBlockNbProductValue {
+                display: none;
+            }
+        }
+        .PM_ASBlockTitle {
+            &::after {
+                content: "";
+                display: none;
+            }
+        }
+
+        .products-sort-order h6, .PM_ASBlockTitle {
+            font-size: .9rem;
+        }
+    }
+}

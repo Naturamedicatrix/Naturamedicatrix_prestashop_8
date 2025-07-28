@@ -174,7 +174,7 @@
     }
 
     #carousel h2 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 1;
       color: rgb(235, 233, 233);
     }
@@ -182,7 +182,7 @@
     #carousel .carousel-item figcaption {
       padding-left: 0;
       padding-right: 0;
-      top: 50%;
+      top: 40%;
       background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 100%);
     }
 

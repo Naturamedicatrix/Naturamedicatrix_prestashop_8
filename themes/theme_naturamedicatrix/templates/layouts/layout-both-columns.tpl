@@ -64,7 +64,7 @@
  
            <div class="row">
              {block name="left_column"}
-               <div id="left-column" class="col-xs-12 col-md-4 col-lg-3">
+               <div id="left-column" class="col-xs-12 col-md-4 col-lg-3 hidden md:block">
                  {block name="filter_column"}
                   {include file="catalog/_partials/sort-orders.tpl"}
                  {/block}

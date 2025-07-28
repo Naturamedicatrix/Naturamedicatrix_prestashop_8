@@ -499,10 +499,11 @@ body#cart #wrapper {
 }
 
 @media (max-width: 640px) {
-  .product.col-xs-6 {
+  .product.col-xs-6, .products .col-xs-6 {
     padding: 0 10px;
+    min-height: 330px;
   }
-  .product.col-xs-6 .out-of-stock-label {
+  .product.col-xs-6 .out-of-stock-label, .products .col-xs-6 .out-of-stock-label {
     top: 5%;
   }
 }
@@ -691,6 +692,32 @@ body#cart #wrapper {
   }
 }
 
+@media (max-width: 768px) {
+  #products .products-sort-order {
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+  }
+  #products .products-sort-order h6 {
+    margin: 0;
+  }
+  #products #PM_ASBlock_1 {
+    padding-right: 0;
+  }
+  #products #PM_ASBlock_1 .card-header {
+    margin-bottom: 0;
+  }
+  #products .PM_ASMobileMode .PM_ASBlockNbProductValue {
+    display: none;
+  }
+  #products .PM_ASBlockTitle::after {
+    content: "";
+    display: none;
+  }
+  #products .products-sort-order h6, #products .PM_ASBlockTitle {
+    font-size: 0.9rem;
+  }
+}
 /* === STYLES DES MODALS === */
 .modal-content .wishlist-add-to-new:hover {
   color: #f9fafb !important;
