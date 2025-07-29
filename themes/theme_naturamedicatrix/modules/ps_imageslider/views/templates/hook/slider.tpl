@@ -1,7 +1,6 @@
 {**
  CUSTOM SLIDER HEADER
 *}
-
 {if $homeslider.slides}
   <div id="carousel" data-ride="carousel" class="carousel slide mb-0 p-0" data-interval="{$homeslider.speed}" data-wrap="{(string)$homeslider.wrap}" data-pause="{$homeslider.pause}" data-touch="true">
     <ol class="carousel-indicators">
@@ -82,6 +81,20 @@
 
 <style>
   
+  .carousel-item img {
+    max-height: 490px;
+  }
+  
+  .carousel-indicators li,
+  .carousel-indicators .active {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .carousel .carousel-item figure {
+    display: inherit;
+  }
+  
   #carousel figcaption {
     font-size: inherit;
     color: inherit;
@@ -92,13 +105,6 @@
   .carousel .carousel-inner {
     height: auto;
     width: 100%;
-  }
-
-  @media (max-width: 991px) {
-    .carousel .carousel-inner {
-      width: max-content;
-      height: 100%;
-    }
   }
   
   #carousel h6 {
@@ -114,6 +120,7 @@
     border-top-right-radius: 2px;
     border-bottom-left-radius: 2px;
     font-weight: 600;
+    font-size: 0.75rem;
   }
   
   #carousel h2 {
@@ -150,56 +157,80 @@
     padding: 13px 25px;
   }
 
+{*
   #carousel .carousel-item img {
     max-height: 480px;
   }
+*}
   
   #carousel .btn:hover {
     background-color: #374151 !important;
   }
+  
+  
+  
+  @media (max-width: 1024px) {
+    #carousel .max-w-md {
+      max-width: 23rem;
+    }
+    #carousel h2 {
+      font-size: 1.9rem;
+      line-height: 1.2;
+    }
+  }
+
+
 
   /** MOBILE **/
-  @media (max-width: 640px) {
-
+  @media (max-width: 768px) {
+    
+    #carousel .carousel-item img {   
+        height: 86vh;
+        min-height: 400px;
+    }
+    
     #carousel .carousel-indicators {
-      top: 10px;
+      bottom: 0;
+      margin-bottom: 5px;
+    }
+    
+    #carousel .carousel-indicators .active {
+      background: #f9fafb;
+    }
+    
+    #carousel .carousel-indicators li {
+      border-color: #f9fafb;
     }
 
     #carousel .direction {
       display: none;
     }
 
-    #carousel .carousel-item img {
-      min-height: 100vh !important;
-    }
-
     #carousel h2 {
-      font-size: 1.1rem;
-      line-height: 1;
-      color: rgb(235, 233, 233);
+      color: white;
     }
 
     #carousel .carousel-item figcaption {
       padding-left: 0;
       padding-right: 0;
-      top: 40%;
+      top: 50%;
       background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 100%);
+      align-items: flex-end;
+    }
+    
+    #carousel .max-w-md {
+      max-width: 28rem;
     }
 
     #carousel .caption-description {
       text-align: left;
-      padding: 0 85px 0 20px;
+      margin: auto 2.5rem 2.5rem 2.5rem;
     }
 
     #carousel .caption-description p {
-      font-size: .9rem;
-      line-height: 1;
-      color: rgb(235, 233, 233);
+      color: white;
     }
 
-    #carousel .btn {
-      font-size: .9rem;
-    }
   }
 
   

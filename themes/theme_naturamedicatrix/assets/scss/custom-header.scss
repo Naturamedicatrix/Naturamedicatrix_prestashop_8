@@ -40,12 +40,12 @@
 .header-top-right {
   display: none;
   @media (max-width: $breakpoint-lg) and (min-width: $breakpoint-md) {
-    display: block !important;
+    display: block;
     margin: 0 auto;
     width: 100%;
   }
   @media (min-width: $breakpoint-lg) {
-    display: block;
+    display: flex;
   }
   
 }

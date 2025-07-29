@@ -96,14 +96,12 @@
     {/if}
   </a>
   <a href="{$link->getPageLink('cart', true, null, 'action=show')}" class="relative flex flex-col items-center justify-center">
-    <div class="relative">
       <i class="bi bi-handbag text-2xl"></i>
       {if $cart.products_count > 0}
-        <span class="cart-badge absolute -top-2 -right-3 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+        <span class="cart-badge absolute top-0 right-1.5 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
           {$cart.products_count}
         </span>
       {/if}
-    </div>
     <span class="font-semibold text-xs leading-tight">
       Mon panier
     </span>
