@@ -1,9 +1,6 @@
-{**
-* CUSTOM LANGUAGE SELECTOR WITH PLANET ICON
-*}
-<div id="_desktop_language_selector">
+<div id="_desktop_language_selector" class="hidden md:block">
   <div class="language-selector-wrapper">
-    <span id="language-selector-label" class="hidden-md-up">{l s='Language:' d='Shop.Theme.Global'}</span>
+    <span id="language-selector-label" class="hidden">{l s='Language:' d='Shop.Theme.Global'}</span>
     
     <div class="language-selector dropdown js-dropdown relative inline-block">
       <button data-toggle="dropdown"
@@ -21,11 +18,11 @@
         {foreach from=$languages item=language}
           <li class="mb-0">
             <a href="{url entity='language' id=$language.id_lang}"
-               class="block px-2.5 py-2.5 text-center transition color-text
+               class="block px-2.5 py-2.5 text-center transition
                {if $language.id_lang == $current_language.id_lang}
-                 bg-primary text-white
+                 bg-brand text-white
                {else}
-                 text-[#4b5563] hover:bg-primary
+                 color-gray-400 hover:bg-brand
                {/if}">
               {$language.iso_code|upper}
             </a>
@@ -33,10 +30,6 @@
         {/foreach}
       </ul>
     </div>
-
-
-
-
   </div>
 </div>
 
@@ -57,12 +50,10 @@
     left: auto;
 }
 
-#_desktop_language_selector .dropdown-menu .bg-primary {
-  background: #83b58b !important;
-}
 
 #_desktop_language_selector .dropdown-menu a:hover {
-  background: #83b58b;
+  background: #589875;
+  color: white !important;
 }
 
 
@@ -74,6 +65,4 @@
   border: none
 }
 
-  
-  
 </style>
