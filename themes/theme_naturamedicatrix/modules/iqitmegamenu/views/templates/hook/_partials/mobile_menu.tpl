@@ -95,9 +95,18 @@
       <span class="font-semibold text-xs leading-tight">{l s='Log in' d='Shop.Theme.Actions'}</span>
     {/if}
   </a>
-  <a href="{$urls.pages.cart}" class="relative flex flex-col items-center justify-center">
-    <i class="bi bi-handbag icon-special text-2xl"></i>
-    <span class="font-semibold text-xs leading-tight">Mon panier</span>
+  <a href="{$link->getPageLink('cart', true, null, 'action=show')}" class="relative flex flex-col items-center justify-center">
+    <div class="relative">
+      <i class="bi bi-handbag text-2xl"></i>
+      {if $cart.products_count > 0}
+        <span class="cart-badge absolute -top-2 -right-3 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+          {$cart.products_count}
+        </span>
+      {/if}
+    </div>
+    <span class="font-semibold text-xs leading-tight">
+      Mon panier
+    </span>
   </a>
 </div>
 
@@ -109,6 +118,10 @@
   background: #cbdae5;
 }
 
+#mobile-bottom-bar .cart-badge {
+  background-color: #e45b7f;
+  z-index: -1;
+}
 
 #iqitmegamenu-accordion {
   list-style: none;
