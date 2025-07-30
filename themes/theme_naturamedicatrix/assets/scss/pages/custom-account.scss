@@ -249,8 +249,10 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                 margin: 0 0;
                 padding-left: 0;
                 
-                @media (max-width: 767px) {
+                @media (max-width: $breakpoint-md) {
                     justify-content: space-between;
+                    list-style: none;
+                    gap: 5px;
                 }
                 
                 li {
@@ -258,13 +260,12 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
                     padding: 0.3rem 0px;
                     transition: all 0.2s ease;
                     
-                    @media (max-width: 767px) {
+                    @media (max-width: $breakpoint-md) {
                         flex: 0 0 48%;
+
                     }
                     
-                    @media (max-width: 600px) and (min-width: $breakpoint-sm) {
-                        flex: 0 0 48%;
-                    }
+                   
                     
                     @media (max-width: $breakpoint-sm) {
                         flex: 0 0 100%;
