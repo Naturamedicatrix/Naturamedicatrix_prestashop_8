@@ -81,63 +81,18 @@
 
 
 
-<div id="mobile-bottom-bar" class="absolute bottom-0 left-0 right-0 z-50 bg-brand flex justify-around items-center py-2.5 text-gray-600 md:hidden">
-  <a href="{$urls.pages.contact}" class="flex flex-col items-center justify-center">
-    <i class="bi bi-telephone icon-special text-2xl"></i>
-    <span class="font-semibold text-xs leading-tight">Service client</span>
-  </a>
-  <a href="{$urls.pages.my_account}" class="flex flex-col items-center justify-center">
-    {if $customer.is_logged}
-      <i class="bi bi-person-check icon-special text-2xl"></i>
-      <span class="font-semibold text-xs leading-tight">{$customer.firstname} {$customer.lastname|truncate:2:"."}</span>
-    {else}
-      <i class="bi bi-person icon-special text-2xl"></i>
-      <span class="font-semibold text-xs leading-tight">{l s='Log in' d='Shop.Theme.Actions'}</span>
-    {/if}
-  </a>
-  <a href="{$link->getPageLink('cart', true, null, 'action=show')}" class="relative flex flex-col items-center justify-center">
-      <i class="bi bi-handbag text-2xl"></i>
-      {if $cart.products_count > 0}
-        <span class="cart-badge absolute top-0 right-1.5 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
-          {$cart.products_count}
-        </span>
-      {/if}
-    <span class="font-semibold text-xs leading-tight">
-      Mon panier
-    </span>
-  </a>
-</div>
+
 
 
 
 <style>
   
-#mobile-bottom-bar {
-  background: #cbdae5;
-  position: fixed !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 9999 !important;
-  width: 100% !important;
-}
 
-#mobile-bottom-bar .cart-badge {
-  background-color: #e45b7f;
-  z-index: -1;
-}
 
 #iqitmegamenu-accordion {
   list-style: none;
   padding: 0 1.25rem;
   box-shadow: none;
-}
-
-#iqitmegamenu-mobile-content #mobile-bottom-bar a {
-  color: inherit;
-  display: inherit;
-  padding: inherit;
-  border: none;
 }
 
 #iqitmegamenu-mobile-content .icon-special:after {

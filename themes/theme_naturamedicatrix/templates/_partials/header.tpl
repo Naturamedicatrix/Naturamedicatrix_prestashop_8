@@ -213,6 +213,34 @@
 {/block}
 
 
+<!-- Mobile Bottom Bar -->
+<div id="mobile-bottom-bar" class="fixed bottom-0 left-0 right-0 z-50 bg-brand flex justify-around items-center py-2.5 text-gray-600 md:hidden">
+  <a href="{$urls.pages.contact}" class="flex flex-col items-center justify-center">
+    <i class="bi bi-telephone icon-special text-2xl"></i>
+    <span class="font-semibold text-xs leading-tight">Service client</span>
+  </a>
+  <a href="{$urls.pages.my_account}" class="flex flex-col items-center justify-center">
+    {if $customer.is_logged}
+      <i class="bi bi-person-check icon-special text-2xl"></i>
+      <span class="font-semibold text-xs leading-tight">{$customer.firstname} {$customer.lastname|truncate:2:"."}</span>
+    {else}
+      <i class="bi bi-person icon-special text-2xl"></i>
+      <span class="font-semibold text-xs leading-tight">{l s='Log in' d='Shop.Theme.Actions'}</span>
+    {/if}
+  </a>
+  <a href="{$link->getPageLink('cart', true, null, 'action=show')}" class="relative flex flex-col items-center justify-center">
+      <i class="bi bi-handbag text-2xl"></i>
+      {if $cart.products_count > 0}
+        <span class="cart-badge absolute top-0 right-1.5 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+          {$cart.products_count}
+        </span>
+      {/if}
+    <span class="font-semibold text-xs leading-tight">
+      Mon panier
+    </span>
+  </a>
+</div>
+
 
 
 
@@ -312,7 +340,67 @@
       display: none;
     }
   }
-  
   /* END BREAKPOINT POUR TABLETTE */
+
+
+  /* Mobile Bottom Bar */
+  #mobile-bottom-bar {
+    background: #cbdae5;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+  }
   
+  #mobile-bottom-bar.show {
+    transform: translateY(0);
+  }
+  
+  #mobile-bottom-bar .cart-badge {
+    background-color: #e45b7f;
+    z-index: -1;
+  }
+  
+  #mobile-bottom-bar a {
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+  }
+  
+  #mobile-bottom-bar .icon-special {
+    margin-bottom: 2px;
+  }
+  /* END Mobile Bottom Bar */
 </style>
+
+
+
+<script>
+// Intersection Observer pour afficher/masquer le mobile-bottom-bar
+document.addEventListener('DOMContentLoaded', function() {
+  const headerMobile = document.querySelector('.header-mobile');
+  const mobileBottomBar = document.querySelector('#mobile-bottom-bar');
+  
+  if (headerMobile && mobileBottomBar) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Header mobile visible -> masquer la bottom bar
+          mobileBottomBar.classList.remove('show');
+        } else {
+          // Header mobile non visible -> afficher la bottom bar
+          mobileBottomBar.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0,
+      rootMargin: '0px'
+    });
+    
+    observer.observe(headerMobile);
+  }
+});
+</script>
