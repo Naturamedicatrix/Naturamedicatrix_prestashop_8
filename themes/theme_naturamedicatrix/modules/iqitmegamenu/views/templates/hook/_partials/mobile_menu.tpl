@@ -114,6 +114,12 @@
   
 #mobile-bottom-bar {
   background: #cbdae5;
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  width: 100% !important;
 }
 
 #mobile-bottom-bar .cart-badge {
@@ -221,5 +227,19 @@
     padding-right: .625rem;
 }
 
+
+/* Push mobile menu */
+@media (max-width: 768px) {
+  .cbp-spmenu-push-toright {
+    left: 0 !important;
+    position: static !important;
+    width: auto !important;
+  }
   
+  body.cbp-spmenu-push-toright {
+    transform: none !important;
+    left: 0 !important;
+  }
+}
+
 </style>
