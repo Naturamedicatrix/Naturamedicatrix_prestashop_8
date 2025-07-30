@@ -1525,6 +1525,12 @@ body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufactur
 #search_filters .facet, #search_filters_brands .facet, #search_filters_suppliers .facet, .PM_ASCriterionsGroup:nth-child(1) {
   border-top: none;
 }
+@media (max-width: 768px) {
+  #search_filters .facet, #search_filters_brands .facet, #search_filters_suppliers .facet, .PM_ASCriterionsGroup:nth-child(1) {
+    margin-top: 0.8rem;
+    padding-top: 0;
+  }
+}
 
 #search_filters .facet .facet-label a, #search_filters_brands .facet .facet-label a, #search_filters_suppliers .facet .facet-label a {
   color: #4B5563;
@@ -1607,6 +1613,12 @@ div#_desktop_search_filters_clear_all {
   font-size: 0.8rem;
   display: inline-block !important;
 }
+@media (max-width: 768px) {
+  .PM_ASBlockOutput ul li a.PM_ASSelectionsRemoveLink {
+    margin: 0;
+    padding: 0;
+  }
+}
 .PM_ASBlockOutput label, .PM_ASBlockOutput .label {
   color: #111827;
   margin-bottom: 0.2rem;
@@ -1621,8 +1633,18 @@ div#_desktop_search_filters_clear_all {
   font-size: 0.9rem;
 }
 
+@media (max-width: 768px) {
+  #PM_ASBlockOutput_1.PM_ASBlockOutputVertical .PM_ASSelections {
+    display: none;
+  }
+}
 #PM_ASBlockOutput_1.PM_ASBlockOutputVertical .PM_ASSelections li {
   display: inline-block !important;
+}
+
+.PM_ASCriterionGroupCheckbox {
+  display: flex;
+  flex-direction: column;
 }
 
 .PM_ASCriterionGroupCheckbox .PM_ASLabelCheckbox:not(.PM_ASLabelCheckboxSelected) .PM_ASLabelLink {

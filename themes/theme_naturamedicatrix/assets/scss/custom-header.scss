@@ -43,11 +43,20 @@
     display: block;
     margin: 0 auto;
     width: 100%;
+    .cbp-hrmenu.cbp-menu-centered > ul{
+      display: flex;
+      align-items: center;
+      text-align: left;
+    }
   }
   @media (min-width: $breakpoint-lg) {
     display: flex;
+    flex-wrap: wrap;
   }
-  
+
+  // @media (min-width: $breakpoint-md) {
+  //   display: none;
+  // }
 }
 
 

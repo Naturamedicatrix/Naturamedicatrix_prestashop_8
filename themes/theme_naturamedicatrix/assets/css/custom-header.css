@@ -39,10 +39,16 @@
     margin: 0 auto;
     width: 100%;
   }
+  .header-top-right .cbp-hrmenu.cbp-menu-centered > ul {
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
 }
 @media (min-width: 1024px) {
   .header-top-right {
     display: flex;
+    flex-wrap: wrap;
   }
 }
 

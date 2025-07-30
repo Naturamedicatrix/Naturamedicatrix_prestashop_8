@@ -850,6 +850,10 @@ body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufactur
 
 #search_filters .facet, #search_filters_brands .facet, #search_filters_suppliers .facet, .PM_ASCriterionsGroup:nth-child(1){
   border-top: none;
+  @media (max-width: $breakpoint-md) {
+    margin-top: .8rem;
+    padding-top: 0;
+  }
 }
 
 #search_filters .facet .facet-label a, #search_filters_brands .facet .facet-label a, #search_filters_suppliers .facet .facet-label a {
@@ -942,6 +946,10 @@ div#_desktop_search_filters_clear_all {
         padding-bottom: 0.1rem;
         font-size: 0.8rem;
         display: inline-block !important;
+        @media (max-width: $breakpoint-md) {
+          margin: 0;
+          padding: 0;
+        }
       }
     }
   }
@@ -964,10 +972,19 @@ div#_desktop_search_filters_clear_all {
   }
 }
 
+
 #PM_ASBlockOutput_1.PM_ASBlockOutputVertical .PM_ASSelections {
-    li {
-      display: inline-block !important;   
-    }
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+  li {
+    display: inline-block !important;   
+  }
+}
+
+.PM_ASCriterionGroupCheckbox {
+  display: flex;
+  flex-direction: column;
 }
 
 .PM_ASCriterionGroupCheckbox .PM_ASLabelCheckbox:not(.PM_ASLabelCheckboxSelected) .PM_ASLabelLink {

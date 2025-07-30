@@ -113,11 +113,11 @@
 
 
 {block name='header_nav'}
-<nav class="header-nav bg-brand">
+<nav class="header-nav bg-brand hidden md:block">
   <div class="container mx-auto">
     
     <!-- Desktop -->
-    <div class="hidden-sm-down grid grid-cols-3 items-end pt-1 pb-2">
+    <div class="grid grid-cols-3 items-end pt-1 pb-2">
       <!-- Colonne gauche -->
       <div class="flex items-end gap-3 justify-start">
         <a href="{$urls.pages.contact}" class="flex items-end gap-2 text-white hover:text-gray-200 transition-colors duration-200 ease-in-out">
@@ -299,5 +299,20 @@
     margin-left: inherit;
   }
   
+
+    /* BREAKPOINT POUR TABLETTE */
+    @media (max-width: 768px) {
+    .header-nav {
+      display: none !important;
+    }
+    .header-mobile {
+      display: block;
+    }
+    .header-top-right {
+      display: none;
+    }
+  }
+  
+  /* END BREAKPOINT POUR TABLETTE */
   
 </style>
