@@ -9,6 +9,7 @@ body#authentication #wrapper {
 @media (max-width: 1024px) {
   body#authentication #wrapper {
     background: white;
+    padding: 1rem 0;
   }
 }
 body#authentication #main {
@@ -29,7 +30,6 @@ body#authentication #login-page {
 body#authentication #login-page .login-columns {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -120,6 +120,7 @@ body#authentication #login-page .login-columns .left-column .login-form .form-fo
 @media (max-width: 640px) {
   body#authentication #login-page .login-columns .left-column .login-form .form-footer {
     text-align: center !important;
+    margin: 0 auto;
   }
 }
 body#authentication #login-page .login-columns .right-column {

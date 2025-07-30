@@ -14,6 +14,7 @@ body#authentication {
     // Mobile, tablette et petits écrans: BG WHITE
     @media (max-width: $breakpoint-lg) {
       background: white;
+      padding: 1rem 0;
     }
   }
 
@@ -39,7 +40,6 @@ body#authentication {
     .login-columns {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
       width: 100%;
       max-width: 600px;
       margin: 0 auto;
@@ -142,6 +142,7 @@ body#authentication {
 
             @media (max-width: $breakpoint-sm) {
              text-align: center !important;
+             margin: 0 auto;
             }
           }
         }

@@ -31,8 +31,7 @@ body#registration #registration-page {
 }
 body#registration #registration-page .registration-columns {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-direction: column-reverse;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -148,6 +147,9 @@ body#registration #registration-page .registration-columns .left-column .registe
   min-width: 200px;
 }
 @media (max-width: 640px) {
+  body#registration #registration-page .registration-columns .left-column .register-form .form-footer {
+    margin: 0 auto;
+  }
   body#registration #registration-page .registration-columns .left-column .register-form .form-footer .primary-btn {
     width: 100%;
     max-width: 300px;
@@ -205,15 +207,11 @@ body#registration #registration-page .registration-columns .right-column .login-
   width: 100%;
   max-width: 300px;
 }
-@media (min-width: 768px) {
-  body#registration #registration-page .registration-columns .right-column .login-info .login-button {
-    text-align: left;
-  }
-  body#registration #registration-page .registration-columns .right-column .login-info .login-button .primary-btn {
-    width: auto;
-    max-width: none;
-  }
-}
 body#registration .breadcrumb {
   display: none;
+}
+@media (max-width: 640px) {
+  body#registration button.btn.btn-primary.form-control-submit {
+    padding: 10px 40px !important;
+  }
 }

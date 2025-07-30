@@ -40,8 +40,7 @@ body#registration {
     // Structure de base : colonnes empilées (mobile et tablette)
     .registration-columns {
       display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      flex-direction: column-reverse;
       width: 100%;
       max-width: 600px;
       margin: 0 auto;
@@ -170,9 +169,11 @@ body#registration {
             
             // Mobile spécifique
             @media (max-width: $breakpoint-sm) {
+              margin: 0 auto;
               .primary-btn {
                 width: 100%;
                 max-width: 300px;
+                
               }
             }
           }
@@ -237,15 +238,6 @@ body#registration {
               max-width: 300px;
             }
             
-            // Écrans moyens et grands
-            @media (min-width: $breakpoint-md) {
-              text-align: left;
-              
-              .primary-btn {
-                width: auto;
-                max-width: none;
-              }
-            }
           }
         }
       }
@@ -255,5 +247,11 @@ body#registration {
   // Masquer le fil d'ariane
   .breadcrumb {
     display: none;
+  }
+
+  button.btn.btn-primary.form-control-submit {
+    @media (max-width: $breakpoint-sm) {
+      padding: 10px 40px !important;
+    }
   }
 }
