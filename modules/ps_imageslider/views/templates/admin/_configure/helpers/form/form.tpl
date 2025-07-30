@@ -32,6 +32,16 @@
 							{elseif $input.name == 'image_mobile' && isset($fields[0]['form']['images_mobile'][$language.id_lang])}
 								<img src="{$image_baseurl}{$fields[0]['form']['images_mobile'][$language.id_lang]}" class="img-thumbnail" />
 							{/if}
+							
+							{if $input.name == 'image'}
+								<div class="alert alert-info" style="margin-top: 10px; font-size: 12px;">
+									<i class="icon-info-circle"></i> Taille recommandée : <strong>1470 x 490 pixels</strong>
+								</div>
+							{elseif $input.name == 'image_mobile'}
+								<div class="alert alert-info" style="margin-top: 10px; font-size: 12px;">
+									<i class="icon-info-circle"></i> Taille recommandée : <strong>768 x 490 pixels</strong>
+								</div>
+							{/if}
 							<div class="dummyfile input-group">
 								<input id="{$input.name}_{$language.id_lang}" type="file" name="{$input.name}_{$language.id_lang}" class="hide-file-upload" />
 								<span class="input-group-addon"><i class="icon-file"></i></span>
