@@ -825,6 +825,11 @@ body#cart #wrapper {
     opacity: 1;
     visibility: visible;
   }
+  .user-hover-group:focus-within .user-hover-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 }
 
 /* Modal pour le menu utilisateur connecté */

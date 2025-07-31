@@ -47,6 +47,13 @@
       opacity: 1;
       visibility: visible;
     }
+
+    // Maintient le modal ouvert quand un élément à l'intérieur a le focus
+    .user-hover-group:focus-within & {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
   }
 }
 
