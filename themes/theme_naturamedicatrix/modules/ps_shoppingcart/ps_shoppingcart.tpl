@@ -40,23 +40,25 @@
                     {/if}
                   </div>
                   <div class="product-details">
-                    <div class="product-name">{$product.name}</div>
-                    <div class="product-price-qty">
-                      <span class="quantity">x{$product.quantity}</span>
-                      <span class="price">{$product.price}</span>
-                    </div>
-                  </div>
-                  <div class="product-actions">
-                    <a class="remove-product remove-from-cart" 
-                       rel="nofollow" 
-                       href="{$product.remove_from_cart_url}"
-                       data-link-action="delete-from-cart"
-                       data-id-product="{$product.id_product|escape:'javascript'}"
-                       data-id-product-attribute="{$product.id_product_attribute|escape:'javascript'}"
-                       data-id-customization="{$product.id_customization|default|escape:'javascript'}"
-                       title="{l s='Remove' d='Shop.Theme.Actions'}">
-                      <i class="bi bi-trash3"></i>
+                    <a href="{$product.url}" class="product-name-link">
+                      <div class="product-name">{$product.name}</div>
                     </a>
+                    <div class="product-meta">
+                      <span class="quantity">x{$product.quantity}</span>
+                      <div class="price-actions">
+                        <span class="price">{$product.price}</span>
+                        <a class="remove-product remove-from-cart" 
+                           rel="nofollow" 
+                           href="{$product.remove_from_cart_url}"
+                           data-link-action="delete-from-cart"
+                           data-id-product="{$product.id_product|escape:'javascript'}"
+                           data-id-product-attribute="{$product.id_product_attribute|escape:'javascript'}"
+                           data-id-customization="{$product.id_customization|default|escape:'javascript'}"
+                           title="{l s='Remove' d='Shop.Theme.Actions'}">
+                          <i class="bi bi-trash3"></i>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               {/foreach}
