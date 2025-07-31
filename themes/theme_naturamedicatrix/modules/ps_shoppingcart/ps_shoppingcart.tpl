@@ -1,10 +1,11 @@
 {**
- * CUSTOM SHOPPING CART
+ * CUSTOM SHOPPING CART WITH HOVER MODAL
  *}
 
 <div id="blockcart-wrapper">
   <div class="blockcart cart-preview" data-refresh-url="{$refresh_url}">
-    <div class="shopping-cart-container">
+    <!-- Container pour le hover -->
+    <div class="user-hover-group">
       <a href="{$cart_url}" class="relative flex items-center text-white px-2.5 py-0 hover:text-gray-200 transition-colors duration-200 ease-in-out">
         <i class="bi bi-handbag text-2xl leading-0"></i>
         {if $cart.products_count > 0}
@@ -13,7 +14,123 @@
           </span>
         {/if}
       </a>
+      
+      <!-- Modal hover du panier -->
+      <div class="user-hover-modal cart-modal">
+        <div class="modal-padding">
+          {if $cart.products_count > 0}
+            <!-- En-tête du panier -->
+            <div class="cart-header">
+              <h3 class="modal-title">
+                <i class="bi bi-handbag menu-icon"></i>{l s='Shopping Cart' d='Shop.Theme.Checkout'} ({$cart.products_count})
+              </h3>
+            </div>
+            
+            <!-- Liste des produits -->
+            <div class="cart-products">
+              {foreach from=$cart.products item=product}
+                <div class="cart-product-item">
+                  <div class="product-image">
+                    {if $product.cover}
+                      <img src="{$product.cover.bySize.small_default.url}" alt="{$product.name}" class="product-thumbnail">
+                    {else}
+                      <div class="no-image">
+                        <i class="bi bi-image"></i>
+                      </div>
+                    {/if}
+                  </div>
+                  <div class="product-details">
+                    <div class="product-name">{$product.name}</div>
+                    <div class="product-price-qty">
+                      <span class="quantity">x{$product.quantity}</span>
+                      <span class="price">{$product.price}</span>
+                    </div>
+                  </div>
+                  <div class="product-actions">
+                    <a class="remove-product remove-from-cart" 
+                       rel="nofollow" 
+                       href="{$product.remove_from_cart_url}"
+                       data-link-action="delete-from-cart"
+                       data-id-product="{$product.id_product|escape:'javascript'}"
+                       data-id-product-attribute="{$product.id_product_attribute|escape:'javascript'}"
+                       data-id-customization="{$product.id_customization|default|escape:'javascript'}"
+                       title="{l s='Remove' d='Shop.Theme.Actions'}">
+                      <i class="bi bi-trash3"></i>
+                    </a>
+                  </div>
+                </div>
+              {/foreach}
+            </div>
+            
+            <!-- Résumé du panier -->
+            <div class="cart-summary">
+              <hr class="menu-separator">
+              <div class="cart-total">
+                <strong>{l s='Total:' d='Shop.Theme.Checkout'} {$cart.totals.total.value}</strong>
+              </div>
+              
+              <!-- Actions -->
+              <div class="cart-actions">
+                <a href="{$cart_url}" class="btn btn-primary">
+                  <i class="bi bi-eye menu-icon"></i>{l s='View Cart' d='Shop.Theme.Actions'}
+                </a>
+                <a href="{$urls.pages.order}" class="btn btn-secondary">
+                  <i class="bi bi-credit-card menu-icon"></i>{l s='Checkout' d='Shop.Theme.Actions'}
+                </a>
+              </div>
+            </div>
+          {else}
+            <!-- Panier vide -->
+            <div class="empty-cart">
+              <div class="empty-cart-icon">
+                <i class="bi bi-handbag"></i>
+              </div>
+              <div class="empty-cart-text">
+                {l s='Your shopping cart is empty' d='Shop.Theme.Checkout'}
+              </div>
+              <a href="{$urls.pages.index}" class="btn btn-primary">
+                <i class="bi bi-shop menu-icon"></i>{l s='Continue shopping' d='Shop.Theme.Actions'}
+              </a>
+            </div>
+          {/if}
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+// Maintenir le modal panier ouvert après suppression AJAX
+document.addEventListener('DOMContentLoaded', function() {
+  let modalShouldStayOpen = false;
+  
+  // Observer les changements dans le conteneur panier
+  const observer = new MutationObserver(function(mutations) {
+    if (modalShouldStayOpen) {
+      const cartHoverGroup = document.querySelector('#blockcart-wrapper .user-hover-group');
+      if (cartHoverGroup) {
+        cartHoverGroup.classList.add('keep-modal-open');
+        setTimeout(function() {
+          cartHoverGroup.classList.remove('keep-modal-open');
+          modalShouldStayOpen = false;
+        }, 2000);
+      }
+    }
+  });
+  
+  // Observer le conteneur panier pour les changements
+  const cartWrapper = document.querySelector('#blockcart-wrapper');
+  if (cartWrapper) {
+    observer.observe(cartWrapper, { childList: true, subtree: true });
+  }
+  
+  // Détecter les clics sur les boutons de suppression
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.remove-from-cart') && e.target.closest('#blockcart-wrapper')) {
+      modalShouldStayOpen = true;
+    }
+  });
+});
+</script>
+
 
