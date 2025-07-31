@@ -1,7 +1,6 @@
 {**
  * CUSTOM SUBCATEGORIES
  *}
- 
 {if $category.id == 2}
 
   {include file='../_partials/subcategory-accueil.tpl'}

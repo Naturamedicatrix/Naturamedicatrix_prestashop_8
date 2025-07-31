@@ -67,8 +67,25 @@
             <!-- Résumé du panier -->
             <div class="cart-summary">
               <hr class="menu-separator">
+              
+              <!-- Sous-total des articles -->
+              <div class="cart-subtotal">
+                <span class="subtotal-label">{l s='Total de vos %count% articles' sprintf=['%count%' => $cart.products_count] d='Shop.Theme.Checkout'}</span>
+                <span class="subtotal-price">{$cart.subtotals.products.value}</span>
+              </div>
+              
+              <!-- Livraison -->
+              {if $cart.subtotals.shipping}
+              <div class="cart-shipping">
+                <span class="shipping-label">{$cart.subtotals.shipping.label}</span>
+                <span class="shipping-price">{$cart.subtotals.shipping.value}</span>
+              </div>
+              {/if}
+              
+              <!-- Total TTC -->
               <div class="cart-total">
-                <strong>{l s='Total:' d='Shop.Theme.Checkout'} {$cart.totals.total.value}</strong>
+                <strong class="total-label">{l s='TOTAL TTC' d='Shop.Theme.Checkout'}</strong>
+                <strong class="total-price">{$cart.totals.total.value}</strong>
               </div>
               
               <!-- Actions -->

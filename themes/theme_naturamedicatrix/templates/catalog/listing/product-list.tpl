@@ -11,7 +11,7 @@
    <section id="main">
  
      {block name='product_list_header'}
-       <h1 id="js-product-list-header" class="h2">{$listing.label}</h1>
+      {include file='_partials/page-title-with-svg.tpl' title=$listing.label}
      {/block}
  
      {block name='subcategory_list'}
@@ -23,7 +23,7 @@
      {hook h="displayHeaderCategory"}
  
      <section id="products">
-       {if $listing.products|count}
+     {if $listing.products|count}
  
          {* {block name='product_list_top'}
            {include file='catalog/_partials/products-top.tpl' listing=$listing}

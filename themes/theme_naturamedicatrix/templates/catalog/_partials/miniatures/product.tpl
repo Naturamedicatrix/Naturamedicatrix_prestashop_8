@@ -8,34 +8,14 @@
 {assign var=productName value=$productName|replace:')':')</span>'}
 {* END VARIABLES *}
 
-<style>
-  .product-miniature .yotpo-reviews-star-ratings-widget {
-    justify-content: center !important;
-  }
-  
-  .product-miniature .yotpo-sr-bottom-line-text {
-    font-size: .75rem !important;
-    font-weight: 500 !important;
-  }
-  
-  .product-miniature .yotpo-sr-bottom-line-summary.yotpo-sr-bottom-line-button {
-    align-items: center !important;
-  }
-  
-  .product-miniature .yotpo-reviews-star-ratings-widget .star-container {
-    width: 12px;
-    height: 12px;
-  }  
-</style>
-
 {block name='product_miniature_item'}
   <div class="js-product product{if !empty($productClasses)} {$productClasses}{/if}">
-    <article class="product-miniature js-product-miniature {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
+    <article class="product-miniature js-product-miniature rounded-lg p-3.5 border border-color-gray-300 {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
       data-id-product-attribute="{$product.id_product_attribute}">
       {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}
         <span class="out-of-stock-label">{l s='Épuisé' d='Shop.Theme.Catalog'}</span>
       {/if}
-      <div class="thumbnail-container">
+      <div class="thumbnail-container w-full">
 
         {* Caractéristiques du produit - Certificats uniquement *}
         <div class="product-features-overlay">

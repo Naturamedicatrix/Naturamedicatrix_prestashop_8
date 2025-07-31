@@ -2,12 +2,7 @@
 
 /* === PRODUCT LIST === */
 
-.product-miniature{
-    border: 1px solid #e5e8ea;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    display: block;
-    padding: 20px;
+.product-miniature {
     
     @media (max-width: $breakpoint-sm) {
         margin-bottom: 15px;
@@ -545,3 +540,22 @@ body#manufacturer {
         }
     }
 }
+
+
+.product-miniature .yotpo-reviews-star-ratings-widget {
+    justify-content: center !important;
+  }
+
+  .product-miniature .yotpo-sr-bottom-line-text {
+    font-size: .75rem !important;
+    font-weight: 500 !important;
+  }
+
+  .product-miniature .yotpo-sr-bottom-line-summary.yotpo-sr-bottom-line-button {
+    align-items: center !important;
+  }
+
+  .product-miniature .yotpo-reviews-star-ratings-widget .star-container {
+    width: 12px;
+    height: 12px;
+  }

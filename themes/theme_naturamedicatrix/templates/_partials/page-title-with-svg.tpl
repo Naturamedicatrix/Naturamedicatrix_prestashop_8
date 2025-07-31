@@ -2,7 +2,7 @@
 * PARTIAL: Page title with SVG decorator
 *}
 <header class="page-header" style="margin-top: 50px;">
-  <h1 class="page-title">{$title}</h1>
+  <h1 class="page-title text-center">{$title}</h1>
   <div class="title-separator">
     <svg id="logoTitle" data-name="Logo Title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504.59 360.15">
       <path class="logo-title"

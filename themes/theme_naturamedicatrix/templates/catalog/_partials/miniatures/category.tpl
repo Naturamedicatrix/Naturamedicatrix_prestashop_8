@@ -24,4 +24,3 @@ CUSTOM CATEGORY
       <div class="category-description">{$category.description nofilter}</div>
     </section>
   {/block}
-  

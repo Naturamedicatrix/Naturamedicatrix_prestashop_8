@@ -3,8 +3,14 @@
  * Override du CategoryController pour modifier le layout de la catégorie "Principes actifs"
  * et enrichir les données des sous-catégories avec le champ additional_description
  */
+
+require_once _PS_ROOT_DIR_.'/classes/ProductAssembler.php';
+
+ 
+ 
 class CategoryController extends CategoryControllerCore
 {
+    
     /**
      * Override de la méthode getLayout pour utiliser un layout sans colonne de gauche 
      * spécifiquement pour la catégorie ID 25 (Principes actifs)
@@ -19,7 +25,7 @@ class CategoryController extends CategoryControllerCore
         }
         
         // Si c'est la catégorie "Principes actifs" (ID 25), utilise le layout sans colonne
-        if ($this->category->id == 25 || $this->category->id == 2) {
+        if ($this->category->id == 25) {
             return 'layouts/layout-full-width.tpl';
         }
         
@@ -27,7 +33,33 @@ class CategoryController extends CategoryControllerCore
         return parent::getLayout();
     }
     
-
+    
+    /** Afficher tous les produits de la catégorie principale (accueil)  **/
+    public function initContent()
+    {
+        parent::initContent();
+    
+        if ((int)$this->category->id === 2) {
+            $rawProducts = Product::getProducts(
+                (int)$this->context->language->id,
+                0,
+                100,
+                'name',
+                'asc'
+            );
+    
+            $assembler = new ProductAssembler($this->context);
+            $products = [];
+    
+            foreach ($rawProducts as $rawProduct) {
+                $products[] = $assembler->assembleProduct($rawProduct);
+            }
+    
+            $this->context->smarty->assign([
+                'all_products' => $products
+            ]);
+        }
+    }
 
 
     /**
