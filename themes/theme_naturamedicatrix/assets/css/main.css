@@ -729,6 +729,11 @@ body#cart #wrapper {
   height: 12px;
 }
 
+#products .products {
+  display: grid;
+  justify-content: normal;
+}
+
 /* === STYLES DES MODALS === */
 .modal-content .wishlist-add-to-new:hover {
   color: #f9fafb !important;
