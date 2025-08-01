@@ -86,17 +86,17 @@
 
 <h3 class="text-lg font-light mb-1">{l s='All of our products' d='Shop.Theme.Catalog'}</h3>
 
-{if isset($listing.products)}
+{* {if isset($listing.products) && $listing.products}
   <div class="products grid grid-cols-2 xl:grid-cols-3 gap-6">
     {foreach from=$listing.products item=product}
       {include file='catalog/_partials/miniatures/product.tpl' product=$product}
     {/foreach}
   </div>
-{/if}
-
-{* {include file='catalog/_partials/pagination.tpl' pagination=$listing.pagination} *}
-
-
+  
+  {if isset($listing.pagination) && $listing.pagination.should_be_displayed}
+    {include file='catalog/_partials/pagination.tpl' pagination=$listing.pagination}
+  {/if}
+{/if} *}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {

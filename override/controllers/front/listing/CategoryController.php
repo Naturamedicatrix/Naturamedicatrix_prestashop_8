@@ -33,31 +33,31 @@ class CategoryController extends CategoryControllerCore
     
     
     /** Afficher tous les produits de la catégorie principale (accueil)  **/
-    public function initContent()
-    {
-        parent::initContent();
+    // public function initContent()
+    // {
+    //     parent::initContent();
     
-        if ((int)$this->category->id === 2) {
-            $rawProducts = Product::getProducts(
-                (int)$this->context->language->id,
-                0,
-                100,
-                'name',
-                'asc'
-            );
+    //     if ((int)$this->category->id === 2) {
+    //         $rawProducts = Product::getProducts(
+    //             (int)$this->context->language->id,
+    //             0,
+    //             100,
+    //             'name',
+    //             'asc'
+    //         );
     
-            $assembler = new ProductAssembler($this->context);
-            $products = [];
+    //         $assembler = new ProductAssembler($this->context);
+    //         $products = [];
     
-            foreach ($rawProducts as $rawProduct) {
-                $products[] = $assembler->assembleProduct($rawProduct);
-            }
+    //         foreach ($rawProducts as $rawProduct) {
+    //             $products[] = $assembler->assembleProduct($rawProduct);
+    //         }
     
-            $this->context->smarty->assign([
-                'all_products' => $products
-            ]);
-        }
-    }
+    //         $this->context->smarty->assign([
+    //             'all_products' => $products
+    //         ]);
+    //     }
+    // }
 
 
     /**

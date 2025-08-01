@@ -3,7 +3,7 @@
  *}
 
 {* Ne pas afficher la liste des produits pour la catégorie 25 (principe actifs) *}
-{if !isset($category) || $category.id != 25 && $category.id != 2 }
+{if !isset($category) || $category.id != 25}
   <div id="js-product-list">
     {include file="catalog/_partials/productlist.tpl" products=$listing.products cssClass="row"}
 

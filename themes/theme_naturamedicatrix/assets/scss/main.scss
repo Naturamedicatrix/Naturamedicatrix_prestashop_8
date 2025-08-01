@@ -1432,4 +1432,17 @@ kbd {
 
 
 
-
+// PAGINATION PRODUCTS
+.paging {
+  a:hover {
+    color: $color-custom-gray !important;
+    background: $color-custom-whiteDarker !important;
+    font-weight: 600 !important;
+  }
+  
+  [aria-current="page"] {
+    color: $color-custom-gray !important;
+    background: $color-custom-whiteDarker !important;
+    font-weight: 600 !important;
+  }
+}

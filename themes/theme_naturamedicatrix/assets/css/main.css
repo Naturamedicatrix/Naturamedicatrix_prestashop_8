@@ -2571,3 +2571,14 @@ kbd {
     max-width: 100%;
   }
 }
+
+.paging a:hover {
+  color: #4B5563 !important;
+  background: #EDEFF1 !important;
+  font-weight: 600 !important;
+}
+.paging [aria-current=page] {
+  color: #4B5563 !important;
+  background: #EDEFF1 !important;
+  font-weight: 600 !important;
+}
