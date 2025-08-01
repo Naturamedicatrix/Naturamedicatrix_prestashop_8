@@ -83,9 +83,9 @@
        {* END FILTRE ET TRI *}
 
       {if $listing.products|count}
-        <div class="products row">
+        <div class="products grid grid-cols-2 xl:grid-cols-3 gap-6">
           {foreach from=$listing.products item="product"}
-            <div class="{if isset($productClass)}{$productClass}{else}col-xs-6 col-sm-6 col-md-6 col-xl-4 col-xxl-4{/if}">
+            <div class="{if isset($productClass)}{$productClass}{/if}">
               {include file="catalog/_partials/miniatures/product.tpl" product=$product}
             </div>
           {/foreach}

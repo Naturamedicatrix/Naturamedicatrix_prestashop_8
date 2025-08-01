@@ -2,7 +2,6 @@
  * CUSTOM CATEGORY HEADER
  *}
  <div id="js-product-list-header">
- {if $listing.pagination.items_shown_from == 1}
      <div class="block-category">
      <header class="page-header">
      <h1 class="page-title text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{$category.name}</h1>
@@ -37,5 +36,4 @@
                  </div>
              {/if} *}
     </div>
- {/if}
 </div>
