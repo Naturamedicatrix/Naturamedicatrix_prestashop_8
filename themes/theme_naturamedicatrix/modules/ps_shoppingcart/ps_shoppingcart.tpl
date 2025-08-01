@@ -70,8 +70,13 @@
               
               <!-- Sous-total des articles -->
               <div class="cart-subtotal">
+                {if $cart.products_count > 1}
                 <span class="subtotal-label">{l s='Total de vos %count% articles' sprintf=['%count%' => $cart.products_count] d='Shop.Theme.Checkout'}</span>
                 <span class="subtotal-price">{$cart.subtotals.products.value}</span>
+                {else}
+                <span class="subtotal-label">{l s='Total de votre article' d='Shop.Theme.Checkout'}</span>
+                <span class="subtotal-price">{$cart.subtotals.products.value}</span>
+                {/if}
               </div>
               
               <!-- Livraison -->
