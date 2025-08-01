@@ -329,9 +329,9 @@
   margin-top: 16px;
 }
 
-.cart-subtotal,
-.cart-shipping,
-.cart-total {
+.cart-modal .cart-subtotal,
+.cart-modal .cart-shipping,
+.cart-modal .cart-total {
   display: flex;
   align-items: center;
   margin: 8px 20px;
@@ -370,7 +370,9 @@
 .cart-total {
   font-size: 18px;
   color: $color-custom-black;
-  margin-top: 12px;
+  margin-top: 13px;
+  border-top: 1px solid $color-custom-whiteDarker;
+  padding-top: 13px;
   
   .total-label {
     text-transform: uppercase;

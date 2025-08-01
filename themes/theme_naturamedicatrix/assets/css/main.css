@@ -729,9 +729,13 @@ body#cart #wrapper {
   height: 12px;
 }
 
-#products .products {
+#products .products, .all-products .products {
   display: grid;
   justify-content: normal;
+}
+
+.desktop-pagination, .newproducts-desktop-pagination {
+  margin-top: 20px !important;
 }
 
 /* === STYLES DES MODALS === */
@@ -1098,34 +1102,34 @@ body#cart #wrapper {
   margin-top: 16px;
 }
 
-.cart-subtotal,
-.cart-shipping,
-.cart-total {
+.cart-modal .cart-subtotal,
+.cart-modal .cart-shipping,
+.cart-modal .cart-total {
   display: flex;
   align-items: center;
   margin: 8px 20px;
   color: #4B5563;
 }
-.cart-subtotal .subtotal-label,
-.cart-subtotal .shipping-label,
-.cart-subtotal .total-label,
-.cart-shipping .subtotal-label,
-.cart-shipping .shipping-label,
-.cart-shipping .total-label,
-.cart-total .subtotal-label,
-.cart-total .shipping-label,
-.cart-total .total-label {
+.cart-modal .cart-subtotal .subtotal-label,
+.cart-modal .cart-subtotal .shipping-label,
+.cart-modal .cart-subtotal .total-label,
+.cart-modal .cart-shipping .subtotal-label,
+.cart-modal .cart-shipping .shipping-label,
+.cart-modal .cart-shipping .total-label,
+.cart-modal .cart-total .subtotal-label,
+.cart-modal .cart-total .shipping-label,
+.cart-modal .cart-total .total-label {
   flex: 1;
 }
-.cart-subtotal .subtotal-price,
-.cart-subtotal .shipping-price,
-.cart-subtotal .total-price,
-.cart-shipping .subtotal-price,
-.cart-shipping .shipping-price,
-.cart-shipping .total-price,
-.cart-total .subtotal-price,
-.cart-total .shipping-price,
-.cart-total .total-price {
+.cart-modal .cart-subtotal .subtotal-price,
+.cart-modal .cart-subtotal .shipping-price,
+.cart-modal .cart-subtotal .total-price,
+.cart-modal .cart-shipping .subtotal-price,
+.cart-modal .cart-shipping .shipping-price,
+.cart-modal .cart-shipping .total-price,
+.cart-modal .cart-total .subtotal-price,
+.cart-modal .cart-total .shipping-price,
+.cart-modal .cart-total .total-price {
   width: 80px;
   text-align: right;
 }
@@ -1151,7 +1155,9 @@ body#cart #wrapper {
 .cart-total {
   font-size: 18px;
   color: #111827;
-  margin-top: 12px;
+  margin-top: 13px;
+  border-top: 1px solid #EDEFF1;
+  padding-top: 13px;
 }
 .cart-total .total-label {
   text-transform: uppercase;
