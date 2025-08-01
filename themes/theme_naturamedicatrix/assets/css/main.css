@@ -1152,17 +1152,14 @@ body#cart #wrapper {
   color: #111827;
 }
 
-.cart-total {
+.cart-modal .cart-total {
   font-size: 18px;
   color: #111827;
   margin-top: 13px;
   border-top: 1px solid #EDEFF1;
   padding-top: 13px;
 }
-.cart-total .total-label {
-  text-transform: uppercase;
-}
-.cart-total .total-price {
+.cart-modal .cart-total .total-price {
   font-weight: 700;
 }
 
@@ -1213,9 +1210,18 @@ body #main {
 body:not(#checkout):not(#cart) #content-wrapper {
   min-height: 100vh;
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   body:not(#checkout):not(#cart) #content-wrapper {
     min-height: auto;
+  }
+}
+
+body#category #content-wrapper {
+  min-height: 135vh !important;
+}
+@media (max-width: 768px) {
+  body#category #content-wrapper {
+    min-height: auto !important;
   }
 }
 

@@ -41,8 +41,15 @@ body {
 
 body:not(#checkout):not(#cart) #content-wrapper {
   min-height: 100vh;
-  @media (max-width: $breakpoint-sm) {
+  @media (max-width: $breakpoint-md) {
     min-height: auto;
+  }
+}
+
+body#category #content-wrapper {
+  min-height: 135vh !important;
+  @media (max-width: $breakpoint-md) {
+    min-height: auto !important;
   }
 }
 

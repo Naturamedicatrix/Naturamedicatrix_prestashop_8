@@ -84,7 +84,7 @@
               
               <!-- Total TTC -->
               <div class="cart-total">
-                <strong class="total-label">{l s='TOTAL TTC' d='Shop.Theme.Checkout'}</strong>
+                <strong class="total-label">{l s='Total TTC' d='Shop.Theme.Checkout'}</strong>
                 <strong class="total-price">{$cart.totals.total.value}</strong>
               </div>
               
