@@ -1215,6 +1215,86 @@ body#cart #wrapper {
   font-size: 14px;
 }
 
+/* ==================================================
+   PROGRESSION LIVRAISON MODAL
+   ================================================== */
+.shipping-progress-modal {
+  border-top: 1px solid #EDEFF1;
+  padding-top: 12px;
+  margin-top: 16px;
+}
+
+.shipping-info-modal .shipping-icon {
+  margin-bottom: 8px;
+}
+.shipping-info-modal .shipping-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+.shipping-info-modal .shipping-details {
+  font-size: 11px;
+  color: #4B5563;
+  margin-bottom: 0;
+}
+
+.shipping-progress-modal-active .progress-section {
+  margin-bottom: 8px;
+}
+.shipping-progress-modal-active .progress-section:last-child {
+  margin-bottom: 0;
+}
+.shipping-progress-modal-active .progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.shipping-progress-modal-active .progress-header span:first-child {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111827;
+}
+.shipping-progress-modal-active .progress-header span:last-child {
+  font-size: 10px;
+  color: #4B5563;
+}
+.shipping-progress-modal-active .progress-bar-container {
+  width: 100%;
+  height: 4px;
+  background-color: rgb(251.34375, 251.75, 252.15625);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.shipping-progress-modal-active .progress-bar {
+  height: 4px;
+  background-color: #487595;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.shipping-progress-modal-active p {
+  font-size: 10px;
+  margin: 4px 0 0 0;
+  color: #4B5563;
+}
+.shipping-progress-modal-active p strong {
+  color: #487595;
+}
+
+.shipping-success {
+  text-align: center;
+}
+.shipping-success p {
+  font-size: 12px;
+  margin: 0;
+  color: #487595;
+  font-weight: 600;
+}
+.shipping-success p i {
+  margin-right: 4px;
+}
+
 /* === STYLE GLOBAL === */
 html,
 body {

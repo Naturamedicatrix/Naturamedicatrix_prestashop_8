@@ -101,14 +101,17 @@
                 <strong class="total-price">{$cart.totals.total.value}</strong>
               </div>
               
+              <!-- Progression livraison offerte -->
+              {include file='_partials/shipping-progress-modal.tpl'}
+              
               <!-- Actions -->
               <div class="cart-actions">
                 <a href="{$cart_url}" class="btn btn-primary">
                   <i class="bi bi-eye menu-icon"></i>{l s='View Cart' d='Shop.Theme.Actions'}
                 </a>
-                <a href="{$urls.pages.order}" class="btn btn-secondary">
+                {* <a href="{$urls.pages.order}" class="btn btn-secondary">
                   <i class="bi bi-credit-card menu-icon"></i>{l s='Checkout' d='Shop.Theme.Actions'}
-                </a>
+                </a> *}
               </div>
             </div>
           {else}
