@@ -79,6 +79,14 @@
                 {/if}
               </div>
               
+              <!-- Réductions (code promo) -->
+              {if isset($cart.subtotals.discounts) && $cart.subtotals.discounts}
+              <div class="cart-discount">
+                <span class="discount-label">{$cart.subtotals.discounts.label}</span>
+                <span class="discount-price">-{$cart.subtotals.discounts.value}</span>
+              </div>
+              {/if}
+              
               <!-- Livraison -->
               {if $cart.subtotals.shipping}
               <div class="cart-shipping">

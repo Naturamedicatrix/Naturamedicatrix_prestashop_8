@@ -1105,6 +1105,7 @@ body#cart #wrapper {
 }
 
 .cart-modal .cart-subtotal,
+.cart-modal .cart-discount,
 .cart-modal .cart-shipping,
 .cart-modal .cart-total {
   display: flex;
@@ -1113,23 +1114,37 @@ body#cart #wrapper {
   color: #4B5563;
 }
 .cart-modal .cart-subtotal .subtotal-label,
+.cart-modal .cart-subtotal .discount-label,
 .cart-modal .cart-subtotal .shipping-label,
 .cart-modal .cart-subtotal .total-label,
+.cart-modal .cart-discount .subtotal-label,
+.cart-modal .cart-discount .discount-label,
+.cart-modal .cart-discount .shipping-label,
+.cart-modal .cart-discount .total-label,
 .cart-modal .cart-shipping .subtotal-label,
+.cart-modal .cart-shipping .discount-label,
 .cart-modal .cart-shipping .shipping-label,
 .cart-modal .cart-shipping .total-label,
 .cart-modal .cart-total .subtotal-label,
+.cart-modal .cart-total .discount-label,
 .cart-modal .cart-total .shipping-label,
 .cart-modal .cart-total .total-label {
   flex: 1;
 }
 .cart-modal .cart-subtotal .subtotal-price,
+.cart-modal .cart-subtotal .discount-price,
 .cart-modal .cart-subtotal .shipping-price,
 .cart-modal .cart-subtotal .total-price,
+.cart-modal .cart-discount .subtotal-price,
+.cart-modal .cart-discount .discount-price,
+.cart-modal .cart-discount .shipping-price,
+.cart-modal .cart-discount .total-price,
 .cart-modal .cart-shipping .subtotal-price,
+.cart-modal .cart-shipping .discount-price,
 .cart-modal .cart-shipping .shipping-price,
 .cart-modal .cart-shipping .total-price,
 .cart-modal .cart-total .subtotal-price,
+.cart-modal .cart-total .discount-price,
 .cart-modal .cart-total .shipping-price,
 .cart-modal .cart-total .total-price {
   width: 80px;
@@ -1137,18 +1152,29 @@ body#cart #wrapper {
 }
 
 .cart-subtotal,
+.cart-discount,
 .cart-shipping {
   font-size: 14px;
 }
 .cart-subtotal .subtotal-label,
+.cart-subtotal .discount-label,
 .cart-subtotal .shipping-label,
+.cart-discount .subtotal-label,
+.cart-discount .discount-label,
+.cart-discount .shipping-label,
 .cart-shipping .subtotal-label,
+.cart-shipping .discount-label,
 .cart-shipping .shipping-label {
   font-weight: 400;
 }
 .cart-subtotal .subtotal-price,
+.cart-subtotal .discount-price,
 .cart-subtotal .shipping-price,
+.cart-discount .subtotal-price,
+.cart-discount .discount-price,
+.cart-discount .shipping-price,
 .cart-shipping .subtotal-price,
+.cart-shipping .discount-price,
 .cart-shipping .shipping-price {
   font-weight: 600;
   color: #111827;

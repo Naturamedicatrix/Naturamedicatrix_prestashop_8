@@ -330,6 +330,7 @@
 }
 
 .cart-modal .cart-subtotal,
+.cart-modal .cart-discount,
 .cart-modal .cart-shipping,
 .cart-modal .cart-total {
   display: flex;
@@ -338,12 +339,14 @@
   color: $color-custom-gray;
   
   .subtotal-label,
+  .discount-label,
   .shipping-label,
   .total-label {
     flex: 1;
   }
   
   .subtotal-price,
+  .discount-price,
   .shipping-price,
   .total-price {
     width: 80px;
@@ -352,20 +355,24 @@
 }
 
 .cart-subtotal,
+.cart-discount,
 .cart-shipping {
   font-size: 14px;
   
   .subtotal-label,
+  .discount-label,
   .shipping-label {
     font-weight: 400;
   }
   
   .subtotal-price,
+  .discount-price,
   .shipping-price {
     font-weight: 600;
     color: $color-custom-black;
   }
 }
+
 
 .cart-modal .cart-total {
   font-size: 18px;
