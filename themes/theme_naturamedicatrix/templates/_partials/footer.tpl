@@ -244,9 +244,9 @@
           <h4 id="footer-title-4">Liens utiles</h4>
           <div class="footer-column-content" id="footer-content-4">
             <ul class="footer-links">
-              <li><a href="{$link->getCMSLink(7)}">Catégories</a></li>
-              <li><a href="{$urls.pages.new_products}">Nouveautés</a></li>
-              <li><a href="{$urls.pages.prices_drop}">Bonnes affaires</a></li>
+              <li><a href="{$link->getCategoryLink(2)}">Catégories</a></li>
+              <li><a href="{$link->getCategoryLink(22)}">Nouveautés</a></li>
+              <li><a href="{$link->getCategoryLink(21)}">Bonnes affaires</a></li>
               <li><a href="{$link->getCMSLink(8)}">Catalogues</a></li>
               <li><a href="{$urls.pages.cms|cat:'/6'}">Blog</a></li>
               <li><a href="{$urls.pages.manufacturer}">Nos marques</a></li>

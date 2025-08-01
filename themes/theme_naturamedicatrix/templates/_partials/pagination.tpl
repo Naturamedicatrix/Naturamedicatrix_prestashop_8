@@ -80,7 +80,7 @@
     </a>
   {else}
     <button type="button" 
-            class="h-10 px-3 inline-flex justify-center items-center gap-x-2 text-sm rounded-lg text-gray-400 opacity-50 cursor-not-allowed"
+            class="h-10 px-2.5 inline-flex justify-center items-center gap-x-2 text-sm rounded-lg text-gray-400 opacity-50 cursor-not-allowed"
             aria-label="{l s='Next page' d='Shop.Theme.Actions'}"
             disabled="">
       <span>{l s='Next' d='Shop.Theme.Actions'}</span>
