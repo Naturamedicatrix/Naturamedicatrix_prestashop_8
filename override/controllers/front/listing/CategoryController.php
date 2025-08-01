@@ -4,8 +4,6 @@
  * et enrichir les données des sous-catégories avec le champ additional_description
  */
 
-require_once _PS_ROOT_DIR_.'/classes/ProductAssembler.php';
-
  
  
 class CategoryController extends CategoryControllerCore

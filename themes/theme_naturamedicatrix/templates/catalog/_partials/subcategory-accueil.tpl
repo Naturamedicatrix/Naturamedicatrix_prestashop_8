@@ -1,11 +1,11 @@
 {if !empty($subcategories)}
   {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
     
-    <h3 class="text-lg font-light mb-1">{l s='List of your favorite categories' d='Shop.Theme.Catalog'}</h3>
+    <h3 class="text-lg font-light mb-1">{l s='List of your favorite categories' d='Shop.Theme.Catalog'}</h3>    
     
-    <div id="subcategories_custom" class="mx-auto mt-0">
-      <ul class="justify-between ml-0 pl-0 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-
+    <div id="subcategories_custom" class="mx-auto mt-0 relative">
+{*       <ul class="subcategories_custom justify-between ml-0 pl-0 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"> *}
+      <ul class="subcategories_custom justify-between m-0 pl-0">
         {foreach from=$subcategories item=subcategory}
         
           <li class="flex flex-col bg-white overflow-hidden transition">
@@ -36,8 +36,6 @@
                   </a>                  
                 </h2>
                 
-                                
-              
                 {if isset($subcategory.nb_products) && $subcategory.nb_products > 0}
                   <a href="{$subcategory.url}" class="text-xs link-blue mt-1.5 block">{if $subcategory.nb_products > 1}Voir {$subcategory.nb_products} produits{else}Voir le produit{/if}</a>
                 {else}
@@ -45,7 +43,6 @@
                 {/if}
                 
               </div>
-           
              
 {*
              {assign var=subchildren value=Category::getChildren($subcategory.id_category, $language.id)}
@@ -78,6 +75,9 @@
           </li>
         {/foreach}
       </ul>
+
+    
+      
     </div>
   {/if}
 {/if}
@@ -94,110 +94,107 @@
   </div>
 {/if}
 
-
-{* Liste des produits *}
-{*
-<section id="products">
-  {if $listing.products|count}
-    <div class="products row">
-      {foreach from=$all_products item="product"}
-        <div class="{if isset($productClass)}{$productClass}{else}col-xs-12 col-sm-6 col-md-6 col-xl-4 col-xxl-4{/if}">
-          {include file="catalog/_partials/miniatures/product.tpl" product=$product key="position"}
-        </div>
-      {/foreach}
-    </div>
-  {/if}
-</section>
-*}
+{* {include file='catalog/_partials/pagination.tpl' pagination=$listing.pagination} *}
 
 
 
-{*
-{capture assign="productClasses"}{if !empty($productClass)}{$productClass}{else}col-xs-12 col-sm-6 col-xl-3 col-xxl-4{/if}{/capture}
-
-<div class="products{if !empty($cssClass)} {$cssClass}{/if}">
-  {foreach from=$all_products item="product" key="position"}
-      {include file="catalog/_partials/miniatures/product.tpl" product=$product position=$position productClasses=$productClasses}
-  {/foreach}
-</div>
-*}
-
-
-
-{*
-{if isset($all_products) && $all_products|count > 0}
-  <div class="mt-10 px-4 mx-auto max-w-screen-xl">
-    <h2 class="text-2xl font-bold mb-6">{l s='Tous les produits' d='Shop.Theme.Catalog'}</h2>
-    <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-      {foreach from=$all_products item=product}
-        <li class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-          <a href="{$link->getProductLink($product.id_product)}">
-            <img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'medium_default')}" alt="{$product.name|escape:'html':'UTF-8'}" class="w-full h-48 object-cover" />
-            <div class="p-3">
-              <h3 class="text-sm font-semibold truncate">{$product.name|escape:'html':'UTF-8'}</h3>
-              <p class="text-green-700 font-bold mt-1">{$product.price|string_format:"%.2f"} €</p>
-            </div>
-          </a>
-        </li>
-      {/foreach}
-    </ul>
-  </div>
-{/if}
-*}
-
-
-
-{*
-{extends file='catalog/listing/product-list.tpl'}
-
-{block name='product_list'}
-  {include file='catalog/_partials/products.tpl' listing=$listing productClass="col-xs-6 col-sm-6 col-xl-4"}
-{/block}
-*}
-
-
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = tns({
+      container: '.subcategories_custom',
+      items: 5,
+      slideBy: 1,
+      autoplay: false,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true,
+      autoplayButtonOutput: false,
+      controls: true,
+      controlsText: ["", ""],
+      nav: false,
+      mouseDrag: true,
+      gutter: 24,
+      responsive: {
+        0: { items: 2 },
+        640: { items: 3 },
+        1024: { items: 5 }
+      }
+    });
+  });
+</script>
 
 
 
 <style>
-
-{*
-  #subcategories li {
-    max-width: 215px;
-  }
-
-  #subcategories img {
-    border-radius: 15px;
-  }
-  #subcategories h2 a:hover {
-    color: #111827;
-    text-decoration: none;
-  }  
-  #subcategories .list-disc {
-    clear: both;
-    display: block;
-    width: 100%;
-    margin-bottom: 0;
-    margin-top: 1rem;
-  }
-
-  #subcategories ul {
-    justify-content: space-between;
-  }
-
-  #subcategories ul.list-disc li {
-    text-align: left;
-    margin-bottom: 4px !important;
-    margin-top: 0 !important;
-  }
-*}
   
   #subcategories_custom ul li a:hover {
     color: #155585;
   }
+  
+  .tns-controls {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    z-index: 10;
+    margin-top: 0;
+    display: flex;
+    gap: 0.5rem;
+    pointer-events: all;
+  }
+
+  .tns-controls button {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 9999px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+  }
+
+  .tns-controls button:hover {
+    background-color: #f8fafc;
+  }
+
+  .tns-controls button:before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .tns-controls [data-controls="prev"]:before {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/></svg>");
+  }
+
+  .tns-controls [data-controls="next"]:before {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z'/></svg>");
+  }
+
+  /* Dots pagination */
+  .tns-nav {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .tns-nav button {
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background-color: #d1d5db;
+    border: none;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .tns-nav button.tns-nav-active {
+    background-color: #1f2937;
+  }
+  
 </style>
-
-
 
 
 {*
