@@ -19,7 +19,7 @@
       <section class="form-fields w-full">
 
         <div class="flex flex-col mb-6 mt-4">
-          <label class="text-left font-bold text-base required after:content-['*'] after:ml-0.5 after:text-red-500" for="id_contact">{l s='Objet de la demande' d='Modules.Contactform.Shop'}</label>
+          <label class="text-left font-bold text-base required after:content-['*'] after:ml-0.5 after:text-red-500" for="id_contact">{l s='Objet de la demande' d='Modules.Contactform.Shop'}*</label>
           <div class="js-input-column">
             <select name="id_contact" id="id_contact" class="w-100 sm:w-full border border-gray-300 rounded-md px-4 text-base focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-white">
               {foreach from=$contact.contacts item=contact_elt}
@@ -30,14 +30,14 @@
         </div>
 
         <div class="flex flex-col mb-6 mt-4">
-          <label class="text-left font-bold text-base required after:content-['*'] after:ml-0.5 after:text-red-500" for="name">{l s='Nom' d='Modules.Contactform.Shop'}</label>
+          <label class="text-left font-bold text-base required after:content-['*'] after:ml-0.5 after:text-red-500" for="name">{l s='Nom' d='Modules.Contactform.Shop'}*</label>
           <div class="js-input-column">
             <input type="text" id="name" name="name" class="w-100 sm:w-full border border-gray-300 rounded-md px-4 py-2 text-base h-12 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" required />
           </div>
         </div>
 
         <div class="flex flex-col mb-6 mt-4">
-          <label class="text-left font-bold text-base required after:content-['*'] after:ml-0.5 after:text-red-500" for="email">{l s='Adresse email' d='Modules.Contactform.Shop'}</label>
+          <label class="text-left font-bold text-base required after:content-['*'] after:ml-0.5 after:text-red-500" for="email">{l s='Adresse email' d='Modules.Contactform.Shop'}*</label>
           <div class="js-input-column">
             <input type="email" id="email" name="from" class="w-100 sm:w-full border border-gray-300 rounded-md px-4 py-2 text-base h-12 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" value="{$contact.email|escape:'htmlall':'UTF-8'}" required />
           </div>
@@ -45,9 +45,9 @@
 
         {if $contact.orders}
           <div class="flex flex-col mb-6 mt-4">
-            <label class="text-left font-bold text-base required after:content-['*'] after:ml-0.5 after:text-red-500" for="id_order">{l s='Référence commande' d='Modules.Contactform.Shop'}</label>
+            <label class="text-left font-bold text-base required after:content-['*'] after:ml-0.5 after:text-red-500" for="id_order">{l s='Référence commande' d='Modules.Contactform.Shop'}<span class="text-gray-700 font-normal ml-1.5 text-sm">({l s='optionnel' d='Modules.Contactform.Shop'})</span></label>
             <div class="js-input-column">
-              <select name="id_order" id="id_order" class="w-100 sm:w-full border border-gray-300 rounded-md px-4 py-4 text-base h-12 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-white" required>
+              <select name="id_order" id="id_order" class="w-100 sm:w-full border border-gray-300 rounded-md px-4 py-4 text-base h-12 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-white">
                 <option value="" disabled selected class="text-gray-500">{l s='Sélectionnez une référence' d='Modules.Contactform.Shop'}</option>
                 {foreach from=$contact.orders item=order}
                   <option value="{$order.id_order|escape:'htmlall':'UTF-8'}" class="text-black">{$order.reference|escape:'htmlall':'UTF-8'}</option>

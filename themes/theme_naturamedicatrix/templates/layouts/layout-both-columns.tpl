@@ -63,22 +63,32 @@
            {/block} *}
  
            <div class="row">
-             {block name="left_column"}
-               <div id="left-column" class="col-xs-12 col-md-4 col-lg-3 hidden md:block">
-                 {block name="filter_column"}
-                  {include file="catalog/_partials/sort-orders.tpl"}
-                 {/block}
-                 
-                 {if $page.page_name == 'product'}
-                   {hook h='displayLeftColumnProduct' product=$product category=$category}
-                 {else}
-                   {hook h="displayLeftColumn"}
-                 {/if}
-               </div>
-             {/block}
- 
+             {* Détection mobile/desktop *}
+             {assign var="isMobile" value=false}
+             {if isset($smarty.server.HTTP_USER_AGENT) && (strpos($smarty.server.HTTP_USER_AGENT, 'Mobile') !== false || strpos($smarty.server.HTTP_USER_AGENT, 'Android') !== false || strpos($smarty.server.HTTP_USER_AGENT, 'iPhone') !== false)}
+               {assign var="isMobile" value=true}
+             {/if}
+
+             {* Sidebar gauche - uniquement sur desktop *}
+             {if !$isMobile}
+               {block name="left_column"}
+                 <div id="left-column" class="col-xs-12 col-md-4 col-lg-3">
+                   {block name="filter_column"}
+                    {include file="catalog/_partials/sort-orders.tpl"}
+                   {/block}
+                   
+                   {if $page.page_name == 'product'}
+                     {hook h='displayLeftColumnProduct' product=$product category=$category}
+                   {else}
+                     {hook h="displayLeftColumn"}
+                   {/if}
+                 </div>
+               {/block}
+             {/if}
+
+             {* Contenu principal - largeur adaptée selon mobile/desktop *}
              {block name="content_wrapper"}
-               <div id="content-wrapper" class="js-content-wrapper left-column right-column col-md-4 col-lg-3">
+               <div id="content-wrapper" class="js-content-wrapper {if $isMobile}col-xs-12{else}left-column right-column col-md-8 col-lg-9{/if}">
                  {hook h="displayContentWrapperTop"}
                  {block name="content"}
                    <p>Hello world! This is HTML5 Boilerplate.</p>
@@ -86,7 +96,7 @@
                  {hook h="displayContentWrapperBottom"}
                </div>
              {/block}
- 
+
              {block name="right_column"}
                <div id="right-column" class="col-xs-12 col-md-4 col-lg-3">
                  {if $page.page_name == 'product'}

@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const translations = {
     relayTitle: '{l s='Point Relais' d='Shop.Theme.Checkout' js=1}',
     homeTitle: '{l s='Domicile' d='Shop.Theme.Checkout' js=1}',
-    relayRemaining: '{l s='%amount% pour livraison Point Relais offerte' d='Shop.Theme.Checkout' js=1}',
-    homeRemaining: '{l s='%amount% pour livraison domicile offerte' d='Shop.Theme.Checkout' js=1}',
-    relaySuccess: '{l s='Livraison Point Relais offerte !' d='Shop.Theme.Checkout' js=1}',
-    homeSuccess: '{l s='Livraison domicile offerte !' d='Shop.Theme.Checkout' js=1}',
+    relayRemaining: '{l s='%amount% pour livraison en Point Relais offerte' d='Shop.Theme.Checkout' js=1}',
+    homeRemaining: '{l s='%amount% pour livraison à domicile offerte' d='Shop.Theme.Checkout' js=1}',
+    relaySuccess: '{l s='Livraison en Point Relais offerte !' d='Shop.Theme.Checkout' js=1}',
+    homeSuccess: '{l s='Livraison à domicile offerte !' d='Shop.Theme.Checkout' js=1}',
     bothSuccess: '{l s='Livraison offerte !' d='Shop.Theme.Checkout' js=1}',
     freeShipping: '{l s='Livraison offerte' d='Shop.Theme.Checkout' js=1}',
     relayPrice: '{l s='35€ Point Relais' d='Shop.Theme.Checkout' js=1}',
@@ -236,9 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateHandler();
           }
         }
-      } catch (e) {
-        // Ignore les erreurs
-      }
+      } catch (e) {}
     }, 1000); // Vérification toutes les secondes
   }
 });

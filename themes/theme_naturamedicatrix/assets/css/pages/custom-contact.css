@@ -296,6 +296,9 @@ body#contact #wrapper .contact-form form #id_contact {
   padding-top: 12px !important;
   padding-bottom: 12px !important;
 }
+body#contact #wrapper .contact-form form .text-green-700 ul {
+  list-style: none !important;
+}
 body#contact .section-therap a {
   border-bottom: none !important;
   color: #4B5563;
