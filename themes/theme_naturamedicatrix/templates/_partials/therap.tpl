@@ -1,4 +1,4 @@
-<div class="{if $page.page_name != 'contact'}bg-wrapper py-24 sm:py-32{/if}">
+<div class="{if $page.page_name != 'contact'}bg-wrapper py-24 sm:py-32{/if}" id="therap">
   <div class="mx-auto section-therap{if $page.page_name != 'contact'} grid gap-x-20 xl:grid-cols-3 items-center container{/if}">
     <!-- Intro -->
     <div class="max-w-xl{if $page.page_name == 'contact'} mx-auto w-full text-center mb-8{/if}">
@@ -14,18 +14,18 @@
     <!-- Liste des scientifiques -->
     <ul role="list" class="list-none grid gap-x-8 gap-y-12 sm:gap-y-16 xl:col-span-2 mb-0 pl-0{if $page.page_name != 'contact'} sm:grid-cols-2{else} grid-cols-1 lg:grid-cols-2{/if}">
       <!-- Anthony -->
-      <li class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-0">
-        <div class="flex items-center gap-x-6 mb-4">
+      <li class="list-none bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-0">
+        <div class="flex items-center gap-x-6 mb-0">
           <img class="size-16 w-24 rounded-full object-cover" src="{$urls.child_img_url}therapeutes/anthony_96.jpg" alt="Anthony-Damien Désirée" />
           <div>
-            <h4 class="text-base font-semibold text-gray-900">Anthony-Damien Désirée<small>, PhD</small></h4>
-            <p class="text-xs text-gray-600">
+            <h4 class="text-base font-semibold text-gray-900 mt-0">Anthony-Damien Désirée<small>, PhD</small></h4>
+            <p class="text-xs text-gray-600 mb-0">
               Doctorat en Biologie, Biochimie et Physiologie de la Nutrition<br/>
               Université de Bourgogne (France)
             </p>
           </div>
         </div>
-        <hr />
+        <hr class="my-2" />
         <p class="text-xs text-gray-500 pb-1.5 mb-0"><i class="bi bi-clock me-1 text-primary"></i> Lundi au vendredi · 14h00 – 16h30</p>
         <div class="flex items-center gap-4 text-sm font-semibold text-gray-900">
           <a href="tel:+33366880234" class="no-underline hover:text-primary flex items-center gap-1">
@@ -44,19 +44,19 @@
       </li>
 
       <!-- Fabien -->
-      <li class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-0">
-        <div class="flex items-center gap-x-6 mb-4">
+      <li class="list-none bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-0">
+        <div class="flex items-center gap-x-6 mb-0">
           <img class="size-16 w-24 rounded-full object-cover" src="{$urls.child_img_url}therapeutes/fabien_96.jpg" alt="Fabien Piasco" />
           <div>
-            <h4 class="text-base font-semibold text-gray-900">Fabien Piasco</h4>
-            <p class="text-xs text-gray-600">
+            <h4 class="text-base font-semibold text-gray-900 mt-0">Fabien Piasco</h4>
+            <p class="text-xs text-gray-600 mb-0">
               D.E.S.S. Nutrition, U. Laval (Canada)<br/>
               D.U. Nutrition et maladies métaboliques – U. Rennes I<br/>
               Diététicien D.E. – Diplômé en neuro-nutrition (SiiN)
             </p>
           </div>
         </div>
-        <hr/>
+        <hr class="my-2" />
         <p class="text-xs text-gray-500 pb-1.5 mb-0"><i class="bi bi-clock me-1 text-primary"></i> Mar : 14h–19h · Jeu : 9h–12h / 13h–19h · Ven : 9h–12h</p>
         <div class="flex items-center gap-4 text-sm font-semibold text-gray-900">
           <a href="tel:+33485440124" class="no-underline hover:text-primary flex items-center gap-1">
@@ -72,3 +72,11 @@
     </ul>
   </div>
 </div>
+
+
+<style>
+    #therap .text-xs {
+      font-size: .75rem !important;
+      line-height: 1rem !important;
+    }
+</style>

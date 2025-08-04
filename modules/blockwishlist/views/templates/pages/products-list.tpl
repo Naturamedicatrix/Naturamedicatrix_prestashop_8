@@ -29,7 +29,7 @@
 
 {block name='page_content_container'}
   <div
-    class="wishlist-products-container ttt"
+    class="wishlist-products-container"
     data-url="{$url}"
     data-list-id="{$id}"
     data-default-sort="{l s='Last added' d='Modules.Blockwishlist.Shop'}"

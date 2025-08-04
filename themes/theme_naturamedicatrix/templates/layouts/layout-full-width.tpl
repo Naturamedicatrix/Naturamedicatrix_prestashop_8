@@ -22,26 +22,18 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-{extends file='page.tpl'}
+{extends file='layouts/layout-both-columns.tpl'}
 
-{block name='notifications'}{/block}
+{block name='left_column'}{/block}
+{block name='right_column'}{/block}
 
-{block name='page_content_container'}
-  <section id="content" class="page-content">
-    {block name='page_content_top'}
-      {block name='customer_notifications'}
-        {include file='_partials/notifications.tpl'}
-      {/block}
+{block name='content_wrapper'}
+  <div id="content-wrapper" class="js-content-wrapper col-xs-12{if $page.page_name == 'module-psgdpr-gdpr' || $page.page_name == 'module-blockwishlist-lists'} col-md-8 col-lg-8{/if}">
+    
+    {hook h="displayContentWrapperTop"}
+    {block name='content'}
+      <p>Hello world! This is HTML5 Boilerplate.</p>
     {/block}
-    {block name='page_content'}
-      <!-- Page content -->
-    {/block}
-    </div>
-  </section>
-{/block}
-
-{block name='page_footer'}
-  {* {block name='my_account_links'}
-    {include file='customer/_partials/my-account-links.tpl'}
-  {/block} *}
+    {hook h="displayContentWrapperBottom"}
+  </div>
 {/block}

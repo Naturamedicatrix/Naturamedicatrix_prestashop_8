@@ -1,5 +1,5 @@
 {* PARTIAL: Left Column for Account Pages *}
-<div id="left-column" class="left-column-content col-xs-12 col-md-4 col-lg-3">
+<div id="left-column" class="left-column-content col-xs-12 col-md-4 col-lg-4">
   <div class="account-list">
     <div class="customer-info">
       <h3>{$customer.firstname} {$customer.lastname}</h3>

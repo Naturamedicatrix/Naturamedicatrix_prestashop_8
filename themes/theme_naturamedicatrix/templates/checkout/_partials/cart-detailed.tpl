@@ -22,26 +22,30 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-{extends file='page.tpl'}
-
-{block name='notifications'}{/block}
-
-{block name='page_content_container'}
-  <section id="content" class="page-content">
-    {block name='page_content_top'}
-      {block name='customer_notifications'}
-        {include file='_partials/notifications.tpl'}
-      {/block}
-    {/block}
-    {block name='page_content'}
-      <!-- Page content -->
-    {/block}
-    </div>
-  </section>
-{/block}
-
-{block name='page_footer'}
-  {* {block name='my_account_links'}
-    {include file='customer/_partials/my-account-links.tpl'}
-  {/block} *}
+{block name='cart_detailed_product'}
+  <div class="cart-overview js-cart" data-refresh-url="{url entity='cart' params=['ajax' => true, 'action' => 'refresh']}">
+    {if $cart.products}
+    <ul class="cart-items">
+      {foreach from=$cart.products item=product}
+        <li class="cart-item list-none">
+          {block name='cart_detailed_product_line'}
+            {include file='checkout/_partials/cart-detailed-product-line.tpl' product=$product}
+          {/block}
+        </li>
+        {if is_array($product.customizations) && $product.customizations|count >1}<hr>{/if}
+      {/foreach}
+    </ul>
+    {else}
+      <div class="text-center py-12">
+        <div class="mb-4">
+          <i class="bi bi-handbag icon-special text-6xl text-gray-900"></i>
+        </div>
+        <p class="no-items text-3xl font-semibold text-gray-900">{l s='Your cart is empty' d='Shop.Theme.Checkout'}</p>
+                
+        {include file='customer/_partials/recent-orders.tpl'}
+                
+      </div>
+      
+    {/if}
+  </div>
 {/block}

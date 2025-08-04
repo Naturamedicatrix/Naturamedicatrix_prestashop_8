@@ -1435,6 +1435,12 @@ body#index #content {
   top: -5px;
   right: -5px;
 }
+.icon-special.text-6xl:after {
+  top: -10px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+}
 
 .color-title {
   color: #111827 !important;
@@ -2682,4 +2688,8 @@ kbd {
 .block-category .block-category-inner #category-description strong {
   font-weight: 900;
   color: inherit;
+}
+
+#blockcart-modal .product-image {
+  height: auto;
 }

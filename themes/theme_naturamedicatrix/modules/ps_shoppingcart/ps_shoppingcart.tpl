@@ -118,7 +118,7 @@
             <!-- Panier vide -->
             <div class="empty-cart">
               <div class="empty-cart-icon">
-                <i class="bi bi-handbag"></i>
+                <i class="bi bi-handbag icon-special text-6xl text-gray-900"></i>
               </div>
               <div class="empty-cart-text">
                 {l s='Your shopping cart is empty' d='Shop.Theme.Checkout'}

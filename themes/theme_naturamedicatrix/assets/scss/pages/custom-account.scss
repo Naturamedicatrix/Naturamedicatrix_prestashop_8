@@ -1,41 +1,40 @@
 @use "../variables" as *;
 @use 'sass:color';
 
-/** === PAGE MON COMPTE === */
+/** === PAGES MON COMPTE === */
+
+// Variables communes pour les pages de compte
+$account-pages: "#my-account, #identity, #addresses, #history, #order-slip, #module-blockwishlist-lists, #view, #module-blockwishlist-view, #module-psgdpr-gdpr, #address, #module-ps_emailalerts-account, #discount";
+
+/* === PAGE MON COMPTE PRINCIPALE === */
 body#my-account {
     .page-header h1 {
-       text-align: center !important;
-    }   
+        text-align: center !important;
+    }
 }
 
-/* Styles spécifiques pour la page RGPD et la page des listes d'envies */
-body#module-psgdpr-gdpr, body#module-blockwishlist-lists, body#view, body#module-ps_emailalerts-account {
+/* === PAGES SPÉCIALES (RGPD, WISHLIST, ALERTES) === */
+body#module-psgdpr-gdpr,
+body#module-blockwishlist-lists,
+body#view,
+body#module-ps_emailalerts-account {
     #content-wrapper {
         min-height: auto !important;
-    }
-    #main {
-        min-height: 130vh !important;
-
-        @media (max-width: $breakpoint-sm) {
-            min-height: 300px !important;
-        }
-    }
-
-    
-    /* Ajustement de la largeur du contenu principal pour compenser */
-    #content-wrapper {
-        @media (min-width: 767px) {
-            width: 75%;
-            flex: 0 0 75%;
-            max-width: 75%;
-        }
         
         @media (max-width: $breakpoint-sm) {
             width: 95% !important;
         }
     }
     
-    /* Styles spécifiques pour la page de contenu RGPD */
+    #main {
+        min-height: 130vh !important;
+        
+        @media (max-width: $breakpoint-sm) {
+            min-height: 300px !important;
+        }
+    }
+    
+    /* Styles spécifiques pour la page RGPD */
     .page_content {
         @media (max-width: $breakpoint-sm) {
             .col-xs-12 {
@@ -72,23 +71,43 @@ body#module-psgdpr-gdpr, body#module-blockwishlist-lists, body#view, body#module
     }
 }
 
-body#my-account, body#identity, body#addresses, body#history, body#order-slip, body#module-blockwishlist-lists, body#view, body#module-blockwishlist-view, body#module-psgdpr-gdpr, body#address, body#module-ps_emailalerts-account, body#discount {
+/* === STYLES COMMUNS POUR TOUTES LES PAGES DE COMPTE === */
+body#my-account,
+body#identity,
+body#addresses,
+body#history,
+body#order-slip,
+body#module-blockwishlist-lists,
+body#view,
+body#module-blockwishlist-view,
+body#module-psgdpr-gdpr,
+body#address,
+body#module-ps_emailalerts-account,
+body#discount {
+    
     #wrapper {
-
-            @media (max-width: 767px) {
-                background: $color-custom-white;
+        @media (max-width: 767px) {
+            background: $color-custom-white;
+        }
+        
+        .row {
+            @media (max-width: $breakpoint-sm) {
+                background-color: $color-custom-bgWrapper;
             }
-            .row {
-                @media (max-width: $breakpoint-sm) {
-                    background-color: $color-custom-bgWrapper;
-                }
-            }
+        }
     }
+
+    #content-wrapper {
+        padding-left: 0 !important;
+    }
+    
     #left-column {
         margin-top: 0;
+        padding-right: 70px !important;
     }
+    
     #main {
-        padding: 50px;
+        padding: 50px 0 50px 70px;
         min-height: 1200px;
         
         @media (max-width: 767px) {
@@ -101,80 +120,78 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
             min-height: 100px;
         }
     }
-
-
+    
     #content {
         padding: 0 !important;
+        
         @media (max-width: $breakpoint-sm) {
             padding: 0 30px !important;
-            
         }
     }
-
+    
     #content-wrapper {
         min-height: 113vh !important;
-
+        
         @media (max-width: 1250px) {
             padding-left: 0 !important;
         }
+        
         @media (max-width: $breakpoint-sm) {
             padding: 0;
         }
     }
-
+    
     .psgdprinfo17 {
         background-color: transparent;
     }
-
+    
     .alert {
         margin-left: 0;
         display: inline-block;
         padding: .75rem 3.25rem;
-
+        
         @media (max-width: $breakpoint-sm) {
             padding: .75rem 1.25rem;
             width: 100%;
         }
     }
-
-    // Masque les requierements pour le mot de passe actuel (page identity)
+    
+    // Masque les requirements pour le mot de passe actuel (page identity)
     .identity-section .field-password-policy:first-of-type .password-strength-feedback {
         display: none !important;
     }
-
+    
     .address-body {
         padding: 0;
-
+        
         address {
             min-height: auto;
         }
     }
-
+    
     .address-footer {
         padding: 10px 0 0 0;
         border-top: none;
-
+        
         a {
             text-decoration: none;
         }
-
     }
-
+    
     h1, h2 {
         text-align: left !important;
         margin: 0 !important;
         padding-bottom: 10px;
         padding-top: 70px;
         font-size: 2rem;
-
+        
         @media (max-width: $breakpoint-sm) {
             padding-top: 15px;
             padding-bottom: 5px !important;
             font-size: 1.5rem;
-            // text-align: center !important;
         }
-     }
-
+    }
+    
     .breadcrumb {
         display: none;
     }
@@ -612,58 +629,69 @@ body#my-account, body#identity, body#addresses, body#history, body#order-slip, b
             width: 100% !important;
         }
     }
+
+    .page-footer {
+        margin-bottom: 0;
+    }
 }
 
 
-/* STYLE POUR LE MODULE LISTE DES ENVIES / GDPR */
-body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view, body#module-ps_emailalerts-account {
-
-    #main {
-        padding: 70px 100px;
+/* === STYLES POUR LES MODULES WISHLIST ET GDPR === */
+body#module-blockwishlist-lists,
+body#module-psgdpr-gdpr,
+body#view,
+body#module-ps_emailalerts-account {
+    
+    #main {        
         @media (max-width: $breakpoint-sm) {
             padding: 0;
         }
     }
     
     #content-wrapper {
-       padding-left: 0;
+        padding-left: 0;
         
         @media (max-width: 767px) {
             width: 100%;
         }
-            
-        }
+    }
+    
     .wishlist-container {
         padding-top: 70px;
+        
         @media (max-width: $breakpoint-sm) {
             padding-top: 30px;
             position: relative;
             left: 50%;
             transform: translateX(-47%);
         }
-
+        
         .card.page-content {
             border: none;
             box-shadow: none;
         }
     }
+    
     .wishlist-list {
         padding-left: 0;
+        
         i {
             color: $color-custom-gray;
         }
     }
-    .wishlist-list-item-default, .wishlist-list-item {
+    
+    .wishlist-list-item-default,
+    .wishlist-list-item {
         border-bottom: none;
         list-style: none;
     }
-
+    
     .wishlist-add-to-new {
         @media (max-width: $breakpoint-sm) {
             width: 100%;
         }
     }
-
+    
     .wishlist-list-item-link {
         border-bottom: 1px solid $color-custom-grayLight;
         text-decoration: none !important;
@@ -671,23 +699,24 @@ body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view, body#module
         &:hover {
             border-bottom: 1px solid $color-custom-black !important;
         }
-
+        
         .wishlist-list-item-title {
             color: $color-custom-gray !important;
         }
     }
-
+    
     a.text-primary {
         &:hover {
             color: $color-custom-white !important;
             opacity: 1;
         }
     }
-
+    
     .modal-footer {
         @media (max-width: $breakpoint-sm) {
             text-align: center;
         }
+        
         button {
             @media (max-width: $breakpoint-sm) {
                 width: 100%;
@@ -696,69 +725,7 @@ body#module-blockwishlist-lists, body#module-psgdpr-gdpr, body#view, body#module
     }
 }
 
-body#view {
-    #content {
-        border: none;
-        box-shadow: none;
 
-        @media (max-width: $breakpoint-sm) {
-            padding-left: 15px !important;
-            padding-right: 15px !important;
-        }
-
-        .wishlist-products-item {
-            border: 1px solid #e5e8ea;
-            border-radius: 10px;
-            padding: 20px;
-            list-style: none;
-
-            .wishlist-product {
-                a {
-                    border-bottom: none;
-                    text-decoration: none !important;
-                }
-            }
-        }
-    }
-
-    .wishlist-products-container-header {
-        justify-content: space-around;
-        margin-bottom: 0;
-    }
-
-    .wishlist-products-container .sort-by-row {
-        padding-top: 70px;
-        @media (max-width: $breakpoint-sm) {
-            padding-top: 25px;
-        }
-        
-    }
-
-    .products-sort-order {
-        @media (max-width: $breakpoint-sm) {
-            margin-left: 35px;
-        }
-    }
-    .products-sort-order .select-title {
-        color: $color-custom-black;
-        font-size: .9rem;
-        padding: .3rem;
-        border-bottom: none;
-    }
-
-    .dropdown-menu {
-        background-color: $color-custom-white;
-    }
-
-    .dropdown-menu a {
-        font-size: .9rem;
-        &:hover {
-            background-color: $color-custom-green !important;
-            color: white;
-        }
-    }
-}
-// END STYLE POUR LE MODULE LISTE DES ENVIES
 
 // STYLE POUR LA PAGE IDENTITE
 body#identity {
@@ -797,61 +764,34 @@ body#identity {
 // END STYLE POUR LA PAGE IDENTITE
 
 
-//Nouvelle adresse 
+/* === PAGE NOUVELLE ADRESSE === */
 body#address {
     .form-footer {
-     padding-left: 0;   
+        padding-left: 0;
     }
 }
 
 
-// LISTE DES PRODUITS DANS LES ENVIES
-body#view {
-    #content-wrapper {
-        width: 65%;
-        @media (max-width: $breakpoint-sm) {
-            width: 100%;
-            margin-top: 30px;
-        }
+/* === STYLES GLOBAUX POUR LES TITRES ET MAIN === */
+body#my-account,
+body#identity,
+body#addresses,
+body#history,
+body#order-slip,
+body#module-blockwishlist-lists,
+body#view,
+body#module-blockwishlist-view,
+body#module-psgdpr-gdpr,
+body#address,
+body#discount {
+    
+    h1, h2 {
+        padding-bottom: 10px;
     }
-
-    .wishlist-button-add {
-        i {
-            color: $color-custom-gray !important;
-        }
-        @media (max-width: $breakpoint-md) {
-            position: absolute;
-            top: 0;
-        }
+    
+    #main {
+        padding-top: 0;
     }
-
-    .wishlist-product-title {
-        color: $color-custom-black;
-        font-size: 1rem;
-        font-weight: 300;
-        border: none;
-        line-height: 1;
-        text-align: center;
-
-        @media (max-width: $breakpoint-md) {
-            text-align: left;
-        }
-    }
-
-    .wishlist-product-combinations {
-        i {
-            display: none;
-        }
-    }
-}
-
-
-body#my-account h1, body#my-account h2, body#identity h1, body#identity h2, body#addresses h1, body#addresses h2, body#history h1, body#history h2, body#order-slip h1, body#order-slip h2, body#module-blockwishlist-lists h1, body#module-blockwishlist-lists h2, body#view h1, body#view h2, body#module-blockwishlist-view h1, body#module-blockwishlist-view h2, body#module-psgdpr-gdpr h1, body#module-psgdpr-gdpr h2, body#address h1, body#address h2, body#discount h1, body#discount h2 {
-    padding-bottom: 10px;
-}
-
-body#my-account #main, body#identity #main, body#addresses #main, body#history #main, body#order-slip #main, body#module-blockwishlist-lists #main, body#view #main, body#module-blockwishlist-view #main, body#module-psgdpr-gdpr #main, body#address #main, body#discount #main {
-    padding-top: 0;
 }
 
 .page-addresses .addresses-footer a span {
@@ -917,29 +857,136 @@ body#module-ps_emailalerts-account {
 }
 
 
+/* === STYLES SPÉCIFIQUES POUR LA PAGE GDPR === */
 #module-psgdpr-gdpr #main {
     @media (max-width: $breakpoint-sm) {
         padding-left: 15px !important;
         padding-right: 15px !important;
         margin-top: 30px;
     }
+    
     #content-wrapper {
         @media (max-width: $breakpoint-sm) {
             margin-left: 10px;
             margin-right: 10px;
         }
     }
-
+    
     .page_content .psgdprinfo17 {
         @media (max-width: $breakpoint-sm) {
             padding: 15px 25px !important;
         }
     }
-
+    
     .psgdprgetdatabtn17 {
         @media (max-width: $breakpoint-sm) {
             width: 100% !important;
             margin: 0 !important;
+        }
+    }
+}
+
+/* === STYLES SPÉCIFIQUES POUR LA PAGE WISHLIST VIEW === */
+body#view {
+    #content {
+        border: none;
+        box-shadow: none;
+        
+        @media (max-width: $breakpoint-sm) {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+        
+        .wishlist-products-item {
+            border: 1px solid #e5e8ea;
+            border-radius: 10px;
+            padding: 20px;
+            list-style: none;
+            
+            .wishlist-product {
+                a {
+                    border-bottom: none;
+                    text-decoration: none !important;
+                }
+            }
+        }
+    }
+    
+    #content-wrapper {
+        width: 65%;
+        
+        @media (max-width: $breakpoint-sm) {
+            width: 100%;
+            margin-top: 30px;
+        }
+    }
+    
+    .wishlist-products-container-header {
+        justify-content: space-around;
+        margin-bottom: 0;
+    }
+    
+    .wishlist-products-container .sort-by-row {
+        padding-top: 70px;
+        
+        @media (max-width: $breakpoint-sm) {
+            padding-top: 25px;
+        }
+    }
+    
+    .products-sort-order {
+        @media (max-width: $breakpoint-sm) {
+            margin-left: 35px;
+        }
+        
+        .select-title {
+            color: $color-custom-black;
+            font-size: .9rem;
+            padding: .3rem;
+            border-bottom: none;
+        }
+    }
+    
+    .dropdown-menu {
+        background-color: $color-custom-white;
+        
+        a {
+            font-size: .9rem;
+            
+            &:hover {
+                background-color: $color-custom-green !important;
+                color: white;
+            }
+        }
+    }
+    
+    .wishlist-button-add {
+        i {
+            color: $color-custom-gray !important;
+        }
+        
+        @media (max-width: $breakpoint-md) {
+            position: absolute;
+            top: 0;
+        }
+    }
+    
+    .wishlist-product-title {
+        color: $color-custom-black;
+        font-size: 1rem;
+        font-weight: 300;
+        border: none;
+        line-height: 1;
+        text-align: center;
+        
+        @media (max-width: $breakpoint-md) {
+            text-align: left;
+        }
+    }
+    
+    .wishlist-product-combinations {
+        i {
+            display: none;
         }
     }
 }
