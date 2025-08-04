@@ -44,7 +44,7 @@
   <div class="product-filter-buttons text-center mt-4 mb-8">
     <a href="{$allProductsLink}" class="btn btn-light active" data-filter="populaires">Populaires</a>
     <a href="{$urls.pages.prices_drop}" class="btn btn-light" data-filter="promotions">Promotions</a>
-    <a href="{$urls.pages.new_products}" class="btn btn-light" data-filter="nouveautes">Nouveautés</a>
+    <a href="{$link->getCategoryLink(22)}" class="btn btn-light" data-filter="nouveautes">Nouveautés</a>
   </div>
   {include file="catalog/_partials/productlist.tpl" products=$products cssClass="row" productClass=" " isAllProducts=true}
 </section>

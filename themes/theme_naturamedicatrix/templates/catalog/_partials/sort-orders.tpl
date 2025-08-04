@@ -4,7 +4,7 @@
 
 <div class="products-sort-order">
       <h6 class="sort-title">{l s='Sort by:' d='Shop.Theme.Global'}</h6>
-      <div class="sort-options hidden md:block border border-gray-200 md:border-none py-1.5 px-2.5 md:p-0">
+      <div class="sort-options hidden md:block border border-gray-200 md:border-none py-1.5 px-2.5 md:p-0 mt-4 md:mt-0">
         {foreach from=$listing.sort_orders item=sort_order}
           <div class="form-check">
             <input 
@@ -65,16 +65,13 @@
       }
       
       // Script pour fermer le tri quand on ouvre les filtres
-      // Détecter les clics sur les éléments qui ouvrent les filtres
       document.addEventListener('click', function(e) {
-        // Chercher si l'élément cliqué ou ses parents peuvent ouvrir des filtres
         const clickedElement = e.target;
         const isFilterTrigger = clickedElement.closest('.filter-product') || 
                                clickedElement.closest('[data-target*="filter"]') ||
                                clickedElement.matches('.filter-trigger, .filter-button, .filter-icon');
         
         if (isFilterTrigger) {
-          // Fermer le menu de tri
           const sortOptions = document.querySelectorAll('.top-products-filter .sort-options');
           sortOptions.forEach(function(option) {
             if (!option.classList.contains('hidden')) {
@@ -85,3 +82,16 @@
       });
     });
 </script>
+
+
+<style>
+    @media (max-width: 767px) {
+      .products-sort-order .sort-title {
+            text-align: right;
+        }
+        .sort-product i {
+            position: absolute;
+            right: 50px;
+        }
+    }
+</style>

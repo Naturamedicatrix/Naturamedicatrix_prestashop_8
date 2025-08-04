@@ -24,10 +24,6 @@
 {/if}
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
-
-
 <div class="bg-gray-50 bg-wrapper py-16 mt-20 mb-20">
   <div class="container mx-auto px-0 lg:px-8 overflow-hidden">
     
@@ -140,9 +136,9 @@
     tns({
       container: '.brands-slider',
       items: 5,
-      slideBy: 'page',
+      slideBy: 1,
       autoplay: true,
-      autoplayTimeout: 3000,
+      autoplayTimeout: 4000,
       autoplayHoverPause: true,
       autoplayButtonOutput: false,
       controls: true,
