@@ -1,15 +1,7 @@
 /* Custom CMS Styles */
-body#cms #main {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
-body#cms #main #content {
-  padding: 0 15px 50px;
-}
-body#cms #main #content p img {
-  margin: 0 auto;
+body#cms .page-content p {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 body.cms-id-7 .page-content {
@@ -118,5 +110,4 @@ body.cms-id-7 #main .subcategory-list h3 a:hover {
 
 .page-content.page-cms {
   text-align: left !important;
-  max-width: 960px !important;
 }

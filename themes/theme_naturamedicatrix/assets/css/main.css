@@ -4,11 +4,6 @@
 @import url("https://use.typekit.net/tdm0fzf.css");
 /* === PARTIALS/PAGES === */
 /* === Page des catégories et des marques === */
-body#category #wrapper p {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-bottom: 1rem;
-}
 body#category #js-product-list .page-not-found {
   position: relative;
 }
@@ -64,17 +59,9 @@ body#category #js-product-list #search_widget {
 }
 
 /* Custom CMS Styles */
-body#cms #main {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
-body#cms #main #content {
-  padding: 0 15px 50px;
-}
-body#cms #main #content p img {
-  margin: 0 auto;
+body#cms .page-content p {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 body.cms-id-7 .page-content {
@@ -183,7 +170,6 @@ body.cms-id-7 #main .subcategory-list h3 a:hover {
 
 .page-content.page-cms {
   text-align: left !important;
-  max-width: 960px !important;
 }
 
 body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper, body#module-ps_emailalerts-account #wrapper {
@@ -1315,11 +1301,11 @@ body #main {
   background-color: #FFFFFF;
 }
 
-body:not(#checkout):not(#cart) #content-wrapper {
+body:not(#checkout):not(#cart):not(#cms) #content-wrapper {
   min-height: 100vh;
 }
 @media (max-width: 768px) {
-  body:not(#checkout):not(#cart) #content-wrapper {
+  body:not(#checkout):not(#cart):not(#cms) #content-wrapper {
     min-height: auto;
   }
 }
@@ -1331,10 +1317,6 @@ body#category #content-wrapper {
   body#category #content-wrapper {
     min-height: auto !important;
   }
-}
-
-#main .page-content, #main .page-footer, #main .page-header {
-  margin-bottom: 0;
 }
 
 .page-header {
@@ -2695,4 +2677,9 @@ kbd {
   color: #4B5563 !important;
   background: #EDEFF1 !important;
   font-weight: 600 !important;
+}
+
+.block-category .block-category-inner #category-description strong {
+  font-weight: 900;
+  color: inherit;
 }

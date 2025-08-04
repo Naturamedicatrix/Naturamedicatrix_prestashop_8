@@ -22,8 +22,8 @@ class CategoryController extends CategoryControllerCore
             return $this->context->shop->theme->getLayoutRelativePathForPage('error');
         }
         
-        // Si c'est la catégorie "Principes actifs" (ID 25), utilise le layout sans colonne
-        if ($this->category->id == 25) {
+        // Si c'est la catégorie "Principes actifs" (ID 25) et Consultations nutrithérapeutiques (ID 43), utilise le layout sans colonne
+        if ($this->category->id == 25 || $this->category->id == 43) {
             return 'layouts/layout-full-width.tpl';
         }
         

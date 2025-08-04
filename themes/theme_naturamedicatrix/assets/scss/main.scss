@@ -39,7 +39,7 @@ body {
 
 }
 
-body:not(#checkout):not(#cart) #content-wrapper {
+body:not(#checkout):not(#cart):not(#cms) #content-wrapper {
   min-height: 100vh;
   @media (max-width: $breakpoint-md) {
     min-height: auto;
@@ -53,9 +53,6 @@ body#category #content-wrapper {
   }
 }
 
-#main .page-content, #main .page-footer, #main .page-header {
-  margin-bottom: 0;
-}
 
 .page-header {
   margin-top: 50px;
@@ -1452,4 +1449,11 @@ kbd {
     background: $color-custom-whiteDarker !important;
     font-weight: 600 !important;
   }
+}
+
+
+// CATEGORIES
+.block-category .block-category-inner #category-description strong {
+  font-weight: 900;
+  color: inherit;
 }
