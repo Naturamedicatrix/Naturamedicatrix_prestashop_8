@@ -22,144 +22,53 @@
   
 
   {if $orders}
-    <div class="space-y-6 mt-6">
-      {foreach from=$orders item=order}
-        <div class="bg-white border border-gray-200 rounded-lg p-6 flex flex-col md:flex-row justify-between items-start md:items-center">
-          
-          <div class="flex flex-col space-y-1 text-sm text-gray-900">
-            <div class="flex space-x-10">
-              <div>
-                <p class="text-xs text-gray-500 mb-0">{l s='Date placed' d='Shop.Theme.Customeraccount'}</p>
-                <p class="mb-0">{$order.details.order_date}</p>
-              </div>
-              <div>
-                <p class="text-xs text-gray-500 mb-0">{l s='Order number' d='Shop.Theme.Customeraccount'}</p>
-                <p class="font-medium text-brand mb-0">{$order.details.reference}</p>
-              </div>
-              <div>
-                <p class="text-xs text-gray-500 mb-0">{l s='Total amount' d='Shop.Theme.Customeraccount'}</p>
-                <p class="font-bold mb-0">{$order.totals.total.value}</p>
-              </div>
-            </div>
+  <div class="space-y-6 mt-6">
+    {foreach from=$orders item=order}
+      <div class="bg-white border border-gray-200 rounded-lg p-6 flex flex-col md:flex-row justify-between items-start md:items-center">
+
+        <!-- Blocs info à gauche -->
+        <div class="flex flex-wrap gap-6 text-sm text-gray-900 md:items-center">
+          <div class="w-24">
+            <p class="text-xs text-gray-500 mb-0">{l s='Date placed' d='Shop.Theme.Customeraccount'}</p>
+            <p class="mb-0">{$order.details.order_date}</p>
           </div>
 
-          <div class="flex space-x-6 mt-4 md:mt-0 items-center">
-            <a href="{$order.details.details_url}" class="px-4 py-2.5 text-sm font-medium text-gray-700 border border-gray-300 no-underline rounded-md hover:bg-gray-50">
-              {l s='Details' d='Shop.Theme.Customeraccount'}
-            </a>
+          <div class="w-28">
+            <p class="text-xs text-gray-500 mb-0">{l s='Order number' d='Shop.Theme.Customeraccount'}</p>
+            <p class="font-medium text-brand mb-0">{$order.details.reference}</p>
           </div>
-          
-       
-        
-        <div class="mt-4 w-full flex justify-between items-center border-t pt-4 text-sm text-gray-600">
-          <div class="flex items-center space-x-2">
-            <i class="bi bi-check-circle-fill text-green-500"></i>
-            <span>{$order.history.current.ostate_name} — {$order.details.order_date}</span>
+
+          <div class="w-20">
+            <p class="text-xs text-gray-500 mb-0">{l s='Total' d='Shop.Theme.Customeraccount'}</p>
+            <p class="font-bold mb-0">{$order.totals.total.value}</p>
           </div>
-          <div class="flex items-center space-x-4 text-indigo-600 font-medium">
-            {if $order.details.invoice_url}
-              <a href="{$order.details.invoice_url}" class="hover:underline">{l s='Invoice' d='Shop.Theme.Customeraccount'}</a>
-            {/if}
-            {if $order.details.reorder_url}
-              <a href="{$order.details.reorder_url}" class="hover:underline">{l s='Buy again' d='Shop.Theme.Actions'}</a>
-            {/if}
+
+          <div class="flex flex-wrap items-center leading-tight">
+            <span style="background: {$order.history.current.color}" class="px-2.5 py-0.5 rounded-sm font-semibold text-white">{$order.history.current.ostate_name}</span>
           </div>
         </div>
-      
-       </div>
-        
-      {/foreach}
-    </div>
-  {else}
-    <p class="text-gray-600 text-center mt-10">{l s='Vous n\'avez pas encore passé de commande.' d='Shop.Notifications.Warning'}</p>
-  {/if}
 
-  
-  
-  {if $orders}
-    <table class="table table-striped table-bordered table-labeled hidden-sm-down">
-      <thead class="thead-default">
-        <tr>
-          <th>{l s='Référence' d='Shop.Theme.Checkout'}</th>
-          <th>{l s='Date' d='Shop.Theme.Checkout'}</th>
-          <th>{l s='Prix total' d='Shop.Theme.Checkout'}</th>
-          <th class="hidden-md-down">{l s='Paiement' d='Shop.Theme.Checkout'}</th>
-          <th class="hidden-md-down">{l s='Statut' d='Shop.Theme.Checkout'}</th>
-          <th>{l s='Facture' d='Shop.Theme.Checkout'}</th>
-          <th>&nbsp;</th>
-        </tr>
-      </thead>
-      <tbody>
-        {foreach from=$orders item=order}
-          <tr>
-            <th scope="row">{$order.details.reference}</th>
-            <td>{$order.details.order_date}</td>
-            <td class="text-xs-right">{$order.totals.total.value}</td>
-            <td class="hidden-md-down">{$order.details.payment}</td>
-            <td>
-              <span
-                class="label label-pill {$order.history.current.contrast}"
-                style="background-color:{$order.history.current.color}"
-              >
-                {$order.history.current.ostate_name}
-              </span>
-            </td>
-            <td class="text-sm-center hidden-md-down">
-              {if $order.details.invoice_url}
-                <a href="{$order.details.invoice_url}"><i class="bi bi-file-earmark-text"></i></a>
-              {else}
-                -
-              {/if}
-            </td>
-            <td class="text-sm-center order-actions">
-              <a class="view-order-details-link" href="{$order.details.details_url}" data-link-action="view-order-details">
-                {l s='Détails' d='Shop.Theme.Customeraccount'}
-              </a>
-              {if $order.details.reorder_url}
-                <a class="reorder-link" href="{$order.details.reorder_url}">{l s='Commander à nouveau' d='Shop.Theme.Actions'}</a>
-              {/if}
-            </td>
-          </tr>
-        {/foreach}
-      </tbody>
-    </table>
-
-    <div class="orders hidden-md-up">
-      {foreach from=$orders item=order}
-        <div class="order">
-          <div class="row">
-            <div class="col-xs-10">
-              <a href="{$order.details.details_url}"><h3>{$order.details.reference}</h3></a>
-              <div class="date">{$order.details.order_date}</div>
-              <div class="total">{$order.totals.total.value}</div>
-              <div class="status">
-                <span
-                  class="label label-pill {$order.history.current.contrast}"
-                  style="background-color:{$order.history.current.color}"
-                >
-                  {$order.history.current.ostate_name}
-                </span>
-              </div>
-            </div>
-            <div class="col-xs-2 text-xs-right">
-                <div>
-                  <a href="{$order.details.details_url}" data-link-action="view-order-details" title="{l s='Détails' d='Shop.Theme.Customeraccount'}">
-                    <i class="bi bi-search"></i>
-                  </a>
-                </div>
-                {if $order.details.reorder_url}
-                  <div>
-                    <a href="{$order.details.reorder_url}" title="{l s='Commander à nouveau' d='Shop.Theme.Actions'}">
-                      <i class="bi bi-arrow-repeat"></i>
-                    </a>
-                  </div>
-                {/if}
-            </div>
-          </div>
+        <!-- Actions à droite -->
+        <div class="flex flex-wrap gap-4 mt-4 md:mt-0 text-indigo-600 font-medium items-center">
+          {if $order.details.invoice_url}
+            <a href="{$order.details.invoice_url}" class="hover:underline">{l s='Invoice' d='Shop.Theme.Customeraccount'}</a>
+          {/if}
+          {if $order.details.reorder_url}
+            <a href="{$order.details.reorder_url}" class="hover:underline">{l s='Buy again' d='Shop.Theme.Actions'}</a>
+          {/if}
+          <a href="{$order.details.details_url}" class="px-4 py-2.5 text-sm font-medium border border-gray-300 no-underline rounded-md hover:bg-gray-50" style="color:#374151;">
+            {l s='Details' d='Shop.Theme.Customeraccount'}
+          </a>
         </div>
-      {/foreach}
-    </div>
-  {else}
-    <div class="alert alert-info" role="alert" data-alert="info">{l s='Vous n\'avez pas encore passé de commande.' d='Shop.Notifications.Warning'}</div>
-  {/if}
+
+      </div>
+    {/foreach}
+  </div>
+{else}
+  <div class="alert alert-info" role="alert" data-alert="info">
+    {l s='You haven\'t placed any orders yet.' d='Shop.Notifications.Warning'}
+  </div>
+{/if}
+  
+  
 {/block}
