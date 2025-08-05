@@ -42,12 +42,16 @@
     <div class="direction" aria-label="{l s='Carousel buttons' d='Shop.Theme.Global'}">
       <a class="left carousel-control" href="#carousel" role="button" data-slide="prev" aria-label="{l s='Previous' d='Shop.Theme.Global'}">
         <span class="icon-prev hidden-xs" aria-hidden="true">
-        <i class="bi bi-caret-left-fill"></i>
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+            <path d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/>
+          </svg>
         </span>
       </a>
       <a class="right carousel-control" href="#carousel" role="button" data-slide="next" aria-label="{l s='Next' d='Shop.Theme.Global'}">
         <span class="icon-next" aria-hidden="true">
-        <i class="bi bi-caret-right-fill"></i>
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+            <path d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z'/>
+          </svg>
         </span>
       </a>
     </div>

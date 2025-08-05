@@ -40,7 +40,7 @@
 {block name='right_column'}{/block}
 
 {block name='content_wrapper'}
-  <div id="content-wrapper" class="js-content-wrapper {if $isMobile && !$needsSidebarOnMobile}col-xs-12{elseif $page.page_name == 'module-psgdpr-gdpr' || $page.page_name == 'module-blockwishlist-lists' || $page.page_name == 'order-detail'}col-xs-12 col-md-8 col-lg-8{else}col-xs-12{/if}">
+  <div id="content-wrapper" class="js-content-wrapper {if $isMobile && !$needsSidebarOnMobile}col-xs-12{elseif $page.page_name == 'module-psgdpr-gdpr' || $page.page_name == 'module-blockwishlist-lists' || $page.page_name == 'order-detail' || $page.page_name == 'module-ps_emailalerts-account'}col-xs-12 col-md-8 col-lg-8{else}col-xs-12{/if}">
     
     {hook h="displayContentWrapperTop"}
     {block name='content'}

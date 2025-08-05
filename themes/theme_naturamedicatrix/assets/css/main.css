@@ -1890,39 +1890,35 @@ table.table-light.text-center td, table.table-light.text-center th {
   margin-top: 0;
 }
 
-#carousel .direction .icon-next {
-  right: 22px;
+#carousel .direction .icon-next,
+#carousel .direction .icon-prev {
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  border-radius: 50%;
 }
-@media (max-width: 991px) {
+#carousel .direction .icon-next {
+  right: -12px;
+}
+@media (max-width: 1024px) {
   #carousel .direction .icon-next {
-    right: 0px;
+    right: 0;
   }
 }
 #carousel .direction .icon-prev {
-  left: -15px;
+  left: -12px;
 }
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
   #carousel .direction .icon-prev {
-    left: 0px;
+    left: 0;
   }
 }
-#carousel .direction i {
-  color: #111827;
-  background-color: #FFFFFF;
-  border-radius: 50%;
-  margin-right: 0;
-  font-size: 1.5rem;
-  padding: 20px 22px;
+#carousel .direction svg {
+  fill: rgb(42.025862069, 47.6293103448, 55.474137931);
 }
-@media (max-width: 991px) {
-  #carousel .direction i {
-    font-size: 1.1rem;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 5px;
-  }
-}
-#carousel .direction i:hover {
-  color: rgb(42.025862069, 47.6293103448, 55.474137931);
+#carousel .direction svg:hover {
+  fill: #4B5563;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
