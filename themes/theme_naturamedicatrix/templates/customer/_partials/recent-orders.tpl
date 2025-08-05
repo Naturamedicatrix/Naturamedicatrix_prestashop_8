@@ -5,6 +5,7 @@
   {if isset($orders) && count($orders) > 0}
     <div class="mx-auto mt-24">
       <p class="text-center text-gray-600 text-lg">{l s='Your last orders' d='Shop.Theme.Checkout'}&nbsp;:</p>
+      
       <div class="flex flex-nowrap justify-center gap-6">
         {foreach from=$orders item=order name=orderLoop}
           {if $smarty.foreach.orderLoop.index < 3}

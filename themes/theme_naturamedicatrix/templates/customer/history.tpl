@@ -18,7 +18,64 @@
 
 {block name='page_content'}
   <h1>{l s='Historique des commandes' d='Shop.Theme.Customeraccount'}</h1>
+  
+  
 
+  {if $orders}
+    <div class="space-y-6 mt-6">
+      {foreach from=$orders item=order}
+        <div class="bg-white border border-gray-200 rounded-lg p-6 flex flex-col md:flex-row justify-between items-start md:items-center">
+          
+          <div class="flex flex-col space-y-1 text-sm text-gray-900">
+            <div class="flex space-x-10">
+              <div>
+                <p class="text-xs text-gray-500 mb-0">{l s='Date placed' d='Shop.Theme.Customeraccount'}</p>
+                <p class="mb-0">{$order.details.order_date}</p>
+              </div>
+              <div>
+                <p class="text-xs text-gray-500 mb-0">{l s='Order number' d='Shop.Theme.Customeraccount'}</p>
+                <p class="font-medium text-brand mb-0">{$order.details.reference}</p>
+              </div>
+              <div>
+                <p class="text-xs text-gray-500 mb-0">{l s='Total amount' d='Shop.Theme.Customeraccount'}</p>
+                <p class="font-bold mb-0">{$order.totals.total.value}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex space-x-6 mt-4 md:mt-0 items-center">
+            <a href="{$order.details.details_url}" class="px-4 py-2.5 text-sm font-medium text-gray-700 border border-gray-300 no-underline rounded-md hover:bg-gray-50">
+              {l s='Details' d='Shop.Theme.Customeraccount'}
+            </a>
+          </div>
+          
+       
+        
+        <div class="mt-4 w-full flex justify-between items-center border-t pt-4 text-sm text-gray-600">
+          <div class="flex items-center space-x-2">
+            <i class="bi bi-check-circle-fill text-green-500"></i>
+            <span>{$order.history.current.ostate_name} — {$order.details.order_date}</span>
+          </div>
+          <div class="flex items-center space-x-4 text-indigo-600 font-medium">
+            {if $order.details.invoice_url}
+              <a href="{$order.details.invoice_url}" class="hover:underline">{l s='Invoice' d='Shop.Theme.Customeraccount'}</a>
+            {/if}
+            {if $order.details.reorder_url}
+              <a href="{$order.details.reorder_url}" class="hover:underline">{l s='Buy again' d='Shop.Theme.Actions'}</a>
+            {/if}
+          </div>
+        </div>
+      
+       </div>
+        
+      {/foreach}
+    </div>
+  {else}
+    <p class="text-gray-600 text-center mt-10">{l s='Vous n\'avez pas encore passé de commande.' d='Shop.Notifications.Warning'}</p>
+  {/if}
+
+  
+  
   {if $orders}
     <table class="table table-striped table-bordered table-labeled hidden-sm-down">
       <thead class="thead-default">
