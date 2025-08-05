@@ -458,6 +458,7 @@ body#discount {
                     color: $color-custom-green;
                     min-width: 20px;
                     text-align: center;
+                    line-height: 1;
                     
                     @media (max-width: 767px) {
                         font-size: 1.1rem;

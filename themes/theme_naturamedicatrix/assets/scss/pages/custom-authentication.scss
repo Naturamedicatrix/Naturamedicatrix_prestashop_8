@@ -68,10 +68,6 @@ body#authentication {
           margin-bottom: 0;
           box-shadow: none;
         }
-
-        h2 {
-          margin-bottom: 1.5rem;
-        }
       }
       
       // Colonne de gauche (connexion)
@@ -183,24 +179,8 @@ body#authentication {
             margin: 0 auto 0 15%;
             padding: 0;
           }
-          p {
-            margin-bottom: 1rem;
-          }
           
-          ul {
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-            list-style-type: disc;
-            
-            li {
-              margin-bottom: 0.5rem;
-              position: relative;
-              
-              &:before {
-                content: none;
-              }
-            }
-          }
+        
           
           // Style de base pour le bouton (mobile et tablette)
           .create-account-button {

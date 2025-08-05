@@ -1261,6 +1261,7 @@ body#discount .left-column-content .account-list .account-link i {
   color: #487595;
   min-width: 20px;
   text-align: center;
+  line-height: 1;
 }
 @media (max-width: 767px) {
   body#my-account .left-column-content .account-list .account-link i,

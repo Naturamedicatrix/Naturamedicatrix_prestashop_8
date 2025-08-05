@@ -57,9 +57,6 @@ body#authentication #login-page .login-columns .login-column {
     box-shadow: none;
   }
 }
-body#authentication #login-page .login-columns .login-column h2 {
-  margin-bottom: 1.5rem;
-}
 body#authentication #login-page .login-columns .left-column {
   background-color: white;
   order: 1;
@@ -155,21 +152,6 @@ body#authentication #login-page .login-columns .right-column .register-info {
     margin: 0 auto 0 15%;
     padding: 0;
   }
-}
-body#authentication #login-page .login-columns .right-column .register-info p {
-  margin-bottom: 1rem;
-}
-body#authentication #login-page .login-columns .right-column .register-info ul {
-  margin-bottom: 2rem;
-  padding-left: 1.5rem;
-  list-style-type: disc;
-}
-body#authentication #login-page .login-columns .right-column .register-info ul li {
-  margin-bottom: 0.5rem;
-  position: relative;
-}
-body#authentication #login-page .login-columns .right-column .register-info ul li:before {
-  content: none;
 }
 body#authentication #login-page .login-columns .right-column .register-info .create-account-button {
   text-align: center;
