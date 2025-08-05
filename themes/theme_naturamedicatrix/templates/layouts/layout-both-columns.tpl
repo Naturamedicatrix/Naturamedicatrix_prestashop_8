@@ -69,8 +69,14 @@
                {assign var="isMobile" value=true}
              {/if}
 
-             {* Sidebar gauche - uniquement sur desktop *}
-             {if !$isMobile}
+             {* Déterminer si cette page a besoin de la sidebar sur mobile *}
+             {assign var="needsSidebarOnMobile" value=false}
+             {if $page.page_name == 'my-account' || $page.page_name == 'identity' || $page.page_name == 'address' || $page.page_name == 'addresses' || $page.page_name == 'history' || $page.page_name == 'order-detail' || $page.page_name == 'order-return' || $page.page_name == 'order-slip' || $page.page_name == 'discount' || $page.page_name == 'guest-tracking'}
+               {assign var="needsSidebarOnMobile" value=true}
+             {/if}
+
+             {* Sidebar gauche - desktop ou pages compte mobile *}
+             {if !$isMobile || $needsSidebarOnMobile}
                {block name="left_column"}
                  <div id="left-column" class="col-xs-12 col-md-4 col-lg-3">
                    {block name="filter_column"}
@@ -86,9 +92,9 @@
                {/block}
              {/if}
 
-             {* Contenu principal - largeur adaptée selon mobile/desktop *}
+             {* Contenu principal - largeur adaptée selon mobile/desktop et présence sidebar *}
              {block name="content_wrapper"}
-               <div id="content-wrapper" class="js-content-wrapper {if $isMobile}col-xs-12{else}left-column right-column col-md-8 col-lg-9{/if}">
+               <div id="content-wrapper" class="js-content-wrapper {if $isMobile && !$needsSidebarOnMobile}col-xs-12{else}left-column right-column col-xs-12 col-md-8 col-lg-9{/if}">
                  {hook h="displayContentWrapperTop"}
                  {block name="content"}
                    <p>Hello world! This is HTML5 Boilerplate.</p>

@@ -4,7 +4,7 @@
 /** === PAGES MON COMPTE === */
 
 // Variables communes pour les pages de compte
-$account-pages: "#my-account, #identity, #addresses, #history, #order-slip, #module-blockwishlist-lists, #view, #module-blockwishlist-view, #module-psgdpr-gdpr, #address, #module-ps_emailalerts-account, #discount";
+$account-pages: "#my-account, #identity, #addresses, #history, #order-detail, #order-slip, #module-blockwishlist-lists, #view, #module-blockwishlist-view, #module-psgdpr-gdpr, #address, #module-ps_emailalerts-account, #discount";
 
 /* === PAGE MON COMPTE PRINCIPALE === */
 body#my-account {
@@ -76,6 +76,7 @@ body#my-account,
 body#identity,
 body#addresses,
 body#history,
+body#order-detail,
 body#order-slip,
 body#module-blockwishlist-lists,
 body#view,
@@ -104,6 +105,9 @@ body#discount {
     #left-column {
         margin-top: 0;
         padding-right: 70px !important;
+        @media (max-width: $breakpoint-sm) {
+            padding-right: 15px !important;
+        }
     }
     
     #main {
@@ -777,6 +781,7 @@ body#my-account,
 body#identity,
 body#addresses,
 body#history,
+body#order-detail,
 body#order-slip,
 body#module-blockwishlist-lists,
 body#view,
@@ -989,4 +994,14 @@ body#view {
             display: none;
         }
     }
+}
+
+
+
+// DETAILS COMMANDES
+.page-order-detail h3 {
+    font-size: 1.7rem;
+    text-transform: none;
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
 }

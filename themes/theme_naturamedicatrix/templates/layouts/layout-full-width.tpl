@@ -28,7 +28,7 @@
 {block name='right_column'}{/block}
 
 {block name='content_wrapper'}
-  <div id="content-wrapper" class="js-content-wrapper col-xs-12{if $page.page_name == 'module-psgdpr-gdpr' || $page.page_name == 'module-blockwishlist-lists'} col-md-8 col-lg-8{/if}">
+  <div id="content-wrapper" class="js-content-wrapper col-xs-12{if $page.page_name == 'module-psgdpr-gdpr' || $page.page_name == 'module-blockwishlist-lists' || $page.page_name == 'order-detail'} col-md-8 col-lg-8{/if}">
     
     {hook h="displayContentWrapperTop"}
     {block name='content'}
