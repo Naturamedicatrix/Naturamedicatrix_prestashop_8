@@ -399,21 +399,6 @@ body#module-ps_emailalerts-account .identity-section .field-password-policy:firs
 body#discount .identity-section .field-password-policy:first-of-type .password-strength-feedback {
   display: none !important;
 }
-body#my-account .address-body,
-body#identity .address-body,
-body#addresses .address-body,
-body#history .address-body,
-body#order-detail .address-body,
-body#order-slip .address-body,
-body#module-blockwishlist-lists .address-body,
-body#view .address-body,
-body#module-blockwishlist-view .address-body,
-body#module-psgdpr-gdpr .address-body,
-body#address .address-body,
-body#module-ps_emailalerts-account .address-body,
-body#discount .address-body {
-  padding: 0;
-}
 body#my-account .address-body address,
 body#identity .address-body address,
 body#addresses .address-body address,
@@ -428,37 +413,6 @@ body#address .address-body address,
 body#module-ps_emailalerts-account .address-body address,
 body#discount .address-body address {
   min-height: auto;
-}
-body#my-account .address-footer,
-body#identity .address-footer,
-body#addresses .address-footer,
-body#history .address-footer,
-body#order-detail .address-footer,
-body#order-slip .address-footer,
-body#module-blockwishlist-lists .address-footer,
-body#view .address-footer,
-body#module-blockwishlist-view .address-footer,
-body#module-psgdpr-gdpr .address-footer,
-body#address .address-footer,
-body#module-ps_emailalerts-account .address-footer,
-body#discount .address-footer {
-  padding: 10px 0 0 0;
-  border-top: none;
-}
-body#my-account .address-footer a,
-body#identity .address-footer a,
-body#addresses .address-footer a,
-body#history .address-footer a,
-body#order-detail .address-footer a,
-body#order-slip .address-footer a,
-body#module-blockwishlist-lists .address-footer a,
-body#view .address-footer a,
-body#module-blockwishlist-view .address-footer a,
-body#module-psgdpr-gdpr .address-footer a,
-body#address .address-footer a,
-body#module-ps_emailalerts-account .address-footer a,
-body#discount .address-footer a {
-  text-decoration: none;
 }
 body#my-account h1, body#my-account h2,
 body#identity h1,
@@ -1856,21 +1810,6 @@ body#discount .addresses-footer a {
     font-size: 0.8rem;
     width: 100%;
   }
-}
-body#my-account .block-address,
-body#identity .block-address,
-body#addresses .block-address,
-body#history .block-address,
-body#order-detail .block-address,
-body#order-slip .block-address,
-body#module-blockwishlist-lists .block-address,
-body#view .block-address,
-body#module-blockwishlist-view .block-address,
-body#module-psgdpr-gdpr .block-address,
-body#address .block-address,
-body#module-ps_emailalerts-account .block-address,
-body#discount .block-address {
-  padding: 0 15px 0 0;
 }
 @media (max-width: 640px) {
   body#my-account .block-address,
