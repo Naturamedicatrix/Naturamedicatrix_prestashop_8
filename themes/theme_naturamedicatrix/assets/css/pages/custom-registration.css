@@ -78,9 +78,6 @@ body#registration #registration-page .registration-columns .registration-column 
     padding: 1.5rem 1rem;
   }
 }
-body#registration #registration-page .registration-columns .registration-column h2 {
-  margin-bottom: 3rem;
-}
 body#registration #registration-page .registration-columns .left-column {
   background-color: white;
   order: 1;
@@ -163,49 +160,6 @@ body#registration #registration-page .registration-columns .right-column {
   body#registration #registration-page .registration-columns .right-column {
     order: 1;
   }
-}
-body#registration #registration-page .registration-columns .right-column .login-info {
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-@media (max-width: 640px) {
-  body#registration #registration-page .registration-columns .right-column .login-info {
-    padding: 0;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  body#registration #registration-page .registration-columns .right-column .login-info {
-    padding: 0 2rem;
-  }
-}
-@media (min-width: 1024px) {
-  body#registration #registration-page .registration-columns .right-column .login-info {
-    width: 70%;
-    max-width: none;
-    margin: 0 auto 0 15%;
-    padding: 0;
-  }
-}
-body#registration #registration-page .registration-columns .right-column .login-info p {
-  margin-bottom: 1rem;
-}
-body#registration #registration-page .registration-columns .right-column .login-info ul {
-  margin-bottom: 2rem;
-  padding-left: 1.5rem;
-  list-style-type: disc;
-}
-body#registration #registration-page .registration-columns .right-column .login-info ul li {
-  margin-bottom: 0.5rem;
-}
-body#registration #registration-page .registration-columns .right-column .login-info .login-button {
-  text-align: center;
-  margin-top: 2rem;
-}
-body#registration #registration-page .registration-columns .right-column .login-info .login-button .primary-btn {
-  width: 100%;
-  max-width: 300px;
 }
 body#registration .breadcrumb {
   display: none;

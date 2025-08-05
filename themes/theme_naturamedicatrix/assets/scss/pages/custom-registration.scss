@@ -87,10 +87,6 @@ body#registration {
           box-shadow: none;
           padding: 1.5rem 1rem;
         }
-
-        h2 {
-          margin-bottom: 3rem;
-        }
       }
       
       // Colonne de gauche (inscription)
@@ -190,56 +186,6 @@ body#registration {
           order: 1;
         }
         
-        // Contenu : Informations de connexion
-        .login-info {
-          width: 100%;
-          max-width: 450px;
-          margin: 0 auto;
-          padding: 0 1rem;
-
-          @media (max-width: $breakpoint-sm) {
-            padding: 0;
-          }
-          
-          // Tablette
-          @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg)) {
-            padding: 0 2rem;
-          }
-          
-          // Desktop
-          @media (min-width: $breakpoint-lg) {
-            width: 70%;
-            max-width: none;
-            margin: 0 auto 0 15%;
-            padding: 0;
-          }
-          
-          p {
-            margin-bottom: 1rem;
-          }
-          
-          ul {
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-            list-style-type: disc;
-            
-            li {
-              margin-bottom: 0.5rem;
-            }
-          }
-          
-          // Style du bouton
-          .login-button {
-            text-align: center;
-            margin-top: 2rem;
-            
-            .primary-btn {
-              width: 100%;
-              max-width: 300px;
-            }
-            
-          }
-        }
       }
     }
   }
