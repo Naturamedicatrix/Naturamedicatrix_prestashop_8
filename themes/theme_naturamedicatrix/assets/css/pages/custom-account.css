@@ -1908,12 +1908,6 @@ body#module-ps_emailalerts-account #content-wrapper {
     width: 100%;
   }
 }
-body#module-blockwishlist-lists .wishlist-container,
-body#module-psgdpr-gdpr .wishlist-container,
-body#view .wishlist-container,
-body#module-ps_emailalerts-account .wishlist-container {
-  padding-top: 70px;
-}
 @media (max-width: 640px) {
   body#module-blockwishlist-lists .wishlist-container,
   body#module-psgdpr-gdpr .wishlist-container,
@@ -1944,17 +1938,6 @@ body#view .wishlist-list i,
 body#module-ps_emailalerts-account .wishlist-list i {
   color: #4B5563;
 }
-body#module-blockwishlist-lists .wishlist-list-item-default,
-body#module-blockwishlist-lists .wishlist-list-item,
-body#module-psgdpr-gdpr .wishlist-list-item-default,
-body#module-psgdpr-gdpr .wishlist-list-item,
-body#view .wishlist-list-item-default,
-body#view .wishlist-list-item,
-body#module-ps_emailalerts-account .wishlist-list-item-default,
-body#module-ps_emailalerts-account .wishlist-list-item {
-  border-bottom: none;
-  list-style: none;
-}
 @media (max-width: 640px) {
   body#module-blockwishlist-lists .wishlist-add-to-new,
   body#module-psgdpr-gdpr .wishlist-add-to-new,
@@ -1962,25 +1945,6 @@ body#module-ps_emailalerts-account .wishlist-list-item {
   body#module-ps_emailalerts-account .wishlist-add-to-new {
     width: 100%;
   }
-}
-body#module-blockwishlist-lists .wishlist-list-item-link,
-body#module-psgdpr-gdpr .wishlist-list-item-link,
-body#view .wishlist-list-item-link,
-body#module-ps_emailalerts-account .wishlist-list-item-link {
-  border-bottom: 1px solid #93A7C3;
-  text-decoration: none !important;
-}
-body#module-blockwishlist-lists .wishlist-list-item-link:hover,
-body#module-psgdpr-gdpr .wishlist-list-item-link:hover,
-body#view .wishlist-list-item-link:hover,
-body#module-ps_emailalerts-account .wishlist-list-item-link:hover {
-  border-bottom: 1px solid #111827 !important;
-}
-body#module-blockwishlist-lists .wishlist-list-item-link .wishlist-list-item-title,
-body#module-psgdpr-gdpr .wishlist-list-item-link .wishlist-list-item-title,
-body#view .wishlist-list-item-link .wishlist-list-item-title,
-body#module-ps_emailalerts-account .wishlist-list-item-link .wishlist-list-item-title {
-  color: #4B5563 !important;
 }
 body#module-blockwishlist-lists a.text-primary:hover,
 body#module-psgdpr-gdpr a.text-primary:hover,

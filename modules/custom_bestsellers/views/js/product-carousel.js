@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
     } catch (error) {
-      // Erreur silencieuse
     }
-  }, 500);
+  }, 300);
 });

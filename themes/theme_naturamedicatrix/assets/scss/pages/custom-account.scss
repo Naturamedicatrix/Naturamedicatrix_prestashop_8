@@ -657,7 +657,6 @@ body#module-ps_emailalerts-account {
     }
     
     .wishlist-container {
-        padding-top: 70px;
         
         @media (max-width: $breakpoint-sm) {
             padding-top: 30px;
@@ -680,30 +679,12 @@ body#module-ps_emailalerts-account {
         }
     }
     
-    .wishlist-list-item-default,
-    .wishlist-list-item {
-        border-bottom: none;
-        list-style: none;
-    }
-    
     .wishlist-add-to-new {
         @media (max-width: $breakpoint-sm) {
             width: 100%;
         }
     }
     
-    .wishlist-list-item-link {
-        border-bottom: 1px solid $color-custom-grayLight;
-        text-decoration: none !important;
-        
-        &:hover {
-            border-bottom: 1px solid $color-custom-black !important;
-        }
-        
-        .wishlist-list-item-title {
-            color: $color-custom-gray !important;
-        }
-    }
     
     a.text-primary {
         &:hover {
