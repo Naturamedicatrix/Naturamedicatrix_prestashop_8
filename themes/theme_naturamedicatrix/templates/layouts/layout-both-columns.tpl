@@ -71,7 +71,7 @@
 
              {* Déterminer si cette page a besoin de la sidebar sur mobile *}
              {assign var="needsSidebarOnMobile" value=false}
-             {if $page.page_name == 'my-account' || $page.page_name == 'identity' || $page.page_name == 'address' || $page.page_name == 'addresses' || $page.page_name == 'history' || $page.page_name == 'order-detail' || $page.page_name == 'order-return' || $page.page_name == 'order-slip' || $page.page_name == 'discount' || $page.page_name == 'guest-tracking'}
+             {if $page.page_name == 'my-account' || $page.page_name == 'identity' || $page.page_name == 'address' || $page.page_name == 'addresses' || $page.page_name == 'history' || $page.page_name == 'order-detail' || $page.page_name == 'order-return' || $page.page_name == 'order-slip' || $page.page_name == 'discount' || $page.page_name == 'guest-tracking' || $page.page_name == 'module-psgdpr-gdpr' || $page.page_name == 'module-blockwishlist-lists' || $page.page_name == 'module-ps_emailalerts-account'}
                {assign var="needsSidebarOnMobile" value=true}
              {/if}
 

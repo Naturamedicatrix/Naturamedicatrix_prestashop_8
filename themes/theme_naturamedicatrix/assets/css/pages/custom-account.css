@@ -150,6 +150,23 @@ body#discount #left-column {
   margin-top: 0;
   padding-right: 70px !important;
 }
+@media (max-width: 1280px) {
+  body#my-account #left-column,
+  body#identity #left-column,
+  body#addresses #left-column,
+  body#history #left-column,
+  body#order-detail #left-column,
+  body#order-slip #left-column,
+  body#module-blockwishlist-lists #left-column,
+  body#view #left-column,
+  body#module-blockwishlist-view #left-column,
+  body#module-psgdpr-gdpr #left-column,
+  body#address #left-column,
+  body#module-ps_emailalerts-account #left-column,
+  body#discount #left-column {
+    padding-right: 40px !important;
+  }
+}
 @media (max-width: 640px) {
   body#my-account #left-column,
   body#identity #left-column,

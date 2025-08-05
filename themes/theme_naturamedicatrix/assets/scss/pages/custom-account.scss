@@ -105,6 +105,11 @@ body#discount {
     #left-column {
         margin-top: 0;
         padding-right: 70px !important;
+
+        @media (max-width: $breakpoint-xl) {
+            padding-right: 40px !important;
+        }
+        
         @media (max-width: $breakpoint-sm) {
             padding-right: 15px !important;
         }

@@ -11,7 +11,7 @@
 
 
 {block name='page_content'}
-    <h1>{l s='Order details' d='Shop.Theme.Customeraccount'}</h1>
+  <h1>{l s='Order details' d='Shop.Theme.Customeraccount'}</h1>
   {block name='order_infos'}
     <div id="order-infos">
       <div class="box">

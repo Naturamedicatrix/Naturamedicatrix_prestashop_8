@@ -24,11 +24,23 @@
  *}
 {extends file='layouts/layout-both-columns.tpl'}
 
+{* Détection mobile/desktop *}
+{assign var="isMobile" value=false}
+{if isset($smarty.server.HTTP_USER_AGENT) && (strpos($smarty.server.HTTP_USER_AGENT, 'Mobile') !== false || strpos($smarty.server.HTTP_USER_AGENT, 'Android') !== false || strpos($smarty.server.HTTP_USER_AGENT, 'iPhone') !== false)}
+  {assign var="isMobile" value=true}
+{/if}
+
+{* Déterminer si cette page a besoin de la sidebar sur mobile *}
+{assign var="needsSidebarOnMobile" value=false}
+{if $page.page_name == 'my-account' || $page.page_name == 'identity' || $page.page_name == 'address' || $page.page_name == 'addresses' || $page.page_name == 'history' || $page.page_name == 'order-detail' || $page.page_name == 'order-return' || $page.page_name == 'order-slip' || $page.page_name == 'discount' || $page.page_name == 'guest-tracking' || $page.page_name == 'module-psgdpr-gdpr' || $page.page_name == 'module-blockwishlist-lists' || $page.page_name == 'module-ps_emailalerts-account'}
+  {assign var="needsSidebarOnMobile" value=true}
+{/if}
+
 {block name='left_column'}{/block}
 {block name='right_column'}{/block}
 
 {block name='content_wrapper'}
-  <div id="content-wrapper" class="js-content-wrapper col-xs-12{if $page.page_name == 'module-psgdpr-gdpr' || $page.page_name == 'module-blockwishlist-lists' || $page.page_name == 'order-detail'} col-md-8 col-lg-8{/if}">
+  <div id="content-wrapper" class="js-content-wrapper {if $isMobile && !$needsSidebarOnMobile}col-xs-12{elseif $page.page_name == 'module-psgdpr-gdpr' || $page.page_name == 'module-blockwishlist-lists' || $page.page_name == 'order-detail'}col-xs-12 col-md-8 col-lg-8{else}col-xs-12{/if}">
     
     {hook h="displayContentWrapperTop"}
     {block name='content'}
