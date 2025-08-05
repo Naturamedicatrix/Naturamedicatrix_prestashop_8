@@ -85,7 +85,7 @@ body#module-ps_emailalerts-account #main {
 }
 
 /* === STYLES COMMUNS POUR TOUTES LES PAGES DE COMPTE === */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   body#my-account #wrapper,
   body#identity #wrapper,
   body#addresses #wrapper,
@@ -200,7 +200,24 @@ body#discount #main {
   padding: 50px 0 50px 70px;
   min-height: 1200px;
 }
-@media (max-width: 767px) {
+@media (max-width: 1280px) {
+  body#my-account #main,
+  body#identity #main,
+  body#addresses #main,
+  body#history #main,
+  body#order-detail #main,
+  body#order-slip #main,
+  body#module-blockwishlist-lists #main,
+  body#view #main,
+  body#module-blockwishlist-view #main,
+  body#module-psgdpr-gdpr #main,
+  body#address #main,
+  body#module-ps_emailalerts-account #main,
+  body#discount #main {
+    padding: 50px 15px;
+  }
+}
+@media (max-width: 768px) {
   body#my-account #main,
   body#identity #main,
   body#addresses #main,
@@ -744,9 +761,8 @@ body#discount .left-column-content .account-list .account-links-list {
   body#address .left-column-content .account-list .account-links-list,
   body#module-ps_emailalerts-account .left-column-content .account-list .account-links-list,
   body#discount .left-column-content .account-list .account-links-list {
-    justify-content: space-between;
+    display: block;
     list-style: none;
-    gap: 5px;
   }
 }
 body#my-account .left-column-content .account-list .account-links-list li,

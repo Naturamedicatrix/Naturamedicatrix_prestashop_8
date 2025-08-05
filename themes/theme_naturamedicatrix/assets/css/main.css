@@ -179,7 +179,7 @@ body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufactur
   padding: 50px 70px 50px 0;
   background-color: #EDEFF1;
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper, body#module-ps_emailalerts-account #wrapper, body#order-detail #wrapper {
     background: #f9fafb;
   }

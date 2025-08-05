@@ -14,7 +14,7 @@ body[class*="manufacturer-id-"], body.layout-left-column, body#module-blockwishl
                 background-color: $color-custom-whiteDarker;
             }
 
-            @media (max-width: $breakpoint-sm) {
+            @media (max-width: $breakpoint-md) {
                 background: $color-custom-white;
             }
     }

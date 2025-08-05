@@ -87,7 +87,7 @@ body#module-ps_emailalerts-account,
 body#discount {
     
     #wrapper {
-        @media (max-width: 767px) {
+        @media (max-width: $breakpoint-md) {
             background: $color-custom-white;
         }
         
@@ -118,8 +118,11 @@ body#discount {
     #main {
         padding: 50px 0 50px 70px;
         min-height: 1200px;
-        
-        @media (max-width: 767px) {
+        @media (max-width: $breakpoint-xl) {
+            padding: 50px 15px;
+        }
+
+        @media (max-width: $breakpoint-md) {
             padding-top: 30px;
         }
         
@@ -276,9 +279,8 @@ body#discount {
                 padding-left: 0;
                 
                 @media (max-width: $breakpoint-md) {
-                    justify-content: space-between;
+                    display: block;
                     list-style: none;
-                    gap: 5px;
                 }
                 
                 li {
