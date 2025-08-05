@@ -9,21 +9,6 @@
 {* END VARIABLES *}
 
 
-<style>
-  .product-miniature-light.product-miniature .yotpo-reviews-star-ratings-widget {
-    justify-content: left !important;
-  }
-  .product-miniature-light .yotpo-sr-bottom-line-text {
-    font-size: .75rem !important;
-    font-weight: 500 !important;
-    line-height: 1.3 !important;
-  }
-
-  .product-miniature-light .yotpo-sr-bottom-line-button span {
-    height: 16px !important;
-  }
-</style>
-
 
 {block name='product_miniature_item'}
 

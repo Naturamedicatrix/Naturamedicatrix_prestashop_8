@@ -125,6 +125,7 @@ class Custom_Bestsellers extends Module
 
     public function hookDisplayHeader()
     {
+        // Chargement des fichiers CSS et JS du slider bestsellers
         $this->context->controller->addCSS($this->_path.'views/css/custom_bestsellers.css', 'all');
         $this->context->controller->addJS($this->_path.'views/js/product-carousel.js');
     }
