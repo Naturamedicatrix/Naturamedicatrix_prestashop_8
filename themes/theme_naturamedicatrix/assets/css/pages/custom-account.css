@@ -214,7 +214,7 @@ body#discount #main {
   body#address #main,
   body#module-ps_emailalerts-account #main,
   body#discount #main {
-    padding: 50px 15px;
+    padding: 50px 40px;
   }
 }
 @media (max-width: 768px) {
