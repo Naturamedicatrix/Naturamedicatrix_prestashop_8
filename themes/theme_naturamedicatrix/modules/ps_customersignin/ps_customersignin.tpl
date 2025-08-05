@@ -29,10 +29,13 @@
              <i class="bi bi-person-gear menu-icon"></i>{l s='Personal info' d='Shop.Theme.Customeraccount'}
            </a>
            <a href="{$urls.pages.addresses}" class="account-menu-item">
-             <i class="bi bi-geo-alt menu-icon"></i>{l s='Addresses' d='Shop.Theme.Customeraccount'}
+             <i class="bi bi-house-door menu-icon"></i>{l s='Addresses' d='Shop.Theme.Customeraccount'}
+           </a>
+           <a href="{$link->getModuleLink('blockwishlist', 'lists')}" class="account-menu-item">
+             <i class="bi bi-heart menu-icon"></i>{l s='Mes listes d\'envies' d='Shop.Theme.Customeraccount'}
            </a>
            <a href="{$urls.pages.history}" class="account-menu-item">
-             <i class="bi bi-bag menu-icon"></i>{l s='Order history' d='Shop.Theme.Customeraccount'}
+             <i class="bi bi-card-list menu-icon"></i>{l s='Order history' d='Shop.Theme.Customeraccount'}
            </a>
            {* {if $urls.pages.order_slip}
            <a href="{$urls.pages.order_slip}" class="account-menu-item">
