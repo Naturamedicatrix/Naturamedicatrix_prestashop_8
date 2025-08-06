@@ -50,7 +50,7 @@
         <li>
           <a class="account-link {if $page.page_name == 'order-slip'}active{/if}" id="order-slips-link-side" href="{$urls.pages.order_slip}">
             <i class="bi bi-credit-card-2-front"></i>
-            <span>{l s='Mes bons de réduction' d='Shop.Theme.Customeraccount'}</span>
+            <span>{l s='Mes avoirs' d='Shop.Theme.Customeraccount'}</span>
           </a>
         </li>
       {/if}
@@ -58,7 +58,7 @@
       {if $configuration.voucher_enabled && !$configuration.is_catalog}
         <li>
           <a class="account-link {if $page.page_name == 'discount'}active{/if}" id="discounts-link-side" href="{$urls.pages.discount}">
-            <i class="bi bi-credit-card-2-front"></i>
+            <i class="bi bi-percent"></i>
             <span>{l s='Mes bons d\'achat' d='Shop.Theme.Customeraccount'}</span>
           </a>
         </li>

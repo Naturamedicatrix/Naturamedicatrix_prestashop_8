@@ -23,13 +23,13 @@
        <div class="modal-padding">
          <div class="menu-container">
            <a href="{$urls.pages.my_account}" class="account-menu-item">
-             <i class="bi bi-person menu-icon"></i>{l s='My account' d='Shop.Theme.Customeraccount'}
+             <i class="bi bi-person menu-icon"></i>{l s='Mon compte' d='Shop.Theme.Customeraccount'}
            </a>
            <a href="{$urls.pages.identity}" class="account-menu-item">
-             <i class="bi bi-person-gear menu-icon"></i>{l s='Personal info' d='Shop.Theme.Customeraccount'}
+             <i class="bi bi-person-gear menu-icon"></i>{l s='Mes informations personnelles' d='Shop.Theme.Customeraccount'}
            </a>
            <a href="{$urls.pages.addresses}" class="account-menu-item">
-             <i class="bi bi-house-door menu-icon"></i>{l s='Addresses' d='Shop.Theme.Customeraccount'}
+             <i class="bi bi-house-door menu-icon"></i>{l s='Mes adresses' d='Shop.Theme.Customeraccount'}
            </a>
            <a href="{$link->getModuleLink('blockwishlist', 'lists')}" class="account-menu-item">
              <i class="bi bi-heart menu-icon"></i>{l s='Mes listes d\'envies' d='Shop.Theme.Customeraccount'}
@@ -37,27 +37,27 @@
            <a href="{$link->getModuleLink('ps_emailalerts', 'account')}" class="account-menu-item">
              <i class="bi bi-bell menu-icon"></i>{l s='Mes alertes' d='Shop.Theme.Customeraccount'}
            </a>
+           {if $urls.pages.order_slip}
+            <a href="{$urls.pages.order_slip}" class="account-menu-item">
+              <i class="bi bi-credit-card-2-front menu-icon"></i>{l s='Mes avoirs' d='Shop.Theme.Customeraccount'}
+            </a>
+            {/if}
+            {if $urls.pages.discount}
+            <a href="{$urls.pages.discount}" class="account-menu-item">
+              <i class="bi bi-percent menu-icon"></i>{l s='Mes bons d\'achat' d='Shop.Theme.Customeraccount'}
+            </a>
+            {/if}
            <a href="{$urls.pages.history}" class="account-menu-item">
-             <i class="bi bi-card-list menu-icon"></i>{l s='Order history' d='Shop.Theme.Customeraccount'}
+             <i class="bi bi-card-list menu-icon"></i>{l s='Mon historique de commandes' d='Shop.Theme.Customeraccount'}
            </a>
-           {* {if $urls.pages.order_slip}
-           <a href="{$urls.pages.order_slip}" class="account-menu-item">
-             <i class="bi bi-receipt menu-icon"></i>{l s='Credit slips' d='Shop.Theme.Customeraccount'}
-           </a>
-           {/if}
-           {if $urls.pages.discount}
-           <a href="{$urls.pages.discount}" class="account-menu-item">
-             <i class="bi bi-percent menu-icon"></i>{l s='Vouchers' d='Shop.Theme.Customeraccount'}
-           </a>
-           {/if} *}
            {if $urls.pages.guest_tracking}
            <a href="{$urls.pages.guest_tracking}" class="account-menu-item">
-             <i class="bi bi-search menu-icon"></i>{l s='Order tracking' d='Shop.Theme.Customeraccount'}
+             <i class="bi bi-search menu-icon"></i>{l s='Suivi de commande' d='Shop.Theme.Customeraccount'}
            </a>
            {/if}
            <hr class="menu-separator">
            <a href="{$urls.actions.logout}" class="account-menu-item btn btn-secondary" rel="nofollow">
-             <i class="bi bi-box-arrow-right menu-icon"></i>{l s='Sign out' d='Shop.Theme.Actions'}
+             <i class="bi bi-box-arrow-right menu-icon"></i>{l s='Se deconnecter' d='Shop.Theme.Actions'}
            </a>
          </div>
        </div>
