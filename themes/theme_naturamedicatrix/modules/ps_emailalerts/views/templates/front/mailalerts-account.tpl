@@ -16,11 +16,11 @@
 {block name='page_content'}
 <h1>{l s='Mes alertes' d='Modules.Emailalerts.Shop'}</h1>
 <div class="alerts-container">
+    {* Les données sont maintenant enrichies directement dans MailAlert.php (override) *}
     {if $mailAlerts}
       <div class="products-grid grid grid-cols-2 xl:grid-cols-3 gap-6">
         {foreach from=$mailAlerts item=mailAlert}
           <div class="product-alert-item position-relative">
-            {* Les données sont maintenant enrichies directement dans MailAlert.php *}
             {include file="catalog/_partials/miniatures/product.tpl" product=$mailAlert productClasses=""}
           </div>
         {/foreach}

@@ -2056,7 +2056,8 @@ body#discount #main {
   }
 }
 body#module-ps_emailalerts-account h1 {
-  padding-top: 0;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 body#module-ps_emailalerts-account .alerts-list {
   display: flex;

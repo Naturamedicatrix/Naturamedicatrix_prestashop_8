@@ -34,6 +34,9 @@
            <a href="{$link->getModuleLink('blockwishlist', 'lists')}" class="account-menu-item">
              <i class="bi bi-heart menu-icon"></i>{l s='Mes listes d\'envies' d='Shop.Theme.Customeraccount'}
            </a>
+           <a href="{$link->getModuleLink('ps_emailalerts', 'account')}" class="account-menu-item">
+             <i class="bi bi-bell menu-icon"></i>{l s='Mes alertes' d='Shop.Theme.Customeraccount'}
+           </a>
            <a href="{$urls.pages.history}" class="account-menu-item">
              <i class="bi bi-card-list menu-icon"></i>{l s='Order history' d='Shop.Theme.Customeraccount'}
            </a>
