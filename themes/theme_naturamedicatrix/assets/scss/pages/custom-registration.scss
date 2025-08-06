@@ -44,7 +44,7 @@ body#registration {
       width: 100%;
       max-width: 600px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding:inherit;
       
       // Tablette
       @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg)) {
@@ -64,7 +64,7 @@ body#registration {
       // Style de base pour les colonnes (mobile et tablette)
       .registration-column {
         width: 100%;
-        padding: 1.5rem .5rem;
+        padding:inherit;
         border-radius: 8px;
         margin-bottom: 1rem;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -120,7 +120,6 @@ body#registration {
             display: flex;
             flex-direction: column;
             width: 100%;
-            max-width: 650px;
             
             // Mobile spécifique
             @media (max-width: $breakpoint-sm) {

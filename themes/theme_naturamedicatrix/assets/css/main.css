@@ -1688,12 +1688,6 @@ input[type=password]:focus,
 input[type=tel]:focus,
 input[type=number]:focus,
 textarea:focus,
-select:focus {
-  outline: none !important;
-  box-shadow: 0 0 0 1px #111827 !important;
-  border-color: #111827 !important;
-}
-
 .form-control {
   border-radius: 0.375rem;
   background-color: white !important;
@@ -1712,11 +1706,6 @@ select {
   font-size: 0.9rem;
 }
 
-.password-field-container {
-  position: relative;
-  display: inline-block;
-  width: auto;
-}
 .password-field-container .password-toggle-btn {
   position: absolute;
   right: 10px;
@@ -2226,34 +2215,6 @@ input[type=checkbox] {
 .form-check {
   margin-bottom: 0.5rem;
   margin-left: 25px;
-}
-
-.block-checkbox-newsletter-rgpd {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  padding: 20px 0;
-}
-.block-checkbox-newsletter-rgpd > div:first-child {
-  display: flex;
-  flex-direction: column-reverse;
-}
-.block-checkbox-newsletter-rgpd .custom-checkbox {
-  display: flex;
-  align-items: flex-start;
-}
-.block-checkbox-newsletter-rgpd .custom-checkbox span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 20px;
-}
-.block-checkbox-newsletter-rgpd .custom-checkbox label {
-  color: rgb(107.974137931, 122.3706896552, 142.525862069);
-  padding-left: 5px;
-}
-.block-checkbox-newsletter-rgpd .custom-checkbox label a {
-  border-bottom: none !important;
 }
 
 body#pagenotfound .page-header {

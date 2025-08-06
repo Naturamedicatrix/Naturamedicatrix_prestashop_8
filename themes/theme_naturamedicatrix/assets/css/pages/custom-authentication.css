@@ -66,60 +66,6 @@ body#authentication #login-page .login-columns .left-column {
     order: 0;
   }
 }
-body#authentication #login-page .login-columns .left-column .login-form {
-  width: 100%;
-}
-body#authentication #login-page .login-columns .left-column .login-form form {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-@media (min-width: 768px) {
-  body#authentication #login-page .login-columns .left-column .login-form form {
-    align-items: center;
-  }
-}
-@media (max-width: 640px) {
-  body#authentication #login-page .login-columns .left-column .login-form form #field-email, body#authentication #login-page .login-columns .left-column .login-form form #field-password {
-    width: 100%;
-  }
-}
-@media (max-width: 640px) {
-  body#authentication #login-page .login-columns .left-column .login-form form #submit-login {
-    width: 100%;
-  }
-}
-body#authentication #login-page .login-columns .left-column .login-form .flex-col {
-  margin-bottom: 0;
-}
-body#authentication #login-page .login-columns .left-column .login-form .forgot-password {
-  margin-top: 5px;
-  text-align: right;
-}
-body#authentication #login-page .login-columns .left-column .login-form .forgot-password a {
-  border: none;
-  color: #4B5563 !important;
-}
-body#authentication #login-page .login-columns .left-column .login-form .forgot-password a:hover {
-  color: #111827 !important;
-}
-@media (max-width: 640px) {
-  body#authentication #login-page .login-columns .left-column .login-form .forgot-password a {
-    font-size: 0.8rem;
-  }
-}
-body#authentication #login-page .login-columns .left-column .login-form .form-footer {
-  width: 100%;
-  max-width: 350px;
-  text-align: left !important;
-}
-@media (max-width: 640px) {
-  body#authentication #login-page .login-columns .left-column .login-form .form-footer {
-    text-align: center !important;
-    margin: 0 auto;
-  }
-}
 body#authentication #login-page .login-columns .right-column {
   background-color: #F9FAFB;
   order: 0;
@@ -172,4 +118,15 @@ body#authentication #login-page .login-columns .right-column .register-info .cre
 }
 body#authentication .password-field-container {
   width: 100%;
+}
+
+.page-customer-account #content .forgot-password {
+  text-align: right;
+  margin-top: 0;
+}
+.page-customer-account #content .forgot-password a {
+  color: #4B5563 !important;
+}
+.page-customer-account #content .forgot-password a:hover {
+  color: #111827 !important;
 }

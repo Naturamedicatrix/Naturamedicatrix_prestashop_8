@@ -1,6 +1,9 @@
 {**
  * BLOCK BESOIN D'AIDE
  *}
+
+ {assign var='country_id' value=Tools::getCountry()}
+
 <div class="help-block text-center">
   <h5 class="pt-0 mt-0 color-title"><i class="bi bi-chat-dots icon-special mr-1.5"></i> Besoin d'aide ?</h5>
   <div class="title-separator">
@@ -10,7 +13,7 @@
     </svg>
   </div>
   <p class="contact-text mb-0">
-    Contactez-nous au <span class="font-bold color-title">+33 (0)9 77 42 37 04</span>
+    Contactez-nous au <span class="font-bold color-title">{if $country_id == 3}+32&nbsp;42&nbsp;90&nbsp;00&nbsp;79{else}+33&nbsp;(0)9&nbsp;77&nbsp;42&nbsp;37&nbsp;04{/if}</span>
   </p>
   <p class="contact-email">
     Ou <a href="{$urls.pages.contact}" class="contact-link">par email</a> du lundi au vendredi.

@@ -80,68 +80,6 @@ body#authentication {
           order: 0; // Revenir à l'ordre normal
         }
         
-        .login-form {
-          width: 100%;
-          
-          form {
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            
-            // Tablette et desktop
-            @media (min-width: $breakpoint-md) {
-              align-items: center;
-            }
-
-
-            #field-email, #field-password {
-              @media (max-width: $breakpoint-sm) {
-                width: 100%;
-              }
-            }
-
-
-            @media (max-width: $breakpoint-sm) {
-              #submit-login {
-                width: 100%;
-              }
-            }
-          }
-
-          .flex-col{
-            margin-bottom: 0;
-          }
-
-          .forgot-password {
-            margin-top: 5px;
-            text-align: right;
-            a {
-              border: none;
-              color: $color-custom-gray !important;
-
-              &:hover {
-                color: $color-custom-black !important;
-              }
-
-              @media (max-width: $breakpoint-sm) {
-                font-size: .8rem;
-              }
-            }
-          }
-          
-          // footer du form connexion
-          .form-footer {
-            width: 100%;
-            max-width: 350px;
-            text-align: left !important;
-
-            @media (max-width: $breakpoint-sm) {
-             text-align: center !important;
-             margin: 0 auto;
-            }
-          }
-        }
       }
       
       // Colonne de droite (inscription)
@@ -209,5 +147,16 @@ body#authentication {
 
   .password-field-container {
     width: 100%;
+  }
+}
+
+.page-customer-account #content .forgot-password {
+  text-align: right;
+  margin-top: 0;
+  a {
+    color: $color-custom-gray !important;
+    &:hover {
+      color: $color-custom-black !important;
+    }
   }
 }

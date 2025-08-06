@@ -444,11 +444,6 @@ input[type="password"]:focus,
 input[type="tel"]:focus, 
 input[type="number"]:focus,
 textarea:focus,
-select:focus {
-  outline: none !important;
-  box-shadow: 0 0 0 1px $color-custom-black !important;
-  border-color: $color-custom-black !important;
-}
 
 .form-control {
   border-radius: .375rem;
@@ -472,11 +467,6 @@ select {
 }
 
 .password-field-container {
-
-  position: relative;
-  display: inline-block;
-  width: auto;
-  
   .password-toggle-btn {
     position: absolute;
     right: 10px;
@@ -1074,42 +1064,6 @@ div#_desktop_search_filters_clear_all {
 }
 // END CHECKBOX CUSTOM
 
-
-// CHECKBOX NEWSLETTER & RGPD
-.block-checkbox-newsletter-rgpd {
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-    padding: 20px 0;
-    
-    > div:first-child {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-    
-    .custom-checkbox {
-      display: flex;
-      align-items: flex-start;
-      
-      span {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 20px;
-      }
-      
-      label {
-        color: color.adjust($color-custom-gray, $lightness: 15%);
-        padding-left: 5px;
-
-        a {
-          border-bottom: none !important;
-        }
-      }
-    }
-    
-}
-// END CHECKBOX NEWSLETTER & RGPD
 
 
 // PAGE 404

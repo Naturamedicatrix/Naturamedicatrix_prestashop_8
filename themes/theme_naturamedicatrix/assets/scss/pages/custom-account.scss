@@ -142,7 +142,7 @@ body#discount {
     }
     
     #content-wrapper {
-        min-height: 113vh !important;
+        min-height: auto !important;
         
         @media (max-width: 1250px) {
             padding-left: 0 !important;
@@ -634,6 +634,10 @@ body#discount {
     .page-footer {
         margin-bottom: 0;
     }
+
+    .address-footer i {
+        line-height: 1;
+    }
 }
 
 
@@ -674,15 +678,11 @@ body#module-ps_emailalerts-account {
     
     .wishlist-list {
         padding-left: 0;
-        
-        i {
-            color: $color-custom-gray;
-        }
     }
     
     .wishlist-add-to-new {
         @media (max-width: $breakpoint-sm) {
-            width: 100%;
+            padding: 10px 30px;
         }
     }
     
@@ -715,16 +715,6 @@ body#identity {
   .identity-section {
     margin-bottom: 1rem;
   }
-
-  .instructions-account, .delete-account-section p {
-    font-size: 0.9rem;
-    color: color.adjust($color-custom-gray, $lightness: 15%);
-    line-height: 1;
-    margin-bottom: 25px;
-    padding-bottom: 0;
-  }
-
-
 
   .password-strength-feedback {
     width: 400px;
@@ -856,6 +846,8 @@ body#module-ps_emailalerts-account {
     }
     
     .page_content .psgdprinfo17 {
+        margin-top: 0;
+        margin-bottom: 0;
         @media (max-width: $breakpoint-sm) {
             padding: 15px 25px !important;
         }
@@ -904,10 +896,6 @@ body#view {
         }
     }
     
-    .wishlist-products-container-header {
-        justify-content: space-around;
-        margin-bottom: 0;
-    }
     
     .wishlist-products-container .sort-by-row {
         padding-top: 70px;
@@ -982,4 +970,17 @@ body#view {
     text-transform: none;
     margin-top: 1.5rem;
     margin-bottom: .5rem;
+}
+
+#addresses .btn {
+    @media (max-width: $breakpoint-sm) {
+        padding: 10px 30px;
+        text-align: center;
+    }
+}
+
+#module-blockwishlist-lists h1 {
+    @media (max-width: $breakpoint-sm) {
+        padding-left: 30px;
+    }
 }

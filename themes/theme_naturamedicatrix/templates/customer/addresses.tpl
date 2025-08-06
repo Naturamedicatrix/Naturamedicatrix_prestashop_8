@@ -40,7 +40,7 @@
   <div class="clearfix"></div>
   
   <div class="mt-6">
-    <a href="{$urls.pages.address}" data-link-action="add-address" class="bg-gray-900 hover:bg-gray-700 text-white font-bold text-base px-16 py-3.5 rounded-md transition no-underline">
+    <a href="{$urls.pages.address}" data-link-action="add-address" class="bg-gray-900 hover:bg-gray-700 text-white font-bold text-base px-16 py-3.5 rounded-md transition no-underline btn">
       <i class="bi bi-plus"></i>
       <span>{l s='Add a new address' d='Shop.Theme.Actions'}</span>
     </a>
