@@ -7,13 +7,13 @@
   {/block}
 
 <form action="{block name='customer_form_actionurl'}{$action}{/block}" id="customer-form" class="js-customer-form" method="post">
-  <div>
+  <div class="max-w-xl">
     {* Vérification pour savoir si nous sommes sur la page d'identité (pas sur la page d'inscription) *}
     {if $page.page_name == 'identity'}
       <!-- Section Informations personnelles - Uniquement pour la page identité -->
       <div class="identity-section">
         <h1>{l s='Informations personnelles' d='Shop.Theme.Customeraccount'}</h1>
-        <p class="instructions-account">
+        <p class="instructions-account text-base mb-2">
           {l s='Pour modifier vos informations personnelles, vous devrez saisir votre mot de passe actuel dans la section ci-dessous.' d='Shop.Theme.Customeraccount'}
         </p>
         <div class="form-section">
@@ -33,7 +33,7 @@
 
       <!-- Section Mot de passe - Uniquement pour la page identité -->
       <div class="identity-section password-section mt-12">
-        <h2>{l s='Mot de passe' d='Shop.Theme.Customeraccount'}</h2>
+        <h2 class="pt-0">{l s='Mot de passe' d='Shop.Theme.Customeraccount'}</h2>
         <div class="form-section">
           <p class="instructions-account">
             {l s='Pour changer votre mot de passe, saisissez votre mot de passe actuel et définissez un nouveau dans les champs ci-dessous.' d='Shop.Theme.Customeraccount'}
@@ -92,8 +92,9 @@
           {/if}
         {/foreach}
         
-        
-        <hr />
+        <div class="form-footer-container">
+          <p class="required-fields mb-5 text-xs text-gray-500">*{l s='champs obligatoires' d='Shop.Forms.Labels'}</p>
+        </div>
         
         {* Bloc de checkboxes personnalisées pour la page d'inscription *}
         {assign var='isIdentityPage' value=false}
@@ -104,9 +105,7 @@
     {/if}
   </div>
 
-  <div class="form-footer-container">
-    <p class="required-fields">*{l s='champs obligatoires' d='Shop.Forms.Labels'}</p>
-  </div>
+  
 
   {block name='customer_form_footer'}
     <footer class="form-footer clearfix">

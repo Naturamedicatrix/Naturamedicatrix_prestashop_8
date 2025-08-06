@@ -11,8 +11,8 @@
       {if $field.name == 'newsletter' || $field.name == 'optin'}
         <div class="custom-checkbox">
           <input name="{$field.name}" id="{$field.name}" type="checkbox" value="1" {if ($field.name == 'newsletter' && isset($customer) && $customer.newsletter == 1) || ($field.name == 'optin' && isset($customer) && $customer.optin == 1)}checked="checked"{/if}>
-          <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
-          <label for="{$field.name}">
+          <span class="relative top-0.5"><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
+          <label for="{$field.name}" class="text-base leading-tight mb-2">
             {if $field.name == 'newsletter'}
               <span class="font-bold">S'inscrire à la newsletter et profitez d'offres exclusives</span>
             {elseif $field.name == 'optin'}
@@ -32,8 +32,8 @@
       {if $field.name == 'psgdpr' || $field.name == 'customer_privacy'}
         <div class="custom-checkbox">
           <input name="{$field.name}" id="{$field.name}" type="checkbox" value="1" checked="checked">
-          <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
-          <label for="{$field.name}">
+          <span class="relative top-0.5"><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
+          <label for="{$field.name}" class="text-base leading-tight mb-2">
             {if $field.name == 'customer_privacy'}
               En validant ce formulaire, j'accepte que les données confidentielles saisies peuvent être utilisées par NATURA<span class="font-bold italic">Medicatrix</span>*
             {else}

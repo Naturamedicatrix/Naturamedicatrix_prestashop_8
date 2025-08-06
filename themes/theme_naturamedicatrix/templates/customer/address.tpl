@@ -15,7 +15,7 @@
   {else}
     <h1>{l s='New address' d='Shop.Theme.Customeraccount'}</h1>
   {/if}
-  <div class="address-form">
+  <div class="address-form max-w-xl mt-2">
     {render template="customer/_partials/address-form.tpl" ui=$address_form}
   </div>
 {/block}

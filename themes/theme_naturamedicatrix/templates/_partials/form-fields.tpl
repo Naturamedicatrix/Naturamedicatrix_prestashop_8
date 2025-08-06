@@ -9,18 +9,18 @@ CUSTOM FORM FIELDS
 
 {else}
 
-  <div class="flex flex-col mb-6 mt-4 {if !empty($field.errors)}has-error{/if}">
-    <label class="text-left font-bold {if $field.required} required after:content-['*'] after:ml-0.5 after:text-red-500{/if}" for="field-{$field.name}">
+  <div class="flex flex-col mb-6 mt-0 {if !empty($field.errors)}has-error{/if}">
+    <label class="text-left text-base text-gray-800 {if $field.required} required after:content-['*'] after:ml-0.5 after:text-red-500{/if}" for="field-{$field.name}">
       {if $field.type !== 'checkbox'}
         {$field.label}
       {/if}
     </label>
-    <div class="js-input-column{if ($field.type === 'radio-buttons')} form-control-valign{/if}">
+    <div class="js-input-column{if ($field.type === 'radio-buttons')} form-control-valign pt-0{/if}">
 
       {if $field.type === 'select'}
 
         {block name='form_field_item_select'}
-          <select id="field-{$field.name}" class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-white" name="{$field.name}" {if $field.required}required{/if}>
+          <select id="field-{$field.name}" class="w-full border border-gray-300 rounded-md text-base px-4 text-sm focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none bg-white" name="{$field.name}" {if $field.required}required{/if}>
             {if !$field.value}
               <option value disabled selected class="text-gray-500">{l s='Please choose' d='Shop.Forms.Labels'}</option>
             {/if}
@@ -35,7 +35,7 @@ CUSTOM FORM FIELDS
         {block name='form_field_item_country'}
           <select
             id="field-{$field.name}"
-            class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary bg-white js-country"
+            class="w-full border border-gray-300 rounded-md text-base px-4 text-sm focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none bg-white js-country"
             name="{$field.name}"
             {if $field.required}required{/if}
           >
@@ -52,7 +52,7 @@ CUSTOM FORM FIELDS
 
         {block name='form_field_item_radio'}
           {foreach from=$field.availableValues item="label" key="value"}
-            <label class="inline-flex items-center mr-4 mb-2" for="field-{$field.name}-{$value}">
+            <label class="inline-flex items-center mr-4 mb-0" for="field-{$field.name}-{$value}">
               <span class="custom-radio">
                 <input
                   name="{$field.name}"
@@ -84,7 +84,7 @@ CUSTOM FORM FIELDS
       {elseif $field.type === 'date'}
 
         {block name='form_field_item_date'}
-          <input id="field-{$field.name}" name="{$field.name}" class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" type="date" value="{$field.value|default}"{if isset($field.availableValues.placeholder)} placeholder="{$field.availableValues.placeholder}"{/if}>
+          <input id="field-{$field.name}" name="{$field.name}" class="w-full border border-gray-300 rounded-md text-base px-4 py-1 text-sm h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none" type="date" value="{$field.value|default}"{if isset($field.availableValues.placeholder)} placeholder="{$field.availableValues.placeholder}"{/if}>
           {if isset($field.availableValues.comment)}
             <span class="text-xs text-gray-500 mt-1 block">
               {$field.availableValues.comment}
@@ -103,9 +103,9 @@ CUSTOM FORM FIELDS
             prefix=false
             reverse_years=true
             field_separator='<br>'
-            day_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-9 mr-2 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"'
-            month_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-9 mr-2 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"'
-            year_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"'
+            day_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-12 mr-2 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"'
+            month_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-12 mr-2 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"'
+            year_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"'
             day_empty={l s='-- day --' d='Shop.Forms.Labels'}
             month_empty={l s='-- month --' d='Shop.Forms.Labels'}
             year_empty={l s='-- year --' d='Shop.Forms.Labels'}
@@ -117,10 +117,10 @@ CUSTOM FORM FIELDS
       {elseif $field.type === 'password'}
 
         {block name='form_field_item_password'}
-          <div class="password-field-container">
+          <div class="password-field-container relative">
             <input
               id="field-{$field.name}"
-              class="w-72 sm:w-96 border border-gray-300 rounded-md pl-4 pr-10 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+              class="w-full border border-gray-300 rounded-md text-base pl-4 pr-10 py-1 text-sm h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"
               name="{$field.name}"
               aria-label="{l s='Password input' d='Shop.Forms.Help'}"
               type="password"
@@ -150,7 +150,7 @@ CUSTOM FORM FIELDS
         {block name='form_field_item_other'}
           <input
             id="field-{$field.name}"
-            class="w-72 sm:w-96 border border-gray-300 rounded-md px-4 py-1 text-sm h-9 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+            class="w-full border border-gray-300 rounded-md text-base px-4 py-1 text-sm h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"
             name="{$field.name}"
             type="{$field.type}"
             value="{$field.value|default}"

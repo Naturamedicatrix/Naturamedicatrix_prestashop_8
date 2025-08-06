@@ -10,7 +10,7 @@
  {/block}
  
  {block name='page_content'}
-   <form action="{$urls.pages.password}" class="forgotten-password" method="post">
+   <form action="{$urls.pages.password}" class="forgotten-password p-0 max-w-2xl mx-auto" method="post">
  
      <ul class="ps-alert-error">
        {foreach $errors as $error}
@@ -25,14 +25,15 @@
        {/foreach}
      </ul>
  
-     <header>
-       <p class="send-renew-password-link">{l s='Please enter the email address you used to register. You will receive a temporary link to reset your password.' d='Shop.Theme.Customeraccount'}</p>
+     <header class="text-left">
+       <p class="send-renew-password-link text-lg px-0">{l s='Please enter the email address you used to register. You will receive a temporary link to reset your password.' d='Shop.Theme.Customeraccount'}</p>
+       <p class="alert alert-info inline-block">{l s='Please check if our message accidentally landed in your junk or spam email folder.' d='Shop.Theme.Actions'}</p>
      </header>
  
-     <section class="form-fields">
-        <div class="form-group">
-          <label for="email" class="form-control-label required">{l s='Email address' d='Shop.Forms.Labels'}</label>
-          <input type="email" name="email" id="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" class="form-control" required>
+      <section class="form-fields w-full">
+        <div class="form-group w-96">
+          <label for="email" class="form-control-label w-full text-left required">{l s='Email address' d='Shop.Forms.Labels'}</label>
+          <input type="email" name="email" id="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" class="form-control bg-white h-12 w-full" required>
         </div>
         <div class="form-group-btn">
           <button class="btn primary-btn" name="submit" type="submit">
@@ -45,8 +46,8 @@
  {/block}
  
  {block name='page_footer'}
-   <a id="back-to-login" href="{$urls.pages.my_account}" class="account-link">
-     <span>{l s='Back to login' d='Shop.Theme.Actions'}</span>
+   <a id="back-to-login" href="{$urls.pages.my_account}" class="account-link no-underline m-0">
+     <i class="bi bi-arrow-left"></i> <span class="underline">{l s='Back to login' d='Shop.Theme.Actions'}</span>
    </a>
  {/block}
  

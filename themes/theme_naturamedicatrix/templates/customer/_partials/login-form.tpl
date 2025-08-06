@@ -13,6 +13,7 @@
       {block name='login_form_fields'}
         {foreach from=$formFields item="field"}
           {block name='form_field'}
+            {assign var="field.css_class" value="form-control custom-input your-tailwind-classes"}
             {form_field field=$field}
           {/block}
         {/foreach}

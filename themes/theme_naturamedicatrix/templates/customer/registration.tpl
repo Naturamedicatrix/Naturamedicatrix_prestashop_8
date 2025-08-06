@@ -15,25 +15,28 @@
   {block name='register_form_container'}
     <div id="registration-page">
       <div class="registration-columns">
-        <div class="registration-column left-column">
-          <h2 class="text-center font-light text-3xl">{l s='Créer votre compte' d='Shop.Theme.Customeraccount'}</h2>
-          <section class="register-form">
-            {$hook_create_account_top nofilter}
-            {render file='customer/_partials/customer-form.tpl' ui=$register_form}
-          </section>
+        <div class="registration-column left-column p-0">
+          <div class=" max-w-lg mx-auto">
+            <h2 class="text-left font-bold text-3xl mb-2">{l s='Create your account' d='Shop.Theme.Customeraccount'}</h2>
+            <section class="register-form">
+              {$hook_create_account_top nofilter}
+              {render file='customer/_partials/customer-form.tpl' ui=$register_form}
+            </section>
+          </div>
         </div>
         
-        <div class="registration-column right-column">
-          <h2 class="text-center font-light text-3xl">{l s='Already have an account?' d='Shop.Theme.Customeraccount'}</h2>
-          <div class="login-info">
-            <p>Vous avez déjà un compte client chez nous ? Connectez-vous pour accéder à tous les services de notre boutique en ligne :</p>
-            <ul class="text-gray-600">
-              <li>Achat rapide et simplifié</li>
-              <li>Suivi de ma commande</li>
-              <li>Historique de mes achats</li>
+        <div class="registration-column right-column p-0">
+          <div class="login-info max-w-md mx-auto">
+            <h3 class="text-left font-bold text-2xl mb-2">{l s='Your advantages to be client' d='Shop.Theme.Customeraccount'}</h2>
+            <ul class="text-gray-600 list-none pl-0 mt-2 text-base">
+              <li class="mb-2.5 list-none"><i class="bi bi-box-seam icon-special text-gray-900 mr-1.5"></i> Achat rapide et simplifié</li>
+              <li class="mb-2.5 list-none"><i class="bi bi-search icon-special text-gray-900 mr-1.5"></i> Suivi de ma commande</li>
+              <li class="mb-2.5 list-none"><i class="bi bi-card-checklist icon-special text-gray-900 mr-1.5"></i> Historique de mes achats</li>
             </ul>
-            <div class="login-button">
-              <a href="{$urls.pages.authentication}" class="btn primary-btn" data-link-action="display-login-form">
+            <hr />
+            <div class="login-button text-left">
+              <h3 class="text-left font-bold text-2xl mb-1">{l s='Already have an account?' d='Shop.Theme.Customeraccount'}</h2>
+              <a href="{$urls.pages.authentication}" class="btn btn-outline" data-link-action="display-login-form">
                 {l s='Log in instead!' d='Shop.Theme.Customeraccount'}
               </a>
             </div>

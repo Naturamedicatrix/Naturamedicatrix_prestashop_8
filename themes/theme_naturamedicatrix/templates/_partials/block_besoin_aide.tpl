@@ -2,7 +2,7 @@
  * BLOCK BESOIN D'AIDE
  *}
 <div class="help-block text-center">
-  <h5 class="pt-0 mt-0 color-title">Besoin d'aide ?</h5>
+  <h5 class="pt-0 mt-0 color-title"><i class="bi bi-chat-dots icon-special mr-1.5"></i> Besoin d'aide ?</h5>
   <div class="title-separator">
     <svg id="logoTitle" data-name="Logo Title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504.59 360.15">
       <path class="logo-title"
