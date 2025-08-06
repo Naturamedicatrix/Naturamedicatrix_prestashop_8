@@ -25,9 +25,9 @@
       <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden text-left flex flex-col items-center justify-between space-y-4">
         <article id="credit-slip-{$slip.credit_slip_number}" class="w-full h-full flex flex-col justify-between min-h-[280px]" data-slip="{$slip.credit_slip_number}">
           <div>
-            <div class="credit-slip-header bg-gray-50 w-full mt-0 mb-2 py-5 px-6 relative">
+            <div class="credit-slip-header bg-gray-50 w-full mt-0 mb-2 py-5 px-6 flex justify-between items-center flex-wrap gap-2">
               <h4 class="m-0 p-0 font-bold text-lg">{$slip.order_reference}</h4>
-              <div class="absolute right-5 top-5 text-green-600 font-semibold">
+              <div class="text-green-600 font-semibold">
                 {if $slip.total_products_tax_incl > 0}
                   {Tools::displayPrice($slip.total_products_tax_incl + $slip.total_shipping_tax_incl)}
                 {elseif $slip.amount > 0}
@@ -40,10 +40,24 @@
               </div>
             </div>
             <div class="credit-slip-body px-6 mb-2 space-y-3">
-              <div class="mb-8">
-                <strong class="text-gray-700">{l s='Order' d='Shop.Theme.Checkout'}:</strong>
-                <div class="text-gray-900 text-sm">
-                  <a href="{$slip.order_url_details}" data-link-action="view-order-details" class="text-blue-600 hover:text-blue-700 underline">{$slip.order_reference}</a>
+              <div class="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <strong class="text-gray-700">{l s='Order' d='Shop.Theme.Checkout'}:</strong>
+                  <div class="text-gray-900">
+                    <a href="{$slip.order_url_details}" data-link-action="view-order-details" class="text-blue-600 hover:text-blue-700 underline">{$slip.order_reference}</a>
+                  </div>
+                </div>
+                <div>
+                  <strong class="text-gray-700">{l s='Refund amount' d='Shop.Theme.Checkout'}:</strong>
+                  <div class="text-gray-900 font-semibold">
+                    {if $slip.total_products_tax_incl > 0}
+                      {Tools::displayPrice($slip.total_products_tax_incl + $slip.total_shipping_tax_incl)}
+                    {elseif $slip.amount > 0}
+                      {Tools::displayPrice($slip.amount)}
+                    {else}
+                      -
+                    {/if}
+                  </div>
                 </div>
               </div>
               

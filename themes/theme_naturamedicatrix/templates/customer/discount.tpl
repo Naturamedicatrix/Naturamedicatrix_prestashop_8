@@ -19,9 +19,9 @@
       <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden text-left flex flex-col items-center justify-between space-y-4">
         <article id="discount-{$cart_rule.code}" class="w-full h-full flex flex-col justify-between min-h-[280px]" data-code="{$cart_rule.code}">
           <div>
-            <div class="discount-header bg-gray-50 w-full mt-0 mb-2 py-5 px-6 relative">
+            <div class="discount-header bg-gray-50 w-full mt-0 mb-2 py-5 px-6 flex justify-between items-center flex-wrap gap-2">
               <h4 class="m-0 p-0 font-bold text-lg">{$cart_rule.name}</h4>
-              <div class="absolute right-5 top-5 text-green-600 font-semibold">
+              <div class="text-green-600 font-semibold">
                 {$cart_rule.value}
               </div>
             </div>
