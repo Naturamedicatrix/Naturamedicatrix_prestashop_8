@@ -151,7 +151,7 @@
     
     .wishlist-list-item:hover .wishlist-list-item-title {
       color: #4B5563;
-    }    
+    }
     
   </style>
   

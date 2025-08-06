@@ -16,6 +16,9 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
  *}
+{* Variable pour indiquer la présence du container wishlist *}
+{assign var="hasWishlistContainer" value=true}
+
 {extends file='customer/page.tpl'}
 
 {* LEFT COLUMN *}
@@ -26,7 +29,6 @@
 
 {block name='page_header_container'}
 {/block}
-
 {block name='page_content_container'}
   <div
     class="wishlist-products-container"

@@ -1,21 +1,6 @@
 <?php
 /**
- * Copyright since 2007 PrestaShop SA and Contributors
- * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License version 3.0
- * that is bundled with this package in the file LICENSE.md.
- * It is also available through the world-wide-web at this URL:
- * https://opensource.org/licenses/AFL-3.0
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
- *
- * @author    PrestaShop SA and Contributors <contact@prestashop.com>
- * @copyright Since 2007 PrestaShop SA and Contributors
- * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+ * OVERRIDE DE MailAlert
  */
 class MailAlert extends ObjectModel
 {
@@ -110,10 +95,55 @@ class MailAlert extends ObjectModel
         }
 
         for ($i = 0; $i < $products_number; ++$i) {
-            $obj = new Product((int) $products[$i]['id_product'], false, (int) $id_lang);
+            $obj = new Product((int) $products[$i]['id_product'], true, (int) $id_lang); // true = load full data
             if (!Validate::isLoadedObject($obj)) {
                 continue;
             }
+            
+            // Enrichir avec les données du manufacturer
+            $products[$i]['manufacturer_name'] = $obj->manufacturer_name ?: '';
+            $products[$i]['id_manufacturer'] = (int) $obj->id_manufacturer;
+            
+            // Enrichir avec les prix des produits
+            $productPrice = Product::getPriceStatic($obj->id, true, $products[$i]['id_product_attribute'] ?: null);
+            $priceWithoutReduction = Product::getPriceStatic($obj->id, true, $products[$i]['id_product_attribute'] ?: null, 6, null, false, false);
+            
+            $products[$i]['price'] = $productPrice > 0 ? Tools::displayPrice($productPrice) : '';
+            $products[$i]['show_price'] = $productPrice > 0;
+            
+            // Calculer le prix régulier et les informations de réduction
+            if ($productPrice < $priceWithoutReduction) {
+                // Il y a une réduction
+                $products[$i]['regular_price'] = Tools::displayPrice($priceWithoutReduction);
+                $products[$i]['has_discount'] = true;
+                
+                $reduction = $priceWithoutReduction - $productPrice;
+                $discountPercentage = round(($reduction / $priceWithoutReduction) * 100);
+                
+                $products[$i]['discount_type'] = 'percentage';
+                $products[$i]['discount_percentage'] = '-' . $discountPercentage . '%';
+                $products[$i]['discount_amount_to_display'] = Tools::displayPrice($reduction);
+            } else {
+                // Pas de réduction
+                $products[$i]['regular_price'] = $products[$i]['price'];
+                $products[$i]['has_discount'] = false;
+                $products[$i]['discount_type'] = null;
+                $products[$i]['discount_percentage'] = null;
+                $products[$i]['discount_amount_to_display'] = null;
+            }
+            
+            // Enrichir avec les caractéristiques
+            $products[$i]['features'] = $obj->getFrontFeatures($id_lang) ?: [];
+            
+            // Autres données nécessaires
+            $products[$i]['url'] = $obj->getLink();
+            $products[$i]['quantity'] = $products[$i]['product_quantity'] ?: 0;
+            $products[$i]['quantity_all_versions'] = $products[$i]['product_quantity'] ?: 0;
+            $products[$i]['has_attributes'] = !empty($products[$i]['id_product_attribute']);
+            
+            // Générer les flags comme dans PrestaShop
+            $products[$i]['flags'] = self::generateProductFlags($obj, $products[$i], $id_lang);
+            $products[$i]['add_to_cart_url'] = '';
 
             if (isset($products[$i]['id_product_attribute'])
                 && Validate::isUnsignedInt($products[$i]['id_product_attribute'])) {
@@ -155,7 +185,20 @@ class MailAlert extends ObjectModel
             }
             $products[$i]['link'] = $obj->getLink();
             $context = Context::getContext();
-            $products[$i]['cover_url'] = $context->link->getImageLink($obj->link_rewrite, $products[$i]['cover'], 'small_default');
+            $products[$i]['cover_url'] = $context->link->getImageLink($obj->link_rewrite, $products[$i]['cover'], 'home_default');
+            
+            // Structure d'image compatible avec product.tpl
+            $products[$i]['cover'] = [
+                'bySize' => [
+                    'home_default' => [
+                        'url' => $products[$i]['cover_url'],
+                        'width' => 200,
+                        'height' => 200
+                    ]
+                ],
+                'legend' => $products[$i]['name'],
+                'large' => ['url' => str_replace('home_default', 'large_default', $products[$i]['cover_url'])]
+            ];
         }
 
         return $products;
@@ -314,5 +357,83 @@ class MailAlert extends ObjectModel
 			WHERE mc.`id_product` = ' . (int) $id_product . ' AND mc.`id_product_attribute` = ' . (int) $id_product_attribute;
 
         return Db::getInstance((bool) _PS_USE_SQL_SLAVE_)->executeS($sql);
+    }
+
+    /**
+     * Génère les flags d'un produit comme dans PrestaShop
+     * 
+     * @param Product $product L'objet produit
+     * @param array $productData Les données du produit
+     * @param int $id_lang L'ID de la langue
+     * @return array Les flags du produit
+     */
+    private static function generateProductFlags($product, $productData, $id_lang)
+    {
+        $flags = [];
+        $context = Context::getContext();
+        
+        // Flag "online-only" si le produit est en ligne uniquement
+        if ($product->online_only) {
+            $flags['online-only'] = [
+                'type' => 'online-only',
+                'label' => 'En ligne uniquement'
+            ];
+        }
+        
+        // Flag "on-sale" si le produit est en promotion
+        if ($product->on_sale && !Configuration::get('PS_CATALOG_MODE')) {
+            $flags['on-sale'] = [
+                'type' => 'on-sale',
+                'label' => 'En promotion'
+            ];
+        }
+        
+        // Flag "new" si le produit est nouveau
+        if ($product->isNew()) {
+            $flags['new'] = [
+                'type' => 'new',
+                'label' => 'Nouveau'
+            ];
+        }
+        
+        // Flag "discount" si le produit a une réduction
+        $price = Product::getPriceStatic($product->id, true, $productData['id_product_attribute'] ?: null);
+        $priceWithoutReduction = Product::getPriceStatic($product->id, true, $productData['id_product_attribute'] ?: null, 6, null, false, false);
+        
+        if ($price < $priceWithoutReduction) {
+            $reduction = $priceWithoutReduction - $price;
+            $discountPercentage = round(($reduction / $priceWithoutReduction) * 100);
+            
+            $flags['discount'] = [
+                'type' => 'discount',
+                'label' => '-' . $discountPercentage . '%'
+            ];
+        }
+        
+        // Flag "pack" si le produit est un pack
+        if (Pack::isPack($product->id)) {
+            $flags['pack'] = [
+                'type' => 'pack',
+                'label' => 'Pack'
+            ];
+        }
+        
+        // Flag "out_of_stock" si le produit est en rupture
+        $quantity = StockAvailable::getQuantityAvailableByProduct($product->id, $productData['id_product_attribute'] ?: null);
+        if ($quantity <= 0 && !$product->isAvailableWhenOutOfStock($product->out_of_stock)) {
+            $config = Configuration::get('PS_LABEL_OOS_PRODUCTS_BOD');
+            $label = 'Rupture de stock';
+            
+            if (is_array($config) && isset($config[$id_lang])) {
+                $label = $config[$id_lang];
+            }
+            
+            $flags['out_of_stock'] = [
+                'type' => 'out_of_stock',
+                'label' => $label
+            ];
+        }
+        
+        return $flags;
     }
 }

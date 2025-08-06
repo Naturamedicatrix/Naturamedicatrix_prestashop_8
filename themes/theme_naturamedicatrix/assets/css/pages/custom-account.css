@@ -2050,6 +2050,11 @@ body#discount #main {
   }
 }
 
+@media (max-width: 640px) {
+  body#module-ps_emailalerts-account #content {
+    padding: 0 15px !important;
+  }
+}
 body#module-ps_emailalerts-account h1 {
   padding-top: 0;
 }
@@ -2093,6 +2098,20 @@ body#module-ps_emailalerts-account .alerts-list li .js-remove-email-alert {
 body#module-ps_emailalerts-account .alerts-list li .js-remove-email-alert:hover {
   color: rgb(107.974137931, 122.3706896552, 142.525862069) !important;
 }
+body#module-ps_emailalerts-account .alerts-container .product-miniature.out_stock *:not(.out-of-stock-label) {
+  opacity: 1;
+}
+body#module-ps_emailalerts-account .alerts-container .out-of-stock-label {
+  display: none;
+}
+body#module-ps_emailalerts-account .alerts-container .product-miniature .product-title {
+  text-align: center !important;
+  color: #111827 !important;
+  padding-top: 0;
+}
+body#module-ps_emailalerts-account .alerts-container .wishlist-button-add {
+  position: absolute;
+}
 
 /* === STYLES SPÉCIFIQUES POUR LA PAGE GDPR === */
 @media (max-width: 640px) {
@@ -2132,26 +2151,24 @@ body#view #content {
 @media (max-width: 640px) {
   body#view #content {
     padding-left: 15px !important;
-    padding-right: 15px !important;
+    padding-right: 0px !important;
   }
 }
 body#view #content .wishlist-products-item {
   border: 1px solid #e5e8ea;
   border-radius: 10px;
   padding: 20px;
+  margin: 0;
+  padding: 15px;
   list-style: none;
 }
 body#view #content .wishlist-products-item .wishlist-product a {
   border-bottom: none;
   text-decoration: none !important;
 }
-body#view #content-wrapper {
-  width: 65%;
-}
 @media (max-width: 640px) {
-  body#view #content-wrapper {
-    width: 100%;
-    margin-top: 30px;
+  body#view .wishlist-products-container-header h1 {
+    padding-left: 30px !important;
   }
 }
 body#view .wishlist-products-container .sort-by-row {
@@ -2183,6 +2200,18 @@ body#view .dropdown-menu a:hover {
   background-color: #487595 !important;
   color: white;
 }
+body#view .wishlist-products-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 1280px) {
+  body#view .wishlist-products-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 body#view .wishlist-button-add i {
   color: #4B5563 !important;
 }
@@ -2206,6 +2235,29 @@ body#view .wishlist-product-title {
   }
 }
 body#view .wishlist-product-combinations i {
+  display: none;
+}
+body#view .wishlist-product-image {
+  height: 7rem;
+}
+body#view .wishlist-product-combinations-text {
+  display: none;
+}
+body#view .wishlist-product-price {
+  line-height: 1;
+  text-align: center;
+  margin-top: 15px;
+}
+body#view .wishlist-product-price {
+  line-height: 1;
+  padding-left: 0;
+}
+body#view .wishlist-product-addtocart {
+  padding: 10px 0;
+  text-align: center;
+  font-size: 0.8rem !important;
+}
+body#view .wishlist-product-addtocart i {
   display: none;
 }
 

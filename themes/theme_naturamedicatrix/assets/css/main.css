@@ -1733,6 +1733,10 @@ select {
   font-size: 1.2rem;
 }
 
+.form-control-valign {
+  padding-top: 0;
+}
+
 table.table-light {
   margin-bottom: 2rem;
   border: 1px solid #93A7C3;
