@@ -524,7 +524,7 @@
         border: 1px solid #e5e8ea;
         font-weight: normal;
         color: #4B5563 !important;
-        padding: 0.5rem 1rem;
+        padding: 1rem 2rem;
         border-radius: 10px;
         font-size: 1rem;
       }

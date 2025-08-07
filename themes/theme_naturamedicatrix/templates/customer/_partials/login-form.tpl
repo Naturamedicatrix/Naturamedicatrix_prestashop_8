@@ -29,7 +29,7 @@
         <input type="hidden" name="submitLogin" value="1">
         {block name='form_buttons'}
           <button id="submit-login" class="btn primary-btn" data-link-action="sign-in" type="submit">
-            {l s='Sign in' d='Shop.Theme.Actions'}
+            {l s='Sign in' d='Shop.Theme.Customeraccount'}
           </button>
         {/block}
       </footer>

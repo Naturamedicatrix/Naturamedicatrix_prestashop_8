@@ -112,7 +112,13 @@
       <input type="hidden" name="submitCreate" value="1">
       {block "form_buttons"}
         <button class="btn btn-primary form-control-submit" data-link-action="save-customer" type="submit">
-          {l s='Enregistrer les modifications' d='Shop.Theme.Actions'}
+          
+          {if $page.page_name == 'registration'}
+            {l s='Create an account' d='Shop.Theme.Customeraccount'}
+          {else}
+            {l s='Save changes' d='Shop.Theme.Actions'}
+          {/if}
+        
         </button>
       {/block}
     </footer>

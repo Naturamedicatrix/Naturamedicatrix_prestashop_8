@@ -37,7 +37,7 @@
             <div class="login-button text-left">
               <h3 class="text-left font-bold text-2xl mb-1">{l s='Already have an account?' d='Shop.Theme.Customeraccount'}</h2>
               <a href="{$urls.pages.authentication}" class="btn btn-outline" data-link-action="display-login-form">
-                {l s='Log in instead!' d='Shop.Theme.Customeraccount'}
+                {l s='Sign in' d='Shop.Theme.Customeraccount'}
               </a>
             </div>
           </div>
