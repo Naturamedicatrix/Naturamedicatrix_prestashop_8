@@ -2743,3 +2743,21 @@ kbd {
 .product-miniature {
   display: block;
 }
+
+#alphabet li a:hover {
+  color: #487595;
+}
+
+#alphabet li a.active {
+  background-color: #487595;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}

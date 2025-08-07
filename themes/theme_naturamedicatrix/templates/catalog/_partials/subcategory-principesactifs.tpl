@@ -25,20 +25,7 @@
       align-items: center;
       gap: 1rem;
     }
-
-    #alphabet li a:hover {
-      color: #83b58b;
-    }
-    
-    /* Style pour la lettre active */
-    #alphabet li a.active {
-      color: #83b58b;
-      font-weight: bold;
-      transition: all 0.2s ease;
-      opacity: 1;
-    }
   
-   
 
     @media (max-width: 460px) {
       #category-principesactifs ul, #search-results {
