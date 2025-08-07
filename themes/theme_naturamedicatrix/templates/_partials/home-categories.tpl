@@ -30,11 +30,11 @@
     
   </ul>
   <p class="text-center pb-0">
-    <a href="#" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="false" aria-controls="collapseCategories">Voir toutes les catégories<svg class="ml-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <a href="#" id="toggleCategories" aria-expanded="false" aria-controls="collapseCategories">Voir toutes les catégories<svg class="ml-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </p>
   									
-  <ul class="collapse grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 list-none p-0 mt-1" id="collapseCategories" aria-labelledby="headingCategories">
+  <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 list-none p-0 mt-1 hidden" id="collapseCategories" aria-labelledby="headingCategories">
     {foreach from=$categories item=cat}
       {if !in_array($cat.id_category, $allowed_ids) && $cat.id_parent == 2}
          <li class="mb-0">
@@ -49,14 +49,8 @@
 </div>
 
 <style>
-  
-  
   #home-categories svg {
     display: inline-block;
-  }
-  
-  #home-categories .collapse.in {
-    display: grid;
   }
   
   .btn-label {
@@ -82,10 +76,68 @@
     color: #1F80C7 !important;
   }
   
-  a[aria-expanded="true"] svg {
-    transform: rotate(90deg);
-    transition: transform 0.2s ease-in-out;
+  #toggleCategories svg {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
   }
-
   
+  #toggleCategories[aria-expanded="true"] svg {
+    transform: rotate(90deg);
+  }
+  
+  #collapseCategories {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  #collapseCategories.show {
+    display: grid !important;
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  #collapseCategories.hidden {
+    display: none;
+  }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButton = document.getElementById('toggleCategories');
+  const collapseElement = document.getElementById('collapseCategories');
+  
+  if (toggleButton && collapseElement) {
+    toggleButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+      
+      if (isExpanded) {
+        // Ferme avec animation
+        collapseElement.classList.remove('show');
+        toggleButton.setAttribute('aria-expanded', 'false');
+        
+        // Masque complètement après l'animation
+        setTimeout(function() {
+          if (toggleButton.getAttribute('aria-expanded') === 'false') {
+            collapseElement.classList.add('hidden');
+          }
+        }, 400);
+        
+      } else {
+        // Ouvrir avec animation
+        collapseElement.classList.remove('hidden');
+        
+        collapseElement.offsetHeight;
+        
+        collapseElement.classList.add('show');
+        toggleButton.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+});
+</script>

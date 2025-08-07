@@ -70,28 +70,6 @@
   overflow-y: auto;
 }
 
-/* ==================================================
-   PADDING ET STRUCTURE
-   ================================================== */
-
-.modal-padding {
-  padding: 16px;
-}
-
-.modal-padding-large {
-  padding: 24px;
-}
-
-.menu-container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.menu-icon {
-  margin-right: 8px;
-}
-
 .menu-separator {
   margin: 8px 0;
   border: none;

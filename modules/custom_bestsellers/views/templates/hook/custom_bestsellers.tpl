@@ -2,7 +2,7 @@
  * Template pour le module custom_bestsellers
  * Affiche des produits spécifiques comme "meilleures ventes"
  *}
-<div class="bg-wrapper mb-20 py-20">
+<div class="bg-wrapper mb-20 py-16">
   <section class="featured-products block-bestsellers clearfix container">
     <div class="all-product-link text-center">
       <a href="{$allProductsLink}">

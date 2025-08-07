@@ -17,7 +17,7 @@
       
       <!-- Modal hover du panier -->
       <div class="user-hover-modal cart-modal">
-        <div class="modal-padding">
+        <div class="px-4 py-4">
           {if $cart.products_count > 0}
             <!-- En-tête du panier -->
             <div class="cart-header">

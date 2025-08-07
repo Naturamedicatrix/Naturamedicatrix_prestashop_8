@@ -29,7 +29,7 @@ CUSTOM ZONE PROMO
             </a>
           </p>
   
-          <div id="promo-code" class="collapse{if $cart.discounts|count > 0} in{/if}">
+          <div id="promo-code">
             <div class="promo-code">
               {block name='cart_voucher_form'}
                 <form action="{$urls.pages.cart}" data-link-action="add-voucher" method="post">

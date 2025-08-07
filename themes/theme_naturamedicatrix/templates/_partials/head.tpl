@@ -86,7 +86,7 @@
 
 
 {block name='head_tailwind'}
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  {* <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"> *}
 {/block}
 
 {block name='stylesheets'}

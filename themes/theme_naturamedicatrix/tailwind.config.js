@@ -14,7 +14,7 @@ module.exports = {
         'color-custom-grayLight': '#EDEFF1',
         'color-custom-blue': '#93A7C3',
         'color-custom-text-black': '#4B5563',
-        'color-custom-title-black': '#111827'
+        'color-custom-title-black': '#111827',
       },
       
     },
