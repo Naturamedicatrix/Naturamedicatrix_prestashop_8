@@ -856,7 +856,7 @@ body#cart #wrapper {
 
 /* Modal pour le menu utilisateur connecté */
 .user-account-modal {
-  width: 420px;
+  width: 23rem;
 }
 
 /* Modal pour le panier */
@@ -864,12 +864,6 @@ body#cart #wrapper {
   width: 450px;
   max-height: 500px;
   overflow-y: auto;
-}
-
-.menu-separator {
-  margin: 8px 0;
-  border: none;
-  border-top: 1px solid #EDEFF1;
 }
 
 /* ==================================================

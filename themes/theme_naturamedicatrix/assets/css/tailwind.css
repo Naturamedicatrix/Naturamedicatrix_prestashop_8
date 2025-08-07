@@ -632,10 +632,6 @@ video {
   visibility: visible;
 }
 
-/* .collapse {
-  visibility: collapse;
-} */
-
 .fixed {
   position: fixed;
 }
@@ -2331,8 +2327,6 @@ video {
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* Vous pouvez ajouter vos propres styles personnalisés ici */
 
 .after\:ml-0\.5::after {
   content: var(--tw-content);

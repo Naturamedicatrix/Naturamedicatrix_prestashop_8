@@ -60,7 +60,7 @@
 
 /* Modal pour le menu utilisateur connecté */
 .user-account-modal {
-  width: 420px;
+  width: 23rem;
 }
 
 /* Modal pour le panier */
@@ -70,11 +70,6 @@
   overflow-y: auto;
 }
 
-.menu-separator {
-  margin: 8px 0;
-  border: none;
-  border-top: 1px solid $color-custom-whiteDarker;
-}
 
 /* ==================================================
    FORMULAIRE DE CONNEXION
