@@ -5,8 +5,6 @@ module.exports = {
     "../classic/templates/**/*.tpl",
     "./assets/js/**/*.js"
   ],
-  // Préfixer les classes Tailwind pour éviter les conflits avec Bootstrap
-  prefix: 'tw-',
   theme: {
     extend: {
       colors: {
