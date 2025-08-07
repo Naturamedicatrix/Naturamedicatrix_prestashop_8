@@ -164,7 +164,7 @@
   <div class="header-top p-0">
     <div class="container">
       <div class="row">
-        <div class="header-top-right flex">          
+        <div class="header-top-right flex container">          
 
            {hook h='displayTop'} 
 
