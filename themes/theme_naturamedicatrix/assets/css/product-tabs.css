@@ -1,0 +1,111 @@
+/**
+ * Styles pour les onglets de produits adaptatifs
+ * Desktop: onglets verticaux fixes (sticky)
+ * Mobile: accordéon
+ */
+
+/* Style global des onglets */
+.product-tabs {
+  margin-bottom: 2rem;
+}
+
+/* Styles pour la navigation des onglets verticaux (desktop) */
+.vertical-tabs {
+  border-right: 1px solid #e5e5e5;
+  padding-right: 15px;
+}
+
+.vertical-tabs .nav-link {
+  border-radius: 0;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-left: 3px solid transparent;
+  color: #777;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.vertical-tabs .nav-link:hover {
+  color: #155585;
+  background-color: rgba(21, 85, 133, 0.05);
+}
+
+.vertical-tabs .nav-link.active {
+  color: #155585;
+  border-left: 3px solid #155585;
+  background-color: rgba(21, 85, 133, 0.05);
+}
+
+/* Styles pour rendre la navigation sticky mais pas sur mobile */
+.sticky-tabs-nav {
+  position: sticky;
+  top: 100px; /* Ajustez selon la hauteur de votre header */
+}
+
+/* Style de l'accordéon mobile */
+.accordion-item {
+  border: 1px solid #e5e5e5;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  padding: 1rem;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  color: #333;
+}
+
+.accordion-header:hover {
+  background-color: #f2f2f2;
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  padding: 1rem;
+  background-color: #fff;
+}
+
+/* Animation douce pour le collapse */
+.collapse {
+  transition: max-height 0.35s ease;
+}
+
+/* Styles spécifiques au contenu des onglets */
+.product-description ul {
+  padding-left: 20px;
+  margin-top: 1rem;
+}
+
+.product-description li {
+  margin-bottom: 0.5rem;
+}
+
+/* Pour les détails du produit */
+.product-details label {
+  font-weight: bold;
+}
+
+/* Pour les pièces jointes */
+.attachment {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.attachment:last-child {
+  border-bottom: none;
+}

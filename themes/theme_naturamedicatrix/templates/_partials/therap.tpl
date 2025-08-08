@@ -16,7 +16,7 @@
       <!-- Anthony -->
       <li class="list-none bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-0">
         <div class="flex items-center gap-x-6 mb-0">
-          <img class="size-16 w-24 rounded-full object-cover" src="{$urls.child_img_url}therapeutes/anthony_96.jpg" alt="Anthony-Damien Désirée" />
+          <img class="size-16 w-24 h-24 rounded-full object-cover" src="{$urls.child_img_url}therapeutes/anthony_96.jpg" alt="Anthony-Damien Désirée" />
           <div>
             <h4 class="text-base font-semibold text-gray-900 mt-0">Anthony-Damien Désirée<small>, PhD</small></h4>
             <p class="text-xs text-gray-600 mb-0">
@@ -46,7 +46,7 @@
       <!-- Fabien -->
       <li class="list-none bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-0">
         <div class="flex items-center gap-x-6 mb-0">
-          <img class="size-16 w-24 rounded-full object-cover" src="{$urls.child_img_url}therapeutes/fabien_96.jpg" alt="Fabien Piasco" />
+          <img class="size-16 w-24 h-24 rounded-full object-cover" src="{$urls.child_img_url}therapeutes/fabien_96.jpg" alt="Fabien Piasco" />
           <div>
             <h4 class="text-base font-semibold text-gray-900 mt-0">Fabien Piasco</h4>
             <p class="text-xs text-gray-600 mb-0">
