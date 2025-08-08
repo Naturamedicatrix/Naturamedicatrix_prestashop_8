@@ -17,17 +17,10 @@
       
       <!-- Modal hover du panier -->
       <div class="user-hover-modal cart-modal">
-        <div class="px-4 py-4">
+
           {if $cart.products_count > 0}
-            <!-- En-tête du panier -->
-            <div class="cart-header">
-              <h3 class="modal-title">
-                <i class="bi bi-handbag menu-icon"></i>{l s='Shopping Cart' d='Shop.Theme.Checkout'} ({$cart.products_count})
-              </h3>
-            </div>
-            
             <!-- Liste des produits -->
-            <div class="cart-products">
+            <div class="cart-products p-4">
               {foreach from=$cart.products item=product}
                 <div class="cart-product-item">
                   <div class="product-image">
@@ -40,23 +33,25 @@
                     {/if}
                   </div>
                   <div class="product-details">
-                    <a href="{$product.url}" class="product-name-link">
-                      <div class="product-name">{$product.name}</div>
-                    </a>
+                    <div class="flex justify-between items-start">
+                      <a href="{$product.url}" class="product-name-link">
+                        <div class="product-name">{$product.name}</div>
+                      </a>
+                      <a class="remove-product remove-from-cart" 
+                         rel="nofollow" 
+                         href="{$product.remove_from_cart_url}"
+                         data-link-action="delete-from-cart"
+                         data-id-product="{$product.id_product|escape:'javascript'}"
+                         data-id-product-attribute="{$product.id_product_attribute|escape:'javascript'}"
+                         data-id-customization="{$product.id_customization|default|escape:'javascript'}"
+                         title="{l s='Remove' d='Shop.Theme.Actions'}">
+                        <i class="bi bi-trash3"></i>
+                      </a>
+                    </div>    
                     <div class="product-meta">
                       <span class="quantity">x{$product.quantity}</span>
                       <div class="price-actions">
                         <span class="price">{$product.price}</span>
-                        <a class="remove-product remove-from-cart" 
-                           rel="nofollow" 
-                           href="{$product.remove_from_cart_url}"
-                           data-link-action="delete-from-cart"
-                           data-id-product="{$product.id_product|escape:'javascript'}"
-                           data-id-product-attribute="{$product.id_product_attribute|escape:'javascript'}"
-                           data-id-customization="{$product.id_customization|default|escape:'javascript'}"
-                           title="{l s='Remove' d='Shop.Theme.Actions'}">
-                          <i class="bi bi-trash3"></i>
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -65,9 +60,7 @@
             </div>
             
             <!-- Résumé du panier -->
-            <div class="cart-summary">
-              <hr class="menu-separator">
-              
+            <div class="cart-summary bg-gray-50 w-full mt-0 mb-0 py-5 px-6">              
               <!-- Sous-total des articles -->
               <div class="cart-subtotal">
                 {if $cart.products_count > 1}
@@ -106,8 +99,8 @@
               
               <!-- Actions -->
               <div class="cart-actions">
-                <a href="{$cart_url}" class="btn btn-primary">
-                  <i class="bi bi-eye menu-icon"></i>{l s='View Cart' d='Shop.Theme.Actions'}
+                <a href="{$cart_url}" class="btn btn-primary w-full">
+                  <i class="bi bi-eye menu-icon leading-0 mr-1.5"></i> {l s='View Cart' d='Shop.Theme.Actions'}
                 </a>
                 {* <a href="{$urls.pages.order}" class="btn btn-secondary">
                   <i class="bi bi-credit-card menu-icon"></i>{l s='Checkout' d='Shop.Theme.Actions'}
@@ -116,7 +109,7 @@
             </div>
           {else}
             <!-- Panier vide -->
-            <div class="empty-cart">
+            <div class="empty-cart text-center px-8 py-12">
               <div class="empty-cart-icon">
                 <i class="bi bi-handbag icon-special text-6xl text-gray-900"></i>
               </div>
@@ -124,12 +117,11 @@
                 {l s='Your shopping cart is empty' d='Shop.Theme.Checkout'}
               </div>
               <a href="{$urls.pages.index}" class="btn btn-primary">
-                <i class="bi bi-shop menu-icon"></i>{l s='Continue shopping' d='Shop.Theme.Actions'}
+                <i class="bi bi-shop menu-icon leading-0 mr-1.5"></i> {l s='Continue shopping' d='Shop.Theme.Actions'}
               </a>
             </div>
           {/if}
         </div>
-      </div>
     </div>
   </div>
 </div>

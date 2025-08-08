@@ -140,9 +140,9 @@
       <div class="flex justify-end items-center mx-auto" id="_desktop_logo">
         {if $shop.logo_details}
           {if $page.page_name == 'index'}
-            <h1 class="m-0 w-[220px]">{renderLogo}</h1>
+            <h1 class="m-0">{renderLogo}</h1>
           {else}
-            <div class="w-[220px]">{renderLogo}</div>
+            <div>{renderLogo}</div>
           {/if}
         {/if}
       </div>

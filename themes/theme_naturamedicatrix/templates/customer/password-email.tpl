@@ -32,8 +32,8 @@
  
       <section class="form-fields w-full">
         <div class="form-group w-96">
-          <label for="email" class="form-control-label w-full text-left required">{l s='Email address' d='Shop.Forms.Labels'}</label>
-          <input type="email" name="email" id="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" class="form-control bg-white h-12 w-full" required>
+          <label for="email" class="w-full text-left text-base text-gray-800 required after:content-['*'] after:text-red-500">{l s='Email address' d='Shop.Forms.Labels'}</label>
+          <input type="email" name="email" id="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" class="w-full border border-gray-300 rounded-md text-base px-4 py-1 h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none" required>
         </div>
         <div class="form-group-btn">
           <button class="btn primary-btn" name="submit" type="submit">
@@ -50,4 +50,3 @@
      <i class="bi bi-arrow-left"></i> <span class="underline">{l s='Back to login' d='Shop.Theme.Actions'}</span>
    </a>
  {/block}
- 

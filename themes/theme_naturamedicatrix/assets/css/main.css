@@ -861,8 +861,6 @@ body#cart #wrapper {
 
 /* Modal pour le panier */
 .cart-modal {
-  width: 450px;
-  max-height: 500px;
   overflow-y: auto;
 }
 
@@ -875,33 +873,6 @@ body#cart #wrapper {
   color: #111827;
   margin-bottom: 16px;
   text-align: center;
-}
-
-.modal-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.modal-label {
-  display: block;
-  font-size: 14px;
-  font-weight: 500;
-  color: #4B5563;
-  margin-bottom: 4px;
-  text-align: left;
-}
-
-/* ==================================================
-   CHAMPS DE SAISIE
-   ================================================== */
-.modal-input {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #EDEFF1;
-  border-radius: 6px;
-  outline: none;
-  transition: border-color 0.2s;
 }
 
 /* Conteneur du champ mot de passe */
@@ -950,17 +921,12 @@ body#cart #wrapper {
 /* ==================================================
    LIEN MOT DE PASSE OUBLIÉ
    ================================================== */
-.forgot-password-container {
-  text-align: right;
-}
-
-.forgot-password-link {
-  font-size: 14px;
-  text-decoration: none;
+#header .forgot-password-link {
   transition: color 0.2s;
+  color: #4B5563;
 }
-.forgot-password-link:hover {
-  color: #4B5563 !important;
+#header .forgot-password-link:hover {
+  color: #111827 !important;
   text-decoration: underline !important;
 }
 
@@ -974,7 +940,6 @@ body#cart #wrapper {
 .cart-products {
   max-height: 300px;
   overflow-y: auto;
-  margin-bottom: 16px;
 }
 
 .cart-product-item {
@@ -1073,10 +1038,6 @@ body#cart #wrapper {
   font-size: 16px;
 }
 
-.cart-summary {
-  margin-top: 16px;
-}
-
 .cart-modal .cart-subtotal,
 .cart-modal .cart-discount,
 .cart-modal .cart-shipping,
@@ -1169,11 +1130,6 @@ body#cart #wrapper {
   flex-direction: column;
   gap: 8px;
   margin-top: 12px;
-}
-
-.empty-cart {
-  text-align: center;
-  padding: 20px 10px;
 }
 
 .empty-cart-icon {

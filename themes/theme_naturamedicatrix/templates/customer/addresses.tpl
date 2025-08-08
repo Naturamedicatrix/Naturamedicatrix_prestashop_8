@@ -20,8 +20,6 @@
 {block name='page_content'}
   <h1>{l s='Mes adresses' d='Shop.Theme.Customeraccount'}</h1>
   
-  
-  
   {if $customer.addresses}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
     {foreach $customer.addresses as $address}

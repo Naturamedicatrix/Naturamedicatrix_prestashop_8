@@ -19,48 +19,42 @@
      </a>
      
      <!-- Menu déroulant pour utilisateur connecté -->
-     <div class="user-hover-modal user-account-modal">
-       <div class="modal-padding">
-         <div class="menu-container">
-           <a href="{$urls.pages.my_account}" class="account-menu-item">
-             <i class="bi bi-person menu-icon"></i>{l s='Mon compte' d='Shop.Theme.Customeraccount'}
+     <div class="user-hover-modal user-account-modal p-8 pt-4 w-104">
+         <a href="{$urls.pages.my_account}" class="h-12 flex items-center text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+           <i class="bi bi-person icon-special menu-icon leading-0 mr-1"></i>{l s='Mon compte' d='Shop.Theme.Customeraccount'}
+         </a>
+         <a href="{$urls.pages.identity}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand hover:border-brand-900 transition duration-500 ease-in-out">
+           <i class="bi bi-person-gear icon-special menu-icon leading-0 mr-1"></i>{l s='Mes informations personnelles' d='Shop.Theme.Customeraccount'}
+         </a>
+         <a href="{$urls.pages.addresses}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+           <i class="bi bi-house-door icon-special menu-icon leading-0 mr-1"></i>{l s='Mes adresses' d='Shop.Theme.Customeraccount'}
+         </a>
+         {if $urls.pages.guest_tracking}
+           <a href="{$urls.pages.history}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+             <i class="bi bi-card-list icon-special menu-icon leading-0 mr-1"></i>{l s='Mon historique de commandes' d='Shop.Theme.Customeraccount'}
            </a>
-           <a href="{$urls.pages.identity}" class="account-menu-item">
-             <i class="bi bi-person-gear menu-icon"></i>{l s='Mes informations personnelles' d='Shop.Theme.Customeraccount'}
-           </a>
-           <a href="{$urls.pages.addresses}" class="account-menu-item">
-             <i class="bi bi-house-door menu-icon"></i>{l s='Mes adresses' d='Shop.Theme.Customeraccount'}
-           </a>
-           <a href="{$link->getModuleLink('blockwishlist', 'lists')}" class="account-menu-item">
-             <i class="bi bi-heart menu-icon"></i>{l s='Mes listes d\'envies' d='Shop.Theme.Customeraccount'}
-           </a>
-           <a href="{$link->getModuleLink('ps_emailalerts', 'account')}" class="account-menu-item">
-             <i class="bi bi-bell menu-icon"></i>{l s='Mes alertes' d='Shop.Theme.Customeraccount'}
-           </a>
-           {if $urls.pages.order_slip}
-            <a href="{$urls.pages.order_slip}" class="account-menu-item">
-              <i class="bi bi-credit-card-2-front menu-icon"></i>{l s='Mes avoirs' d='Shop.Theme.Customeraccount'}
-            </a>
-            {/if}
-            {if $urls.pages.discount}
-            <a href="{$urls.pages.discount}" class="account-menu-item">
-              <i class="bi bi-percent menu-icon"></i>{l s='Mes bons d\'achat' d='Shop.Theme.Customeraccount'}
-            </a>
-            {/if}
-           <a href="{$urls.pages.history}" class="account-menu-item">
-             <i class="bi bi-card-list menu-icon"></i>{l s='Mon historique de commandes' d='Shop.Theme.Customeraccount'}
-           </a>
-           {if $urls.pages.guest_tracking}
-           <a href="{$urls.pages.guest_tracking}" class="account-menu-item">
-             <i class="bi bi-search menu-icon"></i>{l s='Suivi de commande' d='Shop.Theme.Customeraccount'}
-           </a>
-           {/if}
-           <hr class="menu-separator">
-           <a href="{$urls.actions.logout}" class="account-menu-item btn btn-secondary" rel="nofollow">
-             <i class="bi bi-box-arrow-right menu-icon"></i>{l s='Se deconnecter' d='Shop.Theme.Actions'}
-           </a>
-         </div>
-       </div>
+         {/if}
+         <a href="{$link->getModuleLink('blockwishlist', 'lists')}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+           <i class="bi bi-clipboard-heart icon-special menu-icon leading-0 mr-1"></i>{l s='Mes favoris' d='Shop.Theme.Customeraccount'}
+         </a>
+         <a href="{$link->getModuleLink('ps_emailalerts', 'account')}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+           <i class="bi bi-bell icon-special menu-icon leading-0 mr-1"></i>{l s='Mes alertes' d='Shop.Theme.Customeraccount'}
+         </a>
+          {if $urls.pages.discount}
+          <a href="{$urls.pages.discount}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+            <i class="bi bi-percent icon-special menu-icon leading-0 mr-1"></i>{l s='Mes bons d\'achat' d='Shop.Theme.Customeraccount'}
+          </a>
+          {/if}
+          {if $urls.pages.order_slip}
+          <a href="{$urls.pages.order_slip}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+            <i class="bi bi-credit-card-2-front icon-special menu-icon leading-0 mr-1"></i>{l s='Mes avoirs' d='Shop.Theme.Customeraccount'}
+          </a>
+          {/if}
+          
+         
+         <a href="{$urls.actions.logout}" class="btn btn-secondary w-full mt-1" rel="nofollow">
+           <i class="bi bi-power menu-icon leading-0 mr-1.5"></i>{l s='Se déconnecter' d='Shop.Theme.Customeraccount'}
+         </a>
      </div>
    </div>
  {else}
@@ -73,83 +67,88 @@
            {l s='My account' d='Shop.Theme.Customeraccount'}
          </div>
          <div class="text-base leading-none font-semibold">
-           {l s='Log in' d='Shop.Theme.Actions'}
+           {l s='Log in' d='Shop.Theme.Customeraccount'}
          </div>
        </div>
      </a>
      
      <!-- Modal de connexion -->
-     <div class="user-hover-modal">
-       <div class="modal-padding-large">
-         <h3 class="modal-title">
-           {l s='Sign in' d='Shop.Theme.Actions'}
-         </h3>
+     <div class="user-hover-modal w-104 overflow">
+        <h4 class="modal-title bg-gray-50 p-3.5">
+           {l s='Already have an account?' d='Shop.Theme.Customeraccount'}
+        </h4>
+       <div class="p-8 pt-0">
          
          <form action="{$urls.pages.authentication}" method="post" class="modal-form">
            <input type="hidden" name="back" value="{$urls.current_url}">
            
            <!-- Email -->
-           <div>
-             <label for="modal_email" class="modal-label">
-               {l s='Email address' d='Shop.Forms.Labels'}*
+           <div class="flex flex-col mb-4 mt-0">
+             <label for="modal_email" class="modal-label text-left text-base text-gray-800 required after:content-['*'] after:text-red-500">
+               {l s='Email address' d='Shop.Forms.Labels'}
              </label>
              <input 
-               type="email" 
+              type="email" 
                id="modal_email" 
                name="email" 
                required 
-               class="modal-input"
+               class="modal-input w-full border border-gray-300 rounded-md text-base px-4 py-1 h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"
                placeholder="{l s='Email address' d='Shop.Forms.Labels'}"
              >
            </div>
            
            <!-- Mot de passe -->
-           <div>
-             <label for="modal_password" class="modal-label">
+           <div class="flex flex-col mt-0 mb-4">
+             <label for="modal_password" class="modal-label text-left text-base text-gray-800 required after:content-['*'] after:text-red-500">
                {l s='Password' d='Shop.Forms.Labels'}
              </label>
              <div class="password-container">
                <input 
-                 type="password" 
+                type="password" 
                  id="modal_password" 
                  name="password" 
                  required 
-                 class="modal-input password-input"
+                 class="modal-input password-input w-full border border-gray-300 rounded-md text-base px-4 py-1 h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"
                  placeholder="{l s='Password' d='Shop.Forms.Labels'}"
                >
                <button 
-                 type="button" 
+                type="button" 
                  class="password-toggle"
                  onclick="togglePassword('modal_password')"
                >
                  <i class="bi bi-eye" id="modal_password_icon"></i>
                </button>
              </div>
+             
+             <!-- Lien mot de passe oublié -->
+             <div class="forgot-password-container text-right text-sm mt-1.5 text-gray-600">
+               <a href="{$urls.pages.password}" class="forgot-password-link underline">
+                 {l s='Forgot your password?' d='Shop.Theme.Customeraccount'}
+               </a>
+             </div>
+             
            </div>
            
-           <!-- Lien mot de passe oublié -->
-           <div class="forgot-password-container">
-             <a href="{$urls.pages.password}" class="forgot-password-link">
-               {l s='Forgot your password?' d='Shop.Theme.Customeraccount'}
+           
+           <div class="flex flex-col gap-2">
+             <!-- Bouton Se connecter -->
+             <button 
+              type="submit" 
+               name="submitLogin"
+               class="btn btn-primary w-full"
+             >
+               {l s='Sign in' d='Shop.Theme.Customeraccount'}
+             </button>
+             
+             <!-- Bouton Créer un compte -->
+             <a 
+               href="{$urls.pages.register}?back={$urls.current_url}" 
+               class="btn btn-secondary w-full"
+             >
+               {l s='Create an account' d='Shop.Theme.Customeraccount'}
              </a>
            </div>
            
-           <!-- Bouton Se connecter -->
-           <button 
-             type="submit" 
-             name="submitLogin"
-             class="btn btn-primary"
-           >
-             {l s='Sign in' d='Shop.Theme.Actions'}
-           </button>
-           
-           <!-- Bouton Créer un compte -->
-           <a 
-             href="{$urls.pages.register}?back={$urls.current_url}" 
-             class="btn btn-secondary"
-           >
-             {l s='Create an account' d='Shop.Theme.Customeraccount'}
-           </a>
          </form>
        </div>
      </div>
@@ -171,4 +170,16 @@
    }
  }
  </script>
+ 
+ 
+ 
+<style>
+  #header .user-account-modal a {
+    color: #4b5563;
+  }
+  
+   #header .user-account-modal a:hover {
+     color: #487595;
+   }
+</style>
  

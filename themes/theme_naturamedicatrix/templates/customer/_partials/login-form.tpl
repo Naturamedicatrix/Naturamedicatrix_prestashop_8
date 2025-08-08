@@ -13,12 +13,11 @@
       {block name='login_form_fields'}
         {foreach from=$formFields item="field"}
           {block name='form_field'}
-            {assign var="field.css_class" value="form-control custom-input your-tailwind-classes"}
             {form_field field=$field}
           {/block}
         {/foreach}
       {/block}
-      <div class="forgot-password">
+      <div class="forgot-password text-right text-sm mb-6 pb-0">
         <a href="{$urls.pages.password}" rel="nofollow">
           {l s='Forgot your password?' d='Shop.Theme.Customeraccount'}
         </a>

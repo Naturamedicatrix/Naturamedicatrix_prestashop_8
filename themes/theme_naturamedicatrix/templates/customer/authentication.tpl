@@ -30,13 +30,14 @@
         <div class="login-column right-column p-0">
           <div class="login-info max-w-md mx-auto">
             <h2 class="text-center font-light text-3xl mb-2">{l s='Create an account' d='Shop.Theme.Customeraccount'}</h2>
-            <p class="text-base">Vous n’avez pas encore de compte client chez nous&nbsp;? Inscrivez-vous pour profiter de tous les services de notre boutique en ligne&nbsp;:</p>
+            <p class="text-base">Vous n’avez pas encore de compte client&nbsp;? Inscrivez-vous pour profiter de tous nos services en ligne&nbsp;:</p>
             <ul class="text-gray-600 list-none pl-0 mt-2 text-base">
-              <li class="mb-2.5"><i class="bi bi-box-seam icon-special text-gray-900 mr-1.5"></i> Achat rapide et simplifié</li>
-              <li class="mb-2.5"><i class="bi bi-search icon-special text-gray-900 mr-1.5"></i> Suivi de ma commande</li>
-              <li class="mb-2.5"><i class="bi bi-card-checklist icon-special text-gray-900 mr-1.5"></i> Historique de mes achats</li>
+              <li class="mb-2.5 list-none"><i class="bi bi-gift icon-special text-gray-900 mr-1.5"></i> Offres et conseils personnalisés</li>
+              <li class="mb-2.5 list-none"><i class="bi bi-box-seam icon-special text-gray-900 mr-1.5"></i> Commande rapide et simplifiée</li>
+              <li class="mb-2.5 list-none"><i class="bi bi-search icon-special text-gray-900 mr-1.5"></i> Suivi facile de vos commandes</li>
+              <li class="mb-2.5 list-none"><i class="bi bi-card-checklist icon-special text-gray-900 mr-1.5"></i> Historique de vos achats en un clin d’œil</li>
             </ul>
-            <div class="create-account-button">
+            <div class="create-account-button mt-2">
               <a href="{$urls.pages.register}" class="btn primary-btn" data-link-action="display-register-form">
                 {l s='Create an account' d='Shop.Theme.Customeraccount'}
               </a>

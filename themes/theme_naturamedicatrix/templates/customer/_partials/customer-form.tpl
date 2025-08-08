@@ -45,7 +45,7 @@
                 {* Label custom pour le mot de passe actuel *}
                 {if $field.name === "password"}
                   {assign var="customField" value=$field}
-                  {assign var="customField" value=$customField|array_replace:["label"=>"Mot de passe actuel*"]}
+                  {assign var="customField" value=$customField|array_replace:["label"=>"Mot de passe actuel"]}
                   {form_field field=$customField}
                 {else}
                   {form_field field=$field}

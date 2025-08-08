@@ -45,6 +45,29 @@
           </a>
         </li>
       {/if}
+      
+      <li>
+          <a class="account-link {if $page.page_name == 'module-blockwishlist-lists'}active{/if}" id="wishlist-link-side" href="{$link->getModuleLink('blockwishlist', 'lists')}">
+              <i class="bi bi-clipboard-heart"></i>
+            <span>{l s='Mes favoris' d='Shop.Theme.Customeraccount'}</span>
+          </a>
+        </li>
+        
+        <li>
+          <a class="account-link {if $page.page_name == 'module-ps_emailalerts-account'}active{/if}" id="alerts-link-side" href="{$link->getModuleLink('ps_emailalerts', 'account')}">
+            <i class="bi bi-bell"></i>
+            <span>{l s='Mes alertes' d='Shop.Theme.Customeraccount'}</span>
+          </a>
+        </li>
+        
+        {if $configuration.voucher_enabled && !$configuration.is_catalog}
+        <li>
+          <a class="account-link {if $page.page_name == 'discount'}active{/if}" id="discounts-link-side" href="{$urls.pages.discount}">
+            <i class="bi bi-percent"></i>
+            <span>{l s='Mes bons d\'achat' d='Shop.Theme.Customeraccount'}</span>
+          </a>
+        </li>
+      {/if}
 
       {if !$configuration.is_catalog}
         <li>
@@ -55,14 +78,7 @@
         </li>
       {/if}
 
-      {if $configuration.voucher_enabled && !$configuration.is_catalog}
-        <li>
-          <a class="account-link {if $page.page_name == 'discount'}active{/if}" id="discounts-link-side" href="{$urls.pages.discount}">
-            <i class="bi bi-percent"></i>
-            <span>{l s='Mes bons d\'achat' d='Shop.Theme.Customeraccount'}</span>
-          </a>
-        </li>
-      {/if}
+      
 
       {if $configuration.return_enabled && !$configuration.is_catalog}
         <li>
@@ -73,12 +89,7 @@
         </li>
       {/if}
  
-        <li>
-          <a class="account-link {if $page.page_name == 'module-blockwishlist-lists'}active{/if}" id="wishlist-link-side" href="{$link->getModuleLink('blockwishlist', 'lists')}">
-              <i class="bi bi-heart"></i>
-            <span>{l s='Mes listes d\'envies' d='Shop.Theme.Customeraccount'}</span>
-          </a>
-        </li>
+        
         
         <li>
           <a class="account-link {if $page.page_name == 'module-psgdpr-gdpr'}active{/if}" id="gdpr-link-side" href="{$link->getModuleLink('psgdpr', 'gdpr')}">
@@ -87,12 +98,7 @@
           </a>
         </li>
 
-        <li>
-          <a class="account-link {if $page.page_name == 'module-ps_emailalerts-account'}active{/if}" id="alerts-link-side" href="{$link->getModuleLink('ps_emailalerts', 'account')}">
-            <i class="bi bi-bell"></i>
-            <span>{l s='Mes alertes' d='Shop.Theme.Customeraccount'}</span>
-          </a>
-        </li>
+        
         
         {* Hook *}
         {* {hook h='displayCustomerAccount'} *}
@@ -102,7 +108,7 @@
         <li>
           <a class="account-link" id="logout-link-side" href="{$urls.actions.logout}">
             <i class="bi bi-power"></i>
-            <span>{l s='Déconnexion' d='Shop.Theme.Actions'}</span>
+            <span>{l s='Se déconnecter' d='Shop.Theme.Actions'}</span>
           </a>
         </li>
     </ul>

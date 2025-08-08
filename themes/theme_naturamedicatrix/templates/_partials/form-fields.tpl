@@ -10,7 +10,7 @@ CUSTOM FORM FIELDS
 {else}
 
   <div class="flex flex-col mb-6 mt-0 {if !empty($field.errors)}has-error{/if}">
-    <label class="text-left text-base text-gray-800 {if $field.required} required after:content-['*'] after:ml-0.5 after:text-red-500{/if}" for="field-{$field.name}">
+    <label class="text-left text-base text-gray-800{if $field.required} required after:content-['*'] after:text-red-500{/if}" for="field-{$field.name}">
       {if $field.type !== 'checkbox'}
         {$field.label}
       {/if}
@@ -20,7 +20,7 @@ CUSTOM FORM FIELDS
       {if $field.type === 'select'}
 
         {block name='form_field_item_select'}
-          <select id="field-{$field.name}" class="w-full border border-gray-300 rounded-md text-base px-4 text-sm focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none bg-white" name="{$field.name}" {if $field.required}required{/if}>
+          <select id="field-{$field.name}" class="w-full border border-gray-300 rounded-md text-base px-4 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none bg-white" name="{$field.name}" {if $field.required}required{/if}>
             {if !$field.value}
               <option value disabled selected class="text-gray-500">{l s='Please choose' d='Shop.Forms.Labels'}</option>
             {/if}
@@ -35,7 +35,7 @@ CUSTOM FORM FIELDS
         {block name='form_field_item_country'}
           <select
             id="field-{$field.name}"
-            class="w-full border border-gray-300 rounded-md text-base px-4 text-sm focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none bg-white js-country"
+            class="w-full border border-gray-300 rounded-md text-base px-4 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none bg-white js-country"
             name="{$field.name}"
             {if $field.required}required{/if}
           >
@@ -73,7 +73,7 @@ CUSTOM FORM FIELDS
 
         {block name='form_field_item_checkbox'}
           <span class="inline-flex items-center">
-            <label>
+            <label class="{if $field.required} required after:content-['*'] after:text-red-500{/if}">
               <input name="{$field.name}" type="checkbox" class="w-4 h-4 mr-2" value="1" {if $field.value}checked="checked"{/if} {if $field.required}required{/if}>
               <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
               {$field.label nofilter}
@@ -84,7 +84,7 @@ CUSTOM FORM FIELDS
       {elseif $field.type === 'date'}
 
         {block name='form_field_item_date'}
-          <input id="field-{$field.name}" name="{$field.name}" class="w-full border border-gray-300 rounded-md text-base px-4 py-1 text-sm h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none" type="date" value="{$field.value|default}"{if isset($field.availableValues.placeholder)} placeholder="{$field.availableValues.placeholder}"{/if}>
+          <input id="field-{$field.name}" name="{$field.name}" class="w-full border border-gray-300 rounded-md text-base px-4 py-1 h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none" type="date" value="{$field.value|default}"{if isset($field.availableValues.placeholder)} placeholder="{$field.availableValues.placeholder}"{/if}>
           {if isset($field.availableValues.comment)}
             <span class="text-xs text-gray-500 mt-1 block">
               {$field.availableValues.comment}
@@ -103,9 +103,9 @@ CUSTOM FORM FIELDS
             prefix=false
             reverse_years=true
             field_separator='<br>'
-            day_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-12 mr-2 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"'
-            month_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-12 mr-2 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"'
-            year_extra='class="border border-gray-300 rounded-md px-4 py-1 text-sm h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"'
+            day_extra='class="border border-gray-300 rounded-md px-4 py-1 h-12 mr-2 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"'
+            month_extra='class="border border-gray-300 rounded-md px-4 py-1 h-12 mr-2 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"'
+            year_extra='class="border border-gray-300 rounded-md px-4 py-1 h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"'
             day_empty={l s='-- day --' d='Shop.Forms.Labels'}
             month_empty={l s='-- month --' d='Shop.Forms.Labels'}
             year_empty={l s='-- year --' d='Shop.Forms.Labels'}
@@ -120,7 +120,7 @@ CUSTOM FORM FIELDS
           <div class="password-field-container relative">
             <input
               id="field-{$field.name}"
-              class="w-full border border-gray-300 rounded-md text-base pl-4 pr-10 py-1 text-sm h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"
+              class="w-full border border-gray-300 rounded-md text-base pl-4 pr-10 py-1 h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"
               name="{$field.name}"
               aria-label="{l s='Password input' d='Shop.Forms.Help'}"
               type="password"
@@ -150,7 +150,7 @@ CUSTOM FORM FIELDS
         {block name='form_field_item_other'}
           <input
             id="field-{$field.name}"
-            class="w-full border border-gray-300 rounded-md text-base px-4 py-1 text-sm h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"
+            class="w-full border border-gray-300 rounded-md text-base px-4 py-1 h-12 focus:outline-none focus:ring-0 focus:border-gray-700 appearance-none"
             name="{$field.name}"
             type="{$field.type}"
             value="{$field.value|default}"
