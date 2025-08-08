@@ -13,6 +13,16 @@
 {else}
   {assign var=prix_journalier value=""}
 {/if}
+
+<!-- etiquettes (label) et boites (box) -->
+{assign var="labels" value=ProductController::getProductLabels($product.reference)}
+{assign var="analyses" value=ProductController::getProductAnalyses($product.reference)}
+{assign var="analysesBio" value=ProductController::getProductAnalysesBio($product.reference)}
+{assign var="attestations" value=ProductController::getProductAttestations($product.reference)}
+{assign var="analysesHalal" value=ProductController::getProductAnalysesHalal($product.reference)}
+{assign var="analysesKosher" value=ProductController::getProductAnalysesKosher($product.reference)}
+{assign var="analysesGMP" value=ProductController::getProductAnalysesGMP($product.reference)}
+
 {* END VARIABLES *}
  
 {extends file=$layout}
@@ -1315,14 +1325,14 @@
                   </li>
                   
                   
-                  {if $product.attachments}
+                  {if $attestations && count($attestations) > 0}
                     <li class="nav-item">
                       <a
                         class="nav-link"
                         data-toggle="tab"
                         href="#attachments"
                         role="tab"
-                        aria-controls="attachments">{l s='Attachments' d='Shop.Theme.Catalog'}</a>
+                        aria-controls="attachments">{l s='Certificates and patents' d='Shop.Theme.Catalog'}</a>
                     </li>
                   {/if}
                   {foreach from=$product.extraContent item=extra key=extraKey}
@@ -1401,10 +1411,10 @@
                       <div class="accordion-content" data-target="product-details"></div>
                     </li>
                     
-                    {if $product.attachments}
+                    {if $attestations && count($attestations) > 0}
                       <li class="accordion-item">
                         <div class="accordion-header">
-                          <h2>{l s='Attachments' d='Shop.Theme.Catalog'}</h2>
+                          <h2>{l s='Certificates and patents' d='Shop.Theme.Catalog'}</h2>
                           <span class="accordion-icon">+</span>
                         </div>
                         <div class="accordion-content" data-target="attachments"></div>
@@ -1545,19 +1555,50 @@
                  {/block}
 
                  {block name='product_attachments'}
-                   {if $product.attachments}
+                   {if $attestations && count($attestations) > 0}
                     <div class="tab-pane fade in" id="attachments" role="tabpanel">
                        <section class="product-attachments">
-                         <p class="h5 text-uppercase">{l s='Download' d='Shop.Theme.Actions'}</p>
-                         {foreach from=$product.attachments item=attachment}
-                           <div class="attachment">
-                             <h4><a href="{url entity='attachment' params=['id_attachment' => $attachment.id_attachment]}">{$attachment.name}</a></h4>
-                             <p>{$attachment.description}</p>
-                             <a href="{url entity='attachment' params=['id_attachment' => $attachment.id_attachment]}">
-                               {l s='Download' d='Shop.Theme.Actions'} ({$attachment.file_size_formatted})
-                             </a>
-                           </div>
+                         <p class="h5 text-uppercase">{l s='Sales attestation' d='Shop.Theme.Actions'}</p>
+                         
+                         {* Attestations de vente *}
+                         {assign var="attestationsFr" value=[]}
+                         {assign var="attestationsBe" value=[]}
+                         
+                         {* Séparation des attestations par pays *}
+                         {foreach from=$attestations item=attestationUrl}
+                           {if strpos($attestationUrl, 'Fr') !== false}
+                             {assign var="attestationsFr" value=$attestationsFr|array_merge:[$attestationUrl]}
+                           {elseif strpos($attestationUrl, 'Be') !== false}
+                             {assign var="attestationsBe" value=$attestationsBe|array_merge:[$attestationUrl]}
+                           {/if}
                          {/foreach}
+                         
+                         {* Attestation France *}
+                         {if $attestationsFr && count($attestationsFr) > 0}
+                           <h3>{l s='Sales attestation' d='Shop.Theme.Actions'} France</h3>
+                           {foreach from=$attestationsFr item=attestationUrl}
+                             <div class="attachment">
+                               <p>{$product.name|regex_replace:'/\s*\([^)]*\)/':''}</p>
+                               <a href="{$attestationUrl}" target="_blank">
+                                 {l s='Download' d='Shop.Theme.Actions'}
+                               </a>
+                             </div>
+                           {/foreach}
+                         {/if}
+                         
+                         {* Attestation Belgique *}
+                         {if $attestationsBe && count($attestationsBe) > 0}
+                           <h3>{l s='Sales attestation' d='Shop.Theme.Actions'} Belgique</h3>
+                           {foreach from=$attestationsBe item=attestationUrl}
+                             <div class="attachment">
+                               <p>{$product.name|regex_replace:'/\s*\([^)]*\)/':''}</p>
+                               <a href="{$attestationUrl}" target="_blank">
+                                 {l s='Download' d='Shop.Theme.Actions'}
+                               </a>
+                             </div>
+                           {/foreach}
+                         {/if}
+                         
                        </section>
                      </div>
                    {/if}

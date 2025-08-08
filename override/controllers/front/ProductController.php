@@ -69,4 +69,109 @@ class ProductController extends ProductControllerCore
         // Mettre à jour les variables smarty
         $this->context->smarty->assign('product', $productVars);
     }
+    
+    /**
+     * Récupère les labels d'un produit basés sur sa référence
+     */
+    public static function getProductLabels($reference = false)
+    {
+        if($reference===false){ return false; }
+        $files = glob(_PS_ROOT_DIR_ . '/_labels/'.$reference.'_*.pdf');
+        $ret = array();
+        foreach($files as $fileName) {
+            $fileNameArr = explode("/",$fileName);
+            $ret[]=Tools::getHttpHost(true).'/_labels/'.$fileNameArr[count($fileNameArr)-1];
+        }
+        return $ret;
+    }
+    
+    /**
+     * Récupère les analyses d'un produit basées sur sa référence
+     */
+    public static function getProductAnalyses($reference = false)
+    {
+        if($reference===false){ return false; }
+        $files = glob(_PS_ROOT_DIR_ . '/_analyses/'.$reference.'-*.pdf');
+        $ret = array();
+        foreach($files as $fileName) {
+            $fileNameArr = explode("/",$fileName);
+            $ret[]=Tools::getHttpHost(true).'/_analyses/'.$fileNameArr[count($fileNameArr)-1];
+        }
+        return $ret;
+    }
+    
+    /**
+     * Récupère les analyses bio d'un produit basées sur sa référence
+     */
+    public static function getProductAnalysesBio($reference = false)
+    {
+        if($reference===false){ return false; }
+        $files = glob(_PS_ROOT_DIR_ . '/_analyses/bio/'.$reference.'-*.pdf');
+        $ret = array();
+        foreach($files as $fileName) {
+            $fileNameArr = explode("/",$fileName);
+            $ret[]=Tools::getHttpHost(true).'/_analyses/bio/'.$fileNameArr[count($fileNameArr)-1];
+        }
+        return $ret;
+    }
+    
+    /**
+     * Récupère les analyses halal d'un produit basées sur sa référence
+     */
+    public static function getProductAnalysesHalal($reference = false)
+    {
+        if($reference===false){ return false; }
+        $files = glob(_PS_ROOT_DIR_ . '/_analyses/halal/'.$reference.'-*.pdf');
+        $ret = array();
+        foreach($files as $fileName) {
+            $fileNameArr = explode("/",$fileName);
+            $ret[]=Tools::getHttpHost(true).'/_analyses/halal/'.$fileNameArr[count($fileNameArr)-1];
+        }
+        return $ret;
+    }
+    
+    /**
+     * Récupère les analyses kosher d'un produit basées sur sa référence
+     */
+    public static function getProductAnalysesKosher($reference = false)
+    {
+        if($reference===false){ return false; }
+        $files = glob(_PS_ROOT_DIR_ . '/_analyses/kosher/'.$reference.'-*.pdf');
+        $ret = array();
+        foreach($files as $fileName) {
+            $fileNameArr = explode("/",$fileName);
+            $ret[]=Tools::getHttpHost(true).'/_analyses/kosher/'.$fileNameArr[count($fileNameArr)-1];
+        }
+        return $ret;
+    }
+    
+    /**
+     * Récupère les analyses GMP d'un produit basées sur sa référence
+     */
+    public static function getProductAnalysesGMP($reference = false)
+    {
+        if($reference===false){ return false; }
+        $files = glob(_PS_ROOT_DIR_ . '/_analyses/GMP/'.$reference.'-*.pdf');
+        $ret = array();
+        foreach($files as $fileName) {
+            $fileNameArr = explode("/",$fileName);
+            $ret[]=Tools::getHttpHost(true).'/_analyses/GMP/'.$fileNameArr[count($fileNameArr)-1];
+        }
+        return $ret;
+    }
+    
+    /**
+     * Récupère les attestations d'un produit basées sur sa référence
+     */
+    public static function getProductAttestations($reference = false)
+    {
+        if($reference===false){ return false; }
+        $files = glob(_PS_ROOT_DIR_ . '/_attestationVente/'.$reference.'-*.pdf');
+        $ret = array();
+        foreach($files as $fileName) {
+            $fileNameArr = explode("/",$fileName);
+            $ret[]=Tools::getHttpHost(true).'/_attestationVente/'.$fileNameArr[count($fileNameArr)-1];
+        }
+        return $ret;
+    }
 }
