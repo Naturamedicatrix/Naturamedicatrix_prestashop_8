@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>boostmyshopagent</name>
+    <displayName><![CDATA[BoostMyShop]]></displayName>
+    <version><![CDATA[1.1.10]]></version>
+    <description><![CDATA[Improve your online performances with our shopping ads optimizer, repricing, order &amp; warehouse management softwares]]></description>
+    <author><![CDATA[BoostMyShop]]></author>
+    <tab><![CDATA[smart_shopping]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+</module>
