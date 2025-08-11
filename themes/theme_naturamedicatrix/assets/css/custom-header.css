@@ -78,7 +78,7 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: rgba(72, 117, 149, 0.3);
+  background-color: rgba(186, 157, 117, 0.3);
   top: 14px;
   right: 3px;
 }
@@ -172,7 +172,7 @@
 }
 
 .naturamedicatrix-card, .promo-card, .delivery-card {
-  background-color: rgb(180.5, 203, 219);
+  background-color: rgb(245.5, 241.5072463768, 236);
 }
 
 #iqitmegamenu-mobile-content {

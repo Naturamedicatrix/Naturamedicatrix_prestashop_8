@@ -913,7 +913,7 @@ body#cart #wrapper {
   transition: background-color 0.2s;
 }
 .account-menu-item:hover {
-  background-color: rgb(232.0769230769, 239, 243.9230769231) !important;
+  background-color: hsl(34.7826086957, 33.3333333333%, 109.4117647059%) !important;
   text-decoration: none !important;
   color: #4B5563 !important;
 }
@@ -990,7 +990,7 @@ body#cart #wrapper {
   text-decoration: none;
 }
 .product-name-link:hover .product-name {
-  color: #487595;
+  color: #ba9d75;
 }
 
 .product-name {
@@ -1198,7 +1198,7 @@ body#cart #wrapper {
 }
 .shipping-progress-modal-active .progress-bar {
   height: 4px;
-  background-color: #487595;
+  background-color: #ba9d75;
   border-radius: 2px;
   transition: width 0.3s ease;
 }
@@ -1208,7 +1208,7 @@ body#cart #wrapper {
   color: #4B5563;
 }
 .shipping-progress-modal-active p strong {
-  color: #487595;
+  color: #ba9d75;
 }
 
 .shipping-success {
@@ -1217,7 +1217,7 @@ body#cart #wrapper {
 .shipping-success p {
   font-size: 12px;
   margin: 0;
-  color: #487595;
+  color: #ba9d75;
   font-weight: 600;
 }
 .shipping-success p i {
@@ -1337,7 +1337,7 @@ body#index #content {
 
 .badge-rounded {
   text-transform: initial !important;
-  background: #487595;
+  background: #ba9d75;
   padding: 10px 25px;
   border-radius: 25px;
   color: #f9fafb;
@@ -1347,7 +1347,7 @@ body#index #content {
 }
 .badge-rounded:hover {
   color: #f9fafb !important;
-  background-color: rgb(47.0769230769, 76.5, 97.4230769231);
+  background-color: rgb(151, 119.268115942, 75.5);
 }
 
 .wishlist-button-add {
@@ -1373,7 +1373,7 @@ body#index #content {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: rgba(72, 117, 149, 0.3);
+  background-color: rgba(186, 157, 117, 0.3);
   z-index: -1;
   top: -5px;
   right: -5px;
@@ -1425,7 +1425,7 @@ body#index #content {
   z-index: 1;
 }
 .title-separator #logoTitle .logo-title {
-  fill: #487595;
+  fill: #ba9d75;
   stroke-width: 0px;
 }
 .title-separator .logo-h3 {
@@ -1457,11 +1457,11 @@ body#index #content {
 }
 
 .text-primary, .primary, .text-brand {
-  color: #487595 !important;
+  color: #ba9d75 !important;
 }
 
 .bg-brand {
-  background-color: #487595;
+  background-color: #ba9d75;
 }
 
 button:focus {
@@ -1508,12 +1508,12 @@ button:focus {
 
 .btn-secondary {
   background-color: transparent !important;
-  color: #487595 !important;
-  border: 1px solid #487595 !important;
+  color: #ba9d75 !important;
+  border: 1px solid #ba9d75 !important;
   text-decoration: none !important;
 }
 .btn-secondary:hover {
-  background-color: #487595 !important;
+  background-color: #ba9d75 !important;
   color: #f9fafb !important;
 }
 @media (max-width: 640px) {
@@ -2029,7 +2029,7 @@ div#_desktop_search_filters_clear_all {
 }
 .PM_ASBlockOutput .card .card-header .PM_ASBlockNbProductValue {
   opacity: 0.6;
-  background: #487595;
+  background: #ba9d75;
   color: white;
   opacity: 1;
   border-radius: 25px;
@@ -2127,7 +2127,7 @@ div#_desktop_search_filters_clear_all {
 }
 
 .custom-radio input[type=radio]:checked + span {
-  background-color: #487595;
+  background-color: #ba9d75;
 }
 
 .form-check-label {
@@ -2668,11 +2668,11 @@ kbd {
 }
 
 #alphabet li a:hover {
-  color: #487595;
+  color: #ba9d75;
 }
 
 #alphabet li a.active {
-  background-color: #487595;
+  background-color: #ba9d75;
   color: white;
   font-weight: bold;
   border-radius: 50%;

@@ -206,7 +206,7 @@ body#checkout section.checkout-step .address-item {
   border: 1px solid transparent;
 }
 body#checkout section.checkout-step .address-item.selected {
-  border: 2px solid #487595;
+  border: 2px solid #ba9d75;
   width: 100%;
 }
 body#checkout section.checkout-step .delivery-options .delivery-option:not(:last-child) {
@@ -284,7 +284,7 @@ body#checkout .additional-information p {
   font-size: 0.85rem;
 }
 body#checkout address, body#checkout .address {
-  border-left: 1px solid #487595;
+  border-left: 1px solid #ba9d75;
   padding-left: 15px;
   color: #4B5563;
   line-height: 1.5;
