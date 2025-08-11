@@ -1517,3 +1517,13 @@ kbd {
   width: 40px;
   height: 40px;
 }
+
+//Barre progression livraison
+.progress-bar,
+.shipping-progress-bar .rounded-full  {
+  background-color: #10B981 !important;
+}
+
+.shipping-progress-block .text-normal {
+  color: #10B981 !important;
+}

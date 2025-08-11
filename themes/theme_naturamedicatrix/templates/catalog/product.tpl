@@ -1678,10 +1678,7 @@
                                       
                                       {elseif $analyse|strpos:"-bio" !== false}
                                         <p class="text-sm font-medium text-gray-700 mb-0">{l s="Download analysis" d='Shop.Theme.Actions'} <strong>bio</strong> <span class="text-xs text-gray-500 font-normal">{$product.name|regex_replace:'/\s*\([^)]*\)/':''}</span></p>
-                                        
-                                      {elseif $analyse|strpos:"-agricert" !== false}
-                                        <p class="text-sm font-medium text-gray-700 mb-0">{l s="Download analysis" d='Shop.Theme.Actions'} <strong>bioagricert</strong> <span class="text-xs text-gray-500 font-normal">{$product.name|regex_replace:'/\s*\([^)]*\)/':''}</span></p>
-                                        
+                                                                                
                                       {elseif $analyse|strpos:"-Halal" !== false}
                                         <p class="text-sm font-medium text-gray-700 mb-0">{l s="Download analysis" d='Shop.Theme.Actions'} <strong>halal</strong> <span class="text-xs text-gray-500 font-normal">{$product.name|regex_replace:'/\s*\([^)]*\)/':''}</span></p>
                                         
@@ -1700,7 +1697,7 @@
                                       
                                     </div>
                                   </div>
-                                  <a href="{$label|escape:'html':'UTF-8'}" target="_blank" class="text-sm font-medium text-indigo-600 hover:underline">Download</a>
+                                  <a href="{$analyse|escape:'html':'UTF-8'}" target="_blank" class="text-sm font-medium text-indigo-600 hover:underline">Download</a>
                                 </div>
                                 {/foreach}
                                 

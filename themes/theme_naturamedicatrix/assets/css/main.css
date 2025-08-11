@@ -913,7 +913,7 @@ body#cart #wrapper {
   transition: background-color 0.2s;
 }
 .account-menu-item:hover {
-  background-color: hsl(34.7826086957, 33.3333333333%, 109.4117647059%) !important;
+  background-color: rgb(95, 255, 246.5789473684) !important;
   text-decoration: none !important;
   color: #4B5563 !important;
 }
@@ -990,7 +990,7 @@ body#cart #wrapper {
   text-decoration: none;
 }
 .product-name-link:hover .product-name {
-  color: #ba9d75;
+  color: #005f5a;
 }
 
 .product-name {
@@ -1198,7 +1198,7 @@ body#cart #wrapper {
 }
 .shipping-progress-modal-active .progress-bar {
   height: 4px;
-  background-color: #ba9d75;
+  background-color: #005f5a;
   border-radius: 2px;
   transition: width 0.3s ease;
 }
@@ -1208,7 +1208,7 @@ body#cart #wrapper {
   color: #4B5563;
 }
 .shipping-progress-modal-active p strong {
-  color: #ba9d75;
+  color: #005f5a;
 }
 
 .shipping-success {
@@ -1217,7 +1217,7 @@ body#cart #wrapper {
 .shipping-success p {
   font-size: 12px;
   margin: 0;
-  color: #ba9d75;
+  color: #005f5a;
   font-weight: 600;
 }
 .shipping-success p i {
@@ -1337,7 +1337,7 @@ body#index #content {
 
 .badge-rounded {
   text-transform: initial !important;
-  background: #ba9d75;
+  background: #005f5a;
   padding: 10px 25px;
   border-radius: 25px;
   color: #f9fafb;
@@ -1347,7 +1347,7 @@ body#index #content {
 }
 .badge-rounded:hover {
   color: #f9fafb !important;
-  background-color: rgb(151, 119.268115942, 75.5);
+  background-color: rgb(0, 18.5, 17.5263157895);
 }
 
 .wishlist-button-add {
@@ -1373,7 +1373,7 @@ body#index #content {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: rgba(186, 157, 117, 0.3);
+  background-color: rgba(0, 95, 90, 0.3);
   z-index: -1;
   top: -5px;
   right: -5px;
@@ -1425,7 +1425,7 @@ body#index #content {
   z-index: 1;
 }
 .title-separator #logoTitle .logo-title {
-  fill: #ba9d75;
+  fill: #005f5a;
   stroke-width: 0px;
 }
 .title-separator .logo-h3 {
@@ -1457,11 +1457,11 @@ body#index #content {
 }
 
 .text-primary, .primary, .text-brand {
-  color: #ba9d75 !important;
+  color: #005f5a !important;
 }
 
 .bg-brand {
-  background-color: #ba9d75;
+  background-color: #005f5a;
 }
 
 button:focus {
@@ -1508,12 +1508,12 @@ button:focus {
 
 .btn-secondary {
   background-color: transparent !important;
-  color: #ba9d75 !important;
-  border: 1px solid #ba9d75 !important;
+  color: #005f5a !important;
+  border: 1px solid #005f5a !important;
   text-decoration: none !important;
 }
 .btn-secondary:hover {
-  background-color: #ba9d75 !important;
+  background-color: #005f5a !important;
   color: #f9fafb !important;
 }
 @media (max-width: 640px) {
@@ -2029,7 +2029,7 @@ div#_desktop_search_filters_clear_all {
 }
 .PM_ASBlockOutput .card .card-header .PM_ASBlockNbProductValue {
   opacity: 0.6;
-  background: #ba9d75;
+  background: #005f5a;
   color: white;
   opacity: 1;
   border-radius: 25px;
@@ -2127,7 +2127,7 @@ div#_desktop_search_filters_clear_all {
 }
 
 .custom-radio input[type=radio]:checked + span {
-  background-color: #ba9d75;
+  background-color: #005f5a;
 }
 
 .form-check-label {
@@ -2668,11 +2668,11 @@ kbd {
 }
 
 #alphabet li a:hover {
-  color: #ba9d75;
+  color: #005f5a;
 }
 
 #alphabet li a.active {
-  background-color: #ba9d75;
+  background-color: #005f5a;
   color: white;
   font-weight: bold;
   border-radius: 50%;
@@ -2683,4 +2683,13 @@ kbd {
   justify-content: center;
   width: 40px;
   height: 40px;
+}
+
+.progress-bar,
+.shipping-progress-bar .rounded-full {
+  background-color: #10B981 !important;
+}
+
+.shipping-progress-block .text-normal {
+  color: #10B981 !important;
 }

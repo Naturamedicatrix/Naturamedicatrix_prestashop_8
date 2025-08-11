@@ -94,7 +94,7 @@
 .therapeute-card .therapeute-card-inner:before, .therapeute-card .therapeute-card-inner:after {
   content: "";
   position: absolute;
-  background-color: #ba9d75;
+  background-color: #005f5a;
   z-index: 0;
 }
 .therapeute-card .therapeute-card-inner:before {
@@ -120,7 +120,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #ba9d75;
+  background-color: #005f5a;
   opacity: 0.2;
   z-index: 0;
 }

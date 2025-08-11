@@ -961,7 +961,7 @@ body#module-ps_emailalerts-account .left-column-content .account-list .customer-
 body#module-ps_emailalerts-account .left-column-content .account-list .customer-info .mobile-toggle-account.active,
 body#discount .left-column-content .account-list .customer-info .mobile-toggle-account:hover,
 body#discount .left-column-content .account-list .customer-info .mobile-toggle-account.active {
-  background-color: rgba(186, 157, 117, 0.08);
+  background-color: rgba(0, 95, 90, 0.08);
   color: #111827;
 }
 body#my-account .left-column-content .account-list .customer-info .mobile-toggle-account.active i,
@@ -1014,7 +1014,7 @@ body#discount .left-column-content .account-list .customer-info:before {
   display: block;
   width: 85px;
   height: 85px;
-  background-color: rgba(186, 157, 117, 0.1);
+  background-color: rgba(0, 95, 90, 0.1);
   border-radius: 50%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' fill='%23487595' viewBox='0 0 16 16'%3E%3Cpath d='M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z'/%3E%3C/svg%3E");
   background-position: center;
@@ -1258,7 +1258,7 @@ body#discount .left-column-content .account-list .account-link i {
   margin-right: 0.75rem;
   font-size: 1.2rem;
   vertical-align: middle;
-  color: #ba9d75;
+  color: #005f5a;
   min-width: 20px;
   text-align: center;
   line-height: 1;
@@ -1374,7 +1374,7 @@ body#module-ps_emailalerts-account .left-column-content .account-list .account-l
 body#discount .left-column-content .account-list .account-link:hover,
 body#discount .left-column-content .account-list .account-link.active {
   color: #f9fafb !important;
-  background-color: #ba9d75;
+  background-color: #005f5a;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 body#my-account .left-column-content .account-list .account-link:hover i, body#my-account .left-column-content .account-list .account-link.active i,
@@ -1417,7 +1417,7 @@ body#module-psgdpr-gdpr .left-column-content .account-list .account-link#logout-
 body#address .left-column-content .account-list .account-link#logout-link-side,
 body#module-ps_emailalerts-account .left-column-content .account-list .account-link#logout-link-side,
 body#discount .left-column-content .account-list .account-link#logout-link-side {
-  background-color: rgba(186, 157, 117, 0.08);
+  background-color: rgba(0, 95, 90, 0.08);
 }
 body#my-account .left-column-content .account-list .account-link#logout-link-side:hover,
 body#identity .left-column-content .account-list .account-link#logout-link-side:hover,
@@ -1432,7 +1432,7 @@ body#module-psgdpr-gdpr .left-column-content .account-list .account-link#logout-
 body#address .left-column-content .account-list .account-link#logout-link-side:hover,
 body#module-ps_emailalerts-account .left-column-content .account-list .account-link#logout-link-side:hover,
 body#discount .left-column-content .account-list .account-link#logout-link-side:hover {
-  background-color: rgba(186, 157, 117, 0.85);
+  background-color: rgba(0, 95, 90, 0.85);
 }
 body#my-account .left-column-content .account-list .account-link#logout-link-side:hover i,
 body#identity .left-column-content .account-list .account-link#logout-link-side:hover i,
@@ -2198,7 +2198,7 @@ body#view .dropdown-menu a {
   font-size: 0.9rem;
 }
 body#view .dropdown-menu a:hover {
-  background-color: #ba9d75 !important;
+  background-color: #005f5a !important;
   color: white;
 }
 body#view .wishlist-products-list {
