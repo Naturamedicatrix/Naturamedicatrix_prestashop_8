@@ -36,7 +36,7 @@
       {/foreach}
     </ul>
     {else}
-      <div class="text-center py-12">
+      <div class="text-center py-12 empty-cart">
         <div class="mb-4">
           <i class="bi bi-handbag icon-special text-6xl text-gray-900"></i>
         </div>

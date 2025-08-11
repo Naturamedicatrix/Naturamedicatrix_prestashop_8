@@ -81,29 +81,25 @@
       const container = document.getElementById('shipping-progress-dynamic');
       if (!container) return;
       
+      // Détection du panier vide
+      const isEmptyCart = document.querySelector('.empty-cart') !== null;
+      
       // Récupère le total produits
       let cartTotal = {$totalText};
       try {
         if (typeof prestashop !== 'undefined' && prestashop.cart?.subtotals?.products) {
-          let value = prestashop.cart.subtotals.products.value;
-          if (typeof value === 'string') {
-            cartTotal = parseFloat(value.replace(/\s+/g, '').replace(',', '.'));
-          } else if (typeof value === 'number') {
-            cartTotal = value;
-          }
+          const rawValue = prestashop.cart.subtotals.products.value;
+          cartTotal = parseFloat(rawValue.replace(/[^\d,.]/g, '').replace(',', '.'));
         }
       } catch (e) {}
       
       let html = '';
-      
-      // Détermine si le client est éligible pour les différents types de livraison
-      // Si pas de pays ou client non connecté, on considère comme FR/BE
-      const hasNoCountry = !customerCountry || customerCountry === "";
+      const hasNoCountry = !customerCountry || customerCountry === '';
       const isRelayEligible = hasNoCountry || relayEligibleCountries.includes(customerCountry);
       const isHomeEligible = hasNoCountry || homeEligibleCountries.includes(customerCountry);
       
-      // Si le panier est petit ou le pays non éligible à aucun des deux
-      if (cartTotal < minThreshold || (!isRelayEligible && !isHomeEligible)) {
+      // Si le panier est vide, petit ou le pays non éligible à aucun des deux
+      if (isEmptyCart || cartTotal < minThreshold || (!isRelayEligible && !isHomeEligible)) {
 {literal}
         html = `
           <div class="advantage-block mt-0 mb-0">
@@ -207,12 +203,41 @@
     if (cartContainer) {
       new MutationObserver(mutations => {
         for (const m of mutations) {
+          // Détecter les changements dans le panier (ajout/suppression de produits)
           if (m.target.closest('.cart-items, .cart-summary, .cart-detailed-totals')) {
             updateHandler();
             break;
           }
+          // Détecter spécifiquement l'apparition/disparition de la classe empty-cart
+          if (m.type === 'childList') {
+            const hasEmptyCart = m.target.querySelector && m.target.querySelector('.empty-cart');
+            const addedEmptyCart = Array.from(m.addedNodes).some(node => 
+              node.nodeType === 1 && (node.classList?.contains('empty-cart') || node.querySelector?.('.empty-cart'))
+            );
+            if (hasEmptyCart || addedEmptyCart) {
+              setTimeout(updateHandler, 100); // Short delay pour laisser le DOM se mettre à jour
+              break;
+            }
+          }
         }
       }).observe(cartContainer, { childList: true, subtree: true, attributes: true });
+    }
+    
+    // 5. Observer spécifiquement la zone du panier détaillé pour détecter empty-cart
+    const cartOverview = document.querySelector('.cart-overview');
+    if (cartOverview) {
+      new MutationObserver(mutations => {
+        mutations.forEach(m => {
+          if (m.type === 'childList') {
+            const emptyCartAdded = Array.from(m.addedNodes).some(node => 
+              node.nodeType === 1 && (node.classList?.contains('empty-cart') || node.querySelector?.('.empty-cart'))
+            );
+            if (emptyCartAdded) {
+              setTimeout(updateHandler, 150); // Délai plus long pour le panier vide
+            }
+          }
+        });
+      }).observe(cartOverview, { childList: true, subtree: true });
     }
   });
   </script>
