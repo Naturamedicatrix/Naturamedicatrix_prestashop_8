@@ -3,10 +3,10 @@
     <!-- Intro -->
     <div class="max-w-xl{if $page.page_name == 'contact'} mx-auto w-full text-center mb-8{/if}">
       <h3 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl{if $page.page_name == 'contact'} text-center{/if}">Nos scientifiques</h3>
-      <p class="mt-6 text-lg/8 text-gray-600">
+      <p class="mt-6 text-base text-gray-600">
         Nos conseillers sont à votre disposition pour vous offrir, avec plaisir, un accompagnement de 10 minutes afin de vous informer sur la posologie, l’usage et les indications de nos produits.
       </p>
-      <p class="mt-4 text-base text-gray-600">
+      <p class="mt-4 text-sm text-gray-600">
         Pour des conseils plus personnalisés ou des échanges dépassant les 10 minutes, nous vous invitons à souscrire à notre abonnement <a href="#" class="text-primary underline">consultations avec nos nutrithérapeutes</a>.
       </p>
     </div>

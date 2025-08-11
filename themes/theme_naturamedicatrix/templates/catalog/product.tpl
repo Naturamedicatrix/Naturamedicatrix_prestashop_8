@@ -1335,6 +1335,16 @@
                         aria-controls="attachments">{l s='Certificates and patents' d='Shop.Theme.Catalog'}</a>
                     </li>
                   {/if}
+                  {if ($labels && count($labels) > 0) || ($analyses && count($analyses) > 0)}
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        data-toggle="tab"
+                        href="#labels-analyses"
+                        role="tab"
+                        aria-controls="labels-analyses">{l s='Labels and analyses' d='Shop.Theme.Actions'}</a>
+                    </li>
+                  {/if}
                   {foreach from=$product.extraContent item=extra key=extraKey}
                     <li class="nav-item">
                       <a
@@ -1418,6 +1428,16 @@
                           <span class="accordion-icon">+</span>
                         </div>
                         <div class="accordion-content" data-target="attachments"></div>
+                      </li>
+                    {/if}
+                    
+                    {if ($labels && count($labels) > 0) || ($analyses && count($analyses) > 0) || ($analysesBio && count($analysesBio) > 0) || ($analysesHalal && count($analysesHalal) > 0) || ($analysesKosher && count($analysesKosher) > 0) || ($analysesGMP && count($analysesGMP) > 0) || (isset($product.attachments) && $product.attachments)}
+                      <li class="accordion-item">
+                        <div class="accordion-header">
+                          <h2>{l s='Labels and analyses' d='Shop.Theme.Actions'}</h2>
+                          <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content" data-target="labels-analyses"></div>
                       </li>
                     {/if}
                     
@@ -1597,6 +1617,132 @@
                                </a>
                              </div>
                            {/foreach}
+                         {/if}
+                         
+                       </section>
+                     </div>
+                   {/if}
+                 {/block}
+
+                 {block name='product_labels_analyses'}
+                   {if ($labels && count($labels) > 0) || ($analyses && count($analyses) > 0) || ($analysesBio && count($analysesBio) > 0) || ($analysesHalal && count($analysesHalal) > 0) || ($analysesKosher && count($analysesKosher) > 0) || ($analysesGMP && count($analysesGMP) > 0) || (isset($product.attachments) && $product.attachments)}
+                    <div class="tab-pane fade in" id="labels-analyses" role="tabpanel">
+                       <section class="product-labels-analyses">
+                         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">{l s='Labels and analyses' d='Shop.Theme.Actions'}</h2>
+
+
+                         
+                         {if $labels && count($labels) > 0}
+                         <div class="pt-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                           <dt class="text-sm/6 font-medium text-gray-900">{l s='Labels' d='Shop.Theme.Actions'}</dt>
+
+                           <dd class="text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                            <div class="divide-y divide-gray-100 rounded-md border border-gray-200">
+                                {foreach from=$labels item=label name=labels}
+                                <div class="flex items-center justify-between p-4">
+                                  <div class="flex items-center space-x-3">
+                                    <i class="bi bi-link-45deg leading-0"></i>
+                                    <div>
+                                      {if $label|strpos:"_box" !== false}
+                                        <p class="text-sm font-medium text-gray-700 mb-0">{l s="Download box" d='Shop.Theme.Actions'} <span class="text-xs text-gray-500 font-normal">{$product.name|regex_replace:'/\s*\([^)]*\)/':''}</span></p>
+                                      {elseif $label|strpos:"_notice" !== false}
+                                        <p class="text-sm font-medium text-gray-700 mb-0">{l s="Download notice" d='Shop.Theme.Actions'} <span class="text-xs text-gray-500 font-normal">{$product.name|regex_replace:'/\s*\([^)]*\)/':''}</span></p>
+                                      {else}
+                                        <p class="text-sm font-medium text-gray-700 mb-0">{l s="Download label" d='Shop.Theme.Actions'} <span class="text-xs text-gray-500 font-normal">{$product.name|regex_replace:'/\s*\([^)]*\)/':''}</span></p>
+                                      {/if}
+                                      <!-- <span class="text-xs text-gray-500">2.4 MB</span> -->
+                                    </div>
+                                  </div>
+                                  <a href="{$label|escape:'html':'UTF-8'}" class="text-sm font-medium text-indigo-600 hover:underline">Download</a>
+                                </div>
+                                {/foreach}
+                              </div>
+                            </dd>
+                          </div>
+                          {/if}
+
+                         {if (isset($product.attachments) && $product.attachments) || (isset($analyses) && $analyses)}
+                         <div class="pt-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                           <dt class="text-sm/6 font-medium text-gray-900">{l s='Analysis' d='Shop.Theme.Actions'}</dt>
+
+                           <dd class="text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                            <div class="divide-y divide-gray-100 rounded-md border border-gray-200">
+                                {foreach from=$analyses item=analyse name=analyses}
+                                <div class="flex items-center justify-between p-4">
+                                  <div class="flex items-center space-x-3">
+                                    <i class="bi bi-link-45deg leading-0"></i>
+                                    <div>
+                                      {if $analyse|strpos:"-analyse" !== false}
+                                        <p class="text-sm font-medium text-gray-700 mb-0">{l s="Download analysis" d='Shop.Theme.Actions'} <span class="text-xs text-gray-500 font-normal">{$product.name|regex_replace:'/\s*\([^)]*\)/':''}</span></p>
+                                      {elseif $analyse|strpos:"-agricert" !== false}
+                                        <p class="text-sm font-medium text-gray-700 mb-0">{l s="Download analysis" d='Shop.Theme.Actions'} <strong>bioagricert</strong> <span class="text-xs text-gray-500 font-normal">{$product.name|regex_replace:'/\s*\([^)]*\)/':''}</span></p>
+                                      {/if}
+                                      <!-- <span class="text-xs text-gray-500">2.4 MB</span> -->
+                                    </div>
+                                  </div>
+                                  <a href="{$label|escape:'html':'UTF-8'}" class="text-sm font-medium text-indigo-600 hover:underline">Download</a>
+                                </div>
+                                {/foreach}
+                              </div>
+                            </dd>
+                          </div>
+                          {/if}
+                         
+                         {* Section Analyses *}
+                         {if (isset($product.attachments) && $product.attachments) || (isset($analyses) && $analyses)}
+                           <section id="download-product" class="page-product-box">
+                             <p class="h5 text-left">{l s='Analysis' d='Shop.Theme.Actions'}</p>
+                             <div class="row">
+                               <ul class="">
+                                 {foreach from=$analyses item=analyse name=analyses}
+                                   {if $analyse|strpos:"-analyse" !== false}
+                                     <li class="list col-md-6 col-xs-12"><a download href="{$analyse|escape:'html':'UTF-8'}"><i class="far fa-file-pdf"></i> <span>{l s="Download analysis" d='Shop.Theme.Actions'} {$product.name|escape:'html':'UTF-8'|regex_replace:'/([^)]+)\(([^)]+)\)([^)]+)?/':' $1$3'}</span></a></li>
+                                   {elseif $analyse|strpos:"-agricert" !== false}
+                                     <li class="list col-md-6 col-xs-12"><a download href="{$analyse|escape:'html':'UTF-8'}"><i class="far fa-file-pdf"></i> <span>{l s="Download analysis" d='Shop.Theme.Actions'} <strong>bioagricert</strong> {if $analyse|strpos:"-2024" !== false}<strong>2024</strong>{elseif $analyse|strpos:"-2025" !== false}<strong>2025</strong>{/if} {$product.name|escape:'html':'UTF-8'|regex_replace:'/([^)]+)\(([^)]+)\)([^)]+)?/':' $1$3'}</span></a></li>
+                                   {/if}
+                                 {/foreach}
+                                 
+                                 {* Analyses Bio *}
+                                 {foreach from=$analysesBio item=analyse name=analysesBio}
+                                   <li class="list col-md-6 col-xs-12"><a download href="{$analyse|escape:'html':'UTF-8'}"><i class="far fa-file-pdf"></i> <span>{l s="Download certificate" d='Shop.Theme.Actions'} <strong>Bio</strong> {$product.name|escape:'html':'UTF-8'|regex_replace:'/([^)]+)\(([^)]+)\)([^)]+)?/':' $1$3'}</span></a></li>
+                                 {/foreach}
+                                 
+                                 {* Analyses Halal *}
+                                 {foreach from=$analysesHalal item=analyse name=analysesHalal}
+                                   <li class="list col-md-6 col-xs-12"><a download href="{$analyse|escape:'html':'UTF-8'}"><i class="far fa-file-pdf"></i> <span>{l s="Download certificate" d='Shop.Theme.Actions'} <strong>Halal</strong> {$product.name|escape:'html':'UTF-8'|regex_replace:'/([^)]+)\(([^)]+)\)([^)]+)?/':' $1$3'}</span></a></li>
+                                 {/foreach}
+                                 
+                                 {* Analyses Kosher *}
+                                 {foreach from=$analysesKosher item=analyse name=analysesKosher}
+                                   <li class="list col-md-6 col-xs-12"><a download href="{$analyse|escape:'html':'UTF-8'}"><i class="far fa-file-pdf"></i> <span>{l s="Download certificate" d='Shop.Theme.Actions'} <strong>Kosher</strong> {$product.name|escape:'html':'UTF-8'|regex_replace:'/([^)]+)\(([^)]+)\)([^)]+)?/':' $1$3'}</span></a></li>
+                                 {/foreach}
+                                 
+                                 {* Analyses GMP *}
+                                 {foreach from=$analysesGMP item=analyse name=analysesGMP}
+                                   <li class="list col-md-6 col-xs-12"><a download href="{$analyse|escape:'html':'UTF-8'}"><i class="far fa-file-pdf"></i> <span>{l s="Download certificate" d='Shop.Theme.Actions'} <strong>GMP</strong> {$product.name|escape:'html':'UTF-8'|regex_replace:'/([^)]+)\(([^)]+)\)([^)]+)?/':' $1$3'}</span></a></li>
+                                 {/foreach}
+                               </ul>
+                               
+                               {* Attachments depuis le BACKOFFICE *}
+                               {foreach from=$product.attachments item=attachment name=attachements}
+                                 <ul class="list{if $smarty.foreach.labels.total <= 2} col-md-6 col-xs-12{elseif $smarty.foreach.labels.total == 1} col-md-12{/if}">
+                                   <li>
+                                     <a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
+                                       <i class="far fa-file-pdf" aria-hidden="true"></i>
+                                       <span>
+                                         {if $attachment.description}
+                                           {l s="Download" d='Shop.Theme.Actions'} {$attachment.description|escape:'html':'UTF-8'}
+                                         {else}
+                                           {l s="Download" d='Shop.Theme.Actions'} {$attachment.name|escape:'html':'UTF-8'}
+                                         {/if}
+                                       </span>
+                                     </a>
+                                   </li>
+                                 </ul>
+                               {/foreach}
+                               
+                             </div>
+                           </section>
                          {/if}
                          
                        </section>
