@@ -331,5 +331,22 @@
         handleThumbnailSelection();
       }, 200);
     });
+    
+    // Stopper la vidéo YouTube quand le modal se ferme
+    {literal}
+    $(document).on('hidden.bs.modal', '#product-modal', function (e) {
+      // Trouve l'iframe YouTube dans le modal
+      let modal = document.getElementById('product-modal');
+      if (modal) {
+        let iframe = modal.querySelector('iframe[src*="youtube.com"]');
+        if (iframe) {
+          // Recharge l'iframe en réinitialisant son src
+          let src = iframe.src;
+          iframe.src = '';
+          iframe.src = src;
+        }
+      }
+    });
+    {/literal}
   });
 </script>
