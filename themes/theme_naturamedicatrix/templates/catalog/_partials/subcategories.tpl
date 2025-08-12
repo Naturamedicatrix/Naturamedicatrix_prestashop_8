@@ -57,7 +57,8 @@
     {if isset($bestselles) && $bestselles|@count > 0}
       {include file="../_partials/productlist-best.tpl"}
     {/if}
-
+    
+    
     
   
 {/if} {* end if $category principes actifs *}

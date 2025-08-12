@@ -2,7 +2,7 @@
   {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
     
     <h3 class="text-lg font-light mb-1">{l s='List of your favorite categories' d='Shop.Theme.Catalog'}</h3>    
-    
+
     <div id="subcategories_custom" class="mx-auto mt-0 relative">
 {*       <ul class="subcategories_custom justify-between ml-0 pl-0 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"> *}
       <ul class="subcategories_custom justify-between m-0 pl-0">
