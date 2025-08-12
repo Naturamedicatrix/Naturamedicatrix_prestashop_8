@@ -22,45 +22,81 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
- 
- <hr />
- 
+
+<hr />
+
 {if $category.id == 2}
-  <h3 class="text-lg font-light mb-1">{l s='All of our categories' d='Shop.Theme.Catalog'}</h3>
-  
-  {assign var=subchildren value=Category::getChildren(2, $language.id)}
-   
-   {if !empty($subcategories)}
-   {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
-   
-    {$subcategories}
-   
-{*
-     {foreach from=$subcategories item=subcategory}            
-       {if $subchildren|count > 0}
-        <ul class="list-disc text-left text-sm text-gray-700 mt-1.5 ml-1 pl-0 space-y-0.5">
-          {foreach from=$subchildren item=subchild name=subloop}
-            <li class="w-full m-0 p-0 text-left {if $smarty.foreach.subloop.iteration > 3}hidden toggle-subcat{/if}">
-              <a href="{$link->getCategoryLink($subchild.id_category, $subchild.link_rewrite)}" class="hover:underline">
-                {$subchild.name|escape:'html':'UTF-8'}
-              </a>
-            </li>
+  <div class="py-8">
+    <h3 class="text-2xl font-light text-gray-800 mb-6">{l s='All of our categories' d='Shop.Theme.Catalog'}</h3>
+    
+    {if !empty($subcategories)}
+      {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-start">
+          {foreach from=$subcategories item=subcategory}
+            <div class="bg-white rounded-lg shadow-sm p-4 border border-gray-100 self-start">
+              <h4 class="text-lg font-semibold mb-4 mt-0 text-gray-900">
+                <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)}" 
+                   class="hover:text-gray-500 transition-colors duration-200">
+                  {$subcategory.name|escape:'html':'UTF-8'}
+                </a>
+              </h4>
+              
+              {assign var=subchildren value=Category::getChildren($subcategory.id_category, $language.id)}
+              
+              {if $subchildren|count > 0}
+                <ul class="mb-0">
+                  {foreach from=$subchildren item=subchild name=subloop}
+                    {if $smarty.foreach.subloop.iteration <= 5}
+                      <li class="text-sm">
+                        <a href="{$link->getCategoryLink($subchild.id_category, $subchild.link_rewrite)}" 
+                           class="text-gray-600 hover:text-gray-500 flex items-center group">
+                          {$subchild.name|escape:'html':'UTF-8'}
+                        </a>
+                      </li>
+                    {/if}
+                  {/foreach}
+                </ul>
+                
+                {if $subchildren|count > 5}
+                  <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 toggle-container-{$subcategory.id_category}">
+                    <ul class="mb-0">
+                      {foreach from=$subchildren item=subchild name=subloop}
+                        {if $smarty.foreach.subloop.iteration > 5}
+                          <li class="text-sm">
+                            <a href="{$link->getCategoryLink($subchild.id_category, $subchild.link_rewrite)}" 
+                               class="text-gray-600 hover:text-gray-500 flex items-center group">
+                              {$subchild.name|escape:'html':'UTF-8'}
+                            </a>
+                          </li>
+                        {/if}
+                      {/foreach}
+                    </ul>
+                  </div>
+                {/if}
+                
+                {if $subchildren|count > 5}
+                  <button type="button"
+                          class="mt-4 text-sm text-gray-500 hover:text-gray-600 font-medium flex items-center gap-1"
+                          data-category-id="{$subcategory.id_category}"
+                          data-state="collapsed"
+                          data-text-more="{l s='Show more' d='Shop.Theme.Actions'}"
+                          data-text-less="{l s='Show less' d='Shop.Theme.Actions'}"
+                          onclick="toggleSubcategories({$subcategory.id_category})">
+                      <span class="button-text">{l s='Show more' d='Shop.Theme.Actions'}</span>
+                      <svg class="w-4 h-4 arrow-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                  </button>
+                {/if}
+              {else}
+                <p class="text-sm text-gray-500 italic">{l s='No subcategories' d='Shop.Theme.Catalog'}</p>
+              {/if}
+            </div>
           {/foreach}
-        </ul>
-        
-        {if $subchildren|count > 3}
-                  
-          <button type="button"
-                  class="mt-2.5 text-left text-xs toggle-btn underline"
-                  data-state="collapsed">
-              Voir plus
-          </button>
-        {/if}
-        
-      {/if}
-    {/foreach}
-*}
-  {/if}
+        </div>
+      
+    {/if}
   {/if}
 
 {/if}
@@ -75,3 +111,30 @@
         </div>
     {/if}
 </div>
+
+
+
+<script>
+function toggleSubcategories(categoryId) {
+  var container = document.querySelector('.toggle-container-' + categoryId);
+  var button = document.querySelector('[data-category-id="' + categoryId + '"]');
+  var buttonText = button.querySelector('.button-text');
+  var arrowIcon = button.querySelector('.arrow-icon');
+  var textMore = button.getAttribute('data-text-more');
+  var textLess = button.getAttribute('data-text-less');
+  
+  if (button.getAttribute('data-state') === 'collapsed') {
+    // Expand
+    container.style.maxHeight = container.scrollHeight + 'px';
+    buttonText.textContent = textLess;
+    button.setAttribute('data-state', 'expanded');
+    arrowIcon.style.transform = 'rotate(180deg)';
+  } else {
+    // Collapse
+    container.style.maxHeight = '0';
+    buttonText.textContent = textMore;
+    button.setAttribute('data-state', 'collapsed');
+    arrowIcon.style.transform = 'rotate(0deg)';
+  }
+}
+</script>

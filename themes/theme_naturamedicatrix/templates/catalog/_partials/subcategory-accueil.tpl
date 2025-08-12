@@ -1,7 +1,7 @@
 {if !empty($subcategories)}
   {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
     
-    <h3 class="text-lg font-light mb-1">{l s='List of your favorite categories' d='Shop.Theme.Catalog'}</h3>    
+    <h3 class="text-2xl font-light text-gray-800 mb-6">{l s='List of your favorite categories' d='Shop.Theme.Catalog'}</h3>    
 
     <div id="subcategories_custom" class="mx-auto mt-0 relative">
 {*       <ul class="subcategories_custom justify-between ml-0 pl-0 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"> *}
@@ -84,7 +84,7 @@
 
 <hr />
 
-<h3 class="text-lg font-light mb-1">{l s='All of our products' d='Shop.Theme.Catalog'}</h3>
+<h3 class="text-2xl font-light text-gray-800 mb-6">{l s='All of our products' d='Shop.Theme.Catalog'}</h3>
 
 {* {if isset($listing.products) && $listing.products}
   <div class="products grid grid-cols-2 xl:grid-cols-3 gap-6">
