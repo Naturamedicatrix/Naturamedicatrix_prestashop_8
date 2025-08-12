@@ -34,10 +34,10 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-start">
           {foreach from=$subcategories item=subcategory}
-            <div class="bg-white rounded-lg shadow-sm p-4 border border-gray-100 self-start">
+            <div class="bg-white rounded-lg p-4 border border-gray-100 self-start">
               <h4 class="text-lg font-semibold mb-4 mt-0 text-gray-900">
                 <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)}" 
-                   class="hover:text-gray-500 transition-colors duration-200">
+                   class="hover:text-gray-600 transition-colors duration-200">
                   {$subcategory.name|escape:'html':'UTF-8'}
                 </a>
               </h4>
