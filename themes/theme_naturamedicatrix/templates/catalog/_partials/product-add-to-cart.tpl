@@ -29,7 +29,7 @@
 
     {* Hook pour le bouton abonnement *}
     {block name='product_subscription'}
-      <div class="product-subscription-options mt-0">
+      <div class="product-subscription-options mt-2.5">
         {hook h='displayProductPriceBlock' product=$product type='after_price'}
       </div>
     {/block}

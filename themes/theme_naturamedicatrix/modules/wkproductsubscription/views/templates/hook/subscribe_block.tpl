@@ -1,26 +1,27 @@
 {*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License version 3.0
-* that is bundled with this package in the file LICENSE.txt
-* It is also available through the world-wide-web at this URL:
-* https://opensource.org/licenses/AFL-3.0
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade this module to a newer
-* versions in the future. If you wish to customize this module for your needs
-* please refer to CustomizationPolicy.txt file inside our module for more information.
-*
-* @author Webkul IN
-* @copyright Since 2010 Webkul
-* @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+CUSTOM SYSTEME ABONNEMENT
 *}
 
-<div class="wk-subscription-block mt-0">
+<style>
+#wkSubscriptionFrequency {
+    height: auto;
+    padding-right: 0;
+    box-shadow: inherit;
+}
+.wksubscription-options .form-control:focus {
+    outline: none !important;
+}
+
+.wksubscribe label span,
+.wksubscribe label {
+    line-height: 1;
+}
+</style>
+
+<div class="wk-subscription-block mt-0 mb-4 border border-gray-300 p-2.5 rounded-md">
     {if Configuration::get('WK_SUBSCRIPTION_DISPLAY_SUBS_MSG')}
-        <div class="row">
-            <div class="col-md-12">
+        <div class="">
+            <div class="">
                 <div class="alert alert-info wk_subscription_alert" role="alert">
                     {$subscriptionMsg nofilter}
                 </div>
@@ -36,7 +37,7 @@
             </div>
         </div>
     {/if}
-    <div class="row wksubscribe">
+    <div class="wksubscribe mt-0">
         <div class="col-md-12">
             <div class="form-horizontal">
                 <div class="row">
@@ -52,33 +53,32 @@
                             <span></span>
                         </span>
                     </div>
-                    <div class="col-sm-11">
-                        <label for="wk_subscription_subscribe">
-                            <span class="">{$subscribeBtnText|escape:'htmlall':'UTF-8'}</span>
+                    <div class="col-sm-11 p-0">
+                        <label for="wk_subscription_subscribe" class="mb-0">
+                            <span class="text-lg text-gray-900 font-semibold">{$subscribeBtnText|escape:'htmlall':'UTF-8'}</span>
                         </label>
                     </div>
-                    <div class="wksubscription-options col-md-12">
+                    <div class="wksubscription-options col-md-12 my-0">
                         <div class="form-group row">
-                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                <label>{l s='Select frequency' mod='wkproductsubscription'}</label>
-                                <select class="form-control wkUpdateTempCart" id="wkSubscriptionFrequency">
+                                <label class="text-gray-600 mb-0">{l s='Sans engagement' mod='wkproductsubscription'}</label><br/>
+                                <label class="text-gray-600 mb-4">{l s='Livraison à la fréquence de votre choix' mod='wkproductsubscription'}</label>
+                                <select class="form-control wkUpdateTempCart text-gray-800 px-1.5 py-4" id="wkSubscriptionFrequency">
                                     {foreach from=$availableCycles item=cycles}
                                         {assign var="currentFreq" value="`$cycles.frequency`_`$cycles.cycle`"}
                                         {if isset($frequency) && isset($cycle)}
                                             {assign var="selectedFreq" value="`$frequency`_`$cycle`"}
                                         {/if}
                                         {if isset($selectedFreq) && ($currentFreq == $selectedFreq)}
-                                            <option selected="selected" value="{$cycles.frequency|escape:'htmlall':'UTF-8'}_{$cycles.cycle|escape:'htmlall':'UTF-8'}">{$cycles.frequencyText|escape:'htmlall':'UTF-8'}</option>
+                                            <option class="text-gray-800" selected="selected" value="{$cycles.frequency|escape:'htmlall':'UTF-8'}_{$cycles.cycle|escape:'htmlall':'UTF-8'}">{$cycles.frequencyText|escape:'htmlall':'UTF-8'}</option>
                                         {else}
-                                            <option value="{$cycles.frequency|escape:'htmlall':'UTF-8'}_{$cycles.cycle|escape:'htmlall':'UTF-8'}">{$cycles.frequencyText|escape:'htmlall':'UTF-8'}</option>
+                                            <option class="text-gray-800" value="{$cycles.frequency|escape:'htmlall':'UTF-8'}_{$cycles.cycle|escape:'htmlall':'UTF-8'}">{$cycles.frequencyText|escape:'htmlall':'UTF-8'}</option>
                                         {/if}
                                     {/foreach}
                                 </select>
-                            </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 {if Configuration::get('WK_SUBSCRIPTION_DISPLAY_DELIVERY_DATE')}
                                     {if !$is_virtual}
-                                        <label>{l s='First delivery date' mod='wkproductsubscription'}</label>
+                                        <label class="text-gray-600">{l s='First delivery date' mod='wkproductsubscription'}</label>
                                         <input type="text" class="form-control wkdatepicker wkUpdateTempCart" id="wkFirstDeliveryDate" value="{$firstDelDate|escape:'htmlall':'UTF-8'}" placeholder="{l s='First delivery date' mod='wkproductsubscription'}" readonly="readonly">
                                     {else}
                                         <input type="hidden" class="form-control wkUpdateTempCart" id="wkFirstDeliveryDate" value="{$today_date|escape:'htmlall':'UTF-8'}" readonly="readonly">
