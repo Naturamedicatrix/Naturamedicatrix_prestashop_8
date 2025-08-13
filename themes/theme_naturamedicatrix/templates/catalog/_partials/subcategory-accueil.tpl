@@ -31,13 +31,13 @@
             <div class="p-0 text-left">
               <div>
                 <h2 class="text-base font-bold leading-tight text-gray-900 mt-1.5 mb-1.5">
-                  <a class="hover:underline" href="{$subcategory.url}">
+                  <a class="text-gray-900 hover:text-gray-600 transition-colors duration-200" href="{$subcategory.url}">
                     {$subcategory.name|escape:'html':'UTF-8'}
                   </a>                  
                 </h2>
                 
                 {if isset($subcategory.nb_products) && $subcategory.nb_products > 0}
-                  <a href="{$subcategory.url}" class="text-xs link-blue mt-1.5 block">{if $subcategory.nb_products > 1}Voir {$subcategory.nb_products} produits{else}Voir le produit{/if}</a>
+                  <a href="{$subcategory.url}" class="text-xs text-gray-600 hover:text-gray-500 transition-colors duration-200 mt-1.5 block">{if $subcategory.nb_products > 1}Voir {$subcategory.nb_products} produits{else}Voir le produit{/if}</a>
                 {else}
                   <p class="text-xs text-gray-400 mt-1.5 block">Aucun produit</p>
                 {/if}
@@ -125,10 +125,6 @@
 
 
 <style>
-  
-  #subcategories_custom ul li a:hover {
-    color: #155585;
-  }
   
   .tns-controls {
     position: absolute;

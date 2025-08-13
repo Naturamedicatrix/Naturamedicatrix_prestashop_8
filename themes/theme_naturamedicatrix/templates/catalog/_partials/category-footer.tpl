@@ -37,7 +37,7 @@
             <div class="bg-white rounded-lg p-4 border border-gray-100 self-start">
               <h4 class="text-lg font-semibold mb-4 mt-0 text-gray-900">
                 <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)}" 
-                   class="hover:text-gray-600 transition-colors duration-200">
+                   class="text-gray-900 hover:text-gray-600 transition-colors duration-200">
                   {$subcategory.name|escape:'html':'UTF-8'}
                 </a>
               </h4>
