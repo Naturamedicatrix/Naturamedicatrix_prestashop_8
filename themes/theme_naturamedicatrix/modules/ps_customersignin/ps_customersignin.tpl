@@ -6,7 +6,7 @@
  {if $customer.is_logged}
    <!-- Utilisateur connecté -->
    <div class="user-hover-group">
-     <a href="{$urls.pages.my_account}" class="flex items-end gap-2 text-white px-2.5 py-0 hover:text-gray-200 transition-colors duration-200 ease-in-out" rel="nofollow">
+     <a href="{$urls.pages.my_account}" class="flex items-end gap-2 text-white px-2.5 py-0 hover:text-gray-200 transition-colors duration-200 ease-in-out no-underline" rel="nofollow">
        <i class="bi bi-person-check text-2xl leading-0"></i>
        <div class="infos text-sm leading-tight">
          <div class="text-xs leading-tight opacity-90">
@@ -20,39 +20,39 @@
      
      <!-- Menu déroulant pour utilisateur connecté -->
      <div class="user-hover-modal user-account-modal p-8 pt-4 w-104">
-         <a href="{$urls.pages.my_account}" class="h-12 flex items-center text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+         <a href="{$urls.pages.my_account}" class="h-12 flex items-center text-gray-600 hover:text-brand transition duration-500 ease-in-out no-underline">
            <i class="bi bi-person icon-special menu-icon leading-0 mr-1"></i>{l s='Mon compte' d='Shop.Theme.Customeraccount'}
          </a>
-         <a href="{$urls.pages.identity}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand hover:border-brand-900 transition duration-500 ease-in-out">
+         <a href="{$urls.pages.identity}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand hover:border-brand-900 transition duration-500 ease-in-out no-underline">
            <i class="bi bi-person-gear icon-special menu-icon leading-0 mr-1"></i>{l s='Mes informations personnelles' d='Shop.Theme.Customeraccount'}
          </a>
-         <a href="{$urls.pages.addresses}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+         <a href="{$urls.pages.addresses}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out no-underline">
            <i class="bi bi-house-door icon-special menu-icon leading-0 mr-1"></i>{l s='Mes adresses' d='Shop.Theme.Customeraccount'}
          </a>
          {if $urls.pages.guest_tracking}
-           <a href="{$urls.pages.history}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+           <a href="{$urls.pages.history}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out no-underline">
              <i class="bi bi-card-list icon-special menu-icon leading-0 mr-1"></i>{l s='Mon historique de commandes' d='Shop.Theme.Customeraccount'}
            </a>
          {/if}
-         <a href="{$link->getModuleLink('blockwishlist', 'lists')}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+         <a href="{$link->getModuleLink('blockwishlist', 'lists')}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out no-underline">
            <i class="bi bi-clipboard-heart icon-special menu-icon leading-0 mr-1"></i>{l s='Mes favoris' d='Shop.Theme.Customeraccount'}
          </a>
-         <a href="{$link->getModuleLink('ps_emailalerts', 'account')}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+         <a href="{$link->getModuleLink('ps_emailalerts', 'account')}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out no-underline">
            <i class="bi bi-bell icon-special menu-icon leading-0 mr-1"></i>{l s='Mes alertes' d='Shop.Theme.Customeraccount'}
          </a>
           {if $urls.pages.discount}
-          <a href="{$urls.pages.discount}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+          <a href="{$urls.pages.discount}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out no-underline">
             <i class="bi bi-percent icon-special menu-icon leading-0 mr-1"></i>{l s='Mes bons d\'achat' d='Shop.Theme.Customeraccount'}
           </a>
           {/if}
           {if $urls.pages.order_slip}
-          <a href="{$urls.pages.order_slip}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out">
+          <a href="{$urls.pages.order_slip}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out no-underline">
             <i class="bi bi-credit-card-2-front icon-special menu-icon leading-0 mr-1"></i>{l s='Mes avoirs' d='Shop.Theme.Customeraccount'}
           </a>
           {/if}
           
          
-         <a href="{$urls.actions.logout}" class="btn btn-secondary w-full mt-1" rel="nofollow">
+         <a href="{$urls.actions.logout}" class="btn btn-secondary w-full mt-1 no-underline" rel="nofollow">
            <i class="bi bi-power menu-icon leading-0 mr-1.5"></i>{l s='Se déconnecter' d='Shop.Theme.Customeraccount'}
          </a>
      </div>
@@ -60,7 +60,7 @@
  {else}
    <!-- Utilisateur non connecté -->
    <div class="user-hover-group">
-     <a href="{$urls.pages.authentication}?back={$urls.current_url}" class="flex items-end gap-2 text-white px-2.5 py-0 hover:text-gray-200 transition-colors duration-200 ease-in-out" rel="nofollow">
+     <a href="{$urls.pages.authentication}?back={$urls.current_url}" class="flex items-end gap-2 text-white px-2.5 py-0 hover:text-gray-200 transition-colors duration-200 ease-in-out no-underline" rel="nofollow">
        <i class="bi bi-person text-2xl leading-0"></i>
        <div class="infos text-sm leading-tight">
          <div class="text-xs leading-tight opacity-90">

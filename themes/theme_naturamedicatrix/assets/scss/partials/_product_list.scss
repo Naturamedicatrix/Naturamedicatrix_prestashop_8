@@ -38,13 +38,10 @@
         }
     }
 
-        
-        a {
-            border: none !important
-        }
 
         .thumbnail-container {
             margin-bottom: 0;
+            background: inherit;
 
             .product-thumbnail img {
                 @media (max-width: $breakpoint-sm) {
@@ -55,6 +52,7 @@
     
 
     .product-description {
+        background: inherit;
         padding: 0;
         &::after {
             border-top: none !important;
@@ -64,20 +62,6 @@
             margin-top: 0;
         }
 
-        .product-manufacturer, .product-manufacturer a {
-            text-align: center;
-            color: $color-custom-grayLight !important;
-            text-decoration: none !important;
-            font-size: .8rem;
-            margin-top: 8px;
-
-            &:hover {
-                color: $color-custom-gray !important;
-            }
-            @media (max-width: $breakpoint-sm) {
-                font-size: .8rem !important;
-            }
-        }
     }
 
     .product-title {
@@ -98,76 +82,11 @@
     }
 
     .product-flags-container {
-        margin-top: 0;
-        margin-bottom: 0;
-
         @media (max-width: $breakpoint-sm) {
             display: none;
         }
     }
     
-    .product-flags {
-        padding-left: 0px;
-        margin-top: 0px;
-        gap: 5px;
-        position: relative;
-        flex-direction: row;
-        display: inline-flex;
-
-        @media (max-width: $breakpoint-sm) {
-            display: none;
-        }
-
-        .product-flag {
-            font-size: 0.8rem;
-            text-transform: inherit;
-            background: none;
-            color: #68768a;
-            border: 1px solid $color-custom-grayLight;
-            padding: 2px 10px;
-            border-radius: 15px;
-            border-top-right-radius: 2px;
-            border-bottom-left-radius: 2px;
-            line-height: 1.2;
-            min-height: auto !important;
-            min-width: auto;
-            font-weight: normal !important;
-            text-align: center;
-        }
-
-        li.product-flag {
-            margin-top: 0;
-        }
-
-        .discount {
-            background-color: $color-custom-highlight !important;
-            color: $color-custom-white !important;
-            border-color:$color-custom-highlight !important;
-            font-weight: 900 !important;
-        }
-
-        .dlc-text {
-            font-weight: normal !important;
-        }
-
-        .new {
-            color: #136f9b !important;
-            background: #d1eaf6 !important;
-            border-color:#d1eaf6 !important;
-        }
-        .short-dlu {
-            background-color: $color-custom-highlight !important;
-            color: $color-custom-white !important;
-            border-color:$color-custom-highlight !important;
-            font-weight: 900 !important;
-        }
-
-        .pack {
-            background-color: #fffbeb !important;
-            color: #92400e !important;
-            border-color:#fffbeb !important;
-        }
-    }
 
     .review-score {
         color: $color-custom-stars;
@@ -178,98 +97,6 @@
             padding-left: 3px;
         }
     }
-    
-    .block-product-flags {
-        position: relative;
-        margin-top: 15px;
-    }
-    
-    .add-to-cart-or-refresh {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        margin: 0;
-        z-index: 1;
-    }
-    
-    .add-to-cart {
-        background-color: $color-custom-black;
-        border: none;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-
-        @media (max-width: $breakpoint-sm) {
-            background-color: transparent;
-            &:hover {
-                background-color: white !important;
-            }
-        }
-
-        &:hover {
-            background-color: $color-custom-blackHover;
-        }
-        
-        i {
-            font-size: .8rem;
-            color: $color-custom-white;
-
-            @media (max-width: $breakpoint-sm) {
-                color: $color-custom-black;
-                font-size: 1.3rem;
-
-                &:hover {
-                    color: $color-custom-blackHover;
-                }
-            }
-        }
-    }
-    
-    .price-and-cart-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
-        .product-price-and-shipping {
-            margin-bottom: 0;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
-            font-weight: normal;
-
-            @media (max-width: $breakpoint-sm) {
-                gap: 5px;
-            }
-            
-            .price {
-                font-size: 1.2rem;
-                font-weight: 700;
-                color: $color-custom-black;
-
-                @media (max-width: $breakpoint-sm) {
-                    font-size: 1rem;
-                    padding-left: 5px;
-                }
-            }
-            
-            .regular-price {
-                color: $color-custom-black;
-                margin-right: 5px;
-            }
-        }
-    }
-
-    .variants-group, .product-quantity-info {
-        font-size: .8rem;
-        color: $color-custom-gray;
-    }
-    
 }
 
 .product.col-xs-6, .products .col-xs-6 {
@@ -470,21 +297,8 @@
                 margin-top: 5px;
                 color: $color-custom-black;
                 font-weight: 700;
-                
-                .regular-price {
-                    color: $color-custom-black;
-                    font-weight: normal;
-                    margin-left: 5px;
-                }
             }
         }
-    }
-    
-    .product-flags {
-        position: absolute;
-        top: 5px;
-        left: 15px;
-        z-index: 2;
     }
 }
 
@@ -583,3 +397,14 @@ body#manufacturer {
   .product-miniature-light .yotpo-sr-bottom-line-button span {
     height: 16px !important;
   }
+
+  .product-flags li.product-flag.discount, .product-flags li.product-flag.discount-amount, .product-flags li.product-flag.discount-percentage {
+    background: inherit;
+  }
+
+.product-flags li.product-flag,
+.product-miniature .regular-price,
+.product-miniature .product-price-and-shipping {
+    font-size: inherit;
+    color: inherit;
+}

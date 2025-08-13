@@ -24,9 +24,11 @@
     <div class="relative">
       <div class="bestsellers-slider mb-1 mt-1">
         {foreach from=$allProducts item=product}
-          {include file="catalog/_partials/miniatures/product-bestseller.tpl" product=$product productClasses=""}
+          {include file="catalog/_partials/miniatures/product-big.tpl" product=$product productClasses=""}
         {/foreach}
       </div>
     </div>
+    
+    
   </section>
 </div>

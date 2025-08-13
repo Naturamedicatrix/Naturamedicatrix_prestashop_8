@@ -22,7 +22,7 @@
     {foreach from=$categories item=cat}
       {if in_array($cat.id_category, $allowed_ids) && $count < $max_display}
         <li class="mb-0">
-          <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label mb-0 relative block bg-white rounded-xl p-4 text-sm font-medium text-gray-600 hover:text-primary transition border border-white text-base no-underline">{$cat.name} <i class="bi bi-star-fill"></i>   <span><i class="bi bi-arrow-right"></i></span></a>
+          <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label mb-0 relative block bg-white rounded-xl p-4 font-medium text-gray-600 hover:text-primary transition border border-white text-base no-underline">{$cat.name} <i class="bi bi-star-fill"></i>   <span><i class="bi bi-arrow-right"></i></span></a>
         </li>
         {assign var='count' value=$count+1}
       {/if}
@@ -38,7 +38,7 @@
     {foreach from=$categories item=cat}
       {if !in_array($cat.id_category, $allowed_ids) && $cat.id_parent == 2}
          <li class="mb-0">
-          <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label mb-0 relative block bg-white rounded-xl p-4 text-sm font-medium text-gray-600 hover:text-primary transition border border-white text-base no-underline">{$cat.name} <span><i class="bi bi-arrow-right"></i></span></a>
+          <a href="{$link->getCategoryLink($cat.id_category)}" class="btn-label mb-0 relative block bg-white rounded-xl p-4 font-medium text-gray-600 hover:text-primary transition border border-white text-base no-underline">{$cat.name} <span><i class="bi bi-arrow-right"></i></span></a>
         </li>
       {/if}
     {/foreach}  

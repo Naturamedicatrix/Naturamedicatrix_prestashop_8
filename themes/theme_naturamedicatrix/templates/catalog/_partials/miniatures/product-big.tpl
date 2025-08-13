@@ -10,26 +10,27 @@
 
 {block name='product_miniature_item'}
   <div class="js-product product{if !empty($productClasses)} {$productClasses}{/if}">
-    <article class="product-miniature js-product-miniature rounded-lg p-3.5 border border-color-gray-300 {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
+    <article class="product-miniature js-product-miniature bg-white rounded-lg p-3.5 {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
       data-id-product-attribute="{$product.id_product_attribute}">
       {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}
         <span class="out-of-stock-label">{l s='Épuisé' d='Shop.Theme.Catalog'}</span>
       {/if}
-      <div class="thumbnail-container w-full">
+      <div class="thumbnail-container w-full bg-gray-50">
 
         {* Caractéristiques du produit - Certificats uniquement *}
+{*
         <div class="product-features-overlay">
           {if isset($product.features) && $product.features}
-            <div class="product-features-list product-flagss flex gap-2">
+            <div class="product-features-list product-flags">
               {foreach from=$product.features item=feature}
-                {* N'affiche que les caractéristiques "Certificat" *}
                 {if isset($feature.name) && $feature.name == 'Certificat' && isset($feature.value) && $feature.value|trim != ''}
-                  <span class="product-feature-item product-flagr mb-0 mt-0 text-sm normal-case border border-gray-400 px-2.5 py-0 leading-normal font-normal text-center rounded-tl-2xl rounded-br-2xl rounded-tr-sm rounded-bl-sm">{$feature.value|escape:'html':'UTF-8'}</span>
+                  <span class="product-feature-item product-flag">{$feature.value|escape:'html':'UTF-8'}</span>
                 {/if}
               {/foreach}
             </div>
           {/if}
         </div>
+*}
         {*END Caractéristiques du produit - Certificats *}
 
         <div class="thumbnail-top">
@@ -62,13 +63,20 @@
             {/if}
           {/block}
         </div>
+        
+        {block name='product_reviews'}
+            {* {hook h='displayProductListReviews' product=$product} *}
+            
+            <div class="yotpo bottomLine review-score text-left text-xs text-center pt-0 mt-0" data-yotpo-product-id="{$product.id_product}"></div>
 
-        <div class="product-description">
-          {* Affichage du fabricant *}
+          {/block}
+
+
+        <div class="product-description text-center">
           {block name='product_manufacturer'}
             {if isset($product.manufacturer_name) && $product.manufacturer_name}
-              <div class="product-manufacturer text-center mt-1.5">
-                <a href="{$link->getManufacturerLink($product.id_manufacturer)}" title="{$product.manufacturer_name|escape:'html':'UTF-8'}" class="text-xs text-gray-400 no-underline">
+              <div class="product-manufacturer text-center mt-0">
+                <a href="{$link->getManufacturerLink($product.id_manufacturer)}" title="{$product.manufacturer_name|escape:'html':'UTF-8'}" class="text-sm text-gray-400 no-underline">
                   {$product.manufacturer_name}
                 </a>
               </div>
@@ -77,9 +85,9 @@
 
           {block name='product_name'}
             {if $page.page_name == 'index'}
-              <h3 class="mb-0 mt-0 text-center"><a href="{$product.url}" content="{$product.url}" title="{$product.name}" class="no-underline text-lg font-normal text-gray-900">{$productName nofilter}</a></h3>
+              <h3 class="mb-0 text-lg font-normal"><a href="{$product.url}" content="{$product.url}" title="{$product.name}" class="no-underline text-gray-900">{$productName nofilter}</a></h3>
             {else}
-              <h2 class="mb-0 mt-0 text-center"><a href="{$product.url}" content="{$product.url}" title="{$product.name}" class="no-underline text-lg font-normal text-gray-900">{$productName nofilter}</a></h2>
+              <h2 class="mb-0 text-lg font-normal"><a href="{$product.url}" content="{$product.url}" title="{$product.name}" class="no-underline text-gray-900">{$productName nofilter}</a></h2>
             {/if}
           {/block}
 
@@ -101,7 +109,7 @@
           {else}
             {* BLOC CARACTÉRISTIQUE QUANTITÉ (ID 3) *}
             {if isset($product.features) && $product.features}
-              <div class="product-quantity-info text-sm text-gray-600 text-center">
+              <div class="product-quantity-info text-center text-sm text-gray-600">
                 {foreach from=$product.features item=feature}
                   {* N'affiche QUE la caractéristique "quantité" id=3 *}
                   {if isset($feature.value) && $feature.value|trim != '' && $feature.id_feature == 3}
@@ -112,27 +120,27 @@
             {/if}
             {* END BLOC CARACTÉRISTIQUE QUANTITÉ *}
           {/if}
+          
+          
+          {if $product.description_short}
+            {$product.description_short}
+          {/if}
 
+          
 
-          {block name='product_reviews'}
-            {* {hook h='displayProductListReviews' product=$product} *}
-            
-            <div class="yotpo bottomLine review-score text-left text-xs text-center pt-0 mt-1.5" data-yotpo-product-id="{$product.id_product}"></div>
-
-          {/block}
-
-
-        <div class="block-product-flags mt-0 relative">
+        <div class="block-product-flags mt-0">
           {* Product flags *}
+
           <div class="product-flags-container">
             {include file='catalog/_partials/product-flags.tpl'}
           </div>
 
+
           {* Price and cart container *}
-          <div class="price-and-cart-container flex justify-between items-center">
+          <div class="price-and-cart-container text-center">
             {block name='product_price_and_shipping'}
               {if $product.show_price}
-                <div class="product-price-and-shipping flex flex-row items-center gap-2 font-normal mb-0">
+                <div class="product-price-and-shipping text-center font-normal mb-0">
 
 
                   {hook h='displayProductPriceBlock' product=$product type="before_price"}
@@ -166,18 +174,18 @@
 
           
             {* ADD TO CART BUTTON *}
-            <form action="{$product.add_to_cart_url}" method="post" class="add-to-cart-or-refresh absolute right-0 bottom-0 m-0 z-10">
+            <form action="{$product.add_to_cart_url}" method="post" class="add-to-cart-or-refresh mt-1.5">
               <input type="hidden" name="token" value="{$static_token}">
               <input type="hidden" name="id_product" value="{$product.id_product}">
               <input type="hidden" name="id_customization" value="0">
               <input type="hidden" name="qty" value="1">
               {if $product.add_to_cart_url && !$product.has_attributes}
-                <button class="add-to-cart h-9 w-9 bg-gray-900 text-white rounded-full" data-button-action="add-to-cart" type="submit">
-                  <i class="bi bi-handbag"></i>
+                <button data-button-action="add-to-cart" type="submit" class="add-to-cart bg-gray-900 hover:bg-gray-700 text-white text-sm btn btn-primary rounded-full transition">
+                  <i class="bi bi-handbag"></i> {l s='Add to cart' d='Shop.Theme.Actions'}
                 </button>
               {else}
-                <a href="{$product.url}" class="add-to-cart h-9 w-9 bg-gray-900 text-white rounded-full flex items-center justify-center text-center">
-                  <i class="bi bi-search leading-0"></i>
+                <a href="{$product.url}" class="add-to-cart">
+                  <i class="bi bi-search"></i>
                 </a>
               {/if}
             </form>

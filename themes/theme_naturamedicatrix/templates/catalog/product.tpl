@@ -1817,7 +1817,7 @@
     
     {block name='product_accessories'}
       {if $accessories}
-        <section class="product-accessories clearfix">
+        <section class="product-accessories clearfix my-12">
           <p class="h5 text-uppercase">{l s='You might also like' d='Shop.Theme.Catalog'}</p>
           <div class="products row">
             {foreach from=$accessories item="product_accessory" key="position"}

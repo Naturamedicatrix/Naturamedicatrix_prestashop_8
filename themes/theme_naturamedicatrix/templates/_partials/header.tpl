@@ -120,7 +120,7 @@
     <div class="grid grid-cols-3 items-end pt-1 pb-2">
       <!-- Colonne gauche -->
       <div class="flex items-end gap-3 justify-start">
-        <a href="{$urls.pages.contact}" class="flex items-end gap-2 text-white hover:text-gray-200 transition-colors duration-200 ease-in-out">
+        <a href="{$urls.pages.contact}" class="flex items-end gap-2 text-white hover:text-gray-200 transition-colors duration-200 ease-in-out no-underline">
           <i class="bi bi-telephone text-2xl leading-0"></i>
           <div class="leading-tight">
             <div class="text-xs leading-tight opacity-90">Contactez-nous</div>

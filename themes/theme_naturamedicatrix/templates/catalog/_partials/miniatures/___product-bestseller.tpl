@@ -1,0 +1,107 @@
+{**
+* PRODUCT BESTSELLER - Template spécifique pour les produits "Deal of the day"
+*}
+
+{* VARIABLES *}
+{assign var=productName value=$product.name|escape:'html':'UTF-8'}
+{assign var=productName value=$productName|replace:'(':'<span class="small">('}
+{assign var=productName value=$productName|replace:')':')</span>'}
+{* END VARIABLES *}
+
+
+
+{block name='product_miniature_item'}
+
+
+
+  <div class="js-product product col-xs-12 col-md-12 col-lg-4 col-xl-4">
+    <article class="product-miniature product-miniature-light js-product-miniature rounded-lg p-3.5 border border-color-gray-300 {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
+      data-id-product-attribute="{$product.id_product_attribute}">
+      {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}
+        <span class="out-of-stock-label">{l s='Épuisé' d='Shop.Theme.Catalog'}</span>
+      {/if}
+    
+      
+      <div class="container">
+        {* Product flags - affiche les réductions, new, et vente rapide *}
+        <div class="product-flags">
+          <ul class="product-flags js-product-flags">
+            {foreach from=$product.flags item=flag}
+              {if $flag.type == 'new'}
+                <li class="product-flag {$flag.type}">{$flag.label}</li>
+              {/if}
+            {/foreach}
+            
+            {foreach from=$product.flags item=flag}
+              {if $flag.type == 'discount'}
+                <li class="product-flag {$flag.type}">{$flag.label} {if isset($product.dlu_checkbox) && $product.dlu_checkbox == 1}<span class="dlc-text">DLC courte</span>{/if}</li>
+              {/if}
+            {/foreach}
+          
+          </ul>
+        </div>
+        
+        
+        {* Product thumbnail *}
+        {block name='product_thumbnail'}
+          <div class="product-image-container">
+            <a href="{$product.url}" class="thumbnail product-thumbnail">
+              <picture>
+                {if !empty($product.cover.bySize.small_default.sources.avif)}
+                <source srcset="{$product.cover.bySize.small_default.sources.avif}" type="image/avif">{/if}
+                {if !empty($product.cover.bySize.small_default.sources.webp)}
+                <source srcset="{$product.cover.bySize.small_default.sources.webp}" type="image/webp">{/if}
+                <img src="{$product.cover.bySize.small_default.url}"
+                  alt="{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
+                  loading="lazy" data-full-size-image-url="{$product.cover.large.url}"
+                  width="{$product.cover.bySize.small_default.width}" height="{$product.cover.bySize.small_default.height}" />
+              </picture>
+            </a>
+          </div>
+        {/block}
+        
+        {* Product content *}
+        <div class="content">
+          {* Brand name *}
+          {if $product.manufacturer_name}
+            <div class="product-brand">
+              <a href="{$link->getManufacturerLink($product.id_manufacturer)}" title="{$product.manufacturer_name|escape:'html':'UTF-8'}">
+                {$product.manufacturer_name}
+              </a>
+            </div>
+          {/if}
+          
+          {* Product name *}
+          {block name='product_name'}
+            <h3 class="h3 product-title">
+              <a class="no-underline" href="{$product.url}" content="{$product.url}">{$productName nofilter}</a>
+            </h3>
+          {/block}
+          
+          {* Include du template des variantes *}
+          {* <div class="product-subtitle">
+            {include file='catalog/_partials/miniatures/product-variants.tpl' product=$product}
+          </div> *}
+          
+          {* Product reviews *}
+          {block name='product_reviews'}
+            <div class="yotpo bottomLine review-score text-left text-xs pt-0" data-yotpo-product-id="{$product.id_product}"></div>
+          {/block}
+          
+          {* Product price *}
+          {block name='product_price_and_shipping'}
+            {if $product.show_price}
+              <div class="product-price mt-0">
+                <span class="price">{$product.price}</span>
+                
+                {if $product.has_discount}
+                  <span class="regular-price">{$product.regular_price}</span>
+                {/if}
+              </div>
+            {/if}
+          {/block}
+        </div>
+      </div>
+    </article>
+  </div>
+{/block}

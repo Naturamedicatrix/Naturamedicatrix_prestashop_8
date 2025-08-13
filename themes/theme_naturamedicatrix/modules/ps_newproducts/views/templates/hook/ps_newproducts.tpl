@@ -25,7 +25,7 @@
   <div class="relative">
     <div class="newproducts-slider mb-1 mt-1">
       {foreach from=$products item=product}
-        {include file="catalog/_partials/miniatures/product-newproduct.tpl" product=$product productClasses=""}
+        {include file="catalog/_partials/miniatures/product-light.tpl" product=$product productClasses=""}
       {/foreach}
     </div>
   </div>

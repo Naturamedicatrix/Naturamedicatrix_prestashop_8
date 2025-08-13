@@ -14,6 +14,10 @@
  
       {include file='../cms/page-consultations.tpl'}
    
+   {elseif $cms.id == 8} {* Page catalogues *}
+ 
+      {include file='../cms/page-catalogues.tpl'}
+   
    {else}
     
     <section class="page-content page-cms page-cms-{$cms.id} max-w-4xl mx-auto">

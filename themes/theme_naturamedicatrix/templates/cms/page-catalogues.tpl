@@ -1,11 +1,11 @@
 <section class="page-content page-cms page-cms-{$cms.id} mx-auto px-0 mb-0 pb-0 overflow-visible">
  
-<div class="flex flex-col lg:flex-row gap-10 items-start mt-8">
+<div class="flex flex-col lg:flex-row gap-10 items-start mt-8 mb-12">
   
-  <div class="flex-1 space-y-6 mb-12">
+  <div class="flex-1 space-y-6 mb-12 md:sticky md:top-10">
     
     <h1 class="text-3xl lg:text-6xl font-extrabold text-gray-900 leading-none lg:max-w-2xl">
-      Consultations nutrithérapeutiques
+        Catalogues
     </h1>
 
     {block name='cms_content'}    
@@ -16,13 +16,12 @@
     
   </div>
 
-  <div class="flex-1 relative overflow-visible sticky top-10">
-      {include file='_partials/consultations-products.tpl'}
+  <div class="flex-1 relative overflow-visible">
+      {include file='_partials/catalogues-list.tpl'}
   </div>
   
 </div>
 
-{include file='_partials/therap.tpl'}
  
 
  {block name='hook_cms_dispute_information'}

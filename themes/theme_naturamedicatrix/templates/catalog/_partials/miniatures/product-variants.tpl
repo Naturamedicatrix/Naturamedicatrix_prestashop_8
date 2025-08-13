@@ -2,7 +2,7 @@
  * Template pour afficher les variantes de produit dans la liste des produits
  *}
 
-<div class="products-variants">
+<div class="products-variants mb-1.5">
   {if isset($product.id_product) && $product.id_product}
     {* VARIABLES *}
     {assign var="id_product" value=$product.id_product}
@@ -37,9 +37,9 @@
     {/foreach}
     
     {* Display des attributs *}
-    <div class="product-variants">
+ 
       {foreach from=$all_attributes_by_group key=id_group item=group}
-        <div class="variants-group text-center">
+        <div class="variants-group text-center text-sm text-gray-600">
           {* Split les attributs par "/" *}
           {assign var="attributes_str" value=""}
           {foreach from=$group.attributes item=attr_name name=attr_loop}
@@ -52,7 +52,7 @@
           {$attributes_str}
         </div>
       {/foreach}
-    </div>
+   
     
   {/if}
 </div>
