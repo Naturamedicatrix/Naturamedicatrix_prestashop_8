@@ -52,7 +52,7 @@ CUSTOM PRODUCTS DETAILS CART
     
     <!-- Nom du produit -->
     <div class="product-line-info pb-0.5 color-title justify-start">
-      <a href="{$product.url}" data-id_customization="{$product.id_customization|intval}">{$product.name}</a>
+      <a class="text-gray-800 hover:text-gray-600 transition-colors duration-200" href="{$product.url}" data-id_customization="{$product.id_customization|intval}">{$product.name}</a>
     </div>
     
     <!-- Date limite conseillée -->
@@ -280,7 +280,7 @@ CUSTOM PRODUCTS DETAILS CART
   
     <div class="cart-line-product-actions pl-0 md:pl-0 text-gray-500 w-11 text-right hidden md:block">
       <a
-          class                       = "remove-from-cart"
+          class                       = "remove-from-cart text-gray-500 hover:text-gray-600 transition-colors duration-200"
           rel                         = "nofollow"
           href                        = "{$product.remove_from_cart_url}"
           data-link-action            = "delete-from-cart"

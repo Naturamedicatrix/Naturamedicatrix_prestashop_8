@@ -26,6 +26,14 @@
   {if !$configuration.is_catalog}
 {*     <span class="control-label">{l s='Quantity' d='Shop.Theme.Catalog'}</span> *}
 
+
+    {* Hook pour le bouton abonnement *}
+    {block name='product_subscription'}
+      <div class="product-subscription-options mt-0">
+        {hook h='displayProductPriceBlock' product=$product type='after_price'}
+      </div>
+    {/block}
+
     {block name='product_quantity'}
       <div class="product-quantity clearfix">
         
@@ -66,7 +74,7 @@
       </div>
     {/block}
 
-    
+   
 
     {block name='product_minimal_quantity'}
       <p class="product-minimal-quantity js-product-minimal-quantity">
