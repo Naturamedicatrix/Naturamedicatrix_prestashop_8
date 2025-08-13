@@ -1,0 +1,32 @@
+{*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License version 3.0
+* that is bundled with this package in the file LICENSE.txt
+* It is also available through the world-wide-web at this URL:
+* https://opensource.org/licenses/AFL-3.0
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this module to a newer
+* versions in the future. If you wish to customize this module for your needs
+* please refer to CustomizationPolicy.txt file inside our module for more information.
+*
+* @author Webkul IN
+* @copyright Since 2010 Webkul
+* @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+*}
+
+
+<p>
+{l s='First of all, make sure the curl library is installed on your server to execute your cron tasks.' mod='wkproductsubscription'}
+</p>
+<p>{l s='For creating and scheduling automatic subscription orders, please insert the following line in your cron tasks manager for everyday in night (recommended time 23:55):' mod='wkproductsubscription'}</p>
+<br>
+<p>
+    <ul class="list-unstyled">
+        <li><code>55 23 * * * curl {$cron_link|escape:'htmlall':'UTF-8'}</code></li>
+    </ul>
+</p>
+
+

@@ -1,0 +1,61 @@
+[{shop_url}]
+
+Hi Admin,
+
+You have resumed product subscription of {customer_name}!
+
+
+SUBSCRIPTION DETAILS:
+
+Subscription ID: {id_subscription}
+
+Status: {status}
+
+Billing Cycle: {frequency_label}
+
+First Order Date: {first_order_date}
+
+Next Order Date: {next_order_date}
+
+Payment Method: {payment_method}
+
+
+CUSTOMER DETAILS
+
+Name: {customer_name}
+
+Email: {customer_email}
+
+
+
+PRODUCT DETAILS
+
+Product Name: {product_name} {attributes}
+
+UNIT PRICE (tax excluded): {base_price}
+
+UNIT PRICE (tax included): {unit_price}
+
+QUANTITY: {quantity}
+
+
+Product Total: {total_price}
+
+Shipping Cost: {shipping_charge}
+
+Discount: {discount}
+
+TOTAL: {total_amount}
+
+Tax: {tax_amount}
+
+
+Delivery address
+
+{ship_address_name}
+{ship_address}
+{city}, {state} {zipcode}
+{country}
+Phone: {phone}
+
+You can review subscription details in My Subscription by log in to your account by clicking [{my_subscription_url}] on our shop.

@@ -1,0 +1,172 @@
+/**
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License version 3.0
+* that is bundled with this package in the file LICENSE.txt
+* It is also available through the world-wide-web at this URL:
+* https://opensource.org/licenses/AFL-3.0
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this module to a newer
+* versions in the future. If you wish to customize this module for your needs
+* please refer to CustomizationPolicy.txt file inside our module for more information.
+*
+* @author Webkul IN
+* @copyright Since 2010 Webkul
+* @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+*/
+
+.mt-25 {
+    margin-top: 25px;
+}
+
+#wksubscription-block .cycle {
+    min-width: 120px;
+}
+
+#formBulkSubscription .cycle {
+    min-width: 130px;
+}
+
+#wksubscription-block .input-small {
+    padding: 0 10px;
+}
+
+#wksubscription-block .cycle-list .cycle .js-cycle-checkbox {
+    display: none;
+}
+
+#wksubscription-block .cycle-list .cycle .js-cycle-checkbox+.cycle-labe{
+    display:inline-block;
+    font-size:14px;
+    font-size:.875rem;
+    color:#bbcdd2;
+    margin:0;
+}
+
+#wksubscription-block .cycle-list .cycle .js-cycle-checkbox+.cycle-label .pretty-checkbox{
+    content:"";
+    float:left;
+    height:16px;
+    height:1rem;
+    width:16px;
+    width:1rem;
+    margin-right:7px;
+    margin-right:.4375rem;
+    border:1px solid #bbcdd2;
+    border:.0625rem solid #bbcdd2;
+}
+#wksubscription-block .cycle-list .cycle .js-cycle-checkbox+.cycle-label .pretty-checkbox.not-color:before{
+    color:#fff;
+    display:block;
+    text-align:center;
+    line-height:16px;
+    line-height:1rem;
+}
+#wksubscription-block .cycle-list .cycle .js-cycle-checkbox:checked+.cycle-label{
+    font-weight:600;
+    color:#6c868e;
+}
+#wksubscription-block .cycle-list .cycle .js-cycle-checkbox:checked+.cycle-label .pretty-checkbox.not-color:before{
+    content:"\E5CA";
+    font-family:Material Icons;
+    background:#25b9d7;
+}
+
+#wksubscription-block .wk-form-errors {
+    display: none;
+}
+
+#wksubscription-block .wk-form-errors.has-danger {
+    display: block !important;
+}
+
+.wk-product-subscription .product-variants
+{
+    margin-top: 10px;
+}
+
+.wk-product-subscription .total-price {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.wk-product-subscription .address-item
+{
+    background: #f6f6f6;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 49%;
+    flex: 0 0 49%;
+    margin-bottom: .625rem;
+    border: 3px solid transparent;
+}
+
+.wk-product-subscription .address {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.wk-product-subscription .frequency-block {
+    text-align: left;
+    background: #f6f6f6;
+    padding: .5rem;
+}
+
+/* .wk-product-subscription .shipping-icon > i {
+    font-size: 50px;
+} */
+
+.wk-product-subscription .price-block {
+    text-align: center;
+    padding: 1.3rem;
+}
+
+.wk-product-subscription .price-icon {
+    font-size: 2rem;
+}
+
+.wk-product-subscription .total-label {
+    margin-top: 20px;
+}
+
+.wk-product-subscription .quantity-block {
+    margin-top: 10px;
+}
+
+.wk-product-subscription .product-name {
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.wk-product-subscription .product-price {
+    font-size: 0.9rem;
+    color: #2fb5d2;
+    display: inline-block;
+}
+
+.wk-product-subscription .product-price {
+    width: 100% !important;
+}
+
+.wk-product-subscription .panel table td {
+    height: 2.5rem;
+    vertical-align: middle !important;
+}
+
+.wk-product-subscription .panel table thead {
+    background-color: #b6f3ff;
+    font-weight: bold;
+}
+#wksubscription_product_form .input-sm {
+    padding: 0px 10px;
+    height: 30px;
+}
+
+#wksubscription_product_form table > tbody > tr > td {
+    vertical-align: bottom;
+}
+.table-responsive-row {
+    overflow: auto !important;
+}

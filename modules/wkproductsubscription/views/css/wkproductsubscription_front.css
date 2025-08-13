@@ -1,0 +1,137 @@
+/**
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License version 3.0
+* that is bundled with this package in the file LICENSE.txt
+* It is also available through the world-wide-web at this URL:
+* https://opensource.org/licenses/AFL-3.0
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this module to a newer
+* versions in the future. If you wish to customize this module for your needs
+* please refer to CustomizationPolicy.txt file inside our module for more information.
+*
+* @author Webkul IN
+* @copyright Since 2010 Webkul
+* @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+*/
+
+#module-wkproductsubscription-managesubscription #content {
+    padding-top: 50px !important;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, .2);
+    background: #fff;
+    padding: 1rem;
+    font-size: .875rem;
+    color: #7a7a7a;
+}
+
+/* .wksubscribe-btn button#wkSubsBtnMenu,
+.wksubscribe-btn a.btn{
+    padding-top: .625rem;
+} */
+
+#wkSubscriptionFrequency,
+#wkFirstDeliveryDate {
+    height: 40px;
+    line-height: inherit;
+    background-color: #fff;
+    padding-right: 1.875rem;
+    box-shadow: 2px 2px 4px 0 rgb(0 0 0 / 20%);
+}
+
+#wkSubscriptionModal .product-qty {
+    margin-top: 8px;
+}
+
+#wkSubscriptionModal .wk-product-variants ul li {
+    font-size: 14px;
+    line-height: 20px;
+    color: #7a7a7a;
+}
+
+#wkSubscriptionModal .table {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.modal.quickview .wksubscribe-btn a.btn {
+    font-size: 12px;
+    padding: 14px;
+}
+
+.modal.quickview .wksubscribe-btn a>i {
+    display: none;
+}
+
+.wksubscribe-btn div.dropdown-menu {
+    width: 12rem;
+}
+
+.wk-subscription-block {
+    margin-top: 1rem;
+}
+
+.wk-subscription-block div {
+    margin-bottom: 0px;
+}
+
+.wk-subscription-block .wksubscribe {
+    margin-top: 1rem;
+}
+
+.wk-subscription-block .wksubscription-options {
+    margin-top: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.wk-subscription-block .wk-most-used-freq-msg {
+    margin: 0.5rem 0;
+}
+
+.wk-subscription-block .alert-info p {
+    margin-bottom: 0px;
+    font-size: 0.8125rem;
+    color: #31708f;
+}
+
+.wk-subs-error-msg {
+    color: red;
+}
+
+.wk-subs-success-msg {
+    color: green;
+}
+
+#cart .cart-overview .current-price {
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 767px) {
+    .wk-sm-mt-1 {
+        margin-top: 1rem !important;
+    }
+}
+
+
+.wk_subscription_alert {
+    width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.heading_margin_b_inherit {
+    /* margin-bottom: inherit !important; */
+    margin-bottom: 0px !important;
+}
+
+.wk_custom_font {
+    font-size: 14px;
+}
+
+.wk-subscription-block .custom-radio {
+    z-index: 2 !important;
+}

@@ -1,0 +1,282 @@
+/**
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License version 3.0
+* that is bundled with this package in the file LICENSE.txt
+* It is also available through the world-wide-web at this URL:
+* https://opensource.org/licenses/AFL-3.0
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this module to a newer
+* versions in the future. If you wish to customize this module for your needs
+* please refer to CustomizationPolicy.txt file inside our module for more information.
+*
+* @author Webkul IN
+* @copyright Since 2010 Webkul
+* @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+*/
+
+.wk-product-subscription #content {
+    padding-top: 50px !important;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, .2);
+    background: #fff;
+    padding: 1rem;
+    font-size: .875rem;
+    color: #7a7a7a;
+}
+
+.wk-product-subscription .product-variants {
+    margin-top: 10px;
+}
+
+.wk-product-subscription .removeSubsBtn {
+    margin-top: .75rem;
+}
+
+.wk-product-subscription .total-price {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.wk-product-subscription .product-price {
+    width: 100% !important;
+}
+
+.wk-product-subscription table td {
+    vertical-align: middle;
+}
+
+.wk-product-subscription .address-selector {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.wk-product-subscription .address-item.selected {
+    background: #fff;
+    border: 3px solid #2fb5d2;
+}
+
+.wk-product-subscription .address-item {
+    background: #f6f6f6;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 49%;
+    flex: 0 0 49%;
+    margin-bottom: .625rem;
+    border: 3px solid transparent;
+}
+
+.wk-product-subscription .radio-block {
+    padding: .9375rem;
+    text-align: left;
+}
+
+.wk-product-subscription .radio-block {
+    padding: .9375rem;
+    text-align: left;
+}
+
+.wk-product-subscription .address {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.wk-product-subscription .custom-radio {
+    margin-right: 0;
+}
+
+.wk-product-subscription .address-alias {
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: .625rem;
+}
+
+.wk-product-subscription .address-selector {
+    margin-left: 1.563rem;
+    font-weight: 400;
+}
+
+.wk-product-subscription .delivery-option {
+    background: #f6f6f6;
+    padding: 1.2rem 0 0;
+    margin-bottom: 0.5rem;
+}
+
+.wk-product-subscription .delivery-option label {
+    text-align: inherit;
+}
+
+.wk-product-subscription .custom-radio input[type=radio] {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.wk-product-subscription .carrier-delay,
+.wk-product-subscription .carrier-name {
+    display: inline-block;
+    word-break: break-word;
+    text-align: left;
+}
+
+.wk-product-subscription .term-condition {
+    margin: 2rem 0;
+}
+
+.wk-product-subscription .confirm-subscription {
+    margin: 1rem 0;
+}
+
+.wk-product-subscription .shipping-block {
+    text-align: center;
+    background: #f6f6f6;
+    padding: 2.3rem;
+    min-height: 10.8rem;
+    max-height: 10.9rem;
+}
+
+.wk-product-subscription .frequency-block {
+    text-align: center;
+    background: #f6f6f6;
+    padding: .5rem;
+}
+
+.wk-product-subscription .shipping-icon>i {
+    font-size: 50px;
+}
+
+.wk-product-subscription .price-block {
+    text-align: center;
+    padding: 1.3rem;
+}
+
+.wk-product-subscription .price-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.wk-product-subscription .total-label {
+    margin-top: 20px;
+}
+
+.wk-product-subscription .quantity-block {
+    margin-top: 10px;
+}
+
+.wk-product-subscription .text-left {
+    text-align: left;
+}
+
+.wk-product-subscription .text-center {
+    text-align: center;
+}
+
+.wk-product-subscription .text-right {
+    text-align: right;
+}
+
+.wk-product-subscription .text-small {
+    font-size: small;
+}
+
+.wk-product-subscription .mb-1 {
+    margin-bottom: 1rem;
+}
+
+.wk-product-subscription .badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.wk-product-subscription .badge-success {
+    color: #fff;
+    background-color: #28a745;
+}
+
+.wk-product-subscription .badge-danger {
+    color: #fff;
+    background-color: #dc3545;
+}
+
+.wk-product-subscription .badge-secondary {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+.wk-product-subscription .wk-radio-block {
+    width: 20px;
+    float: left;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.wk-product-subscription .condition-label label {
+    margin-left: 5px;
+}
+
+.wk-product-subscription #wk_subs_quantity {
+    width: 3rem;
+    padding: 0.175rem 0.5rem;
+    color: #232323;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+    .wk-product-subscription .card {
+        box-shadow: none;
+        background-color: #ffffff !important;
+        border: none;
+        text-align: center;
+        padding: 10px;
+    }
+    .wk-product-subscription .product-name {
+        margin-top: 1rem;
+    }
+    .wk-product-subscription .frequency-block,
+    .wk-product-subscription .address-item,
+    .wk-product-subscription .shipping-block {
+        background-color: #ffffff !important;
+        text-align: center;
+        padding: 10px;
+    }
+    .quantity-block .bootstrap-touchspin {
+        float: none !important;
+    }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1199px) {
+    #cancelSubscription,  [data-target="#frequencyModal"] {
+        width: 9rem !important;
+        text-wrap: auto !important;
+    }
+}
+
+.heading_margin_b_inherit {
+    /* margin-bottom: inherit !important; */
+    margin-bottom: 0px !important;
+}
+
+.wk_custom_font {
+    font-size: 14px;
+}
+
+.address-item .address {
+    background: inherit;
+    border: none;
+}

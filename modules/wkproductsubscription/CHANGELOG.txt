@@ -1,0 +1,256 @@
+----------------------------------------------------------------------------------
+Change Log: v5.4.0 to v5.4.1 | COMPATIBLE:: PRESTASHOP V9.x.x & V8.x.x & V1.7.x.x
+-----------------------------------------------------------------------------------
+## Update Policy:
+	The admin only needs to upload the ZIP file of the new module version (v5.4.1). An upgrade script is included in the module, which will automatically perform the necessary upgrade tasks for v5.4.1.
+
+	The upgrade script located at upgrade/upgrade-5.4.1.php will:
+		- Remove existing overrides and install the updated versions.
+
+## Improvements:
+	- Compatible with Prestashop 9 version.
+	- Removed deprecated code and improved performance.
+
+## Bug Fixes:
+	- Fixed Display related issues.
+	- Minor bug fixed.
+
+----------------------------
+Change Log: v5.3.2 to v5.4.0
+----------------------------
+Bug fixed:
+-----------------
+- Subscription product listing design improved.
+- Now Admin can provide free shipping to subscription product.
+- Admin can configure that voucher is applicable or not in subscription product.
+
+Bug fixed:
+-----------------
+- Some compatibility issue fixed with payment modules.
+- validation related issue fixed.
+- Minor bug fixed.
+
+Update Policy:
+------------------
+- You can upgrade from MV5.3.2 to MV5.4.0
+
+----------------------------
+Change Log: v5.3.1 to v5.3.2
+----------------------------
+
+Bug fixed:
+-----------------
+- Fixed discount voucher issue
+- Fixed image issues
+
+Update Policy:
+------------------
+- You can upgrade from MV5.3.1 to MV5.3.2
+
+
+----------------------------
+Change Log: v5.3.0 to v5.3.1
+----------------------------
+
+Improvements:
+-----------------
+- Added link to the customer email
+- Added configuration "Default selected option on product page"
+
+Bug fixed:
+-----------------
+- Fixed CRON issue
+- Fixed configuration bug
+- Fixed compatiblity with stripe recurring payment module
+
+Update Policy:
+------------------
+- You can upgrade from MV5.3.0 to MV5.3.1
+
+
+----------------------------
+Change Log: v5.2.0 to v5.3.0
+----------------------------
+
+Update Policy:
+------------------
+- You can upgrade from MV5.2.0 to MV5.3.0
+
+Improvements:
+-----------------
+- Combination wise subscriptions
+- Standard fixed with php-cs-fixer
+- Compatible with our customer wallet module
+- Override code improved
+- Show payment module wise feature in config
+- Show supported module in config
+- Customer can pause/resume subscriptions
+- Auto resume subscriptions
+- Customer can update subscription frequency with wallet module
+- Order status in config for cron orders
+- Compatible with new product page feature
+
+
+Bug fixed:
+-----------------
+- Fixed translation issue in datepicker
+- Fixed translation
+- Fixed validation message
+- Fixed UI/Contenttext issues
+- Fixed search issues
+- Fixed wrong delivery date for virtual product
+-
+
+
+----------------------------
+Change Log: v5.1.0 to v5.2.0
+----------------------------
+
+Update Policy:
+------------------
+- Major changed in database and file.
+
+Note: Need to follow this if already using subscription product module -
+
+1- If you are using single shop or multishop without shared group:
+    Then admin needs to update only zip file of module new version V5.2.0 because while admin will update zip file then database will be updated automatically and copy the data shop wise.
+
+2- If you are using multishop with shared group:
+    Then admin needs to uninstall and DELETE previous version and then upload and install the new version module.
+
+
+Improvements:
+-----------------
+- PrestaShop 8 compatible
+- Improved subscription email templates
+- Improved update subscription quantity field
+- Removed undefined hook, actionDeleteProductInCartAfter
+- Replaced Tools::jsonDecode with json_decode
+- Replaced Tools::jsonEncode with json_encode
+
+Bug fixed:
+-----------------
+- Fixed minor security issues
+- Fixed design & responsive issues
+- Fixed discount text translation issues
+- Fixed translation issue in override file
+- Fixed apply subscription frequencies in bulk
+- Fixed delete subscription issue from back office
+- 'active' & more isset fixed on adminproductextra hook tpl
+- Fixed scheduled order view button redirect issue
+- Fixed multishop issues for shared customer & orders
+- Fixed issue for missing subscription order through cron
+
+Table structure changed:
+-------------------------
+- "id_shop_default" column added to table "wk_subscription_products"
+- "id_shop" & "id_shop_group" column added to table "wk_subscription_orders"
+- "id_shop" & "id_shop_group" column added to table "wk_subscription_subscriber_products"
+- "id_shop" & "id_shop_group" column added to table "wk_subscription_subscribers"
+
+- Dropped the below shop tables:
+- wk_subscription_orders_shop
+- wk_subscription_subscribers_shop
+- wk_subscription_subscriber_products_shop
+
+
+----------------------------
+Change Log: v5.0.0 to v5.1.0
+----------------------------
+Update Policy:
+------------------
+- You can upgrade from MV5.0.0 to MV5.1.0
+
+Improvements
+-------------
+- Multishop compatible
+- Improved module configuration page
+- Added frequency wise discount option
+- Added show/hide one time purchase option
+- Added option to add subscription message
+- Compatible with Webkul WePay recurring payment
+- Compatible with Webkul PayPal recurring payment
+- Apply subscription frequencies on products in bulk
+- Added configuration to send separate email notifications
+- Displayed most used frequency for the subscription product
+- Displayed customized offer message on the subscription product
+- Translated module in Dutch, Swedish, Polish, and Portuguese
+
+
+Bug Fix:
+--------------------
+- Fixed security issues
+- Fixed cron script context issue
+- Fixed customizable product issue
+- Fixed email subject translation issue
+- Fixed issue if subscribed product combination is deleted
+- Fixed if selected carrier is updated for subscription order
+- Fixed wrong admin order link in BO under delivered orders tab
+
+
+Hooks changes:
+---------------
+- Displayed subscription order details on hook 'displayAdminOrder'
+- Added new hook 'actionObjectCombinationDeleteAfter' to disable subscription if product combination is deleted
+- Added new hook 'actionWkSubscriptionCancel' to cancel subscription when subscription canceled through payment module
+
+
+Table structure changed:
+--------------------------
+- "id_shop" column removed from table "wk_subscription_products"
+- "id_shop" column removed from table "wk_subscription_subscriber_products"
+- Added "id_cart_rule" in table "wk_subscription_temp_cart" for discount
+
+New added tables:
+-------------------------
+- wk_subscription_products_shop
+- wk_subscription_subscribers_shop
+- wk_subscription_subscriber_products_shop
+- wk_subscription_schedule_shop
+- wk_subscription_orders_shop
+- wk_subscription_temp_cart_shop
+- wk_subscription_cache
+
+
+
+------------------------------------------------------
+Change Log: Subscription Product MV4.0.0 to MV5.0.0
+------------------------------------------------------
+
+Improvements
+-------------
+- Optimize cron code
+- Send order mail when subscription created from FO
+- Implemented PS default checkout for subscribing products
+- If subscription product disabled by admin, cancelled all subscription
+- Multishop cron issue, its fetch all shop subscriptions with wrong module configuration
+- Display subscription start date & first delivery date under the subscription details in BO
+
+Bug Fix:
+--------------------
+- Date format as per current locale
+- Multiple entry in scheduled order if cron url hits multiple times
+- Multi language with multi shop issue in scheduled order and subscriptions product
+- Cron next delivery date issue in case of everyday frequency
+- Next order date issue, if we select frequency monthly and first order date select after a month
+
+
+----------------------------------
+MV4.0.0
+----------------------------------
+- Provide functionality of product subscription to your customers.
+- Notify customers about their subscription via mail.
+- Allow your customers to update the quantity of the product in the subscription.
+- Let your customers cancel their subscription by themselves.
+- Show or hide the subscribe button in the ‘quick view’ page of the product.
+- Customize the text of the subscribe button.
+- Select the CMS page for the ‘Terms & Condition’ information.
+- Set the number of days prior to the delivery date to create the order.
+- Select the payment methods to make them available for payment of subscription products.
+- Choose to activate or deactivate a particular product for the subscription.
+- Select the frequency of delivery cycle in an interval of days, weeks, months, and years.
+- Let your customers delete the subscription product from the checkout page.
+- View a list of all the subscribed products under the ‘My subscription’ tab.
+- A list of subscribed products and subscribers is available at the admin end too.
+- A list of orders of all the subscription products is also available at the admin end.
+- Details of all the upcoming delivery of the products are available under the scheduled orders section.
