@@ -42,7 +42,7 @@ CUSTOM SYSTEME ABONNEMENT - ORDRE INVERSÉ
         <div class="form-horizontal">
             <div class="subscription-radio-group">
                 
-                {* OPTION 1: ACHAT UNIQUE (en premier) - SÉLECTIONNÉ PAR DÉFAUT *}
+                {* OPTION 1: ACHAT UNIQUE *}
                 {if $wkDisplayOtpBtn}
                 <div class="subscription-radio-item pb-4" id="onetime-option">
                     <span class="custom-radio hidden">
@@ -56,15 +56,19 @@ CUSTOM SYSTEME ABONNEMENT - ORDRE INVERSÉ
                         >
                         <span></span>
                     </span>
-                    <div class="unique-buy flex-1 border border-gray-300 p-2.5 rounded-lg">
-                        <label for="wk_subscription_one_time" class="mb-2 cursor-pointer">
+                    <div class="unique-buy flex-1 border border-green-700 p-2.5 rounded-lg cursor-pointer">
+                        <label for="wk_subscription_one_time" class="mb-1.5 cursor-pointer">
                             <span class="text-lg text-gray-900 font-semibold">{$otpBtnText|escape:'htmlall':'UTF-8'}</span>
                         </label>
+                        <div class="text-sm text-gray-600 mb-0 pb-0">
+                            <div>{l s='Idéal pour tester le produit' mod='wkproductsubscription'}</div>
+                            <div>{l s='Recevez votre produit une seule fois' mod='wkproductsubscription'}</div>
+                        </div>
                     </div>
                 </div>
                 {/if}
 
-                {* OPTION 2: ABONNEMENT (en second) *}
+                {* OPTION 2: ABONNEMENT *}
                 <div class="subscription-radio-item" id="subscription-option">
                     <span class="custom-radio hidden">
                         <input
@@ -77,17 +81,16 @@ CUSTOM SYSTEME ABONNEMENT - ORDRE INVERSÉ
                         >
                         <span></span>
                     </span>
-                    <div class="subscription-buy flex-1  border border-gray-300 p-2.5 rounded-lg">
+                    <div class="subscription-buy flex-1  border border-gray-200 p-2.5 rounded-lg cursor-pointer">
                         <label for="wk_subscription_subscribe" class="mb-1.5 cursor-pointer">
                             <span class="text-lg text-gray-900 font-semibold">{$subscribeBtnText|escape:'htmlall':'UTF-8'}</span>
                         </label>
-                        <div class="text-sm text-gray-600 mb-0 pb-2.5">
+                        <div class="text-sm text-gray-600 mb-0 pb-0">
                             <div>{l s='Sans engagement' mod='wkproductsubscription'}</div>
                             <div>{l s='Livraison à la fréquence de votre choix' mod='wkproductsubscription'}</div>
                         </div>
                         
-                        {* OPTIONS D'ABONNEMENT (intégrées dans la carte) *}
-                        <div class="wksubscription-options mt-0 mb-0 pb-2.5" style="display:none;">
+                        <div class="wksubscription-options mt-2.5 mb-0 pb-0" style="display:none;">
                             <div class="form-group mb-0">
                                 <select class="form-control wkUpdateTempCart text-gray-800 px-4 py-2.5 w-full" id="wkSubscriptionFrequency">
                                     {foreach from=$availableCycles item=cycles}
