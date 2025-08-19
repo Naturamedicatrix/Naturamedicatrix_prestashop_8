@@ -294,9 +294,10 @@ function updateSubsTempCart(idSubTemp, subFreq, subFirstDel, is_subscribe) {
             success : function (data) {
                 if (data > 0) {
                     $('.wk-subs-success-msg').html(wkSubCartUpdate).show();
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1000);
+                    // Rechargement désactivé pour permettre les changements de fréquence
+                    // setTimeout(() => {
+                    //     window.location.reload();
+                    // }, 1000);
                 }
             }
         });
