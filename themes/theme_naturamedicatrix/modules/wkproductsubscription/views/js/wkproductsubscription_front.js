@@ -1,21 +1,10 @@
 /**
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License version 3.0
-* that is bundled with this package in the file LICENSE.txt
-* It is also available through the world-wide-web at this URL:
-* https://opensource.org/licenses/AFL-3.0
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade this module to a newer
-* versions in the future. If you wish to customize this module for your needs
-* please refer to CustomizationPolicy.txt file inside our module for more information.
-*
-* @author Webkul IN
-* @copyright Since 2010 Webkul
-* @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+CUSTOM SCRIPT POUR LES ABONNEMENTS
 */
+
+// Variables globales pour stocker la vraie sélection
+var wkRealSelectedFreq = null;
+var wkRealSelectedFreqText = null;
 
 $(document).ready(function() {
     if (prestashop.page.page_name == 'product') {
@@ -41,20 +30,15 @@ $(document).ready(function() {
             if (typeof event.resp != 'undefined') {
                 var response = event.resp;
                 if (response.success && $('#wk_subscription_subscribe').is(':checked')) {
-                    var subFreq = $('#wkSubscriptionFrequency').find(':selected').val();
+                    // Use les variables globales qui stockent la vraie sélection
+                    var subFreq = wkRealSelectedFreq || $('#wkSubscriptionFrequency').val();
+                    var subFreqText = wkRealSelectedFreqText || $('#wkSubscriptionFrequency').find(':selected').text();
                     var subFirstDel = $('#wkFirstDeliveryDate').val();
                     var idSubTemp = $('#id_sub_temp').val();
                     
-                    console.log('DEBUG updateCart - Valeurs récupérées:');
-                    console.log('- subFreq:', subFreq);
-                    console.log('- subFirstDel:', subFirstDel);
-                    console.log('- idSubTemp:', idSubTemp);
-                    console.log('- Select element:', $('#wkSubscriptionFrequency')[0]);
-                    console.log('- Selected option:', $('#wkSubscriptionFrequency').find(':selected')[0]);
                     
-                    // Si pas d'abonnement temporaire, ne pas créer un nouveau (éviter le conflit)
+                    // Si pas d'abonnement temporaire, ne pas créer un nouveau (évite le conflit)
                     if (idSubTemp && parseInt(idSubTemp) > 0) {
-                        console.log('Abonnement temporaire existant détecté, pas de création supplémentaire');
                         // L'abonnement temporaire avec la bonne fréquence existe déjà
                         return;
                     }
@@ -78,15 +62,6 @@ $(document).ready(function() {
                             is_subscribe : $('input[name=subscription_plan]:checked').val()
                         },
                         success : function (data) {
-                            if (data) {
-                                console.log('Nouvel abonnement créé dans updateCart:', data);
-                                console.log('Données envoyées dans updateCart:', {
-                                    frequency: subFreq,
-                                    delivery_date: subFirstDel,
-                                    id_sub_temp: idSubTemp,
-                                    is_subscribe: $('input[name=subscription_plan]:checked').val()
-                                });
-                            }
                         }
                     });
                 }
@@ -117,7 +92,7 @@ $(document).ready(function() {
         }
     );
 
-    // GESTION ORIGINALE - Radio buttons
+    // Radio buttons
     $(document).on('change', '#wk_subscription_subscribe', function() {
         if ($(this).is(':checked')) {
             $('.wksubscription-options').slideDown();
@@ -164,17 +139,29 @@ $(document).ready(function() {
     });
 
     $(document).on('change', '.wkUpdateTempCart', function() {
-        $('.wk-subs-error-msg').html('');
-        $('.wk-subs-success-msg').html('');
-        var subFreq = $('#wkSubscriptionFrequency').find(':selected').val();
+        var subFreq, subFreqText;
+        if (this.id === 'wkSubscriptionFrequency') {
+            subFreq = this.value;
+            subFreqText = this.options[this.selectedIndex].text;
+            
+            // Stock la vraie sélection dans les variables globales
+            wkRealSelectedFreq = subFreq;
+            wkRealSelectedFreqText = subFreqText;
+            
+        } else {
+            // Fallback pour les autres éléments
+            var selectElement = $('#wkSubscriptionFrequency')[0];
+            subFreq = selectElement ? selectElement.value : $('#wkSubscriptionFrequency').val();
+            subFreqText = selectElement ? selectElement.options[selectElement.selectedIndex].text : '';
+        }
+
         var subFirstDel = $('#wkFirstDeliveryDate').val();
         var idSubTemp = $('#id_sub_temp').val();
 
-        // Si pas d'abonnement temporaire et qu'on est en mode abonnement, créer un abonnement temporaire
         if (!idSubTemp && $('#wk_subscription_subscribe').is(':checked') && subFreq && subFirstDel) {
-            createTempSubscription(subFreq, subFirstDel);
+            createTempSubscription(subFreq, subFirstDel, subFreqText);
         } else if (idSubTemp && subFreq && subFirstDel && $('#wk_subscription_subscribe').is(':checked')) {
-            updateSubsTempCart(idSubTemp, subFreq, subFirstDel, 1);
+            updateSubsTempCart(idSubTemp, subFreq, subFirstDel, 1, subFreqText);
         }
     });
 
@@ -299,7 +286,7 @@ function updatePriceOnProductPage(wk_product_subsFreq, wk_sub_productId, wk_sub_
     });
 }
 
-function updateSubsTempCart(idSubTemp, subFreq, subFirstDel, is_subscribe) {
+function updateSubsTempCart(idSubTemp, subFreq, subFirstDel, is_subscribe, subFreqText) {
     if (idSubTemp > 0) {
         $.ajax({
             url : wkProdSubsAjaxLink,
@@ -311,6 +298,7 @@ function updateSubsTempCart(idSubTemp, subFreq, subFirstDel, is_subscribe) {
                 action: 'updateSubscribe',
                 wkSubToken: wkProdSubToken,
                 frequency: subFreq,
+                frequency_text: subFreqText,
                 delivery_date: subFirstDel,
                 id_sub_temp: idSubTemp,
                 is_subscribe : is_subscribe
@@ -337,7 +325,7 @@ function wkTriggerUpdate() {
     }
 }
 
-function createTempSubscription(subFreq, subFirstDel) {
+function createTempSubscription(subFreq, subFirstDel, subFreqText) {
     var wk_sub_productId = $('#product_page_product_id').val();
     var wk_sub_prod_attr = null;
     if ($('[data-product-attribute]').length == 1) {
@@ -358,6 +346,7 @@ function createTempSubscription(subFreq, subFirstDel) {
             id_product_attribute: wk_sub_prod_attr || 0,
             id_customization: 0,
             frequency: subFreq,
+            frequency_text: subFreqText,
             delivery_date: subFirstDel,
             id_sub_temp: 0,
             is_subscribe: 1
@@ -365,22 +354,13 @@ function createTempSubscription(subFreq, subFirstDel) {
         success: function (data) {
             if (data && data > 0) {
                 $('#id_sub_temp').val(data);
-                console.log('Abonnement temporaire créé avec ID:', data);
-                console.log('Données envoyées dans createTempSubscription:', {
-                    frequency: subFreq,
-                    delivery_date: subFirstDel,
-                    id_product: wk_sub_productId,
-                    id_product_attribute: wk_sub_prod_attr || 0,
-                    is_subscribe: 1
-                });
-            }
+                }
         }
     });
 }
 
 function initFirstDelDateCalendar() {
     var pslocale = prestashop.language.iso_code;
-    console.log($.datepicker.regional[pslocale]);
     if (typeof($.datepicker.regional[pslocale]) == 'undefined') {
         pslocale = '';
     }

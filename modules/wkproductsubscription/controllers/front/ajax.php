@@ -85,6 +85,12 @@ class WkProductSubscriptionAjaxModuleFrontController extends ModuleFrontControll
                             (int) $idProductAttribute
                         );
                     }
+                    // Debug: Log l'abonnement créé
+                    error_log('Abonnement temporaire créé - ID: ' . $tempCart->id . 
+                             ', Frequency: ' . $tempCart->frequency . 
+                             ', Cycle: ' . $tempCart->cycle . 
+                             ', Delivery: ' . $tempCart->first_delivery_date . 
+                             ', Subscribe: ' . $tempCart->as_subscription);
                     echo $tempCart->id;
                     exit;
                 }
