@@ -44,6 +44,21 @@ $(document).ready(function() {
                     var subFreq = $('#wkSubscriptionFrequency').find(':selected').val();
                     var subFirstDel = $('#wkFirstDeliveryDate').val();
                     var idSubTemp = $('#id_sub_temp').val();
+                    
+                    console.log('DEBUG updateCart - Valeurs récupérées:');
+                    console.log('- subFreq:', subFreq);
+                    console.log('- subFirstDel:', subFirstDel);
+                    console.log('- idSubTemp:', idSubTemp);
+                    console.log('- Select element:', $('#wkSubscriptionFrequency')[0]);
+                    console.log('- Selected option:', $('#wkSubscriptionFrequency').find(':selected')[0]);
+                    
+                    // Si pas d'abonnement temporaire, ne pas créer un nouveau (éviter le conflit)
+                    if (idSubTemp && parseInt(idSubTemp) > 0) {
+                        console.log('Abonnement temporaire existant détecté, pas de création supplémentaire');
+                        // L'abonnement temporaire avec la bonne fréquence existe déjà
+                        return;
+                    }
+                    
                     $.ajax({
                         url : wkProdSubsAjaxLink,
                         cache : false,
@@ -64,7 +79,13 @@ $(document).ready(function() {
                         },
                         success : function (data) {
                             if (data) {
-                                console.log(data);
+                                console.log('Nouvel abonnement créé dans updateCart:', data);
+                                console.log('Données envoyées dans updateCart:', {
+                                    frequency: subFreq,
+                                    delivery_date: subFirstDel,
+                                    id_sub_temp: idSubTemp,
+                                    is_subscribe: $('input[name=subscription_plan]:checked').val()
+                                });
                             }
                         }
                     });
@@ -149,7 +170,10 @@ $(document).ready(function() {
         var subFirstDel = $('#wkFirstDeliveryDate').val();
         var idSubTemp = $('#id_sub_temp').val();
 
-        if (idSubTemp && subFreq && subFirstDel && $('#wk_subscription_subscribe').is(':checked')) {
+        // Si pas d'abonnement temporaire et qu'on est en mode abonnement, créer un abonnement temporaire
+        if (!idSubTemp && $('#wk_subscription_subscribe').is(':checked') && subFreq && subFirstDel) {
+            createTempSubscription(subFreq, subFirstDel);
+        } else if (idSubTemp && subFreq && subFirstDel && $('#wk_subscription_subscribe').is(':checked')) {
             updateSubsTempCart(idSubTemp, subFreq, subFirstDel, 1);
         }
     });
@@ -294,10 +318,9 @@ function updateSubsTempCart(idSubTemp, subFreq, subFirstDel, is_subscribe) {
             success : function (data) {
                 if (data > 0) {
                     $('.wk-subs-success-msg').html(wkSubCartUpdate).show();
-                    // Rechargement désactivé pour permettre les changements de fréquence
-                    // setTimeout(() => {
-                    //     window.location.reload();
-                    // }, 1000);
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
                 }
             }
         });
@@ -312,6 +335,47 @@ function wkTriggerUpdate() {
     if (idSubTemp && subFreq && subFirstDel) {
         updateSubsTempCart(idSubTemp, subFreq, subFirstDel, 1);
     }
+}
+
+function createTempSubscription(subFreq, subFirstDel) {
+    var wk_sub_productId = $('#product_page_product_id').val();
+    var wk_sub_prod_attr = null;
+    if ($('[data-product-attribute]').length == 1) {
+        wk_sub_prod_attr = $('[data-product-attribute]').val();
+    }
+
+    $.ajax({
+        url: wkProdSubsAjaxLink,
+        cache: false,
+        async: false,
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            ajax: true,
+            action: 'addSubscribe',
+            wkSubToken: wkProdSubToken,
+            id_product: wk_sub_productId,
+            id_product_attribute: wk_sub_prod_attr || 0,
+            id_customization: 0,
+            frequency: subFreq,
+            delivery_date: subFirstDel,
+            id_sub_temp: 0,
+            is_subscribe: 1
+        },
+        success: function (data) {
+            if (data && data > 0) {
+                $('#id_sub_temp').val(data);
+                console.log('Abonnement temporaire créé avec ID:', data);
+                console.log('Données envoyées dans createTempSubscription:', {
+                    frequency: subFreq,
+                    delivery_date: subFirstDel,
+                    id_product: wk_sub_productId,
+                    id_product_attribute: wk_sub_prod_attr || 0,
+                    is_subscribe: 1
+                });
+            }
+        }
+    });
 }
 
 function initFirstDelDateCalendar() {
