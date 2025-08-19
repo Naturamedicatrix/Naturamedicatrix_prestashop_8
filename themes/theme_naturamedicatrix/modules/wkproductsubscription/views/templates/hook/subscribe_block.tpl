@@ -57,9 +57,17 @@ CUSTOM SYSTEME ABONNEMENT - ORDRE INVERSÉ
                         <span></span>
                     </span>
                     <div class="unique-buy flex-1 border border-green-700 p-2.5 rounded-lg cursor-pointer">
-                        <label for="wk_subscription_one_time" class="mb-1.5 cursor-pointer">
-                            <span class="text-lg text-gray-900 font-semibold">{$otpBtnText|escape:'htmlall':'UTF-8'}</span>
-                        </label>
+                        <div class="flex justify-between items-start mb-1.5">
+                            <label for="wk_subscription_one_time" class="cursor-pointer">
+                                <span class="text-lg text-gray-900 font-semibold">{$otpBtnText|escape:'htmlall':'UTF-8'}</span>
+                            </label>
+                            <div class="text-right">
+                                {if $product.has_discount}
+                                    <span class="text-sm text-gray-500 line-through mr-1.5">{$product.regular_price}</span>
+                                {/if}
+                                <span class="text-lg font-bold text-gray-900" id="unique-buy-price">{$product.price}</span>
+                            </div>
+                        </div>
                         <div class="text-sm text-gray-600 mb-0 pb-0">
                             <div>{l s='Idéal pour tester le produit' mod='wkproductsubscription'}</div>
                             <div>{l s='Recevez votre produit une seule fois' mod='wkproductsubscription'}</div>
@@ -82,9 +90,15 @@ CUSTOM SYSTEME ABONNEMENT - ORDRE INVERSÉ
                         <span></span>
                     </span>
                     <div class="subscription-buy flex-1  border border-gray-200 p-2.5 rounded-lg cursor-pointer">
-                        <label for="wk_subscription_subscribe" class="mb-1.5 cursor-pointer">
-                            <span class="text-lg text-gray-900 font-semibold">{$subscribeBtnText|escape:'htmlall':'UTF-8'}</span>
-                        </label>
+                        <div class="flex justify-between items-start mb-1.5">
+                            <label for="wk_subscription_subscribe" class="cursor-pointer">
+                                <span class="text-lg text-gray-900 font-semibold">{$subscribeBtnText|escape:'htmlall':'UTF-8'}</span>
+                            </label>
+                            <div class="text-right">
+                                <span class="text-sm text-gray-500 line-through mr-1.5" id="subscription-regular-price">{$product.price}</span>
+                                <span class="text-lg font-bold text-green-600" id="subscription-discounted-price">{$product.price}</span>
+                            </div>
+                        </div>
                         <div class="text-sm text-gray-600 mb-0 pb-0">
                             <div>{l s='Sans engagement' mod='wkproductsubscription'}</div>
                             <div>{l s='Livraison à la fréquence de votre choix' mod='wkproductsubscription'}</div>
