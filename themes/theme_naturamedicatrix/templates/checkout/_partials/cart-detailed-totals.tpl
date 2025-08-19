@@ -33,10 +33,18 @@ CUSTOM DETAILS PANIER
           {foreach from=$cart.vouchers.added item=voucher}
             <div class="cart-summary-line">
               <span class="label text-gray-600 font-normal text-base">
-                <span class="promo-code">"{$voucher.code}"</span>
+                <span class="promo-code">
+                  {if $voucher.code && $voucher.code|trim !== ''}
+                    "{$voucher.code}"
+                  {else}
+                    "{l s='Subscription' mod='wkproductsubscription'}"
+                  {/if}
+                </span>
               </span>
               <span class="value text-gray-600 font-semibold text-base">{$voucher.reduction_formatted}</span>
-              <a href="{$voucher.delete_url}" class="remove-discount-text">(Supprimer)</a>
+              {if $voucher.code && $voucher.code|trim !== ''}
+                <a href="{$voucher.delete_url}" class="remove-discount-text">({l s='Remove' d='Shop.Theme.Actions'})</a>
+              {/if}
             </div>
           {/foreach}
         {/if}
