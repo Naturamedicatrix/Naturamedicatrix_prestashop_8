@@ -45,27 +45,31 @@
             {/if}
           {/if}
         
-        <div class="current-price">
-          
-          {block name='product_discount'}
-            {if $product.has_discount}
-              <div class="product-discount">
-                {hook h='displayProductPriceBlock' product=$product type="old_price"}
-                <span class="regular-price">{$product.regular_price}</span>
-              </div>
-            {/if}
-          {/block}
-          
-          <span class='current-price-value' content="{$product.rounded_display_price}">
-            {capture name='custom_price'}{hook h='displayProductPriceBlock' product=$product type='custom_price' hook_origin='product_sheet'}{/capture}
-            {if '' !== $smarty.capture.custom_price}
-              {$smarty.capture.custom_price nofilter}
-            {else}
-              {$product.price}
-            {/if}
-          </span>
-          
-        </div>
+        {* Affichage du prix actuel si pas d'abonnement *}
+        {capture name='subscription_check'}{hook h='displayProductPriceBlock' product=$product type='after_price'}{/capture}
+        {if '' === $smarty.capture.subscription_check}
+          <div class="current-price">
+            
+            {block name='product_discount'}
+              {if $product.has_discount}
+                <div class="product-discount">
+                  {hook h='displayProductPriceBlock' product=$product type="old_price"}
+                  <span class="regular-price">{$product.regular_price}</span>
+                </div>
+              {/if}
+            {/block}
+            
+            <span class='current-price-value' content="{$product.rounded_display_price}">
+              {capture name='custom_price'}{hook h='displayProductPriceBlock' product=$product type='custom_price' hook_origin='product_sheet'}{/capture}
+              {if '' !== $smarty.capture.custom_price}
+                {$smarty.capture.custom_price nofilter}
+              {else}
+                {$product.price}
+              {/if}
+            </span>
+            
+          </div>
+        {/if}
         
         
 
