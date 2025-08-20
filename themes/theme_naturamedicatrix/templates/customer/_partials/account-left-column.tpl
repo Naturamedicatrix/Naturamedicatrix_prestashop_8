@@ -37,6 +37,13 @@
         </li>
       {/if}
 
+      <li>
+          <a class="account-link {if $page.page_name == 'module-wkproductsubscription-mysubscription'}active{/if}" id="subscription-link-side" href="{$link->getModuleLink('wkproductsubscription', 'mysubscription')}">
+            <i class="bi bi-arrow-repeat"></i>
+            <span>{l s='Mes abonnements' d='Shop.Theme.Customeraccount'}</span>
+          </a>
+      </li>
+
       {if !$configuration.is_catalog}
         <li>
           <a class="account-link {if $page.page_name == 'history'}active{/if}" id="history-link-side" href="{$urls.pages.history}">
@@ -51,14 +58,14 @@
               <i class="bi bi-clipboard-heart"></i>
             <span>{l s='Mes favoris' d='Shop.Theme.Customeraccount'}</span>
           </a>
-        </li>
+      </li>
         
-        <li>
+      <li>
           <a class="account-link {if $page.page_name == 'module-ps_emailalerts-account'}active{/if}" id="alerts-link-side" href="{$link->getModuleLink('ps_emailalerts', 'account')}">
             <i class="bi bi-bell"></i>
             <span>{l s='Mes alertes' d='Shop.Theme.Customeraccount'}</span>
           </a>
-        </li>
+      </li>
         
         {if $configuration.voucher_enabled && !$configuration.is_catalog}
         <li>

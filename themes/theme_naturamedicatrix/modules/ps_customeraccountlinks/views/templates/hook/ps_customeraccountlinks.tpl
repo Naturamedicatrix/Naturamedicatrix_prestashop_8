@@ -16,6 +16,8 @@
           {else}
             <li><a href="{$urls.pages.address}">{l s='Add first address' d='Shop.Theme.Customeraccount'}</a></li>
           {/if}
+
+          <li><a href="{$urls.pages.subscription}">{l s='Subscriptions' d='Shop.Theme.Customeraccount'}</a></li>
           
           {if !$configuration.is_catalog}
             <li><a href="{$urls.pages.history}">{l s='Order history and details' d='Shop.Theme.Customeraccount'}</a></li>

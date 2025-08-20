@@ -172,15 +172,15 @@ body.cms-id-7 #main .subcategory-list h3 a:hover {
   text-align: left !important;
 }
 
-body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper, body#module-ps_emailalerts-account #wrapper, body#order-detail #wrapper {
+body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper, body#module-ps_emailalerts-account #wrapper, body#order-detail #wrapper, body#module-wkproductsubscription-mysubscription #wrapper {
   background: linear-gradient(to right, #EDEFF1 55%, #FFFFFF 50%);
 }
-body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufacturer-id-] #wrapper #search_filters, body.layout-left-column #wrapper .block-categories, body.layout-left-column #wrapper #search_filters, body#module-blockwishlist-lists #wrapper .block-categories, body#module-blockwishlist-lists #wrapper #search_filters, body#module-psgdpr-gdpr #wrapper .block-categories, body#module-psgdpr-gdpr #wrapper #search_filters, body#view #wrapper .block-categories, body#view #wrapper #search_filters, body#module-ps_emailalerts-account #wrapper .block-categories, body#module-ps_emailalerts-account #wrapper #search_filters, body#order-detail #wrapper .block-categories, body#order-detail #wrapper #search_filters {
+body[class*=manufacturer-id-] #wrapper .block-categories, body[class*=manufacturer-id-] #wrapper #search_filters, body.layout-left-column #wrapper .block-categories, body.layout-left-column #wrapper #search_filters, body#module-blockwishlist-lists #wrapper .block-categories, body#module-blockwishlist-lists #wrapper #search_filters, body#module-psgdpr-gdpr #wrapper .block-categories, body#module-psgdpr-gdpr #wrapper #search_filters, body#view #wrapper .block-categories, body#view #wrapper #search_filters, body#module-ps_emailalerts-account #wrapper .block-categories, body#module-ps_emailalerts-account #wrapper #search_filters, body#order-detail #wrapper .block-categories, body#order-detail #wrapper #search_filters, body#module-wkproductsubscription-mysubscription #wrapper .block-categories, body#module-wkproductsubscription-mysubscription #wrapper #search_filters {
   padding: 50px 70px 50px 0;
   background-color: #EDEFF1;
 }
 @media (max-width: 768px) {
-  body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper, body#module-ps_emailalerts-account #wrapper, body#order-detail #wrapper {
+  body[class*=manufacturer-id-] #wrapper, body.layout-left-column #wrapper, body#module-blockwishlist-lists #wrapper, body#module-psgdpr-gdpr #wrapper, body#view #wrapper, body#module-ps_emailalerts-account #wrapper, body#order-detail #wrapper, body#module-wkproductsubscription-mysubscription #wrapper {
     background: #f9fafb;
   }
 }

@@ -45,6 +45,7 @@
  $page.page_name == 'module-psgdpr-gdpr' || 
  $page.page_name == 'module-blockwishlist-lists' || 
  $page.page_name == 'module-ps_emailalerts-account' || 
+ $page.page_name == 'module-wkproductsubscription-mysubscription' ||
  (isset($hasWishlistContainer) && $hasWishlistContainer) }
    {assign var="needsSidebarOnMobile" value=true}
  {/if}
@@ -57,6 +58,7 @@
   $page.page_name == 'module-blockwishlist-lists' || 
   $page.page_name == 'order-detail' || 
   $page.page_name == 'module-ps_emailalerts-account' || 
+  $page.page_name == 'module-wkproductsubscription-mysubscription' ||
   (isset($hasWishlistContainer) && $hasWishlistContainer)}col-xs-12 col-md-8 col-lg-8{else}col-xs-12{/if}">
      
      {hook h="displayContentWrapperTop"}

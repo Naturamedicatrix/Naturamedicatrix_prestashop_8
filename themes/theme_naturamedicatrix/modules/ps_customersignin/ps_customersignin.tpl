@@ -29,6 +29,9 @@
          <a href="{$urls.pages.addresses}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out no-underline">
            <i class="bi bi-house-door icon-special menu-icon leading-0 mr-1"></i>{l s='Mes adresses' d='Shop.Theme.Customeraccount'}
          </a>
+         <a href="{$link->getModuleLink('wkproductsubscription', 'mysubscription')}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out no-underline">
+           <i class="bi bi-arrow-repeat icon-special menu-icon leading-0 mr-1"></i>{l s='Mes abonnements' d='Shop.Theme.Customeraccount'}
+         </a>
          {if $urls.pages.guest_tracking}
            <a href="{$urls.pages.history}" class="h-12 flex items-center border-brand-50 border-t text-gray-600 hover:text-brand transition duration-500 ease-in-out no-underline">
              <i class="bi bi-card-list icon-special menu-icon leading-0 mr-1"></i>{l s='Mon historique de commandes' d='Shop.Theme.Customeraccount'}
