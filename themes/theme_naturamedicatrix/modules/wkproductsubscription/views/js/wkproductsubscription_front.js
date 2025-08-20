@@ -228,7 +228,7 @@ $(document).ready(function() {
         if ($('[data-product-attribute]').length == 1) {
             wk_sub_prod_attr = $('[data-product-attribute]').val();
         }
-        updatePriceOnProductPage(wk_product_subsFreq, wk_sub_productId, wk_sub_prod_attr);
+        updatePriceOnProductPage(wk_product_subsFreq, wk_sub_productId, wk_sub_prod_attr, 1);
     }
 
     if (prestashop.page.page_name === 'product') {
@@ -240,7 +240,7 @@ $(document).ready(function() {
             if ($('[data-product-attribute]').length == 1) {
                 wk_sub_prod_attr = $('[data-product-attribute]').val();
             }
-            updatePriceOnProductPage(wk_product_subsFreq, wk_sub_productId, wk_sub_prod_attr);
+            updatePriceOnProductPage(wk_product_subsFreq, wk_sub_productId, wk_sub_prod_attr, 1);
         });
 
         $(document).on('change', '[name="subscription_plan"]', function (e) {
@@ -251,7 +251,7 @@ $(document).ready(function() {
                 if ($('[data-product-attribute]').length == 1) {
                     wk_sub_prod_attr = $('[data-product-attribute]').val();
                 }
-                updatePriceOnProductPage(wk_product_subsFreq, wk_sub_productId, wk_sub_prod_attr);
+                updatePriceOnProductPage(wk_product_subsFreq, wk_sub_productId, wk_sub_prod_attr, 1);
             } else {
                 // location.reload(true);
             }
@@ -259,16 +259,28 @@ $(document).ready(function() {
 
     }
 
+    // Initialisation immédiate du prix d'abonnement
+    if ($('#wkSubscriptionFrequency').length > 0) {
+        var initialFreq = $('#wkSubscriptionFrequency').val();
+        var productId = $('#product_page_product_id').val();
+        var productAttr = $('#idCombination').val() || null;
+        
+        if (initialFreq && productId) {
+            updatePriceOnProductPage(initialFreq, productId, productAttr, 1);
+        }
+    }
+
 });
 
 function updatePriceOnProductPage(wk_product_subsFreq, wk_sub_productId, wk_sub_prod_attr, isSubscription = 0) {
+    
     $.ajax({
         url: wkProdSubsAjaxLink,
         dataType: 'json',
         type: 'POST',
         data: {
             ajax: true,
-            action: 'getPriceWithSubscription',
+            action: 'GetPriceWithSubscription',
             wkSubFreq: wk_product_subsFreq,
             wkSubToken: wkProdSubToken,
             id_product: wk_sub_productId,
@@ -277,10 +289,24 @@ function updatePriceOnProductPage(wk_product_subsFreq, wk_sub_productId, wk_sub_
         },
         success: function (result) {
             if (result.success) {
-                $('.current-price').find('span[content]').each(function() {
-                    $(this).html(result.wkDiscountedPrice);
-                    $(this).attr('content', result.wkDiscountedPrice);
-                })
+                var subscriptionDiscountedPrices = $('#subscription-option #subscription-section-price');
+                
+                if (subscriptionDiscountedPrices.length) {
+                    subscriptionDiscountedPrices.each(function(index, element) {
+                        var $element = $(element);
+                        
+                        $element.html(result.wkDiscountedPrice);
+                        
+                        element.style.setProperty('display', 'inline', 'important');
+                        element.style.setProperty('visibility', 'visible', 'important');
+                        element.style.setProperty('opacity', '1', 'important');
+                        element.style.setProperty('color', '#16a34a', 'important');
+                        element.style.setProperty('font-weight', 'bold', 'important');
+                        
+                        $element.show();
+                        element.innerHTML = result.wkDiscountedPrice;
+                    });
+                }
             }
         }
     });

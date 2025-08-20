@@ -512,6 +512,10 @@ class WkProductSubscription extends Module
                     $id_product_attribute
                 );
                 $availableCycles = [];
+                
+                // Get product price
+                $productPrice = Product::getPriceStatic($id_product, true, $id_product_attribute);
+                
                 // Check if product subscription is active
                 if ($subscriptionData['active']) {
                     $id_product_attribute = 0;
@@ -542,6 +546,7 @@ class WkProductSubscription extends Module
                                 (int) $id_product_attribute
                             );
                             $appendDiscount = '';
+                            $discountedPrice = $productPrice;
                             if ($discount > 0) {
                                 $appendDiscount = sprintf(
                                     $discountTxt,
@@ -549,6 +554,7 @@ class WkProductSubscription extends Module
                                 );
                                 $hasDiscountFreqency = true;
                                 $discountFreqency[] = $discount;
+                                $discountedPrice = $productPrice * (100 - $discount) / 100;
                             }
                             if ($value == 1) {
                                 $availableCycles[] = [
@@ -557,6 +563,8 @@ class WkProductSubscription extends Module
                                     'frequency' => 'daily',
                                     'frequencyTxt' => $everyDayString,
                                     'frequencyText' => $everyDayString . ' ' . $appendDiscount,
+                                    'discount' => $discount,
+                                    'discounted_price' => $discountedPrice,
                                 ];
                             } else {
                                 $availableCycles[] = [
@@ -565,6 +573,8 @@ class WkProductSubscription extends Module
                                     'frequency' => 'daily',
                                     'frequencyTxt' => sprintf($dailyString, $value),
                                     'frequencyText' => sprintf($dailyString, $value) . ' ' . $appendDiscount,
+                                    'discount' => $discount,
+                                    'discounted_price' => $discountedPrice,
                                 ];
                             }
                         }
@@ -581,6 +591,7 @@ class WkProductSubscription extends Module
                                 (int) $id_product_attribute
                             );
                             $appendDiscount = '';
+                            $discountedPrice = $productPrice;
                             if ($discount > 0) {
                                 $appendDiscount = sprintf(
                                     $discountTxt,
@@ -588,6 +599,7 @@ class WkProductSubscription extends Module
                                 );
                                 $hasDiscountFreqency = true;
                                 $discountFreqency[] = $discount;
+                                $discountedPrice = $productPrice * (100 - $discount) / 100;
                             }
                             if ($value == 1) {
                                 $availableCycles[] = [
@@ -596,6 +608,8 @@ class WkProductSubscription extends Module
                                     'frequency' => 'weekly',
                                     'frequencyTxt' => $everyWeekString,
                                     'frequencyText' => $everyWeekString . ' ' . $appendDiscount,
+                                    'discount' => $discount,
+                                    'discounted_price' => $discountedPrice,
                                 ];
                             } else {
                                 $availableCycles[] = [
@@ -604,6 +618,8 @@ class WkProductSubscription extends Module
                                     'frequency' => 'weekly',
                                     'frequencyTxt' => sprintf($weeklyString, $value),
                                     'frequencyText' => sprintf($weeklyString, $value) . ' ' . $appendDiscount,
+                                    'discount' => $discount,
+                                    'discounted_price' => $discountedPrice,
                                 ];
                             }
                         }
@@ -619,6 +635,7 @@ class WkProductSubscription extends Module
                                 (int) $id_product_attribute
                             );
                             $appendDiscount = '';
+                            $discountedPrice = $productPrice;
                             if ($discount > 0) {
                                 $appendDiscount = sprintf(
                                     $discountTxt,
@@ -626,6 +643,7 @@ class WkProductSubscription extends Module
                                 );
                                 $hasDiscountFreqency = true;
                                 $discountFreqency[] = $discount;
+                                $discountedPrice = $productPrice * (100 - $discount) / 100;
                             }
                             if ($value == 1) {
                                 $availableCycles[] = [
@@ -634,6 +652,8 @@ class WkProductSubscription extends Module
                                     'frequency' => 'monthly',
                                     'frequencyTxt' => $everyMonthString,
                                     'frequencyText' => $everyMonthString . ' ' . $appendDiscount,
+                                    'discount' => $discount,
+                                    'discounted_price' => $discountedPrice,
                                 ];
                             } else {
                                 $availableCycles[] = [
@@ -642,6 +662,8 @@ class WkProductSubscription extends Module
                                     'frequency' => 'monthly',
                                     'frequencyTxt' => sprintf($monthlyString, $value),
                                     'frequencyText' => sprintf($monthlyString, $value) . ' ' . $appendDiscount,
+                                    'discount' => $discount,
+                                    'discounted_price' => $discountedPrice,
                                 ];
                             }
                         }
@@ -657,6 +679,7 @@ class WkProductSubscription extends Module
                                 (int) $id_product_attribute
                             );
                             $appendDiscount = '';
+                            $discountedPrice = $productPrice;
                             if ($discount > 0) {
                                 $appendDiscount = sprintf(
                                     $discountTxt,
@@ -664,6 +687,7 @@ class WkProductSubscription extends Module
                                 );
                                 $hasDiscountFreqency = true;
                                 $discountFreqency[] = $discount;
+                                $discountedPrice = $productPrice * (100 - $discount) / 100;
                             }
                             if ($value == 1) {
                                 $availableCycles[] = [
@@ -672,6 +696,8 @@ class WkProductSubscription extends Module
                                     'frequency' => 'yearly',
                                     'frequencyTxt' => $everyYearString,
                                     'frequencyText' => $everyYearString . ' ' . $appendDiscount,
+                                    'discount' => $discount,
+                                    'discounted_price' => $discountedPrice,
                                 ];
                             } else {
                                 $availableCycles[] = [
@@ -680,6 +706,8 @@ class WkProductSubscription extends Module
                                     'frequency' => 'yearly',
                                     'frequencyTxt' => sprintf($yearlyString, $value),
                                     'frequencyText' => sprintf($yearlyString, $value) . ' ' . $appendDiscount,
+                                    'discount' => $discount,
+                                    'discounted_price' => $discountedPrice,
                                 ];
                             }
                         }

@@ -95,8 +95,10 @@ CUSTOM SYSTEME ABONNEMENT - ORDRE INVERSÉ
                                 <span class="text-lg text-gray-900 font-semibold">{$subscribeBtnText|escape:'htmlall':'UTF-8'}</span>
                             </label>
                             <div class="text-right">
-                                <span class="text-sm text-gray-500 line-through mr-1.5" id="subscription-regular-price">{$product.price}</span>
-                                <span class="text-lg font-bold text-green-600" id="subscription-discounted-price">{$product.price}</span>
+                                <span class="text-sm text-gray-500 line-through mr-1.5" id="subscription-original-price">{$product.price}</span>
+                                <span class="text-lg font-bold text-green-600" id="subscription-section-price">
+                                    <!-- Prix mis à jour par le JS -->
+                                </span>
                             </div>
                         </div>
                         <div class="text-sm text-gray-600 mb-0 pb-0">
@@ -112,10 +114,20 @@ CUSTOM SYSTEME ABONNEMENT - ORDRE INVERSÉ
                                         {if isset($frequency) && isset($cycle)}
                                             {assign var="selectedFreq" value="`$frequency`_`$cycle`"}
                                         {/if}
+                                        
                                         {if isset($selectedFreq) && ($currentFreq == $selectedFreq)}
-                                            <option class="text-gray-800" selected="selected" value="{$cycles.frequency|escape:'htmlall':'UTF-8'}_{$cycles.cycle|escape:'htmlall':'UTF-8'}">{$cycles.frequencyText|escape:'htmlall':'UTF-8'}</option>
+                                            <option class="text-gray-800" 
+                                                    selected="selected" 
+                                                    value="{$cycles.frequency|escape:'htmlall':'UTF-8'}_{$cycles.cycle|escape:'htmlall':'UTF-8'}"
+                                                    data-discount="{$cycles.discount|default:0}"
+                                                    data-discounted-price="{$cycles.discounted_price|string_format:"%.2f"}"
+                                                    >{$cycles.frequencyText|escape:'htmlall':'UTF-8'}</option>
                                         {else}
-                                            <option class="text-gray-800" value="{$cycles.frequency|escape:'htmlall':'UTF-8'}_{$cycles.cycle|escape:'htmlall':'UTF-8'}">{$cycles.frequencyText|escape:'htmlall':'UTF-8'}</option>
+                                            <option class="text-gray-800" 
+                                                    value="{$cycles.frequency|escape:'htmlall':'UTF-8'}_{$cycles.cycle|escape:'htmlall':'UTF-8'}"
+                                                    data-discount="{$cycles.discount|default:0}"
+                                                    data-discounted-price="{$cycles.discounted_price|string_format:"%.2f"}"
+                                                    >{$cycles.frequencyText|escape:'htmlall':'UTF-8'}</option>
                                         {/if}
                                     {/foreach}
                                 </select>
@@ -137,9 +149,8 @@ CUSTOM SYSTEME ABONNEMENT - ORDRE INVERSÉ
                         </div>
                     </div>
                 </div>
+
             </div>
-
-
         </div>
     </div>
 </div>
