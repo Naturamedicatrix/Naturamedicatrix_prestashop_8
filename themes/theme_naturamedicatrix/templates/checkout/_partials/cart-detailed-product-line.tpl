@@ -28,7 +28,7 @@ CUSTOM PRODUCTS DETAILS CART
     </div>
 
     <!--  product line body: label, discounts, price, attributes, customizations -->
-    <div class="product-line-grid-body flex flex-col justify-center mb-0 flex-1 min-w-[200px]">
+    <div class="product-line-grid-body flex flex-col justify-center mb-0 flex-1">
     {* Affichage des caractéristiques du produit (SQL) *}
     {assign var="id_product" value=$product.id_product}
     {assign var="id_lang" value=Context::getContext()->language->id}
@@ -150,6 +150,14 @@ CUSTOM PRODUCTS DETAILS CART
       {/if}
     {/foreach}
 
+
+    <!-- ABONNEMENT -->
+    <div class="block-subscription hidden md:block">
+      {block name='hook_cart_extra_product_actions'}
+        {hook h='displayCartExtraProductActions' product=$product}
+      {/block}
+    </div>
+
     {if is_array($product.customizations) && $product.customizations|count}
       <br>
       {block name='cart_detailed_product_line_customization'}
@@ -191,6 +199,7 @@ CUSTOM PRODUCTS DETAILS CART
       {/block}
     {/if}
   </div>
+  
     <!-- Bouton suppression mobile -->
     <div class="md:hidden flex-shrink-0 ml-2">
       <a
@@ -233,7 +242,7 @@ CUSTOM PRODUCTS DETAILS CART
  
 
   <!--  product line right content: actions (quantity, delete), price -->
-  <div class="product-line-grid-right product-line-actions price flex flex-col items-start items-end text-right leading-tight w-36">
+  <div class="product-line-grid-right product-line-actions price flex flex-col items-end text-right leading-tight w-36">
       
       {if $product.has_discount}
         <div class="product-discount">
@@ -259,10 +268,10 @@ CUSTOM PRODUCTS DETAILS CART
         </span>
       </span>
             
-      <div class="product-line-info product-price md:text-center {if $product.has_discount}has-discount{/if}">
+      <div class="product-line-info product-price md:text-center items-end {if $product.has_discount}has-discount{/if}">
         
         <div class="current-price text-xs text-gray-500">
-          <span class="text-xs">A l'unité&nbsp;:</span>
+          <span class="text-xs text-right">A l'unité&nbsp;:</span>
           {if $product.has_discount}
             <span class="regular-price line-through">{$product.regular_price}</span>
           {/if}
@@ -273,8 +282,7 @@ CUSTOM PRODUCTS DETAILS CART
         </div>
         {hook h='displayProductPriceBlock' product=$product type="unit_price"}
       </div> <!-- end .product-line-info -->
-
-  
+      
   </div> <!-- end .product-line-grid-right -->
   
   
@@ -296,13 +304,21 @@ CUSTOM PRODUCTS DETAILS CART
         {/if}
       </a>
   
-      {block name='hook_cart_extra_product_actions'}
+      {* {block name='hook_cart_extra_product_actions'}
         {hook h='displayCartExtraProductActions' product=$product}
-      {/block}
+      {/block} *}
       
   
     </div> <!-- end .cart-line-product-actions -->
+
   </div>
+
+       <!-- ABONNEMENT -->
+       <div class="block-subscription md:hidden mt-2.5 text-center">
+       {block name='hook_cart_extra_product_actions'}
+         {hook h='displayCartExtraProductActions' product=$product}
+       {/block}
+     </div>
 
 </div> <!-- end .product-line-grid -->
 

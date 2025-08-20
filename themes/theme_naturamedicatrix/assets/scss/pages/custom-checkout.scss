@@ -584,6 +584,11 @@ body#cart {
             }
         }
 
+        .mobile-cart-actions .product-line-info {
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
         .products-lines-infos {
             padding: 2px 0;
         }

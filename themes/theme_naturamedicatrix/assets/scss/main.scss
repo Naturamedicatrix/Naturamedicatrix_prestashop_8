@@ -272,7 +272,10 @@ body#index {
 
 
 
-
+.bg-primary {
+  background-color: $color-custom-green !important;
+  color: white !important;
+}
 .text-primary, .primary, .text-brand {
   color: $color-custom-green !important;
 }
