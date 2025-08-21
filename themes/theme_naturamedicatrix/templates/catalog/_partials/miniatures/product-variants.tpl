@@ -39,7 +39,7 @@
     {* Display des attributs *}
  
       {foreach from=$all_attributes_by_group key=id_group item=group}
-        <div class="variants-group text-center text-sm text-gray-600">
+        <div class="variants-group text-center text-sm text-gray-600 font-normal">
           {* Split les attributs par "/" *}
           {assign var="attributes_str" value=""}
           {foreach from=$group.attributes item=attr_name name=attr_loop}

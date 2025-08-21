@@ -26,9 +26,11 @@
 
 <div class="bg-gray-50 bg-wrapper py-16 mt-20 mb-20">
   <div class="container mx-auto px-0 lg:px-8 overflow-hidden">
-    
     <header class="page-header mb-0 mt-0">
-      <h2 class="text-center text-lg md:text-2xl font-bold mb-0 mt-0">{l s='Our partner brands' d='Shop.Theme.Actions'}</h2>
+    <div class="all-product-link text-center">
+      <a href="{$urls.pages.manufacturer}" class="font-normal text-gray-600 text-sm hover:text-gray-800">» {l s='See all brands' d='Shop.Theme.Actions'}</a>
+    </div>
+      <h2 class="text-center text-lg md:text-2xl font-bold mb-0 mt-1.5">{l s='Our partner brands' d='Shop.Theme.Actions'}</h2>
       <div class="title-separator">
         <svg id="logoTitle" class="logo-h3 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504.59 360.15">
           <path class="logo-title"
@@ -69,20 +71,18 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    tns({
+    let slider = tns({
       container: '.brands-slider',
       items: 5,
       slideBy: 1,
-      autoplay: true,
-      autoplayTimeout: 4000,
-      autoplayHoverPause: true,
-      autoplayButtonOutput: false,
-      controls: true,
-      controlsText: ["", ""],
+      autoplay: false,
+      speed: 3000,
+      controls: false,
       nav: true,
-      navPosition: 'bottom',
       mouseDrag: true,
       gutter: 0,
+      loop: true,
+      rewind: false,
       responsive: {
         0: { items: 2 },
         640: { items: 3 },
@@ -90,6 +90,45 @@
         1280: { items: 6 }
       }
     });
+
+    // Autoplay manuel avec intervalle constant
+    let autoplayInterval;
+    let isHovered = false;
+    let isDragging = false;
+
+    function startAutoplay() {
+      if (autoplayInterval) clearInterval(autoplayInterval);
+      autoplayInterval = setInterval(() => {
+        if (!isHovered && !isDragging) {
+          slider.goTo('next');
+        }
+      }, 1500);
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval) clearInterval(autoplayInterval);
+    }
+
+    // Gestion hover
+    document.querySelector('.brands-slider').addEventListener('mouseenter', () => {
+      isHovered = true;
+    });
+
+    document.querySelector('.brands-slider').addEventListener('mouseleave', () => {
+      isHovered = false;
+    });
+
+    // Gestion drag
+    slider.events.on('dragStart', () => {
+      isDragging = true;
+    });
+
+    slider.events.on('dragEnd', () => {
+      isDragging = false;
+    });
+
+    // Démarrer l'autoplay
+    startAutoplay();
   });
 </script>
 

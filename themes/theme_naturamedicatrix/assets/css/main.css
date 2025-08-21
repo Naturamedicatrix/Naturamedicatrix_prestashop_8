@@ -240,6 +240,9 @@ body#cart #wrapper {
   }
 }
 /* === PRODUCT LIST === */
+.product-miniature {
+  min-height: 430px;
+}
 @media (max-width: 640px) {
   .product-miniature {
     margin-bottom: 15px;
@@ -495,6 +498,10 @@ body#cart #wrapper {
   font-weight: 700;
 }
 
+.newproducts-slider .product-miniature {
+  min-height: auto;
+}
+
 @media (max-width: 640px) {
   body#manufacturer .js-product-miniature {
     min-height: 280px;
@@ -577,6 +584,14 @@ body#cart #wrapper {
 .product-miniature .product-price-and-shipping {
   font-size: inherit;
   color: inherit;
+}
+
+.product-big .product-miniature {
+  min-height: 500px;
+}
+.product-big .product-description p {
+  font-size: 0.9rem;
+  margin-bottom: 0 !important;
 }
 
 /* === STYLES DES MODALS === */

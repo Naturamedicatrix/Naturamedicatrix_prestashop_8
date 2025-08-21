@@ -9,7 +9,7 @@
 {* END VARIABLES *}
 
 {block name='product_miniature_item'}
-  <div class="js-product product{if !empty($productClasses)} {$productClasses}{/if}">
+  <div class="product-big js-product product{if !empty($productClasses)} {$productClasses}{/if}">
     <article class="product-miniature js-product-miniature bg-white rounded-lg p-3.5 {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
       data-id-product-attribute="{$product.id_product_attribute}">
       {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}
@@ -121,16 +121,16 @@
             {* END BLOC CARACTÉRISTIQUE QUANTITÉ *}
           {/if}
           
-          
-          {if $product.description_short}
-            {$product.description_short}
-          {/if}
+          <div class="product-description mt-1.5 mb-1.5">
+            {if $product.description_short}
+              {$product.description_short|truncate:150:"..." nofilter}
+            {/if}
+          </div>
 
           
 
         <div class="block-product-flags mt-0">
           {* Product flags *}
-
           <div class="product-flags-container">
             {include file='catalog/_partials/product-flags.tpl'}
           </div>

@@ -67,7 +67,7 @@
           {* Affichage du fabricant *}
           {block name='product_manufacturer'}
             {if isset($product.manufacturer_name) && $product.manufacturer_name}
-              <div class="product-manufacturer text-center mt-1.5">
+              <div class="product-manufacturer text-center mt-1.5 font-normal">
                 <a href="{$link->getManufacturerLink($product.id_manufacturer)}" title="{$product.manufacturer_name|escape:'html':'UTF-8'}" class="text-xs text-gray-400 no-underline">
                   {$product.manufacturer_name}
                 </a>
@@ -101,7 +101,7 @@
           {else}
             {* BLOC CARACTÉRISTIQUE QUANTITÉ (ID 3) *}
             {if isset($product.features) && $product.features}
-              <div class="product-quantity-info text-sm text-gray-600 text-center">
+              <div class="product-quantity-info text-sm text-gray-600 text-center font-normal">
                 {foreach from=$product.features item=feature}
                   {* N'affiche QUE la caractéristique "quantité" id=3 *}
                   {if isset($feature.value) && $feature.value|trim != '' && $feature.id_feature == 3}
