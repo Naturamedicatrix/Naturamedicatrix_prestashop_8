@@ -418,12 +418,12 @@ body#manufacturer {
 //PRODUCT BIG
 .product-big {
     .product-miniature {
-        min-height: 500px;
         transition: all .2s ease;
         
         // Effet de scale uniquement sur desktop
-        @media (min-width: 992px) {
-            transform: scale(.7);
+        @media (min-width: $breakpoint-md) {
+            transform: scale(.8);
+            
             &.active-focus {
                 transform: scale(1) !important;
             }

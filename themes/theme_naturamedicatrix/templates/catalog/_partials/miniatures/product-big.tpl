@@ -63,13 +63,6 @@
             {/if}
           {/block}
         </div>
-        
-        {block name='product_reviews'}
-            {* {hook h='displayProductListReviews' product=$product} *}
-            
-            <div class="yotpo bottomLine review-score text-left text-xs text-center pt-0 mt-0" data-yotpo-product-id="{$product.id_product}"></div>
-
-        {/block}
 
 
         <div class="product-description text-center">
@@ -120,6 +113,13 @@
             {/if}
             {* END BLOC CARACTÉRISTIQUE QUANTITÉ *}
           {/if}
+
+          {block name='product_reviews'}
+            {* {hook h='displayProductListReviews' product=$product} *}
+            
+            <div class="yotpo bottomLine review-score text-left text-xs text-center pt-0 mt-0" data-yotpo-product-id="{$product.id_product}"></div>
+
+          {/block}
           
           <div class="product-short-description mt-4 mb-4">
             {if $product.description_short}

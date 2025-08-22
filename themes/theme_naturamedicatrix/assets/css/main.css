@@ -587,12 +587,11 @@ body#cart #wrapper {
 }
 
 .product-big .product-miniature {
-  min-height: 500px;
   transition: all 0.2s ease;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .product-big .product-miniature {
-    transform: scale(0.7);
+    transform: scale(0.8);
   }
   .product-big .product-miniature.active-focus {
     transform: scale(1) !important;

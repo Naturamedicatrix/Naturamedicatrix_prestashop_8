@@ -65,16 +65,16 @@ document.addEventListener('DOMContentLoaded', function () {
           item.classList.remove('active-focus');
         });
 
-        // Vérifier si on est sur desktop (992px+)
+        // Vérifier si on est sur desktop
         if (window.innerWidth < 992) {
-          return; // Ne pas appliquer l'effet sur mobile/tablette
+          return;
         }
 
         // Trouve les slides visibles
         const activeSlides = container.querySelectorAll('.tns-slide-active');
         
         if (activeSlides.length > 0) {
-          // Desktop : prendre le produit du milieu
+          // Prends le produit du milieu (desktop sur 3 produits)
           const middleIndex = Math.floor(activeSlides.length / 2);
           const middleSlide = activeSlides[middleIndex];
           const productMiniature = middleSlide.querySelector('.product-miniature');
@@ -85,10 +85,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
 
-      // Appliquer au chargement initial
       setTimeout(updateActiveFocus, 100);
 
-      // Écouter les événements de changement de slide
+      // listen les événements de changement de slide
       slider.events.on('indexChanged', function() {
         updateActiveFocus();
       });
