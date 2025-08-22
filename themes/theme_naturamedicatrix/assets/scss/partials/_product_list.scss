@@ -419,10 +419,14 @@ body#manufacturer {
 .product-big {
     .product-miniature {
         min-height: 500px;
-        transform: scale(.8);
         transition: all .2s ease;
-        &.active-focus {
-            transform: scale(1) !important;
+        
+        // Effet de scale uniquement sur desktop
+        @media (min-width: 992px) {
+            transform: scale(.7);
+            &.active-focus {
+                transform: scale(1) !important;
+            }
         }
     }
     .product-short-description {

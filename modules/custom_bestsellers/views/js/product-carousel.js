@@ -59,30 +59,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-      // Fonction pour appliquer la classe active-focus au produit du milieu
+      // Fonction pour appliquer la classe active-focus au produit du milieu (desktop uniquement)
       function updateActiveFocus() {
-        // Supprimer toutes les classes active-focus existantes
         container.querySelectorAll('.product-miniature').forEach(item => {
           item.classList.remove('active-focus');
         });
 
-        // Trouver les slides visibles (tns-slide-active)
+        // Vérifier si on est sur desktop (992px+)
+        if (window.innerWidth < 992) {
+          return; // Ne pas appliquer l'effet sur mobile/tablette
+        }
+
+        // Trouve les slides visibles
         const activeSlides = container.querySelectorAll('.tns-slide-active');
         
         if (activeSlides.length > 0) {
-          let middleIndex;
-          
-          if (activeSlides.length === 1) {
-            // 1 slide visible (mobile) - prendre le premier
-            middleIndex = 0;
-          } else if (activeSlides.length === 2) {
-            // 2 slides visibles (tablette) - prendre le second
-            middleIndex = 1;
-          } else {
-            // 3+ slides visibles (desktop) - prendre le milieu
-            middleIndex = Math.floor(activeSlides.length / 2);
-          }
-          
+          // Desktop : prendre le produit du milieu
+          const middleIndex = Math.floor(activeSlides.length / 2);
           const middleSlide = activeSlides[middleIndex];
           const productMiniature = middleSlide.querySelector('.product-miniature');
           
