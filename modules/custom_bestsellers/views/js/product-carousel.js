@@ -56,40 +56,50 @@ document.addEventListener('DOMContentLoaded', function () {
             mouseDrag: totalProducts > 3,
             touch: totalProducts > 3
           }
-        },
-        onInit: function(info) {
-          console.log('Slider initialized:', {
-            totalSlides: info.slideCount,
-            currentIndex: info.index,
-            displayIndex: info.displayIndex
-          });
-          updateProductFocus(info);
         }
       });
-      
-      // Écouter les changements de slide
-      slider.events.on('indexChanged', function(info) {
-        console.log('Slide changed:', {
-          previousIndex: info.indexCached,
-          currentIndex: info.index,
-          displayIndex: info.displayIndex
+
+      // Fonction pour appliquer la classe active-focus au produit du milieu
+      function updateActiveFocus() {
+        // Supprimer toutes les classes active-focus existantes
+        container.querySelectorAll('.product-miniature').forEach(item => {
+          item.classList.remove('active-focus');
         });
-        updateProductFocus(info);
-      });
-      
-      // Fonction pour mettre à jour le focus des produits
-      function updateProductFocus(info) {
-        // Retirer la classe active de tous les produits
-        info.slideItems.forEach(function(slide) {
-          slide.querySelector('.product-big').classList.remove('active-focus');
-        });
+
+        // Trouver les slides visibles (tns-slide-active)
+        const activeSlides = container.querySelectorAll('.tns-slide-active');
         
-        // Ajouter la classe active au produit central visible
-        const centralIndex = info.index + Math.floor(info.items / 2);
-        if (info.slideItems[centralIndex]) {
-          info.slideItems[centralIndex].querySelector('.product-big').classList.add('active-focus');
+        if (activeSlides.length > 0) {
+          let middleIndex;
+          
+          if (activeSlides.length === 1) {
+            // 1 slide visible (mobile) - prendre le premier
+            middleIndex = 0;
+          } else if (activeSlides.length === 2) {
+            // 2 slides visibles (tablette) - prendre le second
+            middleIndex = 1;
+          } else {
+            // 3+ slides visibles (desktop) - prendre le milieu
+            middleIndex = Math.floor(activeSlides.length / 2);
+          }
+          
+          const middleSlide = activeSlides[middleIndex];
+          const productMiniature = middleSlide.querySelector('.product-miniature');
+          
+          if (productMiniature) {
+            productMiniature.classList.add('active-focus');
+          }
         }
       }
+
+      // Appliquer au chargement initial
+      setTimeout(updateActiveFocus, 100);
+
+      // Écouter les événements de changement de slide
+      slider.events.on('indexChanged', function() {
+        updateActiveFocus();
+      });
+
     } catch (error) {
     }
   }, 300);

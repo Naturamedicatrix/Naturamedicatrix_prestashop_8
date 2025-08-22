@@ -586,15 +586,13 @@ body#cart #wrapper {
   color: inherit;
 }
 
-.product-big {
+.product-big .product-miniature {
+  min-height: 500px;
   transform: scale(0.8);
   transition: all 0.2s ease;
 }
-.product-big.active-focus {
-  transform: scale(1.3) !important;
-}
-.product-big .product-miniature {
-  min-height: 500px;
+.product-big .product-miniature.active-focus {
+  transform: scale(1) !important;
 }
 .product-big .product-short-description {
   font-size: 0.9rem;
