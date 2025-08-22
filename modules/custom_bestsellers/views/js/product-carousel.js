@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         edgePadding: 0,
         fixedWidth: false,
         loop: true,
-        rewind: true,
+        rewind: false,
         responsive: {
           0: { 
             items: Math.min(1, totalProducts),
@@ -56,8 +56,40 @@ document.addEventListener('DOMContentLoaded', function () {
             mouseDrag: totalProducts > 3,
             touch: totalProducts > 3
           }
+        },
+        onInit: function(info) {
+          console.log('Slider initialized:', {
+            totalSlides: info.slideCount,
+            currentIndex: info.index,
+            displayIndex: info.displayIndex
+          });
+          updateProductFocus(info);
         }
       });
+      
+      // Écouter les changements de slide
+      slider.events.on('indexChanged', function(info) {
+        console.log('Slide changed:', {
+          previousIndex: info.indexCached,
+          currentIndex: info.index,
+          displayIndex: info.displayIndex
+        });
+        updateProductFocus(info);
+      });
+      
+      // Fonction pour mettre à jour le focus des produits
+      function updateProductFocus(info) {
+        // Retirer la classe active de tous les produits
+        info.slideItems.forEach(function(slide) {
+          slide.querySelector('.product-big').classList.remove('active-focus');
+        });
+        
+        // Ajouter la classe active au produit central visible
+        const centralIndex = info.index + Math.floor(info.items / 2);
+        if (info.slideItems[centralIndex]) {
+          info.slideItems[centralIndex].querySelector('.product-big').classList.add('active-focus');
+        }
+      }
     } catch (error) {
     }
   }, 300);

@@ -121,7 +121,7 @@
             {* END BLOC CARACTÉRISTIQUE QUANTITÉ *}
           {/if}
           
-          <div class="product-short-description mt-1.5 mb-1.5">
+          <div class="product-short-description mt-4 mb-4">
             {if $product.description_short}
               {$product.description_short|strip_tags|truncate:120:"..."}
             {/if}
@@ -129,7 +129,7 @@
 
           
 
-        <div class="block-product-flags mt-2.5">
+        <div class="block-product-flags mt-4">
           {* Product flags *}
           <div class="product-flags-container">
             {include file='catalog/_partials/product-flags.tpl'}
