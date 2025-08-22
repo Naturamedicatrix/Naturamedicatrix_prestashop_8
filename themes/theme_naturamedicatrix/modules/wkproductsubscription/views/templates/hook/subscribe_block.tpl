@@ -106,6 +106,15 @@ CUSTOM SYSTEME ABONNEMENT - ORDRE INVERSÉ
                             <div>{l s='Livraison à la fréquence de votre choix' mod='wkproductsubscription'}</div>
                         </div>
                         
+                        {* Lien vers les conditions d'abonnement *}
+                        <div class="mt-2.5 mb-1.5 text-right">
+                            <a href="{$link->getCMSLink(12)|escape:'htmlall':'UTF-8'}" 
+                               class="text-xs text-gray-500 underline hover:text-gray-700 hover:underline"
+                               target="_blank">
+                                {l s='Voir les conditions d\'abonnement' mod='wkproductsubscription'}
+                            </a>
+                        </div>
+                        
                         <div class="wksubscription-options mt-2.5 mb-0 pb-0" style="display:none;">
                             <div class="form-group mb-0">
                                 <select class="form-control wkUpdateTempCart text-gray-800 px-4 py-2.5 w-full" id="wkSubscriptionFrequency">
@@ -116,7 +125,7 @@ CUSTOM SYSTEME ABONNEMENT - ORDRE INVERSÉ
                                         {/if}
                                         
                                         {if isset($selectedFreq) && ($currentFreq == $selectedFreq)}
-                                            <option class="text-gray-800" 
+                                            <option class="text-gray-800"
                                                     selected="selected" 
                                                     value="{$cycles.frequency|escape:'htmlall':'UTF-8'}_{$cycles.cycle|escape:'htmlall':'UTF-8'}"
                                                     data-discount="{$cycles.discount|default:0}"
