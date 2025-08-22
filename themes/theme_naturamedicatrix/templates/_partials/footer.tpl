@@ -270,6 +270,7 @@
               <a href="{$link->getCMSLink(2)}" class="footer-bottom-link">{l s='Mentions légales' d='Shop.Theme.Global'}</a>
               <a href="{$link->getCMSLink(3)}#livraison" class="footer-bottom-link">{l s='Livraison, frais de port et retours' d='Shop.Theme.Global'}</a>
               <a href="{$link->getCMSLink(3)}#paiement" class="footer-bottom-link">{l s='Modes de paiement' d='Shop.Theme.Global'}</a>
+              <a href="{$link->getCMSLink(12)}" class="footer-bottom-link">{l s='Abonnement' d='Shop.Theme.Global'}</a>
             </div>
             {include file='_partials/payment-logos.tpl'}
           </div>

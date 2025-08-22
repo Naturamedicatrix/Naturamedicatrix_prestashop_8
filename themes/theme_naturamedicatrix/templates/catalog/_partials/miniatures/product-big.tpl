@@ -174,7 +174,7 @@
 
           
             {* ADD TO CART BUTTON *}
-            <form action="{$product.add_to_cart_url}" method="post" class="add-to-cart-or-refresh mt-1.5">
+            <form action="{$product.add_to_cart_url}" method="post" class="add-to-cart-or-refresh mt-1.5 mb-4">
               <input type="hidden" name="token" value="{$static_token}">
               <input type="hidden" name="id_product" value="{$product.id_product}">
               <input type="hidden" name="id_customization" value="0">
