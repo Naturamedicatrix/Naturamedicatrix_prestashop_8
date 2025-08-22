@@ -589,7 +589,10 @@ body#cart #wrapper {
 .product-big .product-miniature {
   min-height: 500px;
 }
-.product-big .product-description p {
+.product-big .active-focus {
+  background-color: red;
+}
+.product-big .product-short-description {
   font-size: 0.9rem;
   margin-bottom: 0 !important;
 }

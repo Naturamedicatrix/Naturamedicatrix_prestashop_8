@@ -420,10 +420,11 @@ body#manufacturer {
     .product-miniature {
         min-height: 500px;
     }
-    .product-description {
-        p {
+    .active-focus {
+        background-color: red;
+    }
+    .product-short-description {
             font-size: .9rem;
             margin-bottom: 0 !important;
-        }
     }
 }

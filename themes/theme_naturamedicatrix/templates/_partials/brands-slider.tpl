@@ -12,7 +12,7 @@
       {assign var="formatted_brands" value=$formatted_brands|array_merge:[[
         'id_manufacturer' => $manufacturer.id_manufacturer,
         'name' => $manufacturer.name,
-        'image' => "{$urls.img_manu_url}{$manufacturer.id_manufacturer}-brand_default.jpg",
+        'image' => "{$urls.img_manu_url}{$manufacturer.id_manufacturer}-small_default.jpg",
         'url' => {url entity='manufacturer' id=$manufacturer.id_manufacturer},
         'short_description' => $manufacturer.short_description,
         'nb_products' => $product_count
@@ -43,7 +43,7 @@
         {foreach from=$formatted_brands item=brand}
           <div class="px-2">
             <a href="{$brand.url}" class="block">
-              <img src="{$brand.image}" alt="{$brand.name}" class="bw-logo h-24 object-contain mx-auto max-w-[160px]" loading="lazy" />
+              <img src="{$brand.image}" alt="{$brand.name}" class="bw-logo h-24 object-contain mx-auto" loading="lazy" />
             </a>
           </div>
         {/foreach}
@@ -67,16 +67,14 @@
 </style>
 
 
-
-
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     let slider = tns({
       container: '.brands-slider',
-      items: 5,
+      items: 6,
       slideBy: 1,
       autoplay: false,
-      speed: 3000,
+      speed: 2000,
       controls: false,
       nav: true,
       mouseDrag: true,
@@ -102,7 +100,7 @@
         if (!isHovered && !isDragging) {
           slider.goTo('next');
         }
-      }, 1500);
+      }, 2000);
     }
 
     function stopAutoplay() {
@@ -127,7 +125,7 @@
       isDragging = false;
     });
 
-    // Démarrer l'autoplay
+    // Démarre l'autoplay
     startAutoplay();
   });
 </script>

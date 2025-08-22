@@ -10,7 +10,7 @@
 
 {block name='product_miniature_item'}
   <div class="product-big js-product product{if !empty($productClasses)} {$productClasses}{/if}">
-    <article class="product-miniature js-product-miniature bg-white rounded-lg p-3.5 {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
+    <article class="product-small product-miniature js-product-miniature bg-white rounded-lg p-3.5 {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}out_stock{/if}" data-id-product="{$product.id_product}"
       data-id-product-attribute="{$product.id_product_attribute}">
       {if $product.quantity <= 0 || ($product.quantity_all_versions !== null && $product.quantity_all_versions <= 0)}
         <span class="out-of-stock-label">{l s='Épuisé' d='Shop.Theme.Catalog'}</span>
@@ -69,7 +69,7 @@
             
             <div class="yotpo bottomLine review-score text-left text-xs text-center pt-0 mt-0" data-yotpo-product-id="{$product.id_product}"></div>
 
-          {/block}
+        {/block}
 
 
         <div class="product-description text-center">
@@ -121,15 +121,15 @@
             {* END BLOC CARACTÉRISTIQUE QUANTITÉ *}
           {/if}
           
-          <div class="product-description mt-1.5 mb-1.5">
+          <div class="product-short-description mt-1.5 mb-1.5">
             {if $product.description_short}
-              {$product.description_short|truncate:150:"..." nofilter}
+              {$product.description_short|strip_tags|truncate:120:"..."}
             {/if}
           </div>
 
           
 
-        <div class="block-product-flags mt-0">
+        <div class="block-product-flags mt-2.5">
           {* Product flags *}
           <div class="product-flags-container">
             {include file='catalog/_partials/product-flags.tpl'}
