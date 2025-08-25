@@ -4,7 +4,7 @@
 /** === PAGES MON COMPTE === */
 
 // Variables communes pour les pages de compte
-$account-pages: "#my-account, #identity, #addresses, #history, #order-detail, #order-slip, #module-blockwishlist-lists, #view, #module-blockwishlist-view, #module-psgdpr-gdpr, #address, #module-ps_emailalerts-account, #discount, #module-wkproductsubscription-mysubscription";
+$account-pages: "#my-account, #identity, #addresses, #history, #order-detail, #order-slip, #module-blockwishlist-lists, #view, #module-blockwishlist-view, #module-psgdpr-gdpr, #address, #module-ps_emailalerts-account, #discount, #module-wkproductsubscription-mysubscription, #module-wkproductsubscription-subscriptiondetails";
 
 /* === PAGE MON COMPTE PRINCIPALE === */
 body#my-account {
@@ -18,7 +18,8 @@ body#module-psgdpr-gdpr,
 body#module-blockwishlist-lists,
 body#view,
 body#module-ps_emailalerts-account,
-body#module-wkproductsubscription-mysubscription {
+body#module-wkproductsubscription-mysubscription,
+body#module-wkproductsubscription-subscriptiondetails {
     #content-wrapper {
         min-height: auto !important;
         
@@ -86,7 +87,8 @@ body#module-psgdpr-gdpr,
 body#address,
 body#module-ps_emailalerts-account,
 body#discount,
-body#module-wkproductsubscription-mysubscription {
+body#module-wkproductsubscription-mysubscription,
+body#module-wkproductsubscription-subscriptiondetails {
     
     #wrapper {
         @media (max-width: $breakpoint-md) {
@@ -759,7 +761,8 @@ body#module-blockwishlist-view,
 body#module-psgdpr-gdpr,
 body#address,
 body#discount,
-body#module-wkproductsubscription-mysubscription {
+body#module-wkproductsubscription-mysubscription,
+body#module-wkproductsubscription-subscriptiondetails {
     
     h1, h2 {
         padding-bottom: 10px;

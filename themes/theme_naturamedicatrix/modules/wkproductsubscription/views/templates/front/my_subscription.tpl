@@ -30,7 +30,7 @@
 {block name="page_content"}
 <h1>{l s='Mes abonnements' d='Shop.Theme.Customeraccount'}</h1>
         {if $subscriptions}
-            <div class="col-md-12">
+            <div class="">
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
@@ -45,7 +45,7 @@
                                 </th>
                                 <th class="text-center">{l s='Frequency' mod='wkproductsubscription'}</th>
                                 <th class="text-center">{l s='Next order date' mod='wkproductsubscription'}</th>
-                                <th class="text-center">{l s='Next delivery date' mod='wkproductsubscription'}</th>
+                                {* <th class="text-center">{l s='Next delivery date' mod='wkproductsubscription'}</th> *}
                                 <th class="text-center">{l s='Status' mod='wkproductsubscription'}</th>
                                 <th class="text-center">{l s='Action' mod='wkproductsubscription'}</th>
                             </tr>
@@ -77,7 +77,7 @@
                                             --
                                         {/if}
                                     </td>
-                                    <td class="text-center">
+                                    {* <td class="text-center">
                                         {if $subs.active == WkSubscriberProductModal::WK_SUBS_STATUS_ACTIVE}
                                             {if !$subs.is_virtual}
                                                 {Tools::displayDate($subs.next_delivery_date)|escape:'htmlall':'UTF-8'}
@@ -87,7 +87,7 @@
                                         {else}
                                             --
                                         {/if}
-                                    </td>
+                                    </td> *}
                                     <td class="text-center">
                                         {if $subs.active == WkSubscriberProductModal::WK_SUBS_STATUS_ACTIVE}
                                             <span class="badge badge-success">{l s='Active' mod='wkproductsubscription'}</span>

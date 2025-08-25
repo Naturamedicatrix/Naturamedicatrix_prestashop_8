@@ -26,7 +26,7 @@
           </div>
           <div class="condition-label">
             <label class="js-terms" for="conditions_to_approve_cart[terms-and-conditions]">
-              {l s="J'ai lu les" d="Shop.Theme.Checkout"} <a href="{$urls.pages.cms[3]}" target="_blank">{l s="conditions générales de vente" d="Shop.Theme.Checkout"}</a> {l s="et j'y adhère sans réserve." d="Shop.Theme.Checkout"}
+              {l s="J'ai lu les" d="Shop.Theme.Checkout"} <a href="{$link->getCMSLink(3)}" target="_blank">{l s="conditions générales de vente" d="Shop.Theme.Checkout"}</a> {l s="et j'y adhère sans réserve." d="Shop.Theme.Checkout"}
             </label>
           </div>
         </li>
