@@ -47,7 +47,7 @@ CUSTOM ABONNEMENT DETAILS
                     <div class="flex-1 min-w-0">
                         <form method="post" class="form-inline" id="updateSubscriptionDetails">
                             <div class="border border-gray-200 rounded-lg p-6">
-                                <div class="flex flex-col lg:flex-row gap-2 lg:gap-16">
+                                <div class="flex flex-col lg:flex-row gap-16">
                                     <div class="flex flex-col items-center">
                                         <a href="{$subsDetails.product_link|escape:'htmlall':'UTF-8'}"
                                             title="{$subsDetails.product_name|escape:'htmlall':'UTF-8'}" class="flex justify-center">
@@ -245,23 +245,20 @@ CUSTOM ABONNEMENT DETAILS
                                                         <p>{l s='Subscription cancelled' mod='wkproductsubscription'}</p>
                                                     </div>
                                                     <div class="product-variants">
-                                                        <button type="button" class="btn btn-danger  btn-block wk_custom_font" id="deleteSubscription">
-                                                            <i class="material-icons">delete</i>
+                                                        <button type="button" class="btn btn-danger wk_custom_font" id="deleteSubscription">
                                                             {l s='Delete subscription' mod='wkproductsubscription'}
                                                         </button>
                                                     </div>
                                                 {elseif $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_PAUSE}
                                                     <div>
-                                                        <button type="button" class="btn btn-warning btn-block wk_custom_font disabled">
-                                                            <i class="material-icons">pause</i>
+                                                        <button type="button" class="btn btn-warning wk_custom_font disabled">
                                                             {l s='Subscription paused' mod='wkproductsubscription'}
                                                         </button>
                                                     </div>
                                                     {if $show_resume}
                                                         <div class="product-variants">
-                                                            <button type="button" class="btn btn-success  btn-block wk_custom_font"
+                                                            <button type="button" class="btn btn-success wk_custom_font"
                                                                 id="resumeSubscription">
-                                                                <i class="material-icons">arrow_right</i>
                                                                 {l s='Resume subscription' mod='wkproductsubscription'}
                                                             </button>
                                                         </div>
@@ -280,73 +277,53 @@ CUSTOM ABONNEMENT DETAILS
                     </div>
                 </div>
                 {if !$subsDetails.is_virtual}
-                    <div class="flex flex-col md:flex-row gap-4 mt-8 mb-6">
-                        <div class="flex-1 min-w-0">
-                            <div class="card card-block">
-                                <h4 class='heading_margin_b_inherit'>
-                                    <i class="material-icons">person_pin_circle</i>
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-8 mb-6">
+                        <!-- Delivery Address -->
+                        <div class="bg-white border border-gray-200 rounded-lg p-0 ">
+                            <div class="flex items-center mb-4 bg-gray-50 mb-4 p-4 rounded-t-lg items-center">
+                                <i class="bi bi-geo-alt text-gray-600 mr-2.5 mt-1.5"></i>
+                                <h4 class="text-lg font-semibold text-gray-900 m-0">
                                     {l s='Delivery address' mod='wkproductsubscription'}
                                 </h4>
-                                <hr>
-                                <div class="address-item">
-                                    <header class="h5">
-                                        <div class="radio-block">
-                                            {if $subsDetails.address_details.alias}
-                                                <span
-                                                    class="address-alias h4">{$subsDetails.address_details.alias|escape:'htmlall':'UTF-8'}</span>
-                                            {/if}
-                                            <div class="address">
-                                                {$subsDetails.address_details.firstname|escape:'htmlall':'UTF-8'}
-                                                {$subsDetails.address_details.lastname|escape:'htmlall':'UTF-8'}<br>
-                                                {$subsDetails.address_details.address1|escape:'htmlall':'UTF-8'}<br>
-                                                {$subsDetails.address_details.city|escape:'htmlall':'UTF-8'}<br>
-                                                {$subsDetails.address_details.postcode|escape:'htmlall':'UTF-8'}<br>
-                                                {$subsDetails.address_details.state|escape:'htmlall':'UTF-8'}<br>
-                                                {$subsDetails.address_details.country|escape:'htmlall':'UTF-8'}
-                                            </div>
-                                        </div>
-                                    </header>
-                                </div>
-                                <div class="clearfix"></div>
+                            </div>
+                            <div class="space-y-1 text-sm text-gray-700 p-4">
+                                {if $subsDetails.address_details.alias}
+                                    <p class="font-medium text-gray-900">{$subsDetails.address_details.alias|escape:'htmlall':'UTF-8'}</p>
+                                {/if}
+                                <p>{$subsDetails.address_details.firstname|escape:'htmlall':'UTF-8'} {$subsDetails.address_details.lastname|escape:'htmlall':'UTF-8'}</p>
+                                <p>{$subsDetails.address_details.address1|escape:'htmlall':'UTF-8'}</p>
+                                <p>{$subsDetails.address_details.postcode|escape:'htmlall':'UTF-8'} {$subsDetails.address_details.city|escape:'htmlall':'UTF-8'}</p>
+                                <p>{$subsDetails.address_details.state|escape:'htmlall':'UTF-8'}</p>
+                                <p>{$subsDetails.address_details.country|escape:'htmlall':'UTF-8'}</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card card-block">
-                                <h4 class='heading_margin_b_inherit'>
-                                    <i class="material-icons">local_shipping</i>
+
+                        <!-- Shipping Method -->
+                        <div class="bg-white border border-gray-200 rounded-lg p-0">
+                            <div class="flex items-center mb-4 bg-gray-50 mb-4 p-4 rounded-t-lg items-center">
+                                <i class="bi bi-truck text-gray-600 mr-2.5 mt-1.5"></i>
+                                <h4 class="text-lg font-semibold text-gray-900 m-0">
                                     {l s='Shipping method' mod='wkproductsubscription'}
                                 </h4>
-                                <hr>
-                                <div class="shipping-block">
-                                    <div class="shipping-icon">
-                                        <i class="material-icons">local_shipping</i>
-                                    </div>
-                                    <div class="h5">
-                                        {$subsDetails.carrier_details.name|escape:'htmlall':'UTF-8'}
-                                    </div>
-                                    <div class="text-small">
-                                        {$subsDetails.carrier_details.delay|escape:'htmlall':'UTF-8'}
-                                    </div>
+                            </div>
+                            <div class="space-y-2 p-4">
+                                <div class="flex items-center">
+                                    <p class="font-medium text-gray-900">{$subsDetails.carrier_details.name|escape:'htmlall':'UTF-8'}</p>
                                 </div>
-                                <div class="clearfix"></div>
+                                <p class="text-sm text-gray-600">{$subsDetails.carrier_details.delay|escape:'htmlall':'UTF-8'}</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card card-block">
-                                <h4 class='heading_margin_b_inherit'>
-                                    <i class="material-icons">payment</i>
+
+                        <!-- Payment Method -->
+                        <div class="bg-white border border-gray-200 rounded-lg p-0">
+                            <div class="flex items-center mb-4 bg-gray-50 mb-4 p-4 rounded-t-lg items-center">
+                                <i class="bi bi-credit-card text-gray-600 mr-2.5 mt-1.5"></i>
+                                <h4 class="text-lg font-semibold text-gray-900 m-0">
                                     {l s='Payment method' mod='wkproductsubscription'}
                                 </h4>
-                                <hr>
-                                <div class="shipping-block">
-                                    <div class="shipping-icon">
-                                        <i class="material-icons">payment</i>
-                                    </div>
-                                    <div class="h5">
-                                        {$subsDetails.payment_method|escape:'htmlall':'UTF-8'}
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
+                            </div>
+                            <div class="flex items-center p-4">
+                                <p class="font-medium text-gray-900">{$subsDetails.payment_method|escape:'htmlall':'UTF-8'}</p>
                             </div>
                         </div>
                     </div>
@@ -375,75 +352,54 @@ CUSTOM ABONNEMENT DETAILS
                             </div>
                         </div>
                     {/if}
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card card-block">
-                                <h4 class='heading_margin_b_inherit'>
-                                    <i class="material-icons">local_shipping</i>
-                                    {l s='Delivery history' mod='wkproductsubscription'}
-                                </h4>
-                                <hr>
-                                <div class="deliveries">
-                                    {if $subsDetails.deliveries}
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-striped table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <td class="text-center">#</td>
-                                                        <td class="text-left">{l s='Order ID' mod='wkproductsubscription'}</td>
-                                                        <td class="text-left">{l s='Order reference' mod='wkproductsubscription'}</td>
-                                                        <td class="text-right">{l s='Order amount' mod='wkproductsubscription'}</td>
-                                                        <td class="text-center">{l s='Carrier' mod='wkproductsubscription'}</td>
-                                                        <td class="text-center">{l s='Payment' mod='wkproductsubscription'}</td>
-                                                        <td class="text-center">{l s='Delivery date' mod='wkproductsubscription'}</td>
-                                                        <td class="text-center">{l s='Order date' mod='wkproductsubscription'}</td>
-                                                        <td class="text-center">{l s='View details' mod='wkproductsubscription'}</td>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {foreach from=$subsDetails.deliveries item=item key=k}
-                                                        <tr>
-                                                            <td class="text-center">{$k+1|escape:'htmlall':'UTF-8'}</td>
-                                                            <td class="text-left">
-                                                                {$item.id_order|escape:'htmlall':'UTF-8'}
-                                                            </td>
-                                                            <td class="text-left">
-                                                                {$item.reference|escape:'htmlall':'UTF-8'}
-                                                            </td>
-                                                            <td class="text-right">
-                                                                {$item.total_paid|escape:'htmlall':'UTF-8'}
-                                                            </td>
-                                                            <td class="text-center">
-                                                                {$item.carrier_name|escape:'htmlall':'UTF-8'}
-                                                            </td>
-                                                            <td class="text-center">
-                                                                {$item.payment|escape:'htmlall':'UTF-8'}
-                                                            </td>
-                                                            <td class="text-center">
-                                                                {Tools::displayDate($item.delivery_date)|escape:'htmlall':'UTF-8'}
-                                                            </td>
-                                                            <td class="text-center">
-                                                                {Tools::displayDate($item.order_date)|escape:'htmlall':'UTF-8'}
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a class="btn btn-default"
-                                                                    href="{$item.order_link|escape:'htmlall':'UTF-8'}" target="_blank">
-                                                                    <i class="material-icons">visibility</i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    {/foreach}
-                                                </tbody>
-                                            </table>
+                    <div class="bg-white border border-gray-200 rounded-lg p-0 mt-8">
+                        <div class="flex items-center bg-gray-50 mb-0 p-4 rounded-t-lg">
+                            <i class="bi bi-truck text-gray-600 mr-2.5 mt-1.5"></i>
+                            <h4 class="text-lg font-semibold text-gray-900 m-0">
+                                {l s='Delivery history' mod='wkproductsubscription'}
+                            </h4>
+                        </div>
+                        <div class="p-4">
+                            {if $subsDetails.deliveries}
+                                <div class="overflow-x-auto">
+                                    <div class="min-w-full divide-y divide-gray-200">
+                                        <div class="bg-gray-50">
+                                            <div class="grid grid-cols-12 gap-4 px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                <div class="col-span-1 text-center">#</div>
+                                                <div class="col-span-2 text-left">{l s='Order ID' mod='wkproductsubscription'}</div>
+                                                <div class="col-span-2 text-left">{l s='Reference' mod='wkproductsubscription'}</div>
+                                                <div class="col-span-2 text-right">{l s='Amount' mod='wkproductsubscription'}</div>
+                                                <div class="col-span-2 text-center">{l s='Carrier' mod='wkproductsubscription'}</div>
+                                                <div class="col-span-2 text-center">{l s='Delivery date' mod='wkproductsubscription'}</div>
+                                                <div class="col-span-1 text-center">{l s='View' mod='wkproductsubscription'}</div>
+                                            </div>
                                         </div>
-                                    {else}
-                                        <div class="alert alert-warning">
-                                            {l s='No delivery found.' mod='wkproductsubscription'}
+                                        <div class="bg-white divide-y divide-gray-200">
+                                            {foreach from=$subsDetails.deliveries item=item key=k}
+                                                <div class="grid grid-cols-12 gap-4 px-4 py-4 text-sm hover:bg-gray-50 transition-colors">
+                                                    <div class="col-span-1 text-center text-gray-900 font-medium">{$k+1|escape:'htmlall':'UTF-8'}</div>
+                                                    <div class="col-span-2 text-left text-gray-900">#{$item.id_order|escape:'htmlall':'UTF-8'}</div>
+                                                    <div class="col-span-2 text-left text-gray-600">{$item.reference|escape:'htmlall':'UTF-8'}</div>
+                                                    <div class="col-span-2 text-right text-gray-900 font-medium">{$item.total_paid|escape:'htmlall':'UTF-8'}</div>
+                                                    <div class="col-span-2 text-center text-gray-600">{$item.carrier_name|escape:'htmlall':'UTF-8'}</div>
+                                                    <div class="col-span-2 text-center text-gray-600">{Tools::displayDate($item.delivery_date)|escape:'htmlall':'UTF-8'}</div>
+                                                    <div class="col-span-1 text-center">
+                                                        <a class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+                                                            href="{$item.order_link|escape:'htmlall':'UTF-8'}" target="_blank" title="{l s='View details' mod='wkproductsubscription'}">
+                                                            <i class="bi bi-eye text-sm"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {/foreach}
                                         </div>
-                                    {/if}
+                                    </div>
                                 </div>
-                                <div class="clearfix"></div>
-                            </div>
+                            {else}
+                                <div class="text-center py-8">
+                                    <i class="bi bi-inbox text-gray-400 text-4xl mb-4"></i>
+                                    <p class="text-gray-500 text-sm">{l s='No delivery found.' mod='wkproductsubscription'}</p>
+                                </div>
+                            {/if}
                         </div>
                     </div>
                 {else}
