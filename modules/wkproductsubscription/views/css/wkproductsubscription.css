@@ -260,10 +260,14 @@
     }
 }
 
-@media screen and (min-width: 767px) and (max-width: 1199px) {
-    #cancelSubscription,  [data-target="#frequencyModal"] {
-        width: 9rem !important;
-        text-wrap: auto !important;
+.wk-product-subscription .btn {
+    font-size: 13px !important;
+}
+
+@media (max-width: 640px) {
+    .wk-product-subscription .btn {
+        margin: 0 auto;
+        padding: 10px !important;
     }
 }
 

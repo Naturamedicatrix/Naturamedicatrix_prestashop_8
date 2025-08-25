@@ -382,6 +382,28 @@ button:focus {
   }
 }
 
+.btn-danger {
+  background-color: $color-custom-red !important;
+  color: $color-custom-white !important;
+  border-color: $color-custom-red !important;
+  &:hover {
+    background-color: white !important;
+    color: $color-custom-red !important;
+    border-color: $color-custom-red !important;
+  }
+}
+
+.btn-danger-outline {
+  background-color: transparent !important;
+  color: $color-custom-red !important;
+  border-color: $color-custom-red !important;
+  &:hover {
+    background-color: $color-custom-red !important;
+    color: $color-custom-white !important;
+    border-color: $color-custom-red !important;
+  }
+}
+
 .btn-link {
   color: $color-custom-blue !important;
   transition: color .2s ease-in-out !important;

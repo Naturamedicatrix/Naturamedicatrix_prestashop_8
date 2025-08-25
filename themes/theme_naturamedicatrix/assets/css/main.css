@@ -1425,6 +1425,28 @@ button:focus {
   border: 1px solid #111827 !important;
 }
 
+.btn-danger {
+  background-color: #ee5c58 !important;
+  color: #f9fafb !important;
+  border-color: #ee5c58 !important;
+}
+.btn-danger:hover {
+  background-color: white !important;
+  color: #ee5c58 !important;
+  border-color: #ee5c58 !important;
+}
+
+.btn-danger-outline {
+  background-color: transparent !important;
+  color: #ee5c58 !important;
+  border-color: #ee5c58 !important;
+}
+.btn-danger-outline:hover {
+  background-color: #ee5c58 !important;
+  color: #f9fafb !important;
+  border-color: #ee5c58 !important;
+}
+
 .btn-link {
   color: #1F80C7 !important;
   transition: color 0.2s ease-in-out !important;

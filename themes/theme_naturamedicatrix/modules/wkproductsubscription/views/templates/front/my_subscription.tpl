@@ -2,6 +2,13 @@
 CUSTOM ABONNEMENTS MY ACCOUNT
 *}
 
+<style>
+.alert ul, .alert-success ul {
+  padding-left: 0;
+  list-style: none;
+}
+</style>
+
 {* {extends file=$layout} *}
 {extends 'customer/page.tpl'}
 
@@ -60,14 +67,14 @@ CUSTOM ABONNEMENTS MY ACCOUNT
           </div>
 
           <div class="w-20">
-            <p class="text-xs text-gray-500 mb-0">{l s='Status' mod='wkproductsubscription'}</p>
+          <p class="text-xs text-gray-500 mb-0">{l s='Status' mod='wkproductsubscription'}</p>
             <div class="flex flex-wrap items-center leading-tight">
               {if $subs.active == WkSubscriberProductModal::WK_SUBS_STATUS_ACTIVE}
-                <span class="px-2.5 py-0.5 rounded-sm font-semibold text-white bg-green-600 text-sm">{l s='Active' mod='wkproductsubscription'}</span>
+                <span class="rounded-sm font-semibold text-green-600 text-sm">{l s='Active' mod='wkproductsubscription'}</span>
               {elseif $subs.active == WkSubscriberProductModal::WK_SUBS_STATUS_CANCELLED}
-                <span class="px-2.5 py-0.5 rounded-sm font-semibold text-white bg-red-600 text-sm">{l s='Cancelled' mod='wkproductsubscription'}</span>
+                <span class="rounded-sm font-semibold text-red-600 text-sm">{l s='Cancelled' mod='wkproductsubscription'}</span>
               {elseif $subs.active == WkSubscriberProductModal::WK_SUBS_STATUS_PAUSE}
-                <span class="px-2.5 py-0.5 rounded-sm font-semibold text-white bg-gray-600 text-sm">{l s='Paused' mod='wkproductsubscription'}</span>
+                <span class="rounded-sm font-semibold text-gray-600 text-sm">{l s='Paused' mod='wkproductsubscription'}</span>
               {/if}
             </div>
           </div>
@@ -88,5 +95,13 @@ CUSTOM ABONNEMENTS MY ACCOUNT
     {l s='You have no subscriptions.' mod='wkproductsubscription'}
   </div>
 {/if}
+
+<div class="mt-1.5 mb-0 text-right">
+    <a href="{$link->getCMSLink(12)|escape:'htmlall':'UTF-8'}" 
+       class="text-sm text-gray-500 underline hover:text-gray-700 hover:underline"
+       target="_blank">
+        {l s='Voir les conditions d\'abonnement' mod='wkproductsubscription'}
+    </a>
+</div>
 
 {/block}

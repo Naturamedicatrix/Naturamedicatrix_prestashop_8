@@ -1,21 +1,13 @@
 {*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License version 3.0
-* that is bundled with this package in the file LICENSE.txt
-* It is also available through the world-wide-web at this URL:
-* https://opensource.org/licenses/AFL-3.0
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade this module to a newer
-* versions in the future. If you wish to customize this module for your needs
-* please refer to CustomizationPolicy.txt file inside our module for more information.
-*
-* @author Webkul IN
-* @copyright Since 2010 Webkul
-* @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+CUSTOM ABONNEMENT DETAILS
 *}
+
+<style>
+#cancelSubscription {
+    width:
+}
+</style>
+
 
 {* {extends file=$layout} *}
 {extends 'customer/page.tpl'}
@@ -51,51 +43,27 @@
     <section class="wk-product-subscription my-6">
         <section class="page-content">
             {if $subsDetails}
-                <div class="row">
-                    <div class="col-md-12">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex-1 min-w-0">
                         <form method="post" class="form-inline" id="updateSubscriptionDetails">
-                            <div class="card card-block">
-                                <div class="row">
-                                    <div class="col-md-3">
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <div class="flex flex-col lg:flex-row gap-2 lg:gap-16">
+                                    <div class="flex flex-col items-center">
                                         <a href="{$subsDetails.product_link|escape:'htmlall':'UTF-8'}"
-                                            title="{$subsDetails.product_name|escape:'htmlall':'UTF-8'}">
-                                            <img class="img-responsive img-thumbnail"
+                                            title="{$subsDetails.product_name|escape:'htmlall':'UTF-8'}" class="flex justify-center">
+                                            <img class="img-responsive"
                                                 src="{$subsDetails.image|escape:'htmlall':'UTF-8'}"
-                                                alt="{$subsDetails.product_name|escape:'htmlall':'UTF-8'}" width="250">
+                                                alt="{$subsDetails.product_name|escape:'htmlall':'UTF-8'}" width="120">
                                         </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4 class="product-name">
-                                            <a href="{$subsDetails.product_link|escape:'htmlall':'UTF-8'}"
+                                        <div class="text-center mt-0">
+                                        <h4 class="mt-0">
+                                            <a class="text-gray-700 text-sm" href="{$subsDetails.product_link|escape:'htmlall':'UTF-8'}"
                                                 title="{$subsDetails.product_name|escape:'htmlall':'UTF-8'}">
                                                 {$subsDetails.product_name|escape:'htmlall':'UTF-8'}
                                             </a>
                                         </h4>
-                                        <strong
-                                            class="product-price wk_custom_font">{$subsDetails.unit_price|escape:'htmlall':'UTF-8'}</strong>
-                                        {if $subsDetails.has_attributes}
-                                            <div class="product-variants">
-                                                <ul class="text-small">
-                                                    {foreach from=$subsDetails.attributes item=attr}
-                                                        <li>{$attr.group_name|escape:'htmlall':'UTF-8'}:
-                                                            {$attr.attribute_name|escape:'htmlall':'UTF-8'}</li>
-                                                    {/foreach}
-                                                </ul>
-                                            </div>
-                                        {/if}
-                                        <div class="form-group quantity-block wk_custom_font">
-                                    <label {if isset($can_update) && $can_update}for="wk_subs_quantity" {/if} >{l s='Quantity:' mod='wkproductsubscription'}</label>
-                                            {if $can_update}
-                                                <div>
-                                                    <input class="form-control input-group" name="wk_subs_quantity"
-                                                        id="wk_subs_quantity" type="number"
-                                                        value="{$subsDetails.quantity|escape:'htmlall':'UTF-8'}" step="1" min="1"
-                                                        size="10" inputmode="numeric" pattern="[0-9]*">
-                                                </div>
-                                            {else}
-                                                {$subsDetails.quantity|escape:'htmlall':'UTF-8'}
-                                            {/if}
-                                        </div>
+                                    </div>
+                                    
                                         {if $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_ACTIVE && $update_frequency}
                                             <button style="margin-top:10px;" type="button" class="btn btn-info" data-toggle="modal"
                                                 data-target="#frequencyModal">
@@ -163,78 +131,75 @@
                                             </div>
                                         {/if}
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="frequency-block">
-                                            <div class="shipping-icon">
-                                                <i class="material-icons">schedule</i>
-                                            </div>
-                                            <div class="frequency-label">
-                                                {$subsDetails.frequency_label|escape:'htmlall':'UTF-8'}
-                                                <p><small>{l s='Frequency' mod='wkproductsubscription'}</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="frequency-block">
-                                            <div class="shipping-icon">
-                                                <i class="material-icons">today</i>
-                                            </div>
-                                            {if $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_ACTIVE}
-                                                {if !$subsDetails.is_virtual}
-                                                    <div class="frequency-label">
-                                                        {Tools::displayDate($subsDetails.next_delivery_date)|escape:'htmlall':'UTF-8'}
-                                                        <p><small>{l s='Next delivery date' mod='wkproductsubscription'}</small></p>
-                                                    </div>
-                                                {else}
-                                                    <div class="frequency-label">
-                                                        {Tools::displayDate($subsDetails.next_order_date)|escape:'htmlall':'UTF-8'}
-                                                        <p><small>{l s='Next order date' mod='wkproductsubscription'}</small></p>
+                                    <div class="">
+                                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                            <div class="flex flex-wrap gap-x-6 gap-y-4 text-sm text-gray-900 items-start">
+                                                <div class="flex-shrink-0">
+                                                    <p class="text-xs text-gray-500 mb-1.5 whitespace-nowrap">{l s='Frequency' mod='wkproductsubscription'}</p>
+                                                    <p class="mb-0 text-sm font-bold">{$subsDetails.frequency_label|escape:'htmlall':'UTF-8'}</p>
+                                                </div>
+
+                                                <div class="flex-shrink-0">
+                                                    <p class="text-xs text-gray-500 mb-1.5 whitespace-nowrap">
+                                                        {if $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_ACTIVE}
+                                                            {if !$subsDetails.is_virtual}
+                                                                {l s='Next delivery date' mod='wkproductsubscription'}
+                                                            {else}
+                                                                {l s='Next order date' mod='wkproductsubscription'}
+                                                            {/if}
+                                                        {elseif $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_CANCELLED}
+                                                            {l s='Cancelled date' mod='wkproductsubscription'}
+                                                        {elseif $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_PAUSE}
+                                                            {l s='Auto renew date' mod='wkproductsubscription'}
+                                                        {/if}
+                                                    </p>
+                                                    <p class="mb-0 text-sm font-bold">
+                                                        {if $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_ACTIVE}
+                                                            {if !$subsDetails.is_virtual}
+                                                                {Tools::displayDate($subsDetails.next_delivery_date)|escape:'htmlall':'UTF-8'}
+                                                            {else}
+                                                                {Tools::displayDate($subsDetails.next_order_date)|escape:'htmlall':'UTF-8'}
+                                                            {/if}
+                                                        {elseif $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_CANCELLED}
+                                                            <span class="text-danger">{Tools::displayDate($subsDetails.date_upd)|escape:'htmlall':'UTF-8'}</span>
+                                                        {elseif $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_PAUSE}
+                                                            <span class="text-success">{Tools::displayDate($subsDetails.auto_renew_date)|escape:'htmlall':'UTF-8'}</span>
+                                                        {/if}
+                                                    </p>
+                                                </div>
+
+                                                <div class="flex-shrink-0">
+                                                    <p class="text-xs text-gray-500 mb-1.5 whitespace-nowrap">{l s='Unit price' mod='wkproductsubscription'}</p>
+                                                    <p class="font-bold mb-0 text-sm">{$subsDetails.unit_price|escape:'htmlall':'UTF-8'}</p>
+                                                </div>
+
+                                                <div class="flex-shrink-0">
+                                                    <p class="text-xs text-gray-500 mb-1.5 whitespace-nowrap">{l s='Quantity' mod='wkproductsubscription'}</p>
+                                                    <p class="mb-0 text-sm font-bold">{$subsDetails.quantity|escape:'htmlall':'UTF-8'}</p>
+                                                </div>
+
+                                                {if $subsDetails.raw_discount > 0}
+                                                    <div class="flex-shrink-0">
+                                                        <p class="text-xs text-gray-500 mb-1.5 whitespace-nowrap">{l s='Discount' mod='wkproductsubscription'}</p>
+                                                        <p class="mb-0 text-sm font-bold ">-{$subsDetails.discount|escape:'htmlall':'UTF-8'}</p>
                                                     </div>
                                                 {/if}
-                                            {elseif $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_CANCELLED}
-                                                <div class="frequency-label text-danger">
-                                                    {Tools::displayDate($subsDetails.date_upd)|escape:'htmlall':'UTF-8'}
-                                                    <p><small
-                                                            class="text-danger">{l s='Subscription cancelled' mod='wkproductsubscription'}</small>
-                                                    </p>
+
+                                                <div class="flex-shrink-0">
+                                                    <p class="text-xs text-gray-500 mb-1.5 whitespace-nowrap">{l s='Total amount' mod='wkproductsubscription'}</p>
+                                                    <p class="mb-0 text-sm font-bold">{$subsDetails.total_amount|escape:'htmlall':'UTF-8'}</p>
                                                 </div>
-                                            {elseif $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_PAUSE}
-                                                <div class="frequency-label text-success">
-                                                    {Tools::displayDate($subsDetails.auto_renew_date)|escape:'htmlall':'UTF-8'}
-                                                    <p><small
-                                                            class="text-success">{l s='Auto resume subscription' mod='wkproductsubscription'}</small>
-                                                    </p>
-                                                </div>
-                                            {/if}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="price-block">
-                                            <div class="price-icon">
-                                                {$subsDetails.total_amount|escape:'htmlall':'UTF-8'}
-                                            </div>
-                                            <div class="total-label">
-                                                <small>{l s='Total amount (tax inc.)' mod='wkproductsubscription'}</small>
-                                            </div>
-                                            <div class="total-label">
-                                                <small>{l s='Shipping cost' mod='wkproductsubscription'}:
-                                                    {$subsDetails.shipping_charge|escape:'htmlall':'UTF-8'}</small>
-                                            </div>
-                                            {if $subsDetails.raw_discount > 0}
-                                                <div class="total-label">
-                                                    <small>{l s='Discount' mod='wkproductsubscription'}:
-                                                        -{$subsDetails.discount|escape:'htmlall':'UTF-8'}</small>
-                                                </div>
-                                            {/if}
-                                        </div>
-                                        <div class="text-center">
+                                        <div class="text-right mt-4">
                                             {if $subsDetails.allow_actions}
                                                 {if $subsDetails.active == WkSubscriberProductModal::WK_SUBS_STATUS_ACTIVE}
                                                     {if $can_cancel}
-                                                        <button type="button" class="btn btn-danger wk_custom_font" id="cancelSubscription">
-                                                            <i class="material-icons">cancel</i>
+                                                        <button type="button" class="btn btn-danger-outline wk_custom_font capitalize" id="cancelSubscription">
                                                             {l s='CANCEL SUBSCRIPTION' mod='wkproductsubscription'}
                                                         </button>
                                                         {if $show_pause}
-                                                            <button style="margin-top:10px;" type="button" class="btn btn-info wk_custom_font"
+                                                            <button style="margin-top:10px;" type="button" class="btn btn-info wk_custom_font capitalize font-bold"
                                                                 data-toggle="modal" data-target="#pauseModal">
                                                                 <i class="material-icons">pause</i>
                                                                 {l s='PAUSE SUBSCRIPTION' mod='wkproductsubscription'}
@@ -315,8 +280,8 @@
                     </div>
                 </div>
                 {if !$subsDetails.is_virtual}
-                    <div class="row mt-5 mb-3">
-                        <div class="col-md-4">
+                    <div class="flex flex-col md:flex-row gap-4 mt-8 mb-6">
+                        <div class="flex-1 min-w-0">
                             <div class="card card-block">
                                 <h4 class='heading_margin_b_inherit'>
                                     <i class="material-icons">person_pin_circle</i>
